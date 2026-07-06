@@ -20,7 +20,7 @@ nav_order: 7
 
 ### En el centro de cómputo (jueves)
 
-1. Toma las palabras desconocidas que descifraste el lunes. Búscalas en el [DLE](https://dle.rae.es): ¿existían? ¿acertaste el significado?
+1. Toma las palabras desconocidas que descifraste el martes. Búscalas en el [DLE](https://dle.rae.es): ¿existían? ¿acertaste el significado?
 2. Busca tu "monstruo" inventado. Sorpresa frecuente: a veces ya existe.
 3. Captura: palabra, significado que dedujiste, veredicto, fuente.
 4. Suma tu acierto al marcador del grupo.

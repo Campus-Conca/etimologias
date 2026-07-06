@@ -5,7 +5,7 @@ nav_order: 3
 
 # Leemos
 
-Este curso lee. Dos libros en el semestre y los eliges tú: nadie te dirá cuál, nadie medirá qué tan rápido vas, y abandonar un libro que no te gusta no es fracaso, es criterio. Esta página es la casa de todo lo que leemos juntos: lo que suena en voz alta los lunes, lo que el grupo recomienda, lo que grabas al terminar una obra. No tiene candado: crece cada semana con lo que producimos.
+Este curso lee. Dos libros en el semestre y los eliges tú: nadie te dirá cuál, nadie medirá qué tan rápido vas, y abandonar un libro que no te gusta no es fracaso, es criterio. Esta página es la casa de todo lo que leemos juntos: lo que suena en voz alta los martes, lo que el grupo recomienda, lo que grabas al terminar una obra. No tiene candado: crece cada semana con lo que producimos.
 
 <!-- ============================================================
      BLOQUE DE DATOS. Esta página se alimenta SOLO de aquí.
@@ -16,9 +16,9 @@ Este curso lee. Dos libros en el semestre y los eliges tú: nadie te dirá cuál
 <script>
 window.LEEMOS = {
 
-  // Lo que suena los lunes: una línea por lectura compartida.
+  // Lo que suena los martes: una línea por lectura compartida.
   vozAlta: [
-    // {fecha:"2026-08-03", titulo:"El llano en llamas", autor:"Juan Rulfo", nota:"un arranque que muerde"},
+    // {fecha:"2026-08-04", titulo:"El llano en llamas", autor:"Juan Rulfo", nota:"un arranque que muerde"},
   ],
 
   // El tendedero: una ficha por obra terminada.
@@ -75,7 +75,7 @@ Los firmamos en la semana 0 y valen todo el semestre (y toda la vida). Los escri
   <div class="lee-d"><b>6 · Emocionarte de más</b><span>Llorar con una historia inventada. Nadie te juzga.</span></div>
   <div class="lee-d"><b>7 · Leer donde sea</b><span>La cama, el camión, la fila de las tortillas.</span></div>
   <div class="lee-d"><b>8 · Picotear</b><span>Abrir al azar y leer un rato, sin plan.</span></div>
-  <div class="lee-d"><b>9 · Leer en voz alta</b><span>Como hacemos los lunes.</span></div>
+  <div class="lee-d"><b>9 · Leer en voz alta</b><span>Como hacemos los martes.</span></div>
   <div class="lee-d"><b>10 · Callarte</b><span>No tienes que opinar de todo lo que lees.</span></div>
 </div>
 
@@ -87,9 +87,9 @@ Tienes cuatro fuentes, en este orden: el tendedero de aquí abajo (recomendacion
 
 ---
 
-## Lo que suena los lunes
+## Lo que suena los martes
 
-Cada lunes, al cierre de la sesión, el profesor lee en voz alta 8 a 10 minutos. Sin preguntas después, sin tarea, solo el gusto. Aquí queda el rastro:
+Cada martes, al cierre de la sesión, el profesor lee en voz alta 8 a 10 minutos. Sin preguntas después, sin tarea, solo el gusto. Aquí queda el rastro:
 
 <div id="lee-voz"></div>
 
@@ -168,7 +168,7 @@ Al final del semestre, cada lector deja escrita una recomendación para quien to
 
   var voz=document.getElementById('lee-voz');
   if(voz){
-    if(!(D.vozAlta||[]).length){vacio(voz,'La primera lectura suena el lunes 3 de agosto.');}
+    if(!(D.vozAlta||[]).length){vacio(voz,'La primera lectura suena el martes 4 de agosto.');}
     else{voz.innerHTML=D.vozAlta.map(function(x){
       return '<div class="lee-voz-item"><span class="f">'+fecha(x.fecha)+'</span><span class="t"><b>'+esc(x.titulo)+'</b> · <i>'+esc(x.autor)+'</i>'+(x.nota?' · '+esc(x.nota):'')+'</span></div>';
     }).join('');}

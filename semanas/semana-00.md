@@ -14,6 +14,8 @@ Lo que quedó instalado:
 
 - **Tu gimnasio de palabras**: Anki o caja Leitner, con el [estándar de tarjeta](../recursos/anki.html). 10 minutos al día.
 - **El pacto de IA**, firmado y pegado en tu cuaderno.
+- **El pacto de evaluación**, la tercera firma: en este curso ningún trabajo lleva calificación, y las que pide la universidad las propones tú. Cómo funciona todo, en [Tu calificación](../evaluacion.html).
+- **Tu expediente**: el cuadernillo que vive en tu portafolio. Ahí registras tus quizzes, tu suelo y tus autoevaluaciones. Es tuyo.
 - Las [tres fuentes de cabecera](../recursos/fuentes.html) y el protocolo: nada se acepta sin fuente.
 - **Tu primer libro**, elegido por ti. Si no sabes por dónde empezar, está la mesa de libros y la página [Leemos](../leemos.html).
 - **Tus derechos como lector**, firmados junto al pacto de IA. Están completos en [Leemos](../leemos.html).

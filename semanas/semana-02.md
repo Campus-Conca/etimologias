@@ -20,7 +20,7 @@ Toda palabra se puede abrir. La IA define cualquier palabra en un segundo; lo qu
 
 ### En el centro de cómputo (jueves)
 
-1. Toma una hipótesis del lunes (tu definición etimológica) y verifícala: [DLE](https://dle.rae.es) para el origen, [DECEL](http://etimologias.dechile.net) para la historia.
+1. Toma una hipótesis del martes (tu definición etimológica) y verifícala: [DLE](https://dle.rae.es) para el origen, [DECEL](http://etimologias.dechile.net) para la historia.
 2. Verifica también **tu palabra heredada** (la que ya nadie usa). Algunas no estarán en el diccionario: documentarlas es tu trabajo.
 3. Captura: palabra, hipótesis, veredicto, fuente.
 

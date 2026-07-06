@@ -30,6 +30,10 @@ Peldaño 1: en parejas, ante el profesor. Los dos hablan. Dura 3 a 4 minutos. Es
 
 Traes tu palabra, su descomposición y tu fuente anotada. Puedes apoyarte en una ficha. No se vale leer todo.
 
+### Tu primer parcial
+
+Ni el quiz integrador ni la defensa llevan nota: son evidencia. El fin de semana llenas tu autoevaluación de unidad en el expediente (tu suelo, tu calibración, tu mejor pieza) y propones tu calificación. El bloque final lo transcribes al [formulario de parciales](https://docs.google.com/forms/d/e/1FAIpQLSc32h4aoWfVteMZkbvdmHb0NNEsG3KrhUAi2Y2LYqOqIEEsHw/viewform) desde tu celular, antes del lunes. Cómo funciona todo el sistema: [Tu calificación](../evaluacion.html).
+
 ---
 
 ## Hoja de consulta

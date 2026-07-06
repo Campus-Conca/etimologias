@@ -20,9 +20,9 @@ La regla de oro: un corte es real solo si la pieza reaparece en otras palabras c
 
 ### En el centro de cómputo (jueves)
 
-1. Toma 3 cortes dudosos del juego del lunes. Verifica en el [DLE](https://dle.rae.es) y el [DECEL](http://etimologias.dechile.net): ¿el corte era real?
+1. Toma 3 cortes dudosos del juego del martes. Verifica en el [DLE](https://dle.rae.es) y el [DECEL](http://etimologias.dechile.net): ¿el corte era real?
 2. Resuelve el caso *mango*: ¿el de la sartén y el de comer son la misma palabra? (Ojo: son dos.)
-3. Captura: corte propuesto, veredicto del lunes, veredicto de las fuentes, fuente.
+3. Captura: corte propuesto, veredicto del martes, veredicto de las fuentes, fuente.
 
 ---
 

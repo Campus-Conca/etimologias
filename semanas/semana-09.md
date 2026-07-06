@@ -23,7 +23,7 @@ Esta semana también se estrenan los primeros booktubers: los autorizados se pub
 ### En el centro de cómputo (jueves)
 
 1. Verifica en el [DLE](https://dle.rae.es) el origen de 4 palabras dudosas. El origen viene entre paréntesis al inicio de la entrada.
-2. Elige **una palabra de tu casa o tu región** (un nahuatlismo local, un arcaísmo, una voz de tu pueblo) para investigar con tu familia. La traes el lunes: es tu aporte al mapa léxico del grupo.
+2. Elige **una palabra de tu casa o tu región** (un nahuatlismo local, un arcaísmo, una voz de tu pueblo) para investigar con tu familia. La traes el martes: es tu aporte al mapa léxico del grupo.
 3. Captura: palabra, origen que apostaste, origen real, fuente.
 
 ---

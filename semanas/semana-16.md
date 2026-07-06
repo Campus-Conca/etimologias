@@ -70,6 +70,10 @@ Toca un vacío del español y mira una palabra posible para llenarlo.
 {: .reto }
 Ninguna de estas es definitiva. Inventa la tuya con raíces del semestre, justifícala y súbela a [Palabras recién nacidas](../vitrina/palabras-recien-nacidas.html).
 
+### Tu tercer parcial
+
+El último del semestre. Quiz integrador y defensa socrática son tu evidencia. Autoevaluación de unidad en el expediente el fin de semana, bloque final al [formulario de parciales](https://docs.google.com/forms/d/e/1FAIpQLSc32h4aoWfVteMZkbvdmHb0NNEsG3KrhUAi2Y2LYqOqIEEsHw/viewform) antes del lunes. La autoevaluación final (la del semestre completo) todavía no: esa se escribe después del Museo. Reglas completas: [Tu calificación](../evaluacion.html).
+
 ---
 
 ## Las tarjetas de la semana

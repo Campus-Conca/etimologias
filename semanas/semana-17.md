@@ -28,6 +28,8 @@ Recorres tu sala 8 a 10 minutos: por qué estas palabras, cuál te sorprendió, 
 | Tu criterio: por qué estas y no otras | Que no te pongas nervioso |
 | La honestidad del "por qué la elegí" | Cuántas palabras raras metiste |
 
+La defensa no lleva nota, como nada en este curso. Es la evidencia mayor de tu conversación final de diciembre. Después del Museo escribes tu autoevaluación final en el expediente (empieza con: ¿qué sabes hoy que no sabías en agosto?) y propones tu calificación del semestre. La conversación dura unos diez minutos y llevas tu portafolio y tu expediente. Detalles: [Tu calificación](../evaluacion.html).
+
 ### Lista de tu sala
 
 Toca para ir marcando. Tu sala está lista cuando todo tiene palomita.
