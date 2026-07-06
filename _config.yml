@@ -1,0 +1,25 @@
+title: Etimologías
+description: Etimologías Grecolatinas del Español · Escuela de Bachilleres UAQ
+remote_theme: just-the-docs/just-the-docs
+lang: es
+
+plugins:
+  - jekyll-remote-theme
+
+# Búsqueda integrada (los estudiantes pueden buscar cualquier raíz o palabra)
+search_enabled: true
+search:
+  heading_level: 3
+  button: true
+
+# Navegación auxiliar
+aux_links:
+  "DLE (RAE)":
+    - "https://dle.rae.es"
+  "DECEL":
+    - "http://etimologias.dechile.net"
+
+heading_anchors: true
+color_scheme: light
+
+footer_content: "Curso de Etimologías Grecolatinas del Español · Escuela de Bachilleres · Universidad Autónoma de Querétaro"
