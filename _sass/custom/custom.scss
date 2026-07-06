@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;600;700&family=IBM+Plex+Mono:wght@500;700&display=swap');
+
+// Títulos con carácter
+.main-content h1, .main-content h2, .site-title {
+  font-family: "Bricolage Grotesque", "Inter", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+}
+.main-content h1 { font-size: clamp(1.9rem, 5vw, 2.6rem); }
+.main-content h2 { border-bottom: none; }
+
+// La firma del sitio: la palabra diseccionada en fichas
+.dis { display: flex; flex-wrap: wrap; gap: .45rem; align-items: flex-end; margin: 1.2rem 0 1.6rem; }
+.pz { font-family: "IBM Plex Mono", monospace; font-weight: 700; font-size: clamp(1.3rem, 4.5vw, 2rem);
+      padding: .18em .5em; border-radius: .45em; line-height: 1.1; }
+.pz small { display: block; font-family: "Inter", sans-serif; font-weight: 600;
+      font-size: .58rem; letter-spacing: .08em; text-transform: uppercase; opacity: .75; margin-top: .25em; }
+.pz--pre  { background: #FFE3F0; color: #A30058; }
+.pz--raiz { background: #2B2440; color: #FFD6E9; }
+.pz--suf  { background: #DFF5EE; color: #0B5F52; }
+.dis .eq { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
+      font-size: clamp(1.1rem, 3.5vw, 1.5rem); color: #6B6485; padding-bottom: .4em; }
+
+// La pregunta de la semana (blockquote)
+.main-content blockquote {
+  margin-left: 0; padding: .8rem 1.1rem; border-left: .35rem solid #C4006A;
+  background: #FFF3F9; border-radius: 0 .6rem .6rem 0; color: #4A2440; font-size: 1.02em;
+}
+
+// Tablas más amables
+.table-wrapper { border-radius: .7rem; border: 1px solid #E6DFF0; box-shadow: 0 1px 4px rgba(43,36,64,.06); }
+th { background: #F7F3FB !important; color: #221A3A !important;
+     text-transform: uppercase; font-size: .68rem !important; letter-spacing: .06em; }
+
+// Botones y enlaces con energía
+.btn-primary { border-radius: 2rem; font-weight: 700; }
+.main-content a { text-decoration-thickness: 2px; text-underline-offset: 2px; }
+
+// Etiqueta de sección viva ("se llena con el semestre")
+.viva { display: inline-block; background: #DFF5EE; color: #0B5F52; font-weight: 700;
+        font-size: .7rem; letter-spacing: .06em; text-transform: uppercase;
+        padding: .25em .7em; border-radius: 2rem; }
