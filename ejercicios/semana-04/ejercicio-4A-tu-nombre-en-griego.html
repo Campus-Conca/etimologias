@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 4 · Ejercicio A · Tu nombre en griego</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --pre-bg:#e6f1fb; --pre-tx:#0c447c;
+    --raiz-bg:#fbeaf0; --raiz-tx:#72243e;
+    --suf-bg:#eaf3de; --suf-tx:#27500a;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.25rem}
+  .paso{font-size:.8rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.04em;margin-top:.9rem}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3.2rem;resize:vertical}
+  input.salida{font-size:1.5rem;font-weight:700;color:var(--ciruela);text-align:center}
+  .piezas{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+  .piezas button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;font-size:1.2rem;cursor:pointer;min-width:2.9rem;text-align:center}
+  .piezas button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .piezas button small{display:block;font-weight:400;font-size:.72rem;opacity:.85}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .marca{display:flex;gap:.5rem;margin-top:.6rem}
+  .marca button{flex:1;padding:.5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
+  .marca button.sel-ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
+  .marca button.sel-no{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 4 · Sesión A</div>
+    <h1>Tu nombre en griego</h1>
+    <p>Como lo habría escrito un ateniense. Desde hoy, así pasas lista.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Tres pasos: (1) escribe tu nombre normal y mira qué letras te van a dar lata; (2) ármalo en griego tocando las letras, sonido por sonido; (3) compara con el ejemplo y márcate tú. No buscamos caligrafía de helenista: buscamos que suene a ti. Cuando acabes con el tuyo, arma el de un compañero o el de alguien de tu familia.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> haz tres renglones: tu nombre en español, debajo el sonido de cada parte, y debajo las letras griegas. Encierra en un círculo las tramposas (h, u, j, ll, ñ) antes de traducirlas.
+  </div>
+
+  <h2>Paso 1 · Detecta tus tramposas</h2>
+  <div class="card">
+    <p style="margin:0;font-size:.92rem">Escribe tu nombre (o nombre y apellido) tal como lo escribes siempre.</p>
+    <input type="text" id="nombre" placeholder="ej. Eduardo Luna">
+    <div class="fila-botones"><button class="btn rosa" id="btnScan">Ver mis letras tramposas</button></div>
+    <div class="fb" id="fbScan"></div>
+  </div>
+
+  <h2>Paso 2 · Ármalo en griego</h2>
+  <div class="card">
+    <p style="margin:0;font-size:.92rem">Toca las letras en orden. Cada una trae su sonido abajo. El botón ου es un dos por uno: así se escribe la u.</p>
+    <div class="piezas" id="teclado"></div>
+    <input type="text" class="salida" id="salida" placeholder="aquí aparece tu nombre">
+    <div class="fila-botones">
+      <button class="btn gris" id="btnBorrar">Borrar última</button>
+      <button class="btn gris" id="btnLimpiar">Limpiar todo</button>
+      <button class="btn gris" id="btnCase">Cambiar a MAYÚSCULAS</button>
+      <button class="btn rosa" id="btnCopiar">Copiar mi nombre</button>
+    </div>
+    <div class="fb" id="fbTeclado"></div>
+  </div>
+
+  <h2>Paso 3 · Compara y márcate</h2>
+  <div class="card">
+    <p style="margin:0;font-size:.92rem">Nadie puede revisar tu nombre por ti: ni esta página lo conoce. Compara con el ejemplo armado y decide tú.</p>
+    <div class="fila-botones"><button class="btn gris" id="btnEj">Compara con un ejemplo</button></div>
+    <div class="fb" id="fbEj"></div>
+    <div class="marca" id="marca" style="display:none">
+      <button data-v="bien">Me quedó bien</button>
+      <button data-v="aun">Aún no</button>
+    </div>
+    <div class="fb" id="fbMarca"></div>
+  </div>
+
+  <footer>Semana 4 · El alfabeto de hace 2,800 años · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  // Paso 1: detector de tramposas
+  var TIPS=[
+    [/h/,"La h muda no existe en griego: no se escribe. Héctor arranca directo en ε."],
+    [/qu/,"El grupo qu suena k: se escribe κ (kappa). Nada de q."],
+    [/ch/,"El sonido ch no existe en griego: se aproxima con τσ. No te claves, es aproximación."],
+    [/ll/,"La ll se aproxima con λι (o doble λλ). Elige una y defiéndela."],
+    [/ñ/,"La ñ se arma con νι: Toño queda Τονιο."],
+    [/j|ge|gi/,"El sonido j es χ (ji): Juan queda Χουαν."],
+    [/gu[ei]/,"En gue y gui la u es muda: escribe solo γε o γι."],
+    [/c[ei]|z/,"ce, ci y z suenan s para nosotros: usa σ."],
+    [/c[aou]|c$|k/,"ca, co, cu suenan k: usa κ."],
+    [/[bv]/,"b y v comparten letra: β para las dos."],
+    [/w/,"La w se aproxima con ου: Wendy queda Ουεντι."],
+    [/x/,"La x es ξ si suena ks (Μαξιμο) y χ si suena j (Χιμενα, Ximena)."],
+    [/y/,"La y suena i: usa ι."],
+    [/u/,"La u sola no existe: se escribe ου, dos letras que juntas suenan u."],
+    [/rr/,"La rr se escribe doble: ρρ."],
+    [/s\b/,"La s al final de palabra se escribe ς, la sigma final: Καρλος."]
+  ];
+  document.getElementById('btnScan').addEventListener('click',function(){
+    var fb=document.getElementById('fbScan');
+    var n=document.getElementById('nombre').value.toLowerCase().trim();
+    if(!n){fb.className='fb no';fb.textContent='Escribe primero tu nombre.';return;}
+    var avisos=[];
+    TIPS.forEach(function(t){if(t[0].test(n))avisos.push('• '+t[1]);});
+    fb.className='fb ej';
+    if(avisos.length){
+      fb.innerHTML='<strong>Tu nombre trae '+avisos.length+' aviso'+(avisos.length>1?'s':'')+':</strong><br>'+avisos.join('<br>')
+        +'<br><br>Lo demás va casi directo: a α, e ε, i ι, o ο, d δ, f φ, l λ, m μ, n ν, p π, r ρ, s σ, t τ.';
+    }else{
+      fb.innerHTML='<strong>Suerte de gemelas:</strong> tu nombre se traduce casi directo, letra por letra. Guía rápida: a α, e ε, i ι, o ο, d δ, f φ, l λ, m μ, n ν, p π, r ρ, s σ, t τ.';
+    }
+  });
+
+  // Paso 2: teclado en pantalla
+  var LETRAS=[
+    ["α","a"],["β","b/v"],["γ","g"],["δ","d"],["ε","e"],["ζ","z"],
+    ["η","e larga"],["θ","z/th"],["ι","i"],["κ","k"],["λ","l"],["μ","m"],
+    ["ν","n"],["ξ","x"],["ο","o"],["ου","u"],["π","p"],["ρ","r"],
+    ["σ","s"],["ς","s final"],["τ","t"],["υ","i/u"],["φ","f"],["χ","j"],
+    ["ψ","ps"],["ω","o larga"]
+  ];
+  var teclado=document.getElementById('teclado');
+  var salida=document.getElementById('salida');
+  var mayus=false;
+  LETRAS.forEach(function(l){
+    var b=document.createElement('button');
+    b.dataset.min=l[0];
+    b.innerHTML=l[0]+'<small>'+l[1]+'</small>';
+    b.addEventListener('click',function(){
+      var ch=mayus?l[0].toUpperCase():l[0];
+      salida.value+=ch;
+    });
+    teclado.appendChild(b);
+  });
+  document.getElementById('btnBorrar').addEventListener('click',function(){
+    salida.value=salida.value.slice(0,-1);
+  });
+  document.getElementById('btnLimpiar').addEventListener('click',function(){
+    salida.value='';
+    document.getElementById('fbTeclado').className='fb';
+  });
+  document.getElementById('btnCase').addEventListener('click',function(){
+    mayus=!mayus;
+    this.textContent=mayus?'Cambiar a minúsculas':'Cambiar a MAYÚSCULAS';
+    teclado.querySelectorAll('button').forEach(function(b){
+      var base=b.dataset.min;
+      var visible=mayus?base.toUpperCase():base;
+      b.innerHTML=visible+'<small>'+b.querySelector('small').textContent+'</small>';
+    });
+  });
+  document.getElementById('btnCopiar').addEventListener('click',function(){
+    var fb=document.getElementById('fbTeclado');
+    var t=salida.value;
+    if(!t){fb.className='fb no';fb.textContent='Primero arma tu nombre con las letras.';return;}
+    function listo(){fb.className='fb ok';fb.textContent='Copiado. Te sirve el jueves para el muro de nombres, y hoy para tu gafete.';}
+    function seleccionar(){
+      salida.focus();salida.select();
+      fb.className='fb ok';fb.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(listo,seleccionar);
+    }else{seleccionar();}
+  });
+
+  // Paso 3: ejemplo y automarca
+  document.getElementById('btnEj').addEventListener('click',function(){
+    var fb=document.getElementById('fbEj');
+    fb.className='fb ej';
+    fb.innerHTML='<strong>Un ejemplo armado:</strong> Eduardo queda <strong>Εδουαρδο</strong> (en el pizarrón del pase de lista: ΕΔΟΥΑΡΔΟ).'
+      +'<br>E→Ε · d→δ · u→ου · a→α · r→ρ · d→δ · o→ο. La u fue la única que pidió dos letras.'
+      +'<br><br><strong>Revisa lo tuyo:</strong> ¿la h muda desapareció? ¿toda u va como ου? ¿la s final quedó como ς? ¿cada sonido tiene su letra? El tuyo no tiene que quedar perfecto: la aproximación fonética cuenta, no somos helenistas.';
+    document.getElementById('marca').style.display='flex';
+  });
+  document.querySelectorAll('#marca button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('#marca button').forEach(function(x){x.classList.remove('sel-ok','sel-no');});
+      b.classList.add(b.dataset.v==='bien'?'sel-ok':'sel-no');
+      var fb=document.getElementById('fbMarca');
+      if(b.dataset.v==='bien'){
+        fb.className='fb ok';
+        fb.textContent='Listo. Ese nombre va a tu gafete y, el jueves, al muro de la web. Ahora arma el de alguien más: diseñar es más difícil que resolver.';
+      }else{
+        fb.className='fb no';
+        fb.textContent='Bien detectado. Vuelve al paso 1, revisa qué aviso se te escapó y rearma solo esa parte. El profesor anda circulando: pregúntale la duda exacta.';
+      }
+    });
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

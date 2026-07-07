@@ -27,6 +27,15 @@ nav_order: 7
 
 ---
 
+## El gimnasio de la semana
+
+Los ejercicios de esta semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
+
+- [La prueba de fuego](../ejercicios/semana-06/ejercicio-6A-la-prueba-de-fuego.html) · martes
+- [Taller de descifrado](../ejercicios/semana-06/ejercicio-6B-taller-de-descifrado.html) · miércoles
+- [¿Existían de verdad?](../ejercicios/semana-06/ejercicio-6C-existian-de-verdad.html) · jueves, centro de cómputo
+- [Quiz de gimnasio](../ejercicios/semana-06/quiz-gimnasio-semana-06.html) · para ensayar cuando quieras
+
 ## Hoja de consulta
 
 Combina una raíz de la izquierda con una de la derecha. Descubre qué palabra forman y qué significa.

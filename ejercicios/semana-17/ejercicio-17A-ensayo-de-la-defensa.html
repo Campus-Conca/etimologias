@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 17 · Ejercicio A · Ensayo de la defensa final</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  .protocolo{counter-reset:paso;list-style:none;padding:0;margin:.5rem 0 0}
+  .protocolo li{position:relative;padding:.7rem .8rem .7rem 3rem;border:1px solid var(--borde);border-radius:.7rem;margin-top:.5rem;background:#fff}
+  .protocolo li::before{counter-increment:paso;content:counter(paso);position:absolute;left:.8rem;top:.75rem;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--rosa);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+  table.rubrica{width:100%;border-collapse:collapse;margin-top:.6rem;font-size:.92rem}
+  table.rubrica th{background:var(--fondo);color:var(--ciruela);text-align:left;padding:.5rem .7rem;border:1px solid var(--borde)}
+  table.rubrica td{padding:.5rem .7rem;border:1px solid var(--borde);vertical-align:top}
+  .reloj{font-size:2.4rem;font-weight:800;color:var(--ciruela);text-align:center;margin:.4rem 0;font-variant-numeric:tabular-nums}
+  .reloj-estado{text-align:center;font-weight:700;margin-bottom:.4rem;color:var(--ciruela)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .marca{display:flex;gap:.5rem;margin-top:.6rem}
+  .marca button{flex:1;padding:.5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
+  .marca button.sel-ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
+  .marca button.sel-no{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 17 · Sesión A</div>
+    <h1>Ensayo de la defensa final</h1>
+    <p>Peldaño 4, la cima de la escalera. Ocho a diez minutos que nadie puede dar por ti.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Antes de tu turno: (1) revisa el recorrido y la rúbrica, (2) ensaya en voz alta con el cronómetro, (3) pide preguntas socráticas de práctica y respóndelas sin guion, (4) márcate en cada criterio: bien o aún no. Se puede ensayar las veces que quieras. En la defensa real ya no hay red, pero llegas con tres defensas superadas: parejas, banco y socrática.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> escribe el recorrido de tu sala en tres renglones (apertura, paradas, cierre), ensaya con el reloj del celular de tu pareja y pídele dos preguntas incómodas. Luego márcate los cuatro criterios: bien o aún no.
+  </div>
+
+  <h2>El recorrido de 8 a 10 minutos</h2>
+  <ol class="protocolo">
+    <li><strong>Abre con tu criterio.</strong> Por qué estas 12 a 15 palabras y no otras. Una idea honesta vale más que una frase bonita.</li>
+    <li><strong>Recorre tu sala.</strong> No leas las cédulas: cuéntalas. Detente con calma en tres o cuatro paradas, entre ellas la palabra que más te sorprendió, con su etimología verificada y su fuente.</li>
+    <li><strong>Cierra con el regalo.</strong> Cuál palabra regalarías y a quién. Es la prueba de que la colección es tuya: solo se regala lo que se quiere.</li>
+    <li><strong>Quédate para las preguntas.</strong> El profesor hará una o dos socráticas al final. "No sé, pero lo verificaría en tal fuente" sigue siendo una respuesta digna.</li>
+  </ol>
+
+  <h2>La rúbrica del Museo</h2>
+  <div class="card">
+    <p style="font-size:.92rem;margin:.3rem 0 0">Es la misma que conoces desde la semana 1, ahora completa. Sin nota, como todo el semestre: es el mapa de lo que tu defensa demuestra.</p>
+    <table class="rubrica">
+      <tr><th>Se evalúa</th><th>No se evalúa</th></tr>
+      <tr><td>Que domines la etimología de tus palabras, verificada en fuente</td><td>Que hables como orador</td></tr>
+      <tr><td>Tu criterio de selección: por qué estas y no otras</td><td>Que no te pongas nervioso</td></tr>
+      <tr><td>La honestidad del "por qué la elegí"</td><td>Cuántas palabras raras metiste</td></tr>
+      <tr><td>Que sostengas las preguntas pensando en voz alta</td><td>Que aciertes todo a la primera</td></tr>
+    </table>
+  </div>
+
+  <h2>Cronómetro de ensayo</h2>
+  <div class="card">
+    <div class="reloj" id="reloj">00:00</div>
+    <div class="reloj-estado" id="relojEstado">La defensa pide entre 8 y 10 minutos.</div>
+    <div class="fila-botones" style="justify-content:center">
+      <button class="btn rosa" id="btnReloj">Iniciar</button>
+      <button class="btn gris" id="btnRelojReset">Reiniciar</button>
+    </div>
+  </div>
+
+  <h2>Preguntas socráticas de práctica</h2>
+  <div class="card">
+    <p style="font-size:.92rem;margin:.3rem 0 0">Como en el peldaño 3, sin banco fijo: pide una y respóndela en voz alta, sin preparar. Si ensayas en pareja, que tu pareja la lea con cara de tribunal.</p>
+    <div class="fila-botones"><button class="btn rosa" id="btnPregunta">Dame una pregunta</button></div>
+    <div class="fb" id="fbPregunta"></div>
+  </div>
+
+  <h2>Márcate: ¿estás para el peldaño 4?</h2>
+  <div id="criterios"></div>
+  <div class="card">
+    <div class="fila-botones"><button class="btn rosa" id="btnBalance">Ver mi balance</button></div>
+    <div class="fb" id="fbBalance"></div>
+  </div>
+
+  <footer>Semana 17 · El Museo de Palabras · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  // Cronómetro
+  var seg=0,iv=null;
+  var reloj=document.getElementById('reloj');
+  var estado=document.getElementById('relojEstado');
+  var btnR=document.getElementById('btnReloj');
+  function pinta(){
+    var m=Math.floor(seg/60),s=seg%60;
+    reloj.textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
+    if(seg<480)estado.textContent='La defensa pide entre 8 y 10 minutos.';
+    else if(seg<=600)estado.textContent='En zona: entre 8 y 10. Aquí puedes cerrar.';
+    else estado.textContent='Pasaste los 10: recorta paradas, no las prisas.';
+  }
+  btnR.addEventListener('click',function(){
+    if(iv){clearInterval(iv);iv=null;btnR.textContent='Reanudar';}
+    else{iv=setInterval(function(){seg++;pinta();},1000);btnR.textContent='Pausar';}
+  });
+  document.getElementById('btnRelojReset').addEventListener('click',function(){
+    if(iv){clearInterval(iv);iv=null;}
+    seg=0;btnR.textContent='Iniciar';pinta();
+  });
+
+  // Preguntas socráticas
+  var PREGUNTAS=[
+    'Si solo pudieras quedarte con una palabra de tu sala, ¿cuál y por qué?',
+    'Elige una de tus palabras: ¿en qué fuente verificaste su etimología y qué dice exactamente?',
+    '¿Qué palabra casi entra a tu sala y no entró? ¿Qué la dejó fuera?',
+    'De tus 12 a 15 palabras, ¿cuál te representa mejor en agosto y cuál hoy?',
+    'Si alguien te dijera que una de tus etimologías está mal, ¿cómo lo comprobarías?',
+    '¿Cuál de tus palabras le regalarías a alguien de este salón? ¿A quién y para qué?',
+    '¿Qué tienen en común tus palabras? ¿Qué dice esa colección de ti como lector?',
+    'Elige una palabra de tu sala que venga de un libro: ¿qué estaba pasando en la historia cuando la encontraste?',
+    '¿Cuál etimología de tu sala te sorprendió más al verificarla? ¿Qué esperabas encontrar?',
+    '¿Hay en tu sala alguna palabra heredada, de tu familia o de tu pueblo? ¿Qué harías si no aparece en los diccionarios?',
+    '¿Qué palabra defenderías con menos seguridad? ¿Qué te falta saber de ella?',
+    'Tu sala tiene un criterio: ¿qué palabra famosa o rara rechazarías aunque impresione, por no cumplirlo?'
+  ];
+  var bolsa=[];
+  document.getElementById('btnPregunta').addEventListener('click',function(){
+    var fb=document.getElementById('fbPregunta');
+    if(!bolsa.length){
+      bolsa=PREGUNTAS.slice();
+      for(var i=bolsa.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=bolsa[i];bolsa[i]=bolsa[j];bolsa[j]=t;}
+    }
+    fb.className='fb ej';
+    fb.innerHTML='<strong>Pregunta:</strong> '+bolsa.pop()+'<br><br>Respóndela en voz alta, ahora, sin escribirla. Pensar en voz alta es el músculo que se evalúa.';
+  });
+
+  // Autoevaluación por criterio
+  var CRITERIOS=[
+    {t:'Domino la etimología de todas mis palabras',
+     ok:'Bien. Aun así, repasa en frío las dos que menos hayas contado en voz alta.',
+     no:'Aún no. Detecta cuáles fallan, vuelve a su cédula y di su etimología en voz alta tres veces, con fuente incluida.'},
+    {t:'Puedo decir mi criterio en una frase: por qué estas y no otras',
+     ok:'Bien. Esa frase es tu apertura: que sea lo primero que digas.',
+     no:'Aún no. Truco: termina la frase "todas mis palabras tienen en común que..." y ya tienes criterio.'},
+    {t:'Mi "por qué la elegí" es honesto en cada cédula',
+     ok:'Bien. La honestidad se nota más que la elocuencia, y pesa más en la rúbrica.',
+     no:'Aún no. Busca las cédulas donde escribiste lo que sonaba bien y cámbialo por lo que de verdad pasó.'},
+    {t:'Mi recorrido cabe entre 8 y 10 minutos',
+     ok:'Bien. Ensáyalo una vez más el día de tu turno: los nervios aceleran o alargan.',
+     no:'Aún no. Si te falta tiempo, agrega una parada con historia. Si te sobra recorrido, quita paradas, no palabras de la sala.'}
+  ];
+  var cont=document.getElementById('criterios');
+  var marcas={};
+  CRITERIOS.forEach(function(c,i){
+    var card=document.createElement('div');card.className='card';
+    card.innerHTML='<h3>'+c.t+'</h3>'
+      +'<div class="marca"><button data-v="bien">Me quedó bien</button><button data-v="aun">Aún no</button></div>'
+      +'<div class="fb" data-fb></div>';
+    var fb=card.querySelector('[data-fb]');
+    card.querySelectorAll('.marca button').forEach(function(b){
+      b.addEventListener('click',function(){
+        card.querySelectorAll('.marca button').forEach(function(x){x.classList.remove('sel-ok','sel-no');});
+        b.classList.add(b.dataset.v==='bien'?'sel-ok':'sel-no');
+        marcas[i]=b.dataset.v;
+        if(b.dataset.v==='bien'){fb.className='fb ok';fb.textContent=c.ok;}
+        else{fb.className='fb no';fb.textContent=c.no;}
+      });
+    });
+    cont.appendChild(card);
+  });
+
+  document.getElementById('btnBalance').addEventListener('click',function(){
+    var fb=document.getElementById('fbBalance');
+    var total=CRITERIOS.length,hechos=0,bien=0;
+    for(var k in marcas){if(marcas.hasOwnProperty(k)){hechos++;if(marcas[k]==='bien')bien++;}}
+    if(hechos<total){
+      fb.className='fb no';
+      fb.textContent='Te falta marcarte en '+(total-hechos)+' criterio'+(total-hechos>1?'s':'')+'. El juicio es tuyo, pero tiene que ser completo.';
+      return;
+    }
+    if(bien===total){
+      fb.className='fb ok';
+      fb.textContent='Cuatro de cuatro en bien. Estás para el peldaño 4: ve, defiende y disfruta tu sala. Te lo ganaste en 17 semanas.';
+    }else{
+      fb.className='fb ok';
+      fb.textContent=bien+' en bien, '+(total-bien)+' en aún no. Perfecto diagnóstico: ya sabes exactamente qué ensayar antes de tu turno. Reintenta y vuelve a marcarte.';
+    }
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

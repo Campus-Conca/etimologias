@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 7 · Quiz de gimnasio</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .4rem;color:var(--rosa);font-size:1.1rem}
+  textarea{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo);min-height:3.2rem;resize:vertical}
+  .opciones,.piezas,.calib{display:flex;flex-direction:column;gap:.5rem;margin-top:.6rem}
+  .piezas,.calib{flex-direction:row;flex-wrap:wrap}
+  .opciones button,.piezas button,.calib button{padding:.6rem .9rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font:inherit;font-weight:700;cursor:pointer;text-align:left}
+  .piezas button small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
+  .opciones button.sel,.piezas button.sel,.calib button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .marca{display:flex;gap:.5rem;margin-top:.6rem}
+  .marca button{flex:1;padding:.5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
+  .marca button.sel-ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
+  .marca button.sel-no{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 7 · Gimnasio</div>
+    <h1>Quiz de gimnasio · Integrador</h1>
+    <p>Práctica libre para el quiz integrador de la unidad. Mismos músculos, otros reactivos: aquí se entrena, no se compite.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Cinco reactivos, uno por cada músculo de la unidad: leer griego, descomponer, sacar familia, descifrar a ciegas y cazar espejismos. Primero calibra, luego resuelve, al final compara tu predicción con tu resultado. El quiz de verdad es en papel y a mano; este es el calentamiento.
+  </div>
+
+  <h2>Paso 0 · Calibra</h2>
+  <div class="card">
+    <p style="margin:0 0 .2rem">Antes de ver los reactivos: ¿cuántos de los 5 crees que tendrás bien?</p>
+    <div class="calib" id="calib">
+      <button>0</button><button>1</button><button>2</button><button>3</button><button>4</button><button>5</button>
+    </div>
+    <div class="fb" id="fbCalib"></div>
+  </div>
+
+  <h2>Reactivo 1 · Lee griego</h2>
+  <div class="card">
+    <h3>ψυχη</h3>
+    <p style="margin:0;font-size:.92rem">¿Cómo se lee esta palabra?</p>
+    <div class="opciones" id="r1ops"></div>
+    <div class="fila-botones"><button class="btn rosa" id="r1check">Revisar</button></div>
+    <div class="fb" id="r1fb"></div>
+  </div>
+
+  <h2>Reactivo 2 · Suma de palabras</h2>
+  <div class="card">
+    <h3>termómetro</h3>
+    <p style="margin:0;font-size:.92rem">Toca las piezas correctas, en orden. Toca de nuevo para quitar.</p>
+    <div class="piezas" id="r2piezas"></div>
+    <div class="fila-botones"><button class="btn rosa" id="r2check">Revisar</button></div>
+    <div class="fb" id="r2fb"></div>
+  </div>
+
+  <h2>Reactivo 3 · La fábrica de la raíz</h2>
+  <div class="card">
+    <h3>bio- (vida)</h3>
+    <p style="margin:0;font-size:.92rem">Escribe tres palabras de la familia de esta raíz. Luego compara con el ejemplo y márcate.</p>
+    <textarea placeholder="Tres palabras que lleven bio- adentro"></textarea>
+    <div class="fila-botones"><button class="btn gris" id="r3ver">Compara con un ejemplo</button></div>
+    <div class="fb" id="r3fb"></div>
+    <div class="marca" id="r3marca" style="display:none">
+      <button data-v="bien">Me quedó bien</button>
+      <button data-v="aun">Aún no</button>
+    </div>
+  </div>
+
+  <h2>Reactivo 4 · Descifra a ciegas</h2>
+  <div class="card">
+    <h3>cronofobia</h3>
+    <p style="margin:0;font-size:.92rem">Nunca la has visto. Con tus piezas, ¿qué significa?</p>
+    <div class="opciones" id="r4ops"></div>
+    <div class="fila-botones"><button class="btn rosa" id="r4check">Revisar</button></div>
+    <div class="fb" id="r4fb"></div>
+  </div>
+
+  <h2>Reactivo 5 · ¿Corte real o espejismo?</h2>
+  <div class="card">
+    <h3>ver + dura (verdura)</h3>
+    <p style="margin:0;font-size:.92rem">¿Este corte es real o es un espejismo?</p>
+    <div class="opciones" id="r5ops"></div>
+    <div class="fila-botones"><button class="btn rosa" id="r5check">Revisar</button></div>
+    <div class="fb" id="r5fb"></div>
+  </div>
+
+  <h2>Cierre · ¿Cómo calibraste?</h2>
+  <div class="card">
+    <div class="fila-botones"><button class="btn rosa" id="btnCierre">Ver mi resultado</button></div>
+    <div class="fb" id="fbCierre"></div>
+  </div>
+
+  <footer>Semana 7 · Cierre de unidad: qué tan hondo veo ya · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var estado={calib:null,r1:null,r2:null,r3:null,r4:null,r5:null};
+  function baraja(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+  // Paso 0
+  var calib=document.getElementById('calib');
+  calib.querySelectorAll('button').forEach(function(b,i){
+    b.addEventListener('click',function(){
+      calib.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+      b.classList.add('sel');estado.calib=i;
+      var fb=document.getElementById('fbCalib');
+      fb.className='fb ej';
+      fb.textContent='Anotado. Al final comparas tu predicción con tu resultado: saber cuánto sabes también es la materia. El martes, en el quiz de papel, la casilla de calibración va igual.';
+    });
+  });
+
+  // Reactivo de opción múltiple genérico
+  function opcion(idZona,idCheck,idFb,opciones,clave,okTxt,pistaTxt){
+    var z=document.getElementById(idZona),sel=null;
+    baraja(opciones).forEach(function(op){
+      var b=document.createElement('button');
+      b.textContent=op[0];b.dataset.buena=op[1]?'1':'0';
+      b.addEventListener('click',function(){
+        z.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+        b.classList.add('sel');sel=b;
+      });
+      z.appendChild(b);
+    });
+    document.getElementById(idCheck).addEventListener('click',function(){
+      var fb=document.getElementById(idFb);
+      if(!sel){fb.className='fb no';fb.textContent='Elige primero una opción.';return;}
+      if(sel.dataset.buena==='1'){
+        estado[clave]='bien';fb.className='fb ok';fb.innerHTML=okTxt;
+      }else{
+        estado[clave]='aun';fb.className='fb no';fb.textContent='Aún no. Pista: '+pistaTxt;
+      }
+    });
+  }
+
+  // R1 · leer griego
+  opcion('r1ops','r1check','r1fb',
+    [["psique",true],["suque",false],["fusque",false]],
+    'r1',
+    'Bien: ψ (ps) + υ (i) + χ (j) + η (e larga). <em>Psique</em>, el alma. De ahí psicología y psicólogo.',
+    'ψ está en tu mazo desde la semana 4: es la letra que suena ps y arranca psicología.');
+
+  // R2 · piezas
+  var R2=[["termo","calor",true],["-metro","medir",true],["tele-","lejos",false],["crono","tiempo",false],["-fobia","miedo",false]];
+  var z2=document.getElementById('r2piezas'),sel2=[];
+  baraja(R2).forEach(function(pz){
+    var b=document.createElement('button');
+    b.innerHTML=pz[0]+'<small>'+pz[1]+'</small>';b.dataset.buena=pz[2]?'1':'0';
+    b.addEventListener('click',function(){
+      var i=sel2.indexOf(b);
+      if(i>-1){sel2.splice(i,1);b.classList.remove('sel');}else{sel2.push(b);b.classList.add('sel');}
+    });
+    z2.appendChild(b);
+  });
+  document.getElementById('r2check').addEventListener('click',function(){
+    var fb=document.getElementById('r2fb');
+    if(!sel2.length){fb.className='fb no';fb.textContent='Toca primero las piezas que propones.';return;}
+    var aciertos=sel2.filter(function(x){return x.dataset.buena==='1';}).length;
+    var intrusas=sel2.length-aciertos;
+    if(aciertos===2&&intrusas===0){
+      estado.r2='bien';fb.className='fb ok';
+      fb.innerHTML='Bien: termo (calor) + -metro (medir) = medidor de calor.';
+    }else{
+      estado.r2='aun';fb.className='fb no';
+      fb.textContent='Aún no. Pista: son exactamente 2 piezas, y una de ellas también vive en cronómetro y en geometría.';
+    }
+  });
+
+  // R3 · familia de raíz (abierto)
+  document.getElementById('r3ver').addEventListener('click',function(){
+    var fb=document.getElementById('r3fb');
+    fb.className='fb ej';
+    fb.innerHTML='<strong>Un ejemplo de familia:</strong> biología, biografía, microbio, antibiótico, biosfera. Con tres de esas (o de otras con bio- adentro) vas bien. Ojo: la pieza debe significar vida ahí adentro; "bioco" no cuenta porque no existe, y "biberón" no cuenta porque no lleva la raíz.';
+    document.getElementById('r3marca').style.display='flex';
+  });
+  document.querySelectorAll('#r3marca button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('#r3marca button').forEach(function(x){x.classList.remove('sel-ok','sel-no');});
+      b.classList.add(b.dataset.v==='bien'?'sel-ok':'sel-no');
+      estado.r3=b.dataset.v;
+    });
+  });
+
+  // R4 · descifrar a ciegas
+  opcion('r4ops','r4check','r4fb',
+    [["miedo al paso del tiempo",true],["aparato que mide el tiempo",false],["obsesión por los relojes",false]],
+    'r4',
+    'Bien: crono (tiempo) + -fobia (miedo). Nunca la habías visto y la leíste: el sistema quedó instalado.',
+    'la segunda pieza está en tu mazo desde la semana 6, y también vive en claustrofobia y xenofobia.');
+
+  // R5 · corte real o espejismo
+  opcion('r5ops','r5check','r5fb',
+    [["Espejismo",true],["Corte real",false]],
+    'r5',
+    'Bien: espejismo. <em>Verdura</em> viene de <em>verde</em> (latín <em>viridis</em>) + -ura. Ahí no hay nada de ver ni de duro. La fuente lo confirma.',
+    'aplica la regla de oro: ¿"dura" reaparece en otras palabras significando lo mismo aquí? ¿Y si la palabra madre fuera un color?');
+
+  // Cierre
+  document.getElementById('btnCierre').addEventListener('click',function(){
+    var fb=document.getElementById('fbCierre');
+    var pend=[];
+    if(estado.calib===null)pend.push('la calibración del paso 0');
+    if(!estado.r1)pend.push('el reactivo 1');
+    if(!estado.r2)pend.push('el reactivo 2');
+    if(!estado.r3)pend.push('marcarte el reactivo 3');
+    if(!estado.r4)pend.push('el reactivo 4');
+    if(!estado.r5)pend.push('el reactivo 5');
+    if(pend.length){
+      fb.className='fb no';
+      fb.textContent='Todavía falta: '+pend.join(', ')+'.';
+      return;
+    }
+    var claves=['r1','r2','r3','r4','r5'];
+    var bien=claves.filter(function(k){return estado[k]==='bien';}).length;
+    var lista=claves.map(function(k,i){return 'Reactivo '+(i+1)+': '+(estado[k]==='bien'?'bien':'aún no');}).join(' · ');
+    var msj;
+    if(estado.calib===bien)msj='Calibración exacta: predijiste '+estado.calib+' y tuviste '+bien+'. Eso, en este curso, vale tanto como los aciertos.';
+    else if(estado.calib>bien)msj='Predijiste '+estado.calib+' y tuviste '+bien+'. La brecha es el dato, no la culpa: ya sabes qué músculo repasar antes del martes.';
+    else msj='Predijiste '+estado.calib+' y tuviste '+bien+'. Sabes más de lo que crees: ajusta tu medidor interno hacia arriba.';
+    fb.className='fb ok';
+    fb.innerHTML=lista+'<br><br>'+msj+'<br><br>Lo que quedó en "aún no" se reintenta cuando quieras: recarga la página y vuelve a entrar.';
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

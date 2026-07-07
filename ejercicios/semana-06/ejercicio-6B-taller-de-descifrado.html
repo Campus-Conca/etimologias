@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 6 · Ejercicio B · Taller de descifrado</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .4rem;color:var(--rosa);font-size:1.2rem}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3rem;resize:vertical}
+  .opciones{display:flex;flex-direction:column;gap:.5rem;margin-top:.6rem}
+  .opciones button{padding:.6rem .9rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font:inherit;font-weight:700;cursor:pointer;text-align:left}
+  .opciones button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 6 · Sesión B</div>
+    <h1>Taller de descifrado</h1>
+    <p>Las dos operaciones en serie: descompón lo desconocido, compón lo que falta.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> En equipo y sin fuentes. Primera parte: cinco palabras desconocidas, elige qué significa cada una sumando sus piezas. Segunda parte: tres encargos, arma tú la palabra y escríbela. Lo que descifren hoy se verifica el jueves en el centro de cómputo.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> para cada palabra escribe la descomposición con + (pieza y significado) y el significado que deduces. Para los encargos, escribe el significado pedido, la suma de piezas y la palabra armada. Ese registro es el que llevas el jueves.
+  </div>
+
+  <h2>Operación 1 · Descompón la desconocida</h2>
+  <div id="descifra"></div>
+
+  <h2>Operación 2 · Compón la que falta</h2>
+  <div class="instr">
+    <strong>Tu banco de piezas:</strong> piro (fuego) · astro (los cuerpos del cielo, igualito que en español) · helio (sol) · xeno (extraño) · -fobia (miedo) · -logía (estudio) · -latría (adoración) · -fagia (comer). No todas se usan.
+  </div>
+  <div id="compon"></div>
+
+  <h2>Para cerrar</h2>
+  <div class="card">
+    <p>Cada equipo entrega su descifrado más dudoso y su mejor monstruo inventado del martes. Anótalos aquí para no llegar con las manos vacías: son el insumo del jueves.</p>
+    <textarea placeholder="Descifrado más dudoso: ... / Nuestro mejor monstruo: ..."></textarea>
+  </div>
+
+  <footer>Semana 6 · Descifrar a ciegas · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  function baraja(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+  // Operación 1: descomponer
+  var DESCIFRA=[
+    {w:"geofagia",
+     ops:[["Costumbre de comer tierra.",true],["Miedo a los temblores.",false],["Estudio de la tierra.",false],["Adoración a la tierra.",false]],
+     ok:"geo (tierra) + -fagia (comer). Existe: hay quien come tierra, y la medicina lo tiene registrado.",
+     pista:"Pista: geo ya lo viste en geografía. Y la pieza final es la misma de antropofagia."},
+    {w:"fotofobia",
+     ops:[["Molestia o rechazo a la luz.",true],["Amor por las fotografías.",false],["Obsesión por ser fotografiado.",false],["Problema para ver de día.",false]],
+     ok:"foto (luz) + -fobia (miedo, rechazo). Existe: es lo que sientes cuando sales del cine a mediodía.",
+     pista:"Pista: foto no es la imagen, es la pieza de fotografía: luz. Y -fobia ya la conoces."},
+    {w:"xenofilia",
+     ops:[["Simpatía por lo extranjero.",true],["Miedo a lo extranjero.",false],["Gobierno de los extranjeros.",false],["Colección de cosas raras.",false]],
+     ok:"xeno (extraño, extranjero) + -filia (amor, afinidad). Existe: es la cara opuesta de la xenofobia.",
+     pista:"Pista: conoces xenofobia. Aquí la segunda pieza no es miedo, es la de bibliofilia."},
+    {w:"heliografía",
+     ops:[["Escritura o señales hechas con la luz del sol.",true],["Estudio del sol.",false],["Adoración al sol.",false],["Mapa del cielo.",false]],
+     ok:"helio (sol) + grafía (escribir, la de fotografía). Existe: con espejos y sol se mandaban mensajes a kilómetros.",
+     pista:"Pista: la segunda pieza es graf-, la misma de fotografía y ortografía: escribir."},
+    {w:"piromanía",
+     ops:[["Obsesión con el fuego, impulso de encenderlo.",true],["Miedo al fuego.",false],["Estudio del fuego.",false],["Fiesta de fuegos artificiales.",false]],
+     ok:"piro (fuego) + -manía (obsesión). Existe: es un trastorno real, no un chiste.",
+     pista:"Pista: -manía no es miedo, es obsesión, la misma de bibliomanía."}
+  ];
+
+  var cont1=document.getElementById('descifra');
+  DESCIFRA.forEach(function(p){
+    var card=document.createElement('div');card.className='card';
+    card.innerHTML='<h3>'+p.w+'</h3>'
+      +'<p style="margin:0;font-size:.92rem">Suma las piezas y elige el significado.</p>'
+      +'<div class="opciones" data-ops></div>'
+      +'<div class="fila-botones"><button class="btn rosa" data-check>Revisar</button></div>'
+      +'<div class="fb" data-fb></div>';
+    cont1.appendChild(card);
+
+    var zona=card.querySelector('[data-ops]');
+    var sel=null;
+    baraja(p.ops).forEach(function(op){
+      var b=document.createElement('button');
+      b.textContent=op[0];b.dataset.buena=op[1]?'1':'0';
+      b.addEventListener('click',function(){
+        zona.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+        b.classList.add('sel');sel=b;
+        card.querySelector('[data-fb]').className='fb';
+      });
+      zona.appendChild(b);
+    });
+
+    card.querySelector('[data-check]').addEventListener('click',function(){
+      var fb=card.querySelector('[data-fb]');
+      if(!sel){fb.className='fb no';fb.textContent='Elige primero un significado.';return;}
+      if(sel.dataset.buena==='1'){
+        fb.className='fb ok';
+        fb.textContent='Bien: '+p.ok;
+      }else{
+        fb.className='fb no';
+        fb.textContent='Aún no. '+p.pista;
+      }
+    });
+  });
+
+  // Operación 2: componer
+  var COMPON=[
+    {encargo:"miedo al fuego",
+     resp:["pirofobia"],
+     ok:"pirofobia: piro (fuego) + -fobia (miedo). Existe y está en el diccionario.",
+     pista:"Pista: la pieza de fuego la acabas de ver en piromanía. Cámbiale la obsesión por el miedo."},
+    {encargo:"estudio de los astros",
+     resp:["astrologia","astronomia"],
+     ok:"astro + -logía = astrología, el estudio de los astros al pie de la letra. (Si escribiste astronomía, también suma piezas griegas: nomos es ley, las leyes de los astros.)",
+     pista:"Pista: astro se queda tal cual. La pieza de estudio es la misma de biología y geología."},
+    {encargo:"adoración al sol",
+     resp:["heliolatria"],
+     ok:"heliolatría: helio (sol) + -latría (adoración). La descifraste el martes; hoy la armaste tú. Ida y vuelta completa.",
+     pista:"Pista: sol = helio, como en heliocéntrico. Adoración = la pieza de idolatría."}
+  ];
+
+  function normaliza(s){
+    return s.toLowerCase().trim()
+      .replace(/á/g,'a').replace(/é/g,'e').replace(/í/g,'i').replace(/ó/g,'o').replace(/ú/g,'u').replace(/ü/g,'u')
+      .replace(/[^a-zñ]/g,'');
+  }
+
+  var cont2=document.getElementById('compon');
+  COMPON.forEach(function(p,i){
+    var card=document.createElement('div');card.className='card';
+    card.innerHTML='<h3>Encargo '+(i+1)+' · Arma la palabra para: '+p.encargo+'</h3>'
+      +'<input type="text" placeholder="Escribe la palabra completa">'
+      +'<div class="fila-botones"><button class="btn rosa" data-check>Revisar</button></div>'
+      +'<div class="fb" data-fb></div>';
+    cont2.appendChild(card);
+
+    card.querySelector('[data-check]').addEventListener('click',function(){
+      var fb=card.querySelector('[data-fb]');
+      var v=normaliza(card.querySelector('input').value);
+      if(!v){fb.className='fb no';fb.textContent='Escribe primero tu palabra.';return;}
+      if(p.resp.indexOf(v)>-1){
+        fb.className='fb ok';
+        fb.textContent='Bien: '+p.ok;
+      }else{
+        fb.className='fb no';
+        fb.textContent='Aún no. '+p.pista;
+      }
+    });
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,10 +1,10 @@
 ---
-title: "Semana 7 · Cierre de unidad"
+title: "Semana 7 · Cierre de U1"
 parent: Semanas
 nav_order: 8
 ---
 
-# Semana 7 · Cierre de unidad: qué tan hondo veo ya
+# Semana 7 · Cierre de U1: qué tan hondo veo ya
 
 > **La pregunta de la semana:** ¿qué tan hondo veo ya dentro de las palabras?
 
@@ -35,6 +35,15 @@ Traes tu palabra, su descomposición y tu fuente anotada. Puedes apoyarte en una
 Ni el quiz integrador ni la defensa llevan nota: son evidencia. El fin de semana llenas tu autoevaluación de unidad en el expediente (tu suelo, tu calibración, tu mejor pieza) y propones tu calificación. El bloque final lo transcribes al [formulario de parciales](https://docs.google.com/forms/d/e/1FAIpQLSc32h4aoWfVteMZkbvdmHb0NNEsG3KrhUAi2Y2LYqOqIEEsHw/viewform) desde tu celular, antes del lunes. Cómo funciona todo el sistema: [Tu calificación](../evaluacion.html).
 
 ---
+
+## El gimnasio de la semana
+
+Los ejercicios de esta semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
+
+- [El taller de pistas](../ejercicios/semana-07/ejercicio-7A-el-taller-de-pistas.html) · martes
+- [Arma tu defensa](../ejercicios/semana-07/ejercicio-7B-arma-tu-defensa.html) · miércoles
+- [Cosecha de palabras](../ejercicios/semana-07/ejercicio-7D-cosecha-de-palabras.html) · viernes
+- [Quiz de gimnasio · Integrador](../ejercicios/semana-07/quiz-gimnasio-semana-07.html) · para ensayar cuando quieras
 
 ## Hoja de consulta
 

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 12 · Ejercicio D · Cosecha y puente</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3rem;resize:vertical}
+  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  .veredicto{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.4rem}
+  .veredicto button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;cursor:pointer;font:inherit}
+  .veredicto button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 12 · Sesión D</div>
+    <h1>Cosecha y puente</h1>
+    <p>El círculo se conversa, no se teclea. Esta página es para lo que te llevas: una palabra de tu lectura, tu balance de la unidad y la llave de la que viene.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Después del círculo y de la ronda de balance: (1) captura la palabra que cosechaste de tu lectura; (2) deja por escrito tu balance de la unidad, que es evidencia para tu autoevaluación del fin de semana; (3) arma la tarea puente: el tecnicismo que traes el martes. Tres capturas, tres minutos cada una.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> tres bloques en una página. Arriba: la palabra cosechada, con obra y por qué te la llevas. En medio: tu balance en tres o cuatro renglones. Abajo: el tecnicismo del martes, dónde lo viste y qué crees que significa. Mismo orden que aquí.
+  </div>
+
+  <h2>1 · La palabra que cosechaste</h2>
+  <div class="card">
+    <h3>Del círculo al mazo</h3>
+    <p style="font-size:.92rem;margin:.3rem 0 0">Una palabra que te trajiste de tu lectura: nueva, hermosa o rara. Las cosechadas alimentan el tendedero de Leemos y tu mazo.</p>
+    <label>La palabra</label>
+    <input type="text" data-campo="palabra" placeholder="la que subrayaste o volviste a leer">
+    <label>Dónde vivía</label>
+    <input type="text" data-campo="donde" placeholder="obra, autor y página">
+    <label>Por qué te la llevas</label>
+    <textarea data-campo="porque" placeholder="qué te hizo frenar en ella"></textarea>
+    <label>Tu apuesta: ¿de dónde viene?</label>
+    <div class="veredicto" data-campo="apuesta">
+      <button type="button">Suena grecolatina</button>
+      <button type="button">Suena a préstamo de otra lengua</button>
+      <button type="button">Suena a palabra de campo, quizá sin diccionario</button>
+    </div>
+    <div class="fila-botones">
+      <button class="btn rosa" data-generar>Generar captura</button>
+      <button class="btn gris" data-copiar style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura"></pre>
+    <div class="fb" data-fb></div>
+  </div>
+
+  <h2>2 · Tu balance de la unidad</h2>
+  <div class="card">
+    <h3>¿Quién es dueño del español?</h3>
+    <p style="font-size:.92rem;margin:.3rem 0 0">En la ronda se lee en voz alta solo quien quiera. Por escrito, en cambio, lo dejas todos: este balance es evidencia para tu autoevaluación del segundo parcial.</p>
+    <label>¿Qué cambió en cómo ves tu propia habla, ahora que sabes que viene de todas partes?</label>
+    <textarea data-campo="cambio" placeholder="antes pensaba que... ahora..."></textarea>
+    <label>Tu respuesta de hoy a la pregunta de la unidad</label>
+    <textarea data-campo="postura" placeholder="después de defender los dos bandos, yo digo que la lengua es de..."></textarea>
+    <div class="fila-botones">
+      <button class="btn rosa" data-generar>Generar captura</button>
+      <button class="btn gris" data-copiar style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura"></pre>
+    <div class="fb" data-fb></div>
+  </div>
+
+  <div class="regla">
+    <strong>El fin de semana:</strong> autoevaluación del segundo parcial en tu expediente, con el quiz integrador revisado y tu defensa como evidencia. El bloque final se transcribe al formulario desde el celular antes del lunes; el enlace está en la página de la semana. Segundo round: ya sabes cómo funciona.
+  </div>
+
+  <h2>3 · La tarea puente</h2>
+  <div class="card">
+    <h3>El tecnicismo que no entiendes (todavía)</h3>
+    <p style="font-size:.92rem;margin:.3rem 0 0">La última unidad pregunta qué puertas te abren las palabras: el griego de los médicos, el latín de los contratos, el inglés académico. Trae el martes un tecnicismo (médico, legal o científico) que hayas visto y no entiendas. Todavía no lo busques: el martes lo abrimos con tus propias herramientas.</p>
+    <label>El tecnicismo</label>
+    <input type="text" data-campo="tecnicismo" placeholder="tal como lo viste, aunque no sepas escribirlo bien">
+    <label>Dónde lo viste</label>
+    <input type="text" data-campo="donde2" placeholder="una receta, un contrato, una noticia, un análisis clínico...">
+    <label>De qué mundo viene</label>
+    <div class="veredicto" data-campo="mundo">
+      <button type="button">Salud</button>
+      <button type="button">Ley</button>
+      <button type="button">Ciencia</button>
+      <button type="button">Otro</button>
+    </div>
+    <label>Tu apuesta: ¿qué crees que significa?</label>
+    <textarea data-campo="apuesta2" placeholder="hipotetiza sin miedo: para eso entrenaste doce semanas"></textarea>
+    <div class="fila-botones">
+      <button class="btn rosa" data-generar>Generar captura</button>
+      <button class="btn gris" data-copiar style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura"></pre>
+    <div class="fb" data-fb></div>
+  </div>
+
+  <footer>Semana 12 · Cierre de unidad: ¿quién es dueño del español? · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página. La captura solo vive si tú la copias y la pegas.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  document.querySelectorAll('.veredicto').forEach(function(v){
+    v.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){
+        v.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+        b.classList.add('sel');
+      });
+    });
+  });
+
+  var RECETAS=[
+    {campos:['palabra','donde','porque'],apuesta:'apuesta',
+     etiquetas:{palabra:'la palabra',donde:'dónde vivía',porque:'el porqué'},
+     arma:function(g,ap){return 'PALABRA COSECHADA: '+g('palabra')+'\nDONDE VIVÍA: '+g('donde')+'\nPOR QUÉ ME LA LLEVO: '+g('porque')+'\nMI APUESTA DE ORIGEN: '+ap;},
+     listo:'Captura lista. Cópiala para el tendedero de Leemos y, si quieres, para una tarjeta nueva del mazo.'},
+    {campos:['cambio','postura'],apuesta:null,
+     etiquetas:{cambio:'lo que cambió en tu habla',postura:'tu respuesta de hoy'},
+     arma:function(g){return 'BALANCE DE LA UNIDAD 2\nLO QUE CAMBIÓ EN CÓMO VEO MI HABLA: '+g('cambio')+'\n¿QUIÉN ES DUEÑO DEL ESPAÑOL? MI RESPUESTA DE HOY: '+g('postura');},
+     listo:'Captura lista. Guárdala en tu expediente: es evidencia para la autoevaluación del fin de semana.'},
+    {campos:['tecnicismo','donde2'],apuesta:'mundo',requiereApuesta2:true,
+     etiquetas:{tecnicismo:'el tecnicismo',donde2:'dónde lo viste'},
+     arma:function(g,ap){return 'TECNICISMO PARA EL MARTES: '+g('tecnicismo')+'\nDONDE LO VI: '+g('donde2')+'\nMUNDO: '+ap+'\nMI APUESTA DE SIGNIFICADO: '+(g('apuesta2')||'(todavía sin apuesta)');},
+     listo:'Captura lista. Tráela el martes: con esas palabras se abre la última unidad.'}
+  ];
+
+  var cards=document.querySelectorAll('.card');
+  RECETAS.forEach(function(receta,idx){
+    var card=cards[idx];
+    var btnG=card.querySelector('[data-generar]');
+    var btnC=card.querySelector('[data-copiar]');
+    var pre=card.querySelector('pre.captura');
+    var fb=card.querySelector('[data-fb]');
+    var g=function(sel){var el=card.querySelector('[data-campo='+sel+']');return el?el.value.trim():'';};
+
+    btnG.addEventListener('click',function(){
+      var faltan=[];
+      receta.campos.forEach(function(c){if(!g(c))faltan.push(receta.etiquetas[c]);});
+      var apTexto='';
+      if(receta.apuesta){
+        var sel=card.querySelector('.veredicto .sel');
+        if(!sel)faltan.push(receta.apuesta==='mundo'?'el mundo del que viene':'tu apuesta de origen');
+        else apTexto=sel.textContent;
+      }
+      if(faltan.length){
+        fb.className='fb no';
+        fb.textContent='A la captura le falta: '+faltan.join(', ')+'.';
+        return;
+      }
+      fb.className='fb ok';
+      fb.textContent=receta.listo;
+      pre.textContent=receta.arma(g,apTexto);
+      pre.style.display='block';
+      btnC.style.display='inline-block';
+    });
+
+    btnC.addEventListener('click',function(){
+      var t=pre.textContent;
+      function listo(){fb.className='fb ok';fb.textContent='Copiado. Pégalo donde lo vayas a conservar.';}
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(t).then(listo,function(){seleccionar();});
+      }else{seleccionar();}
+      function seleccionar(){
+        var r=document.createRange();r.selectNodeContents(pre);
+        var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+        fb.className='fb ok';fb.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
+      }
+    });
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

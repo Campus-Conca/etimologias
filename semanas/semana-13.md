@@ -28,6 +28,15 @@ Un tecnicismo médico casi siempre es órgano + padecimiento. Es álgebra de pal
 
 ---
 
+## El gimnasio de la semana
+
+Los ejercicios de esta semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
+
+- [Traduce el diagnóstico](../ejercicios/semana-13/ejercicio-13A-traduce-el-diagnostico.html) · martes
+- [Taller de traducción médica](../ejercicios/semana-13/ejercicio-13B-taller-de-traduccion-medica.html) · miércoles
+- [Las fronteras de las raíces](../ejercicios/semana-13/ejercicio-13C-fronteras-y-bitacora.html) · jueves, centro de cómputo
+- [Quiz de gimnasio](../ejercicios/semana-13/quiz-gimnasio-semana-13.html) · para ensayar cuando quieras
+
 ## Hoja de consulta
 
 Toca un tecnicismo y velo en español llano. Cuenta cuántos dejan de darte miedo.

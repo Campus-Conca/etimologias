@@ -28,6 +28,16 @@ Esta semana también se estrenan los primeros booktubers: los autorizados se pub
 
 ---
 
+## El gimnasio de la semana
+
+Los ejercicios de esta semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
+
+- [Cacería en tu propia habla](../ejercicios/semana-09/ejercicio-9A-caceria-de-lenguas.html) · martes
+- [La lista de tu lengua](../ejercicios/semana-09/ejercicio-9B-la-lista-de-tu-lengua.html) · miércoles
+- [El origen a juicio](../ejercicios/semana-09/ejercicio-9C-el-origen-a-juicio.html) · jueves, centro de cómputo
+- [La palabra viajera](../ejercicios/semana-09/ejercicio-9D-la-palabra-viajera.html) · viernes
+- [Quiz de gimnasio](../ejercicios/semana-09/quiz-gimnasio-semana-09.html) · para ensayar cuando quieras
+
 ## Hoja de consulta
 
 Toca una palabra y descubre de qué lengua viene. Cuenta cuántas creías "de siempre".

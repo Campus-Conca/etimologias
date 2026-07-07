@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 2 · Ejercicio D · Biografía de una palabra</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .2rem;color:var(--rosa);font-size:1.1rem}
+  .card .guia{font-size:.92rem;color:#555;margin:.2rem 0 .4rem}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:4rem;resize:vertical}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  .check{margin-top:.4rem}
+  .check label{display:flex;gap:.6rem;align-items:flex-start;padding:.45rem 0;font-size:.95rem;cursor:pointer}
+  .check input{margin-top:.25rem;accent-color:var(--rosa);width:1.1rem;height:1.1rem;flex:none}
+  pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 2 · Sesión D</div>
+    <h1>Biografía de una palabra</h1>
+    <p>La primera pieza de tu Museo. Las palabras también tienen vida: nacen, viajan, llegan a alguien. Hoy escribes la de la tuya.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Elige tu palabra: la heredada (la que verificaste el jueves) o tu favorita de la ronda inaugural. Escribe el borrador sección por sección. Hoy no se entrega: se guarda. Es la semilla de tu portafolio de la Unidad 1.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Este borrador va a mano en tu cuaderno.</strong> Usa esta plantilla como guía de secciones. Si el profesor lo indica, también puedes capturarlo aquí y copiarlo al final.
+  </div>
+
+  <div class="card">
+    <h3>1 · La palabra</h3>
+    <p class="guia">Escríbela sola, con cariño. Si tiene variantes (como la decía tu abuela vs. como aparece en el diccionario), anótalas.</p>
+    <input type="text" data-campo placeholder="La palabra, protagonista de esta biografía">
+  </div>
+
+  <div class="card">
+    <h3>2 · Dónde nació</h3>
+    <p class="guia">Su origen según las fuentes del jueves. Si no apareció en ningún diccionario, dilo con orgullo: eres tú quien la está documentando.</p>
+    <textarea data-campo placeholder="Según el DLE / DECEL, viene de... O bien: no aparece en los diccionarios, y esto es lo que se sabe en mi familia..."></textarea>
+    <div class="fila-botones"><button class="btn gris" data-ej="nacio">Compara con un ejemplo</button></div>
+    <div class="fb" data-fbej></div>
+  </div>
+
+  <div class="card">
+    <h3>3 · Cómo llegó a ti</h3>
+    <p class="guia">La parte que ningún diccionario tiene. Quién te la dijo, dónde, cuándo. Una escena concreta vale más que una explicación larga.</p>
+    <textarea data-campo placeholder="Me la dijo... cuando... Recuerdo que..."></textarea>
+    <div class="fila-botones"><button class="btn gris" data-ej="llego">Compara con un ejemplo</button></div>
+    <div class="fb" data-fbej></div>
+  </div>
+
+  <div class="card">
+    <h3>4 · Por qué la elegiste</h3>
+    <p class="guia">Sin fórmulas. ¿Qué tiene esta palabra que las otras no?</p>
+    <textarea data-campo placeholder="La elegí porque..."></textarea>
+    <div class="fila-botones"><button class="btn gris" data-ej="porque">Compara con un ejemplo</button></div>
+    <div class="fb" data-fbej></div>
+  </div>
+
+  <h2>Revisa tu borrador</h2>
+  <div class="card">
+    <div class="check">
+      <label><input type="checkbox"> La palabra está clara y bien escrita (con sus variantes si las tiene).</label>
+      <label><input type="checkbox"> El origen menciona la fuente (o dice claramente que no hay fuente y por qué).</label>
+      <label><input type="checkbox"> Hay una escena o persona concreta en "cómo llegó a ti", no solo generalidades.</label>
+      <label><input type="checkbox"> El "por qué" es tuyo: no lo podría haber escrito nadie más del grupo.</label>
+    </div>
+    <div class="fila-botones"><button class="btn rosa" id="btnCheck">¿Cómo va mi pieza?</button></div>
+    <div class="fb" id="fbCheck"></div>
+  </div>
+
+  <h2>Si capturaste en pantalla</h2>
+  <div class="card">
+    <p style="font-size:.92rem;margin:0">Genera el texto completo para copiarlo a tu cuaderno digital o mandártelo a ti.</p>
+    <div class="fila-botones">
+      <button class="btn rosa" id="btnGen">Generar borrador</button>
+      <button class="btn gris" id="btnCopiar" style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura" id="salida"></pre>
+    <div class="fb" id="fbCopia"></div>
+  </div>
+
+  <footer>Semana 2 · Las palabras tienen anatomía · Este borrador es la semilla del Museo de Palabras. Nada se guarda al cerrar la página: cópialo o pásalo a tu cuaderno antes de salir.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var EJEMPLOS={
+    nacio:'<strong>Ejemplo:</strong> "Según el DECEL, <em>fulgor</em> viene del latín <em>fulgor</em>, brillo, de la familia de <em>fulgere</em>, resplandecer. El DLE la marca como voz culta." Nota cómo el ejemplo dice qué fuente y qué dice la fuente.',
+    llego:'<strong>Ejemplo:</strong> "Mi abuelo la decía cuando el sol pegaba en el río, por la tarde: mira ese fulgor. Yo pensaba que era una palabra inventada por él. La semana pasada supe que no." Una escena, un lugar, una persona.',
+    porque:'<strong>Ejemplo:</strong> "La elegí porque es la única palabra que me queda de su voz." No hace falta que sea solemne: también vale "porque suena a hechizo" o "porque nadie de mi edad la conoce y eso me gusta".'
+  };
+
+  document.querySelectorAll('[data-ej]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var fb=b.closest('.card').querySelector('[data-fbej]');
+      fb.className='fb ej';
+      fb.innerHTML=EJEMPLOS[b.dataset.ej];
+    });
+  });
+
+  document.getElementById('btnCheck').addEventListener('click',function(){
+    var todos=document.querySelectorAll('.check input');
+    var marcados=document.querySelectorAll('.check input:checked').length;
+    var fb=document.getElementById('fbCheck');
+    if(marcados===todos.length){
+      fb.className='fb ok';
+      fb.textContent='Pieza digna de Museo. Guárdala bien: en la semana 7 la vas a retomar.';
+    }else{
+      fb.className='fb no';
+      fb.textContent='Van '+marcados+' de '+todos.length+'. Lo que falta no es adorno: cada punto es lo que separa una ficha cualquiera de una pieza de Museo.';
+    }
+  });
+
+  var salida=document.getElementById('salida');
+  var btnCopiar=document.getElementById('btnCopiar');
+  var fbCopia=document.getElementById('fbCopia');
+
+  document.getElementById('btnGen').addEventListener('click',function(){
+    var campos=document.querySelectorAll('[data-campo]');
+    var titulos=['LA PALABRA','DÓNDE NACIÓ','CÓMO LLEGÓ A MÍ','POR QUÉ LA ELEGÍ'];
+    var vacios=0,txt='BIOGRAFÍA DE UNA PALABRA · Semana 2\n';
+    campos.forEach(function(c,i){
+      var v=c.value.trim();
+      if(!v)vacios++;
+      txt+='\n'+titulos[i]+'\n'+(v||'(pendiente)')+'\n';
+    });
+    salida.textContent=txt;
+    salida.style.display='block';
+    btnCopiar.style.display='inline-block';
+    fbCopia.className=vacios?'fb no':'fb ok';
+    fbCopia.textContent=vacios
+      ?'Borrador generado con '+vacios+' sección(es) pendiente(s). Se vale: es borrador. Pero no lo dejes así mucho tiempo.'
+      :'Borrador completo. Cópialo antes de cerrar la página.';
+  });
+
+  btnCopiar.addEventListener('click',function(){
+    var t=salida.textContent;
+    function listo(){fbCopia.className='fb ok';fbCopia.textContent='Copiado. Pégalo donde no se pierda.';}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(listo,function(){sel();});
+    }else{sel();}
+    function sel(){
+      var r=document.createRange();r.selectNodeContents(salida);
+      var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+      fbCopia.className='fb ok';fbCopia.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
+    }
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

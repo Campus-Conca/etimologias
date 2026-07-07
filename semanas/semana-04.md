@@ -39,6 +39,15 @@ Así escribes en griego desde tu celular. Tres minutos.
 
 ---
 
+## El gimnasio de la semana
+
+Los ejercicios de esta semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
+
+- [Decodifica la palabra](../ejercicios/semana-04/ejercicio-4A-decodifica-la-palabra.html) · martes
+- [Tu nombre en griego](../ejercicios/semana-04/ejercicio-4A-tu-nombre-en-griego.html) · martes
+- [Decodifica y verifica](../ejercicios/semana-04/ejercicio-4C-decodifica-y-verifica.html) · jueves, centro de cómputo
+- [Quiz de gimnasio](../ejercicios/semana-04/quiz-gimnasio-semana-04.html) · para ensayar cuando quieras
+
 ## Hoja de consulta
 
 Toca una letra para ver su palabra ancla. El sonido siempre está a la vista.

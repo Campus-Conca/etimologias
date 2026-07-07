@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 16 · Ejercicio A · La fábrica de palabras</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --pre-bg:#e6f1fb; --pre-tx:#0c447c;
+    --raiz-bg:#fbeaf0; --raiz-tx:#72243e;
+    --suf-bg:#eaf3de; --suf-tx:#27500a;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.25rem}
+  .paso{font-size:.8rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.04em;margin-top:.9rem}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3.2rem;resize:vertical}
+  .piezas{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+  .piezas button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;font-size:1rem;cursor:pointer}
+  .piezas button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .piezas button small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
+  .armado{margin-top:.5rem;min-height:2.2rem;border:1px dashed var(--borde);border-radius:.6rem;padding:.5rem;background:var(--fondo);font-weight:700;color:var(--ciruela)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .marca{display:flex;gap:.5rem;margin-top:.6rem}
+  .marca button{flex:1;padding:.5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
+  .marca button.sel-ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
+  .marca button.sel-no{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 16 · Sesión A</div>
+    <h1>La fábrica de palabras</h1>
+    <p>Todo el semestre abriste palabras ajenas. Hoy fabricas la tuya.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Por equipos, inventen 2 o 3 palabras que al español le falten. Cada una necesita: raíces reales, etimología justificada y definición de diccionario. Usa el mezclador de abajo para probar combinaciones, pásala por control de calidad y genera la captura para el concurso. Al presentarla al grupo: cara seria, como si la palabra siempre hubiera existido.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> escribe el vacío que quieres nombrar, lista 4 o 5 raíces candidatas con su significado, prueba combinaciones tachando las que no suenen, y cierra con la palabra elegida, sus piezas separadas con + y su definición de diccionario.
+  </div>
+
+  <h2>Las cuatro reglas de fabricación</h2>
+  <div class="card">
+    <p style="margin:.2rem 0 0"><strong>1.</strong> Raíces reales y bien pegadas (griega con griega, latina con latina, de preferencia).<br>
+    <strong>2.</strong> Que se entienda sin que la expliques.<br>
+    <strong>3.</strong> Que suene.<br>
+    <strong>4.</strong> Que nombre algo que de verdad falte.</p>
+  </div>
+
+  <h2>Tres que nacieron así</h2>
+  <div class="card">
+    <p style="margin:.2rem 0 0"><strong>dinosaurio:</strong> lo inventó un científico en 1842 con piezas griegas, deinós (terrible) + sauros (lagarto).<br>
+    <strong>petricor:</strong> el olor a lluvia sobre tierra seca. Lo armaron dos geólogos en 1964: petra (piedra) + icor (la sangre de los dioses).<br>
+    <strong>selfie:</strong> a esta no la inventó ningún comité. La inventó la gente, y el diccionario llegó después, corriendo.</p>
+  </div>
+
+  <h2>El mezclador de raíces</h2>
+  <div class="card">
+    <h3>Prueba combinaciones</h3>
+    <p style="margin:.2rem 0 0;font-size:.92rem">Toca las piezas en el orden en que sonarían dentro de tu palabra. Toca de nuevo para quitar. No hay respuesta correcta: aquí se prueba hasta que suene.</p>
+    <div class="paso">Raíces griegas</div>
+    <div class="piezas" id="pzG"></div>
+    <div class="paso">Raíces latinas</div>
+    <div class="piezas" id="pzL"></div>
+    <div class="paso">Tu mezcla</div>
+    <div class="armado" id="armado">&nbsp;</div>
+    <div class="fila-botones">
+      <button class="btn rosa" id="btnMezcla">Probar mezcla</button>
+      <button class="btn gris" id="btnLimpiar">Empezar de nuevo</button>
+    </div>
+    <div class="fb" id="fbMezcla"></div>
+    <p style="font-size:.88rem;color:#777;margin:.8rem 0 0">¿Tu raíz no está aquí? Mejor: usa cualquiera del mazo del semestre. Este banco es solo para arrancar.</p>
+  </div>
+
+  <h2>Control de calidad</h2>
+  <div class="card">
+    <p style="margin:.2rem 0 0;font-size:.92rem">Con tu palabra ya armada, júzgala tú, regla por regla. El juez eres tú, no la página.</p>
+    <div class="paso">Regla 1 · Raíces reales y bien pegadas</div>
+    <div class="marca" data-regla><button data-v="bien">Bien</button><button data-v="aun">Aún no</button></div>
+    <div class="paso">Regla 2 · Se entiende sin explicarla</div>
+    <div class="marca" data-regla><button data-v="bien">Bien</button><button data-v="aun">Aún no</button></div>
+    <div class="paso">Regla 3 · Suena</div>
+    <div class="marca" data-regla><button data-v="bien">Bien</button><button data-v="aun">Aún no</button></div>
+    <div class="paso">Regla 4 · Nombra algo que de verdad falta</div>
+    <div class="marca" data-regla><button data-v="bien">Bien</button><button data-v="aun">Aún no</button></div>
+    <div class="fila-botones"><button class="btn rosa" id="btnCalidad">¿Lista para el concurso?</button></div>
+    <div class="fb" id="fbCalidad"></div>
+  </div>
+
+  <h2>El acta de nacimiento</h2>
+  <div class="card">
+    <h3>Registra tu palabra recién nacida</h3>
+    <label>La palabra</label>
+    <input type="text" data-campo="palabra" placeholder="ej. cronofobia">
+    <label>Piezas y significados</label>
+    <textarea data-campo="piezas" placeholder="ej. crono (tiempo) + fobia (miedo)"></textarea>
+    <label>Definición de diccionario</label>
+    <textarea data-campo="definicion" placeholder="Como la escribiría el DLE: seca, precisa, sin ejemplos."></textarea>
+    <label>El vacío que llena</label>
+    <textarea data-campo="vacio" placeholder="¿Qué cosa sin nombre queda nombrada?"></textarea>
+    <div class="fila-botones">
+      <button class="btn rosa" data-generar>Generar captura</button>
+      <button class="btn gris" data-copiar style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura"></pre>
+    <div class="fb" data-fb></div>
+  </div>
+
+  <div class="instr">
+    <strong>Última estación.</strong> Presenta tu palabra al grupo con cara seria. Las que el grupo vote se premian el viernes y estrenan la vitrina "Palabras recién nacidas" de la web.
+  </div>
+
+  <footer>Semana 16 · Quién decide qué palabras existen · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var GRIEGAS=[
+    ["a-","sin"],["pan-","todo"],["micro","pequeño"],["tele-","lejos"],
+    ["auto","uno mismo"],["bio","vida"],["crono","tiempo"],["demo","pueblo"],
+    ["filo","amor"],["fobia","miedo"],["fono","sonido"],["grafo","escribir"],
+    ["lexis","palabra"],["mnem","memoria"],["xeno","extranjero"],["-logía","estudio"],
+    ["-metro","medir"],["-cracia","poder"],["-itis","inflamación"],["-algia","dolor"]
+  ];
+  var LATINAS=[
+    ["omni-","todo"],["retro-","hacia atrás"],["noct","noche"],["luc","luz"],
+    ["audi","oír"],["vis","ver"],["-voro","que come"],["-cida","que mata"]
+  ];
+
+  var sel=[];
+  var armado=document.getElementById('armado');
+  var fbM=document.getElementById('fbMezcla');
+
+  function pinta(){
+    armado.textContent=sel.length?sel.map(function(x){return x.dataset.pieza;}).join(' + '):' ';
+    if(!sel.length)armado.innerHTML='&nbsp;';
+    fbM.className='fb';
+  }
+
+  function agrega(zona,lista,lengua){
+    lista.forEach(function(pz){
+      var b=document.createElement('button');
+      b.innerHTML=pz[0]+'<small>'+pz[1]+'</small>';
+      b.dataset.pieza=pz[0]; b.dataset.lengua=lengua;
+      b.addEventListener('click',function(){
+        var i=sel.indexOf(b);
+        if(i>-1){sel.splice(i,1);b.classList.remove('sel');}
+        else{sel.push(b);b.classList.add('sel');}
+        pinta();
+      });
+      zona.appendChild(b);
+    });
+  }
+  agrega(document.getElementById('pzG'),GRIEGAS,'g');
+  agrega(document.getElementById('pzL'),LATINAS,'l');
+
+  document.getElementById('btnMezcla').addEventListener('click',function(){
+    if(sel.length<2){
+      fbM.className='fb no';
+      fbM.textContent='Una sola pieza no hace palabra nueva. Toca al menos dos.';
+      return;
+    }
+    var lenguas={};
+    sel.forEach(function(x){lenguas[x.dataset.lengua]=true;});
+    var mezcla=lenguas.g&&lenguas.l;
+    var texto=sel.map(function(x){return x.dataset.pieza;}).join(' + ');
+    if(mezcla){
+      fbM.className='fb no';
+      fbM.textContent='Mezclaste griego con latín ('+texto+'). Se vale, hasta el español lo hace (como en "televisión"), pero la regla 1 pide de preferencia misma lengua. Si la sostienes, prepárate para defender el híbrido.';
+    }else{
+      fbM.className='fb ok';
+      fbM.textContent='Mezcla limpia: '+texto+'. Ahora dila en voz alta tres veces. Si suena y se entiende, pásala por control de calidad.';
+    }
+  });
+
+  document.getElementById('btnLimpiar').addEventListener('click',function(){
+    sel.forEach(function(x){x.classList.remove('sel');});sel=[];
+    pinta();
+  });
+
+  var reglas=document.querySelectorAll('[data-regla]');
+  reglas.forEach(function(m){
+    m.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){
+        m.querySelectorAll('button').forEach(function(x){x.classList.remove('sel-ok','sel-no');});
+        b.classList.add(b.dataset.v==='bien'?'sel-ok':'sel-no');
+        m.dataset.valor=b.dataset.v;
+      });
+    });
+  });
+
+  document.getElementById('btnCalidad').addEventListener('click',function(){
+    var fb=document.getElementById('fbCalidad');
+    var faltan=[],aun=[];
+    reglas.forEach(function(m,i){
+      if(!m.dataset.valor)faltan.push('la regla '+(i+1));
+      else if(m.dataset.valor==='aun')aun.push('la regla '+(i+1));
+    });
+    if(faltan.length){
+      fb.className='fb no';
+      fb.textContent='Te falta juzgar '+faltan.join(', ')+'. Sin juicio completo no hay veredicto.';
+      return;
+    }
+    if(!aun.length){
+      fb.className='fb ok';
+      fb.textContent='Las cuatro reglas en bien: al concurso. Genera el acta de nacimiento y preséntala con cara seria.';
+    }else{
+      fb.className='fb no';
+      fb.textContent='Aún no en '+aun.join(', ')+'. No es descarte, es taller: ajusta esa parte con tu equipo y vuelve a juzgarla.';
+    }
+  });
+
+  document.querySelectorAll('.card').forEach(function(card){
+    var btnG=card.querySelector('[data-generar]');
+    if(!btnG) return;
+    var btnC=card.querySelector('[data-copiar]');
+    var pre=card.querySelector('pre.captura');
+    var fb=card.querySelector('[data-fb]');
+
+    btnG.addEventListener('click',function(){
+      var g=function(sel){var el=card.querySelector('[data-campo='+sel+']');return el?el.value.trim():'';};
+      var palabra=g('palabra'),piezas=g('piezas'),def=g('definicion'),vacio=g('vacio');
+      var faltan=[];
+      if(!palabra)faltan.push('la palabra');
+      if(!piezas)faltan.push('las piezas con sus significados');
+      if(!def)faltan.push('la definición de diccionario');
+      if(faltan.length){
+        fb.className='fb no';
+        fb.textContent='Sin acta completa no hay nacimiento. Falta: '+faltan.join(', ')+'.';
+        return;
+      }
+      fb.className='fb ok';
+      fb.textContent='Acta lista. Cópiala y pégala donde indique el profesor para el concurso.';
+      pre.textContent='PALABRA RECIÉN NACIDA: '+palabra
+        +'\nPIEZAS: '+piezas
+        +'\nDEFINICIÓN: '+def
+        +'\nVACÍO QUE LLENA: '+(vacio||'(sin registro)');
+      pre.style.display='block';
+      btnC.style.display='inline-block';
+    });
+
+    btnC.addEventListener('click',function(){
+      var t=pre.textContent;
+      function listo(){fb.className='fb ok';fb.textContent='Copiado. Ahora pégalo donde indique el profesor.';}
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(t).then(listo,function(){seleccionar();});
+      }else{seleccionar();}
+      function seleccionar(){
+        var r=document.createRange();r.selectNodeContents(pre);
+        var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+        fb.className='fb ok';fb.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
+      }
+    });
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

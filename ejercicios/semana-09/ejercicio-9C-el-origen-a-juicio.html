@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 9 · Ejercicio C · El origen a juicio</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3rem;resize:vertical}
+  .protocolo{counter-reset:paso;list-style:none;padding:0;margin:.5rem 0 0}
+  .protocolo li{position:relative;padding:.7rem .8rem .7rem 3rem;border:1px solid var(--borde);border-radius:.7rem;margin-top:.5rem;background:#fff}
+  .protocolo li::before{counter-increment:paso;content:counter(paso);position:absolute;left:.8rem;top:.75rem;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--rosa);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+  .protocolo a{color:var(--rosa);font-weight:700}
+  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
+  .veredicto{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.4rem}
+  .veredicto button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;cursor:pointer;font:inherit}
+  .veredicto button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 9 · Sesión C · Centro de cómputo</div>
+    <h1>El origen a juicio</h1>
+    <p>El martes apostaste lenguas. Hoy tus apuestas enfrentan a las fuentes.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="regla">
+    <strong>La regla de oro del curso:</strong> ninguna etimología se acepta sin fuente. Ni de la IA, ni de internet, ni del profesor.
+  </div>
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Trae a la mano tus palabras dudosas del martes (las tuyas y las 2 de tu equipo). Pasa 4 por el protocolo, una por tarjeta. Al final eliges la palabra de tu casa o tu región que investigarás esta semana con tu familia.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> tabla de cuatro columnas: palabra, origen que aposté, origen real (según la fuente), fuente consultada. Cuatro renglones, y al final tu palabra de casa con la persona a la que vas a entrevistar.
+  </div>
+
+  <h2>El protocolo</h2>
+  <ol class="protocolo">
+    <li>Busca la palabra en el <a href="https://dle.rae.es" target="_blank" rel="noopener">DLE</a>. El origen viene entre paréntesis al inicio de la entrada, justo después de la palabra. Aprende a leerlo: "Del náhuatl...", "Del ár. hisp. ...".</li>
+    <li>Confirma en el <a href="http://etimologias.dechile.net" target="_blank" rel="noopener">DECEL</a>. Ahí está la historia completa: la lengua, el camino, las escalas del viaje.</li>
+    <li>Registra: palabra, origen que apostaste, origen real, fuente. Sin fuente, el veredicto no vale.</li>
+  </ol>
+
+  <h2>El tribunal · 4 palabras dudosas</h2>
+  <div id="casos"></div>
+
+  <div class="fila-botones">
+    <button class="btn rosa" id="btnGenerar">Generar captura del tribunal</button>
+    <button class="btn gris" id="btnCopiar" style="display:none">Copiar al portapapeles</button>
+  </div>
+  <pre class="captura" id="captura"></pre>
+  <div class="fb" id="fbCap"></div>
+
+  <h2>Preparando el mapa</h2>
+  <div class="card">
+    <h3>La palabra de tu casa</h3>
+    <p style="font-size:.92rem;margin:.3rem 0 0">Elige UNA palabra de tu casa o tu región: un nahuatlismo local, un arcaísmo, una voz de tu pueblo. Esta semana la investigas con tu familia y la traes el martes: es tu semilla para el mapa léxico del grupo.</p>
+    <label>La palabra</label>
+    <input type="text" id="mapaPalabra" placeholder="ej. una palabra que solo se dice en tu casa o tu rancho">
+    <label>¿A quién vas a entrevistar y qué le vas a preguntar?</label>
+    <textarea id="mapaPlan" placeholder="ej. a mi abuela; quién se la enseñó, qué significa exactamente, quién más la usa"></textarea>
+    <div class="fila-botones">
+      <button class="btn rosa" id="btnMapa">Generar mi compromiso</button>
+      <button class="btn gris" id="btnMapaCopiar" style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura" id="capturaMapa"></pre>
+    <div class="fb" id="fbMapa"></div>
+  </div>
+
+  <div class="instr">
+    <strong>Última estación.</strong> Ya viste que el diccionario trae el origen de casi todo. ¿Y las palabras que NO están en el diccionario, las que solo se dicen en tu casa o tu pueblo? De eso se trata lo que viene. Pega tus capturas donde indique el profesor.
+  </div>
+
+  <footer>Semana 9 · Las lenguas escondidas · Este ejercicio es gimnasio: sin nota. La captura solo se guarda si tú la copias y la pegas; al cerrar la página todo se borra.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var LENGUAS=["náhuatl","árabe","latín","francés","inglés","otra"];
+  var casos=document.getElementById('casos');
+
+  for(var i=1;i<=4;i++){
+    var card=document.createElement('div');card.className='card';
+    card.innerHTML='<h3>Palabra dudosa '+i+'</h3>'
+      +'<label>Palabra</label>'
+      +'<input type="text" data-campo="palabra" placeholder="ej. tiza">'
+      +'<label>Origen que aposté</label>'
+      +'<div class="veredicto" data-campo="apuesta"></div>'
+      +'<label>Origen real (lo que dice la fuente)</label>'
+      +'<input type="text" data-campo="real" placeholder="ej. náhuatl, de tizatl, tierra blanca">'
+      +'<label>Fuente</label>'
+      +'<input type="text" data-campo="fuente" placeholder="ej. DLE + DECEL, consultados hoy">';
+    var zona=card.querySelector('[data-campo=apuesta]');
+    LENGUAS.forEach(function(lg){
+      var b=document.createElement('button');b.type='button';b.textContent=lg;
+      b.addEventListener('click',function(){
+        zona.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+        b.classList.add('sel');
+      });
+      zona.appendChild(b);
+    });
+    casos.appendChild(card);
+  }
+
+  var fbCap=document.getElementById('fbCap');
+  var pre=document.getElementById('captura');
+  var btnC=document.getElementById('btnCopiar');
+
+  document.getElementById('btnGenerar').addEventListener('click',function(){
+    var tarjetas=casos.querySelectorAll('.card');
+    var filas=[],incompletas=0;
+    tarjetas.forEach(function(card,idx){
+      var g=function(sel){var el=card.querySelector('input[data-campo='+sel+']');return el?el.value.trim():'';};
+      var palabra=g('palabra'),real=g('real'),fuente=g('fuente');
+      var ap=card.querySelector('.veredicto .sel');
+      if(!palabra&&!real&&!fuente&&!ap)return;
+      if(!palabra||!real||!fuente||!ap){incompletas++;return;}
+      filas.push((filas.length+1)+'. '+palabra+' · aposté: '+ap.textContent+' · fuente dice: '+real+' · fuente: '+fuente);
+    });
+    if(incompletas){
+      fbCap.className='fb no';
+      fbCap.textContent='Hay '+incompletas+' tarjeta'+(incompletas>1?'s':'')+' a medias. Cada palabra necesita sus cuatro datos: palabra, apuesta, origen real y fuente. Sin fuente, el veredicto no vale.';
+      return;
+    }
+    if(filas.length<4){
+      fbCap.className='fb no';
+      fbCap.textContent='El tribunal pide 4 palabras y llevas '+filas.length+'. Toma las dudosas de tu equipo si ya se te acabaron las tuyas.';
+      return;
+    }
+    pre.textContent='TRIBUNAL DE ORÍGENES · SEMANA 9\n'+filas.join('\n');
+    pre.style.display='block';
+    btnC.style.display='inline-block';
+    fbCap.className='fb ok';
+    fbCap.textContent='Captura lista. Cópiala y pégala en la plantilla del tablero. Fíjate en cuántas apuestas sobrevivieron: ese dato dice cuánto ya ves las marcas.';
+  });
+
+  function copiar(preEl,fbEl){
+    var t=preEl.textContent;
+    function listo(){fbEl.className='fb ok';fbEl.textContent='Copiado. Ahora pégalo en la plantilla del tablero.';}
+    function seleccionar(){
+      var r=document.createRange();r.selectNodeContents(preEl);
+      var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+      fbEl.className='fb ok';fbEl.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(listo,function(){seleccionar();});
+    }else{seleccionar();}
+  }
+
+  btnC.addEventListener('click',function(){copiar(pre,fbCap);});
+
+  var fbMapa=document.getElementById('fbMapa');
+  var preMapa=document.getElementById('capturaMapa');
+  var btnMC=document.getElementById('btnMapaCopiar');
+
+  document.getElementById('btnMapa').addEventListener('click',function(){
+    var p=document.getElementById('mapaPalabra').value.trim();
+    var plan=document.getElementById('mapaPlan').value.trim();
+    var faltan=[];
+    if(!p)faltan.push('la palabra');
+    if(!plan)faltan.push('a quién vas a entrevistar');
+    if(faltan.length){
+      fbMapa.className='fb no';
+      fbMapa.textContent='Falta: '+faltan.join(' y ')+'. Sin semilla no hay mapa el martes.';
+      return;
+    }
+    preMapa.textContent='SEMILLA PARA EL MAPA LÉXICO\nPALABRA: '+p+'\nPLAN DE ENTREVISTA: '+plan;
+    preMapa.style.display='block';
+    btnMC.style.display='inline-block';
+    fbMapa.className='fb ok';
+    fbMapa.textContent='Compromiso listo. Cópialo, pégalo donde indique el profesor y no lo pierdas de vista: el martes se cosecha.';
+  });
+
+  btnMC.addEventListener('click',function(){copiar(preMapa,fbMapa);});
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 10 · Ejercicio B · Taller de fichas</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3rem;resize:vertical}
+  .protocolo{counter-reset:paso;list-style:none;padding:0;margin:.5rem 0 0}
+  .protocolo li{position:relative;padding:.7rem .8rem .7rem 3rem;border:1px solid var(--borde);border-radius:.7rem;margin-top:.5rem;background:#fff}
+  .protocolo li::before{counter-increment:paso;content:counter(paso);position:absolute;left:.8rem;top:.75rem;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--rosa);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+  .protocolo a{color:var(--rosa);font-weight:700}
+  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
+  .veredicto{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.4rem}
+  .veredicto button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;cursor:pointer;font:inherit}
+  .veredicto button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 10 · Sesión B</div>
+    <h1>Taller de fichas</h1>
+    <p>Tu palabra de campo merece una ficha con rigor de diccionario. Hoy se la haces.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="regla">
+    <strong>La regla de oro del oficio:</strong> la definición nunca usa la palabra que está definiendo. Esta plantilla te lo va a recordar si te descuidas.
+  </div>
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Llena una ficha por cada palabra tuya del trabajo de campo (hoy salen 2 o 3). Genera la captura, cópiala y pégala donde indique el profesor (o mándatela por WhatsApp). Estas fichas son el corpus del mapa léxico: el jueves verificas el origen en el centro de cómputo y subes tu mejor ficha al mapa del grupo.
+  </div>
+
+  <div class="cuaderno regla" style="border-left-color:var(--ciruela)">
+    <strong>Si trabajas en cuaderno:</strong> traza los seis renglones de la ficha (entrada, categoría, definición, ejemplo de uso, quién y dónde, origen probable) y llénalos a mano. Mismo orden que aquí. Marca con un asterisco el origen: queda pendiente de verificar el jueves.
+  </div>
+
+  <h2>Ficha 1</h2>
+  <div class="card">
+    <h3>Tu primera palabra de campo</h3>
+    <label>Entrada (la palabra)</label>
+    <input type="text" data-campo="entrada" placeholder="ej. molote">
+    <label>Categoría</label>
+    <div class="veredicto" data-campo="categoria">
+      <button type="button">Sustantivo</button>
+      <button type="button">Verbo</button>
+      <button type="button">Adjetivo</button>
+      <button type="button">Expresión o dicho</button>
+    </div>
+    <label>Definición (género próximo + diferencia específica)</label>
+    <textarea data-campo="definicion" placeholder="Qué es, dicho para alguien que nunca la ha oído. Sin usar la palabra."></textarea>
+    <label>Ejemplo de uso textual (tal como la dijo quien te la enseñó)</label>
+    <textarea data-campo="ejemplo" placeholder='ej. "Hazte un molote con la cobija."'></textarea>
+    <label>Quién la dice y dónde</label>
+    <input type="text" data-campo="quien" placeholder="ej. mi abuela, en la cocina; se oye en toda la comunidad">
+    <label>Hipótesis de origen (se verifica el jueves)</label>
+    <input type="text" data-campo="origen" placeholder="ej. suena a náhuatl; ni idea, por investigar">
+    <div class="fila-botones">
+      <button class="btn rosa" data-generar>Generar captura</button>
+      <button class="btn gris" data-copiar style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura"></pre>
+    <div class="fb" data-fb></div>
+  </div>
+
+  <h2>Ficha 2</h2>
+  <div class="card">
+    <h3>Tu segunda palabra de campo</h3>
+    <label>Entrada (la palabra)</label>
+    <input type="text" data-campo="entrada" placeholder="la palabra">
+    <label>Categoría</label>
+    <div class="veredicto" data-campo="categoria">
+      <button type="button">Sustantivo</button>
+      <button type="button">Verbo</button>
+      <button type="button">Adjetivo</button>
+      <button type="button">Expresión o dicho</button>
+    </div>
+    <label>Definición (género próximo + diferencia específica)</label>
+    <textarea data-campo="definicion" placeholder="Qué es, dicho para alguien que nunca la ha oído. Sin usar la palabra."></textarea>
+    <label>Ejemplo de uso textual (tal como la dijo quien te la enseñó)</label>
+    <textarea data-campo="ejemplo" placeholder="Entre comillas, con las palabras exactas."></textarea>
+    <label>Quién la dice y dónde</label>
+    <input type="text" data-campo="quien" placeholder="persona y lugar">
+    <label>Hipótesis de origen (se verifica el jueves)</label>
+    <input type="text" data-campo="origen" placeholder="tu mejor hipótesis, o 'por investigar'">
+    <div class="fila-botones">
+      <button class="btn rosa" data-generar>Generar captura</button>
+      <button class="btn gris" data-copiar style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura"></pre>
+    <div class="fb" data-fb></div>
+  </div>
+
+  <h2>La prueba de fuego</h2>
+  <div class="card">
+    <h3>Intercambio en parejas</h3>
+    <p style="font-size:.92rem;margin:.3rem 0 0">Lee la ficha de tu pareja y contesta con honestidad: si tú no conocieras la palabra, ¿con esa definición la entenderías? Marca el estado de cada ficha que revisaste.</p>
+    <label>La ficha que revisé (palabra)</label>
+    <input type="text" data-campo="palabra" placeholder="la palabra de tu pareja">
+    <label>Mi veredicto de lector</label>
+    <div class="veredicto" data-campo="veredicto">
+      <button type="button">La entendería: quedó bien</button>
+      <button type="button">Aún no: hay que ajustar</button>
+    </div>
+    <label>Qué le ajustaría (si aplica)</label>
+    <textarea data-campo="ajuste" placeholder="ej. la definición usa la palabra; el ejemplo no suena a como habla la gente"></textarea>
+    <div class="fila-botones">
+      <button class="btn rosa" data-generar>Generar captura</button>
+      <button class="btn gris" data-copiar style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura"></pre>
+    <div class="fb" data-fb></div>
+  </div>
+
+  <div class="instr">
+    <strong>Última estación.</strong> Junta tus capturas: son el corpus del mapa léxico del grupo. Marca cuáles palabras tienen el origen pendiente de verificar: esas van primero el jueves.
+  </div>
+
+  <footer>Semana 10 · El diccionario lo hacemos nosotros · Este ejercicio es gimnasio: sin nota. La captura solo se guarda si tú la copias y la pegas; al cerrar la página todo se borra.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  document.querySelectorAll('.veredicto').forEach(function(v){
+    v.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){
+        v.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+        b.classList.add('sel');
+      });
+    });
+  });
+
+  document.querySelectorAll('.card').forEach(function(card){
+    var btnG=card.querySelector('[data-generar]');
+    if(!btnG) return;
+    var btnC=card.querySelector('[data-copiar]');
+    var pre=card.querySelector('pre.captura');
+    var fb=card.querySelector('[data-fb]');
+    var esFicha=!!card.querySelector('[data-campo=entrada]');
+
+    btnG.addEventListener('click',function(){
+      var g=function(sel){var el=card.querySelector('[data-campo='+sel+']');return el?el.value.trim():'';};
+
+      if(esFicha){
+        var entrada=g('entrada'),def=g('definicion'),ej=g('ejemplo'),quien=g('quien'),origen=g('origen');
+        var cat=card.querySelector('[data-campo=categoria] .sel');
+        var faltan=[];
+        if(!entrada)faltan.push('la entrada');
+        if(!cat)faltan.push('la categoría');
+        if(!def)faltan.push('la definición');
+        if(!ej)faltan.push('el ejemplo de uso');
+        if(!quien)faltan.push('quién y dónde');
+        if(faltan.length){
+          fb.className='fb no';
+          fb.textContent='Una ficha a medias no salva ninguna palabra. Falta: '+faltan.join(', ')+'.';
+          return;
+        }
+        if(entrada.length>2&&def.toLowerCase().indexOf(entrada.toLowerCase())>-1){
+          fb.className='fb no';
+          fb.textContent='La regla de oro: tu definición usa la palabra "'+entrada+'" adentro. Sácala y descríbela sin nombrarla. Es la trampa clásica del oficio, a todos nos pasa.';
+          return;
+        }
+        fb.className='fb ok';
+        fb.textContent='Ficha lista. Cópiala y pégala donde indique el profesor. El origen se verifica el jueves.';
+        pre.textContent='FICHA LEXICOGRÁFICA · SEMANA 10'
+          +'\nENTRADA: '+entrada+' ('+cat.textContent.toLowerCase()+')'
+          +'\nDEFINICIÓN: '+def
+          +'\nEJEMPLO DE USO: '+ej
+          +'\nQUIÉN Y DÓNDE: '+quien
+          +'\nORIGEN (hipótesis, por verificar): '+(origen||'por investigar');
+      }else{
+        var palabra=g('palabra'),ajuste=g('ajuste');
+        var vSel=card.querySelector('[data-campo=veredicto] .sel');
+        var faltan2=[];
+        if(!palabra)faltan2.push('la palabra revisada');
+        if(!vSel)faltan2.push('tu veredicto de lector');
+        if(faltan2.length){
+          fb.className='fb no';
+          fb.textContent='Falta: '+faltan2.join(', ')+'.';
+          return;
+        }
+        fb.className='fb ok';
+        fb.textContent='Captura lista. Entrégasela a tu pareja: es su control de calidad.';
+        pre.textContent='PRUEBA DE LECTOR · SEMANA 10'
+          +'\nFICHA REVISADA: '+palabra
+          +'\nVEREDICTO: '+vSel.textContent
+          +'\nAJUSTE SUGERIDO: '+(ajuste||'(ninguno)');
+      }
+      pre.style.display='block';
+      btnC.style.display='inline-block';
+    });
+
+    btnC.addEventListener('click',function(){
+      var t=pre.textContent;
+      function listo(){fb.className='fb ok';fb.textContent='Copiado. Ahora pégalo donde indique el profesor, o mándatelo por WhatsApp.';}
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(t).then(listo,function(){seleccionar();});
+      }else{seleccionar();}
+      function seleccionar(){
+        var r=document.createRange();r.selectNodeContents(pre);
+        var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+        fb.className='fb ok';fb.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
+      }
+    });
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

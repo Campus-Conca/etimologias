@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 10 · Ejercicio A · Definir es un oficio</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --pre-bg:#e6f1fb; --pre-tx:#0c447c;
+    --raiz-bg:#fbeaf0; --raiz-tx:#72243e;
+    --suf-bg:#eaf3de; --suf-tx:#27500a;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.25rem}
+  .paso{font-size:.8rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.04em;margin-top:.9rem}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3.2rem;resize:vertical}
+  .piezas{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+  .piezas button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;font-size:1rem;cursor:pointer}
+  .piezas button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .piezas button small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
+  .armado{margin-top:.5rem;min-height:2.2rem;border:1px dashed var(--borde);border-radius:.6rem;padding:.5rem;background:var(--fondo);font-weight:700;color:var(--ciruela)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 10 · Sesión A</div>
+    <h1>Definir es un oficio</h1>
+    <p>El muro está lleno de palabras vivas. Ahora hay que definirlas como se debe.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Tres rondas. En la primera aprendes a distinguir definición, ejemplo de uso y nota de origen: son tres cosas distintas y una ficha necesita las tres, cada una en su lugar. En la segunda operas definiciones enfermas. En la tercera escribes una tuya. Regla de oro del oficio: una definición nunca usa la palabra que está definiendo.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> copia cada línea de la ronda 1 y escríbele al lado D (definición), E (ejemplo) u O (origen). En la ronda 2, copia la definición enferma, anota el diagnóstico y escribe abajo tu versión reparada. En la ronda 3, escribe tu definición y revísala con la regla de oro antes de darla por buena.
+  </div>
+
+  <div class="card">
+    <h3>El instructivo del lexicógrafo</h3>
+    <p style="margin:.3rem 0 0;font-size:.95rem">Una buena definición tiene dos partes: el <strong>género próximo</strong> (la familia grande a la que pertenece la cosa: utensilio, prenda, porción de comida) y la <strong>diferencia específica</strong> (lo que la separa de sus parientes). "Comal: disco plano que se pone al fuego para cocer tortillas". Disco plano es la familia; lo del fuego y las tortillas, lo que lo distingue. Y jamás, bajo ninguna circunstancia, se usa la palabra dentro de su propia definición.</p>
+  </div>
+
+  <h2>Ronda 1 · ¿Definición, ejemplo u origen?</h2>
+  <p style="font-size:.95rem;margin:.3rem 0 0">Tres líneas sobre la palabra <strong>molote</strong>, de la hoja de la semana. Di qué es cada una.</p>
+  <div id="ronda1"></div>
+
+  <h2>Ronda 2 · Cirugía de definiciones</h2>
+  <p style="font-size:.95rem;margin:.3rem 0 0">Estas tres definiciones llegaron enfermas al quirófano. Primero el diagnóstico, luego la reparación.</p>
+  <div id="ronda2"></div>
+
+  <h2>Ronda 3 · Ahora tú</h2>
+  <div class="card">
+    <h3>itacate</h3>
+    <div class="paso">Paso 1 · Escribe la definición</div>
+    <p style="margin:.2rem 0 0;font-size:.92rem">Con género próximo y diferencia específica. Y sin usar la palabra, claro.</p>
+    <textarea placeholder="Itacate: ..."></textarea>
+    <div class="fila-botones"><button class="btn gris" id="r3ej">Compara con un ejemplo</button></div>
+    <div class="fb" id="r3fb"></div>
+  </div>
+
+  <h2>Para cerrar</h2>
+  <div class="card">
+    <p>De todas las palabras que hoy llegaron al muro, ¿cuál es la que más te gustaría salvar del olvido? Escribe cuál y una línea de por qué. La retomamos en la ronda de cierre.</p>
+    <textarea placeholder="La salvaría porque..."></textarea>
+  </div>
+
+  <footer>Semana 10 · El diccionario lo hacemos nosotros · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var OPCIONES=[["def","Definición"],["ej","Ejemplo de uso"],["ori","Nota de origen"]];
+
+  var R1=[
+    {t:'"Hazte un molote con la cobija", dice mi abuela cuando hace frío.',v:"ej",
+     pista:"Esta línea no te explica qué es un molote: te lo muestra en boca de alguien, en una situación real. ¿Cómo se llama eso en la ficha?"},
+    {t:"Bulto o envoltorio que se forma enrollando algo sobre sí mismo.",v:"def",
+     pista:"Fíjate qué hace la línea: responde a alguien que pregunta 'y eso, ¿qué es?'. No cuenta quién la dice ni de dónde viene."},
+    {t:"Del náhuatl molotic, que significa cosa enrollada.",v:"ori",
+     pista:"Esta línea no explica qué significa hoy ni cómo se usa: cuenta de qué lengua viene y qué decía allá. Ese dato tiene su propio renglón en la ficha."}
+  ];
+
+  var R2=[
+    {rota:"Tapanco: el tapanco donde mi tío guarda el maíz.",v:"circular",
+     pista:"Léela en voz alta y cuenta cuántas veces aparece la palabra que se está definiendo. Con una vez ya es demasiado.",
+     buena:"Piso alto de madera, construido bajo el techo, que sirve para almacenar cosas."},
+    {rota:'Apapachar: "ven, deja que te apapache", como dice mi mamá.',v:"ejemplo",
+     pista:"Pregúntate: ¿esto me explica qué significa la palabra, o solo me la muestra dicha por alguien? Son cosas distintas y las dos caben en la ficha, pero en renglones diferentes.",
+     buena:"Abrazar o mimar a alguien con ternura."},
+    {rota:"Comal: una cosa que hay en la cocina.",v:"vaga",
+     pista:'"Una cosa que hay en la cocina" también le queda a la olla, a la cuchara y al trapo. ¿Qué le falta a esta definición para separar al comal de sus vecinos?',
+     buena:"Disco plano, de barro o de metal, que se pone al fuego para cocer tortillas y tostar alimentos."}
+  ];
+
+  var DIAG=[
+    ["circular","Usa la palabra dentro de su propia definición"],
+    ["ejemplo","Es un ejemplo de uso disfrazado de definición"],
+    ["vaga","Es tan vaga que no distingue: le falta la diferencia específica"]
+  ];
+
+  function grupo(zona,opciones){
+    var sel={b:null};
+    opciones.forEach(function(op){
+      var b=document.createElement('button');
+      b.textContent=op[1];b.dataset.v=op[0];
+      b.addEventListener('click',function(){
+        zona.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+        b.classList.add('sel');sel.b=b;
+      });
+      zona.appendChild(b);
+    });
+    return sel;
+  }
+
+  // Ronda 1
+  var c1=document.getElementById('ronda1');
+  R1.forEach(function(item,i){
+    var card=document.createElement('div');card.className='card';
+    card.innerHTML='<h3>Línea '+(i+1)+'</h3>'
+      +'<p style="margin:.3rem 0 0">'+item.t+'</p>'
+      +'<div class="piezas" data-ops></div>'
+      +'<div class="fila-botones"><button class="btn rosa" data-check>Revisar</button></div>'
+      +'<div class="fb" data-fb></div>';
+    c1.appendChild(card);
+    var sel=grupo(card.querySelector('[data-ops]'),OPCIONES);
+    card.querySelector('[data-check]').addEventListener('click',function(){
+      var fb=card.querySelector('[data-fb]');
+      if(!sel.b){fb.className='fb no';fb.textContent='Elige primero una de las tres etiquetas.';return;}
+      if(sel.b.dataset.v===item.v){
+        fb.className='fb ok';
+        fb.textContent='Bien. Cada dato en su renglón: así se arma una ficha que no se cae.';
+      }else{
+        fb.className='fb no';
+        fb.textContent='Aún no. Pista: '+item.pista;
+      }
+    });
+  });
+
+  // Ronda 2
+  var c2=document.getElementById('ronda2');
+  R2.forEach(function(item,i){
+    var card=document.createElement('div');card.className='card';
+    card.innerHTML='<h3>Paciente '+(i+1)+'</h3>'
+      +'<p style="margin:.3rem 0 0;font-style:italic">'+item.rota+'</p>'
+      +'<div class="paso">Paso 1 · Diagnóstico: ¿qué tiene mal?</div>'
+      +'<div class="piezas" data-ops></div>'
+      +'<div class="fila-botones"><button class="btn rosa" data-check>Revisar diagnóstico</button></div>'
+      +'<div class="fb" data-fb></div>'
+      +'<div class="paso">Paso 2 · Repárala</div>'
+      +'<textarea placeholder="Escribe la definición ya sana."></textarea>'
+      +'<div class="fila-botones"><button class="btn gris" data-ej>Compara con un ejemplo</button></div>'
+      +'<div class="fb" data-fbej></div>';
+    c2.appendChild(card);
+    var sel=grupo(card.querySelector('[data-ops]'),DIAG);
+    card.querySelector('[data-check]').addEventListener('click',function(){
+      var fb=card.querySelector('[data-fb]');
+      if(!sel.b){fb.className='fb no';fb.textContent='Elige primero un diagnóstico.';return;}
+      if(sel.b.dataset.v===item.v){
+        fb.className='fb ok';
+        fb.textContent='Diagnóstico correcto. Ahora pasa al paso 2 y opérala.';
+      }else{
+        fb.className='fb no';
+        fb.textContent='Aún no. Pista: '+item.pista;
+      }
+    });
+    card.querySelector('[data-ej]').addEventListener('click',function(){
+      var fb=card.querySelector('[data-fbej]');
+      fb.className='fb ej';
+      fb.innerHTML='<strong>Una reparación posible:</strong> '+item.buena+' La tuya puede decirlo con otras palabras: lo que importa es que explique qué es y qué la distingue, sin usar la palabra definida.';
+    });
+  });
+
+  // Ronda 3
+  document.getElementById('r3ej').addEventListener('click',function(){
+    var card=this.closest('.card');
+    var texto=card.querySelector('textarea').value.trim();
+    var fb=document.getElementById('r3fb');
+    if(!texto){fb.className='fb no';fb.textContent='Escribe primero tu definición. Luego comparas.';return;}
+    if(texto.toLowerCase().indexOf('itacate')>-1){
+      fb.className='fb no';
+      fb.textContent='Alto ahí: la palabra que estás definiendo se coló dentro de tu definición. Es la trampa clásica del oficio. Sácala y vuelve a intentar.';
+      return;
+    }
+    fb.className='fb ej';
+    fb.innerHTML='<strong>Un ejemplo:</strong> porción de comida que se prepara para que alguien se la lleve al salir de visita o de viaje. Género próximo: porción de comida. Diferencia específica: que se prepara para llevar. La tuya puede decirlo distinto y funcionar igual de bien.';
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

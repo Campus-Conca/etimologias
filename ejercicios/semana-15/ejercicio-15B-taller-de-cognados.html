@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 15 · Ejercicio B · Taller de cognados</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.25rem}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3.2rem;resize:vertical}
+  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
+  .conv{border-top:1px solid var(--borde);padding-top:.8rem;margin-top:.8rem}
+  .conv:first-of-type{border-top:none;padding-top:0;margin-top:.4rem}
+  .conv .eng{font-weight:800;color:var(--ciruela);font-size:1.1rem}
+  .opciones{display:flex;flex-direction:column;gap:.5rem;margin-top:.6rem}
+  .opciones button{padding:.6rem .9rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font:inherit;font-weight:700;cursor:pointer;text-align:left}
+  .opciones button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  table{width:100%;border-collapse:collapse;margin-top:.5rem;font-size:.95rem}
+  th,td{border:1px solid var(--borde);padding:.45rem .6rem;text-align:left}
+  th{background:var(--fondo);color:var(--ciruela)}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 15 · Sesión B</div>
+    <h1>Taller de cognados</h1>
+    <p>La misma álgebra de siempre, con sufijos ingleses. Y un cartel para las trampas.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Dos tareas, como en el taller por equipos. Tarea 1: convierte cada palabra inglesa al español con su patrón de cognado y revisa. Tarea 2: arma el cartel de falsos amigos, eligiendo para cada trampa su significado real. Cierra fabricando tarjetas y eligiendo a tu traicionero.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> para la tarea 1, dos columnas: palabra inglesa y su cognado en español, con el patrón anotado al lado. Para el cartel, tabla de tres columnas: falso amigo, lo que parece, lo que de verdad significa.
+  </div>
+
+  <div class="regla">
+    <strong>Los patrones:</strong> -tion → -ción · -ity → -idad · -ous → -oso · -y → -ía · -ly → -mente. Con estos cinco conviertes cientos de palabras al vuelo.
+  </div>
+
+  <h2>Tarea 1 · La fábrica de conversiones</h2>
+  <div class="card">
+    <p style="margin:0;font-size:.92rem">Escribe el cognado en español. Con tilde donde va: el patrón también trae su acento.</p>
+    <div id="convZona"></div>
+  </div>
+
+  <h2>Tarea 2 · El cartel de falsos amigos</h2>
+  <div class="card">
+    <p style="margin:0;font-size:.92rem">Ocho trampas para el cartel del grupo. En cada una, elige lo que la palabra significa de verdad. Recuerda la regla: si se parece demasiado y el sentido no cuadra, sospecha y verifica.</p>
+    <div id="falsosZona"></div>
+  </div>
+
+  <h2>Fábrica de tarjetas</h2>
+  <div class="card">
+    <p style="margin:0 0 .2rem;font-size:.95rem">Al mazo, con el estándar de siempre. Frente y reverso así:</p>
+    <table>
+      <tr><th>Frente</th><th>Reverso</th></tr>
+      <tr><td>-tion → -ción</td><td>function → función</td></tr>
+      <tr><td>-ity → -idad</td><td>university → universidad</td></tr>
+      <tr><td>library (falso amigo)</td><td>biblioteca, no librería</td></tr>
+      <tr><td>actually (falso amigo)</td><td>en realidad, no actualmente</td></tr>
+    </table>
+    <p style="font-size:.92rem">Agrega los patrones que te falten y los dos falsos amigos que más te hayan sorprendido hoy.</p>
+  </div>
+
+  <h2>Para cerrar</h2>
+  <div class="card">
+    <p>El falso amigo más traicionero de tu equipo, y por qué engaña tanto. Se entrega al cierre: es insumo del jueves.</p>
+    <textarea placeholder="Nuestro traicionero es... porque parece... pero significa..."></textarea>
+  </div>
+
+  <footer>Semana 15 · Mis raíces hablan inglés · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  function norm(s){return s.toLowerCase().trim().normalize('NFD').replace(/[̀-ͯ]/g,'');}
+  function baraja(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+  // Tarea 1: [inglés, español correcto, pista de patrón]
+  var CONV=[
+    ["observation","observación","el patrón aquí es -tion, y -tion se vuelve -ción"],
+    ["curiosity","curiosidad","el patrón aquí es -ity, y -ity se vuelve -idad"],
+    ["mysterious","misterioso","el patrón aquí es -ous, y -ous se vuelve -oso (la y griega se escribe i)"],
+    ["geology","geología","el patrón aquí es -y, y -y se vuelve -ía"],
+    ["naturally","naturalmente","el patrón aquí es -ly, y -ly se vuelve -mente"],
+    ["electricity","electricidad","el patrón aquí es -ity, y -ity se vuelve -idad"],
+    ["generous","generoso","el patrón aquí es -ous, y -ous se vuelve -oso"],
+    ["celebration","celebración","el patrón aquí es -tion, y -tion se vuelve -ción"]
+  ];
+
+  var zc=document.getElementById('convZona');
+  CONV.forEach(function(c){
+    var d=document.createElement('div');d.className='conv';
+    d.innerHTML='<div class="eng">'+c[0]+'</div>'
+      +'<input type="text" placeholder="Su cognado en español" autocomplete="off" autocapitalize="off">'
+      +'<div class="fila-botones"><button class="btn rosa" type="button">Revisar</button></div>'
+      +'<div class="fb"></div>';
+    zc.appendChild(d);
+    var inp=d.querySelector('input'),fb=d.querySelector('.fb');
+    d.querySelector('button').addEventListener('click',function(){
+      var v=inp.value.trim();
+      if(!v){fb.className='fb no';fb.textContent='Escribe primero tu conversión.';return;}
+      if(v.toLowerCase()===c[1]){
+        fb.className='fb ok';fb.textContent='Bien: '+c[1]+'. Patrón aplicado sin despeinarte.';
+      }else if(norm(v)===norm(c[1])){
+        fb.className='fb ok';fb.textContent='Bien: la palabra es esa, solo cuida la tilde: '+c[1]+'.';
+      }else{
+        fb.className='fb no';fb.textContent='Aún no. Pista: '+c[2]+'. Convierte el final y deja la raíz casi igual.';
+      }
+    });
+  });
+
+  // Tarea 2: [falso amigo, significado real, trampa, distractor, pista, remate]
+  var FALSOS=[
+    ["library","biblioteca","librería","libreta","la trampa es la opción que casi se escribe igual; la tienda de libros, en inglés, es bookstore","biblioteca, no librería (esa es bookstore)."],
+    ["actually","en realidad","actualmente","rápidamente","sospecha de la que se parece demasiado; para decir actualmente, el inglés usa currently","en realidad, no actualmente (eso es currently)."],
+    ["sensible","sensato","sensible (que se conmueve)","elegante","en inglés, quien se conmueve fácil es sensitive; entonces, ¿qué le queda a sensible?","sensato, no sensible (eso es sensitive)."],
+    ["carpet","alfombra","carpeta","cortina","la trampa suena a útil escolar; esta cosa vive en el piso","alfombra, no carpeta (esa es folder)."],
+    ["embarrassed","avergonzado","embarazada","cansado","esta trampa ha causado anécdotas legendarias; piensa en cómo te sientes al equivocarte en público","avergonzado, no embarazada (eso es pregnant)."],
+    ["exit","salida","éxito","examen","la ves en letreros verdes arriba de las puertas; el éxito, en inglés, es success","salida, no éxito (eso es success)."],
+    ["fabric","tela","fábrica","herramienta","la trampa es el edificio industrial; este material se corta y se cose","tela, no fábrica (esa es factory)."],
+    ["parents","padres","parientes","primos","la trampa es la palabra más amplia; estas son solo dos personas","padres, no parientes (esos son relatives)."]
+  ];
+
+  var zf=document.getElementById('falsosZona');
+  FALSOS.forEach(function(f){
+    var d=document.createElement('div');d.className='conv';
+    d.innerHTML='<div class="eng">'+f[0]+'</div>'
+      +'<p style="margin:.2rem 0 0;font-size:.9rem">¿Qué significa de verdad?</p>'
+      +'<div class="opciones"></div>'
+      +'<div class="fila-botones"><button class="btn rosa" type="button">Revisar</button></div>'
+      +'<div class="fb"></div>';
+    zf.appendChild(d);
+    var ops=d.querySelector('.opciones'),fb=d.querySelector('.fb'),sel=null;
+    baraja([[f[1],true],[f[2],false],[f[3],false]]).forEach(function(op){
+      var b=document.createElement('button');b.type='button';
+      b.textContent=op[0];b.dataset.buena=op[1]?'1':'0';
+      b.addEventListener('click',function(){
+        ops.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+        b.classList.add('sel');sel=b;
+      });
+      ops.appendChild(b);
+    });
+    d.querySelector('.fila-botones button').addEventListener('click',function(){
+      if(!sel){fb.className='fb no';fb.textContent='Elige primero una opción.';return;}
+      if(sel.dataset.buena==='1'){
+        fb.className='fb ok';fb.textContent='Bien: '+f[0]+' es '+f[5]+' Al cartel.';
+      }else{
+        fb.className='fb no';fb.textContent='Aún no. Pista: '+f[4]+'.';
+      }
+    });
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

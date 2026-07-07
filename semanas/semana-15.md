@@ -32,6 +32,15 @@ Con el patrón conviertes cientos de palabras al vuelo. Es la misma álgebra, co
 
 ---
 
+## El gimnasio de la semana
+
+Los ejercicios de esta semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
+
+- [El abstract imposible](../ejercicios/semana-15/ejercicio-15A-el-abstract-imposible.html) · martes
+- [Taller de cognados](../ejercicios/semana-15/ejercicio-15B-taller-de-cognados.html) · miércoles
+- [Lee lo tuyo](../ejercicios/semana-15/ejercicio-15C-lee-lo-tuyo.html) · jueves, centro de cómputo
+- [Quiz de gimnasio](../ejercicios/semana-15/quiz-gimnasio-semana-15.html) · para ensayar cuando quieras
+
 ## Hoja de consulta
 
 Toca una palabra inglesa y crúzala al español por su raíz. Luego prueba los falsos amigos: esos engañan.

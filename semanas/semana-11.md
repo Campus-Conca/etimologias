@@ -27,6 +27,16 @@ Hay historias preciosas sobre el origen de las palabras que son mentira, y circu
 
 ---
 
+## El gimnasio de la semana
+
+Los ejercicios de esta semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
+
+- [Cacería guiada](../ejercicios/semana-11/ejercicio-11A-caceria-guiada.html) · martes
+- [El expediente de mitos](../ejercicios/semana-11/ejercicio-11B-expediente-de-mitos.html) · miércoles
+- [El gran tribunal de los mitos](../ejercicios/semana-11/ejercicio-11C-gran-tribunal.html) · jueves, centro de cómputo
+- [La palabra con leyenda](../ejercicios/semana-11/ejercicio-11D-la-palabra-con-leyenda.html) · viernes
+- [Quiz de gimnasio](../ejercicios/semana-11/quiz-gimnasio-semana-11.html) · para ensayar cuando quieras
+
 ## Hoja de consulta
 
 Adivina primero, revela después. ¿Cuál de estas historias es verdad?

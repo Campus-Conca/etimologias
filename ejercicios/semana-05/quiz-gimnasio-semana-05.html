@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 5 · Quiz de gimnasio</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .4rem;color:var(--rosa);font-size:1.1rem}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3.2rem;resize:vertical}
+  .opciones,.piezas,.calib{display:flex;flex-direction:column;gap:.5rem;margin-top:.6rem}
+  .piezas,.calib{flex-direction:row;flex-wrap:wrap}
+  .opciones button,.piezas button,.calib button{padding:.6rem .9rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font:inherit;font-weight:700;cursor:pointer;text-align:left}
+  .piezas button small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
+  .opciones button.sel,.piezas button.sel,.calib button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .paso{font-size:.8rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.04em;margin-top:.9rem}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .marca{display:flex;gap:.5rem;margin-top:.6rem}
+  .marca button{flex:1;padding:.5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
+  .marca button.sel-ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
+  .marca button.sel-no{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 5 · Gimnasio</div>
+    <h1>Quiz de gimnasio</h1>
+    <p>Práctica libre, sin nota y sin registro. Parecido al quiz de la sesión D, pero con otros reactivos: aquí se entrena, no se compite.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Primero calibra: predice cuántos de los 3 reactivos tendrás bien. Luego resuélvelos. Al final comparas predicción contra resultado, en clave "bien / aún no". Acertar tu predicción vale tanto como acertar los reactivos.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> escribe tu predicción (0 a 3), resuelve los tres reactivos a mano y al final compárate: predicción contra resultado. Mismo juego, otra superficie.
+  </div>
+
+  <h2>Paso 0 · Calibra</h2>
+  <div class="card">
+    <p style="margin:0 0 .2rem">Antes de ver los reactivos: ¿cuántos de los 3 crees que tendrás bien?</p>
+    <div class="calib" id="calib">
+      <button>0</button><button>1</button><button>2</button><button>3</button>
+    </div>
+    <div class="fb" id="fbCalib"></div>
+  </div>
+
+  <h2>Reactivo 1 · Tres raíces sueltas</h2>
+  <div class="card">
+    <h3>¿Qué significa cada raíz?</h3>
+    <div id="r1zona"></div>
+    <div class="fila-botones"><button class="btn rosa" id="r1check">Revisar</button></div>
+    <div class="fb" id="r1fb"></div>
+  </div>
+
+  <h2>Reactivo 2 · La familia completa</h2>
+  <div class="card">
+    <h3>tele- (lejos)</h3>
+    <p style="margin:0;font-size:.92rem">Escribe 4 palabras reales de su familia. Sin repetir.</p>
+    <input type="text" data-r2 placeholder="Palabra 1">
+    <input type="text" data-r2 placeholder="Palabra 2">
+    <input type="text" data-r2 placeholder="Palabra 3">
+    <input type="text" data-r2 placeholder="Palabra 4">
+    <div class="fila-botones"><button class="btn rosa" id="r2check">Revisar</button></div>
+    <div class="fb" id="r2fb"></div>
+  </div>
+
+  <h2>Reactivo 3 · Descompón la palabra</h2>
+  <div class="card">
+    <h3>geografía</h3>
+    <p style="margin:0;font-size:.92rem">Toca las piezas que la forman. Toca de nuevo para quitar.</p>
+    <div class="piezas" id="r3piezas"></div>
+    <div class="fila-botones"><button class="btn rosa" id="r3check">Revisar</button></div>
+    <div class="fb" id="r3fb"></div>
+  </div>
+
+  <h2>Cierre · ¿Cómo calibraste?</h2>
+  <div class="card">
+    <div class="fila-botones"><button class="btn rosa" id="btnCierre">Ver mi resultado</button></div>
+    <div class="fb" id="fbCierre"></div>
+  </div>
+
+  <footer>Semana 5 · Una raíz, veinte palabras · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página. Lo que quede en "aún no" se reintenta cuando quieras: cuenta tu versión más reciente, no el promedio.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var estado={calib:null,r1:null,r2:null,r3:null};
+
+  function baraja(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+  function norm(s){return s.toLowerCase().trim().normalize('NFD').replace(/[̀-ͯ]/g,'');}
+
+  // Paso 0
+  var calib=document.getElementById('calib');
+  calib.querySelectorAll('button').forEach(function(b,i){
+    b.addEventListener('click',function(){
+      calib.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+      b.classList.add('sel');estado.calib=i;
+      var fb=document.getElementById('fbCalib');
+      fb.className='fb ej';
+      fb.textContent='Anotado. Al final comparas tu predicción con tu resultado: saber cuánto sabes también es la materia.';
+    });
+  });
+
+  // R1: significado de tres raíces
+  var R1=[
+    {raiz:'fono-',ops:[['sonido',true],['luz',false],['lejos',false],['tiempo',false]],pista:'piensa en lo que capta un micrófono.'},
+    {raiz:'crono-',ops:[['tiempo',true],['medir',false],['escribir',false],['vida',false]],pista:'piensa en qué corre cuando arrancas un cronómetro.'},
+    {raiz:'-scopio',ops:[['observar',true],['calor',false],['poder',false],['estudio',false]],pista:'piensa en para qué acercas el ojo a un microscopio.'}
+  ];
+  var z1=document.getElementById('r1zona');
+  R1.forEach(function(item,idx){
+    var p=document.createElement('div');p.className='paso';p.textContent=item.raiz;
+    z1.appendChild(p);
+    var ops=document.createElement('div');ops.className='opciones';ops.dataset.idx=idx;
+    baraja(item.ops).forEach(function(op){
+      var b=document.createElement('button');
+      b.textContent=op[0];b.dataset.buena=op[1]?'1':'0';
+      b.addEventListener('click',function(){
+        ops.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+        b.classList.add('sel');
+      });
+      ops.appendChild(b);
+    });
+    z1.appendChild(ops);
+  });
+  document.getElementById('r1check').addEventListener('click',function(){
+    var fb=document.getElementById('r1fb');
+    var grupos=z1.querySelectorAll('.opciones');
+    var sinElegir=[],mal=[];
+    grupos.forEach(function(g){
+      var sel=g.querySelector('button.sel');
+      var raiz=R1[+g.dataset.idx].raiz;
+      if(!sel)sinElegir.push(raiz);
+      else if(sel.dataset.buena!=='1')mal.push(+g.dataset.idx);
+    });
+    if(sinElegir.length){fb.className='fb no';fb.textContent='Te falta elegir en: '+sinElegir.join(', ')+'.';return;}
+    if(!mal.length){
+      estado.r1='bien';fb.className='fb ok';
+      fb.textContent='Bien: fono (sonido), crono (tiempo), scopio (observar). Tres llaves más en el llavero.';
+    }else{
+      estado.r1='aun';fb.className='fb no';
+      fb.innerHTML='Aún no. '+mal.map(function(i){return 'Pista para '+R1[i].raiz+': '+R1[i].pista;}).join('<br>');
+    }
+  });
+
+  // R2: cuatro de la familia de tele-
+  var BANCO=['teléfono','telefonía','telefonista','televisión','televisor','televidente','telescopio','telescópico','telegrama','telégrafo','telegrafista','telepatía','telepático','teletrabajo','telecomunicación','telecomunicaciones','teledirigido','telenovela','telesilla','teleférico','telemetría','telediario','telerrealidad','teletransportación','teletransporte','telémetro','teleobjetivo','telequinesis'];
+  var BANCON=BANCO.map(norm);
+  document.getElementById('r2check').addEventListener('click',function(){
+    var fb=document.getElementById('r2fb');
+    var vals=[];
+    document.querySelectorAll('[data-r2]').forEach(function(inp){
+      var v=inp.value.trim();
+      if(v)vals.push(v);
+    });
+    if(vals.length<4){fb.className='fb no';fb.textContent='Van '+vals.length+' de 4. La familia de tele- da para eso y más.';return;}
+    var vistos=[],repetidas=[],sinRaiz=[],dudosas=[],buenas=[];
+    vals.forEach(function(v){
+      var n=norm(v);
+      if(vistos.indexOf(n)>-1){repetidas.push(v);return;}
+      vistos.push(n);
+      if(n.indexOf('tele')!==0){sinRaiz.push(v);}
+      else if(BANCON.indexOf(n)>-1){buenas.push(v);}
+      else{dudosas.push(v);}
+    });
+    if(buenas.length>=4){
+      estado.r2='bien';fb.className='fb ok';
+      fb.textContent='Bien: '+buenas.join(', ')+'. Cuatro palabras que no estudiaste una por una: la raíz te las regaló.';
+      return;
+    }
+    estado.r2='aun';fb.className='fb no';
+    var msj='Aún no. ';
+    if(repetidas.length)msj+='Repetiste: '+repetidas.join(', ')+' (en la cadena, repetir te saca de la ronda). ';
+    if(sinRaiz.length)msj+='Estas no traen la raíz al frente: '+sinRaiz.join(', ')+'. ';
+    if(dudosas.length)msj+='Estas no están en mi lista: '+dudosas.join(', ')+'. Podrían existir: verifícalas en el DECEL y, si sobreviven, cuéntatelas. ';
+    msj+='Pista: piensa en aparatos y actividades que acercan lo lejano (verlo, oírlo, mandarlo, moverlo).';
+    fb.textContent=msj;
+  });
+
+  // R3: descomponer geografía
+  var R3=[['geo','tierra',true],['grafía','escribir, dibujar',true],['tele-','lejos',false],['-logía','estudio',false],['foto-','luz',false]];
+  var z3=document.getElementById('r3piezas'),sel3=[];
+  baraja(R3).forEach(function(pz){
+    var b=document.createElement('button');
+    b.innerHTML=pz[0]+'<small>'+pz[1]+'</small>';b.dataset.buena=pz[2]?'1':'0';
+    b.addEventListener('click',function(){
+      var i=sel3.indexOf(b);
+      if(i>-1){sel3.splice(i,1);b.classList.remove('sel');}else{sel3.push(b);b.classList.add('sel');}
+    });
+    z3.appendChild(b);
+  });
+  document.getElementById('r3check').addEventListener('click',function(){
+    var fb=document.getElementById('r3fb');
+    if(!sel3.length){fb.className='fb no';fb.textContent='Toca primero las piezas que propones.';return;}
+    var aciertos=sel3.filter(function(x){return x.dataset.buena==='1';}).length;
+    var intrusas=sel3.length-aciertos;
+    if(aciertos===2&&intrusas===0){
+      estado.r3='bien';fb.className='fb ok';
+      fb.innerHTML='Bien: geo (tierra) + grafía (escribir, dibujar) = descripción o dibujo de la Tierra.';
+    }else{
+      estado.r3='aun';fb.className='fb no';
+      fb.textContent='Aún no. Pista: son exactamente 2 piezas. Una nombra al planeta y la otra la conoces desde el árbol de las nueve palabras.';
+    }
+  });
+
+  // Cierre
+  document.getElementById('btnCierre').addEventListener('click',function(){
+    var fb=document.getElementById('fbCierre');
+    var pend=[];
+    if(estado.calib===null)pend.push('la calibración del paso 0');
+    if(!estado.r1)pend.push('el reactivo 1');
+    if(!estado.r2)pend.push('el reactivo 2');
+    if(!estado.r3)pend.push('el reactivo 3');
+    if(pend.length){
+      fb.className='fb no';
+      fb.textContent='Todavía falta: '+pend.join(', ')+'.';
+      return;
+    }
+    var bien=[estado.r1,estado.r2,estado.r3].filter(function(x){return x==='bien';}).length;
+    var lista='Reactivo 1: '+(estado.r1==='bien'?'bien':'aún no')+' · Reactivo 2: '+(estado.r2==='bien'?'bien':'aún no')+' · Reactivo 3: '+(estado.r3==='bien'?'bien':'aún no');
+    var msj;
+    if(estado.calib===bien)msj='Calibración exacta: predijiste '+estado.calib+' y tuviste '+bien+'. Eso, en este curso, vale tanto como los aciertos.';
+    else if(estado.calib>bien)msj='Predijiste '+estado.calib+' y tuviste '+bien+'. La brecha es el dato, no la culpa: ya sabes qué reactivo reintentar.';
+    else msj='Predijiste '+estado.calib+' y tuviste '+bien+'. Sabes más de lo que crees: ajusta tu medidor interno hacia arriba.';
+    fb.className='fb ok';
+    fb.innerHTML=lista+'<br><br>'+msj+'<br><br>Lo que quedó en "aún no" se reintenta cuando quieras: recarga la página y vuelve a entrar.';
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

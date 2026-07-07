@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 14 · Ejercicio B · Taller de locuciones</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.25rem;font-style:italic}
+  .paso{font-size:.8rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.04em;margin-top:.9rem}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3rem;resize:vertical}
+  .opciones{display:flex;flex-direction:column;gap:.5rem;margin-top:.5rem}
+  .opciones button{padding:.6rem .9rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font:inherit;font-weight:700;cursor:pointer;text-align:left}
+  .opciones button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 14 · Sesión B</div>
+    <h1>Taller de locuciones</h1>
+    <p>Seis frases latinas pasan por tus manos: significado, oración propia y error fichado. De aquí salen las tarjetas del mazo.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Para cada locución: (1) elige su significado y revísalo; (2) escribe una oración donde la uses bien, en un contexto de tu vida (un chat, una queja, una promesa); (3) ficha el error a evitar. Al final de cada una, genera la tarjeta y cópiala: frente y reverso listos para la fábrica de tarjetas del mazo.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> por cada locución escribe tres renglones: significado, tu oración y el error a evitar. Luego pásala a tarjeta física: frente con la locución, reverso con significado + tu oración.
+  </div>
+
+  <div id="lista"></div>
+
+  <div class="instr">
+    <strong>Última estación.</strong> Elige la oración de tu equipo que mejor suene y entrégala al cierre: es insumo del jueves y de la vitrina de la web.
+  </div>
+
+  <footer>Semana 14 · La letra chiquita · Este ejercicio es gimnasio: sin nota. La tarjeta solo se guarda si tú la copias y la pegas; al cerrar la página todo se borra.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var LOCS=[
+    {loc:"motu proprio",
+     sig:"por voluntad propia, sin que nadie te lo pida",
+     ops:["por voluntad propia, sin que nadie te lo pida","en el acto, inmediatamente","a grandes rasgos, sin detalle"],
+     buena:0,
+     pista:"Tradúcela literal: 'por movimiento propio'. ¿Quién mueve la acción?",
+     ejemplo:"Ordené mi cuarto motu proprio, que conste.",
+     error:"El error fichado: 'de motu propio'. Sobra el 'de' y es proprio, con dos erres. Lo dice casi todo el mundo; tú ya no."},
+    {loc:"grosso modo",
+     sig:"a grandes rasgos, sin detalle",
+     ops:["a grandes rasgos, sin detalle","de hecho, en la práctica","hecho a propósito para esto"],
+     buena:0,
+     pista:"Piensa en 'grueso': explicar algo en trazos gruesos, sin fino.",
+     ejemplo:"Grosso modo, el proyecto es esto: juntar firmas y llevarlas a la dirección.",
+     error:"El error fichado: 'a grosso modo'. Sobra la 'a': la locución ya la trae por dentro."},
+    {loc:"habeas corpus",
+     sig:"derecho a no ser detenido sin justificación",
+     ops:["derecho a no ser detenido sin justificación","el estado actual de las cosas","antes de comprobarlo, de entrada"],
+     buena:0,
+     pista:"Literal: 'que tengas el cuerpo'. ¿Quién debe mostrar el cuerpo de un detenido y justificar por qué lo tiene?",
+     ejemplo:"El abogado pidió un habeas corpus esa misma noche y a las dos horas lo soltaron.",
+     error:"Aquí el error no es de forma sino de significado: no es cualquier trámite legal. Es el derecho concreto a que nadie te tenga detenido sin causa."},
+    {loc:"de facto",
+     sig:"de hecho, en la práctica (aunque la ley diga otra cosa)",
+     ops:["de hecho, en la práctica (aunque la ley diga otra cosa)","por sí mismo","en el momento justo del hecho"],
+     buena:0,
+     pista:"Su pareja es 'de iure', de derecho. Esta es la otra mitad: lo que pasa en la realidad.",
+     ejemplo:"Nadie la nombró, pero es la capitana de facto del equipo.",
+     error:"El error fichado: confundirla con de iure. De facto es la práctica; de iure, el papel. El par existe justo para cuando no coinciden."},
+    {loc:"statu quo",
+     sig:"el estado actual de las cosas",
+     ops:["el estado actual de las cosas","aprovecha el día","en el acto, inmediatamente"],
+     buena:0,
+     pista:"Es lo que defiende quien no quiere que nada cambie.",
+     ejemplo:"Propuse rotar los lugares del salón y medio grupo defendió el statu quo.",
+     error:"El error fichado: 'status quo', con ese final. En español la norma es statu quo. La versión con ese nos llegó rebotada del inglés."},
+    {loc:"ipso facto",
+     sig:"en el acto, inmediatamente",
+     ops:["en el acto, inmediatamente","a grandes rasgos, sin detalle","por voluntad propia, sin que nadie te lo pida"],
+     buena:0,
+     pista:"Literal: 'por el hecho mismo'. Sin pausa entre el hecho y la consecuencia.",
+     ejemplo:"Dijeron 'hay pizza' y aparecí ipso facto.",
+     error:"El error fichado es de significado: no quiere decir 'por lo tanto'. Quiere decir inmediatamente, en el acto."}
+  ];
+
+  function baraja(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+  var cont=document.getElementById('lista');
+
+  LOCS.forEach(function(L,idx){
+    var card=document.createElement('div');card.className='card';
+    card.innerHTML='<h3>'+L.loc+'</h3>'
+      +'<div class="paso">Paso 1 · ¿Qué significa?</div>'
+      +'<div class="opciones" data-ops></div>'
+      +'<div class="fila-botones"><button class="btn rosa" data-check>Revisar</button></div>'
+      +'<div class="fb" data-fb1></div>'
+      +'<div class="paso">Paso 2 · Tu oración (úsala bien, en tu mundo)</div>'
+      +'<textarea data-oracion placeholder="Un chat, una queja, una promesa: donde tú la dirías."></textarea>'
+      +'<div class="fila-botones"><button class="btn gris" data-ej>Compara con un ejemplo</button></div>'
+      +'<div class="fb" data-fb2></div>'
+      +'<div class="paso">Paso 3 · El error a evitar</div>'
+      +'<input type="text" data-error placeholder="¿Cómo la dice mal la gente? Escríbelo para tenerlo fichado.">'
+      +'<div class="fila-botones"><button class="btn gris" data-ficha>Compara con la ficha</button></div>'
+      +'<div class="fb" data-fb3></div>'
+      +'<div class="paso">Paso 4 · La tarjeta</div>'
+      +'<div class="fila-botones">'
+      +'<button class="btn rosa" data-generar>Generar tarjeta</button>'
+      +'<button class="btn gris" data-copiar style="display:none">Copiar al portapapeles</button>'
+      +'</div>'
+      +'<pre class="captura"></pre>'
+      +'<div class="fb" data-fb4></div>';
+    cont.appendChild(card);
+
+    var ops=card.querySelector('[data-ops]');
+    var sel=null,revisadoOk=false;
+    var mezcla=baraja(L.ops.map(function(t,i){return [t,i===L.buena];}));
+    mezcla.forEach(function(op){
+      var b=document.createElement('button');
+      b.type='button';b.textContent=op[0];b.dataset.buena=op[1]?'1':'0';
+      b.addEventListener('click',function(){
+        ops.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+        b.classList.add('sel');sel=b;
+        card.querySelector('[data-fb1]').className='fb';
+      });
+      ops.appendChild(b);
+    });
+
+    card.querySelector('[data-check]').addEventListener('click',function(){
+      var fb=card.querySelector('[data-fb1]');
+      if(!sel){fb.className='fb no';fb.textContent='Elige primero un significado.';return;}
+      if(sel.dataset.buena==='1'){
+        revisadoOk=true;
+        fb.className='fb ok';
+        fb.textContent='Bien. Ese es el significado que va al reverso de la tarjeta.';
+      }else{
+        fb.className='fb no';
+        fb.textContent='Aún no. Pista: '+L.pista;
+      }
+    });
+
+    card.querySelector('[data-ej]').addEventListener('click',function(){
+      var fb=card.querySelector('[data-fb2]');
+      fb.className='fb ej';
+      fb.innerHTML='<strong>Un ejemplo:</strong> '+L.ejemplo+' La tuya puede decirlo distinto: lo que importa es que la locución encaje sin forzarla.';
+    });
+
+    card.querySelector('[data-ficha]').addEventListener('click',function(){
+      var fb=card.querySelector('[data-fb3]');
+      fb.className='fb ej';
+      fb.textContent=L.error;
+    });
+
+    var btnC=card.querySelector('[data-copiar]');
+    var pre=card.querySelector('pre.captura');
+    var fb4=card.querySelector('[data-fb4]');
+
+    card.querySelector('[data-generar]').addEventListener('click',function(){
+      var oracion=card.querySelector('[data-oracion]').value.trim();
+      var err=card.querySelector('[data-error]').value.trim();
+      var faltan=[];
+      if(!revisadoOk)faltan.push('revisar el significado (paso 1)');
+      if(!oracion)faltan.push('tu oración (paso 2)');
+      if(faltan.length){
+        fb4.className='fb no';
+        fb4.textContent='La tarjeta no sale sin sus partes. Falta: '+faltan.join(' y ')+'.';
+        return;
+      }
+      pre.textContent='FRENTE: '+L.loc
+        +'\nREVERSO: '+L.sig+' · "'+oracion+'"'
+        +'\nERROR A EVITAR: '+(err||'(sin fichar)');
+      pre.style.display='block';
+      btnC.style.display='inline-block';
+      fb4.className='fb ok';
+      fb4.textContent='Tarjeta lista. Cópiala para la fábrica de tarjetas del mazo.';
+    });
+
+    btnC.addEventListener('click',function(){
+      var t=pre.textContent;
+      function listo(){fb4.className='fb ok';fb4.textContent='Copiado. Pásala a tarjeta física o pégala donde indique el profesor.';}
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(t).then(listo,function(){seleccionar();});
+      }else{seleccionar();}
+      function seleccionar(){
+        var r=document.createRange();r.selectNodeContents(pre);
+        var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+        fb4.className='fb ok';fb4.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
+      }
+    });
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

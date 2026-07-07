@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 7 · Ejercicio A · El taller de pistas</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --pre-bg:#e6f1fb; --pre-tx:#0c447c;
+    --raiz-bg:#fbeaf0; --raiz-tx:#72243e;
+    --suf-bg:#eaf3de; --suf-tx:#27500a;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.25rem}
+  .paso{font-size:.8rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.04em;margin-top:.9rem}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3.2rem;resize:vertical}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .marca{display:flex;gap:.5rem;margin-top:.6rem}
+  .marca button{flex:1;padding:.5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
+  .marca button.sel-ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
+  .marca button.sel-no{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 7 · Sesión A</div>
+    <h1>El taller de pistas</h1>
+    <p>Diseñar un crucigrama exige dominar la definición mejor que resolverla.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> El crucigrama se dibuja en la hoja cuadriculada, con tu equipo de 3. Aquí se entrena lo difícil: las pistas. Para cada concepto de la unidad escribe una pista tipo definición, compárala con el ejemplo y márcate. Regla dura: la pista nunca contiene la respuesta, ni un pedazo de ella, ni trucos tipo "empieza con e".
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> haz una lista numerada con los conceptos y escribe una pista por renglón. Al terminar, tápales el nombre al concepto y prueba: ¿tu equipo adivina la respuesta solo con la pista? Si no, la pista aún no está lista.
+  </div>
+
+  <div id="lista"></div>
+
+  <h2>Antes de intercambiar con otro equipo</h2>
+  <div class="card">
+    <p style="margin:0 0 .3rem">Checa que su crucigrama cumpla todo:</p>
+    <ul style="margin:.3rem 0 0;padding-left:1.2rem">
+      <li>Tiene entre 8 y 10 conceptos de la unidad.</li>
+      <li>Ninguna pista contiene su respuesta ni un pedazo de ella.</li>
+      <li>Las palabras se cruzan de verdad en la cuadrícula (comparten letras).</li>
+      <li>Las pistas se entienden sin ayuda del equipo que las escribió.</li>
+      <li>Lleva los nombres del equipo: los mejores se publican en la web.</li>
+    </ul>
+  </div>
+
+  <footer>Semana 7 · Cierre de unidad: qué tan hondo veo ya · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var CONCEPTOS=[
+    {c:"raíz",
+     ej:"La pieza que carga el significado central y reaparece en toda una familia de palabras."},
+    {c:"prefijo",
+     ej:"Pieza que se pega antes de la parte central de la palabra y le cambia el sentido, como des- en deshacer."},
+    {c:"sufijo",
+     ej:"Pieza que se pega al final, como -logía en biología."},
+    {c:"étimo",
+     ej:"La palabra o raíz de origen de la que nace otra palabra."},
+    {c:"suma de palabras",
+     ej:"Manera de escribir una palabra separando sus piezas con el signo +, cada una con su significado."},
+    {c:"matriz morfológica",
+     ej:"Tabla donde una sola raíz se cruza con varios afijos y produce su familia completa."},
+    {c:"espejismo",
+     ej:"Corte que parece real pero no lo es: la pieza no reaparece en otras palabras con el mismo significado y la fuente no lo confirma."},
+    {c:"una raíz griega (la que elija tu equipo)",
+     ej:"Para graf-: significa escribir y vive en fotografía, ortografía y telégrafo. Respuesta: graf."},
+    {c:"una letra griega (la que elija tu equipo)",
+     ej:"Para psi: la letra que suena ps y arranca la palabra psicología. Respuesta: psi (ψ)."}
+  ];
+
+  var cont=document.getElementById('lista');
+
+  CONCEPTOS.forEach(function(item){
+    var card=document.createElement('div');card.className='card';
+    card.innerHTML='<h3>'+item.c+'</h3>'
+      +'<div class="paso">Tu pista</div>'
+      +'<textarea placeholder="Escribe la definición que iría en el crucigrama."></textarea>'
+      +'<div class="fila-botones"><button class="btn gris" data-ej>Compara con un ejemplo</button></div>'
+      +'<div class="fb" data-fbej></div>'
+      +'<div class="marca" data-marca style="display:none">'
+      +'<button data-v="bien">Me quedó bien</button>'
+      +'<button data-v="aun">Aún no</button>'
+      +'</div>'
+      +'<div class="fb" data-fbmarca></div>';
+    cont.appendChild(card);
+
+    card.querySelector('[data-ej]').addEventListener('click',function(){
+      var fb=card.querySelector('[data-fbej]');
+      fb.className='fb ej';
+      fb.innerHTML='<strong>Una pista posible:</strong> '+item.ej+' La tuya puede decirlo distinto: lo que importa es que defina sin nombrar la respuesta.';
+      card.querySelector('[data-marca]').style.display='flex';
+    });
+
+    card.querySelectorAll('[data-marca] button').forEach(function(b){
+      b.addEventListener('click',function(){
+        card.querySelectorAll('[data-marca] button').forEach(function(x){x.classList.remove('sel-ok','sel-no');});
+        b.classList.add(b.dataset.v==='bien'?'sel-ok':'sel-no');
+        var fb=card.querySelector('[data-fbmarca]');
+        if(b.dataset.v==='bien'){
+          fb.className='fb ok';
+          fb.textContent='Al crucigrama. Recuerda cruzarla con otra palabra en la cuadrícula.';
+        }else{
+          fb.className='fb no';
+          fb.textContent='Normal: definir es más difícil que reconocer. Pista para tu pista: di qué hace el concepto y dónde se ve, no cómo se llama.';
+        }
+      });
+    });
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 15 · Ejercicio C · Lee lo tuyo</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3rem;resize:vertical}
+  .protocolo{counter-reset:paso;list-style:none;padding:0;margin:.5rem 0 0}
+  .protocolo li{position:relative;padding:.7rem .8rem .7rem 3rem;border:1px solid var(--borde);border-radius:.7rem;margin-top:.5rem;background:#fff}
+  .protocolo li::before{counter-increment:paso;content:counter(paso);position:absolute;left:.8rem;top:.75rem;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--rosa);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+  .protocolo a{color:var(--rosa);font-weight:700}
+  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
+  .veredicto{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.4rem}
+  .veredicto button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;cursor:pointer;font:inherit}
+  .veredicto button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 15 · Sesión C · Centro de cómputo</div>
+    <h1>Lee lo tuyo</h1>
+    <p>Un texto real en inglés, elegido por ti. Tus raíces hacen el resto.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> El martes leíste el texto que trajo el profesor. Hoy eliges el tuyo: algo de tu carrera, tu juego, tu música. Lo lees sin traductor, cazas raíces, sospechas de los falsos amigos, y registras cuánto entendiste. Ese dato alimenta la puesta en común.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> anota el título del texto y de dónde salió, tus cinco palabras cazadas por raíz, los falsos amigos que sospechaste (y qué resultaron ser) y tu veredicto de cuánto entendiste. Mismo orden que la captura de aquí abajo.
+  </div>
+
+  <div class="regla">
+    <strong>La regla de la semana:</strong> tus raíces te dan una ventaja enorme, y aun así verificas. Si una palabra se parece demasiado al español y el sentido no cuadra, sospecha: puede ser un falso amigo.
+  </div>
+
+  <h2>El protocolo</h2>
+  <ol class="protocolo">
+    <li>Elige un texto corto en inglés que te importe: la descripción de una carrera, un artículo de divulgación, la ficha de un videojuego, la letra de una canción. Corto de verdad: uno o dos párrafos.</li>
+    <li>Léelo completo sin traductor, marcando tres cosas: las palabras que entiendes por su raíz, los falsos amigos sospechosos y lo que deduces por contexto.</li>
+    <li>Verifica los sospechosos en un diccionario antes de darlos por buenos. Sospechar y verificar es la mitad del oficio.</li>
+    <li>Llena la captura de abajo y prepárate para el dato de la ronda: cuánto entendiste sin saber inglés "formal".</li>
+  </ol>
+
+  <h2>Tu registro</h2>
+  <div class="card">
+    <h3>La captura de la cacería</h3>
+    <label>Tu texto (título o tema, y de dónde lo sacaste)</label>
+    <input type="text" data-campo="texto" placeholder="ej. la descripción de la carrera de medicina, página de la UAQ">
+    <label>Cinco palabras que entendiste por su raíz</label>
+    <textarea data-campo="palabras" placeholder="ej. structure (struere, construir), analysis (soltar, descomponer)..."></textarea>
+    <label>Falsos amigos que sospechaste, y qué resultaron ser</label>
+    <textarea data-campo="falsos" placeholder="ej. lecture parecía lectura; verifiqué y es clase o conferencia (si no cazaste ninguno, escribe: ninguno hoy)"></textarea>
+    <label>Algo que dedujiste por contexto, sin conocer la palabra</label>
+    <textarea data-campo="contexto" placeholder="ej. no conocía skills, pero la frase hablaba de lo que aprendes, así que..."></textarea>
+    <label>Veredicto: ¿cuánto entendiste sin traductor?</label>
+    <div class="veredicto" data-campo="veredicto">
+      <button type="button">Casi todo</button>
+      <button type="button">Más de la mitad</button>
+      <button type="button">Menos de la mitad</button>
+    </div>
+    <div class="fila-botones">
+      <button class="btn rosa" data-generar>Generar captura</button>
+      <button class="btn gris" data-copiar style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura"></pre>
+    <div class="fb" data-fb></div>
+  </div>
+
+  <div class="instr">
+    <strong>Última estación.</strong> Pega tu captura donde indique el profesor y trae tu veredicto a la puesta en común: el dato colectivo sorprende. Los mejores ejemplos entran a la vitrina "Lo que produjimos" de la web, con tu permiso.
+  </div>
+
+  <footer>Semana 15 · Mis raíces hablan inglés · Este ejercicio es gimnasio: sin nota. La captura solo se guarda si tú la copias y la pegas; al cerrar la página todo se borra.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  document.querySelectorAll('.veredicto').forEach(function(v){
+    v.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){
+        v.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+        b.classList.add('sel');
+      });
+    });
+  });
+
+  document.querySelectorAll('.card').forEach(function(card){
+    var btnG=card.querySelector('[data-generar]');
+    if(!btnG) return;
+    var btnC=card.querySelector('[data-copiar]');
+    var pre=card.querySelector('pre.captura');
+    var fb=card.querySelector('[data-fb]');
+
+    btnG.addEventListener('click',function(){
+      var g=function(sel){var el=card.querySelector('[data-campo='+sel+']');return el?el.value.trim():'';};
+      var texto=g('texto'),palabras=g('palabras'),falsos=g('falsos'),contexto=g('contexto');
+      var vSel=card.querySelector('.veredicto .sel');
+      var faltan=[];
+      if(!texto)faltan.push('tu texto');
+      if(!palabras)faltan.push('las cinco palabras por raíz');
+      if(!vSel)faltan.push('el veredicto');
+      if(faltan.length){
+        fb.className='fb no';
+        fb.textContent='La cacería se registra completa. Falta: '+faltan.join(', ')+'.';
+        return;
+      }
+      fb.className='fb ok';
+      fb.textContent='Captura lista. Cópiala y pégala donde indique el profesor.';
+      pre.textContent='TEXTO: '+texto
+        +'\nPALABRAS POR RAÍZ: '+palabras
+        +'\nFALSOS AMIGOS: '+(falsos||'(ninguno registrado)')
+        +'\nDEDUCIDO POR CONTEXTO: '+(contexto||'(sin registro)')
+        +'\nVEREDICTO: '+vSel.textContent;
+      pre.style.display='block';
+      btnC.style.display='inline-block';
+    });
+
+    btnC.addEventListener('click',function(){
+      var t=pre.textContent;
+      function listo(){fb.className='fb ok';fb.textContent='Copiado. Ahora pégalo donde indique el profesor.';}
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(t).then(listo,function(){seleccionar();});
+      }else{seleccionar();}
+      function seleccionar(){
+        var r=document.createRange();r.selectNodeContents(pre);
+        var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+        fb.className='fb ok';fb.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
+      }
+    });
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

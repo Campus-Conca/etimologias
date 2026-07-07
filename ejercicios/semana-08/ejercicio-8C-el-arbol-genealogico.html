@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 8 · Ejercicio C · El árbol genealógico</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  .paso{font-size:.8rem;font-weight:700;color:var(--rosa);text-transform:uppercase;letter-spacing:.04em;margin-top:1.2rem;border-top:1px dashed var(--borde);padding-top:1rem}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3rem;resize:vertical}
+  .protocolo{counter-reset:paso;list-style:none;padding:0;margin:.5rem 0 0}
+  .protocolo li{position:relative;padding:.7rem .8rem .7rem 3rem;border:1px solid var(--borde);border-radius:.7rem;margin-top:.5rem;background:#fff}
+  .protocolo li::before{counter-increment:paso;content:counter(paso);position:absolute;left:.8rem;top:.75rem;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--rosa);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+  .protocolo a{color:var(--rosa);font-weight:700}
+  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  .veredicto{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.4rem}
+  .veredicto button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;cursor:pointer;font:inherit}
+  .veredicto button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 8 · Sesión C · Centro de cómputo</div>
+    <h1>El árbol genealógico</h1>
+    <p>Hoy tus pares enfrentan al juez de siempre: las fuentes. Y de paso descubres que algunas palabras latinas tuvieron dos hijas.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Primero pasa por el protocolo los 3 pares más dudosos que dejó tu equipo el miércoles. Luego busca un doblete: una palabra latina que dio dos españolas, una popular y una culta. Genera tus capturas y pégalas donde indique el profesor.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> tabla de cinco columnas para los juicios (palabra española, étimo latino, ley, veredicto, fuente), un renglón por par. El doblete al final: el étimo arriba y sus dos hijas abajo, marcando cuál es la popular y cuál la culta.
+  </div>
+
+  <div class="regla">
+    <strong>La regla de oro del curso:</strong> ninguna etimología se acepta sin fuente. Ni de la IA, ni de internet, ni del profesor. Esta semana menos que nunca: las leyes se demuestran, no se creen.
+  </div>
+
+  <h2>El protocolo</h2>
+  <ol class="protocolo">
+    <li>Busca la palabra española en el <a href="http://etimologias.dechile.net" target="_blank" rel="noopener">DECEL</a>. Ahí está la historia completa: ¿de qué latín viene y qué le fue pasando por el camino?</li>
+    <li>Confirma en el <a href="https://dle.rae.es" target="_blank" rel="noopener">DLE</a>: el origen aparece resumido entre paréntesis, justo después de la palabra.</li>
+    <li>Nombra la ley que operó: F inicial → h, CT → ch, PL/CL/FL → ll, vocal breve → diptongo, o consonante intervocálica suavizada.</li>
+    <li>Anota tu nota de fuente. Sin este paso, el veredicto no vale.</li>
+  </ol>
+
+  <h2>Caso 1 · Étimos a juicio</h2>
+  <div class="card" id="caso1">
+    <h3>Los 3 pares dudosos del miércoles</h3>
+    <p style="font-size:.92rem;margin:.3rem 0 0">Un juicio por par. El veredicto lo dictan las fuentes, no la corazonada.</p>
+
+    <div class="juicio">
+      <div class="paso">Juicio 1</div>
+      <label>Palabra española</label>
+      <input type="text" data-campo="esp" placeholder="ej. noche">
+      <label>Étimo latino propuesto</label>
+      <input type="text" data-campo="lat" placeholder="ej. NOCTE">
+      <label>La ley que operó (según las fuentes)</label>
+      <input type="text" data-campo="ley" placeholder="ej. el grupo CT se volvió ch">
+      <label>Veredicto</label>
+      <div class="veredicto" data-campo="veredicto">
+        <button type="button">Confirmado: viene de ahí</button>
+        <button type="button">Viene de ahí, con ajustes</button>
+        <button type="button">No viene de ahí</button>
+      </div>
+      <label>Nota de fuente</label>
+      <input type="text" data-campo="fuente" placeholder="ej. DECEL + DLE, consultados hoy">
+    </div>
+
+    <div class="juicio">
+      <div class="paso">Juicio 2</div>
+      <label>Palabra española</label>
+      <input type="text" data-campo="esp" placeholder="palabra española">
+      <label>Étimo latino propuesto</label>
+      <input type="text" data-campo="lat" placeholder="étimo latino">
+      <label>La ley que operó (según las fuentes)</label>
+      <input type="text" data-campo="ley" placeholder="qué cambió exactamente">
+      <label>Veredicto</label>
+      <div class="veredicto" data-campo="veredicto">
+        <button type="button">Confirmado: viene de ahí</button>
+        <button type="button">Viene de ahí, con ajustes</button>
+        <button type="button">No viene de ahí</button>
+      </div>
+      <label>Nota de fuente</label>
+      <input type="text" data-campo="fuente" placeholder="qué diccionario y qué dice">
+    </div>
+
+    <div class="juicio">
+      <div class="paso">Juicio 3</div>
+      <label>Palabra española</label>
+      <input type="text" data-campo="esp" placeholder="palabra española">
+      <label>Étimo latino propuesto</label>
+      <input type="text" data-campo="lat" placeholder="étimo latino">
+      <label>La ley que operó (según las fuentes)</label>
+      <input type="text" data-campo="ley" placeholder="qué cambió exactamente">
+      <label>Veredicto</label>
+      <div class="veredicto" data-campo="veredicto">
+        <button type="button">Confirmado: viene de ahí</button>
+        <button type="button">Viene de ahí, con ajustes</button>
+        <button type="button">No viene de ahí</button>
+      </div>
+      <label>Nota de fuente</label>
+      <input type="text" data-campo="fuente" placeholder="qué diccionario y qué dice">
+    </div>
+
+    <div class="fila-botones">
+      <button class="btn rosa" id="gen1">Generar captura</button>
+      <button class="btn gris" id="cop1" style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura" id="cap1"></pre>
+    <div class="fb" id="fb1"></div>
+  </div>
+
+  <h2>Caso 2 · El doblete: hermanas separadas</h2>
+  <div class="card" id="caso2">
+    <h3>Una madre latina, dos hijas españolas</h3>
+    <p style="font-size:.92rem;margin:.3rem 0 0">Algunas palabras latinas dieron DOS palabras en español: una popular, gastada por las leyes de esta semana, y una culta, casi intacta. AURICULA dio <em>oreja</em> (popular) y <em>aurícula</em> (culta, la del corazón). OPERA dio <em>obra</em> y <em>ópera</em>. Encuentra el tuyo. Si no sabes por dónde empezar, prueba en el DECEL con CLAVIS, DELICATU, INTEGRU o CATHEDRA.</p>
+    <label>Étimo latino</label>
+    <input type="text" data-campo="lat" placeholder="la palabra madre">
+    <label>La hija popular (la gastada)</label>
+    <input type="text" data-campo="pop" placeholder="ej. oreja">
+    <label>La hija culta (la casi intacta)</label>
+    <input type="text" data-campo="culta" placeholder="ej. aurícula">
+    <label>¿Qué ley gastó a la popular?</label>
+    <input type="text" data-campo="ley" placeholder="qué cambió entre el latín y la hija popular">
+    <label>¿Por qué te sorprendió este doblete?</label>
+    <textarea data-campo="sorpresa" placeholder="una línea; se comparte en la puesta en común"></textarea>
+    <label>Nota de fuente</label>
+    <input type="text" data-campo="fuente" placeholder="ej. DECEL, entrada de oreja">
+    <div class="fila-botones">
+      <button class="btn rosa" id="gen2">Generar captura</button>
+      <button class="btn gris" id="cop2" style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura" id="cap2"></pre>
+    <div class="fb" id="fb2"></div>
+  </div>
+
+  <div class="instr">
+    <strong>Última estación.</strong> Pega tus capturas donde indique el profesor. Los dobletes más sorprendentes estrenan la vitrina "Lo que produjimos" de la Unidad 2. Y una pregunta se queda abierta: el latín explica mucho de tu habla, pero no todo. ¿De dónde salió <em>almohada</em>? ¿Y <em>chocolate</em>? Todavía se resisten. La semana que viene: las lenguas escondidas en tu boca.
+  </div>
+
+  <footer>Semana 8 · La máquina del tiempo fonética · Este ejercicio es gimnasio: sin nota. La captura solo se guarda si tú la copias y la pegas; al cerrar la página todo se borra.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  document.querySelectorAll('.veredicto').forEach(function(v){
+    v.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){
+        v.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+        b.classList.add('sel');
+      });
+    });
+  });
+
+  function armaCopiar(btnC,pre,fb){
+    btnC.addEventListener('click',function(){
+      var t=pre.textContent;
+      function listo(){fb.className='fb ok';fb.textContent='Copiado. Ahora pégalo donde indique el profesor.';}
+      function seleccionar(){
+        var r=document.createRange();r.selectNodeContents(pre);
+        var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+        fb.className='fb ok';fb.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
+      }
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(t).then(listo,function(){seleccionar();});
+      }else{seleccionar();}
+    });
+  }
+
+  // Caso 1: los tres juicios
+  var caso1=document.getElementById('caso1');
+  var fb1=document.getElementById('fb1');
+  var cap1=document.getElementById('cap1');
+  var cop1=document.getElementById('cop1');
+
+  document.getElementById('gen1').addEventListener('click',function(){
+    var bloques=[];
+    var faltan=[];
+    var juicios=caso1.querySelectorAll('.juicio');
+    juicios.forEach(function(j,i){
+      var g=function(sel){var el=j.querySelector('[data-campo='+sel+']');return el?el.value.trim():'';};
+      var esp=g('esp'),lat=g('lat'),ley=g('ley'),fuente=g('fuente');
+      var vSel=j.querySelector('.veredicto .sel');
+      var f=[];
+      if(!esp)f.push('la palabra española');
+      if(!lat)f.push('el étimo');
+      if(!ley)f.push('la ley');
+      if(!vSel)f.push('el veredicto');
+      if(!fuente)f.push('la fuente');
+      if(f.length){faltan.push('juicio '+(i+1)+': '+f.join(', '));return;}
+      bloques.push('JUICIO '+(i+1)
+        +'\nESPAÑOL: '+esp+' ← LATÍN: '+lat.toUpperCase()
+        +'\nLEY: '+ley
+        +'\nVEREDICTO: '+vSel.textContent
+        +'\nFUENTE: '+fuente);
+    });
+    if(faltan.length){
+      fb1.className='fb no';
+      fb1.textContent='Al tribunal no se llega sin expediente completo. Falta en '+faltan.join(' · ')+'.';
+      return;
+    }
+    fb1.className='fb ok';
+    fb1.textContent='Captura lista. Cópiala y pégala donde indique el profesor.';
+    cap1.textContent=bloques.join('\n\n');
+    cap1.style.display='block';
+    cop1.style.display='inline-block';
+  });
+  armaCopiar(cop1,cap1,fb1);
+
+  // Caso 2: el doblete
+  var caso2=document.getElementById('caso2');
+  var fb2=document.getElementById('fb2');
+  var cap2=document.getElementById('cap2');
+  var cop2=document.getElementById('cop2');
+
+  document.getElementById('gen2').addEventListener('click',function(){
+    var g=function(sel){var el=caso2.querySelector('[data-campo='+sel+']');return el?el.value.trim():'';};
+    var lat=g('lat'),pop=g('pop'),culta=g('culta'),ley=g('ley'),sorpresa=g('sorpresa'),fuente=g('fuente');
+    var faltan=[];
+    if(!lat)faltan.push('el étimo latino');
+    if(!pop)faltan.push('la hija popular');
+    if(!culta)faltan.push('la hija culta');
+    if(!ley)faltan.push('la ley que gastó a la popular');
+    if(!fuente)faltan.push('la nota de fuente');
+    if(faltan.length){
+      fb2.className='fb no';
+      fb2.textContent='Un doblete a medias no entra a la vitrina. Falta: '+faltan.join(', ')+'.';
+      return;
+    }
+    fb2.className='fb ok';
+    fb2.textContent='Captura lista. Cópiala y pégala donde indique el profesor.';
+    cap2.textContent='DOBLETE'
+      +'\nÉTIMO: '+lat.toUpperCase()
+      +'\nHIJA POPULAR: '+pop
+      +'\nHIJA CULTA: '+culta
+      +'\nLA LEY QUE GASTÓ A LA POPULAR: '+ley
+      +'\nPOR QUÉ SORPRENDE: '+(sorpresa||'(sin nota)')
+      +'\nFUENTE: '+fuente;
+    cap2.style.display='block';
+    cop2.style.display='inline-block';
+  });
+  armaCopiar(cop2,cap2,fb2);
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

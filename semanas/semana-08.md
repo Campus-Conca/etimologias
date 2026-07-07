@@ -26,6 +26,16 @@ El español no se inventó: es latín gastado durante mil años en la boca de la
 
 ---
 
+## El gimnasio de la semana
+
+Los ejercicios de esta semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
+
+- [Predice en las dos direcciones](../ejercicios/semana-08/ejercicio-8A-predice-en-dos-direcciones.html) · martes
+- [Taller de transformaciones](../ejercicios/semana-08/ejercicio-8B-taller-de-transformaciones.html) · miércoles
+- [El árbol genealógico](../ejercicios/semana-08/ejercicio-8C-el-arbol-genealogico.html) · jueves, centro de cómputo
+- [La palabra que viajó mil años](../ejercicios/semana-08/ejercicio-8D-la-palabra-que-viajo-mil-anos.html) · viernes
+- [Quiz de gimnasio](../ejercicios/semana-08/quiz-gimnasio-semana-08.html) · para ensayar cuando quieras
+
 ## Hoja de consulta
 
 Toca una palabra latina y viaja mil años hasta el español. Fíjate en la ley que la transformó.

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 16 · Ejercicio D · Releer septiembre</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  .paso{font-size:.8rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.04em;margin-top:.9rem}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3rem;resize:vertical}
+  .protocolo{counter-reset:paso;list-style:none;padding:0;margin:.5rem 0 0}
+  .protocolo li{position:relative;padding:.7rem .8rem .7rem 3rem;border:1px solid var(--borde);border-radius:.7rem;margin-top:.5rem;background:#fff}
+  .protocolo li::before{counter-increment:paso;content:counter(paso);position:absolute;left:.8rem;top:.75rem;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--rosa);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .marca{display:flex;gap:.5rem;margin-top:.6rem}
+  .marca button{flex:1;padding:.5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
+  .marca button.sel-ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
+  .marca button.sel-no{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 16 · Sesión D</div>
+    <h1>Releer septiembre</h1>
+    <p>En la semana 2 escribiste para qué memorizar en la era de la IA. Hoy esa hoja te lee a ti.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Consigue tu escritura de la semana 2 (tu original o la copia del profesor). Sigue el protocolo de relectura, captura el antes y el después, deja tu testamento lector del tercer círculo y revisa el checklist del Museo antes de salir.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> divide la hoja en dos columnas, "septiembre" y "hoy". En la izquierda resume en dos líneas lo que respondiste entonces; en la derecha, lo que responderías hoy. Abajo, una sola línea: qué cambió. El checklist del Museo cópialo como lista y palomea.
+  </div>
+
+  <h2>Parte 1 · La relectura</h2>
+  <ol class="protocolo">
+    <li>Lee tu escritura de septiembre completa, en silencio, sin saltarte lo que dé pena.</li>
+    <li>No la corrijas ni la juzgues: esa persona todavía no sabía lo que tú ya sabes.</li>
+    <li>Subraya (mentalmente o con lápiz) la frase que más te sorprenda haber escrito.</li>
+  </ol>
+
+  <div class="card">
+    <h3>El antes y el después</h3>
+    <label>En septiembre respondí (resume en una o dos líneas)</label>
+    <textarea data-campo="antes" placeholder="ej. que memorizar no servía de nada porque todo está en el celular"></textarea>
+    <label>Hoy respondería</label>
+    <textarea data-campo="hoy" placeholder="tu respuesta de ahora, después de 16 semanas"></textarea>
+    <label>Qué cambió (una línea)</label>
+    <input type="text" data-campo="cambio" placeholder="ej. ahora las raíces me dejan entender palabras que nunca he visto">
+    <div class="fila-botones">
+      <button class="btn rosa" data-generar>Generar captura</button>
+      <button class="btn gris" data-copiar style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura"></pre>
+    <div class="fb" data-fb></div>
+    <p style="font-size:.88rem;color:#777;margin:.8rem 0 0">Leerla en voz alta en clase es voluntario. Guardarte la captura para tu expediente del tercer parcial, muy buena idea.</p>
+  </div>
+
+  <h2>Parte 2 · Tu testamento lector</h2>
+  <div class="card">
+    <h3>Para el tercer círculo</h3>
+    <p style="margin:.3rem 0 0;font-size:.92rem">El círculo es hablado, esto solo te ordena las ideas antes de entrar. Lo que salga bueno puede ir a la sección Leemos de la web, con tu permiso.</p>
+    <label>El libro que te llevas</label>
+    <input type="text" data-campo="antes" placeholder="título y autor">
+    <label>Por qué te lo llevas (una o dos líneas)</label>
+    <textarea data-campo="hoy" placeholder="qué te dejó, sin reseña escolar"></textarea>
+    <label>El libro que regalarías y a quién</label>
+    <input type="text" data-campo="cambio" placeholder="ej. regalaría tal libro a mi hermana, porque...">
+    <div class="fila-botones">
+      <button class="btn rosa" data-generar>Generar captura</button>
+      <button class="btn gris" data-copiar style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura"></pre>
+    <div class="fb" data-fb></div>
+  </div>
+
+  <h2>Parte 3 · El puente al Museo</h2>
+  <div class="regla">
+    <strong>La defensa final, semana 17:</strong> montas tu sala (12 a 15 palabras que te conmovieron en el semestre) y la defiendes en 8 a 10 minutos. Es la culminación de todo. La tarea de esta semana: terminar de curar tu colección y ensayar.
+  </div>
+  <div class="card">
+    <h3>Checklist de montaje</h3>
+    <p style="margin:.2rem 0 0;font-size:.92rem">Márcate cada punto. Lo que quede en aún no es tu tarea del fin de semana.</p>
+    <div class="paso">Tengo elegidas mis 12 a 15 palabras</div>
+    <div class="marca" data-item><button data-v="bien">Bien</button><button data-v="aun">Aún no</button></div>
+    <div class="paso">Cada palabra tiene su fuente verificada</div>
+    <div class="marca" data-item><button data-v="bien">Bien</button><button data-v="aun">Aún no</button></div>
+    <div class="paso">Sé decir qué me conmovió de cada una</div>
+    <div class="marca" data-item><button data-v="bien">Bien</button><button data-v="aun">Aún no</button></div>
+    <div class="paso">Tengo el orden de recorrido de mi sala</div>
+    <div class="marca" data-item><button data-v="bien">Bien</button><button data-v="aun">Aún no</button></div>
+    <div class="paso">Ensayé la defensa con reloj (8 a 10 min)</div>
+    <div class="marca" data-item><button data-v="bien">Bien</button><button data-v="aun">Aún no</button></div>
+    <div class="fila-botones"><button class="btn rosa" id="btnMuseo">¿Qué me falta?</button></div>
+    <div class="fb" id="fbMuseo"></div>
+  </div>
+
+  <div class="instr">
+    <strong>Y después del Museo:</strong> la autoevaluación final del semestre y la conversación de diciembre, con tu Museo como evidencia mayor. Esta semana solo toca la autoevaluación del tercer parcial: expediente el fin de semana, formulario antes del lunes.
+  </div>
+
+  <footer>Semana 16 · Quién decide qué palabras existen · Este ejercicio es gimnasio: sin nota. Las capturas solo se guardan si tú las copias; al cerrar la página todo se borra.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var CONFIG=[
+    {req:['antes','hoy'],nombres:{antes:'lo que respondiste en septiembre',hoy:'lo que responderías hoy'},
+     etiquetas:{antes:'SEPTIEMBRE',hoy:'HOY',cambio:'QUÉ CAMBIÓ'},titulo:'RELECTURA · ¿PARA QUÉ MEMORIZAR?'},
+    {req:['antes','hoy'],nombres:{antes:'el libro que te llevas',hoy:'por qué te lo llevas'},
+     etiquetas:{antes:'ME LLEVO',hoy:'POR QUÉ',cambio:'REGALARÍA'},titulo:'TESTAMENTO LECTOR · TERCER CÍRCULO'}
+  ];
+
+  var i=0;
+  document.querySelectorAll('.card').forEach(function(card){
+    var btnG=card.querySelector('[data-generar]');
+    if(!btnG) return;
+    var cfg=CONFIG[i++];
+    var btnC=card.querySelector('[data-copiar]');
+    var pre=card.querySelector('pre.captura');
+    var fb=card.querySelector('[data-fb]');
+
+    btnG.addEventListener('click',function(){
+      var g=function(sel){var el=card.querySelector('[data-campo='+sel+']');return el?el.value.trim():'';};
+      var v={antes:g('antes'),hoy:g('hoy'),cambio:g('cambio')};
+      var faltan=[];
+      cfg.req.forEach(function(k){if(!v[k])faltan.push(cfg.nombres[k]);});
+      if(faltan.length){
+        fb.className='fb no';
+        fb.textContent='Falta: '+faltan.join(', ')+'.';
+        return;
+      }
+      fb.className='fb ok';
+      fb.textContent='Captura lista. Cópiala y guárdala donde indique el profesor (o en tu expediente).';
+      pre.textContent=cfg.titulo
+        +'\n'+cfg.etiquetas.antes+': '+v.antes
+        +'\n'+cfg.etiquetas.hoy+': '+v.hoy
+        +'\n'+cfg.etiquetas.cambio+': '+(v.cambio||'(sin registro)');
+      pre.style.display='block';
+      btnC.style.display='inline-block';
+    });
+
+    btnC.addEventListener('click',function(){
+      var t=pre.textContent;
+      function listo(){fb.className='fb ok';fb.textContent='Copiado. Pégalo donde lo quieras guardar.';}
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(t).then(listo,function(){seleccionar();});
+      }else{seleccionar();}
+      function seleccionar(){
+        var r=document.createRange();r.selectNodeContents(pre);
+        var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+        fb.className='fb ok';fb.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
+      }
+    });
+  });
+
+  var items=document.querySelectorAll('[data-item]');
+  items.forEach(function(m){
+    m.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){
+        m.querySelectorAll('button').forEach(function(x){x.classList.remove('sel-ok','sel-no');});
+        b.classList.add(b.dataset.v==='bien'?'sel-ok':'sel-no');
+        m.dataset.valor=b.dataset.v;
+      });
+    });
+  });
+
+  document.getElementById('btnMuseo').addEventListener('click',function(){
+    var fb=document.getElementById('fbMuseo');
+    var nombres=['elegir tus 12 a 15 palabras','verificar la fuente de cada una','saber qué te conmovió de cada una','definir el orden de tu sala','ensayar con reloj'];
+    var faltan=[],aun=[];
+    items.forEach(function(m,idx){
+      if(!m.dataset.valor)faltan.push(nombres[idx]);
+      else if(m.dataset.valor==='aun')aun.push(nombres[idx]);
+    });
+    if(faltan.length){
+      fb.className='fb no';
+      fb.textContent='Te falta marcarte: '+faltan.join(', ')+'.';
+      return;
+    }
+    if(!aun.length){
+      fb.className='fb ok';
+      fb.textContent='Todo en bien: tu sala está lista. Lo que hiciste el jueves sin red es lo que harás en el Museo, con tu colección entera. Estás listo.';
+    }else{
+      fb.className='fb no';
+      fb.textContent='Tu tarea del fin de semana: '+aun.join(', ')+'. No es regaño, es lista de montaje: el Museo abre la próxima semana.';
+    }
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 12 · Ejercicio A · La armería de la disputatio</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3rem;resize:vertical}
+  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  .veredicto{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.4rem}
+  .veredicto button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;cursor:pointer;font:inherit}
+  .veredicto button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .arg{border:1px solid var(--borde);border-radius:.7rem;padding:.8rem .9rem;margin-top:.6rem;background:#fff}
+  .arg p{margin:0;font-weight:700;color:#2a2a2a}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 12 · Sesión A</div>
+    <h1>La armería de la disputatio</h1>
+    <p>Dos bandos, un debate, y a media sesión cambias de lado. Carga argumentos para los dos.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="regla">
+    <strong>El detonador.</strong> El lema de la RAE es "limpia, fija y da esplendor". ¿Limpiar de qué, exactamente? La pregunta del día: ¿hay que proteger el español de las palabras de fuera, o el español vive justo de eso?
+  </div>
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Con tu bando, antes de exponer: (1) clasifica los argumentos del arsenal para saber cuáles te sirven; (2) entrena el giro, porque a media sesión te toca defender lo contrario con argumentos nuevos; (3) captura tu mejor argumento para el cierre. Regla anunciada desde el inicio: nadie se casa con su postura.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> divide una página en dos columnas, "la lengua debe protegerse" y "la lengua vive del contacto". Copia en cada columna los argumentos que le sirvan y subraya el que usarías tú. Cuando llegue el cambio de bando, pásate a la otra columna.
+  </div>
+
+  <h2>Paso 1 · El arsenal: ¿a qué bando sirve cada argumento?</h2>
+  <div class="card">
+    <h3>Seis argumentos sueltos</h3>
+    <p style="font-size:.92rem;margin:.3rem 0 0">Cada uno le sirve a un bando. Asigna todos y revisa.</p>
+    <div id="arsenal"></div>
+    <div class="fila-botones"><button class="btn rosa" id="btnArsenal">Revisar el arsenal</button></div>
+    <div class="fb" id="fbArsenal"></div>
+  </div>
+
+  <h2>Paso 2 · Entrena el giro</h2>
+  <p style="font-size:.95rem">A media sesión cambias de lado y no vale repetir lo que ya dijo el rival: el giro exige argumentos nuevos. Practica contestar estos dos.</p>
+
+  <div class="card">
+    <h3>Te toca defender el contacto</h3>
+    <p style="font-size:.92rem;margin:.3rem 0 0">El bando protector dice: "Sin filtro, el español se llenará de inglés y perderá lo suyo". Contesta desde tu nueva postura.</p>
+    <textarea placeholder="Yo le contestaría que..."></textarea>
+    <div class="fila-botones"><button class="btn gris" data-giro="a">Compara con un ejemplo</button></div>
+    <div class="fb" data-fbgiro="a"></div>
+  </div>
+
+  <div class="card">
+    <h3>Te toca defender la protección</h3>
+    <p style="font-size:.92rem;margin:.3rem 0 0">El bando del contacto dice: "La lengua es de la gente: si la gente lo dice, ya es español". Contesta desde tu nueva postura.</p>
+    <textarea placeholder="Yo le contestaría que..."></textarea>
+    <div class="fila-botones"><button class="btn gris" data-giro="b">Compara con un ejemplo</button></div>
+    <div class="fb" data-fbgiro="b"></div>
+  </div>
+
+  <h2>Paso 3 · Tu mejor argumento</h2>
+  <div class="card">
+    <h3>Para el cierre del debate</h3>
+    <p style="font-size:.92rem;margin:.3rem 0 0">No se declara ganador, pero sí se nombra el mejor argumento de cada lado, y los mejores van a la vitrina de la web. Deja el tuyo armado, con evidencia vivida en la unidad.</p>
+    <label>Bando desde el que lo dices</label>
+    <div class="veredicto" data-campo="bando">
+      <button type="button">La lengua debe protegerse</button>
+      <button type="button">La lengua vive del contacto</button>
+    </div>
+    <label>El argumento (una o dos líneas)</label>
+    <textarea data-campo="argumento" placeholder="dilo como lo dirías en voz alta"></textarea>
+    <label>Evidencia de la unidad que lo respalda</label>
+    <textarea data-campo="evidencia" placeholder="ej. un préstamo de la semana 9, una palabra de campo de la 10, un mito cazado en la 11"></textarea>
+    <div class="fila-botones">
+      <button class="btn rosa" data-generar>Generar captura</button>
+      <button class="btn gris" data-copiar style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura"></pre>
+    <div class="fb" data-fb></div>
+  </div>
+
+  <footer>Semana 12 · Cierre de unidad: ¿quién es dueño del español? · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página. La captura solo vive si tú la copias y la pegas.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  // Paso 1 · Arsenal
+  var ARSENAL=[
+    ["Si cada quien mete las palabras que quiera, en unas generaciones un contrato o una receta médica se prestarán a confusión.","p"],
+    ["El español ES latín transformado en bocas que nadie vigilaba. Si lo hubieran protegido de verdad, hoy no existiría.","c"],
+    ["Decir mail teniendo correo no suma nada: desplaza algo que ya funcionaba.","p"],
+    ["Almohada, ojalá y chocolate fueron extranjerismos un día. Hoy son el español.","c"],
+    ["Una lengua que no cuida sus propias palabras acaba pidiéndole prestado todo a otra.","p"],
+    ["Apapachar vivió siglos sin permiso del diccionario. La gente manda; la norma llega después.","c"]
+  ];
+  function baraja(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+  var zona=document.getElementById('arsenal');
+  var items=[];
+  baraja(ARSENAL).forEach(function(arg){
+    var div=document.createElement('div');div.className='arg';
+    div.innerHTML='<p>'+arg[0]+'</p>'
+      +'<div class="veredicto"><button type="button" data-b="p">Protegerse</button><button type="button" data-b="c">Contacto</button></div>';
+    var estado={correcto:arg[1],elegido:null};
+    div.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){
+        div.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+        b.classList.add('sel');estado.elegido=b.dataset.b;
+        document.getElementById('fbArsenal').className='fb';
+      });
+    });
+    items.push(estado);
+    zona.appendChild(div);
+  });
+
+  document.getElementById('btnArsenal').addEventListener('click',function(){
+    var fb=document.getElementById('fbArsenal');
+    var faltan=items.filter(function(x){return!x.elegido;}).length;
+    if(faltan){fb.className='fb no';fb.textContent='Te faltan '+faltan+' argumento'+(faltan>1?'s':'')+' por asignar.';return;}
+    var mal=items.filter(function(x){return x.elegido!==x.correcto;}).length;
+    if(!mal){
+      fb.className='fb ok';
+      fb.textContent='Arsenal clasificado: seis de seis. Ahora fíjate en algo incómodo: los dos bandos suenan razonables. Por eso hay debate.';
+    }else{
+      fb.className='fb no';
+      fb.textContent='Hay '+mal+' argumento'+(mal>1?'s':'')+' en el bando equivocado. Pista: pregúntate si el argumento le teme al cambio de la lengua o lo celebra. Reacomoda y vuelve a revisar.';
+    }
+  });
+
+  // Paso 2 · El giro
+  var GIROS={
+    a:'El español ya se llenó de árabe y de náhuatl y no perdió nada: ganó azúcar, chocolate y ojalá. La lengua no se diluye con lo que absorbe, se agranda. Y lo que no sirve, la gente misma lo deja caer sin que nadie lo prohíba.',
+    b:'La gente también necesita entenderse fuera de su pueblo y de su generación. Una norma común no le quita la lengua a nadie: hace que una receta, una ley o un libro digan lo mismo en Querétaro y en Buenos Aires.'
+  };
+  document.querySelectorAll('[data-giro]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var fb=document.querySelector('[data-fbgiro="'+b.dataset.giro+'"]');
+      fb.className='fb ej';
+      fb.innerHTML='<strong>Un ejemplo de respuesta:</strong> '+GIROS[b.dataset.giro]+' La tuya puede decirlo distinto: lo que importa es que conteste al argumento, no que se parezca al ejemplo.';
+    });
+  });
+
+  // Paso 3 · Captura
+  document.querySelectorAll('.veredicto[data-campo]').forEach(function(v){
+    v.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){
+        v.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+        b.classList.add('sel');
+      });
+    });
+  });
+
+  document.querySelectorAll('.card').forEach(function(card){
+    var btnG=card.querySelector('[data-generar]');
+    if(!btnG) return;
+    var btnC=card.querySelector('[data-copiar]');
+    var pre=card.querySelector('pre.captura');
+    var fb=card.querySelector('[data-fb]');
+
+    btnG.addEventListener('click',function(){
+      var g=function(sel){var el=card.querySelector('textarea[data-campo='+sel+']');return el?el.value.trim():'';};
+      var argumento=g('argumento'),evidencia=g('evidencia');
+      var bSel=card.querySelector('.veredicto[data-campo=bando] .sel');
+      var faltan=[];
+      if(!bSel)faltan.push('el bando');
+      if(!argumento)faltan.push('el argumento');
+      if(!evidencia)faltan.push('la evidencia');
+      if(faltan.length){
+        fb.className='fb no';
+        fb.textContent='Un argumento sin todas sus piezas no sobrevive al debate. Falta: '+faltan.join(', ')+'.';
+        return;
+      }
+      fb.className='fb ok';
+      fb.textContent='Captura lista. Cópiala y tenla a la mano para el cierre del debate.';
+      pre.textContent='BANDO: '+bSel.textContent
+        +'\nARGUMENTO: '+argumento
+        +'\nEVIDENCIA VIVIDA: '+evidencia;
+      pre.style.display='block';
+      btnC.style.display='inline-block';
+    });
+
+    btnC.addEventListener('click',function(){
+      var t=pre.textContent;
+      function listo(){fb.className='fb ok';fb.textContent='Copiado. Pégalo donde lo tengas a la mano para el cierre.';}
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(t).then(listo,function(){seleccionar();});
+      }else{seleccionar();}
+      function seleccionar(){
+        var r=document.createRange();r.selectNodeContents(pre);
+        var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+        fb.className='fb ok';fb.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
+      }
+    });
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

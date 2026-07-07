@@ -1,10 +1,10 @@
 ---
-title: "Semana 12 · Cierre de unidad"
+title: "Semana 12 · Cierre de U2"
 parent: Semanas
 nav_order: 13
 ---
 
-# Semana 12 · Cierre de unidad: ¿quién es dueño del español?
+# Semana 12 · Cierre de U2: ¿quién es dueño del español?
 
 > **La pregunta de la semana:** ¿quién es dueño del español?
 
@@ -37,6 +37,15 @@ Traes tu palabra y una ficha de apoyo. No se lee todo. Lo que cuenta es que pued
 Igual que en la semana 7: quiz y defensa son evidencia, no nota. Autoevaluación de unidad en tu expediente el fin de semana, y el bloque final al [formulario de parciales](https://docs.google.com/forms/d/e/1FAIpQLSc32h4aoWfVteMZkbvdmHb0NNEsG3KrhUAi2Y2LYqOqIEEsHw/viewform) antes del lunes. Las reglas, por si las quieres releer: [Tu calificación](../evaluacion.html).
 
 ---
+
+## El gimnasio de la semana
+
+Los ejercicios de esta semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
+
+- [La armería de la disputatio](../ejercicios/semana-12/ejercicio-12A-armeria-de-la-disputatio.html) · martes
+- [Tu defensa, sin sorpresas](../ejercicios/semana-12/ejercicio-12B-tu-defensa-sin-sorpresas.html) · miércoles
+- [Cosecha y puente](../ejercicios/semana-12/ejercicio-12D-cosecha-y-puente.html) · viernes
+- [Quiz de gimnasio · Integrador de la Unidad 2](../ejercicios/semana-12/quiz-gimnasio-semana-12.html) · para ensayar cuando quieras
 
 ## Hoja de consulta
 

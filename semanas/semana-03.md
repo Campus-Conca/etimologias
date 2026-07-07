@@ -26,6 +26,15 @@ La regla de oro: un corte es real solo si la pieza reaparece en otras palabras c
 
 ---
 
+## El gimnasio de la semana
+
+Los ejercicios de esta semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
+
+- [Sumas de palabras](../ejercicios/semana-03/ejercicio-3A-sumas-de-palabras.html) · martes
+- [La fábrica de matrices](../ejercicios/semana-03/ejercicio-3B-fabrica-de-matrices.html) · miércoles
+- [El detector de espejismos](../ejercicios/semana-03/ejercicio-3C-detector-de-espejismos.html) · jueves, centro de cómputo
+- [Quiz de gimnasio](../ejercicios/semana-03/quiz-gimnasio-semana-03.html) · para ensayar cuando quieras
+
 ## Hoja de consulta
 
 Antes de verificar, apuesta. ¿El corte es real o es un espejismo?

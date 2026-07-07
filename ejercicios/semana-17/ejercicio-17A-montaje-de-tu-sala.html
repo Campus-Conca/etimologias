@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 17 · Ejercicio A · El montaje de tu sala</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3rem;resize:vertical}
+  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
+  .contador{font-weight:700;color:var(--ciruela);background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.6rem .9rem;margin:1rem 0}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 17 · Sesión A</div>
+    <h1>El montaje de tu sala</h1>
+    <p>Un museo no amontona: cura. Aquí armas la cédula de cada palabra de tu colección.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Tu sala tiene de 12 a 15 palabras. Cada una necesita su cédula de museo con cinco datos: qué es, dónde la encontraste, su etimología verificada, la fuente y por qué la elegiste. Llena una cédula por palabra, agrega las que falten y al final genera el guion completo de tu sala para copiarlo, pegarlo en tu portafolio o imprimirlo para el montaje.
+  </div>
+
+  <div class="regla">
+    <strong>La regla de oro sigue viva hasta el último día:</strong> ninguna etimología entra al Museo sin fuente. Si una cédula no tiene fuente, esa palabra todavía no se exhibe.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno o cartulina:</strong> una cédula por palabra, con los mismos cinco renglones en este orden: qué es, dónde la encontré, etimología verificada, fuente, por qué la elegí. La cédula se pega junto a la palabra, como en un museo de verdad.
+  </div>
+
+  <h2>Tu sala</h2>
+  <div class="card">
+    <label>Nombre de tu sala (opcional, pero las buenas salas tienen nombre)</label>
+    <input type="text" id="salaNombre" placeholder="ej. Sala de las palabras que me encontraron a mí">
+  </div>
+
+  <div class="contador" id="contador">Tu sala lleva 3 cédulas. El Museo pide de 12 a 15.</div>
+
+  <div id="cedulas"></div>
+
+  <div class="fila-botones">
+    <button class="btn gris" id="btnAgregar">Agregar palabra</button>
+  </div>
+
+  <h2>El guion de tu sala</h2>
+  <div class="card">
+    <p style="font-size:.92rem;margin:.3rem 0 0">Cuando todas las cédulas estén completas, genera el guion. Es tu sala entera en texto: sirve para el montaje de hoy y para el portafolio del Museo.</p>
+    <div class="fila-botones">
+      <button class="btn rosa" id="btnGenerar">Generar guion de la sala</button>
+      <button class="btn gris" id="btnCopiar" style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura" id="capturaSala"></pre>
+    <div class="fb" id="fbSala"></div>
+  </div>
+
+  <footer>Semana 17 · El Museo de Palabras · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página. Lo único que sobrevive es el guion que copies y pegues.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var cont=document.getElementById('cedulas');
+  var contador=document.getElementById('contador');
+
+  var CAMPOS=[
+    ['palabra','Palabra','ej. resiliencia','input'],
+    ['quees','Qué es (su definición real, breve)','Cómo se usa hoy, con tus palabras','textarea'],
+    ['donde','Dónde la encontraste (cita o testimonio)','ej. en la novela del círculo, capítulo 3; me la dijo mi tía en...','textarea'],
+    ['etim','Etimología verificada (piezas, lengua de origen, significado literal)','ej. del latín resilire, re- (de nuevo) + salire (saltar): volver a saltar','textarea'],
+    ['fuente','Fuente','ej. DLE + DECEL, consultados en semana 14','input'],
+    ['porque','Por qué la elegiste','La razón honesta, no la elegante','textarea']
+  ];
+
+  function nuevaCedula(){
+    var card=document.createElement('div');
+    card.className='card';card.setAttribute('data-cedula','');
+    var html='<h3>Palabra <span data-num></span></h3>';
+    CAMPOS.forEach(function(c){
+      html+='<label>'+c[1]+'</label>';
+      if(c[3]==='input')html+='<input type="text" data-campo="'+c[0]+'" placeholder="'+c[2]+'">';
+      else html+='<textarea data-campo="'+c[0]+'" placeholder="'+c[2]+'"></textarea>';
+    });
+    html+='<div class="fila-botones"><button class="btn gris" data-quitar>Quitar esta palabra</button></div>';
+    card.innerHTML=html;
+    card.querySelector('[data-quitar]').addEventListener('click',function(){
+      card.remove();renumera();
+    });
+    cont.appendChild(card);
+    renumera();
+    return card;
+  }
+
+  function cedulas(){return Array.prototype.slice.call(cont.querySelectorAll('[data-cedula]'));}
+
+  function renumera(){
+    var cs=cedulas();
+    cs.forEach(function(c,i){c.querySelector('[data-num]').textContent=i+1;});
+    var n=cs.length;
+    var msj='Tu sala lleva '+n+' cédula'+(n===1?'':'s')+'. El Museo pide de 12 a 15.';
+    if(n>=12&&n<=15)msj='Tu sala lleva '+n+' cédulas. Estás en el rango del Museo.';
+    if(n>15)msj='Tu sala lleva '+n+' cédulas. Son más de 15: curar también es saber quitar.';
+    contador.textContent=msj;
+  }
+
+  for(var i=0;i<3;i++)nuevaCedula();
+
+  document.getElementById('btnAgregar').addEventListener('click',function(){
+    var c=nuevaCedula();
+    c.querySelector('[data-campo=palabra]').focus();
+  });
+
+  var pre=document.getElementById('capturaSala');
+  var fb=document.getElementById('fbSala');
+  var btnC=document.getElementById('btnCopiar');
+
+  document.getElementById('btnGenerar').addEventListener('click',function(){
+    var cs=cedulas();
+    if(!cs.length){fb.className='fb no';fb.textContent='Tu sala está vacía. Agrega tus palabras primero.';pre.style.display='none';btnC.style.display='none';return;}
+    var NOMBRES={palabra:'la palabra',quees:'qué es',donde:'dónde la encontraste',etim:'la etimología',fuente:'la fuente',porque:'por qué la elegiste'};
+    var problemas=[];
+    var texto='MI SALA DEL MUSEO DE PALABRAS';
+    var nombre=document.getElementById('salaNombre').value.trim();
+    if(nombre)texto+='\nSALA: '+nombre;
+    texto+='\nPALABRAS: '+cs.length+'\n';
+    cs.forEach(function(c,i){
+      var v={};var faltan=[];
+      CAMPOS.forEach(function(cp){
+        var el=c.querySelector('[data-campo='+cp[0]+']');
+        v[cp[0]]=el?el.value.trim():'';
+        if(!v[cp[0]])faltan.push(NOMBRES[cp[0]]);
+      });
+      if(faltan.length){problemas.push('Cédula '+(i+1)+(v.palabra?' ('+v.palabra+')':'')+': falta '+faltan.join(', '));return;}
+      texto+='\n'+(i+1)+'. '+v.palabra.toUpperCase()
+        +'\n   QUÉ ES: '+v.quees
+        +'\n   DÓNDE LA ENCONTRÉ: '+v.donde
+        +'\n   ETIMOLOGÍA: '+v.etim
+        +'\n   FUENTE: '+v.fuente
+        +'\n   POR QUÉ LA ELEGÍ: '+v.porque+'\n';
+    });
+    if(problemas.length){
+      fb.className='fb no';
+      fb.innerHTML='Un museo no exhibe cédulas a medias:<br>'+problemas.join('<br>');
+      pre.style.display='none';btnC.style.display='none';
+      return;
+    }
+    pre.textContent=texto;
+    pre.style.display='block';
+    btnC.style.display='inline-block';
+    if(cs.length<12){
+      fb.className='fb no';
+      fb.textContent='Guion generado, pero tu sala tiene '+cs.length+' palabras y el Museo pide al menos 12. Aún no: te faltan '+(12-cs.length)+'.';
+    }else if(cs.length>15){
+      fb.className='fb no';
+      fb.textContent='Guion generado, pero son '+cs.length+' palabras y el tope es 15. Aún no: pregúntate cuáles defenderías menos y déjalas ir.';
+    }else{
+      fb.className='fb ok';
+      fb.textContent='Sala completa: '+cs.length+' cédulas con todo. Cópiala, pégala en tu portafolio y monta tu sala.';
+    }
+  });
+
+  btnC.addEventListener('click',function(){
+    var t=pre.textContent;
+    function listo(){fb.className='fb ok';fb.textContent='Copiado. Pégalo en tu portafolio del Museo.';}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(listo,function(){seleccionar();});
+    }else{seleccionar();}
+    function seleccionar(){
+      var r=document.createRange();r.selectNodeContents(pre);
+      var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+      fb.className='fb ok';fb.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
+    }
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

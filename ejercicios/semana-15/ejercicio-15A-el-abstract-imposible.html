@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 15 · Ejercicio A · El abstract imposible</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.25rem}
+  .paso{font-size:.8rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.04em;margin-top:.9rem}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3.2rem;resize:vertical}
+  .abstract{margin-top:.6rem;line-height:2.2;font-size:1.05rem}
+  .abstract button{display:inline;border:1px solid var(--borde);border-radius:.5rem;background:#fff;color:#2a2a2a;font:inherit;padding:.1rem .4rem;margin:.1rem .05rem;cursor:pointer}
+  .abstract button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .abstract button.hit{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
+  .abstract button.miss{background:#fff;color:var(--ok);border-style:dashed;border-color:var(--ok)}
+  .abstract button.falsa{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 15 · Sesión A</div>
+    <h1>El abstract imposible</h1>
+    <p>Un resumen científico en inglés. Tú, que "no sabes inglés", vas a entenderlo casi entero.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Abajo hay un abstract real: el resumen de un artículo científico, en inglés. (1) Léelo completo, aunque creas que no vas a entender nada. (2) Toca todas las palabras que entiendes por su raíz. (3) Revisa tu cacería. (4) Escribe en español qué dice el texto. Sin diccionario y sin traductor: solo tus raíces.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> mientras el profesor proyecta el abstract, haz dos columnas: la palabra inglesa que entiendes y lo que crees que significa. Junta al menos diez. Al final escribe, en tres líneas, qué dice el texto completo.
+  </div>
+
+  <h2>Paso 1 · La cacería de raíces</h2>
+  <div class="card">
+    <h3>Sleep and memory</h3>
+    <p style="margin:0;font-size:.92rem">Toca las palabras que entiendes por su raíz. Toca de nuevo para quitar.</p>
+    <div class="abstract" id="abstract"></div>
+    <div class="fila-botones">
+      <button class="btn rosa" id="btnRevisar">Revisar mi cacería</button>
+      <button class="btn gris" id="btnMapa" style="display:none">Ver el mapa completo</button>
+    </div>
+    <div class="fb" id="fbAbs"></div>
+  </div>
+
+  <h2>Paso 2 · Reconstruye el sentido</h2>
+  <div class="card">
+    <p style="margin:0 0 .2rem;font-size:.95rem">Con las palabras que atrapaste, escribe en español qué dice el abstract. Lo que falte, dedúcelo por contexto.</p>
+    <textarea placeholder="El texto dice que..."></textarea>
+    <div class="fila-botones"><button class="btn gris" id="btnEj">Compara con un ejemplo</button></div>
+    <div class="fb" id="fbEj"></div>
+  </div>
+
+  <h2>Para cerrar</h2>
+  <div class="card">
+    <p>¿Cuál palabra inglesa te resultó más fácil de lo que esperabas? Escríbela con su raíz. La ronda de síntesis empieza ahí.</p>
+    <textarea placeholder="La palabra... porque su raíz..."></textarea>
+  </div>
+
+  <footer>Semana 15 · Mis raíces hablan inglés · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  // kind: 0 = palabra funcional (no se toca), 1 = raíz grecolatina, 2 = inglés de casa
+  var TOKENS=[
+    ["Recent",1],["studies",1],["demonstrate",1],["that",0],["sleep",2],["is",0],["fundamental",1],["for",0],["the",0],["consolidation",1],["of",0],["memory",1,"."],
+    ["In",0],["this",0],["experiment",1,","],["eighty",2],["students",1],["memorized",1],["a",0],["series",1],["of",0],["images",1],["and",0],["completed",1],["an",0],["evaluation",1,"."],
+    ["The",0],["results",1],["indicate",1],["a",0],["significant",1],["difference",1,":"],["the",0],["participants",1],["that",0],["slept",2],["eight",2],["hours",1],["obtained",1],["superior",1],["results",1],["in",0],["the",0],["final",1],["examination",1,"."],
+    ["The",0],["investigators",1],["conclude",1],["that",0],["sleep",2],["deprivation",1],["reduces",1],["the",0],["capacity",1],["of",0],["the",0],["brain",2],["to",0],["consolidate",1],["new",2],["information",1,"."]
+  ];
+
+  var zona=document.getElementById('abstract');
+  var botones=[];
+  var revisado=false;
+  var totalCog=TOKENS.filter(function(t){return t[1]===1;}).length;
+
+  TOKENS.forEach(function(t){
+    var suf=t[2]||'';
+    if(t[1]===0){
+      var s=document.createElement('span');
+      s.textContent=t[0]+suf+' ';
+      zona.appendChild(s);
+    }else{
+      var b=document.createElement('button');
+      b.type='button';b.textContent=t[0];b.dataset.kind=String(t[1]);
+      b.addEventListener('click',function(){
+        if(zona.dataset.cerrado==='1')return;
+        b.classList.toggle('sel');
+      });
+      zona.appendChild(b);
+      botones.push(b);
+      if(suf){var p=document.createElement('span');p.textContent=suf+' ';zona.appendChild(p);}
+      else{var e=document.createElement('span');e.textContent=' ';zona.appendChild(e);}
+    }
+  });
+
+  document.getElementById('btnRevisar').addEventListener('click',function(){
+    var fb=document.getElementById('fbAbs');
+    var sel=botones.filter(function(b){return b.classList.contains('sel');});
+    if(!sel.length){fb.className='fb no';fb.textContent='Toca primero las palabras que entiendes por su raíz. Empieza por las largas.';return;}
+    var hits=sel.filter(function(b){return b.dataset.kind==='1';}).length;
+    var falsas=sel.length-hits;
+    var msj='Atrapaste '+hits+' de las '+totalCog+' palabras de raíz grecolatina del texto.';
+    if(falsas>0)msj+=' Marcaste '+falsas+' que no vienen del griego ni del latín: esas son del inglés de casa, las cortas.';
+    if(hits===totalCog&&falsas===0){
+      fb.className='fb ok';
+      fb.textContent=msj+' Cacería completa: ese texto ya era tuyo antes de abrir esta página.';
+    }else{
+      fb.className='fb no';
+      fb.textContent=msj+' Pista: en este texto, casi toda palabra larga que suena a español es tuya. Si dudas, dila en voz alta y quítale el acento inglés.';
+    }
+    revisado=true;
+    document.getElementById('btnMapa').style.display='inline-block';
+  });
+
+  document.getElementById('btnMapa').addEventListener('click',function(){
+    if(!revisado)return;
+    zona.dataset.cerrado='1';
+    botones.forEach(function(b){
+      var sel=b.classList.contains('sel');
+      b.classList.remove('sel');
+      if(b.dataset.kind==='1'){b.classList.add(sel?'hit':'miss');}
+      else if(sel){b.classList.add('falsa');}
+    });
+    var fb=document.getElementById('fbAbs');
+    fb.className='fb ej';
+    fb.innerHTML='<strong>El mapa:</strong> en verde sólido, las raíces grecolatinas que atrapaste. En verde punteado, las que también eran tuyas y se te fueron. Las que quedan sin marcar (sleep, brain, new, los números) son del inglés de casa: esas se deducen por contexto. Y sí, <em>hours</em> también es tuya: viene de <em>hora</em>. Las palabras "difíciles" eran las fáciles.';
+  });
+
+  document.getElementById('btnEj').addEventListener('click',function(){
+    var fb=document.getElementById('fbEj');
+    fb.className='fb ej';
+    fb.innerHTML='<strong>Un ejemplo de reconstrucción:</strong> estudios recientes demuestran que dormir es fundamental para la consolidación de la memoria. En un experimento, ochenta estudiantes memorizaron una serie de imágenes y completaron una evaluación. Los resultados indican una diferencia significativa: quienes durmieron ocho horas obtuvieron resultados superiores en el examen final. Los investigadores concluyen que la falta de sueño reduce la capacidad del cerebro para consolidar información nueva.<br><br>La tuya no tiene que ser idéntica: si cuenta lo mismo con otras palabras, cruzaste el idioma.';
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

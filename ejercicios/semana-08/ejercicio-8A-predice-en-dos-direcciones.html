@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 8 · Ejercicio A · Predice en las dos direcciones</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --pre-bg:#e6f1fb; --pre-tx:#0c447c;
+    --raiz-bg:#fbeaf0; --raiz-tx:#72243e;
+    --suf-bg:#eaf3de; --suf-tx:#27500a;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.25rem}
+  .paso{font-size:.8rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.04em;margin-top:.9rem}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3.2rem;resize:vertical}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 8 · Sesión A</div>
+    <h1>Predice en las dos direcciones</h1>
+    <p>El latín se gastó con reglas. Si conoces la regla, puedes viajar en el tiempo: hacia adelante y hacia atrás.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Con tu pareja. Primero la ida: te damos la palabra latina y la ley que opera, tú predices la palabra española. Luego la vuelta: te damos la española y tú reconstruyes el étimo latino. Escribe tu predicción antes de revisar. Si fallas, la máquina te da una pista, no la respuesta: errar en voz alta es el deporte del curso.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> traza dos columnas, latín y español. Copia la palabra dada, escribe la ley con tus palabras y tu predicción en la otra columna. Marca con una flecha el cambio exacto (qué letra se volvió qué).
+  </div>
+
+  <div class="card">
+    <h3>El ejemplo resuelto: MULTU</h3>
+    <p style="margin:.3rem 0 0;font-size:.95rem">La ley: el grupo de consonante + T se funde en <strong>ch</strong> (prima de CT → ch). Entonces MULTU → <strong>mucho</strong>. Así se ve una predicción completa: palabra latina, ley, palabra española. Ahora te toca.</p>
+  </div>
+
+  <h2>La ida · del latín al español</h2>
+  <div id="ida"></div>
+
+  <h2>La vuelta · del español al latín</h2>
+  <div class="instr">
+    <strong>Aviso:</strong> reconstruir es más difícil que predecir. También es lo que ninguna IA hace por ti. Escribe el étimo en mayúsculas si quieres sentirte romano, pero la máquina acepta minúsculas.
+  </div>
+  <div id="vuelta"></div>
+
+  <h2>Para cerrar</h2>
+  <div class="card">
+    <p>¿Cuál transformación te pareció más increíble? Escribe una línea: se comparte en la ronda de síntesis.</p>
+    <textarea placeholder="La que más me impresionó fue... porque..."></textarea>
+  </div>
+
+  <footer>Semana 8 · La máquina del tiempo fonética · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  function norm(s){return s.toLowerCase().trim().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/\s+/g,' ');}
+
+  var IDA=[
+    {w:"FUMU",ley:"F inicial → h (y la U final se vuelve o)",
+     ans:["humo"],
+     pista:"La F inicial se gastó hasta quedar muda, pero la letra sigue escrita. Piensa en FARINA → harina.",
+     expl:"FUMU → humo. La F se volvió h muda y la U final se abrió en o."},
+    {w:"FACTU",ley:"cuidado: aquí operan DOS leyes a la vez",
+     ans:["hecho"],
+     pista:"Una ley es F inicial → h. La otra es la misma que convirtió NOCTE en noche.",
+     expl:"FACTU → hecho. La F se volvió h y el grupo CT se volvió ch. Dos leyes en una sola palabra."},
+    {w:"CLAMARE",ley:"CL inicial → ll",
+     ans:["llamar"],
+     pista:"El grupo CL se funde en ll, como PLUVIA → lluvia. Y la terminación -ARE de los verbos latinos da -ar.",
+     expl:"CLAMARE → llamar. El grupo CL inicial se volvió ll, igual que FLAMMA → llama."},
+    {w:"PORTA",ley:"la vocal O breve diptonga",
+     ans:["puerta"],
+     pista:"La O breve se rompe en dos sonidos: ue. Como FOCU → fuego.",
+     expl:"PORTA → puerta. La O breve diptongó en ue."},
+    {w:"LUPU",ley:"la consonante entre vocales se suaviza",
+     ans:["lobo"],
+     pista:"La P entre vocales se relaja en b, como la T de VITA se relajó en d. Y la U final se vuelve o.",
+     expl:"LUPU → lobo. La P intervocálica se suavizó en b y la U final se volvió o."}
+  ];
+
+  var VUELTA=[
+    {w:"ojo",ley:"el grupo -CUL- se volvió j",
+     ans:["oculu","oculum","oculus"],
+     pista:"Empieza con O y en medio llevaba un grupo -CUL- que se gastó hasta ser j.",
+     expl:"ojo ← OCULU. El grupo -CUL- se volvió j. La transformación que suele ganar las rondas."},
+    {w:"tierra",ley:"deshaz un diptongo",
+     ans:["terra"],
+     pista:"La ie de hoy era una sola E breve en latín. Quita la i y mira qué queda.",
+     expl:"tierra ← TERRA. La E breve diptongó en ie. De regreso, el diptongo se cierra."},
+    {w:"lluvia",ley:"la ll esconde un grupo de dos consonantes",
+     ans:["pluvia"],
+     pista:"La segunda consonante del grupo era L. La primera era una que también aparece en el étimo de 'lleno' (PLENU).",
+     expl:"lluvia ← PLUVIA. El grupo PL inicial se volvió ll."},
+    {w:"fuego",ley:"dos leyes de regreso",
+     ans:["focu","focum","focus"],
+     pista:"Deshaz el diptongo (la ue era O breve) y endurece la g: entre vocales se había suavizado desde una C.",
+     expl:"fuego ← FOCU. La O breve diptongó en ue y la C intervocálica se suavizó en g."},
+    {w:"harina",ley:"la h muda fue una consonante que sonaba",
+     ans:["farina"],
+     pista:"¿Qué consonante se gastó hasta callarse al inicio de hijo, hacer y hoja? La misma está aquí.",
+     expl:"harina ← FARINA. La F inicial se volvió h muda."}
+  ];
+
+  function pinta(lista,contId,dir){
+    var cont=document.getElementById(contId);
+    lista.forEach(function(p){
+      var card=document.createElement('div');card.className='card';
+      card.innerHTML='<h3>'+(dir==='ida'?'<em>'+p.w+'</em>':p.w)+'</h3>'
+        +'<div class="paso">La ley que opera</div>'
+        +'<p style="margin:.2rem 0 0;font-size:.95rem">'+p.ley+'.</p>'
+        +'<div class="paso">'+(dir==='ida'?'Tu predicción en español':'Tu reconstrucción del étimo latino')+'</div>'
+        +'<input type="text" placeholder="'+(dir==='ida'?'¿En qué palabra se convirtió?':'¿De qué palabra latina viene?')+'">'
+        +'<div class="fila-botones"><button class="btn rosa" data-check>Revisar</button></div>'
+        +'<div class="fb" data-fb></div>';
+      cont.appendChild(card);
+
+      var input=card.querySelector('input');
+      var fb=card.querySelector('[data-fb]');
+      var intentos=0;
+
+      card.querySelector('[data-check]').addEventListener('click',function(){
+        var v=norm(input.value);
+        if(!v){fb.className='fb no';fb.textContent='Primero escribe tu predicción. En este gimnasio no se revisa el aire.';return;}
+        if(p.ans.indexOf(v)>-1){
+          fb.className='fb ok';
+          fb.textContent='Bien. '+p.expl;
+        }else{
+          intentos++;
+          if(intentos===1){
+            fb.className='fb no';
+            fb.textContent='Aún no. Pista: '+p.pista;
+          }else{
+            fb.className='fb no';
+            fb.textContent='Aún no. La respuesta era '+(dir==='ida'?p.ans[0]:p.ans[0].toUpperCase())+'. '+p.expl+' Anótala: fallar aquí es exactamente para lo que sirve el gimnasio.';
+          }
+        }
+      });
+    });
+  }
+
+  pinta(IDA,'ida','ida');
+  pinta(VUELTA,'vuelta','vuelta');
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

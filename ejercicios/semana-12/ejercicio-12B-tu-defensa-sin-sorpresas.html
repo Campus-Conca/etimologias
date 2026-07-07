@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 12 · Ejercicio B · Tu defensa, sin sorpresas</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3rem;resize:vertical}
+  .protocolo{counter-reset:paso;list-style:none;padding:0;margin:.5rem 0 0}
+  .protocolo li{position:relative;padding:.7rem .8rem .7rem 3rem;border:1px solid var(--borde);border-radius:.7rem;margin-top:.5rem;background:#fff}
+  .protocolo li::before{counter-increment:paso;content:counter(paso);position:absolute;left:.8rem;top:.75rem;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--rosa);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+  .protocolo a{color:var(--rosa);font-weight:700}
+  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .marca{display:flex;gap:.5rem;margin-top:.6rem}
+  .marca button{flex:1;padding:.5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
+  .marca button.sel-ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
+  .marca button.sel-no{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  .crono{font-size:2rem;font-weight:800;color:var(--ciruela);margin-top:.5rem}
+  pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 12 · Sesión B</div>
+    <h1>Tu defensa, sin sorpresas</h1>
+    <p>Peldaño 2 de la escalera: ahora pasas solo. Pero el banco de preguntas está publicado desde la semana pasada. La red existe; hoy la usas.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="regla">
+    <strong>Lo que cuenta (y lo que no).</strong> Se evalúa: que el origen de tu palabra esté verificado con fuente, que expliques su viaje (la ley o el camino que la transformó), que tengas una razón propia para haberla elegido y que sostengas 1 o 2 preguntas del banco. No se evalúa: que estés nervioso, que hables bonito, que te lo sepas de memoria. El nerviosismo no está en la rúbrica.
+  </div>
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> (1) Elige una palabra viajera de la unidad: un préstamo, una palabra de campo, una que sobrevivió a un mito. (2) Verifica su origen con el protocolo de fuentes. (3) Llena la ficha y genera la captura: esa es tu ficha de apoyo del jueves (se vale mirarla, no se vale leerla completa). (4) Ensaya con el cronómetro y pide a un compañero que te lance una pregunta del banco. (5) Márcate con la rúbrica.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> copia los cinco campos de la ficha en media cuartilla y llénalos a mano. Esa media cuartilla es tu ficha de apoyo del jueves: al frente solo pasa ella, no el cuaderno completo. Las cinco preguntas del banco van al reverso, para ensayar.
+  </div>
+
+  <h2>El banco de preguntas, completo</h2>
+  <div class="card">
+    <h3>Publicado desde la semana 11. No hay emboscada.</h3>
+    <ol class="protocolo">
+      <li>¿De qué lengua viene tu palabra y cómo lo verificaste?</li>
+      <li>¿Qué ley fonética la transformó desde su origen?</li>
+      <li>¿Por qué la elegiste tú?</li>
+      <li>¿Se cuenta alguna historia falsa sobre su origen?</li>
+      <li>¿Dónde la verificaste y qué dijo la fuente?</li>
+    </ol>
+    <p style="font-size:.92rem;margin:.8rem 0 0">El jueves te tocan 1 o 2 de estas, no las cinco. Como las conoces, lo que se mide es que puedas sostenerlas, no que adivines.</p>
+  </div>
+
+  <h2>Antes de llenar: verifica tu fuente</h2>
+  <ol class="protocolo">
+    <li>Confirma el origen de tu palabra en el <a href="https://dle.rae.es" target="_blank" rel="noopener">DLE</a> (viene entre paréntesis, después de la palabra) y en el <a href="http://etimologias.dechile.net" target="_blank" rel="noopener">DECEL</a> (la historia completa). Si es palabra de campo y no aparece, esa ausencia también es un dato: dilo en tu defensa.</li>
+    <li>Anota qué fuente consultaste y qué dice. Sin fuente no hay defensa: regla de oro desde la semana 2.</li>
+  </ol>
+
+  <h2>La ficha de apoyo</h2>
+  <div class="card">
+    <h3>Una palabra, tu voz</h3>
+    <label>Palabra que defiendes</label>
+    <input type="text" data-campo="palabra" placeholder="una palabra viajera de la unidad">
+    <label>Lengua de origen y fuente</label>
+    <textarea data-campo="origen" placeholder="ej. náhuatl, según el DECEL; el DLE confirma"></textarea>
+    <label>Su viaje (ley fonética o camino recorrido)</label>
+    <textarea data-campo="viaje" placeholder="qué la transformó de su forma original a la de hoy; si no hubo ley, cuenta el camino"></textarea>
+    <label>Por qué la elegiste tú</label>
+    <textarea data-campo="porque" placeholder="la razón honesta: te sorprendió, te costó, es de tu casa..."></textarea>
+    <label>¿Se cuenta una historia falsa sobre ella?</label>
+    <textarea data-campo="mito" placeholder="cuál circula y qué dice la fuente; si no hay ninguna, escribe: ninguna documentada"></textarea>
+    <div class="fila-botones">
+      <button class="btn rosa" data-generar>Generar captura</button>
+      <button class="btn gris" data-copiar style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura"></pre>
+    <div class="fb" data-fb></div>
+  </div>
+
+  <h2>Ensayo con cronómetro</h2>
+  <div class="card">
+    <h3>Una pasada completa, en voz alta</h3>
+    <p style="font-size:.92rem;margin:.3rem 0 0">Defiende de corrido, como si fuera el jueves. La meta: alrededor de 3 minutos.</p>
+    <div class="crono" id="crono">0:00</div>
+    <div class="fila-botones">
+      <button class="btn rosa" id="btnCrono">Iniciar ensayo</button>
+    </div>
+    <div class="fb" id="fbCrono"></div>
+  </div>
+
+  <h2>Entrena las preguntas del banco</h2>
+  <div class="card">
+    <h3>Que un compañero te la lance, o lánzatela tú</h3>
+    <p style="font-size:.92rem;margin:.3rem 0 0">Responde en voz alta, sin ver la ficha. Errar en voz alta es el deporte del curso, y hoy es el día de errar a gusto.</p>
+    <div class="fila-botones"><button class="btn gris" id="btnPregunta">Dame una pregunta del banco</button></div>
+    <div class="fb" id="fbPregunta"></div>
+  </div>
+
+  <h2>Márcate con la rúbrica</h2>
+  <div class="card">
+    <h3>Los cuatro criterios del jueves</h3>
+    <div id="rubros"></div>
+  </div>
+
+  <div class="regla">
+    <strong>Para el jueves:</strong> silencio mientras otro defiende, aplauso al final, sin correcciones en caliente. Y un dato para los nervios: en la semana 7 defendiste en pareja y saliste vivo. Esto es lo mismo, un escalón más arriba y con las preguntas a la vista.
+  </div>
+
+  <footer>Semana 12 · Cierre de unidad: ¿quién es dueño del español? · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página. La captura solo vive si tú la copias y la pegas.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  // Ficha de apoyo
+  var card=document.querySelector('.card input[data-campo=palabra]').closest('.card');
+  var btnG=card.querySelector('[data-generar]');
+  var btnC=card.querySelector('[data-copiar]');
+  var pre=card.querySelector('pre.captura');
+  var fb=card.querySelector('[data-fb]');
+
+  btnG.addEventListener('click',function(){
+    var g=function(sel){var el=card.querySelector('[data-campo='+sel+']');return el?el.value.trim():'';};
+    var palabra=g('palabra'),origen=g('origen'),viaje=g('viaje'),porque=g('porque'),mito=g('mito');
+    var faltan=[];
+    if(!palabra)faltan.push('la palabra');
+    if(!origen)faltan.push('la lengua de origen con fuente');
+    if(!viaje)faltan.push('el viaje');
+    if(!porque)faltan.push('el porqué');
+    if(faltan.length){
+      fb.className='fb no';
+      fb.textContent='El banco de preguntas pregunta exactamente eso. Falta: '+faltan.join(', ')+'.';
+      return;
+    }
+    fb.className='fb ok';
+    fb.textContent='Ficha lista. Cópiala o pásala a media cuartilla: es tu apoyo del jueves.';
+    pre.textContent='PALABRA: '+palabra
+      +'\nORIGEN Y FUENTE: '+origen
+      +'\nSU VIAJE: '+viaje
+      +'\nPOR QUÉ LA ELEGÍ: '+porque
+      +'\nHISTORIA FALSA: '+(mito||'(ninguna documentada)');
+    pre.style.display='block';
+    btnC.style.display='inline-block';
+  });
+
+  btnC.addEventListener('click',function(){
+    var t=pre.textContent;
+    function listo(){fb.className='fb ok';fb.textContent='Copiado. Pégalo donde lo tengas a la mano para el jueves.';}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(listo,function(){seleccionar();});
+    }else{seleccionar();}
+    function seleccionar(){
+      var r=document.createRange();r.selectNodeContents(pre);
+      var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+      fb.className='fb ok';fb.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
+    }
+  });
+
+  // Cronómetro de ensayo
+  var corriendo=false,inicio=0,timer=null;
+  var disp=document.getElementById('crono');
+  var btnCr=document.getElementById('btnCrono');
+  var fbCr=document.getElementById('fbCrono');
+  function pinta(seg){
+    var m=Math.floor(seg/60),s=seg%60;
+    disp.textContent=m+':'+(s<10?'0':'')+s;
+  }
+  btnCr.addEventListener('click',function(){
+    if(!corriendo){
+      corriendo=true;inicio=Date.now();
+      btnCr.textContent='Terminé';
+      fbCr.className='fb';
+      timer=setInterval(function(){pinta(Math.floor((Date.now()-inicio)/1000));},250);
+    }else{
+      corriendo=false;clearInterval(timer);
+      var seg=Math.floor((Date.now()-inicio)/1000);
+      pinta(seg);
+      btnCr.textContent='Iniciar ensayo';
+      if(seg<150){
+        fbCr.className='fb no';
+        fbCr.textContent='Quedó corto ('+Math.floor(seg/60)+' min con '+(seg%60)+' seg). Te sobra espacio: la historia de la palabra o tu porqué pueden contarse con más calma.';
+      }else if(seg<=210){
+        fbCr.className='fb ok';
+        fbCr.textContent='En el rango: alrededor de 3 minutos. Así se siente la medida del jueves.';
+      }else{
+        fbCr.className='fb no';
+        fbCr.textContent='Se pasó de los 3 minutos y medio. Recorta: el origen con fuente y el viaje no se tocan; lo que suele sobrar es rodeo antes de entrar a la palabra.';
+      }
+    }
+  });
+
+  // Preguntas del banco
+  var PREGUNTAS=[
+    "¿De qué lengua viene tu palabra y cómo lo verificaste?",
+    "¿Qué ley fonética la transformó desde su origen?",
+    "¿Por qué la elegiste tú?",
+    "¿Se cuenta alguna historia falsa sobre su origen?",
+    "¿Dónde la verificaste y qué dijo la fuente?"
+  ];
+  var ultima=-1;
+  document.getElementById('btnPregunta').addEventListener('click',function(){
+    var i;
+    do{i=Math.floor(Math.random()*PREGUNTAS.length);}while(i===ultima&&PREGUNTAS.length>1);
+    ultima=i;
+    var fbp=document.getElementById('fbPregunta');
+    fbp.className='fb ej';
+    fbp.textContent=PREGUNTAS[i];
+  });
+
+  // Rúbrica con autoevaluación
+  var RUBROS=[
+    {t:"El origen de mi palabra está verificado y sé decir qué fuente lo dice",
+     ok:"Regla de oro cubierta: sin fuente no hay etimología.",
+     no:"Pasa por el protocolo de arriba antes de salir hoy. 'Lo vi en internet' no es una fuente; DLE o DECEL con lo que dicen, sí."},
+    {t:"Puedo explicar el viaje de mi palabra: qué ley o qué camino la transformó",
+     ok:"Ese es el corazón de la defensa: la palabra en movimiento.",
+     no:"Vuelve al DECEL y sigue el rastro: ¿cómo se escribía en su lengua de origen y qué le fue pasando? Si es palabra de campo sin registro, tu explicación del camino también cuenta."},
+    {t:"Tengo una razón propia para haberla elegido",
+     ok:"Eso hace que la defensa sea tuya y no un recitado.",
+     no:"No busques una razón elegante: la honesta funciona mejor. ¿Qué te sorprendió, qué te costó, de quién la aprendiste?"},
+    {t:"Respondí una pregunta del banco en voz alta sin leer la ficha",
+     ok:"Entonces el jueves no te van a sorprender: ya lo hiciste hoy.",
+     no:"Hazlo antes de irte, aunque sea solo y en voz baja. La diferencia entre saberlo y decirlo se entrena diciéndolo."}
+  ];
+  var zona=document.getElementById('rubros');
+  RUBROS.forEach(function(r){
+    var div=document.createElement('div');
+    div.innerHTML='<p style="margin:.9rem 0 0;font-weight:700;color:var(--ciruela)">'+r.t+'</p>'
+      +'<div class="marca"><button data-v="bien">Me quedó bien</button><button data-v="aun">Aún no</button></div>'
+      +'<div class="fb" data-fbr></div>';
+    var fbr=div.querySelector('[data-fbr]');
+    div.querySelectorAll('.marca button').forEach(function(b){
+      b.addEventListener('click',function(){
+        div.querySelectorAll('.marca button').forEach(function(x){x.classList.remove('sel-ok','sel-no');});
+        b.classList.add(b.dataset.v==='bien'?'sel-ok':'sel-no');
+        if(b.dataset.v==='bien'){fbr.className='fb ok';fbr.textContent=r.ok;}
+        else{fbr.className='fb no';fbr.textContent=r.no;}
+      });
+    });
+    zona.appendChild(div);
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

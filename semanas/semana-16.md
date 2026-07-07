@@ -76,6 +76,15 @@ El último del semestre. Quiz integrador y defensa socrática son tu evidencia. 
 
 ---
 
+## El gimnasio de la semana
+
+Los ejercicios de esta semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
+
+- [La fábrica de palabras](../ejercicios/semana-16/ejercicio-16A-la-fabrica-de-palabras.html) · martes
+- [Entrenador socrático](../ejercicios/semana-16/ejercicio-16B-entrenador-socratico.html) · miércoles
+- [Releer septiembre](../ejercicios/semana-16/ejercicio-16D-releer-septiembre.html) · viernes
+- [Quiz de gimnasio](../ejercicios/semana-16/quiz-gimnasio-semana-16.html) · para ensayar cuando quieras
+
 ## Las tarjetas de la semana
 
 Sin tarjetas nuevas: es cierre. Repasa el mazo completo del semestre para el quiz integrador y para tu defensa.

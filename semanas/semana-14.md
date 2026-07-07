@@ -26,6 +26,15 @@ El griego abrió la medicina. El latín abre los tribunales. Entender la letra c
 
 ---
 
+## El gimnasio de la semana
+
+Los ejercicios de esta semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
+
+- [¿Bien o mal dicho?](../ejercicios/semana-14/ejercicio-14A-bien-o-mal-dicho.html) · martes
+- [Taller de locuciones](../ejercicios/semana-14/ejercicio-14B-taller-de-locuciones.html) · miércoles
+- [Cazadores de locuciones](../ejercicios/semana-14/ejercicio-14C-cazadores-de-locuciones.html) · jueves, centro de cómputo
+- [Quiz de gimnasio](../ejercicios/semana-14/quiz-gimnasio-semana-14.html) · para ensayar cuando quieras
+
 ## Hoja de consulta
 
 Toca una locución para ver qué significa y cómo se usa bien. Ojo con las que se dicen mal.

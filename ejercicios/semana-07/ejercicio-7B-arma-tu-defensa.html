@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 7 · Ejercicio B · Arma tu defensa</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3rem;resize:vertical}
+  .protocolo{counter-reset:paso;list-style:none;padding:0;margin:.5rem 0 0}
+  .protocolo li{position:relative;padding:.7rem .8rem .7rem 3rem;border:1px solid var(--borde);border-radius:.7rem;margin-top:.5rem;background:#fff}
+  .protocolo li::before{counter-increment:paso;content:counter(paso);position:absolute;left:.8rem;top:.75rem;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--rosa);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+  .protocolo a{color:var(--rosa);font-weight:700}
+  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .marca{display:flex;gap:.5rem;margin-top:.6rem}
+  .marca button{flex:1;padding:.5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
+  .marca button.sel-ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
+  .marca button.sel-no{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  .crono{font-size:2rem;font-weight:800;color:var(--ciruela);margin-top:.5rem}
+  pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 7 · Sesión B</div>
+    <h1>Arma tu defensa</h1>
+    <p>Peldaño 1 de la escalera: en parejas, nadie se estrena solo. 3 a 4 minutos, los dos hablan.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="regla">
+    <strong>Lo que cuenta (y lo que no).</strong> Se evalúa: que la descomposición sea correcta, que usen una fuente de autoridad y que expliquen por qué eligieron esa palabra. No se evalúa: que estés nervioso, que actúes, que hables bonito. El nerviosismo no está en la rúbrica.
+  </div>
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Con tu pareja: elijan una palabra trabajada en la unidad, llenen la ficha, generen la captura (esa es su ficha de apoyo para el jueves: se vale mirarla, no se vale leerlo todo), ensayen una vez con el cronómetro y márquense con la rúbrica.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> copia los cinco campos de la ficha en media cuartilla y llénalos a mano. Esa media cuartilla es tu ficha de apoyo: al salón solo entra ella, no el cuaderno completo.
+  </div>
+
+  <h2>Antes de llenar: verifica tu fuente</h2>
+  <ol class="protocolo">
+    <li>Confirma la descomposición de su palabra en el <a href="https://dle.rae.es" target="_blank" rel="noopener">DLE</a> (el origen viene entre paréntesis) y en el <a href="http://etimologias.dechile.net" target="_blank" rel="noopener">DECEL</a> (la historia completa).</li>
+    <li>Anota qué fuente consultaron y qué dice. Sin fuente no hay defensa: es la regla de oro desde la semana 2.</li>
+  </ol>
+
+  <h2>La ficha de apoyo</h2>
+  <div class="card">
+    <h3>Una palabra, dos voces</h3>
+    <label>Palabra que defienden</label>
+    <input type="text" data-campo="palabra" placeholder="ej. una que hayan abierto en la unidad">
+    <label>Suma de palabras (descomposición)</label>
+    <textarea data-campo="suma" placeholder="ej. pieza (significado) + pieza (significado) = significado literal"></textarea>
+    <label>Su historia, con fuente</label>
+    <textarea data-campo="historia" placeholder="qué dice el DLE o el DECEL sobre su origen y su camino"></textarea>
+    <label>Por qué la elegimos</label>
+    <textarea data-campo="porque" placeholder="la razón honesta: nos sorprendió, nos costó, nos gustó su historia..."></textarea>
+    <label>Quién dice qué (los dos hablan)</label>
+    <textarea data-campo="reparto" placeholder="ej. A abre con la palabra y la suma; B cuenta la historia y el porqué"></textarea>
+    <div class="fila-botones">
+      <button class="btn rosa" data-generar>Generar captura</button>
+      <button class="btn gris" data-copiar style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura"></pre>
+    <div class="fb" data-fb></div>
+  </div>
+
+  <h2>Ensayo con cronómetro</h2>
+  <div class="card">
+    <h3>Una pasada completa</h3>
+    <p style="font-size:.92rem;margin:.3rem 0 0">Defiendan de corrido, como si fuera el jueves. La meta: entre 3 y 4 minutos.</p>
+    <div class="crono" id="crono">0:00</div>
+    <div class="fila-botones">
+      <button class="btn rosa" id="btnCrono">Iniciar ensayo</button>
+    </div>
+    <div class="fb" id="fbCrono"></div>
+  </div>
+
+  <h2>Márquense con la rúbrica</h2>
+  <div class="card">
+    <h3>Los tres criterios</h3>
+    <div id="rubros"></div>
+  </div>
+
+  <h2>Prueba de fuego: la pregunta amable</h2>
+  <div class="card">
+    <h3>Al final de cada defensa, el profesor hace una sola pregunta</h3>
+    <p style="font-size:.92rem;margin:.3rem 0 0">Es andamiaje, no interrogatorio. Practica responder algunas del banco:</p>
+    <div class="fila-botones"><button class="btn gris" id="btnPregunta">Dame una pregunta de ensayo</button></div>
+    <div class="fb" id="fbPregunta"></div>
+  </div>
+
+  <footer>Semana 7 · Cierre de unidad: qué tan hondo veo ya · Este ejercicio es gimnasio: sin nota, sin registro. La captura solo se guarda si tú la copias y la pegas; al cerrar la página todo se borra.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  // Ficha de apoyo
+  var card=document.querySelector('.card');
+  var btnG=card.querySelector('[data-generar]');
+  var btnC=card.querySelector('[data-copiar]');
+  var pre=card.querySelector('pre.captura');
+  var fb=card.querySelector('[data-fb]');
+
+  btnG.addEventListener('click',function(){
+    var g=function(sel){var el=card.querySelector('[data-campo='+sel+']');return el?el.value.trim():'';};
+    var palabra=g('palabra'),suma=g('suma'),historia=g('historia'),porque=g('porque'),reparto=g('reparto');
+    var faltan=[];
+    if(!palabra)faltan.push('la palabra');
+    if(!suma)faltan.push('la suma de palabras');
+    if(!historia)faltan.push('la historia con fuente');
+    if(!porque)faltan.push('el porqué');
+    if(faltan.length){
+      fb.className='fb no';
+      fb.textContent='La rúbrica pide exactamente eso. Falta: '+faltan.join(', ')+'.';
+      return;
+    }
+    fb.className='fb ok';
+    fb.textContent='Ficha lista. Cópienla o pásenla a media cuartilla: es su apoyo del jueves.';
+    pre.textContent='PALABRA: '+palabra
+      +'\nSUMA: '+suma
+      +'\nHISTORIA Y FUENTE: '+historia
+      +'\nPOR QUÉ LA ELEGIMOS: '+porque
+      +'\nQUIÉN DICE QUÉ: '+(reparto||'(pendiente de repartir)');
+    pre.style.display='block';
+    btnC.style.display='inline-block';
+  });
+
+  btnC.addEventListener('click',function(){
+    var t=pre.textContent;
+    function listo(){fb.className='fb ok';fb.textContent='Copiado. Péguenlo donde lo tengan a la mano para el jueves.';}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(listo,function(){seleccionar();});
+    }else{seleccionar();}
+    function seleccionar(){
+      var r=document.createRange();r.selectNodeContents(pre);
+      var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+      fb.className='fb ok';fb.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
+    }
+  });
+
+  // Cronómetro de ensayo
+  var corriendo=false,inicio=0,timer=null;
+  var disp=document.getElementById('crono');
+  var btnCr=document.getElementById('btnCrono');
+  var fbCr=document.getElementById('fbCrono');
+  function pinta(seg){
+    var m=Math.floor(seg/60),s=seg%60;
+    disp.textContent=m+':'+(s<10?'0':'')+s;
+  }
+  btnCr.addEventListener('click',function(){
+    if(!corriendo){
+      corriendo=true;inicio=Date.now();
+      btnCr.textContent='Terminamos';
+      fbCr.className='fb';
+      timer=setInterval(function(){pinta(Math.floor((Date.now()-inicio)/1000));},250);
+    }else{
+      corriendo=false;clearInterval(timer);
+      var seg=Math.floor((Date.now()-inicio)/1000);
+      pinta(seg);
+      btnCr.textContent='Iniciar ensayo';
+      if(seg<180){
+        fbCr.className='fb no';
+        fbCr.textContent='Quedó corto ('+Math.floor(seg/60)+' min con '+(seg%60)+' seg). Espacio de sobra para la historia de la palabra o el porqué. ¿Qué parte pueden contar con más calma?';
+      }else if(seg<=240){
+        fbCr.className='fb ok';
+        fbCr.textContent='En el rango: 3 a 4 minutos. Así se siente la medida del jueves.';
+      }else{
+        fbCr.className='fb no';
+        fbCr.textContent='Se pasó de 4 minutos. Recorten: la descomposición y la fuente no se tocan; lo que suele sobrar es rodeo antes de entrar a la palabra.';
+      }
+    }
+  });
+
+  // Rúbrica con autoevaluación
+  var RUBROS=[
+    {t:"La descomposición es correcta y la podemos explicar pieza por pieza",
+     ok:"Ese es el corazón de la defensa. Bien.",
+     no:"Vuelvan al DECEL y revisen cada pieza: ¿reaparece en otras palabras con el mismo significado? Mañana lo agradecen."},
+    {t:"Tenemos la fuente anotada y sabemos decir qué dice",
+     ok:"Regla de oro cubierta: sin fuente no hay etimología.",
+     no:"Pasen por el protocolo de arriba antes de salir hoy. 'Lo vimos en internet' no es una fuente; DLE o DECEL con lo que dicen, sí."},
+    {t:"Sabemos decir por qué elegimos esta palabra, con una razón nuestra",
+     ok:"Eso hace que la defensa sea suya y no un recitado.",
+     no:"No busquen una razón elegante: la honesta funciona mejor. ¿Qué les sorprendió, qué les costó, qué les gustó de su historia?"}
+  ];
+  var zona=document.getElementById('rubros');
+  RUBROS.forEach(function(r){
+    var div=document.createElement('div');
+    div.innerHTML='<p style="margin:.9rem 0 0;font-weight:700;color:var(--ciruela)">'+r.t+'</p>'
+      +'<div class="marca"><button data-v="bien">Me quedó bien</button><button data-v="aun">Aún no</button></div>'
+      +'<div class="fb" data-fbr></div>';
+    var fbr=div.querySelector('[data-fbr]');
+    div.querySelectorAll('.marca button').forEach(function(b){
+      b.addEventListener('click',function(){
+        div.querySelectorAll('.marca button').forEach(function(x){x.classList.remove('sel-ok','sel-no');});
+        b.classList.add(b.dataset.v==='bien'?'sel-ok':'sel-no');
+        if(b.dataset.v==='bien'){fbr.className='fb ok';fbr.textContent=r.ok;}
+        else{fbr.className='fb no';fbr.textContent=r.no;}
+      });
+    });
+    zona.appendChild(div);
+  });
+
+  // Banco de preguntas suaves
+  var PREGUNTAS=[
+    "¿Qué otra palabra comparte esa raíz?",
+    "¿Dónde verificaron la etimología?",
+    "¿Qué pieza les costó más trabajo y por qué?",
+    "Si la palabra tuviera una pieza más, ¿cuál le pondrían y qué significaría?",
+    "¿Qué decía el DLE que no decía el DECEL, o al revés?",
+    "¿La palabra significa hoy exactamente lo que dice su suma? ¿Qué cambió en el camino?"
+  ];
+  var ultima=-1;
+  document.getElementById('btnPregunta').addEventListener('click',function(){
+    var i;
+    do{i=Math.floor(Math.random()*PREGUNTAS.length);}while(i===ultima&&PREGUNTAS.length>1);
+    ultima=i;
+    var fbp=document.getElementById('fbPregunta');
+    fbp.className='fb ej';
+    fbp.textContent=PREGUNTAS[i]+' (Respondan en voz alta, sin ver la ficha. Errar en voz alta es el deporte del curso.)';
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

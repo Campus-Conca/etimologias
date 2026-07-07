@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 11 · Ejercicio B · El expediente de mitos</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3rem;resize:vertical}
+  .piezas{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+  .piezas button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;font-size:.92rem;cursor:pointer;font-family:inherit}
+  .piezas button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .veredicto{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.4rem}
+  .veredicto button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;cursor:pointer;font:inherit}
+  .veredicto button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 11 · Sesión B</div>
+    <h1>El expediente de mitos</h1>
+    <p>Cuatro historias de origen que se cuentan por ahí. Tu equipo las ficha hoy; el jueves van a juicio.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> En equipo, reúnan 4 etimologías "que se cuentan": de casa, de internet, de redes o de una IA. Al menos una debe venir de preguntarle a una IA (anoten qué IA y qué respondió). Escriban cada historia tal como circula, sin corregirla, marquen las señales que enciende y hagan su apuesta razonada. Nada se verifica hoy: el expediente completo es la agenda del tribunal del jueves.
+  </div>
+
+  <div class="regla">
+    <strong>Regla del fichaje:</strong> la historia se copia tal cual la cuentan, con todo y sus detalles bonitos. Los detalles bonitos suelen ser la pista.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> una ficha por mito, con cinco renglones: palabra, la historia tal como circula, de dónde salió, señales que enciende, apuesta y por qué. Titula la hoja "Expediente de mitos" con el nombre del equipo.
+  </div>
+
+  <div class="card">
+    <h3>El equipo</h3>
+    <label>Nombre del equipo e integrantes</label>
+    <input type="text" id="equipo" placeholder="ej. Los sin cera: Ana, Luis, Sofía">
+  </div>
+
+  <div id="lista"></div>
+
+  <h2>Entrega</h2>
+  <div class="card">
+    <p style="margin:0;font-size:.92rem">Cuando los 4 mitos estén fichados (y al menos uno venga de una IA), generen la captura y péguenla donde indique el profesor. Ese texto es su expediente oficial.</p>
+    <div class="fila-botones">
+      <button class="btn rosa" id="btnGenerar">Generar captura</button>
+      <button class="btn gris" id="btnCopiar" style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura" id="pre"></pre>
+    <div class="fb" id="fbCap"></div>
+  </div>
+
+  <footer>Semana 11 · Cazadores de mitos · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página. El expediente solo vive si lo copias y lo pegas.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var ORIGENES=["De casa","De internet o redes","De una IA","Otro lugar"];
+  var SENALES=["Es un acrónimo","Demasiado buena, demasiado redonda","Otra lengua sin razón","Nadie cita una fuente","No enciende ninguna señal"];
+  var APUESTAS=["Verdadero","Falso","Dudoso"];
+
+  var cont=document.getElementById('lista');
+  var estado=[];
+
+  for(var n=1;n<=4;n++){
+    (function(n){
+      var st={palabra:null,historia:null,origen:null,senales:[],apuesta:null,porque:null};
+      estado.push(st);
+
+      var card=document.createElement('div');card.className='card';
+      card.innerHTML='<h3>Mito '+n+'</h3>'
+        +'<label>Palabra</label>'
+        +'<input type="text" data-campo="palabra" placeholder="ej. gringo">'
+        +'<label>La historia tal como circula</label>'
+        +'<textarea data-campo="historia" placeholder="Cópiala con sus palabras, sin corregirla. Si vino de una IA, pega su respuesta."></textarea>'
+        +'<label>De dónde salió</label>'
+        +'<div class="veredicto" data-origen></div>'
+        +'<label>Señales que enciende</label>'
+        +'<div class="piezas" data-senales></div>'
+        +'<label>La apuesta del equipo</label>'
+        +'<div class="veredicto" data-apuesta></div>'
+        +'<label>Por qué</label>'
+        +'<textarea data-campo="porque" placeholder="La razón de la apuesta, en una o dos líneas."></textarea>';
+      cont.appendChild(card);
+
+      st.palabra=card.querySelector('[data-campo=palabra]');
+      st.historia=card.querySelector('[data-campo=historia]');
+      st.porque=card.querySelector('[data-campo=porque]');
+
+      var zonaO=card.querySelector('[data-origen]');
+      ORIGENES.forEach(function(o){
+        var b=document.createElement('button');b.type='button';b.textContent=o;
+        b.addEventListener('click',function(){
+          zonaO.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+          b.classList.add('sel');st.origen=o;
+        });
+        zonaO.appendChild(b);
+      });
+
+      var zonaS=card.querySelector('[data-senales]');
+      SENALES.forEach(function(s,i){
+        var b=document.createElement('button');b.type='button';b.textContent=s;
+        b.addEventListener('click',function(){
+          var esNinguna=(i===SENALES.length-1);
+          if(b.classList.contains('sel')){
+            b.classList.remove('sel');
+            st.senales=st.senales.filter(function(x){return x!==s;});
+            return;
+          }
+          if(esNinguna){
+            zonaS.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+            st.senales=[];
+          }else{
+            var ult=zonaS.querySelectorAll('button')[SENALES.length-1];
+            ult.classList.remove('sel');
+            st.senales=st.senales.filter(function(x){return x!==SENALES[SENALES.length-1];});
+          }
+          b.classList.add('sel');
+          st.senales.push(s);
+        });
+        zonaS.appendChild(b);
+      });
+
+      var zonaA=card.querySelector('[data-apuesta]');
+      APUESTAS.forEach(function(a){
+        var b=document.createElement('button');b.type='button';b.textContent=a;
+        b.addEventListener('click',function(){
+          zonaA.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+          b.classList.add('sel');st.apuesta=a;
+        });
+        zonaA.appendChild(b);
+      });
+    })(n);
+  }
+
+  var pre=document.getElementById('pre');
+  var fb=document.getElementById('fbCap');
+  var btnC=document.getElementById('btnCopiar');
+
+  document.getElementById('btnGenerar').addEventListener('click',function(){
+    var equipo=document.getElementById('equipo').value.trim();
+    var faltan=[];
+    if(!equipo)faltan.push('el nombre del equipo');
+    estado.forEach(function(st,i){
+      var p=[];
+      if(!st.palabra.value.trim())p.push('palabra');
+      if(!st.historia.value.trim())p.push('historia');
+      if(!st.origen)p.push('origen');
+      if(!st.apuesta)p.push('apuesta');
+      if(!st.porque.value.trim())p.push('por qué');
+      if(p.length)faltan.push('mito '+(i+1)+' ('+p.join(', ')+')');
+    });
+    if(faltan.length){
+      fb.className='fb no';
+      fb.textContent='Expediente incompleto. Falta: '+faltan.join('; ')+'.';
+      return;
+    }
+    var hayIA=estado.some(function(st){return st.origen==='De una IA';});
+    if(!hayIA){
+      fb.className='fb no';
+      fb.textContent='Falta el mito obligatorio de la IA: al menos uno debe venir de preguntarle a una IA. Pregúntale el origen de una palabra y ficha lo que responda.';
+      return;
+    }
+    var t='EXPEDIENTE DE MITOS · SEMANA 11\nEQUIPO: '+equipo+'\n';
+    estado.forEach(function(st,i){
+      t+='\nMITO '+(i+1)+': '+st.palabra.value.trim()
+        +'\nLA HISTORIA: '+st.historia.value.trim()
+        +'\nORIGEN DEL RUMOR: '+st.origen
+        +'\nSEÑALES: '+(st.senales.length?st.senales.join(' + '):'(sin marcar)')
+        +'\nAPUESTA: '+st.apuesta
+        +'\nPOR QUÉ: '+st.porque.value.trim()+'\n';
+    });
+    t+='\nPendiente de juicio: el jueves hablan las fuentes.';
+    pre.textContent=t;pre.style.display='block';
+    btnC.style.display='inline-block';
+    fb.className='fb ok';
+    fb.textContent='Expediente listo. Cópialo y pégalo donde indique el profesor: es la agenda del tribunal.';
+  });
+
+  btnC.addEventListener('click',function(){
+    var t=pre.textContent;
+    function listo(){fb.className='fb ok';fb.textContent='Copiado. Ahora pégalo en la plantilla del tablero.';}
+    function seleccionar(){
+      var r=document.createRange();r.selectNodeContents(pre);
+      var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+      fb.className='fb ok';fb.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(listo,function(){seleccionar();});
+    }else{seleccionar();}
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

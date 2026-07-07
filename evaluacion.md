@@ -29,7 +29,7 @@ Si algo del suelo te queda pendiente, no repruebas en automático: te queda pend
 
 ## Los tres parciales
 
-Al cerrar cada unidad (semanas 7, 12 y 16) llenas una **autoevaluación de unidad**: una cuartilla de tu expediente donde revisas tu suelo, tu serie de calibración y la pieza que mejor te representa, y terminas con una frase: *propongo tal calificación como mi parcial, porque...* Antes del lunes siguiente transcribes solo el bloque final a un formulario privado desde tu celular (lo ve únicamente el profesor). Si el teléfono no es lo tuyo, lo haces en la siguiente sesión de cómputo.
+Al cerrar cada unidad (semanas 7, 12 y 16) llenas una **autoevaluación de unidad**: una cuartilla de tu expediente donde revisas tu suelo, tu serie de calibración y la pieza que mejor te representa, y terminas con una frase: *propongo tal calificación como mi parcial, porque...* Antes del lunes siguiente transcribes solo el bloque final al [formulario de parciales](https://forms.gle/wVMNguqu3Nfu7yBX7) desde tu celular (lo ve únicamente el profesor). Si el teléfono no es lo tuyo, lo haces en la siguiente sesión de cómputo.
 
 Después pasa una de tres cosas: si el profesor coincide contigo, esa es tu calificación parcial y se asienta. Si te castigaste de más, la sube y te lo dice. Si le parece alta, hay una conversación de cinco minutos antes de asentar nada. La regla de la casa: **ninguna calificación baja por escrito, solo en conversación**. Y un dato del medio siglo de investigación: la mayoría de los estudiantes se pone menos de lo que el profesor le pondría.
 

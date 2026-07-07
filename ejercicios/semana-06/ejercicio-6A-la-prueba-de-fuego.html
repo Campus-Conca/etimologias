@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 6 · Ejercicio A · La prueba de fuego</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --pre-bg:#e6f1fb; --pre-tx:#0c447c;
+    --raiz-bg:#fbeaf0; --raiz-tx:#72243e;
+    --suf-bg:#eaf3de; --suf-tx:#27500a;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.25rem}
+  .paso{font-size:.8rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.04em;margin-top:.9rem}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3.2rem;resize:vertical}
+  .piezas{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+  .piezas button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;font-size:1rem;cursor:pointer}
+  .piezas button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .piezas button small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
+  .armado{margin-top:.5rem;min-height:2.2rem;border:1px dashed var(--borde);border-radius:.6rem;padding:.5rem;background:var(--fondo);font-weight:700;color:var(--ciruela)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .marca{display:flex;gap:.5rem;margin-top:.6rem}
+  .marca button{flex:1;padding:.5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
+  .marca button.sel-ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
+  .marca button.sel-no{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 6 · Sesión A</div>
+    <h1>La prueba de fuego</h1>
+    <p>Cinco palabras que nunca has visto. Si las lees solo con tus piezas, el sistema funciona.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Con tu pareja, y sin fuentes: ni diccionario, ni celular, ni preguntarle al profe. Para cada palabra: (1) toca las piezas que crees que la forman; (2) suma sus significados y escribe qué crees que significa. Regla de oro de siempre: el corte es real si la pieza reaparece con el mismo valor en otra palabra. El jueves verificamos cuáles existían de verdad.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> copia la palabra, sepárala en piezas con + (cada pieza con su significado abajo) y cierra con el significado que deduces. Mismo orden que aquí.
+  </div>
+
+  <div id="lista"></div>
+
+  <h2>Fabrica un monstruo</h2>
+  <div class="card">
+    <p style="margin:0;font-size:.92rem">Ahora la operación contraria: con piezas reales, arma una palabra que el español no tiene. Toca las piezas en orden y escribe su definición. Debe entenderse aunque no esté en el diccionario, y poder contarse frente a tu abuela. Guárdala: en la semana 16 hay concurso.</p>
+    <div class="paso">Tus piezas</div>
+    <div class="piezas" id="mBank"></div>
+    <div class="armado" id="mArmado">&nbsp;</div>
+    <div class="paso">Definición de tu monstruo</div>
+    <textarea id="mDef" placeholder="ej. bibliofagia: el hábito de devorar libros, uno tras otro"></textarea>
+    <div class="fila-botones"><button class="btn gris" id="mReset">Empezar de nuevo</button></div>
+    <p style="font-size:.92rem;margin:.8rem 0 0">Léesela a tu pareja sin explicar nada. ¿La entendió a la primera?</p>
+    <div class="marca" id="mMarca">
+      <button data-v="bien">Se entiende sola</button>
+      <button data-v="aun">Aún no</button>
+    </div>
+    <div class="fb" id="mFb"></div>
+  </div>
+
+  <h2>Para cerrar</h2>
+  <div class="card">
+    <p>¿Cuál fue la desconocida más satisfactoria de descifrar? Escribe una línea sobre el momento en que le viste el significado. Esta nota alimenta la ronda de síntesis.</p>
+    <textarea placeholder="La mía fue... porque cuando junté las piezas..."></textarea>
+  </div>
+
+  <footer>Semana 6 · Descifrar a ciegas · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var PALABRAS=[
+    {w:"hemeralopía",
+     nota:"La pieza final la conoces por miopía y por óptica.",
+     piezas:[["hemera","día",true],["-opía","visión",true],["helio","sol",false],["-logía","estudio",false]],
+     lit:"visión de día; en medicina, problema para ver con luz de día. Palabra real"},
+    {w:"nictalopía",
+     nota:"Gemela de la de arriba: solo cambia la primera pieza.",
+     piezas:[["nicta","noche",true],["-opía","visión",true],["crono","tiempo",false],["-fobia","miedo",false]],
+     lit:"visión de noche; en medicina, problema para ver de noche. La gemela exacta de hemeralopía"},
+    {w:"batracofagia",
+     nota:"En español, los batracios son las ranas y los sapos.",
+     piezas:[["batraco","rana",true],["-fagia","comer",true],["biblio","libro",false],["-latría","adoración",false]],
+     lit:"comer ranas; la costumbre de comerlas"},
+    {w:"heliolatría",
+     nota:"Piensa en heliocéntrico y en idolatría.",
+     piezas:[["helio","sol",true],["-latría","adoración",true],["geo","tierra",false],["-filia","amor",false]],
+     lit:"adoración al sol, como religión"},
+    {w:"glosolalia",
+     nota:"Piensa en glosario: ahí anda la primera pieza.",
+     piezas:[["gloso","lengua",true],["lalia","habla",true],["fono","sonido",false],["-metro","medir",false]],
+     lit:"habla de lenguas: hablar en una lengua que nadie reconoce, como en ciertos trances religiosos"}
+  ];
+
+  function baraja(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+  var cont=document.getElementById('lista');
+
+  PALABRAS.forEach(function(p,idx){
+    var card=document.createElement('div');card.className='card';
+    card.innerHTML='<h3>'+p.w+'</h3>'
+      +'<p style="margin:.2rem 0 0;font-size:.9rem;color:#666">'+p.nota+'</p>'
+      +'<div class="paso">Paso 1 · Arma las piezas</div>'
+      +'<p style="margin:.2rem 0 0;font-size:.92rem">Toca las piezas que crees que forman la palabra, en orden. Toca de nuevo para quitar.</p>'
+      +'<div class="piezas" data-piezas></div>'
+      +'<div class="armado" data-armado>&nbsp;</div>'
+      +'<div class="fila-botones"><button class="btn rosa" data-check>Revisar piezas</button><button class="btn gris" data-reset>Empezar de nuevo</button></div>'
+      +'<div class="fb" data-fbpz></div>'
+      +'<div class="paso">Paso 2 · ¿Qué significa?</div>'
+      +'<input type="text" placeholder="Suma las piezas: ¿qué dice la palabra?">'
+      +'<div class="fila-botones"><button class="btn gris" data-lit>Compara con un ejemplo</button></div>'
+      +'<div class="fb" data-fblit></div>';
+    cont.appendChild(card);
+
+    var sel=[];
+    var zona=card.querySelector('[data-piezas]');
+    var armado=card.querySelector('[data-armado]');
+    var fbpz=card.querySelector('[data-fbpz]');
+
+    baraja(p.piezas).forEach(function(pz){
+      var b=document.createElement('button');
+      b.innerHTML=pz[0]+'<small>'+pz[1]+'</small>';
+      b.dataset.pieza=pz[0]; b.dataset.buena=pz[2]?'1':'0';
+      b.addEventListener('click',function(){
+        var i=sel.indexOf(b);
+        if(i>-1){sel.splice(i,1);b.classList.remove('sel');}
+        else{sel.push(b);b.classList.add('sel');}
+        armado.textContent=sel.length?sel.map(function(x){return x.dataset.pieza;}).join(' + '):' ';
+        fbpz.className='fb';
+      });
+      zona.appendChild(b);
+    });
+
+    card.querySelector('[data-check]').addEventListener('click',function(){
+      if(!sel.length){fbpz.className='fb no';fbpz.textContent='Primero toca las piezas que crees que forman la palabra.';return;}
+      var buenas=p.piezas.filter(function(x){return x[2];});
+      var elegidasBuenas=sel.filter(function(x){return x.dataset.buena==='1';}).length;
+      var intrusas=sel.length-elegidasBuenas;
+      if(elegidasBuenas===buenas.length&&intrusas===0){
+        fbpz.className='fb ok';
+        fbpz.textContent='Esas son las piezas. Ahora suma sus significados en el paso 2: ahí está el descifrado.';
+      }else if(intrusas>0){
+        fbpz.className='fb no';
+        fbpz.textContent='Hay '+intrusas+' pieza'+(intrusas>1?'s':'')+' que no pertenece'+(intrusas>1?'n':'')+' a esta palabra. Pista: busca cada pieza dentro de "'+p.w+'". Si no suena ahí adentro, no es.';
+      }else{
+        fbpz.className='fb no';
+        fbpz.textContent='Vas bien pero falta una pieza. La palabra tiene '+buenas.length+' piezas en total.';
+      }
+    });
+
+    card.querySelector('[data-reset]').addEventListener('click',function(){
+      sel.forEach(function(x){x.classList.remove('sel');});sel=[];
+      armado.innerHTML='&nbsp;';fbpz.className='fb';
+    });
+
+    card.querySelector('[data-lit]').addEventListener('click',function(){
+      var fb=card.querySelector('[data-fblit]');
+      fb.className='fb ej';
+      fb.innerHTML='<strong>Un ejemplo de descifrado:</strong> '+p.lit+'. Si el tuyo dice lo mismo con otras palabras, va perfecto. Acabas de leer una palabra que jamás habías visto.';
+    });
+  });
+
+  // Fabrica un monstruo
+  var BANK=[["biblio","libro"],["helio","sol"],["xeno","extraño"],["piro","fuego"],["crono","tiempo"],["geo","tierra"],["antropo","ser humano"],["gloso","lengua"],["-fagia","comer"],["-fobia","miedo"],["-latría","adoración"],["-cracia","poder"],["-opía","visión"],["-manía","obsesión"],["-logía","estudio"],["-filia","amor"]];
+  var mBank=document.getElementById('mBank');
+  var mArmado=document.getElementById('mArmado');
+  var mSel=[];
+  BANK.forEach(function(pz){
+    var b=document.createElement('button');
+    b.innerHTML=pz[0]+'<small>'+pz[1]+'</small>';
+    b.dataset.pieza=pz[0];
+    b.addEventListener('click',function(){
+      var i=mSel.indexOf(b);
+      if(i>-1){mSel.splice(i,1);b.classList.remove('sel');}
+      else{mSel.push(b);b.classList.add('sel');}
+      pinta();
+    });
+    mBank.appendChild(b);
+  });
+  function pinta(){
+    if(!mSel.length){mArmado.innerHTML='&nbsp;';return;}
+    var suma=mSel.map(function(x){return x.dataset.pieza;}).join(' + ');
+    var palabra=mSel.map(function(x){return x.dataset.pieza.replace(/-/g,'');}).join('');
+    mArmado.textContent=suma+'  →  '+palabra;
+  }
+  document.getElementById('mReset').addEventListener('click',function(){
+    mSel.forEach(function(x){x.classList.remove('sel');});mSel=[];
+    pinta();document.getElementById('mFb').className='fb';
+    document.querySelectorAll('#mMarca button').forEach(function(x){x.classList.remove('sel-ok','sel-no');});
+  });
+  document.querySelectorAll('#mMarca button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('#mMarca button').forEach(function(x){x.classList.remove('sel-ok','sel-no');});
+      b.classList.add(b.dataset.v==='bien'?'sel-ok':'sel-no');
+      var fb=document.getElementById('mFb');
+      if(b.dataset.v==='bien'){
+        fb.className='fb ok';
+        fb.textContent='Monstruo logrado: una palabra nueva que se entiende sola. Anótala en tu cuaderno, es candidata al concurso de la semana 16.';
+      }else{
+        fb.className='fb no';
+        fb.textContent='Aún no. Pista: si tu pareja dudó, casi siempre es porque una pieza tiene doble sentido. Prueba cambiar esa pieza por otra más clara.';
+      }
+    });
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

@@ -82,6 +82,15 @@ Toca para ir marcando. Tu sala está lista cuando todo tiene palomita.
 
 ---
 
+## El gimnasio de la semana
+
+Los ejercicios de esta semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
+
+- [Ensayo de la defensa final](../ejercicios/semana-17/ejercicio-17A-ensayo-de-la-defensa.html) · martes
+- [El montaje de tu sala](../ejercicios/semana-17/ejercicio-17A-montaje-de-tu-sala.html) · martes
+- [Tu autoevaluación final](../ejercicios/semana-17/ejercicio-17D-autoevaluacion-final.html) · viernes
+- [Carta a septiembre](../ejercicios/semana-17/ejercicio-17D-carta-a-septiembre.html) · viernes
+
 ## Las tarjetas de la semana
 
 Sin tarjetas nuevas. El mazo del semestre ya es tuyo. Esta semana solo hay palabras que defender.

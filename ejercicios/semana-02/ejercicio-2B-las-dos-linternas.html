@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 2 · Ejercicio B · Las dos linternas</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6; --mist:#4a3b7c; --mistbg:#efecf9;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.25rem}
+  .paso{font-size:.8rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.04em;margin-top:.9rem}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3.2rem;resize:vertical}
+  .piezas{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+  .piezas button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;font-size:1rem;cursor:pointer}
+  .piezas button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .piezas button small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .fb.mist{display:block;background:var(--mistbg);color:var(--mist)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 2 · Sesión B</div>
+    <h1>El taller de las dos linternas</h1>
+    <p>Dos linternas sobre la misma palabra: cómo se usa hoy y de dónde vienen sus piezas.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> En equipo de tres, tomen las cuatro palabras de abajo. Para cada una enciendan las dos linternas: primero la definición real, luego la hipótesis etimológica. Aviso justo: no todas las palabras cooperan. Si una se resiste, eso también es un hallazgo, quizá el más importante del día.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> haz una tabla de tres columnas por palabra: definición real, piezas que propones (con significado), y un veredicto propio: se abre / se resiste / no sé. Guarda la tabla: el jueves la llevas al tribunal.
+  </div>
+
+  <div id="lista"></div>
+
+  <h2>Las palabras rebeldes</h2>
+  <div class="card">
+    <p>¿Cuáles palabras se resistieron? Anótalas aquí y escribe tu mejor sospecha: ¿por qué no se dejan partir como las otras?</p>
+    <textarea placeholder="Se resistieron... y sospecho que es porque..."></textarea>
+    <div class="fila-botones"><button class="btn gris" id="btnSemilla">Una pista para llevarse</button></div>
+    <div class="fb" id="fbSemilla"></div>
+  </div>
+
+  <footer>Semana 2 · Las palabras tienen anatomía · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var PALABRAS=[
+    {w:"micrófono",tipo:"abre",
+     real:"Aparato que capta la voz o el sonido para amplificarlo o grabarlo.",
+     piezas:[["micro-","pequeño",true],["fono","sonido",true],["mi-","¿mío?",false],["-ófono","¿?",false]],
+     lit:"sonido pequeño (que se hace grande)"},
+    {w:"geografía",tipo:"abre",
+     real:"Ciencia que estudia la Tierra: sus territorios, climas y gentes.",
+     piezas:[["geo","tierra",true],["grafía","escritura, dibujo",true],["-fía","¿?",false],["geogra-","¿?",false]],
+     lit:"dibujo o descripción de la Tierra"},
+    {w:"mercado",tipo:"resiste",
+     real:"Lugar o sistema donde se compra y se vende.",
+     piezas:[["merc-","¿?",false],["-ado","¿como en pescado?",false],["mer-","¿mar?",false],["cado","¿caído?",false]],
+     pista:"El final -ado suena conocido, pero ¿qué significaría merc- por sí solo? ¿En qué otras palabras aparece? (comercio, mercancía, mercería...) Algo hay ahí, pero la hipótesis no cierra sola: necesita fuentes. Al tribunal del jueves."},
+    {w:"almohada",tipo:"resiste",
+     real:"Pieza blanda donde se apoya la cabeza al dormir.",
+     piezas:[["al-","¿?",false],["moha-","¿?",false],["-ada","¿como en limonada?",false],["almo-","¿alma?",false]],
+     pista:"Prueba todas las combinaciones que quieras: ninguna pieza suena griega ni latina. Esta palabra guarda un secreto de viaje. No se resuelve esta semana: apúntala en tu lista de pendientes y no la sueltes."}
+  ];
+
+  function baraja(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+  var cont=document.getElementById('lista');
+
+  PALABRAS.forEach(function(p){
+    var card=document.createElement('div');card.className='card';
+    card.innerHTML='<h3>'+p.w+'</h3>'
+      +'<div class="paso">Linterna 1 · Definición real</div>'
+      +'<textarea placeholder="¿Qué significa hoy? Escríbelo con tus palabras."></textarea>'
+      +'<div class="fila-botones"><button class="btn gris" data-ej>Compara con un ejemplo</button></div>'
+      +'<div class="fb" data-fbej></div>'
+      +'<div class="paso">Linterna 2 · Hipótesis etimológica</div>'
+      +'<p style="margin:.2rem 0 0;font-size:.92rem">Toca las piezas que crees que forman la palabra. Toca de nuevo para quitar.</p>'
+      +'<div class="piezas" data-piezas></div>'
+      +'<div class="fila-botones"><button class="btn rosa" data-check>Revisar hipótesis</button><button class="btn gris" data-reset>Empezar de nuevo</button></div>'
+      +'<div class="fb" data-fbpz></div>';
+    cont.appendChild(card);
+
+    var sel=[];
+    var zona=card.querySelector('[data-piezas]');
+    var fbpz=card.querySelector('[data-fbpz]');
+    var intentos=0;
+
+    baraja(p.piezas).forEach(function(pz){
+      var b=document.createElement('button');
+      b.innerHTML=pz[0]+'<small>'+pz[1]+'</small>';
+      b.dataset.buena=pz[2]?'1':'0';
+      b.addEventListener('click',function(){
+        var i=sel.indexOf(b);
+        if(i>-1){sel.splice(i,1);b.classList.remove('sel');}
+        else{sel.push(b);b.classList.add('sel');}
+        fbpz.className='fb';
+      });
+      zona.appendChild(b);
+    });
+
+    card.querySelector('[data-check]').addEventListener('click',function(){
+      if(!sel.length){fbpz.className='fb no';fbpz.textContent='Primero toca las piezas que propones.';return;}
+      if(p.tipo==='abre'){
+        var buenas=p.piezas.filter(function(x){return x[2];}).length;
+        var aciertos=sel.filter(function(x){return x.dataset.buena==='1';}).length;
+        var intrusas=sel.length-aciertos;
+        if(aciertos===buenas&&intrusas===0){
+          fbpz.className='fb ok';
+          fbpz.innerHTML='Esta palabra sí se abre, y esas son sus piezas. Significado literal: <em>'+p.lit+'</em>. Falta el paso serio: verificarla en fuentes el jueves.';
+        }else if(intrusas>0){
+          fbpz.className='fb no';
+          fbpz.textContent='Alguna de esas piezas no pertenece. Pista: una pieza de verdad tiene significado propio; los pedazos con signo de interrogación son sospechosos.';
+        }else{
+          fbpz.className='fb no';
+          fbpz.textContent='Vas bien pero falta una pieza. Esta palabra tiene '+buenas+' piezas.';
+        }
+      }else{
+        intentos++;
+        fbpz.className='fb mist';
+        fbpz.innerHTML=(intentos<2)
+          ?'Mmm. Esa combinación no suma un significado que convenza. Prueba otra, o pregúntate: ¿y si esta palabra no se deja partir como las demás?'
+          :'<strong>Hallazgo del taller:</strong> esta palabra se resiste. '+p.pista;
+      }
+    });
+
+    card.querySelector('[data-reset]').addEventListener('click',function(){
+      sel.forEach(function(x){x.classList.remove('sel');});sel=[];fbpz.className='fb';
+    });
+
+    card.querySelector('[data-ej]').addEventListener('click',function(){
+      var fb=card.querySelector('[data-fbej]');
+      fb.className='fb ej';
+      fb.innerHTML='<strong>Un ejemplo de definición real:</strong> '+p.real+' La tuya puede decirlo distinto, mientras explique cómo se usa hoy.';
+    });
+  });
+
+  document.getElementById('btnSemilla').addEventListener('click',function(){
+    var fb=document.getElementById('fbSemilla');
+    fb.className='fb mist';
+    fb.innerHTML='No toda palabra del español nació del griego o del latín clásico de los libros. Algunas llegaron caminando por otros rumbos. ¿Por dónde? Esa historia empieza en la Unidad 2. Mientras tanto: toda hipótesis, hasta la más bonita, necesita verificación.';
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

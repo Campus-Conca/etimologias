@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 8 · Ejercicio B · Taller de transformaciones</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3rem;resize:vertical}
+  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
+  .veredicto{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.4rem}
+  .veredicto button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;cursor:pointer;font:inherit}
+  .veredicto button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .par{display:flex;gap:.5rem;align-items:flex-start;margin-top:.5rem;flex-wrap:wrap}
+  .par .num{width:1.6rem;height:1.6rem;border-radius:50%;background:var(--rosa);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem;margin-top:.55rem;flex:0 0 auto}
+  .par input{flex:1 1 8rem;margin-top:.3rem}
+  .par .flecha{color:var(--rosa);font-weight:700;margin-top:.85rem}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 8 · Sesión B</div>
+    <h1>Taller de transformaciones</h1>
+    <p>A tu equipo le tocó una ley. Demuestren que funciona: armen la cadena más sólida de pares latín → español.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> En equipo. (1) Marquen la ley que les tocó. (2) Llenen la tabla: mínimo 6 pares latín → español, y en cada uno digan qué cambió exactamente. (3) Anoten su par más dudoso: ese va al tribunal del jueves. (4) Generen la captura y cópienla donde indique el profesor. La tabla va a la vitrina, así que revisen la ortografía.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> tabla de tres columnas (latín, español, qué cambió), mínimo 6 filas. El par más dudoso, subrayado al final con la pregunta del equipo.
+  </div>
+
+  <div class="regla">
+    <strong>Estándar del mazo:</strong> al terminar la tabla, cada ley se vuelve tarjeta. Frente: la ley (por ejemplo, F inicial → h). Reverso: un par ancla (FARINA → harina). Razonamiento, no lista.
+  </div>
+
+  <div class="card">
+    <h3>La tabla del equipo</h3>
+    <label>Equipo</label>
+    <input type="text" id="equipo" placeholder="nombre del equipo o integrantes">
+    <label>La ley que nos tocó</label>
+    <div class="veredicto" id="ley">
+      <button type="button">F inicial → h</button>
+      <button type="button">CT → ch</button>
+      <button type="button">PL / CL / FL → ll</button>
+      <button type="button">vocal breve → diptongo</button>
+      <button type="button">consonante intervocálica se suaviza</button>
+    </div>
+    <label>Los pares (latín → español, y qué cambió)</label>
+    <div id="pares"></div>
+    <div class="fila-botones">
+      <button class="btn gris" id="btnMas">Agregar otro par</button>
+    </div>
+    <label>El par más dudoso del equipo</label>
+    <textarea id="dudoso" placeholder="¿De verdad viene de ahí? Escriban el par y por qué dudan. Se verifica el jueves en el DECEL."></textarea>
+    <div class="fila-botones">
+      <button class="btn rosa" id="btnGenerar">Generar captura</button>
+      <button class="btn gris" id="btnCopiar" style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura" id="captura"></pre>
+    <div class="fb" id="fb"></div>
+  </div>
+
+  <div class="instr">
+    <strong>Última estación.</strong> Peguen la captura donde indique el profesor. Las mejores tablas estrenan la vitrina "Lo que produjimos" de la Unidad 2.
+  </div>
+
+  <footer>Semana 8 · La máquina del tiempo fonética · Este ejercicio es gimnasio: sin nota. La captura solo se guarda si tú la copias y la pegas; al cerrar la página todo se borra.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var ley=document.getElementById('ley');
+  ley.querySelectorAll('button').forEach(function(b){
+    b.addEventListener('click',function(){
+      ley.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+      b.classList.add('sel');
+    });
+  });
+
+  var pares=document.getElementById('pares');
+  function agregaPar(){
+    var n=pares.children.length+1;
+    var fila=document.createElement('div');fila.className='par';
+    fila.innerHTML='<div class="num">'+n+'</div>'
+      +'<input type="text" data-lat placeholder="latín (ej. FARINA)">'
+      +'<span class="flecha">→</span>'
+      +'<input type="text" data-esp placeholder="español (ej. harina)">'
+      +'<input type="text" data-paso placeholder="qué cambió (ej. la F se volvió h)">';
+    pares.appendChild(fila);
+  }
+  for(var i=0;i<6;i++)agregaPar();
+  document.getElementById('btnMas').addEventListener('click',agregaPar);
+
+  var fb=document.getElementById('fb');
+  var pre=document.getElementById('captura');
+  var btnC=document.getElementById('btnCopiar');
+
+  document.getElementById('btnGenerar').addEventListener('click',function(){
+    var equipo=document.getElementById('equipo').value.trim();
+    var leySel=ley.querySelector('.sel');
+    var dudoso=document.getElementById('dudoso').value.trim();
+    var completos=[];
+    pares.querySelectorAll('.par').forEach(function(f){
+      var lat=f.querySelector('[data-lat]').value.trim();
+      var esp=f.querySelector('[data-esp]').value.trim();
+      var paso=f.querySelector('[data-paso]').value.trim();
+      if(lat&&esp&&paso)completos.push(lat.toUpperCase()+' → '+esp+' ('+paso+')');
+    });
+    var faltan=[];
+    if(!equipo)faltan.push('el nombre del equipo');
+    if(!leySel)faltan.push('marcar la ley');
+    if(completos.length<6)faltan.push('completar al menos 6 pares con sus tres campos (llevan '+completos.length+')');
+    if(!dudoso)faltan.push('el par más dudoso');
+    if(faltan.length){
+      fb.className='fb no';
+      fb.textContent='A la vitrina no se sube a medias. Falta: '+faltan.join(', ')+'.';
+      return;
+    }
+    fb.className='fb ok';
+    fb.textContent='Captura lista. Cópienla y péguenla donde indique el profesor.';
+    var lineas=completos.map(function(p,i){return (i+1)+'. '+p;}).join('\n');
+    pre.textContent='EQUIPO: '+equipo
+      +'\nLEY: '+leySel.textContent
+      +'\nPARES:\n'+lineas
+      +'\nPAR MÁS DUDOSO: '+dudoso;
+    pre.style.display='block';
+    btnC.style.display='inline-block';
+  });
+
+  btnC.addEventListener('click',function(){
+    var t=pre.textContent;
+    function listo(){fb.className='fb ok';fb.textContent='Copiado. Ahora péguenlo donde indique el profesor.';}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(listo,function(){seleccionar();});
+    }else{seleccionar();}
+    function seleccionar(){
+      var r=document.createRange();r.selectNodeContents(pre);
+      var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+      fb.className='fb ok';fb.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
+    }
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

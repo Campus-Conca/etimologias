@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 13 · Ejercicio A · Traduce el diagnóstico</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --pre-bg:#e6f1fb; --pre-tx:#0c447c;
+    --raiz-bg:#fbeaf0; --raiz-tx:#72243e;
+    --suf-bg:#eaf3de; --suf-tx:#27500a;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.25rem}
+  .paso{font-size:.8rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.04em;margin-top:.9rem}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3.2rem;resize:vertical}
+  .piezas{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+  .piezas button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;font-size:1rem;cursor:pointer}
+  .piezas button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .piezas button small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
+  .armado{margin-top:.5rem;min-height:2.2rem;border:1px dashed var(--borde);border-radius:.6rem;padding:.5rem;background:var(--fondo);font-weight:700;color:var(--ciruela)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  .informe{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;font-style:italic;color:var(--ciruela)}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 13 · Sesión A</div>
+    <h1>Traduce el diagnóstico</h1>
+    <p>Los médicos hablan en griego. Hoy dejas de necesitar traductor: el traductor eres tú.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Abajo hay un informe médico (inventado con diagnósticos reales, sin paciente real). Por equipos, tomen cada tecnicismo: (1) ármenlo con sus piezas; (2) tradúzcanlo al español llano, como si se lo explicaran a su abuelo. Regla de la casa: nadie sale del consultorio sin entender lo que le dijeron.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> copia cada tecnicismo, sepáralo con + (cada pieza con su significado abajo) y cierra con la traducción llana entre comillas, tal como se la dirías a tu abuelo. Mismo orden que aquí.
+  </div>
+
+  <h2>El informe</h2>
+  <div class="informe">
+    "Paciente adulto. Se documenta gastritis crónica y hepatomegalia. Antecedente de cardiopatía. Refiere además cefalalgia tensional y dermatitis atópica."
+  </div>
+
+  <div id="lista"></div>
+
+  <h2>Al revés: arma el tecnicismo</h2>
+  <div class="instr">
+    <strong>Ahora tú eres el médico.</strong> Te dan el padecimiento en llano y tú armas la palabra técnica con las piezas. Es el mismo juego de la clase, sin reloj: aquí se entrena la puntería.
+  </div>
+  <div id="reves"></div>
+
+  <h2>Para cerrar</h2>
+  <div class="card">
+    <p>¿Qué tecnicismo te daba más miedo y ahora es transparente? Escribe una línea. Se comparte en la ronda de síntesis.</p>
+    <textarea placeholder="Me asustaba... y ahora sé que solo dice..."></textarea>
+  </div>
+
+  <footer>Semana 13 · Entender a los médicos · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var DIAG=[
+    {w:"gastritis crónica",
+     piezas:[["gastr","estómago",true],["-itis","inflamación",true],["hepat","hígado",false],["-algia","dolor",false]],
+     llano:"El estómago está inflamado, y lleva tiempo así (crónica significa de mucho tiempo, no incurable)."},
+    {w:"hepatomegalia",
+     piezas:[["hepato","hígado",true],["megalia","agrandamiento",true],["-oma","tumor",false],["gastro","estómago",false]],
+     llano:"El hígado está más grande de lo normal. Ojo: no dice tumor ni cáncer, solo agrandado."},
+    {w:"cardiopatía",
+     piezas:[["cardio","corazón",true],["-patía","enfermedad",true],["-algia","dolor",false],["hemo","sangre",false]],
+     llano:"El corazón tiene una enfermedad. El sufijo -patía no dice cuál: solo avisa que algo anda mal ahí."},
+    {w:"cefalalgia tensional",
+     piezas:[["cefal","cabeza",true],["-algia","dolor",true],["-itis","inflamación",false],["neur","nervio",false]],
+     llano:"Dolor de cabeza causado por tensión. Sí: todo eso para decir que te duele la cabeza por estrés."},
+    {w:"dermatitis atópica",
+     piezas:[["dermat","piel",true],["-itis","inflamación",true],["osteo","hueso",false],["-patía","enfermedad",false]],
+     llano:"La piel está inflamada e irritada. Atópica es el apellido del tipo de irritación, no algo peor."}
+  ];
+
+  var REV=[
+    {pista:"inflamación del hígado",forma:"hepatitis",lit:"hepat (hígado) + -itis (inflamación)",
+     piezas:[["hepat","hígado",true],["-itis","inflamación",true],["gastr","estómago",false],["-oma","tumor",false]],
+     ayuda:"Una pieza nombra al órgano que trabaja de filtro; la otra es el sufijo de inflamación que ya viste en gastritis."},
+    {pista:"dolor de nervios",forma:"neuralgia",lit:"neur (nervio) + -algia (dolor)",
+     piezas:[["neur","nervio",true],["-algia","dolor",true],["cefal","cabeza",false],["-patía","enfermedad",false]],
+     ayuda:"El padecimiento dice dolor, no enfermedad. Busca el sufijo que duele."},
+    {pista:"observar el estómago por dentro",forma:"gastroscopia",lit:"gastro (estómago) + -scopia (mirar dentro)",
+     piezas:[["gastro","estómago",true],["-scopia","mirar dentro",true],["-ectomía","extirpación",false],["hepat","hígado",false]],
+     ayuda:"Aquí nadie corta nada: solo miran. Descarta la pieza que extirpa."}
+  ];
+
+  function baraja(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+  function montaPiezas(card,piezas,fbSel,onOk,onFail){
+    var sel=[];
+    var zona=card.querySelector('[data-piezas]');
+    var armado=card.querySelector('[data-armado]');
+    var fbpz=card.querySelector(fbSel);
+    baraja(piezas).forEach(function(pz){
+      var b=document.createElement('button');
+      b.innerHTML=pz[0]+'<small>'+pz[1]+'</small>';
+      b.dataset.pieza=pz[0]; b.dataset.buena=pz[2]?'1':'0';
+      b.addEventListener('click',function(){
+        var i=sel.indexOf(b);
+        if(i>-1){sel.splice(i,1);b.classList.remove('sel');}
+        else{sel.push(b);b.classList.add('sel');}
+        armado.textContent=sel.length?sel.map(function(x){return x.dataset.pieza;}).join(' + '):' ';
+        fbpz.className='fb';
+      });
+      zona.appendChild(b);
+    });
+    card.querySelector('[data-check]').addEventListener('click',function(){
+      if(!sel.length){fbpz.className='fb no';fbpz.textContent='Primero toca las piezas que crees que forman la palabra.';return;}
+      var buenas=piezas.filter(function(x){return x[2];}).length;
+      var elegidasBuenas=sel.filter(function(x){return x.dataset.buena==='1';}).length;
+      var intrusas=sel.length-elegidasBuenas;
+      if(elegidasBuenas===buenas&&intrusas===0){onOk(fbpz);}
+      else{onFail(fbpz,intrusas,buenas);}
+    });
+    card.querySelector('[data-reset]').addEventListener('click',function(){
+      sel.forEach(function(x){x.classList.remove('sel');});sel=[];
+      armado.innerHTML='&nbsp;';fbpz.className='fb';
+    });
+  }
+
+  var cont=document.getElementById('lista');
+  DIAG.forEach(function(p){
+    var card=document.createElement('div');card.className='card';
+    card.innerHTML='<h3>'+p.w+'</h3>'
+      +'<div class="paso">Paso 1 · Arma las piezas</div>'
+      +'<p style="margin:.2rem 0 0;font-size:.92rem">Toca las piezas que forman el tecnicismo. Toca de nuevo para quitar.</p>'
+      +'<div class="piezas" data-piezas></div>'
+      +'<div class="armado" data-armado>&nbsp;</div>'
+      +'<div class="fila-botones"><button class="btn rosa" data-check>Revisar piezas</button><button class="btn gris" data-reset>Empezar de nuevo</button></div>'
+      +'<div class="fb" data-fbpz></div>'
+      +'<div class="paso">Paso 2 · Tradúcelo al español llano</div>'
+      +'<textarea placeholder="Cómo se lo dirías a tu abuelo, sin una sola palabra en griego"></textarea>'
+      +'<div class="fila-botones"><button class="btn gris" data-ej>Compara con un ejemplo</button></div>'
+      +'<div class="fb" data-fbej></div>';
+    cont.appendChild(card);
+
+    montaPiezas(card,p.piezas,'[data-fbpz]',
+      function(fb){fb.className='fb ok';fb.textContent='Esas son las piezas. Ahora tradúcelo abajo: la palabra ya no manda, mandas tú.';},
+      function(fb,intrusas,buenas){
+        if(intrusas>0){fb.className='fb no';fb.textContent='Hay '+intrusas+' pieza'+(intrusas>1?'s':'')+' que no pertenece'+(intrusas>1?'n':'')+' a este tecnicismo. Pista: lee el significado pequeño de cada pieza y pregúntate si suena dentro de "'+p.w+'".';}
+        else{fb.className='fb no';fb.textContent='Vas bien pero falta una pieza. El tecnicismo tiene '+buenas+' piezas en total.';}
+      });
+
+    card.querySelector('[data-ej]').addEventListener('click',function(){
+      var fb=card.querySelector('[data-fbej]');
+      fb.className='fb ej';
+      fb.innerHTML='<strong>Un ejemplo de traducción llana:</strong> '+p.llano+' La tuya puede decirlo distinto: lo que importa es que tu abuelo la entienda a la primera.';
+    });
+  });
+
+  var contR=document.getElementById('reves');
+  REV.forEach(function(r){
+    var card=document.createElement('div');card.className='card';
+    card.innerHTML='<h3>"'+r.pista+'"</h3>'
+      +'<p style="margin:.2rem 0 0;font-size:.92rem">Toca las piezas que arman el tecnicismo.</p>'
+      +'<div class="piezas" data-piezas></div>'
+      +'<div class="armado" data-armado>&nbsp;</div>'
+      +'<div class="fila-botones"><button class="btn rosa" data-check>Revisar</button><button class="btn gris" data-reset>Empezar de nuevo</button></div>'
+      +'<div class="fb" data-fbpz></div>';
+    contR.appendChild(card);
+
+    montaPiezas(card,r.piezas,'[data-fbpz]',
+      function(fb){fb.className='fb ok';fb.innerHTML='Bien: '+r.lit+' = <strong>'+r.forma+'</strong>. Ya recetas palabras.';},
+      function(fb,intrusas,buenas){
+        fb.className='fb no';
+        fb.textContent='Aún no. Pista: '+r.ayuda+' El tecnicismo tiene '+buenas+' piezas.';
+      });
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

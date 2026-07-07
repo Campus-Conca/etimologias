@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 9 · Ejercicio D · La palabra viajera</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3rem;resize:vertical}
+  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .marca{display:flex;gap:.5rem;margin-top:.6rem}
+  .marca button{flex:1;padding:.5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
+  .marca button.sel-ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
+  .marca button.sel-no{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 9 · Sesión D</div>
+    <h1>La palabra viajera</h1>
+    <p>Elige un préstamo verificado y escribe su biografía: de dónde salió y cómo llegó a tu boca.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Toma una palabra que ya pasó por el tribunal del jueves (verificada, con fuente). Llena su ficha de viaje y redacta su biografía con foco en el camino: la lengua donde nació, cómo cruzó al español, cómo terminó en tu habla. Es la segunda pieza de tu portafolio de la unidad, así que al final genera la captura y guárdala donde lleves tu portafolio.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> usa la plantilla impresa de biografía. Mismo orden: ficha de viaje arriba (palabra, lengua de origen, significado literal, fuente) y abajo la biografía de un párrafo. La versión de cuaderno vale igual que esta.
+  </div>
+
+  <div class="regla">
+    <strong>Regla que no cambia:</strong> biografía sin fuente no entra al portafolio. El dato del origen sale del DLE o del DECEL, no de la memoria ni de la corazonada.
+  </div>
+
+  <h2>Paso 1 · Ficha de viaje</h2>
+  <div class="card">
+    <h3>Los datos duros</h3>
+    <label>La palabra</label>
+    <input type="text" id="fPalabra" placeholder="ej. tianguis">
+    <label>Lengua de origen (verificada)</label>
+    <input type="text" id="fLengua" placeholder="ej. náhuatl">
+    <label>Palabra original y significado literal</label>
+    <input type="text" id="fLiteral" placeholder="ej. tianquiztli, mercado">
+    <label>Fuente</label>
+    <input type="text" id="fFuente" placeholder="ej. DLE + DECEL, consultados el jueves">
+  </div>
+
+  <h2>Paso 2 · La biografía</h2>
+  <div class="card">
+    <h3>El viaje completo</h3>
+    <p style="font-size:.92rem;margin:.3rem 0 0">Un párrafo (5 a 8 líneas) que cuente: dónde nació la palabra, cómo llegó al español (conquista, comercio, ocho siglos de Al-Ándalus, moda, deporte), y dónde vive hoy en TU habla: quién la dice en tu casa, cuándo la usas tú.</p>
+    <label>Biografía</label>
+    <textarea id="fBio" style="min-height:8rem" placeholder="Nació en... Llegó al español cuando... Hoy vive en mi casa cada vez que..."></textarea>
+    <div class="fila-botones"><button class="btn gris" id="btnEjemplo">Compara con un ejemplo</button></div>
+    <div class="fb" id="fbEjemplo"></div>
+    <div class="marca" id="marca" style="display:none">
+      <button data-v="bien">Me quedó bien</button>
+      <button data-v="aun">Aún no</button>
+    </div>
+    <div class="fb" id="fbMarca"></div>
+  </div>
+
+  <h2>Paso 3 · Al portafolio</h2>
+  <div class="card">
+    <div class="fila-botones">
+      <button class="btn rosa" id="btnGenerar">Generar captura</button>
+      <button class="btn gris" id="btnCopiar" style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura" id="captura"></pre>
+    <div class="fb" id="fb"></div>
+  </div>
+
+  <footer>Semana 9 · Las lenguas escondidas · Este ejercicio es gimnasio: sin nota, sin registro. La captura solo vive si tú la copias a tu portafolio; al cerrar la página todo se borra.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  document.getElementById('btnEjemplo').addEventListener('click',function(){
+    var fb=document.getElementById('fbEjemplo');
+    fb.className='fb ej';
+    fb.innerHTML='<strong>Un ejemplo (con otra palabra, para no copiarte a ti mismo):</strong> "Alberca nació en árabe: al-birka, el estanque. Cruzó a España durante los ocho siglos de Al-Ándalus, pegada a su artículo al-, y se subió a los barcos rumbo a América. En casi todo el mundo hispano la desplazó piscina, pero en México el estanque árabe sigue vivo. En mi casa la dice todo el mundo: nadie sospecha que cada clase de natación empieza con una palabra que lleva mil doscientos años viajando." Fuente: DLE + DECEL.<br><br>La tuya puede sonar muy distinto. Lo que no puede faltar: dónde nació, cómo cruzó y dónde vive hoy en tu habla. Compárala y márcate abajo.';
+    document.getElementById('marca').style.display='flex';
+  });
+
+  document.querySelectorAll('#marca button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('#marca button').forEach(function(x){x.classList.remove('sel-ok','sel-no');});
+      b.classList.add(b.dataset.v==='bien'?'sel-ok':'sel-no');
+      var fb=document.getElementById('fbMarca');
+      if(b.dataset.v==='bien'){
+        fb.className='fb ok';
+        fb.textContent='Bien. Pasa al paso 3 y súbela al portafolio.';
+      }else{
+        fb.className='fb no';
+        fb.textContent='Aún no es derrota, es diagnóstico. Revisa cuál de las tres estaciones te falta (nació, cruzó, vive hoy) y reescribe solo esa.';
+      }
+    });
+  });
+
+  var fb=document.getElementById('fb');
+  var pre=document.getElementById('captura');
+  var btnC=document.getElementById('btnCopiar');
+
+  document.getElementById('btnGenerar').addEventListener('click',function(){
+    var g=function(id){return document.getElementById(id).value.trim();};
+    var palabra=g('fPalabra'),lengua=g('fLengua'),lit=g('fLiteral'),fuente=g('fFuente'),bio=g('fBio');
+    var faltan=[];
+    if(!palabra)faltan.push('la palabra');
+    if(!lengua)faltan.push('la lengua de origen');
+    if(!lit)faltan.push('el significado literal');
+    if(!fuente)faltan.push('la fuente');
+    if(!bio)faltan.push('la biografía');
+    if(faltan.length){
+      fb.className='fb no';
+      fb.textContent='Al portafolio no entra a medias. Falta: '+faltan.join(', ')+'.';
+      return;
+    }
+    pre.textContent='LA PALABRA VIAJERA · PORTAFOLIO U2 · PIEZA 2'
+      +'\nPALABRA: '+palabra
+      +'\nLENGUA DE ORIGEN: '+lengua
+      +'\nORIGINAL Y SIGNIFICADO LITERAL: '+lit
+      +'\nFUENTE: '+fuente
+      +'\nBIOGRAFÍA:\n'+bio;
+    pre.style.display='block';
+    btnC.style.display='inline-block';
+    fb.className='fb ok';
+    fb.textContent='Pieza lista. Cópiala y pégala donde lleves tu portafolio de la unidad 2.';
+  });
+
+  btnC.addEventListener('click',function(){
+    var t=pre.textContent;
+    function listo(){fb.className='fb ok';fb.textContent='Copiado. Pégalo en tu portafolio antes de cerrar.';}
+    function seleccionar(){
+      var r=document.createRange();r.selectNodeContents(pre);
+      var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+      fb.className='fb ok';fb.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(listo,function(){seleccionar();});
+    }else{seleccionar();}
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

@@ -2,6 +2,7 @@
 title: "Semana N · Título"
 parent: Semanas
 nav_order: N
+nav_exclude: true
 ---
 
 <!-- ============================================================

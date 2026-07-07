@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 5 · Ejercicio A · La cadena de raíces</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --pre-bg:#e6f1fb; --pre-tx:#0c447c;
+    --raiz-bg:#fbeaf0; --raiz-tx:#72243e;
+    --suf-bg:#eaf3de; --suf-tx:#27500a;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.25rem}
+  .paso{font-size:.8rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.04em;margin-top:.9rem}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3.2rem;resize:vertical}
+  .piezas{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+  .piezas button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;font-size:1rem;cursor:pointer}
+  .piezas button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .piezas button small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
+  .armado{margin-top:.5rem;min-height:2.2rem;border:1px dashed var(--borde);border-radius:.6rem;padding:.5rem;background:var(--fondo);font-weight:700;color:var(--ciruela)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 5 · Sesión A</div>
+    <h1>La cadena de raíces</h1>
+    <p>Una raíz, todas las palabras que te regala. El reto: superar las nueve de graf-.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Elige una raíz de la tanda. Si quieres jugarlo como en clase, arranca el cronómetro de 3 minutos. Escribe todas las palabras reales de esa familia que se te ocurran, una por una. Al final, "Revisar mi árbol" te dice cuáles reconozco y cuáles se van a hipótesis para el jueves. Gana el árbol que sobreviva a la duda, no el que grite más palabras.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> escribe la raíz al centro de la hoja, traza una rama por cada palabra de su familia y anota junto a cada una qué otras raíces trae. Al final cuenta las ramas: ese número es tu multiplicador. Marca con ? las que te generen duda: van al tribunal del jueves.
+  </div>
+
+  <h2>Paso 1 · Elige tu raíz</h2>
+  <div class="card">
+    <p style="margin:0;font-size:.92rem">La tanda del día. Toca una para empezar (puedes jugarlas todas, una por una).</p>
+    <div class="piezas" id="raices"></div>
+  </div>
+
+  <h2>Paso 2 · El cronómetro (opcional)</h2>
+  <div class="card">
+    <p style="margin:0;font-size:.92rem">Tres minutos, como en clase. Sí: cronómetro es crono (tiempo) + metro (medir). Aquí todo predica con el ejemplo.</p>
+    <div class="armado" id="reloj">3:00</div>
+    <div class="fila-botones">
+      <button class="btn rosa" id="btnTimer">Arrancar 3 minutos</button>
+      <button class="btn gris" id="btnTimerReset">Reiniciar</button>
+    </div>
+  </div>
+
+  <h2>Paso 3 · Arma tu árbol</h2>
+  <div class="card">
+    <h3 id="tituloArbol">Primero elige una raíz</h3>
+    <input type="text" id="palabra" placeholder="Escribe una palabra de la familia y presiona Enter">
+    <div class="fila-botones">
+      <button class="btn gris" id="btnAgregar">Agregar</button>
+      <button class="btn rosa" id="btnRevisar">Revisar mi árbol</button>
+      <button class="btn gris" id="btnLimpiar">Vaciar el árbol</button>
+    </div>
+    <p style="margin:.6rem 0 0;font-size:.85rem;color:#777">Toca una palabra agregada para quitarla.</p>
+    <div class="piezas" id="arbol"></div>
+    <div class="fb" id="fbArbol"></div>
+  </div>
+
+  <h2>Para cerrar</h2>
+  <div class="card">
+    <p>¿Cuál fue la palabra más inesperada que salió de tu raíz? Escríbela con una línea de por qué te sorprendió: es tu carta para la ronda de síntesis.</p>
+    <textarea placeholder="No esperaba que... viniera de..."></textarea>
+    <p style="font-size:.92rem;color:#6b1e5a;margin-bottom:0"><strong>Y el jueves:</strong> tribunal de árboles en el centro de cómputo y, por fin, el enigma del <em>re-loj</em>. Dos semanas colgado. Ya casi.</p>
+  </div>
+
+  <footer>Semana 5 · Una raíz, veinte palabras · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var RAICES={
+    "bio-":{sig:"vida",fam:["biología","biólogo","bióloga","biografía","autobiografía","microbio","microbiología","antibiótico","biosfera","simbiosis","biopsia","biodiversidad","bioma","biodegradable","bioquímica","anfibio","aerobio","anaerobio","biotecnología"]},
+    "geo-":{sig:"tierra",fam:["geografía","geógrafo","geógrafa","geología","geólogo","geóloga","geometría","geométrico","geotermia","geotérmico","geocéntrico","geocentrismo","geofísica","geopolítica","geoquímica","apogeo","perigeo","hipogeo"]},
+    "-metro":{sig:"medir",fam:["metro","cronómetro","termómetro","kilómetro","centímetro","milímetro","decímetro","diámetro","perímetro","barómetro","fotómetro","pluviómetro","altímetro","velocímetro","taxímetro","geometría","simetría","asimetría","simétrico","asimétrico","métrica","métrico","hexámetro"]},
+    "-scopio":{sig:"observar",fam:["microscopio","telescopio","periscopio","caleidoscopio","endoscopio","estetoscopio","giroscopio","laringoscopio","osciloscopio","microscópico","telescópico"]},
+    "termo-":{sig:"calor",fam:["termo","termómetro","termostato","térmico","térmica","termal","hipotermia","termodinámica","geotermia","geotérmico","exotérmico","endotérmico","termoeléctrico","isoterma"]}
+  };
+
+  function norm(s){
+    return s.toLowerCase().trim().normalize('NFD').replace(/[̀-ͯ]/g,'');
+  }
+
+  var raizActual=null;
+  var agregadas=[];
+  var zonaRaices=document.getElementById('raices');
+  var zonaArbol=document.getElementById('arbol');
+  var titulo=document.getElementById('tituloArbol');
+  var fb=document.getElementById('fbArbol');
+  var inp=document.getElementById('palabra');
+
+  Object.keys(RAICES).forEach(function(k){
+    var b=document.createElement('button');
+    b.innerHTML=k+'<small>'+RAICES[k].sig+'</small>';
+    b.addEventListener('click',function(){
+      zonaRaices.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+      b.classList.add('sel');
+      raizActual=k;
+      agregadas=[];
+      zonaArbol.innerHTML='';
+      fb.className='fb';
+      titulo.textContent='El árbol de '+k+' ('+RAICES[k].sig+')';
+      inp.focus();
+    });
+    zonaRaices.appendChild(b);
+  });
+
+  function agregar(){
+    if(!raizActual){fb.className='fb no';fb.textContent='Primero elige una raíz en el paso 1.';return;}
+    var v=inp.value.trim();
+    if(!v){return;}
+    var ya=agregadas.some(function(w){return norm(w)===norm(v);});
+    if(ya){fb.className='fb no';fb.textContent='Esa ya está en tu árbol. En la cadena, repetir te saca de la ronda.';inp.value='';return;}
+    agregadas.push(v);
+    var b=document.createElement('button');
+    b.textContent=v;
+    b.addEventListener('click',function(){
+      agregadas=agregadas.filter(function(w){return w!==v;});
+      zonaArbol.removeChild(b);
+    });
+    zonaArbol.appendChild(b);
+    inp.value='';
+    fb.className='fb';
+    inp.focus();
+  }
+
+  document.getElementById('btnAgregar').addEventListener('click',agregar);
+  inp.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();agregar();}});
+
+  document.getElementById('btnLimpiar').addEventListener('click',function(){
+    agregadas=[];zonaArbol.innerHTML='';fb.className='fb';
+  });
+
+  document.getElementById('btnRevisar').addEventListener('click',function(){
+    if(!raizActual){fb.className='fb no';fb.textContent='Primero elige una raíz en el paso 1.';return;}
+    if(!agregadas.length){fb.className='fb no';fb.textContent='Tu árbol está vacío. Pista: piensa en aparatos, en ciencias y en adjetivos que traigan la raíz.';return;}
+    var banco=RAICES[raizActual].fam.map(norm);
+    var reconocidas=[],dudosas=[];
+    agregadas.forEach(function(w){
+      if(banco.indexOf(norm(w))>-1)reconocidas.push(w);else dudosas.push(w);
+    });
+    var html='';
+    if(reconocidas.length){
+      html+='<strong>Reconozco '+reconocidas.length+(reconocidas.length===1?' palabra':' palabras')+' de la familia de '+raizActual+':</strong> '+reconocidas.join(', ')+'.';
+      if(reconocidas.length>=9){
+        html+='<br><br>Superaste las nueve de graf-. Una raíz, '+reconocidas.length+' palabras: eso es el multiplicador funcionando en tu cabeza.';
+      }else{
+        html+='<br><br>No aprendiste '+reconocidas.length+(reconocidas.length===1?' palabra':' palabras')+': desbloqueaste una fábrica. Si quieres crecer el árbol, piensa en aparatos, en ciencias y en adjetivos.';
+      }
+    }
+    if(dudosas.length){
+      html+=(html?'<br><br>':'')+'<strong>Van a hipótesis para el jueves:</strong> '+dudosas.join(', ')+'. No están en mi lista, pero mi lista también tiene límites: verifícalas en fuentes antes de darlas por muertas.';
+    }
+    fb.className=reconocidas.length?'fb ok':'fb no';
+    if(!reconocidas.length){
+      fb.innerHTML=html+'<br><br>Pista: la raíz significa "'+RAICES[raizActual].sig+'". Pregúntate qué cosas de tu vida diaria hacen justo eso.';
+    }else{
+      fb.innerHTML=html;
+    }
+  });
+
+  var total=180,resto=total,corriendo=false,timer=null;
+  var pantalla=document.getElementById('reloj');
+  var btnT=document.getElementById('btnTimer');
+  function pinta(){
+    var m=Math.floor(resto/60),s=resto%60;
+    pantalla.textContent=m+':'+(s<10?'0':'')+s+(resto===0?' · Se acabó el tiempo. Revisa tu árbol.':'');
+  }
+  btnT.addEventListener('click',function(){
+    if(corriendo){
+      clearInterval(timer);corriendo=false;btnT.textContent='Continuar';
+    }else{
+      if(resto===0){resto=total;}
+      corriendo=true;btnT.textContent='Pausa';
+      timer=setInterval(function(){
+        resto--;
+        if(resto<=0){resto=0;clearInterval(timer);corriendo=false;btnT.textContent='Arrancar 3 minutos';}
+        pinta();
+      },1000);
+    }
+  });
+  document.getElementById('btnTimerReset').addEventListener('click',function(){
+    clearInterval(timer);corriendo=false;resto=total;btnT.textContent='Arrancar 3 minutos';pinta();
+  });
+  pinta();
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

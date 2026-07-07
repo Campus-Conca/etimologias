@@ -27,6 +27,15 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *graf-* (escribir) ya 
 
 ---
 
+## El gimnasio de la semana
+
+Los ejercicios de esta semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
+
+- [La cadena de raíces](../ejercicios/semana-05/ejercicio-5A-cadena-de-raices.html) · martes
+- [El tribunal del reloj](../ejercicios/semana-05/ejercicio-5C-tribunal-del-reloj.html) · jueves, centro de cómputo
+- [La palabra de familia numerosa](../ejercicios/semana-05/ejercicio-5D-familia-numerosa.html) · viernes
+- [Quiz de gimnasio](../ejercicios/semana-05/quiz-gimnasio-semana-05.html) · para ensayar cuando quieras
+
 ## Hoja de consulta
 
 Toca una raíz para ver a su familia. Cuenta cuántas palabras te regala cada una.

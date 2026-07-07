@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 16 · Ejercicio B · Entrenador socrático</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  .paso{font-size:.8rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.04em;margin-top:.9rem}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3rem;resize:vertical}
+  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
+  .pregunta{margin-top:.6rem;border:1px solid var(--borde);border-radius:.6rem;padding:.9rem 1rem;background:var(--fondo);font-weight:700;color:var(--ciruela);font-size:1.05rem}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .marca{display:flex;gap:.5rem;margin-top:.6rem}
+  .marca button{flex:1;padding:.5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
+  .marca button.sel-ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
+  .marca button.sel-no{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 16 · Sesión B</div>
+    <h1>Entrenador socrático</h1>
+    <p>Peldaño 3: ya no hay banco de preguntas. Hay algo mejor: tú conoces tu palabra más que nadie.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Elige la palabra que vas a defender el jueves (tu neologismo o una del Museo). Entrena los tres músculos, luego usa la ruleta: saca una pregunta, respóndela en voz alta sin escribir nada, y márcate. Las preguntas del jueves serán otras, y esa es justo la idea: aquí no memorizas respuestas, entrenas el músculo de responder.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> escribe tu palabra arriba de la hoja. Debajo, tres preguntas incómodas que te haría el profesor, y respóndelas por escrito. Cierra con una frase que empiece con "No sé, pero lo verificaría en...".
+  </div>
+
+  <div class="regla">
+    <strong>Qué cambia en el peldaño 3:</strong> el profesor pregunta lo que surja de lo que digas. No es trampa, es conversación. Ya superaste tres defensas con banco; esta es la última antes del Museo.
+  </div>
+
+  <h2>Paso 1 · Tu palabra</h2>
+  <div class="card">
+    <label>La palabra que defiendes el jueves</label>
+    <input type="text" id="palabra" placeholder="tu neologismo o una palabra de tu Museo">
+  </div>
+
+  <h2>Paso 2 · Los tres músculos</h2>
+  <div class="card">
+    <p style="margin:.2rem 0 0"><strong>Pensar en voz alta.</strong> Si no sabes por dónde empezar, empieza narrando: "lo que sé de esta pieza es...". El silencio es peor que el rodeo.<br><br>
+    <strong>Decir "no sé, pero lo verificaría en...".</strong> Esa honestidad vale más que fingir saber. Siempre nombra la fuente: DLE, DECEL, tu bitácora.<br><br>
+    <strong>Sostener sin guion.</strong> No recites. Conversa con lo que sabes: piezas, fuentes, historia, por qué esa palabra y no otra.</p>
+    <div class="paso">Entrena el músculo dos</div>
+    <p style="margin:.2rem 0 0;font-size:.92rem">Escribe tu frase de emergencia, la que dirás cuando no sepas algo:</p>
+    <textarea id="emergencia" placeholder='ej. "No sé si esa raíz aparece en otras palabras, pero lo verificaría en..."'></textarea>
+    <div class="fila-botones"><button class="btn gris" id="btnEmergencia">Compara con un ejemplo</button></div>
+    <div class="fb" id="fbEmergencia"></div>
+  </div>
+
+  <h2>Paso 3 · La ruleta de preguntas</h2>
+  <div class="card">
+    <h3>Saca, responde en voz alta, márcate</h3>
+    <p style="margin:.2rem 0 0;font-size:.92rem">Responde cada pregunta hablando, como el jueves. Sin escribir. Cuando termines de hablar, márcate y saca otra. En tríos: uno responde, los otros dos escuchan y rematan con una repregunta.</p>
+    <div class="pregunta" id="zonaPregunta">Toca el botón para sacar la primera pregunta.</div>
+    <div class="fila-botones"><button class="btn rosa" id="btnPregunta">Sacar pregunta</button></div>
+    <div class="marca" id="marcaRonda" style="display:none">
+      <button data-v="bien">La sostuve</button>
+      <button data-v="aun">Aún no</button>
+    </div>
+    <div class="fb" id="fbRonda"></div>
+  </div>
+
+  <h2>Paso 4 · ¿Qué tan listo llegas al jueves?</h2>
+  <div class="card">
+    <p style="margin:.2rem 0 0;font-size:.92rem">Júzgate tú. Nadie más ve esto.</p>
+    <div class="paso">Conozco las piezas de mi palabra y su fuente</div>
+    <div class="marca" data-criterio><button data-v="bien">Bien</button><button data-v="aun">Aún no</button></div>
+    <div class="paso">Puedo explicar por qué esas raíces y no otras</div>
+    <div class="marca" data-criterio><button data-v="bien">Bien</button><button data-v="aun">Aún no</button></div>
+    <div class="paso">Sé usar mi frase de emergencia sin pena</div>
+    <div class="marca" data-criterio><button data-v="bien">Bien</button><button data-v="aun">Aún no</button></div>
+    <div class="paso">Puedo hablar 3 minutos de mi palabra sin guion</div>
+    <div class="marca" data-criterio><button data-v="bien">Bien</button><button data-v="aun">Aún no</button></div>
+    <div class="fila-botones"><button class="btn rosa" id="btnBalance">Ver dónde estoy</button></div>
+    <div class="fb" id="fbBalance"></div>
+  </div>
+
+  <footer>Semana 16 · Quién decide qué palabras existen · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var PREGUNTAS=[
+    "¿Por qué esa raíz y no otra que signifique casi lo mismo?",
+    "Si tu palabra ya existiera en otro idioma, ¿cómo lo comprobarías?",
+    "¿Qué diría el DLE de tu palabra si la aceptara? Dicta la entrada completa.",
+    "Alguien dice que tu palabra no hace falta, que ya hay una forma de decir eso. Defiéndete.",
+    "¿Qué otra palabra del español comparte una pieza con la tuya? ¿Cómo lo sabes?",
+    "¿Tu palabra es griega, latina o híbrida? ¿Eso la hace mejor o peor?",
+    "Cuenta la historia de cómo llegaste a esta palabra, pero en 30 segundos.",
+    "Si tuvieras que cambiarle una pieza, ¿cuál sacrificarías y por qué?",
+    "¿Cómo se escribiría el plural de tu palabra? ¿Y un verbo derivado de ella?",
+    "¿Qué fuente consultaste para cada pieza? ¿Y si la fuente se equivoca?",
+    "Explica tu palabra a alguien que no llevó este curso, sin usar la palabra raíz.",
+    "¿Quién tendría que usar tu palabra para que empezara a existir de verdad?",
+    "¿Tu palabra sobreviviría 100 años? ¿Qué la mataría antes?",
+    "¿Qué le contestas a quien la pronuncia mal y jura que así se dice?"
+  ];
+
+  var bolsa=[];
+  function siguiente(){
+    if(!bolsa.length){
+      bolsa=PREGUNTAS.slice();
+      for(var i=bolsa.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=bolsa[i];bolsa[i]=bolsa[j];bolsa[j]=t;}
+    }
+    return bolsa.pop();
+  }
+
+  var rondas={bien:0,aun:0},marcada=true;
+  var zona=document.getElementById('zonaPregunta');
+  var marca=document.getElementById('marcaRonda');
+  var fbR=document.getElementById('fbRonda');
+
+  document.getElementById('btnPregunta').addEventListener('click',function(){
+    if(!marcada){
+      fbR.className='fb no';
+      fbR.textContent='Primero márcate la pregunta que acabas de responder. Sin marcar no hay siguiente.';
+      return;
+    }
+    var p=document.getElementById('palabra').value.trim();
+    zona.textContent=siguiente()+(p?' (Hablando de: '+p+')':'');
+    marca.style.display='flex';
+    marca.querySelectorAll('button').forEach(function(x){x.classList.remove('sel-ok','sel-no');});
+    fbR.className='fb';
+    marcada=false;
+    this.textContent='Sacar otra pregunta';
+  });
+
+  marca.querySelectorAll('button').forEach(function(b){
+    b.addEventListener('click',function(){
+      marca.querySelectorAll('button').forEach(function(x){x.classList.remove('sel-ok','sel-no');});
+      b.classList.add(b.dataset.v==='bien'?'sel-ok':'sel-no');
+      rondas[b.dataset.v==='bien'?'bien':'aun']++;
+      marcada=true;
+      fbR.className='fb '+(b.dataset.v==='bien'?'ok':'no');
+      fbR.textContent=(b.dataset.v==='bien'
+        ?'Sostenida. Llevas '+rondas.bien+' en bien y '+rondas.aun+' en aún no. Saca otra.'
+        :'Aún no, y qué bueno que fue aquí y no el jueves. Piensa qué te faltó (¿la pieza?, ¿la fuente?, ¿la calma?) y saca otra.');
+    });
+  });
+
+  document.getElementById('btnEmergencia').addEventListener('click',function(){
+    var fb=document.getElementById('fbEmergencia');
+    fb.className='fb ej';
+    fb.innerHTML='<strong>Un ejemplo:</strong> "No sé si esa pieza viene del griego o del latín, pero lo verificaría en el DECEL, que da la lengua de origen." La tuya puede decirlo distinto: lo que no puede faltar es la fuente con nombre.';
+  });
+
+  var criterios=document.querySelectorAll('[data-criterio]');
+  criterios.forEach(function(m){
+    m.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){
+        m.querySelectorAll('button').forEach(function(x){x.classList.remove('sel-ok','sel-no');});
+        b.classList.add(b.dataset.v==='bien'?'sel-ok':'sel-no');
+        m.dataset.valor=b.dataset.v;
+      });
+    });
+  });
+
+  document.getElementById('btnBalance').addEventListener('click',function(){
+    var fb=document.getElementById('fbBalance');
+    var nombres=['las piezas y su fuente','el porqué de tus raíces','la frase de emergencia','los 3 minutos sin guion'];
+    var faltan=[],aun=[];
+    criterios.forEach(function(m,i){
+      if(!m.dataset.valor)faltan.push(nombres[i]);
+      else if(m.dataset.valor==='aun')aun.push(nombres[i]);
+    });
+    if(faltan.length){
+      fb.className='fb no';
+      fb.textContent='Te falta juzgar: '+faltan.join(', ')+'.';
+      return;
+    }
+    if(!aun.length){
+      fb.className='fb ok';
+      fb.textContent='Los cuatro en bien. Ya superaste tres defensas y tu palabra la conoces mejor que nadie: el jueves solo es conversación.';
+    }else{
+      fb.className='fb no';
+      fb.textContent='Aún no en: '+aun.join(', ')+'. Buena noticia: eso es exactamente lo que hay que ensayar hoy en el trío y en casa antes del jueves. Lo demás ya lo tienes.';
+    }
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

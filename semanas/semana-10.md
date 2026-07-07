@@ -70,6 +70,16 @@ Regla de la definición: no puedes usar la palabra dentro de su propia definici�
 
 ---
 
+## El gimnasio de la semana
+
+Los ejercicios de esta semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
+
+- [Definir es un oficio](../ejercicios/semana-10/ejercicio-10A-definir-es-un-oficio.html) · martes
+- [Taller de fichas](../ejercicios/semana-10/ejercicio-10B-taller-de-fichas.html) · miércoles
+- [¿Está o no está?](../ejercicios/semana-10/ejercicio-10C-esta-o-no-esta.html) · jueves, centro de cómputo
+- [La palabra que salvé](../ejercicios/semana-10/ejercicio-10D-la-palabra-que-salve.html) · viernes
+- [Quiz de gimnasio](../ejercicios/semana-10/quiz-gimnasio-semana-10.html) · para ensayar cuando quieras
+
 ## Las tarjetas de la semana
 
 Esta semana el trabajo es hacer fichas, no tarjetas. Si quieres, suma al mazo tus dos palabras regionales favoritas, con su origen verificado.

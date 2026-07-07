@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 9 · Ejercicio A · Cacería en tu propia habla</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --pre-bg:#e6f1fb; --pre-tx:#0c447c;
+    --raiz-bg:#fbeaf0; --raiz-tx:#72243e;
+    --suf-bg:#eaf3de; --suf-tx:#27500a;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.25rem}
+  .paso{font-size:.8rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.04em;margin-top:.9rem}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3.2rem;resize:vertical}
+  .piezas{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+  .piezas button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;font-size:1rem;cursor:pointer}
+  .piezas button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .piezas button small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
+  .armado{margin-top:.5rem;min-height:2.2rem;border:1px dashed var(--borde);border-radius:.6rem;padding:.5rem;background:var(--fondo);font-weight:700;color:var(--ciruela)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 9 · Sesión A</div>
+    <h1>Cacería en tu propia habla</h1>
+    <p>Diez palabras que dices como si fueran "de siempre". Apuesta de dónde viene cada una.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Hoy ya cayó <em>almohada</em>: el <em>al-</em> la delató como árabe. Ahora te toca cazar al resto. Con tu pareja, para cada palabra: digan su apuesta en voz alta, toquen la lengua que creen y revisen. Si fallan, reciben una pista antes que la respuesta. Las que se les resistan, apúntenlas como dudosas: el jueves las verificamos en fuentes.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> haz una tabla de tres columnas: palabra, lengua que apuestas, ¿dudosa? Marca con una cruz las que no logres resolver: esas van al tribunal del jueves.
+  </div>
+
+  <div id="lista"></div>
+
+  <h2>Para cerrar</h2>
+  <div class="card">
+    <p>¿Cuál palabra te sorprendió más no ser "de aquí de siempre"? Escribe una línea. Se retoma en la ronda de síntesis.</p>
+    <textarea placeholder="Me sorprendió... porque yo creía que..."></textarea>
+  </div>
+
+  <footer>Semana 9 · Las lenguas escondidas · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var LENGUAS=["náhuatl","árabe","francés","inglés","otra lengua"];
+  var PALABRAS=[
+    {w:"chapulín",lang:"náhuatl",
+     hist:"Náhuatl, de chapolin. El insecto brincaba en estas tierras mucho antes de que llegara el español.",
+     pista:"No trae al- ni suena a Francia. Piensa en las lenguas que ya estaban aquí antes del español."},
+    {w:"alberca",lang:"árabe",
+     hist:"Árabe, de al-birka, el estanque. En casi todo el mundo hispano dicen piscina; en México el estanque árabe sigue vivo.",
+     pista:"Fíjate en cómo empieza. Esa sílaba inicial es una firma que hoy ya conoces."},
+    {w:"jitomate",lang:"náhuatl",
+     hist:"Náhuatl, de xictomatl: xictli (ombligo) + tomatl. El tomate con ombligo.",
+     pista:"Es comida de esta tierra desde antes de cualquier barco. Piensa en la lengua que la nombró primero."},
+    {w:"escuincle",lang:"náhuatl",
+     hist:"Náhuatl, de itzcuintli, perro. Primero nombró al perro sin pelo, luego pasó a los niños.",
+     pista:"Suena muy de casa, y justo por eso sospecha de las lenguas de aquí, las de antes del español."},
+    {w:"tiza",lang:"náhuatl",
+     hist:"Náhuatl, de tizatl, tierra blanca. La palabra más escolar del salón resultó mexicana de origen.",
+     pista:"Parece española de toda la vida. No lo es. Piensa en cómo se diría 'tierra blanca' en una lengua de aquí."},
+    {w:"naranja",lang:"árabe",
+     hist:"Árabe, de naranya (y este del persa). Viajó desde Asia con escala larga en Al-Ándalus.",
+     pista:"No todas las palabras de esta lengua traen al-. Esta fruta entró a España por el sur, hace muchos siglos."},
+    {w:"quiosco",lang:"otra lengua",
+     hist:"Persa, de košk, pabellón. Pasó por el turco y el francés antes de llegar al español: la palabra con más escalas del día.",
+     pista:"Es la que viene de más lejos de toda la lista. Piensa en un viaje con varias escalas, ninguna de ellas América."},
+    {w:"alcancía",lang:"árabe",
+     hist:"Árabe, de al-kanz, el tesoro. La alcancía guarda un tesoro desde el nombre.",
+     pista:"Vuelve a mirar cómo empieza. Ya cazaste otra igual hoy en la mañana."},
+    {w:"chef",lang:"francés",
+     hist:"Francés, de chef, jefe (de cocina). Y chef viene del latín caput, cabeza: hasta los préstamos tienen abuelos.",
+     pista:"Piensa en cocinas con estrellas y en un país que cruza los Pirineos."},
+    {w:"futbol",lang:"inglés",
+     hist:"Inglés, de football: foot (pie) + ball (balón). Préstamo reciente, de apenas un siglo y cacho.",
+     pista:"Piensa en quién inventó el deporte y le puso nombre."}
+  ];
+
+  var cont=document.getElementById('lista');
+
+  PALABRAS.forEach(function(p){
+    var card=document.createElement('div');card.className='card';
+    card.innerHTML='<h3>'+p.w+'</h3>'
+      +'<p style="margin:.2rem 0 0;font-size:.92rem">¿De qué lengua viene? Toca tu apuesta y revisa.</p>'
+      +'<div class="piezas" data-ops></div>'
+      +'<div class="fila-botones"><button class="btn rosa" data-check>Revisar</button></div>'
+      +'<div class="fb" data-fb></div>';
+    cont.appendChild(card);
+
+    var sel=null,intentos=0;
+    var zona=card.querySelector('[data-ops]');
+    var fb=card.querySelector('[data-fb]');
+
+    LENGUAS.forEach(function(lg){
+      var b=document.createElement('button');
+      b.textContent=lg;b.dataset.lg=lg;
+      b.addEventListener('click',function(){
+        zona.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+        b.classList.add('sel');sel=b;fb.className='fb';
+      });
+      zona.appendChild(b);
+    });
+
+    card.querySelector('[data-check]').addEventListener('click',function(){
+      if(!sel){fb.className='fb no';fb.textContent='Primero toca la lengua que apuestas.';return;}
+      if(sel.dataset.lg===p.lang){
+        fb.className='fb ok';
+        fb.textContent='Bien. '+p.hist;
+      }else{
+        intentos++;
+        if(intentos===1){
+          fb.className='fb no';
+          fb.textContent='Aún no. Pista: '+p.pista;
+        }else{
+          fb.className='fb no';
+          fb.textContent='Aún no. La respuesta era '+p.lang+'. '+p.hist+' Apúntala como dudosa y pásala por las fuentes el jueves: la fuente manda, no este ejercicio.';
+        }
+      }
+    });
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

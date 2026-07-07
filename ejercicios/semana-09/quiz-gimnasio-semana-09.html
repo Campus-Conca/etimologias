@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 9 · Quiz de gimnasio</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .4rem;color:var(--rosa);font-size:1.1rem}
+  textarea{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo);min-height:3.2rem;resize:vertical}
+  .opciones,.piezas,.calib{display:flex;flex-direction:column;gap:.5rem;margin-top:.6rem}
+  .piezas,.calib{flex-direction:row;flex-wrap:wrap}
+  .opciones button,.piezas button,.calib button{padding:.6rem .9rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font:inherit;font-weight:700;cursor:pointer;text-align:left}
+  .piezas button small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
+  .opciones button.sel,.piezas button.sel,.calib button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .subq{margin-top:.9rem;font-weight:700;color:var(--ciruela)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .marca{display:flex;gap:.5rem;margin-top:.6rem}
+  .marca button{flex:1;padding:.5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
+  .marca button.sel-ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
+  .marca button.sel-no{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 9 · Gimnasio</div>
+    <h1>Quiz de gimnasio</h1>
+    <p>Práctica libre, sin nota y sin registro. Parecido al quiz de la sesión D, pero con otros reactivos: aquí se entrena, no se compite.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <h2>Paso 0 · Calibra</h2>
+  <div class="card">
+    <p style="margin:0 0 .2rem">Antes de ver los reactivos: ¿cuántos de los 3 crees que tendrás bien?</p>
+    <div class="calib" id="calib">
+      <button>0</button><button>1</button><button>2</button><button>3</button>
+    </div>
+    <div class="fb" id="fbCalib"></div>
+  </div>
+
+  <h2>Reactivo 1 · ¿De qué lengua vengo?</h2>
+  <div class="card">
+    <h3>Tres palabras, tres orígenes</h3>
+    <p style="margin:0;font-size:.92rem">Toca la lengua de origen de cada una. Las tres cuentan como un solo reactivo.</p>
+    <div id="r1zona"></div>
+    <div class="fila-botones"><button class="btn rosa" id="r1check">Revisar</button></div>
+    <div class="fb" id="r1fb"></div>
+  </div>
+
+  <h2>Reactivo 2 · La marca delatora</h2>
+  <div class="card">
+    <h3>Te encuentras la palabra <em>alfombra</em>. ¿Qué te dice el <em>al-</em> del inicio?</h3>
+    <div class="opciones" id="r2ops"></div>
+    <div class="fila-botones"><button class="btn rosa" id="r2check">Revisar</button></div>
+    <div class="fb" id="r2fb"></div>
+  </div>
+
+  <h2>Reactivo 3 · El significado literal</h2>
+  <div class="card">
+    <h3>chocolate</h3>
+    <p style="margin:0;font-size:.92rem">Escribe su lengua de origen y su significado literal. Luego compara con el ejemplo y márcate tú: bien o aún no.</p>
+    <textarea placeholder="Viene de... y literalmente significa..."></textarea>
+    <div class="fila-botones"><button class="btn gris" id="r3ver">Compara con el ejemplo</button></div>
+    <div class="fb" id="r3fb"></div>
+    <div class="marca" id="r3marca" style="display:none">
+      <button data-v="bien">Me quedó bien</button>
+      <button data-v="aun">Aún no</button>
+    </div>
+  </div>
+
+  <h2>Cierre · ¿Cómo calibraste?</h2>
+  <div class="card">
+    <div class="fila-botones"><button class="btn rosa" id="btnCierre">Ver mi resultado</button></div>
+    <div class="fb" id="fbCierre"></div>
+  </div>
+
+  <footer>Semana 9 · Las lenguas escondidas · Gimnasio: lo que quede en "aún no" se puede reintentar cuando quieras. Cuenta tu versión más reciente, no el promedio.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var estado={calib:null,r1:null,r2:null,r3:null};
+
+  function baraja(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+  // Paso 0
+  var calib=document.getElementById('calib');
+  calib.querySelectorAll('button').forEach(function(b,i){
+    b.addEventListener('click',function(){
+      calib.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+      b.classList.add('sel');estado.calib=i;
+      var fb=document.getElementById('fbCalib');
+      fb.className='fb ej';
+      fb.textContent='Anotado. Al final comparas tu predicción con tu resultado: saber cuánto sabes también es la materia.';
+    });
+  });
+
+  // R1: tres palabras, un reactivo
+  var LENGUAS=["náhuatl","árabe","francés","inglés"];
+  var R1=[
+    {w:"azúcar",lang:"árabe",exp:"de as-sukkar, dulzura con ocho siglos de Al-Ándalus encima"},
+    {w:"papalote",lang:"náhuatl",exp:"de papalotl, mariposa: el juguete vuela con nombre de mariposa"},
+    {w:"jamón",lang:"francés",exp:"de jambon, que a su vez viene de jambe, pierna"}
+  ];
+  var z1=document.getElementById('r1zona');
+  R1.forEach(function(item,idx){
+    var sq=document.createElement('div');sq.className='subq';sq.textContent=item.w;
+    var ops=document.createElement('div');ops.className='piezas';ops.dataset.idx=idx;
+    LENGUAS.forEach(function(lg){
+      var b=document.createElement('button');b.textContent=lg;b.dataset.lg=lg;
+      b.addEventListener('click',function(){
+        ops.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+        b.classList.add('sel');
+      });
+      ops.appendChild(b);
+    });
+    z1.appendChild(sq);z1.appendChild(ops);
+  });
+  var r1intentos=0;
+  document.getElementById('r1check').addEventListener('click',function(){
+    var fb=document.getElementById('r1fb');
+    var grupos=z1.querySelectorAll('.piezas');
+    var sinResponder=0,malas=[];
+    grupos.forEach(function(g){
+      var sel=g.querySelector('.sel');
+      if(!sel){sinResponder++;return;}
+      if(sel.dataset.lg!==R1[g.dataset.idx].lang)malas.push(R1[g.dataset.idx]);
+    });
+    if(sinResponder){fb.className='fb no';fb.textContent='Te falta apostar en '+sinResponder+' palabra'+(sinResponder>1?'s':'')+'.';return;}
+    if(!malas.length){
+      estado.r1='bien';fb.className='fb ok';
+      fb.innerHTML='Bien las tres: azúcar ('+R1[0].exp+'), papalote ('+R1[1].exp+'), jamón ('+R1[2].exp+').';
+    }else{
+      estado.r1='aun';r1intentos++;
+      fb.className='fb no';
+      if(r1intentos===1){
+        var pistas=malas.map(function(m){
+          if(m.lang==='árabe')return m.w+' (pista: busca la firma de Al-Ándalus, y recuerda que no siempre es al-)';
+          if(m.lang==='náhuatl')return m.w+' (pista: piensa en la lengua que ya estaba aquí, la de las palabras en -tl)';
+          return m.w+' (pista: piensa en cocinas famosas al otro lado de los Pirineos)';
+        });
+        fb.textContent='Aún no. Fallaste en: '+pistas.join('; ')+'. Corrige y vuelve a revisar.';
+      }else{
+        fb.textContent='Aún no. Las respuestas: '+malas.map(function(m){return m.w+' es '+m.lang+', '+m.exp;}).join('; ')+'. Ese trío se reintenta recargando la página.';
+      }
+    }
+  });
+
+  // R2
+  var R2=[
+    ["Que probablemente es un arabismo: el al- es el artículo árabe que se quedó pegado a la palabra.",true],
+    ["Que es una palabra compuesta del latín: al- significa 'hacia'.",false],
+    ["Que viene del náhuatl, como casi todo lo que suena antiguo en México.",false],
+    ["Nada: al- es una sílaba cualquiera, sin historia.",false]
+  ];
+  var z2=document.getElementById('r2ops'),sel2=null,r2intentos=0;
+  baraja(R2).forEach(function(op){
+    var b=document.createElement('button');
+    b.textContent=op[0];b.dataset.buena=op[1]?'1':'0';
+    b.addEventListener('click',function(){
+      z2.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+      b.classList.add('sel');sel2=b;
+    });
+    z2.appendChild(b);
+  });
+  document.getElementById('r2check').addEventListener('click',function(){
+    var fb=document.getElementById('r2fb');
+    if(!sel2){fb.className='fb no';fb.textContent='Elige primero una opción.';return;}
+    if(sel2.dataset.buena==='1'){
+      estado.r2='bien';fb.className='fb ok';
+      fb.innerHTML='Bien. El <em>al-</em> es el artículo árabe fosilizado: delata a <em>alfombra</em> igual que a <em>almohada</em>, <em>alcalde</em> o <em>alberca</em>. La marca sugiere, la fuente confirma.';
+    }else{
+      estado.r2='aun';r2intentos++;
+      fb.className='fb no';
+      if(r2intentos===1){
+        fb.textContent='Aún no. Pista: recuerda qué le pasó a almohada esta semana, y qué era exactamente ese al- que la delató.';
+      }else{
+        fb.textContent='Aún no. El al- es el artículo árabe ("el, la") que se quedó pegado a la palabra al pasar al español. Por eso alfombra, almohada y alcalde traen la misma firma.';
+      }
+    }
+  });
+
+  // R3
+  document.getElementById('r3ver').addEventListener('click',function(){
+    var fb=document.getElementById('r3fb');
+    fb.className='fb ej';
+    fb.innerHTML='<strong>Ejemplo:</strong> chocolate viene del náhuatl <em>xocolatl</em>, y literalmente significa "agua amarga".<br><br>Si escribiste la lengua correcta y algo cercano a "agua amarga", va bien aunque lo digas con otras palabras. Compara y márcate abajo. Nadie te vigila: calibrar es el entrenamiento.';
+    document.getElementById('r3marca').style.display='flex';
+  });
+  document.querySelectorAll('#r3marca button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('#r3marca button').forEach(function(x){x.classList.remove('sel-ok','sel-no');});
+      b.classList.add(b.dataset.v==='bien'?'sel-ok':'sel-no');
+      estado.r3=b.dataset.v;
+    });
+  });
+
+  // Cierre
+  document.getElementById('btnCierre').addEventListener('click',function(){
+    var fb=document.getElementById('fbCierre');
+    var pend=[];
+    if(estado.calib===null)pend.push('la calibración del paso 0');
+    if(!estado.r1)pend.push('el reactivo 1');
+    if(!estado.r2)pend.push('el reactivo 2');
+    if(!estado.r3)pend.push('marcarte el reactivo 3');
+    if(pend.length){
+      fb.className='fb no';
+      fb.textContent='Todavía falta: '+pend.join(', ')+'.';
+      return;
+    }
+    var bien=[estado.r1,estado.r2,estado.r3].filter(function(x){return x==='bien';}).length;
+    var lista='Reactivo 1: '+(estado.r1==='bien'?'bien':'aún no')+' · Reactivo 2: '+(estado.r2==='bien'?'bien':'aún no')+' · Reactivo 3: '+(estado.r3==='bien'?'bien':'aún no');
+    var msj;
+    if(estado.calib===bien)msj='Calibración exacta: predijiste '+estado.calib+' y tuviste '+bien+'. Eso, en este curso, vale tanto como los aciertos.';
+    else if(estado.calib>bien)msj='Predijiste '+estado.calib+' y tuviste '+bien+'. La brecha es el dato, no la culpa: ya sabes qué reactivo reintentar.';
+    else msj='Predijiste '+estado.calib+' y tuviste '+bien+'. Sabes más de lo que crees: ajusta tu medidor interno hacia arriba.';
+    fb.className='fb ok';
+    fb.innerHTML=lista+'<br><br>'+msj+'<br><br>Lo que quedó en "aún no" se reintenta cuando quieras: recarga la página y vuelve a entrar.';
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

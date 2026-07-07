@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 8 · Quiz de gimnasio</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .4rem;color:var(--rosa);font-size:1.1rem}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3.2rem;resize:vertical}
+  .opciones,.calib{display:flex;flex-direction:column;gap:.5rem;margin-top:.6rem}
+  .calib{flex-direction:row;flex-wrap:wrap}
+  .opciones button,.calib button{padding:.6rem .9rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font:inherit;font-weight:700;cursor:pointer;text-align:left}
+  .opciones button.sel,.calib button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 8 · Gimnasio</div>
+    <h1>Quiz de gimnasio</h1>
+    <p>Práctica libre, sin nota y sin registro. Parecido al quiz relámpago de la sesión D, pero con otros reactivos: aquí se entrena, no se compite.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Primero calibra: predice cuántos de los 3 tendrás bien. Luego resuelve. Si fallas, primero llega una pista; la respuesta solo aparece al segundo intento. Al final comparas tu predicción con tu resultado: saber cuánto sabes también es la materia.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> anota tu predicción (0 a 3), resuelve los tres reactivos por escrito y solo al final revisa contra la página. Marca cada uno como bien o aún no y compara con tu predicción.
+  </div>
+
+  <h2>Paso 0 · Calibra</h2>
+  <div class="card">
+    <p style="margin:0 0 .2rem">Antes de ver los reactivos: ¿cuántos de los 3 crees que tendrás bien?</p>
+    <div class="calib" id="calib">
+      <button>0</button><button>1</button><button>2</button><button>3</button>
+    </div>
+    <div class="fb" id="fbCalib"></div>
+  </div>
+
+  <h2>Reactivo 1 · La ida: del latín al español</h2>
+  <div class="card">
+    <h3><em>OCTO</em></h3>
+    <p style="margin:0;font-size:.92rem">La ley que opera: el grupo CT se volvió ch. ¿En qué palabra española se convirtió? Escribe tu predicción y revisa.</p>
+    <input type="text" id="r1input" placeholder="tu predicción en español">
+    <div class="fila-botones"><button class="btn rosa" id="r1check">Revisar</button></div>
+    <div class="fb" id="r1fb"></div>
+  </div>
+
+  <h2>Reactivo 2 · La vuelta: reconstruye el étimo</h2>
+  <div class="card">
+    <h3>hoja</h3>
+    <p style="margin:0;font-size:.92rem">¿De qué palabra latina viene? Dos huellas: la h muda de hoy sonaba en latín, y la j de hoy era otro grupo de letras. Mayúsculas o minúsculas, da igual.</p>
+    <input type="text" id="r2input" placeholder="tu reconstrucción del étimo">
+    <div class="fila-botones"><button class="btn rosa" id="r2check">Revisar</button></div>
+    <div class="fb" id="r2fb"></div>
+  </div>
+
+  <h2>Reactivo 3 · Nombra la ley</h2>
+  <div class="card">
+    <h3><em>FLAMMA</em> / llama</h3>
+    <p style="margin:0;font-size:.92rem">¿Qué ley separa a este par?</p>
+    <div class="opciones" id="r3ops"></div>
+    <div class="fila-botones"><button class="btn rosa" id="r3check">Revisar</button></div>
+    <div class="fb" id="r3fb"></div>
+  </div>
+
+  <h2>Cierre · ¿Cómo calibraste?</h2>
+  <div class="card">
+    <div class="fila-botones"><button class="btn rosa" id="btnCierre">Ver mi resultado</button></div>
+    <div class="fb" id="fbCierre"></div>
+  </div>
+
+  <footer>Semana 8 · La máquina del tiempo fonética · Gimnasio: lo que quede en "aún no" se puede reintentar cuando quieras. Cuenta tu versión más reciente, no el promedio.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var estado={calib:null,r1:null,r2:null,r3:null};
+
+  function norm(s){return s.toLowerCase().trim().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/\s+/g,' ');}
+  function baraja(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+  // Paso 0
+  var calib=document.getElementById('calib');
+  calib.querySelectorAll('button').forEach(function(b,i){
+    b.addEventListener('click',function(){
+      calib.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+      b.classList.add('sel');estado.calib=i;
+      var fb=document.getElementById('fbCalib');
+      fb.className='fb ej';
+      fb.textContent='Anotado. Al final comparas tu predicción con tu resultado: saber cuánto sabes también es la materia.';
+    });
+  });
+
+  // R1: OCTO → ocho
+  var int1=0;
+  document.getElementById('r1check').addEventListener('click',function(){
+    var fb=document.getElementById('r1fb');
+    var v=norm(document.getElementById('r1input').value);
+    if(!v){fb.className='fb no';fb.textContent='Primero escribe tu predicción. En este gimnasio no se revisa el aire.';return;}
+    if(v==='ocho'){
+      estado.r1='bien';fb.className='fb ok';
+      fb.textContent='Bien. OCTO → ocho: el grupo CT se volvió ch y la O final se quedó en su lugar.';
+    }else{
+      estado.r1='aun';int1++;
+      fb.className='fb no';
+      if(int1===1){
+        fb.textContent='Aún no. Pista: la misma ley convirtió NOCTE en noche y LACTE en leche. Aplica el molde: lo que va antes del CT se queda, el CT se vuelve ch.';
+      }else{
+        fb.textContent='Aún no. La respuesta era ocho. OCTO → ocho: el grupo CT se volvió ch. Anótala: fallar aquí es exactamente para lo que sirve el gimnasio.';
+      }
+    }
+  });
+
+  // R2: hoja ← FOLIA
+  var int2=0;
+  document.getElementById('r2check').addEventListener('click',function(){
+    var fb=document.getElementById('r2fb');
+    var v=norm(document.getElementById('r2input').value);
+    if(!v){fb.className='fb no';fb.textContent='Primero escribe tu reconstrucción. En este gimnasio no se revisa el aire.';return;}
+    if(v==='folia'||v==='folium'){
+      estado.r2='bien';fb.className='fb ok';
+      fb.textContent='Bien. hoja ← FOLIA: la F inicial se volvió h muda y el grupo -LI- se volvió j. Reconstruir es lo que ninguna IA hace por ti.';
+    }else{
+      estado.r2='aun';int2++;
+      fb.className='fb no';
+      if(int2===1){
+        fb.textContent='Aún no. Pista: la h fue una F, como en harina ← FARINA. Y la j venía de un grupo -LI-, como en hijo ← FILIU. Junta las dos huellas.';
+      }else{
+        fb.textContent='Aún no. La respuesta era FOLIA. La F se volvió h muda y el -LI- se volvió j. Anótala: este es el tipo de reactivo que cae el jueves.';
+      }
+    }
+  });
+
+  // R3: nombra la ley
+  var R3=[
+    ["El grupo FL inicial se volvió ll.",true],
+    ["La F inicial se volvió h muda.",false],
+    ["El grupo CT se volvió ch.",false],
+    ["La vocal breve diptongó.",false]
+  ];
+  var z3=document.getElementById('r3ops'),sel3=null;
+  baraja(R3).forEach(function(op){
+    var b=document.createElement('button');
+    b.textContent=op[0];b.dataset.buena=op[1]?'1':'0';
+    b.addEventListener('click',function(){
+      z3.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+      b.classList.add('sel');sel3=b;
+    });
+    z3.appendChild(b);
+  });
+  document.getElementById('r3check').addEventListener('click',function(){
+    var fb=document.getElementById('r3fb');
+    if(!sel3){fb.className='fb no';fb.textContent='Elige primero una opción.';return;}
+    if(sel3.dataset.buena==='1'){
+      estado.r3='bien';fb.className='fb ok';
+      fb.innerHTML='Bien. FLAMMA → llama, de la misma familia que PLUVIA → lluvia y CLAMARE → llamar. La trampa era la F: aquí no viaja sola.';
+    }else{
+      estado.r3='aun';fb.className='fb no';
+      fb.textContent='Aún no. Pista: mira el arranque completo de FLAMMA. No cambió una letra: se fundió un grupo de dos consonantes en un solo sonido.';
+    }
+  });
+
+  // Cierre
+  document.getElementById('btnCierre').addEventListener('click',function(){
+    var fb=document.getElementById('fbCierre');
+    var pend=[];
+    if(estado.calib===null)pend.push('la calibración del paso 0');
+    if(!estado.r1)pend.push('el reactivo 1');
+    if(!estado.r2)pend.push('el reactivo 2');
+    if(!estado.r3)pend.push('el reactivo 3');
+    if(pend.length){
+      fb.className='fb no';
+      fb.textContent='Todavía falta: '+pend.join(', ')+'.';
+      return;
+    }
+    var bien=[estado.r1,estado.r2,estado.r3].filter(function(x){return x==='bien';}).length;
+    var lista='Reactivo 1: '+(estado.r1==='bien'?'bien':'aún no')+' · Reactivo 2: '+(estado.r2==='bien'?'bien':'aún no')+' · Reactivo 3: '+(estado.r3==='bien'?'bien':'aún no');
+    var msj;
+    if(estado.calib===bien)msj='Calibración exacta: predijiste '+estado.calib+' y tuviste '+bien+'. Eso, en este curso, vale tanto como los aciertos.';
+    else if(estado.calib>bien)msj='Predijiste '+estado.calib+' y tuviste '+bien+'. La brecha es el dato, no la culpa: ya sabes qué ley reentrenar.';
+    else msj='Predijiste '+estado.calib+' y tuviste '+bien+'. Sabes más de lo que crees: ajusta tu medidor interno hacia arriba.';
+    fb.className='fb ok';
+    fb.innerHTML=lista+'<br><br>'+msj+'<br><br>Lo que quedó en "aún no" se reintenta cuando quieras: recarga la página y vuelve a entrar.';
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

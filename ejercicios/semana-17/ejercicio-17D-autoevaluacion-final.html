@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 17 · Ejercicio D · Tu autoevaluación final</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3rem;resize:vertical}
+  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
+  .equipaje{margin-top:.5rem}
+  .equipaje .item{display:flex;align-items:center;gap:.6rem;padding:.6rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;margin-bottom:.4rem;cursor:pointer}
+  .equipaje .item .box{width:22px;height:22px;border:2px solid var(--borde);border-radius:.35rem;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
+  .equipaje .item.on{background:var(--fondo);border-color:var(--rosa)}
+  .equipaje .item.on .box{background:var(--ok);border-color:var(--ok)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 17 · Sesión D</div>
+    <h1>Tu autoevaluación final</h1>
+    <p>Después del Museo viene la última escritura del expediente: qué sabes hoy que no sabías en agosto, y qué calificación propones.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Esta plantilla arma el borrador de tu autoevaluación final. La llenas, la generas, la copias y la pasas a tu expediente. Con ella llegas a tu conversación de diciembre (unos diez minutos, con tu portafolio y tu expediente en la mano), donde se acuerda tu calificación del semestre.
+  </div>
+
+  <div class="regla">
+    <strong>Recuerda cómo funciona este curso:</strong> tu calificación no sale de un examen ni de puntos acumulados, porque nunca hubo. Sale de tu autoevaluación con evidencia, acordada contigo. Proponer de más sin evidencia se nota; proponerte de menos también. Calibrar es la última habilidad del semestre.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> escribe las cuatro partes directamente en tu expediente, en este orden: qué sé hoy que no sabía en agosto, mis tres evidencias más fuertes y dónde están, lo que quedó en aún no, y la calificación que propongo con su porqué.
+  </div>
+
+  <h2>Paso 1 · Qué llevas a la conversación</h2>
+  <div class="card">
+    <p style="font-size:.92rem;margin:.3rem 0 0">Toca lo que ya tienes listo. Es tu lista de equipaje, no un requisito de esta página.</p>
+    <div class="equipaje" id="equipaje"></div>
+    <div class="fb" id="fbEquipaje"></div>
+  </div>
+
+  <h2>Paso 2 · El borrador</h2>
+  <div class="card">
+    <h3>Tu autoevaluación con evidencia</h3>
+    <label>¿Qué sabes hoy que no sabías en agosto?</label>
+    <textarea data-campo="aprendi" placeholder="Concreto y tuyo: qué puedes hacer hoy con las palabras que en agosto no"></textarea>
+    <div class="fila-botones" style="margin-top:.5rem"><button class="btn gris" data-ej>Compara con un ejemplo</button></div>
+    <div class="fb" data-fbej></div>
+    <label>Tus tres evidencias más fuertes (y dónde están)</label>
+    <textarea data-campo="evidencias" placeholder="ej. 1) mi defensa del Museo; 2) la bitácora del portafolio, pieza de la semana 10; 3) mi booktuber de la segunda obra"></textarea>
+    <label>Lo que quedó en aún no</label>
+    <textarea data-campo="aunno" placeholder="Lo pendiente, dicho de frente: qué te faltó y qué harías en segunda vuelta si aplica"></textarea>
+    <label>Calificación que propones</label>
+    <input type="text" data-campo="propuesta" placeholder="Un número, el que tu evidencia sostenga">
+    <label>Por qué esa y no otra</label>
+    <textarea data-campo="porque" placeholder="El argumento que conecta tu evidencia con tu número. Ni modestia falsa ni inflación"></textarea>
+    <div class="fila-botones">
+      <button class="btn rosa" data-generar>Generar borrador</button>
+      <button class="btn gris" data-copiar style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura"></pre>
+    <div class="fb" data-fb></div>
+  </div>
+
+  <footer>Semana 17 · El Museo de Palabras · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página. Lo único que sobrevive es el borrador que copies a tu expediente.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  // Paso 1: equipaje
+  var ITEMS=[
+    'Portafolio del Museo completo, con bitácora y con la IA declarada donde la hubo',
+    'Expediente con las tres autoevaluaciones parciales del semestre',
+    'Evidencia de lecturas: los dos booktubers entregados',
+    'La defensa del Museo, ya hecha (peldaño 4)',
+    'Esta autoevaluación final, pasada al expediente'
+  ];
+  var eq=document.getElementById('equipaje');
+  var fbEq=document.getElementById('fbEquipaje');
+  ITEMS.forEach(function(t){
+    var d=document.createElement('div');d.className='item';
+    d.innerHTML='<span class="box"></span><span>'+t+'</span>';
+    d.addEventListener('click',function(){
+      d.classList.toggle('on');
+      d.querySelector('.box').textContent=d.classList.contains('on')?'✓':'';
+      var on=eq.querySelectorAll('.item.on').length;
+      if(on===ITEMS.length){
+        fbEq.className='fb ok';
+        fbEq.textContent='Equipaje completo. A la conversación de diciembre se llega así: con todo en la mano.';
+      }else{
+        fbEq.className='fb ej';
+        fbEq.textContent=on+' de '+ITEMS.length+'. Lo que falte es tu lista de pendientes antes de diciembre; si el suelo queda incompleto, la segunda vuelta va en la segunda semana.';
+      }
+    });
+    eq.appendChild(d);
+  });
+
+  // Paso 2: borrador
+  var card=document.querySelectorAll('.card')[1];
+  var pre=card.querySelector('pre.captura');
+  var fb=card.querySelector('[data-fb]');
+  var fbej=card.querySelector('[data-fbej]');
+  var btnC=card.querySelector('[data-copiar]');
+
+  card.querySelector('[data-ej]').addEventListener('click',function(){
+    fbej.className='fb ej';
+    fbej.innerHTML='<strong>Un ejemplo (ajeno, no plantilla):</strong> "En agosto una palabra desconocida era una pared; hoy es una puerta: la abro en piezas, hipotetizo y verifico en fuente antes de creerle a nadie, incluida la IA. También aprendí a hablar de lo que sé sin guion: subí los cuatro peldaños de la escalera."<br><br>La tuya no tiene que sonar así. Tiene que ser verificable en tu propia evidencia, como cualquier etimología del curso.';
+  });
+
+  card.querySelector('[data-generar]').addEventListener('click',function(){
+    var g=function(sel){var el=card.querySelector('[data-campo='+sel+']');return el?el.value.trim():'';};
+    var aprendi=g('aprendi'),evid=g('evidencias'),aunno=g('aunno'),prop=g('propuesta'),porque=g('porque');
+    var faltan=[];
+    if(!aprendi)faltan.push('qué sabes hoy que no sabías en agosto');
+    if(!evid)faltan.push('tus tres evidencias');
+    if(!prop)faltan.push('la calificación que propones');
+    if(!porque)faltan.push('el porqué de tu propuesta');
+    if(faltan.length){
+      fb.className='fb no';
+      fb.textContent='Una autoevaluación sin todo esto no se sostiene en la conversación. Falta: '+faltan.join(', ')+'.';
+      return;
+    }
+    pre.textContent='AUTOEVALUACIÓN FINAL DEL SEMESTRE\n'
+      +'\nQUÉ SÉ HOY QUE NO SABÍA EN AGOSTO:\n'+aprendi
+      +'\n\nMIS EVIDENCIAS (Y DÓNDE ESTÁN):\n'+evid
+      +'\n\nLO QUE QUEDÓ EN AÚN NO:\n'+(aunno||'(nada pendiente que declarar)')
+      +'\n\nCALIFICACIÓN QUE PROPONGO: '+prop
+      +'\nPOR QUÉ ESA Y NO OTRA:\n'+porque;
+    pre.style.display='block';
+    btnC.style.display='inline-block';
+    fb.className='fb ok';
+    fb.textContent='Borrador listo. Cópialo a tu expediente y llévalo a tu conversación de diciembre. La última palabra se acuerda ahí, contigo presente.';
+  });
+
+  btnC.addEventListener('click',function(){
+    var t=pre.textContent;
+    function listo(){fb.className='fb ok';fb.textContent='Copiado. Pásalo a tu expediente.';}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(listo,function(){seleccionar();});
+    }else{seleccionar();}
+    function seleccionar(){
+      var r=document.createRange();r.selectNodeContents(pre);
+      var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+      fb.className='fb ok';fb.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
+    }
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

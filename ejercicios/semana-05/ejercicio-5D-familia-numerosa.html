@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 5 · Ejercicio D · La palabra de familia numerosa</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3rem;resize:vertical}
+  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+  .marca{display:flex;gap:.5rem;margin-top:.6rem}
+  .marca button{flex:1;padding:.5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
+  .marca button.sel-ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
+  .marca button.sel-no{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 5 · Sesión D</div>
+    <h1>La palabra de familia numerosa</h1>
+    <p>Cuarta pieza del Museo: la biografía de una palabra que no vino sola al mundo.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Elige una palabra cuya raíz tenga familia grande (los árboles de la semana están llenos de candidatas). Llena la ficha: la palabra, su raíz, sus parientes y la biografía redactada. Genera la captura y pégala donde va tu portafolio. Si te trabas, el botón de ejemplo te enseña una biografía modelo.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno (o en la plantilla impresa):</strong> mismo orden: palabra al centro, raíz y significado, lista de parientes (mínimo 4) y abajo la biografía redactada. Cierra firmando como biógrafo.
+  </div>
+
+  <div class="regla">
+    <strong>Qué hace buena a esta biografía:</strong> no basta contar de dónde viene la palabra. Esta vez la historia incluye a sus parientes: las otras palabras que nacieron de la misma raíz. Una biografía de familia numerosa presenta al personaje y a su parentela.
+  </div>
+
+  <h2>La ficha</h2>
+  <div class="card">
+    <h3>Datos del personaje</h3>
+    <label>La palabra elegida</label>
+    <input type="text" data-campo="palabra" placeholder="ej. fotografía">
+    <label>Su raíz (o raíces) y significado</label>
+    <input type="text" data-campo="raiz" placeholder="ej. foto- (luz) + graf- (escribir)">
+    <label>Sus parientes: mínimo 4 palabras de la misma raíz, separadas por comas</label>
+    <textarea data-campo="parientes" placeholder="ej. fotosíntesis, fotón, fotocopia, fotofobia"></textarea>
+    <label>La biografía (un párrafo: de dónde viene, qué dice literalmente, quiénes son sus parientes y por qué la elegiste)</label>
+    <textarea data-campo="bio" style="min-height:7rem" placeholder="Escribe aquí la vida de tu palabra..."></textarea>
+    <div class="fila-botones">
+      <button class="btn gris" id="btnEjemplo">Compara con un ejemplo</button>
+      <button class="btn rosa" id="btnGenerar">Generar captura</button>
+      <button class="btn gris" id="btnCopiar" style="display:none">Copiar al portapapeles</button>
+    </div>
+    <div class="fb" id="fbEjemplo"></div>
+    <pre class="captura" id="pre"></pre>
+    <div class="fb" id="fb"></div>
+  </div>
+
+  <h2>Antes de entregarla al Museo</h2>
+  <div class="card">
+    <p style="margin:0 0 .3rem">Léela una vez en voz baja y márcate: ¿la biografía presenta a la familia o solo al personaje?</p>
+    <div class="marca" id="marca">
+      <button data-v="bien">Me quedó bien</button>
+      <button data-v="aun">Aún no</button>
+    </div>
+    <div class="fb" id="fbMarca"></div>
+  </div>
+
+  <footer>Semana 5 · Una raíz, veinte palabras · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página. La captura solo existe si tú la copias y la pegas.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var card=document.querySelector('.card');
+
+  document.getElementById('btnEjemplo').addEventListener('click',function(){
+    var fb=document.getElementById('fbEjemplo');
+    fb.className='fb ej';
+    fb.innerHTML='<strong>Una biografía modelo (fotografía):</strong> Fotografía nació de dos raíces griegas: <em>foto-</em> (luz) y <em>graf-</em> (escribir). Literalmente es "escritura con luz", que es exactamente lo que hace una cámara: deja que la luz escriba sobre una superficie. Es de familia doblemente numerosa. Por el lado de la luz tiene a fotosíntesis, fotón, fotocopia y fotofobia; por el lado de la escritura, a biografía, ortografía, telégrafo y grafiti. La elegí porque una palabra que usamos a diario para las selfies carga adentro un taller griego de escritura luminosa.<br><br>La tuya no tiene que sonar igual: tiene que presentar al personaje y a su parentela con tu voz.';
+  });
+
+  document.getElementById('btnGenerar').addEventListener('click',function(){
+    var g=function(sel){var el=card.querySelector('[data-campo='+sel+']');return el?el.value.trim():'';};
+    var palabra=g('palabra'),raiz=g('raiz'),parientes=g('parientes'),bio=g('bio');
+    var fb=document.getElementById('fb');
+    var lista=parientes.split(/[,;\n]+/).map(function(x){return x.trim();}).filter(function(x){return x;});
+    var faltan=[];
+    if(!palabra)faltan.push('la palabra');
+    if(!raiz)faltan.push('la raíz y su significado');
+    if(lista.length<4)faltan.push('los parientes (van '+lista.length+' de 4 mínimos)');
+    if(!bio)faltan.push('la biografía');
+    else if(bio.length<60)faltan.push('más biografía: dos líneas no cuentan la vida de nadie');
+    if(faltan.length){
+      fb.className='fb no';
+      fb.textContent='Al Museo no entra ficha incompleta. Falta: '+faltan.join(', ')+'.';
+      return;
+    }
+    fb.className='fb ok';
+    fb.textContent='Ficha lista. Cópiala y pégala donde va tu portafolio de la Unidad 1.';
+    var pre=document.getElementById('pre');
+    pre.textContent='MUSEO DE PALABRAS · PIEZA 4 · FAMILIA NUMEROSA'
+      +'\nPALABRA: '+palabra
+      +'\nRAÍZ: '+raiz
+      +'\nPARIENTES: '+lista.join(', ')
+      +'\nBIOGRAFÍA: '+bio;
+    pre.style.display='block';
+    document.getElementById('btnCopiar').style.display='inline-block';
+  });
+
+  document.getElementById('btnCopiar').addEventListener('click',function(){
+    var pre=document.getElementById('pre');
+    var fb=document.getElementById('fb');
+    var t=pre.textContent;
+    function listo(){fb.className='fb ok';fb.textContent='Copiado. Ahora pégalo en tu portafolio.';}
+    function seleccionar(){
+      var r=document.createRange();r.selectNodeContents(pre);
+      var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+      fb.className='fb ok';fb.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(listo,function(){seleccionar();});
+    }else{seleccionar();}
+  });
+
+  document.querySelectorAll('#marca button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('#marca button').forEach(function(x){x.classList.remove('sel-ok','sel-no');});
+      b.classList.add(b.dataset.v==='bien'?'sel-ok':'sel-no');
+      var fb=document.getElementById('fbMarca');
+      if(b.dataset.v==='bien'){
+        fb.className='fb ok';
+        fb.textContent='Al Museo. Buena semana para tu portafolio: ya van cuatro piezas.';
+      }else{
+        fb.className='fb no';
+        fb.textContent='Bien visto. Suele faltar la parentela: regresa a la biografía y mete al menos dos parientes dentro del párrafo, no solo en la lista.';
+      }
+    });
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 17 · Ejercicio D · Carta a septiembre</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3rem;resize:vertical}
+  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 17 · Sesión D</div>
+    <h1>Carta a septiembre</h1>
+    <p>En la semana 2 escribiste para qué memorizar en la era de la IA. Hoy le contestas a esa persona.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> El profesor te devuelve tu hoja de septiembre. Primero reléela completa, en silencio, sin juzgarte. Luego escribe aquí tu respuesta en tres partes: una frase textual de esa hoja, lo que le dirías hoy a quien la escribió, y la prueba (algo que hoy haces con las palabras y en septiembre no podías). La ronda de compartir es voluntaria; escribir la carta, no.
+  </div>
+
+  <div class="regla">
+    <strong>Por qué importa:</strong> esa hoja, con tu letra de septiembre, es la única prueba que necesitas de cuánto cambiaste. Nadie más puede darte ese dato, ni quitártelo.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> escribe la carta al reverso de tu propia hoja de septiembre, con las mismas tres partes: la frase textual, lo que le dirías hoy y la prueba. Así el antes y el después quedan en el mismo papel.
+  </div>
+
+  <h2>La carta</h2>
+  <div class="card">
+    <h3>De ti para quien eras</h3>
+    <label>Una frase textual de tu hoja de septiembre</label>
+    <textarea data-campo="frase" placeholder="Cópiala tal cual la escribiste, con todo y lo que ya no piensas"></textarea>
+    <label>Qué le dirías hoy a quien escribió eso</label>
+    <textarea data-campo="respuesta" placeholder="Sin regañarte y sin presumirte: contéstale con lo que ahora sabes"></textarea>
+    <label>La prueba</label>
+    <textarea data-campo="prueba" placeholder="Algo concreto que hoy haces con las palabras y en septiembre no podías: una etimología que abriste, una palabra que defendiste, un libro que..."></textarea>
+    <div class="fila-botones">
+      <button class="btn gris" data-ej>Compara con un ejemplo</button>
+      <button class="btn rosa" data-generar>Generar carta</button>
+      <button class="btn gris" data-copiar style="display:none">Copiar al portapapeles</button>
+    </div>
+    <div class="fb" data-fbej></div>
+    <pre class="captura"></pre>
+    <div class="fb" data-fb></div>
+  </div>
+
+  <div class="instr">
+    <strong>Después de escribir.</strong> Si quieres, comparte una línea en la ronda. Y guarda la carta: pegada en tu expediente es evidencia de primera para tu conversación final de diciembre.
+  </div>
+
+  <footer>Semana 17 · El Museo de Palabras · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página. Lo único que sobrevive es la carta que copies y pegues.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var card=document.querySelector('.card');
+  var pre=card.querySelector('pre.captura');
+  var fb=card.querySelector('[data-fb]');
+  var fbej=card.querySelector('[data-fbej]');
+  var btnC=card.querySelector('[data-copiar]');
+
+  card.querySelector('[data-ej]').addEventListener('click',function(){
+    fbej.className='fb ej';
+    fbej.innerHTML='<strong>Un ejemplo (de otra persona, no el tuyo):</strong><br>'
+      +'<em>Frase de septiembre:</em> "no tiene caso memorizar si el celular lo sabe todo en un segundo".<br>'
+      +'<em>Respuesta de hoy:</em> tenías razón en una cosa: la máquina define más rápido. Pero definir no era el punto. No sabías que abrir una palabra en piezas te iba a cambiar la forma de leer.<br>'
+      +'<em>La prueba:</em> ya no paso de largo las palabras que no conozco: las abro. La semana pasada defendí una sin banco de preguntas y no me caí.<br><br>'
+      +'Tu carta puede decir lo contrario, dudar o darle la razón a septiembre en algo. Lo único que no puede es venir sin prueba.';
+  });
+
+  card.querySelector('[data-generar]').addEventListener('click',function(){
+    var g=function(sel){var el=card.querySelector('[data-campo='+sel+']');return el?el.value.trim():'';};
+    var frase=g('frase'),resp=g('respuesta'),prueba=g('prueba');
+    var faltan=[];
+    if(!frase)faltan.push('la frase textual de septiembre');
+    if(!resp)faltan.push('lo que le dirías hoy');
+    if(!prueba)faltan.push('la prueba');
+    if(faltan.length){
+      fb.className='fb no';
+      fb.textContent='La carta va incompleta. Falta: '+faltan.join(', ')+'. En este curso hasta las despedidas llevan evidencia.';
+      return;
+    }
+    pre.textContent='CARTA A SEPTIEMBRE\n'
+      +'\nLO QUE ESCRIBÍ ENTONCES: "'+frase+'"'
+      +'\n\nLO QUE LE DIGO HOY: '+resp
+      +'\n\nLA PRUEBA: '+prueba;
+    pre.style.display='block';
+    btnC.style.display='inline-block';
+    fb.className='fb ok';
+    fb.textContent='Carta lista. Cópiala y pégala en tu expediente: es evidencia para diciembre.';
+  });
+
+  btnC.addEventListener('click',function(){
+    var t=pre.textContent;
+    function listo(){fb.className='fb ok';fb.textContent='Copiado. Pégala en tu expediente.';}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(listo,function(){seleccionar();});
+    }else{seleccionar();}
+    function seleccionar(){
+      var r=document.createRange();r.selectNodeContents(pre);
+      var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+      fb.className='fb ok';fb.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
+    }
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>
