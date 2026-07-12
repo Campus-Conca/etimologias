@@ -75,6 +75,12 @@ Toca una palabra y descubre de qué lengua viene. Cuenta cuántas creías "de si
    ["tianguis","náhuatl","de tianquiztli, mercado"],
    ["elote","náhuatl","de elotl"],
    ["papalote","náhuatl","de papalotl, mariposa"],
+   ["tiza","náhuatl","de tizatl, tierra blanca (así le dicen en España al gis)"],
+   ["gis","griego","de gypsos, yeso, que viajó por el latín gypsum"],
+   ["apapacho","náhuatl","de papatzoa, ablandar con los dedos"],
+   ["tocayo","náhuatl","de tocaitl, nombre"],
+   ["escuincle","náhuatl","de itzcuintli, perro"],
+   ["chapulín","náhuatl","de chapolin, insecto que rebota"],
    ["jamón","francés","de jambon"],
    ["futbol","inglés","de football"]
   ];
@@ -94,6 +100,18 @@ Toca una palabra y descubre de qué lengua viene. Cuenta cuántas creías "de si
 {: .ojo }
 El *al-* delata al árabe (álgebra, alcohol, alcalde). Muchas palabras en *-tl* delatan al náhuatl (elotl, papalotl). Aprende a ver las marcas.
 
+### El caso de la semana: gis y tiza
+
+En el alto Egipto había una isla llamada Gypso, famosa por un material blanco que servía para construir. Los griegos lo llamaron *gypsos*, los romanos lo volvieron *gypsum*, y de esa palabra el castellano sacó dos hijas: *yeso* y *gis*.
+
+A *gis* le fue mal en España: dejó de usarse. Pero en México los españoles aprendieron la palabra náhuatl *tizatl* (tierra blanca) y de ahí nació *tiza*.
+
+El final es una broma de la historia: hoy en España dicen *tiza*, una palabra mexicana, y en México decimos *gis*, una palabra griega que pasó por Roma y Egipto. Cada quien usa la palabra del otro. Verifícalo el jueves en el DECEL: la historia es tan buena que merece fuente.
+
+### Una palabra que abraza
+
+*Apapacho* viene del náhuatl *papatzoa*, ablandar algo con los dedos. Pero los hablantes cultos del náhuatl le daban un sentido más hondo, el mismo que le damos hoy: abrazar o acariciar con el alma. Hay palabras que el español no tenía y que esta tierra le regaló.
+
 ---
 
 ## Las tarjetas de la semana
@@ -106,6 +124,17 @@ El *al-* delata al árabe (álgebra, alcohol, alcalde). Muchas palabras en *-tl*
 | cuate | náhuatl · coatl, gemelo |
 | tianguis | náhuatl · tianquiztli, mercado |
 | naranja | árabe (del persa) · naranya |
+| tiza | náhuatl · tizatl, tierra blanca |
+| gis | griego · gypsos, yeso (vía latín gypsum) |
+| apapacho | náhuatl · papatzoa, acariciar con el alma |
+
+## Por si hay tiempo: la bolsa grande de nahuatlismos
+
+Todas estas palabras salieron del náhuatl y siguen vivas en tu boca. Cuenta cuántas dices en una semana normal:
+
+aguacate, achichincle, ajolote, cacahuate, cacao, calabaza, camote, capulín, cenzontle, chapulín, chichicuilote, chicle, chirimoya, coyote, cuate, elote, epazote, escuincle, esquite, guacamole, huacal, huitlacoche, itacate, jacal, jícama, jícara, malacate, matatena, mecate, memela, mole, nopal, papalote, pilmama, popote, pozole, pulque, quelite, quetzal, tatemar, tejocote, temazcal, tianguis, tiza, tlacuache, tlapalería, tocayo, tomate, zapote, zopilote.
+
+Reto para la casa: léele la lista a la persona más grande de tu familia y pregúntale cuáles usaba de niña o niño y cuáles ya no oye. Lo que te cuente vale oro para el mapa léxico de la semana 10.
 
 ## Lo que produjimos
 

@@ -70,6 +70,14 @@ Toca un vacío del español y mira una palabra posible para llenarlo.
 {: .reto }
 Ninguna de estas es definitiva. Inventa la tuya con raíces del semestre, justifícala y súbela a [Palabras recién nacidas](../vitrina/palabras-recien-nacidas.html).
 
+### Los que jugaron este juego antes que tú
+
+Inventar palabras con raíces clásicas no es tarea escolar: es como se ha bautizado medio mundo moderno.
+
+En 1806, el farmacéutico Sertürner aisló unos cristales que producían sueño profundo y los llamó *morfina*, por Morfeo, el dios griego del sueño. En 1842, el paleontólogo Owen necesitó nombrar unos lagartos fósiles enormes: *deinós* (terrible) + *saûros* (lagarto), *dinosaurio*. En 1964, dos geólogos le pusieron nombre al olor de la lluvia: *petra* (piedra) + *icor* (la sangre de los dioses), *petricor*.
+
+Todos hicieron exactamente lo que tú vas a hacer esta semana: encontrar un hueco sin nombre, ir a las raíces, pegar bien las piezas y defender la palabra. Si la tuya es buena, quién sabe. *Petricor* también empezó siendo la ocurrencia de dos personas.
+
 ### Tu tercer parcial
 
 El último del semestre. Quiz integrador y defensa socrática son tu evidencia. Autoevaluación de unidad en el expediente el fin de semana, bloque final al [formulario de parciales](https://docs.google.com/forms/d/e/1FAIpQLSc32h4aoWfVteMZkbvdmHb0NNEsG3KrhUAi2Y2LYqOqIEEsHw/viewform) antes del lunes. La autoevaluación final (la del semestre completo) todavía no: esa se escribe después del Museo. Reglas completas: [Tu calificación](../evaluacion.html).

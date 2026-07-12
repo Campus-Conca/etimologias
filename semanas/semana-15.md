@@ -92,6 +92,28 @@ Toca una palabra inglesa y crúzala al español por su raíz. Luego prueba los f
 {: .reto }
 Convierte con el patrón, sin diccionario: *productivity*, *curiosity*, *photography*, *rapidly*. (productividad, curiosidad, fotografía, rápidamente).
 
+### Palabras de ida y vuelta
+
+Hay palabras españolas que se fueron de viaje al inglés y regresaron con acento. Y peor: hay palabras que teníamos y el contacto con el inglés les cambió el significado.
+
+*Barbecue* viene del taíno *barbacoa*, que el inglés tomó del español y luego nos devolvió como "barbiquiú". *Cachar* venía de *cacho* (cuerno) y significaba cornear; hoy significa atrapar al vuelo, por *to catch*. *Ganga* era lo barato; en la frontera es pandilla, por *gang*. Y en el Caribe, *guagua* dejó de ser el llanto del bebé para ser el autobús, por *wagon*.
+
+El contacto entre lenguas no es una calle de un solo sentido: es un tianguis donde todo va y viene.
+
+### El doblete: cuando el griego y el latín dieron la misma palabra
+
+A veces las dos lenguas madre le regalaron al español una palabra para el mismo concepto, y el inglés heredó las mismas dos. Mira los pares:
+
+| Raíz griega | Raíz latina | El mismo concepto |
+|---|---|---|
+| hipo (hipódromo) | equi (equitación) | caballo |
+| poli (polígono) | multi (multitud) | muchos |
+| bio (biología) | vita (vitamina) | vida |
+| fono (teléfono) | voc (vocal) | voz, sonido |
+| piro (pirotecnia) | igni (ignífugo) | fuego |
+
+Ver el mismo concepto con dos ropajes fija los dos. Y en inglés funcionan igual: *hippodrome*, *equestrian*, *polyglot*, *multitude*.
+
 ---
 
 ## Las tarjetas de la semana

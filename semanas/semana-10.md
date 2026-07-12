@@ -68,6 +68,17 @@ Cada palabra de campo lleva estos seis datos. Toca los ejemplos para ver una fic
 {: .ojo }
 Regla de la definición: no puedes usar la palabra dentro de su propia definición. "Molote: un molote de cobija" no vale.
 
+### El mapa empieza bajo tus pies
+
+Los nombres de los lugares también son palabras con biografía. Se llaman topónimos, y la Sierra Gorda está sembrada de ellos.
+
+**Jalpan** viene del náhuatl *Xalpan*, sobre la arena. **Ahuacatlán** es náhuatl puro: lugar de aguacates. Pero **Concá** no es náhuatl: es un topónimo pame, de la lengua de los xi'úi que vivían aquí mucho antes que nadie.
+
+Misión de campo: ¿qué significa Concá? ¿Y Tancoyol, Tilaco, Saldiveña? No lo respondas con el celular: pregunta a los mayores de tu comunidad, anota lo que te digan y compara versiones. Los nombres pames y huastecos de la Sierra casi no están documentados. Tu ficha puede ser de las primeras.
+
+{: .reto }
+Ficha extra para el mapa léxico: haz la ficha de un topónimo. Entrada, qué lugar nombra, qué dicen los mayores que significa, y de qué lengua parece venir.
+
 ---
 
 ## El gimnasio de la semana

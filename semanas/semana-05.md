@@ -78,7 +78,8 @@ Toca una raíz para ver a su familia. Cuenta cuántas palabras te regala cada un
    "bio- (vida)":["biología","biografía","microbio","antibiótico","biosfera","simbiosis","biopsia"],
    "tele- (lejos)":["teléfono","televisión","telescopio","telepatía","telégrafo","teletrabajo"],
    "scopio- (observar)":["microscopio","telescopio","periscopio","caleidoscopio","endoscopio"],
-   "antropo- (hombre)":["antropología","filántropo","misántropo","antropomorfo","antropófago"]
+   "antropo- (hombre)":["antropología","filántropo","misántropo","antropomorfo","antropófago"],
+   "pat- (sentir, sufrir)":["apatía","simpatía","antipatía","empatía","telepatía","patología","patógeno","psicópata","patético"]
   };
   var roots=document.getElementById('rt5-roots'),out=document.getElementById('rt5-out');
   Object.keys(R).forEach(function(k){
@@ -96,6 +97,14 @@ Toca una raíz para ver a su familia. Cuenta cuántas palabras te regala cada un
 })();
 </script>
 
+### La raíz que cambió de opinión
+
+Mira la familia de *pat-* con cuidado, porque esconde una historia. En griego, *páthos* era sentimiento, todo lo que a uno le pasa por dentro. Con ese sentido nacieron *apatía* (sin sentimientos), *simpatía* (sentir con el otro) y *antipatía* (sentir en contra).
+
+Después *páthos* pasó a significar la pasión. Y cuando los griegos decidieron que la pasión era una enfermedad del alma que nubla la razón, la raíz terminó significando enfermedad: de ahí *patología* (estudio de las enfermedades) y *patógeno* (lo que las origina).
+
+Una sola raíz, tres épocas de significado, y todas siguen vivas en tu boca. Cuando dices que alguien te cae simpático y que un virus es patógeno, usas la misma raíz en dos momentos distintos de su vida.
+
 ---
 
 ## Las tarjetas de la semana
@@ -110,6 +119,21 @@ Toca una raíz para ver a su familia. Cuenta cuántas palabras te regala cada un
 | tele- | lejos · televisión |
 | scopio- | observar · microscopio |
 | logos- | palabra, estudio · biología |
+| pat- | sentir, sufrir · simpatía |
+
+## Por si hay tiempo: prefijos con historia
+
+Los prefijos griegos también cuentan cuentos. Cinco para presumir:
+
+**Antípoda** (*anti*, opuesto + *pous*, pie): los que tienen los pies exactamente del otro lado del planeta. Si perforaras la Tierra en línea recta desde Concá, saldrías cerca de las antípodas: en medio del océano Índico.
+
+**Catástrofe** (*cata*, hacia abajo + *strophé*, voltear): voltear las cosas hacia abajo. Un giro para lo peor.
+
+**Diáspora** (*dia*, a través + *sporá*, semilla): sembrar al voleo. Primero se dijo de los judíos expulsados de Israel; hoy, de cualquier pueblo disperso lejos de casa.
+
+**Apogeo** (*apo*, lejos + *geo*, tierra): el punto donde un astro está más lejos de la Tierra. Por eso alguien "en su apogeo" está en lo más alto.
+
+**Anfiteatro** (*amphi*, ambos lados + *théatron*, lugar para ver): teatro donde se ve desde los dos lados. Una plaza de toros es, literalmente, un anfiteatro.
 
 ## Lo que produjimos
 

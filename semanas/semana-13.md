@@ -89,6 +89,14 @@ Toca un tecnicismo y velo en español llano. Cuenta cuántos dejan de darte mied
 {: .reto }
 Al revés: ¿cómo diría un médico "inflamación del hígado"? (hepato + itis = hepatitis). ¿Y "mirar el colon por dentro"? (colonoscopia).
 
+### La medicina también le robó a la mitología
+
+En 1806, el farmacéutico alemán Friedrich Sertürner aisló del opio unos cristales que producían un sueño profundo. Había que bautizarlos, y fue a buscar el nombre a Grecia: Morfeo, el dios que induce el sueño y se aparece en él con formas humanas, uno de los mil hijos de Hipno, el Sueño. Así nació la *morfina*.
+
+Por el mismo dios decimos "caer en los brazos de Morfeo" cuando alguien se duerme. Y la ciencia sigue jugando este juego: cuando descubre algo nuevo, va al griego a buscarle nombre, igual que tú en la semana 6.
+
+Otra pieza con historia: *delírium trémens*, el delirio con temblores del alcoholismo grave. Esa ya no es griega, es latín puro. La semana que viene verás que el latín también anda vivo, escondido en la letra chiquita.
+
 ---
 
 ## Las tarjetas de la semana

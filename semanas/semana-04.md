@@ -160,6 +160,22 @@ Toca una letra para ver su palabra ancla. El sonido siempre está a la vista.
 
 Solo las que cuestan. Las gemelas (α, ε, ι, κ, ο, τ) no necesitan tarjeta: ya las lees.
 
+## Por si hay tiempo: los monstruos que viven en tus palabras
+
+El alfabeto no fue lo único que los griegos nos dejaron. Su mitología entera se esconde en palabras que usas sin saberlo:
+
+**Quimera.** Para los griegos, una criatura que vomitaba fuego: cabeza de león, vientre de cabra, cola de dragón. Hoy es algo irrealizable ("es una quimera pensar que ganaremos sin entrenar"). Cuando algo es tan imposible como ese animal, es una quimera.
+
+**Arpía.** Seres monstruosos con rostro de mujer y cuerpo de ave de presa, odiados por todos. Hoy, persona cruel o codiciosa.
+
+**Dragón.** Monstruo con garras de león, cola de serpiente y alas de águila. Representaba el espíritu del mal y estaba consagrado, curiosamente, a Atenea, la diosa de la razón.
+
+**Flora.** Diosa de las flores y los jardines, madre de la primavera. Hoy, el conjunto de plantas de una región (la flora de la Sierra Gorda).
+
+**Hermafrodita.** Hijo de Hermes y Afrodita, dotado de los dos sexos. Hoy, en biología, un organismo con ambos (hay plantas hermafroditas).
+
+Reto: esta semana, cuando escribas tu nombre en griego, escribe también el de uno de estos monstruos. Χίμαιρα se lee "Jímaira".
+
 ## Lo que produjimos
 
 *Nuestros nombres en griego y las primeras palabras que decodificamos. Se llena al cerrar la semana.*

@@ -70,7 +70,16 @@ Toca una locución para ver qué significa y cómo se usa bien. Ojo con las que 
    ["in fraganti","en el momento justo del hecho","Lo agarraron in fraganti.",""],
    ["a priori","antes de comprobarlo, de entrada","A priori parece buena idea.",""],
    ["carpe diem","aprovecha el día","Se tatuó carpe diem.",""],
-   ["alea iacta est","la suerte está echada","Firmó y dijo: alea iacta est.",""]
+   ["alea iacta est","la suerte está echada","Firmó y dijo: alea iacta est.",""],
+   ["álter ego","el otro yo","El álter ego de Bruce Wayne es Batman.",""],
+   ["vox pópuli","voz del pueblo: lo que ya todos saben","Su renuncia es vox pópuli.",""],
+   ["ópera prima","la primera obra de un autor","Esta película es su ópera prima.",""],
+   ["sine qua non","condición sin la cual no: lo indispensable","Estudiar es condición sine qua non para pasar.",""],
+   ["modus operandi","modo de actuar o trabajar","Los dos robos tienen el mismo modus operandi.",""],
+   ["modus vivendi","modo de vivir, forma de ganarse la vida","El comercio es su modus vivendi.",""],
+   ["lapsus","error involuntario, descuido","Perdón, fue un lapsus.",""],
+   ["ex professo","a propósito, deliberadamente","Vino ex professo a verte.","Se dice mal: la forma culta es 'ex professo', no 'exprofeso a propósito' (sería decirlo dos veces)."],
+   ["déficit","lo que falta, la escasez","Este mes hubo déficit.",""]
   ];
   var grid=document.getElementById('lc14-grid'),out=document.getElementById('lc14-out');
   L.forEach(function(x){
@@ -100,6 +109,9 @@ Tres errores que oirás toda tu vida: "a grosso modo", "de motu propio" y "statu
 | de facto | de hecho, en la práctica |
 | statu quo | el estado actual |
 | ipso facto | en el acto |
+| vox pópuli | lo que ya todos saben |
+| sine qua non | condición indispensable |
+| modus operandi | modo de actuar |
 
 ## Lo que produjimos
 

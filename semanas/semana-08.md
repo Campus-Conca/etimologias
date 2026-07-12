@@ -91,6 +91,15 @@ Toca una palabra latina y viaja mil años hasta el español. Fíjate en la ley q
 {: .reto }
 Al revés es más difícil: si hoy dices *hecho*, ¿cuál era el latín? (Pista: CT y F. Respuesta: *FACTU*.)
 
+{: .ojo }
+Toda ley tiene fugitivas: *febrero, fiebre, fiesta, filo* y *fin* conservaron su F. Son cultismos o palabras que entraron tarde, cuando la ley ya no operaba. Si encuentras una excepción, no rompiste la regla: encontraste una palabra con otra historia.
+
+### Las palabras también cambian de adentro
+
+El sonido no es lo único que se gasta con los siglos: el significado también viaja. *Pedagogo* era en Grecia el esclavo que llevaba a los niños a la escuela (*paidós*, niño + *agogós*, el que conduce). Hoy es el profesor. La palabra ascendió de puesto.
+
+Y *hablar*, ya lo verás en el postre, viene de contar fábulas. A este viaje del significado se le llama cambio semántico, y en la semana 11 vamos a cazar los casos donde la gente lo inventa al revés.
+
 ---
 
 ## Las tarjetas de la semana
@@ -103,6 +112,20 @@ Al revés es más difícil: si hoy dices *hecho*, ¿cuál era el latín? (Pista:
 | vocal breve → diptongo | PORTA → puerta |
 | consonante suave | VITA → vida |
 | doblete | AURICULA → oreja / aurícula |
+
+## Por si hay tiempo: la familia completa
+
+El latín no estaba solo: era parte de una familia gigante, el indoeuropeo, una lengua madre hablada hace más de 6,000 años que hoy vive en los idiomas de más de la mitad del planeta. Compara:
+
+| Español | Latín | Griego | Inglés | Alemán |
+|---|---|---|---|---|
+| padre | pater | patḗr | father | Vater |
+| madre | mater | mḗtēr | mother | Mutter |
+| tres | tres | treîs | three | drei |
+| noche | nox | nýx | night | Nacht |
+| estrella | stella | astḗr | star | Stern |
+
+No es coincidencia ni copia: son primas. Todas heredaron de la misma abuela. Guarda esta tabla en la memoria, porque en la semana 15 va a explicar por qué el inglés se te va a hacer menos extranjero de lo que crees.
 
 ## Lo que produjimos
 

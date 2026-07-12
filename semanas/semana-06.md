@@ -112,6 +112,26 @@ Cuando una combinación no está en el diccionario pero se entiende, acabas de i
 | -fobia | miedo · claustrofobia |
 | -filia | amor, afinidad · bibliofilia |
 
+## Por si hay tiempo: la tanda del cuaderno
+
+Ocho palabras que probablemente nunca has visto. Deduce el significado con las pistas y luego toca para comprobar.
+
+<details><summary><strong>cefalalgia</strong> · si <em>kephalé</em> = cabeza y <em>algos</em> = dolor...</summary>Dolor de cabeza. La próxima vez que digas "me duele la cabeza", ya sabes cómo lo escribe un médico.</details>
+
+<details><summary><strong>gerontocracia</strong> · si <em>géron</em> = anciano y <em>cracia</em> = poder...</summary>Gobierno de los viejos. Pregunta para discutir: ¿vivimos en una?</details>
+
+<details><summary><strong>burocracia</strong> · si <em>bureau</em> = oficina (francés) y <em>cracia</em> = poder...</summary>El poder de las oficinas. Palabra híbrida: mitad francesa, mitad griega. Las raíces no piden pasaporte.</details>
+
+<details><summary><strong>iatrofobia</strong> · si <em>iatrós</em> = médico y <em>fobia</em> = miedo...</summary>Miedo al médico. La raíz <em>iatro</em> es vieja conocida tuya: pediatra, geriatra.</details>
+
+<details><summary><strong>egolatría</strong> · si <em>ego</em> = yo y <em>latría</em> = adoración...</summary>Adoración de uno mismo. Conoces a alguien, no lo niegues.</details>
+
+<details><summary><strong>quiromancia</strong> · si <em>quiro</em> = mano y <em>mancia</em> = adivinación...</summary>Leer la suerte en las manos. La misma <em>mancia</em> de cartomancia y nigromancia.</details>
+
+<details><summary><strong>hemorragia</strong> · si <em>hemo</em> = sangre y <em>rragia</em> = brotar...</summary>Sangre que brota. La conocías de oído; ahora la conoces por dentro.</details>
+
+<details><summary><strong>barómetro</strong> · si <em>baros</em> = presión, peso y <em>metro</em> = medir...</summary>El que mide la presión atmosférica. Primo del termómetro y del cronómetro.</details>
+
 ## Lo que produjimos
 
 *El marcador de acierto del grupo descifrando palabras nunca vistas, y los mejores monstruos inventados. Se llena al cerrar la semana.*

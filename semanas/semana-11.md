@@ -69,7 +69,9 @@ Adivina primero, revela después. ¿Cuál de estas historias es verdad?
    {claim:"OK viene de '0 killed' (cero muertos) en la guerra.",real:false,txt:"Falso. Nació como broma en EUA hacia 1839: 'oll korrect', all correct mal escrito."},
    {claim:"siesta viene de la 'hora sexta' de los romanos.",real:true,txt:"Verdadero. Del latín sexta (hora): el mediodía, cuando el sol obliga a parar."},
    {claim:"adiós viene de 'a Dios (te encomiendo)'.",real:true,txt:"Verdadero. Despedida que encomienda a la otra persona a Dios."},
-   {claim:"bárbaro viene del sonido 'bar-bar' del que hablaba raro.",real:true,txt:"Verdadero. Los griegos oían 'bar-bar' en las lenguas que no entendían."}
+   {claim:"bárbaro viene del sonido 'bar-bar' del que hablaba raro.",real:true,txt:"Verdadero. Los griegos oían 'bar-bar' en las lenguas que no entendían."},
+   {claim:"tiza viene del náhuatl tizatl (tierra blanca).",real:true,txt:"Verdadero. En España dicen tiza (palabra mexicana) y en México decimos gis (palabra griega). La historia completa está en la semana 9."},
+   {claim:"morfina viene de Morfeo, el dios griego del sueño.",real:true,txt:"Verdadero. La bautizó así un farmacéutico en 1806 porque produce sopor. A veces la historia increíble es la documentada: por eso se verifica."}
   ];
   C.sort(function(){return Math.random()-.5;});
   var box=document.getElementById('mb11-cards'),sc=document.getElementById('mb11-score');
