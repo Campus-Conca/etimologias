@@ -10,25 +10,81 @@ nav_order: 4
 
 <div id="wk-gate" data-abre="2026-08-10"></div>
 
-**Esta semana podrás:** escribir la suma de una palabra, armar una matriz morfológica y distinguir un corte real de un espejismo.
+**Esta semana podrás:**
 
-La regla de oro: un corte es real solo si la pieza reaparece en otras palabras con el mismo significado, y la fuente lo confirma.
+- escribir la suma de una palabra, y leerla de vuelta
+- armar una matriz morfológica: una pieza fija, muchas combinaciones
+- distinguir un corte real de un espejismo
+- defender un corte con evidencia, no con corazonada
 
----
-
-## Herramientas de la semana
-
-### En el centro de cómputo (jueves)
-
-1. Toma 3 cortes dudosos del juego del martes. Verifica en el [DLE](https://dle.rae.es) y el [DECEL](http://etimologias.dechile.net): ¿el corte era real?
-2. Resuelve el caso *mango*: ¿el de la sartén y el de comer son la misma palabra? (Ojo: son dos.)
-3. Captura: corte propuesto, veredicto del martes, veredicto de las fuentes, fuente.
+La regla de oro de la semana (apréndetela, se usa todo el semestre): un corte es real solo si la pieza reaparece en otras palabras con el mismo significado, y la fuente lo confirma.
 
 ---
 
-## El gimnasio de la semana
+## La semana de un vistazo
 
-Los ejercicios de esta semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
+| Día | Qué haremos | Trae |
+|---|---|---|
+| Martes | El juego de los cortes y el banco de dudosos | el mazo al día |
+| Miércoles | La fábrica de matrices | tu matriz a medio armar |
+| Jueves, centro de cómputo | El tribunal: ¿el corte era real? | tus cortes dudosos del martes |
+| Viernes, 2 horas | El torneo de matrices por equipos | a tu equipo con las pilas puestas |
+
+Cada día tiene su sección aquí abajo, en orden. Esta página es el mapa de la semana: el grupo y el profesor trabajamos sobre ella.
+
+---
+
+## Martes · El juego de los cortes
+
+En el pizarrón: des + ayuno. Desayunar es, literal, romper el ayuno. Aprenderás a escribir la suma de una palabra y a leerla de vuelta: dada la suma, ¿qué palabra es?
+
+**Tu ejercicio:** [Sumas de palabras](../ejercicios/semana-03/ejercicio-3A-sumas-de-palabras.html), en parejas. Anota los cortes de los que dudaron: son materia prima del jueves.
+
+Al cierre, el banco de dudosos: cada pareja propone su corte más sospechoso y el grupo apuesta a mano alzada si es real o espejismo, sin resolver nada. Los veredictos los dan las fuentes el jueves. Y si a alguien se le ocurre proponer re + loj: ese caso es tan bueno que tiene su propia semana.
+
+Las tarjetas de la semana entran hoy al mazo.
+
+## Miércoles · La fábrica de matrices
+
+Duelo de raíces al abrir. Luego verás la matriz en acción: una pieza fija con muchas móviles. *-logía* con bio, geo, psico, crono. *tele-* con fono, visión, scopio. Cada pieza nueva que aprendes no suma una palabra: multiplica.
+
+**Tu ejercicio:** [La fábrica de matrices](../ejercicios/semana-03/ejercicio-3B-fabrica-de-matrices.html). Si terminas, arma una matriz propia con piezas de tu mazo: las mejores se leen en voz alta.
+
+{: .reto }
+Una raíz no es una palabra: es una fábrica. La raíz *port-* (llevar) da exportar, importar, transporte, portátil, portero, portal, reportero. ¿Cuántas más?
+
+## Jueves · El tribunal: ¿el corte era real? (centro de cómputo)
+
+Quiz relámpago al abrir: una suma directa, una inversa, un corte real o espejismo. Con tu predicción antes de voltear la hoja, como siempre.
+
+Luego el tribunal. El método es el protocolo de la semana pasada, aplicado a cortes:
+
+1. Toma 3 cortes dudosos del banco del martes.
+2. Verifica en el [DLE](https://dle.rae.es) y el [DECEL](http://etimologias.dechile.net): ¿el corte era real?
+3. Resuelve el caso *mango*: ¿el de la sartén y el de comer son la misma palabra? (Ojo: son dos.)
+4. Captura: corte propuesto, veredicto del martes, veredicto de las fuentes, fuente.
+
+**Tu ejercicio:** [El detector de espejismos](../ejercicios/semana-03/ejercicio-3C-detector-de-espejismos.html).
+
+Al cierre, el marcador: ¿cuántas apuestas del martes sobrevivieron al tribunal? Ese número va a mejorar todo el semestre. La intuición se entrena con método.
+
+## Viernes · El torneo de matrices (2 horas)
+
+Por equipos: construyen la matriz más grande que puedan **defender**. Cada palabra propuesta debe sobrevivir la regla de oro si otro equipo la reta, y retar también da puntos. El profesor es juez de última instancia, con el DECEL abierto.
+
+Después, los espejismos con historia: *invierno* no lleva el prefijo *in-* (viene de *hibernum*), *amigo* no se corta en a + migo (viene de *amicus*). La pregunta buena es por qué el ojo ve piezas donde no las hay. Por eso existe el tribunal. Y por eso a nadie, ni a una IA, se le cree una etimología sin fuente.
+
+Cierre de siempre: las piezas nuevas al mazo, avance de tu biografía del Museo si vas al día, y diez minutos de lectura en voz alta.
+
+## La lectura, esta semana
+
+El minuto del lector sigue (se agenda el martes), la voz alta cierra el viernes y tu bitácora suma líneas. ¿El libro que elegiste no te está gustando? Cambiarlo no es fracaso, es tu derecho número 3: está completo en [Leemos](../leemos.html).
+
+---
+
+## El gimnasio completo
+
+Todos los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
 
 - [Sumas de palabras](../ejercicios/semana-03/ejercicio-3A-sumas-de-palabras.html) · martes
 - [La fábrica de matrices](../ejercicios/semana-03/ejercicio-3B-fabrica-de-matrices.html) · miércoles
@@ -87,9 +143,6 @@ Antes de verificar, apuesta. ¿El corte es real o es un espejismo?
   });
 })();
 </script>
-
-{: .reto }
-Una raíz no es una palabra: es una fábrica. La raíz *port-* (llevar) da exportar, importar, transporte, portátil, portero, portal, reportero. ¿Cuántas más?
 
 ---
 

@@ -10,25 +10,85 @@ nav_order: 3
 
 <div id="wk-gate" data-abre="2026-08-03"></div>
 
-**Esta semana podrás:** distinguir la definición real de la etimológica, y nombrar las piezas de una palabra: prefijo, raíz, sufijo, étimo.
+**Esta semana podrás:**
+
+- distinguir la definición real de la definición etimológica de una palabra
+- nombrar sus piezas: prefijo, raíz, sufijo, étimo
+- verificar una etimología en una fuente de autoridad, con captura y todo
+- escribir tu primera biografía de una palabra, la semilla de tu Museo
 
 Toda palabra se puede abrir. La IA define cualquier palabra en un segundo; lo que no puede es memorizar por ti, leer por ti, ni querer una palabra. De eso vive el curso.
 
 ---
 
-## Herramientas de la semana
+## La semana de un vistazo
 
-### En el centro de cómputo (jueves)
+| Día | Qué haremos | Trae |
+|---|---|---|
+| Martes | La cosecha: tus palabras heredadas salen a la luz | tu palabra que ya nadie usa, anotada |
+| Miércoles | Las dos linternas: definición real y etimológica | el mazo al día |
+| Jueves, centro de cómputo | El tribunal de las fuentes | tu hipótesis del martes |
+| Viernes, 2 horas | El seminario de la unidad, y abre el Museo | tu argumento y tu candidata a pieza |
 
-1. Toma una hipótesis del martes (tu definición etimológica) y verifícala: [DLE](https://dle.rae.es) para el origen, [DECEL](http://etimologias.dechile.net) para la historia.
-2. Verifica también **tu palabra heredada** (la que ya nadie usa). Algunas no estarán en el diccionario: documentarlas es tu trabajo.
-3. Captura: palabra, hipótesis, veredicto, fuente.
+Cada día tiene su sección aquí abajo, en orden. Esta página es el mapa de la semana: el grupo y el profesor trabajamos sobre ella.
 
 ---
 
-## El gimnasio de la semana
+## Martes · La cosecha de palabras heredadas
 
-Los ejercicios de esta semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
+Abrimos con la palabra del día: algunas de las palabras que trajeron de casa se presentan al grupo, con su historia y con el nombre de quien la regaló. Luego, con *amnesia* en el pizarrón, les ponemos nombre a las piezas: prefijo, raíz, sufijo, étimo. La regla que te llevas: la raíz carga el significado; las demás piezas lo modifican.
+
+Después, gimnasio.
+
+**Tu ejercicio:** [Primeras disecciones](../ejercicios/semana-02/ejercicio-2A-primeras-disecciones.html). Al terminar, escribe tu hipótesis etimológica de una palabra tuya (tu heredada es perfecta). No la busques todavía: el jueves la juzgan las fuentes.
+
+Las 6 tarjetas de la semana (están aquí abajo) entran hoy a tu mazo. Los duelos ya van en serio.
+
+Si faltaste: haz el ejercicio en casa y llega el jueves con tu hipótesis anotada.
+
+## Miércoles · Las dos linternas
+
+Duelo de raíces al abrir. Luego, taller por equipos: reciben palabras y construyen sus dos definiciones, la real y la etimológica; el grupo adivina cuál es cuál. Alguna trae trampa.
+
+**Tu ejercicio:** [El taller de las dos linternas](../ejercicios/semana-02/ejercicio-2B-las-dos-linternas.html).
+
+{: .ojo }
+Definición **real**: cómo se usa hoy. Definición **etimológica**: de dónde vienen sus piezas. No son rivales: son dos linternas sobre la misma palabra.
+
+## Jueves · El tribunal de las fuentes (centro de cómputo)
+
+Abrimos con el primer quiz relámpago del semestre: 3 palabras, papel, 3 minutos. Antes de voltear la hoja escribes cuántas crees que tendrás bien, y al calificar comparas. La brecha es información, no culpa.
+
+Luego, el protocolo que desde hoy es ley en este curso:
+
+1. Tu hipótesis (la del martes).
+2. [DLE](https://dle.rae.es) para el origen.
+3. [DECEL](http://etimologias.dechile.net) para la historia.
+4. Veredicto y fuente anotada.
+
+**Tu ejercicio:** [El tribunal de las fuentes](../ejercicios/semana-02/ejercicio-2C-tribunal-de-las-fuentes.html). Pasan por el tribunal tu hipótesis y tu palabra heredada. Si la heredada no aparece en el diccionario, no es fracaso: documentarla es trabajo de este curso, y de nadie más.
+
+Captura: palabra, hipótesis, veredicto, fuente.
+
+## Viernes · La sesión grande (2 horas)
+
+Primero, el seminario que le da sentido a todo el sistema: **si la IA define cualquier palabra en un segundo, ¿para qué memorizar raíces?** Trae postura de verdad, porque el argumento lo construye el grupo, no el profesor. Una pista de hacia dónde vamos: quien sabe *iatro-* ya lee pediatra, geriatra, iatrogenia. Nadie le enseñó esas palabras. Se las regaló la raíz.
+
+Después abre el **Museo de Palabras**, el proyecto del semestre. Verás el caso *chao* (esclavo → *schiavo* → *ciao* → chao): así se escribe la biografía de una palabra. Dónde nació, cómo viajó, cómo llegó a ti.
+
+**Tu ejercicio:** [Biografía de una palabra](../ejercicios/semana-02/ejercicio-2D-biografia-de-una-palabra.html): redacta la primera biografía de tu candidata a pieza. La plantilla vive en [el Museo](../museo/plantilla-biografia.html).
+
+Y cerramos como cada viernes: diez minutos de lectura en voz alta. Sin tarea, sin examen. Solo escuchar.
+
+## La lectura, esta semana
+
+Tu libro avanza a tu ritmo, pero avanza. Esta semana la lectura vive en tres lugares: el **minuto del lector** (alguien cuenta qué está leyendo; se agenda el martes), la **voz alta del viernes**, y tu **bitácora del lector**, que sigue viva con una línea por sesión de lectura. El primer círculo llega en la semana 7: ahí conversamos de verdad. Si todavía no tienes libro, pasa por [Leemos](../leemos.html).
+
+---
+
+## El gimnasio completo
+
+Todos los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
 
 - [Primeras disecciones](../ejercicios/semana-02/ejercicio-2A-primeras-disecciones.html) · martes
 - [El taller de las dos linternas](../ejercicios/semana-02/ejercicio-2B-las-dos-linternas.html) · miércoles
@@ -94,9 +154,6 @@ Toca una palabra y ábrela. Cada pieza tiene su nombre y su significado.
   });
 })();
 </script>
-
-{: .ojo }
-Definición **real**: cómo se usa hoy. Definición **etimológica**: de dónde vienen sus piezas. No son rivales: son dos linternas sobre la misma palabra.
 
 ---
 
