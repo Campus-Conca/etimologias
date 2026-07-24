@@ -51,3 +51,13 @@ REGLAS DE ESTRUCTURA:
 ## Lo que produjimos
 
 ## El postre 🍨
+
+---
+
+## Antes de irte
+
+<a class="ticket" href="{{ site.ticket_url }}" target="_blank" rel="noopener">
+  <b>Ticket de salida de esta semana</b>
+  <span>Noventa segundos, al cierre de la sesión larga: qué te llevas, qué quedó turbio y cómo estuvo el ritmo. Con nombre o sin él.</span>
+  <em>Lo que escribas aquí decide por dónde empezamos el martes.</em>
+</a>

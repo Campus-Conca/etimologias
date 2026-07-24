@@ -40,3 +40,12 @@ th { background: #F7F3FB !important; color: #221A3A !important;
 .viva { display: inline-block; background: #DFF5EE; color: #0B5F52; font-weight: 700;
         font-size: .7rem; letter-spacing: .06em; text-transform: uppercase;
         padding: .25em .7em; border-radius: 2rem; }
+
+// Ticket de salida semanal
+.ticket { display:block; border:1px solid #E6DFF0; border-left:.35rem solid #C4006A;
+      border-radius:.8rem; padding:.9rem 1.1rem; background:#FFF3F9; text-decoration:none !important;
+      transition:box-shadow .15s, transform .15s; }
+.ticket:hover { box-shadow:0 3px 12px rgba(107,30,90,.14); transform:translateY(-1px); }
+.ticket b { display:block; color:#6B1E5A; font-size:1.02rem; }
+.ticket span { display:block; color:#4A2440; font-size:.88rem; line-height:1.45; margin-top:.2rem; }
+.ticket em { display:block; color:#C4006A; font-weight:700; font-size:.82rem; margin-top:.5rem; font-style:normal; }

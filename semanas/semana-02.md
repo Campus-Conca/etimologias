@@ -131,6 +131,16 @@ Toca una palabra y ábrela. Cada pieza tiene su nombre y su significado.
 #an2 .an2-tag.suf{background:#eaf3de;color:#27500a}
 </style>
 
+---
+
+## Antes de irte
+
+<a class="ticket" href="{{ site.ticket_url }}" target="_blank" rel="noopener">
+  <b>Ticket de salida de esta semana</b>
+  <span>Noventa segundos, al cierre de la sesión larga: qué te llevas, qué quedó turbio y cómo estuvo el ritmo. Con nombre o sin él.</span>
+  <em>Lo que escribas aquí decide por dónde empezamos el martes.</em>
+</a>
+
 <script>
 (function(){
   var W=[

@@ -28,4 +28,8 @@ callouts:
     title: Ojo
     color: yellow
 
+# Ticket de salida semanal. Cambia esta URL una vez y se actualiza en todas
+# las paginas semanales que usan el bloque "Antes de irte".
+ticket_url: "https://forms.gle/PENDIENTE"
+
 footer_content: "Etimologías Grecolatinas del Español · Escuela de Bachilleres · UAQ"
