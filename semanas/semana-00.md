@@ -81,7 +81,7 @@ La sesión grande de la semana, con todo el menú:
 
 **La cata de libros.** Una mesa con libros de verdad: novela, cuento, novela gráfica, poesía, crónica. Circulas, hojeas, lees primeras páginas, y anotas tu primera elección. Puede cambiar en las primeras dos semanas sin que nadie pregunte por qué.
 
-**La primera lectura en voz alta.** Diez minutos de algo hermoso, sin análisis y sin tarea. Así va a cerrar la sesión del viernes todas las semanas del semestre.
+**La primera lectura en voz alta.** Diez minutos de algo hermoso, sin análisis y sin tarea. Va a pasar muchas veces a lo largo del semestre, sin día fijo: cuando toque, toca.
 
 **Tu única tarea de la semana:** *la palabra que ya nadie usa*. Este fin de semana pregúntale a un abuelo, a tu mamá, a tu papá o a un vecino por una palabra que usaban antes y que ya casi no se oye. Trae tres cosas anotadas: la palabra, qué significaba y quién te la regaló. Con eso arranca la semana 2, y varias de esas palabras van a terminar en el Museo.
 

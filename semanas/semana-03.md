@@ -78,7 +78,7 @@ Cierre de siempre: las piezas nuevas al mazo, avance de tu biografía del Museo 
 
 ## La lectura, esta semana
 
-El minuto del lector sigue (se agenda el martes), la voz alta cierra el viernes y tu bitácora suma líneas. ¿El libro que elegiste no te está gustando? Cambiarlo no es fracaso, es tu derecho número 3: está completo en [Leemos](../leemos.html).
+El minuto del lector sigue (se agenda el martes), la voz alta cierra alguna de las sesiones y tu bitácora suma líneas. ¿El libro que elegiste no te está gustando? Cambiarlo no es fracaso, es tu derecho número 3: está completo en [Leemos](../leemos.html).
 
 ---
 

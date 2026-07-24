@@ -80,7 +80,7 @@ Los firmamos en la semana 0 y valen todo el semestre (y toda la vida). Los escri
   <div class="lee-d"><b>6 · Emocionarte de más</b><span>Llorar con una historia inventada. Nadie te juzga.</span></div>
   <div class="lee-d"><b>7 · Leer donde sea</b><span>La cama, el camión, la fila de las tortillas.</span></div>
   <div class="lee-d"><b>8 · Picotear</b><span>Abrir al azar y leer un rato, sin plan.</span></div>
-  <div class="lee-d"><b>9 · Leer en voz alta</b><span>Como hacemos al cerrar la semana.</span></div>
+  <div class="lee-d"><b>9 · Leer en voz alta</b><span>Como hacemos en clase.</span></div>
   <div class="lee-d"><b>10 · Callarte</b><span>No tienes que opinar de todo lo que lees.</span></div>
 </div>
 

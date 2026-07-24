@@ -78,11 +78,11 @@ Después abre el **Museo de Palabras**, el proyecto del semestre. Verás el caso
 
 **Tu ejercicio:** [Biografía de una palabra](../ejercicios/semana-02/ejercicio-2D-biografia-de-una-palabra.html): redacta la primera biografía de tu candidata a pieza. La plantilla vive en [el Museo](../museo/plantilla-biografia.html).
 
-Y cerramos como cada viernes: diez minutos de lectura en voz alta. Sin tarea, sin examen. Solo escuchar.
+Y cerramos con diez minutos de lectura en voz alta. Sin tarea, sin examen. Solo escuchar.
 
 ## La lectura, esta semana
 
-Tu libro avanza a tu ritmo, pero avanza. Esta semana la lectura vive en tres lugares: el **minuto del lector** (alguien cuenta qué está leyendo; se agenda el martes), la **voz alta del viernes**, y tu **bitácora del lector**, que sigue viva con una línea por sesión de lectura. El primer círculo llega en la semana 7: ahí conversamos de verdad. Si todavía no tienes libro, pasa por [Leemos](../leemos.html).
+Tu libro avanza a tu ritmo, pero avanza. Esta semana la lectura vive en tres lugares: el **minuto del lector** (alguien cuenta qué está leyendo; se agenda el martes), la **lectura en voz alta** con la que cerramos alguna sesión, y tu **bitácora del lector**, que sigue viva con una línea por sesión de lectura. El primer círculo llega en la semana 7: ahí conversamos de verdad. Si todavía no tienes libro, pasa por [Leemos](../leemos.html).
 
 ---
 
