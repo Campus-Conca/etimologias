@@ -9,7 +9,73 @@ Este curso no reparte calificaciones. Ningún quiz, ninguna defensa, ninguna pie
 
 ## Por qué
 
+### Primero, una pregunta honesta 🤔
+
+¿Te ha pasado esto? Estudias como loco la noche anterior, memorizas todo lo que crees que viene, llegas al examen y lo vacías en la hoja. Sacas tu número. Y un mes después no te queda **nada**.
+
+<div class="ev-ciclo">
+  <div class="ev-paso"><span>📚</span><b>Atragantarse</b><small>memorizas la noche anterior lo que crees que viene</small></div>
+  <div class="ev-flecha">→</div>
+  <div class="ev-paso"><span>🤮</span><b>Vomitar</b><small>lo vacías en la hoja tal cual, sin masticarlo</small></div>
+  <div class="ev-flecha">→</div>
+  <div class="ev-paso"><span>💯</span><b>Cobrar</b><small>sacas tu calificación y respiras</small></div>
+  <div class="ev-flecha">→</div>
+  <div class="ev-paso ev-paso--mal"><span>🕳️</span><b>Olvidar</b><small>un mes después no queda nada en tu cabeza</small></div>
+</div>
+
+A eso se le llama **educación bulímica**: comer información a la fuerza, devolverla en el examen y quedarse vacío. Es lo más común del mundo y no tiene ningún sentido: pasaste horas estudiando y no te quedaste con nada. El número se lo llevó todo.
+
+{: .ojo }
+Piénsalo un segundo antes de seguir leyendo: ¿cuántas cosas estudiaste el semestre pasado que hoy podrías explicar? Esa es exactamente la pregunta que este curso intenta responder de otra manera.
+
+> *"¡Ojalá de niños nos enseñaran a luchar por ideales y no por calificaciones! Así de grandes, trabajaríamos por sueños y no por quincenas."*
+
+### Segundo, un experimento con niños y anagramas 🧪
+
+En los años setenta, la psicóloga **Susan Harter** (1978) hizo un experimento célebre. Les puso a unos niños anagramas de distinta dificultad y los dejó elegir cuál resolver. Cambió una sola cosa entre un grupo y otro: si había calificación o no.
+
+<div class="ev-harter">
+  <div class="ev-caso ev-caso--bien">
+    <span class="ev-cara">😀</span>
+    <b>Sin calificaciones</b>
+    <ul>
+      <li>elegían los anagramas <b>más difíciles</b>, los que los empujaban al límite</li>
+      <li>reportaban <b>placer</b>: se estaban divirtiendo</li>
+      <li>rendían <b>mejor</b></li>
+    </ul>
+  </div>
+  <div class="ev-caso ev-caso--mal">
+    <span class="ev-cara">😰</span>
+    <b>Con calificaciones</b>
+    <ul>
+      <li>elegían consistentemente los <b>más fáciles</b>: los seguros</li>
+      <li>reportaban <b>menos placer</b></li>
+      <li>verbalizaban <b>más ansiedad</b> y rendían <b>peor</b></li>
+    </ul>
+  </div>
+</div>
+
+Léelo otra vez, porque es contraintuitivo: **cuando trabajaban por calificaciones, los niños bajaban su desempeño y se sentían peor**. La calificación, que supuestamente motiva, hacía lo contrario.
+
+<p class="ev-fuente">Harter, S. (1978). <i>Pleasure derived from challenge and the effects of receiving grades on children's difficulty level choices</i>. Child Development, 49(3), 788–799. — En este curso ningún dato se cita sin fuente, tampoco los del profesor.</p>
+
+### Tercero, por qué esto importa justo a tu edad 🌱
+
+La infancia y la adolescencia son las etapas en las que definimos quiénes somos e identificamos dónde estamos parados. Y a través de la escuela vamos internalizando una idea: que la razón principal para hacer algo —poner atención en clase, por ejemplo— es **obtener recompensas** (notas altas) y **evitar sanciones** (bajos puntajes).
+
+Por eso, desde niños reaccionamos a los números con miedo y estrés, y aprendemos tres trucos de supervivencia:
+
+- 🛡️ **evadir lo difícil** — si el reto puede bajarme la nota, mejor lo fácil (justo lo que hicieron los niños de Harter)
+- 🤮 **memorizar de forma bulímica** — solo lo que viene en el examen, solo hasta el examen
+- 🎭 **actuar el aprendizaje** — entregar lo que se ve bien, aunque por dentro no haya entendido nada
+
+Estas reglas del juego educativo no solo son **inefectivas** para promover el aprendizaje: son **contraproducentes**. Y hoy hay una razón más: casi cualquier trabajo que se entrega por un número lo puede generar una IA en treinta segundos. Si lo que se premia es el producto, el número deja de decir algo sobre ti.
+
+### Por eso aquí no hay números
+
 Hay medio siglo de investigación detrás de una idea simple: cuando un trabajo regresa con número, dejas de leer los comentarios. El número se come al aprendizaje. Y hay algo más: calificar cada tropiezo castiga el riesgo, y este curso te va a pedir arriesgar (descifrar palabras que nunca has visto, defender tus piezas en voz alta, leer un alfabeto de hace 2,800 años). Aquí el error es dato, no culpa. Lo dices cada semana en la calibración del quiz: la brecha es información.
+
+Lo que este curso te propone a cambio: que elijas el anagrama difícil. 😀
 
 ## Qué recibes en lugar de números
 
@@ -56,3 +122,23 @@ La segunda semana de diciembre es para quien llegó con suelo incompleto: presen
 Esto se firma en la semana 0, junto al pacto de IA y tus derechos como lector:
 
 > En este curso ningún trabajo lleva calificación. Llevan comentarios y un lugar en mi expediente. La universidad pide tres parciales y una final: esos números los propongo yo, con mi evidencia enfrente, y los conversamos. El profesor casi siempre va a estar de acuerdo conmigo. Cuando no, hablamos antes de asentar nada: ninguna calificación baja sin conversación. Mi parte: llevar mi expediente al día, llegar a los cierres con el suelo completo y proponer mis calificaciones con honestidad. Aquí el error no cuesta. Lo único que cuesta es no estar.
+
+<style>
+.ev-ciclo{display:flex;flex-wrap:wrap;align-items:stretch;gap:.5rem;margin:1.2rem 0}
+.ev-paso{flex:1 1 9rem;border:1px solid #eadce6;border-radius:.9rem;background:#fbf4f9;padding:.85rem .8rem;text-align:center}
+.ev-paso span{display:block;font-size:1.7rem;line-height:1.2}
+.ev-paso b{display:block;color:#6b1e5a;margin:.2rem 0 .15rem}
+.ev-paso small{display:block;color:#555;font-size:.8rem;line-height:1.35}
+.ev-paso--mal{background:#fff;border-style:dashed;border-color:#c8127a}
+.ev-flecha{align-self:center;color:#c8127a;font-weight:700;font-size:1.2rem}
+.ev-harter{display:flex;flex-wrap:wrap;gap:.9rem;margin:1.2rem 0}
+.ev-caso{flex:1 1 16rem;border:1px solid #eadce6;border-radius:.9rem;padding:1rem 1.1rem;background:#fff}
+.ev-caso--bien{background:#f6fbf7;border-color:#bfe0c9}
+.ev-caso--mal{background:#fdf6f9;border-color:#eec6dc}
+.ev-caso .ev-cara{font-size:1.9rem;line-height:1.1}
+.ev-caso b{display:block;color:#6b1e5a;margin:.15rem 0 .4rem}
+.ev-caso ul{margin:0;padding-left:1.1rem}
+.ev-caso li{font-size:.9rem;color:#444;line-height:1.45;margin-bottom:.25rem}
+.ev-fuente{font-size:.78rem;color:#777;line-height:1.4;border-left:3px solid #eadce6;padding-left:.7rem;margin:.6rem 0 1.2rem}
+@media (max-width:640px){.ev-flecha{display:none}}
+</style>
