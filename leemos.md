@@ -5,7 +5,7 @@ nav_order: 3
 
 # Leemos
 
-Este curso lee. Dos libros en el semestre y los eliges tú: nadie te dirá cuál, nadie medirá qué tan rápido vas, y abandonar un libro que no te gusta no es fracaso, es criterio. Esta página es la casa de todo lo que leemos juntos: lo que suena en voz alta los martes, lo que el grupo recomienda, lo que grabas al terminar una obra. No tiene candado: crece cada semana con lo que producimos.
+Este curso lee. Dos libros en el semestre y los eliges tú: nadie te dirá cuál, nadie medirá qué tan rápido vas, y abandonar un libro que no te gusta no es fracaso, es criterio. Esta página es la casa de todo lo que leemos juntos: lo que el grupo recomienda, lo que cosechamos de los libros, lo que grabas al terminar una obra. No tiene candado: crece cada semana con lo que producimos.
 
 <!-- ============================================================
      BLOQUE DE DATOS. Esta página se alimenta SOLO de aquí.
@@ -15,11 +15,6 @@ Este curso lee. Dos libros en el semestre y los eliges tú: nadie te dirá cuál
      ============================================================ -->
 <script>
 window.LEEMOS = {
-
-  // Lo que suena los martes: una línea por lectura compartida.
-  vozAlta: [
-    // {fecha:"2026-08-04", titulo:"El llano en llamas", autor:"Juan Rulfo", nota:"un arranque que muerde"},
-  ],
 
   // El tendedero: una ficha por obra terminada.
   tendedero: [
@@ -47,18 +42,28 @@ window.LEEMOS = {
 
 ## El mapa lector del semestre
 
-| Qué | Cuándo |
-|---|---|
-| Eliges tu primer libro | semana 0 |
-| Primer círculo de lectura | semana 7 |
-| Eliges tu segundo libro | semanas 7 y 8 |
-| Primer booktuber | semana 9 |
-| Segundo círculo | semana 12 |
-| Segundo booktuber | semanas 13 a 15 |
-| Tercer círculo y testamento lector | semana 16 |
+Dos obras en cuatro meses, elegidas por ti. No hay control de lectura, ni resumen, ni ficha, ni fecha de entrega del libro: lo que sí hay son tres momentos en los que nos sentamos a platicar de lo que cada quien está leyendo, y dos en los que grabas algo tuyo. Ese es todo el andamiaje. El resto es tuyo y de tu libro.
+
+| Cuándo | Qué pasa | En qué consiste |
+|---|---|---|
+| **Semana 0** | La cata de libros | Una mesa con libros de verdad: novela, cuento, novela gráfica, poesía, crónica. Circulas, hojeas, lees primeras páginas y anotas tu primera elección. Puedes cambiarla en las dos semanas siguientes sin dar explicaciones. |
+| **Semana 7** | Primer círculo de lectura | 45 minutos en corro, cerrando U1. Cada quien llega con su libro y una frase subrayada. Se habla de lo que el libro te está haciendo, no de lo que pasa en él. Nadie resume, nadie evalúa. |
+| **Semanas 7 y 8** | Eliges tu segundo libro | Con lo que oíste en el círculo, la lista es otra: el tendedero y el préstamelo del salón pesan más que cualquier recomendación de internet. |
+| **Semana 9** | Primer booktuber | Grabas 2 a 3 minutos sobre tu primera obra, con tu celular. Se publica en la vitrina solo si tú lo autorizas. Las instrucciones están abajo. |
+| **Semana 12** | Segundo círculo | Cierre de U2, mismo formato. Aquí ya se nota quién leyó dos libros y quién descubrió que sí le gusta leer. Cosechamos palabras de los libros para el Museo. |
+| **Semanas 13 a 15** | Segundo booktuber | Sobre tu segunda obra. Puedes cambiar de formato: video, audio o ficha ilustrada. |
+| **Semana 16** | Tercer círculo y testamento lector | El último corro, y cada quien deja por escrito una recomendación para quien tome este curso el año que viene. Se publica al pie de esta página. |
+
+**Los tres dispositivos, en corto:**
+
+- **El círculo de lectura** (uno por unidad) es una conversación en corro, no una exposición. Se llega con el libro en la mano y una frase marcada. La regla es hablar de lo que te dio el libro, no de la trama. No se califica el contenido de lo que digas: cuenta que estés y que participes.
+- **El booktuber** (dos en el semestre, uno por obra) es tu recomendación grabada: quién eres, qué leíste, qué te dio el libro y una frase leída en voz alta desde tu ejemplar. Dos a tres minutos, vertical vale, sin edición.
+- **El testamento lector** (semana 16) es una carta breve para el grupo que viene. Se queda publicada aquí. Es la única parte de esta página que le habla a alguien que todavía no conoces.
 
 {: .ojo }
-Nada de esto se califica por gusto ni por velocidad. Cuenta que estés, que compartas y que entregues.
+Nada de esto se califica por gusto ni por velocidad. No importa si leíste 80 páginas o 800, ni si el libro es "difícil". Cuenta que estés, que compartas y que entregues.
+
+**¿Y si no leo nada?** Entonces los círculos son incómodos y los booktubers imposibles, porque no hay de dónde sacarlos. No hay castigo: hay una conversación contigo, y la posibilidad de cambiar de libro las veces que haga falta hasta encontrar uno que sí.
 
 ---
 
@@ -75,7 +80,7 @@ Los firmamos en la semana 0 y valen todo el semestre (y toda la vida). Los escri
   <div class="lee-d"><b>6 · Emocionarte de más</b><span>Llorar con una historia inventada. Nadie te juzga.</span></div>
   <div class="lee-d"><b>7 · Leer donde sea</b><span>La cama, el camión, la fila de las tortillas.</span></div>
   <div class="lee-d"><b>8 · Picotear</b><span>Abrir al azar y leer un rato, sin plan.</span></div>
-  <div class="lee-d"><b>9 · Leer en voz alta</b><span>Como hacemos los martes.</span></div>
+  <div class="lee-d"><b>9 · Leer en voz alta</b><span>Como hacemos al cerrar la semana.</span></div>
   <div class="lee-d"><b>10 · Callarte</b><span>No tienes que opinar de todo lo que lees.</span></div>
 </div>
 
@@ -84,14 +89,6 @@ Los firmamos en la semana 0 y valen todo el semestre (y toda la vida). Los escri
 ## Si no sabes qué leer
 
 Tienes cuatro fuentes, en este orden: el tendedero de aquí abajo (recomendaciones del propio grupo), el préstamelo del salón (libros que tus compañeros ofrecen en préstamo), el minuto del lector (cada semana alguien cuenta qué está leyendo) y la mesa de libros del profesor. La mejor recomendación no está en internet: está sentada junto a ti.
-
----
-
-## Lo que suena los martes
-
-Cada martes, al cierre de la sesión, el profesor lee en voz alta 8 a 10 minutos. Sin preguntas después, sin tarea, solo el gusto. Aquí queda el rastro:
-
-<div id="lee-voz"></div>
 
 ---
 
@@ -132,10 +129,6 @@ Al final del semestre, cada lector deja escrita una recomendación para quien to
 .lee-d b{display:block;color:#6b1e5a;margin-bottom:.15rem}
 .lee-d span{font-size:.88rem;color:#444;line-height:1.4}
 .lee-vacio{border:1px dashed #d9c3d4;border-radius:.9rem;padding:1rem 1.1rem;background:#fdf9fc;color:#6b1e5a;font-style:italic}
-.lee-voz-item{display:flex;gap:.8rem;align-items:baseline;padding:.55rem 0;border-bottom:1px solid #f2e7ef}
-.lee-voz-item .f{font-size:.78rem;color:#c8127a;font-weight:700;white-space:nowrap}
-.lee-voz-item .t b{color:#333}
-.lee-voz-item .t i{color:#777;font-size:.9rem}
 .lee-tend{display:flex;flex-wrap:wrap;gap:1rem;padding-top:1.4rem;position:relative;margin-top:.5rem}
 .lee-tend::before{content:"";position:absolute;top:.5rem;left:0;right:0;border-top:2px solid #6b1e5a;opacity:.35}
 .lee-ficha{position:relative;flex:1 1 14rem;max-width:18rem;border:1px solid #eadce6;border-radius:.7rem;background:#fff;padding:.9rem 1rem;box-shadow:0 2px 5px rgba(107,30,90,.08)}
@@ -160,19 +153,6 @@ Al final del semestre, cada lector deja escrita una recomendación para quien to
   var D=window.LEEMOS||{};
   function vacio(el,msg){el.innerHTML='<div class="lee-vacio">'+msg+'</div>';}
   function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-  function fecha(iso){
-    var p=String(iso||'').split('-'); if(p.length!==3) return esc(iso);
-    var meses=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
-    return (+p[2])+' '+meses[+p[1]-1];
-  }
-
-  var voz=document.getElementById('lee-voz');
-  if(voz){
-    if(!(D.vozAlta||[]).length){vacio(voz,'La primera lectura suena el martes 4 de agosto.');}
-    else{voz.innerHTML=D.vozAlta.map(function(x){
-      return '<div class="lee-voz-item"><span class="f">'+fecha(x.fecha)+'</span><span class="t"><b>'+esc(x.titulo)+'</b> · <i>'+esc(x.autor)+'</i>'+(x.nota?' · '+esc(x.nota):'')+'</span></div>';
-    }).join('');}
-  }
 
   var ten=document.getElementById('lee-tendedero');
   if(ten){
