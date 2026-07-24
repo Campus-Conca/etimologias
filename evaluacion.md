@@ -97,6 +97,13 @@ Estas son las plantillas, para que veas de qué estamos hablando antes de que em
     <span class="pl-cta">Verlo y descargarlo →</span>
   </a>
 
+  <a class="pl-card" href="recursos/plantillas/pactos.html">
+    <span class="pl-tag">3 hojas recortables</span>
+    <b>Los tres pactos</b>
+    <span class="pl-desc">IA, evaluación y derechos del lector, con su línea de firma. Firmar es escribir tu nombre y decir que estás de acuerdo; se pegan en el cuaderno la primera semana.</span>
+    <span class="pl-cta">Verlos y descargarlos →</span>
+  </a>
+
   <a class="pl-card" href="recursos/plantillas/rubrica-defensas.html">
     <span class="pl-tag">2 páginas</span>
     <b>La rúbrica pública</b>
@@ -161,7 +168,7 @@ La segunda semana de diciembre es para quien llegó con suelo incompleto: presen
 
 ## El pacto de evaluación
 
-Esto se firma en la semana 0, junto al pacto de IA y tus derechos como lector:
+Esto se firma en la semana 0, junto al pacto de IA y tus derechos como lector. Los tres están en un solo documento listo para imprimir, con hoja recortable para pegar en tu cuaderno: **[Los tres pactos, para imprimir y firmar](recursos/plantillas/pactos.html)**. Firmar aquí significa una sola cosa —lo leí, lo entendí y estoy de acuerdo— y se hace escribiendo tu nombre.
 
 > En este curso ningún trabajo lleva calificación. Llevan comentarios y un lugar en mi expediente. La universidad pide tres parciales y una final: esos números los propongo yo, con mi evidencia enfrente, y los conversamos. El profesor casi siempre va a estar de acuerdo conmigo. Cuando no, hablamos antes de asentar nada: ninguna calificación baja sin conversación. Mi parte: llevar mi expediente al día, llegar a los cierres con el suelo completo y proponer mis calificaciones con honestidad. Aquí el error no cuesta. Lo único que cuesta es no estar.
 

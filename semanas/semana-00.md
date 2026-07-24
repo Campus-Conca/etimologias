@@ -93,7 +93,9 @@ La sesión grande de la semana, con todo el menú:
 
 **De qué va este curso.** Las tres almas: memorizar raíces (el gimnasio), leer (el placer) y conocer las palabras por dentro (el oficio). Conocerás el **Museo de Palabras**, el proyecto del semestre, y la escalera de defensas orales que te lleva hasta diciembre sin saltos al vacío.
 
-**Los pactos.** Se leen, se discuten con casos reales y se firman tres cosas: el **pacto de IA** (qué se vale y qué no, con la regla de declarar siempre), el **pacto de evaluación** (en este curso ningún trabajo lleva número; las calificaciones que pide la universidad las propones tú, con tu evidencia enfrente: cómo funciona, en [Tu calificación](../evaluacion.html)) y tus **derechos como lector** (completos en [Leemos](../leemos.html)). Las tres firmas se pegan en tu cuaderno.
+**Los pactos.** Se leen, se discuten con casos reales y se firman tres cosas: el **pacto de IA** (qué se vale y qué no, con la regla de declarar siempre), el **pacto de evaluación** (en este curso ningún trabajo lleva número; las calificaciones que pide la universidad las propones tú, con tu evidencia enfrente: cómo funciona, en [Tu calificación](../evaluacion.html)) y tus **derechos como lector** (completos en [Leemos](../leemos.html)).
+
+Los tres vienen en un solo documento, con su hoja recortable para pegar en el cuaderno. Puedes leerlos antes de la sesión si quieres llegar con tus objeciones preparadas: **[Los tres pactos, para imprimir y firmar](../recursos/plantillas/pactos.html)**. Firmar es escribir tu nombre y decir que estás de acuerdo, nada más — y si algo te parece injusto, se discute antes de firmar. Un acuerdo que no se puede objetar no es un acuerdo.
 
 **La cata de libros.** Una mesa con libros de verdad: novela, cuento, novela gráfica, poesía, crónica. Circulas, hojeas, lees primeras páginas, y anotas tu primera elección. Puede cambiar en las primeras dos semanas sin que nadie pregunte por qué.
 
@@ -112,7 +114,7 @@ Empieza aquí. El viernes eliges tu primer libro en la cata (dos en el semestre,
 Tu checklist de salida. Si algo falta, se resuelve la semana que entra, sin drama:
 
 - tu gimnasio de palabras (Anki o Leitner) con el [estándar de tarjeta](../recursos/anki.html) y 5 tarjetas dentro
-- el pacto de IA, el de evaluación y tus derechos de lector, firmados y en tu cuaderno
+- [los tres pactos](../recursos/plantillas/pactos.html) —IA, evaluación y derechos de lector— firmados y en tu cuaderno
 - tu expediente: el cuadernillo donde vivirán tus quizzes, tu suelo y tus autoevaluaciones
 - las [dos fuentes de cabecera](../recursos/fuentes.html) y el reflejo de usarlas
 - tu primer libro, elegido por ti

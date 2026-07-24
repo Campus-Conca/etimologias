@@ -17,6 +17,13 @@ Todo lo que en este curso se llena a mano vive aquí. Se abren en el navegador, 
     <span class="pl-cta">Abrir e imprimir →</span>
   </a>
 
+  <a class="pl-card" href="plantillas/pactos.html">
+    <span class="pl-tag">3 hojas recortables</span>
+    <b>Los tres pactos</b>
+    <span class="pl-desc">El pacto de IA, el de evaluación y tus derechos como lector, cada uno con su línea de firma. Se firman en la semana 0 escribiendo tu nombre, y se pegan en el cuaderno.</span>
+    <span class="pl-cta">Abrir e imprimir →</span>
+  </a>
+
   <a class="pl-card" href="plantillas/rubrica-defensas.html">
     <span class="pl-tag">2 páginas</span>
     <b>La rúbrica de las defensas</b>
