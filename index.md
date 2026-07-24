@@ -26,7 +26,7 @@ Estamos por pasar cuatro meses abriendo palabras. Esto es lo que vas a poder hac
 - **Descifrar una palabra que nunca has visto**, sin diccionario y sin teléfono, y acertar. Es el truco de magia del curso, y no es magia: es método.
 - **Multiplicar tu vocabulario por raíces**: quien aprende *iatro-* no aprendió una palabra, desbloqueó cincuenta, incluidas las que todavía no ha leído.
 - **Rastrear de dónde viene lo que hablas**: qué hay de latín, de náhuatl, de árabe y de aquí abajo de la Sierra en tu manera de decir las cosas.
-- **Cazar etimologías falsas.** Suenan preciosas, circulan por WhatsApp y las inteligencias artificiales las inventan con toda seguridad. Vas a saber verificar en tres fuentes y no tragarte ninguna.
+- **Cazar etimologías falsas.** Suenan preciosas, circulan por WhatsApp y las inteligencias artificiales las inventan con toda seguridad. Vas a saber verificar en las fuentes de autoridad y no tragarte ninguna.
 - **Entender la letra chiquita**: el griego de los médicos, el latín de los abogados y el inglés académico que vas a necesitar si sigues estudiando.
 - **Leer dos libros que elegiste tú** y poder platicar de ellos con ganas, no por cumplir.
 - **Sostener en voz alta lo que sabes.** Aquí lo que sabes se demuestra hablando, no entregando. Y eso lo vas a practicar tantas veces que dejará de darte miedo.

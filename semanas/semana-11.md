@@ -23,7 +23,7 @@ Hay historias preciosas sobre el origen de las palabras que son mentira, y circu
 1. **Es un acrónimo.** Los acrónimos son del siglo XX. Ninguna palabra antigua nació de iniciales.
 2. **La historia es demasiado buena.** Demasiado redonda, demasiado macabra, demasiado perfecta.
 3. **Explica una palabra con otra lengua sin razón.** ¿Por qué una palabra española vendría del inglés?
-4. **No la respalda ninguna fuente.** Verifica en Corominas o [DECEL](http://etimologias.dechile.net), nunca en el primer resultado ni en la IA.
+4. **No la respalda ninguna fuente.** Verifica en el [DLE](https://dle.rae.es) o el [DECEL](http://etimologias.dechile.net), nunca en el primer resultado ni en la IA.
 
 ---
 
@@ -100,7 +100,7 @@ Adivina primero, revela después. ¿Cuál de estas historias es verdad?
 | Frente | Reverso (significado · ejemplo ancla) |
 |---|---|
 | paretimología | etimología popular falsa · "sin cera" |
-| fuente de autoridad | Corominas, DLE, DECEL · lo que decide |
+| fuente de autoridad | DLE, DECEL · lo que decide |
 | acrónimo | palabra hecha de iniciales · señal de mito |
 | etimología popular | historia que circula sin fuente · gringo |
 

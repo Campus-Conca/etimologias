@@ -26,7 +26,7 @@ Esta semana no hay quiz ni calificación de nada. Es fundación: se prepara el t
 |---|---|---|
 | Martes | La palabra que te trajo aquí | nada, solo ven |
 | Miércoles | Taller del gimnasio: Anki o Leitner | tu celular con Anki, o tus manos para el papel |
-| Jueves, centro de cómputo | Las tres fuentes de cabecera | tu palabra del martes |
+| Jueves, centro de cómputo | El duelo de práctica y las dos fuentes | tu palabra del martes |
 | Viernes, 2 horas | La inaugural: pactos, libros y una lectura | todo lo de la semana |
 
 Cada día tiene su sección aquí abajo, en orden. Esta página es el mapa de la semana: el grupo y el profesor trabajamos sobre ella.
@@ -60,14 +60,30 @@ Con el sistema listo, fabricas tus **primeras 5 tarjetas** con el [estándar del
 
 El compromiso que te llevas: 5 a 10 minutos diarios con tu mazo. La evidencia es en vivo, en duelos y quizzes: aquí nadie entrega capturas de pantalla.
 
-## Jueves · Las tres fuentes de cabecera (centro de cómputo)
+## Jueves · Las dos fuentes de cabecera (centro de cómputo)
 
-Abrimos con tu primer duelo de práctica, por parejas, con las tarjetas de ayer. Amistoso: es para aprender la mecánica.
+### Tu primer duelo de práctica
 
-Luego conoces a las tres autoridades del curso: el [DLE](https://dle.rae.es), el [DECEL](http://etimologias.dechile.net) y el Corominas (lo verás en papel). Verificamos juntos la etimología de dos o tres palabras del inventario del grupo, y de ahí nace la regla que rige todo el semestre:
+Así abre casi toda sesión del semestre, y hoy lo estrenamos. Se llama **duelo de raíces** y funciona así:
+
+1. **En parejas**, con las tarjetas que fabricaste ayer sobre la mesa (o el mazo de Anki en la mano).
+2. Uno muestra **solo el frente** de una tarjeta: la pieza sola, *iatro-*, sin nada más.
+3. El otro contesta **en voz alta y sin pensarlo mucho**: qué significa y una palabra que la lleve dentro. "Médico: pediatra."
+4. Si acierta, la tarjeta se aparta. Si no, **regresa al montón** y va a volver a salir en un minuto. Sin drama y sin burla: para eso es el montón.
+5. **A los dos minutos se cambian los papeles.** Quien preguntaba, ahora contesta.
+
+Hoy es amistoso: nadie lleva la cuenta y no cuenta para nada. Es para que aprendas la mecánica y para que veas lo que se siente tener una palabra en la punta de la lengua.
+
+**¿Por qué así y no estudiando en silencio?** Porque sacar algo de la memoria lo fija mucho más que volver a leerlo. Cuando te esfuerzas por recordar y te cuesta, ahí es exactamente donde se aprende. Leer tus apuntes otra vez se siente productivo y no lo es; fallar en un duelo se siente incómodo y sí lo es.
+
+Y hay una razón más: **el duelo es la evidencia**. En este curso nadie entrega capturas de pantalla de Anki para demostrar que estudió. Se nota en la cancha, dos minutos a la semana, delante de un compañero.
+
+### Las dos fuentes
+
+Luego conoces a las dos autoridades del curso: el [DLE](https://dle.rae.es) y el [DECEL](http://etimologias.dechile.net). Verificamos juntos la etimología de dos o tres palabras del inventario del grupo, y de ahí nace la regla que rige todo el semestre:
 
 {: .ojo }
-**Ninguna etimología se acepta sin fuente.** Ni de un compañero, ni de una IA, ni del profesor. Las tres fuentes, con instrucciones de uso, viven en [Fuentes](../recursos/fuentes.html).
+**Ninguna etimología se acepta sin fuente.** Ni de un compañero, ni de una IA, ni del profesor. Las dos fuentes, con instrucciones de uso, viven en [Fuentes](../recursos/fuentes.html).
 
 Después te toca a ti: busca tu propia palabra del martes en el DLE y el DECEL, y anota lo que encuentres. Si no aparece, también es dato.
 
@@ -98,7 +114,7 @@ Tu checklist de salida. Si algo falta, se resuelve la semana que entra, sin dram
 - tu gimnasio de palabras (Anki o Leitner) con el [estándar de tarjeta](../recursos/anki.html) y 5 tarjetas dentro
 - el pacto de IA, el de evaluación y tus derechos de lector, firmados y en tu cuaderno
 - tu expediente: el cuadernillo donde vivirán tus quizzes, tu suelo y tus autoevaluaciones
-- las [tres fuentes de cabecera](../recursos/fuentes.html) y el reflejo de usarlas
+- las [dos fuentes de cabecera](../recursos/fuentes.html) y el reflejo de usarlas
 - tu primer libro, elegido por ti
 - la palabra que ya nadie usa, anotada y lista para el martes
 

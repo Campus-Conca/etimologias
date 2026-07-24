@@ -139,7 +139,7 @@
 
   // R1
   var R1=[
-    ["Sospechosa: es demasiado redonda y saca la palabra del francés sin necesidad. No se dicta veredicto sin verificarla en Corominas o el DECEL.",true],
+    ["Sospechosa: es demasiado redonda y saca la palabra del francés sin necesidad. No se dicta veredicto sin verificarla en el DLE o el DECEL.",true],
     ["Plausible: da nombres y fechas, y las historias con detalles concretos suelen estar documentadas.",false],
     ["Falsa de seguro: toda etimología con una historia bonita es mentira, no hace falta buscarla.",false],
     ["Verdadera: las reinas sí comían dulces, así que la historia encaja con la época.",false]
@@ -169,7 +169,7 @@
   // R2
   var R2=[
     ["Es un acrónimo","iniciales, invento del siglo XX",true],
-    ["Ninguna fuente la respalda","ni Corominas ni DECEL la registran",true],
+    ["Ninguna fuente la respalda","ni el DLE ni el DECEL la registran",true],
     ["Aparece en el DLE","",false],
     ["Tiene raíces griegas","",false],
     ["Es difícil de pronunciar","",false]
@@ -202,7 +202,7 @@
   document.getElementById('r3ver').addEventListener('click',function(){
     var fb=document.getElementById('r3fb');
     fb.className='fb ej';
-    fb.innerHTML='<strong>Ejemplo:</strong> la IA no sabe cuándo no sabe. Responde con la misma seguridad cuando acierta y cuando inventa: si le preguntas el origen de una palabra que no existe, te fabrica una historia completa, con siglos y todo. Por eso su respuesta es un punto de partida, nunca la fuente. El veredicto lo dictan Corominas o el DECEL.<br><br>La tuya puede decirlo distinto. Lo que no puede faltar: que la seguridad de la IA no es prueba de nada, y que el veredicto lo da una fuente de autoridad.';
+    fb.innerHTML='<strong>Ejemplo:</strong> la IA no sabe cuándo no sabe. Responde con la misma seguridad cuando acierta y cuando inventa: si le preguntas el origen de una palabra que no existe, te fabrica una historia completa, con siglos y todo. Por eso su respuesta es un punto de partida, nunca la fuente. El veredicto lo dictan el DLE o el DECEL.<br><br>La tuya puede decirlo distinto. Lo que no puede faltar: que la seguridad de la IA no es prueba de nada, y que el veredicto lo da una fuente de autoridad.';
     document.getElementById('r3marca').style.display='flex';
   });
   document.querySelectorAll('#r3marca button').forEach(function(b){
