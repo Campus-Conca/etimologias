@@ -33,6 +33,6 @@ callouts:
 ticket_url: "https://docs.google.com/forms/d/e/1FAIpQLSeYlJnWCICOrjq1UkcDl8pF_i3r781a99prYrR5XnMtVnh7ag/viewform"
 
 # Recolector de aportaciones (aplicacion web de Apps Script).
-cosecha_url: "PENDIENTE"
+cosecha_url: "https://script.google.com/macros/s/AKfycbyowFaq0n-zK4TBagspKG0Roye0Lun0FHaB5gQTiZGisXG4A-9ehIWmamw_mWo3KeZmrw/exec"
 
 footer_content: "Etimologías Grecolatinas del Español · Escuela de Bachilleres · UAQ"
