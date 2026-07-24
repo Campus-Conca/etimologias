@@ -30,6 +30,6 @@ callouts:
 
 # Ticket de salida semanal. Cambia esta URL una vez y se actualiza en todas
 # las paginas semanales que usan el bloque "Antes de irte".
-ticket_url: "https://forms.gle/PENDIENTE"
+ticket_url: "https://docs.google.com/forms/d/e/1FAIpQLSeYlJnWCICOrjq1UkcDl8pF_i3r781a99prYrR5XnMtVnh7ag/viewform"
 
 footer_content: "Etimologías Grecolatinas del Español · Escuela de Bachilleres · UAQ"
