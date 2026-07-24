@@ -28,6 +28,21 @@ REGLAS DE ESTRUCTURA:
   <span class="pz pz--suf">-ia<small>cualidad</small></span>
   <span class="eq">= amnesia</span></div>
 - Callouts disponibles: {: .reto } y {: .ojo } (párrafo previo a la línea).
+- Para pedirle algo al grupo y publicarlo después (palabras, neologismos,
+  locuciones, mapa léxico), usa el recolector. Formulario:
+  <div class="cosecha" data-tipo="palabra-heredada" data-titulo="Sube tu palabra"
+       data-nota="Texto corto de contexto."
+       data-campos='[{"n":"palabra","t":"La palabra","req":true},
+                     {"n":"significado","t":"Qué significa"},
+                     {"n":"nota","t":"La historia","tipo":"larga"}]'></div>
+  Y para publicar lo cosechado, en "Lo que produjimos":
+  <!-- COSECHA:palabra-heredada -->
+  <script>window.HEREDADAS = [];</script>
+  <!-- /COSECHA -->
+  <div class="cosecha-muro" data-var="HEREDADAS" data-campos="palabra|significado|quien"
+       data-vacio="Aquí va lo que produzca el grupo."></div>
+  Tipos disponibles: palabra-heredada, palabra-favorita, neologismo,
+  mapa-lexico, locucion, general (ver recolector-cosecha.gs).
 ============================================================ -->
 
 # Semana N · Título

@@ -32,4 +32,7 @@ callouts:
 # las paginas semanales que usan el bloque "Antes de irte".
 ticket_url: "https://docs.google.com/forms/d/e/1FAIpQLSeYlJnWCICOrjq1UkcDl8pF_i3r781a99prYrR5XnMtVnh7ag/viewform"
 
+# Recolector de aportaciones (aplicacion web de Apps Script).
+cosecha_url: "PENDIENTE"
+
 footer_content: "Etimologías Grecolatinas del Español · Escuela de Bachilleres · UAQ"

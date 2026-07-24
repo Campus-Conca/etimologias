@@ -103,6 +103,17 @@ Los tres vienen en un solo documento, con su hoja recortable para pegar en el cu
 
 **Tu única tarea de la semana:** *la palabra que ya nadie usa*. Este fin de semana pregúntale a un abuelo, a tu mamá, a tu papá o a un vecino por una palabra que usaban antes y que ya casi no se oye. Trae tres cosas anotadas: la palabra, qué significaba y quién te la regaló. Con eso arranca la semana 2, y varias de esas palabras van a terminar en el Museo.
 
+<div class="cosecha"
+     data-tipo="palabra-heredada"
+     data-titulo="Sube aquí tu palabra que ya nadie usa"
+     data-nota="Opcional: la vas a compartir en voz alta el martes de todos modos. Esto es para que no se pierda y para que aparezca aquí abajo, en el muro del grupo."
+     data-campos='[
+       {"n":"palabra","t":"La palabra","req":true},
+       {"n":"significado","t":"Qué significaba","req":true},
+       {"n":"quien","t":"Quién te la regaló (y qué es tuyo)","req":true},
+       {"n":"nota","t":"La historia, si tiene una","tipo":"larga"}
+     ]'></div>
+
 ## La lectura, esta semana
 
 Empieza aquí. El viernes eliges tu primer libro en la cata (dos en el semestre, a tu ritmo, elegidos por ti) y firmas tus derechos como lector. Si el menú de la mesa no te convence, puedes proponer otra obra: se platica con el profesor y ya. Todo lo demás, en [Leemos](../leemos.html).
@@ -122,7 +133,20 @@ Tu checklist de salida. Si algo falta, se resuelve la semana que entra, sin dram
 
 ## Lo que produjimos
 
-*Aquí va el primer inventario del grupo: las palabras favoritas de la ronda inaugural.*
+El muro de la semana: las palabras heredadas que el grupo trajo de casa. Se publican con el nombre de quien las rescató.
+
+<!-- COSECHA:palabra-heredada — el bloque de abajo lo genera la hoja de cálculo del curso
+     (menú Cosecha → Bloque para la web). Pega aquí lo que te dé y listo. -->
+<script>
+window.HEREDADAS = [
+];
+</script>
+<!-- /COSECHA -->
+
+<div class="cosecha-muro"
+     data-var="HEREDADAS"
+     data-campos="palabra|significado|quien"
+     data-vacio="El muro se llena el martes de la semana 2, con las palabras que traigan de casa."></div>
 
 ---
 
