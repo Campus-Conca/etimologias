@@ -79,7 +79,49 @@ Lo que este curso te propone a cambio: que elijas el anagrama difícil. 😀
 
 ## Qué recibes en lugar de números
 
-Cada quiz regresa revisado: cada reactivo queda en **bien** o **aún no**, con comentarios donde hagan falta. Lo que quedó en "aún no" lo puedes reintentar la semana siguiente, y cuenta tu versión más reciente, no el promedio de tus intentos. Cada defensa oral recibe retroalimentación con la rúbrica pública (la conoces desde la semana 1). Tu portafolio y tu bitácora se comentan, no se puntúan. Todo eso va dejando huella en tu **expediente**: un cuadernillo que vive en tu portafolio, donde registras tus quizzes, tu calibración, tu suelo y tus autoevaluaciones. Es tuyo. Nadie más lo ve, salvo cuando tú lo traes a la conversación.
+Papel. Literalmente: cuatro cuadernillos que puedes tener en las manos, imprimir y llenar. Ninguno lleva calificación; todos dejan rastro de lo que sabes hacer.
+
+- **Cada quiz** regresa revisado, con cada reactivo en **bien** o **aún no** y comentarios donde hagan falta. Lo que quedó en "aún no" lo reintentas la semana siguiente, y cuenta tu versión más reciente, no el promedio de tus intentos.
+- **Cada defensa oral** recibe retroalimentación con la rúbrica pública, que conoces desde la primera semana y que puedes descargar aquí abajo.
+- **Tu portafolio y tu bitácora** se comentan, no se puntúan.
+- **Tu expediente** recoge todo lo anterior. Es tuyo: nadie más lo ve, salvo cuando tú lo traes a la conversación.
+
+Estas son las plantillas, para que veas de qué estamos hablando antes de que empiece el curso:
+
+<div class="pl-grid">
+
+  <a class="pl-card" href="recursos/plantillas/expediente-imprimible.html">
+    <span class="pl-tag">cuadernillo · 10 páginas</span>
+    <b>El expediente</b>
+    <span class="pl-desc">Registro de quizzes con tu calibración, mapa de evidencias, el suelo de cada unidad, las tres autoevaluaciones de parcial, la final y los acuerdos de cada conversación. Es el corazón de este sistema.</span>
+    <span class="pl-cta">Verlo y descargarlo →</span>
+  </a>
+
+  <a class="pl-card" href="recursos/plantillas/rubrica-defensas.html">
+    <span class="pl-tag">2 páginas</span>
+    <b>La rúbrica pública</b>
+    <span class="pl-desc">Los cuatro criterios de una defensa (anatomía, fuente, criterio, honestidad), lo que expresamente no se evalúa —los nervios, entre otras cosas— y la hoja que te entrega el profesor al terminar.</span>
+    <span class="pl-cta">Verla y descargarla →</span>
+  </a>
+
+  <a class="pl-card" href="recursos/plantillas/ficha-museo.html">
+    <span class="pl-tag">2 páginas · una por palabra</span>
+    <b>La ficha del portafolio</b>
+    <span class="pl-desc">Cada pieza de tu Museo se escribe en esta ficha: dónde nació la palabra, cómo viajó, cómo llegó a ti y por qué la elegiste, con su registro de fuentes. Trae el ejemplo resuelto de <i>chao</i>.</span>
+    <span class="pl-cta">Verla y descargarla →</span>
+  </a>
+
+  <a class="pl-card" href="recursos/plantillas/bitacora-lector.html">
+    <span class="pl-tag">cuadernillo · 5 páginas</span>
+    <b>La bitácora del lector</b>
+    <span class="pl-desc">Una línea por sesión de lectura, tus libros del semestre y la cosecha de palabras. Nadie la califica ni la lee por dentro: se revisa que exista y que tenga rastro reciente.</span>
+    <span class="pl-cta">Verla y descargarla →</span>
+  </a>
+
+</div>
+
+{: .ojo }
+Se abren en el navegador y se imprimen con Ctrl/Cmd + P (o se guardan como PDF desde ahí). El profesor lleva copias impresas a clase; estas son para cuando pierdas la tuya, o para que tu familia vea de qué va este asunto de no poner calificaciones. Todas viven también en [Recursos · Plantillas](recursos/plantillas.html).
 
 ## El suelo
 
@@ -124,6 +166,13 @@ Esto se firma en la semana 0, junto al pacto de IA y tus derechos como lector:
 > En este curso ningún trabajo lleva calificación. Llevan comentarios y un lugar en mi expediente. La universidad pide tres parciales y una final: esos números los propongo yo, con mi evidencia enfrente, y los conversamos. El profesor casi siempre va a estar de acuerdo conmigo. Cuando no, hablamos antes de asentar nada: ninguna calificación baja sin conversación. Mi parte: llevar mi expediente al día, llegar a los cierres con el suelo completo y proponer mis calificaciones con honestidad. Aquí el error no cuesta. Lo único que cuesta es no estar.
 
 <style>
+.pl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(17rem,1fr));gap:.9rem;margin:1.2rem 0}
+.pl-card{display:block;border:1px solid #eadce6;border-radius:.9rem;padding:1rem 1.1rem;background:#fff;text-decoration:none;transition:box-shadow .15s,transform .15s}
+.pl-card:hover{box-shadow:0 3px 12px rgba(107,30,90,.14);transform:translateY(-1px)}
+.pl-tag{display:inline-block;font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;color:#c8127a;font-weight:700}
+.pl-card b{display:block;color:#6b1e5a;font-size:1.08rem;margin:.15rem 0 .3rem}
+.pl-desc{display:block;color:#444;font-size:.88rem;line-height:1.45}
+.pl-cta{display:block;margin-top:.6rem;color:#c8127a;font-weight:700;font-size:.85rem}
 .ev-ciclo{display:flex;flex-wrap:wrap;align-items:stretch;gap:.5rem;margin:1.2rem 0}
 .ev-paso{flex:1 1 9rem;border:1px solid #eadce6;border-radius:.9rem;background:#fbf4f9;padding:.85rem .8rem;text-align:center}
 .ev-paso span{display:block;font-size:1.7rem;line-height:1.2}
