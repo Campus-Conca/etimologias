@@ -135,11 +135,17 @@ Toca una palabra y ábrela. Cada pieza tiene su nombre y su significado.
 
 ## Antes de irte
 
+<div class="ticket-wrap">
 <a class="ticket" href="{{ site.ticket_url }}" target="_blank" rel="noopener">
   <b>Ticket de salida de esta semana</b>
   <span>Noventa segundos, al cierre de la sesión larga: qué te llevas, qué quedó turbio y cómo estuvo el ritmo. Con nombre o sin él.</span>
   <em>Lo que escribas aquí decide por dónde empezamos el martes.</em>
 </a>
+<a class="ticket-qr" href="{{ site.ticket_url }}" target="_blank" rel="noopener">
+  <img src="../assets/img/qr-ticket-salida.png" alt="Código QR del ticket de salida">
+  <span>escanéalo</span>
+</a>
+</div>
 
 <script>
 (function(){
