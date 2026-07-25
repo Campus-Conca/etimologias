@@ -8,6 +8,7 @@
   :root{
     --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
     --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+    --mist:#5b4b8a; --mistbg:#f1eefb;
   }
   *{box-sizing:border-box}
   body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
@@ -20,30 +21,40 @@
   body.proyector{font-size:1.35rem}
   body.proyector .wrap{max-width:960px}
   body.proyector header h1{font-size:2rem}
+  .regla{background:var(--ciruela);color:#fff;border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;font-size:1rem}
   .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
   .instr strong{color:var(--ciruela)}
-  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.9rem 0 .4rem}
+  .sub{margin:.1rem 0 .9rem;font-size:.93rem;color:#555}
+  .protocolo{padding-left:1.2rem}
+  .protocolo li{margin:.4rem 0}
   .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
-  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
-  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
+  .card h3{margin:0 0 .2rem;color:var(--rosa);font-size:1.2rem}
+  .nivel{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:.15rem .5rem;border-radius:1rem;margin-bottom:.4rem}
+  .nivel.n1{background:var(--okbg);color:var(--ok)}
+  .nivel.n2{background:var(--nobg);color:var(--no)}
+  .nivel.n3{background:var(--mistbg);color:var(--mist)}
+  label{display:block;font-size:.8rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.04em;margin-top:.9rem}
   textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
-  textarea{min-height:3rem;resize:vertical}
-  .protocolo{counter-reset:paso;list-style:none;padding:0;margin:.5rem 0 0}
-  .protocolo li{position:relative;padding:.7rem .8rem .7rem 3rem;border:1px solid var(--borde);border-radius:.7rem;margin-top:.5rem;background:#fff}
-  .protocolo li::before{counter-increment:paso;content:counter(paso);position:absolute;left:.8rem;top:.75rem;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--rosa);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem}
-  .protocolo a{color:var(--rosa);font-weight:700}
-  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
-  .veredicto{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.4rem}
-  .veredicto button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;cursor:pointer;font:inherit}
-  .veredicto button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
-  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  textarea{min-height:3.2rem;resize:vertical}
+  .seg{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.4rem}
+  .seg button{width:2.3rem;height:2.3rem;border:1px solid var(--borde);border-radius:.5rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
+  .seg button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .veredicto{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.4rem}
+  .veredicto button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;cursor:pointer;font-size:.9rem}
+  .veredicto button.sel{background:var(--ciruela);color:#fff;border-color:var(--ciruela)}
   .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
   .btn.rosa{background:var(--rosa);color:#fff}
   .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
   .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
   .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
   .fb.no{display:block;background:var(--nobg);color:var(--no)}
-  pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .fb.mist{display:block;background:var(--mistbg);color:var(--mist)}
+  .captura{display:none;white-space:pre-wrap;background:#2b2440;color:#ffd6e9;padding:.8rem;border-radius:.6rem;font-size:.85rem;margin-top:.7rem;overflow-x:auto}
+  .calib{border:2px solid var(--ciruela);border-radius:.9rem;padding:1rem 1.1rem;margin:1.2rem 0;background:var(--fondo)}
+  .calib h3{margin:0 0 .4rem;color:var(--ciruela)}
   footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
 </style>
 </head>
@@ -52,41 +63,61 @@
   <div class="wrap">
     <div class="mini">Etimologías grecolatinas · Semana 2 · Sesión C · Centro de cómputo</div>
     <h1>El tribunal de las fuentes</h1>
-    <p>El martes hipotetizaste. Hoy tus hipótesis enfrentan al juez: las fuentes.</p>
+    <p>Apuestas primero, a ciegas. Después las fuentes te juzgan.</p>
   </div>
 </header>
 
 <div class="wrap">
 
   <div class="regla">
-    <strong>La regla de oro del curso:</strong> ninguna etimología se acepta sin fuente. Ni de la IA, ni de internet, ni del profesor.
+    <strong>La regla de oro del curso:</strong> ninguna etimología se acepta sin fuente. Ni de la IA, ni de internet, ni de un compañero, ni del profesor.
+  </div>
+
+  <div class="instr">
+    <strong>Hoy el tribunal cambia de reglas.</strong> Antes de abrir el diccionario tienes que <strong>apostar</strong>: escribir qué crees que significa la palabra y decir qué tan seguro estás, del 1 al 10. Solo entonces buscas. Al final, este ejercicio no te dice cuántas adivinaste: te dice si <strong>tu confianza corresponde a tus datos</strong>, que es una cosa mucho más útil y mucho más incómoda.<br><br>
+    Los casos 1 y 2 son obligados. El 3 y el 4 son para quien avance rápido; ninguno de los dos se deja resolver fácil, y ese es el punto.
   </div>
 
   <h2>El protocolo</h2>
   <ol class="protocolo">
-    <li>Busca la palabra en el <a href="https://dle.rae.es" target="_blank" rel="noopener">DLE</a>. Fíjate en el origen que aparece resumido entre paréntesis, justo después de la palabra.</li>
-    <li>Busca la misma palabra en el <a href="http://etimologias.dechile.net" target="_blank" rel="noopener">DECEL</a>. Ahí está la historia completa: piezas, lengua de origen, camino recorrido.</li>
-    <li>Anota tu nota de fuente: qué diccionario consultaste y qué dice. Sin este paso, el veredicto no vale.</li>
+    <li><strong>Apuesta a ciegas.</strong> Sin buscar nada: escribe tu significado y tu nivel de seguridad.</li>
+    <li>Busca la palabra en el <a href="https://dle.rae.es" target="_blank" rel="noopener">DLE</a>. El origen aparece resumido entre paréntesis, justo después de la palabra.</li>
+    <li>Busca la misma palabra en el <a href="http://etimologias.dechile.net" target="_blank" rel="noopener">DECEL</a>. Ahí está la historia larga: piezas, lengua de origen, camino recorrido.</li>
+    <li><strong>Dicta veredicto</strong> y anota la nota de fuente: qué consultaste y qué dice. Sin ese paso, el veredicto no vale nada.</li>
   </ol>
 
-  <h2>Caso 1 · La hipótesis del martes</h2>
-  <div class="card">
-    <h3>Verifica una hipótesis de tu pareja</h3>
-    <p style="font-size:.92rem;margin:.3rem 0 0">Toma una de las definiciones etimológicas que propusieron el martes y pásala por el protocolo.</p>
+  <div class="fb mist" style="display:block">
+    <strong>Y si los dos jueces no coinciden, ¿entonces qué?</strong> Entonces no eliges. Se documentan <em>las dos</em> versiones, con su fuente cada una, y el caso se lleva a clase abierto. Que dos autoridades discrepen no es un error del sistema: es cómo se ve el conocimiento por dentro cuando dejas de verlo en un libro de texto.
+  </div>
+
+  <h2>La ronda de apuestas</h2>
+  <div id="casos"></div>
+
+  <div class="calib" id="calib" style="display:none">
+    <h3>Tu calibración de hoy</h3>
+    <div id="calibTxt"></div>
+  </div>
+  <div class="fila-botones"><button class="btn rosa" id="btnCalib">Calcular mi calibración</button></div>
+
+  <h2>Caso 5 · Tu hipótesis del martes</h2>
+  <div class="card" data-captura>
+    <h3>La que escribiste sin buscar</h3>
+    <p style="font-size:.92rem;margin:.3rem 0 0">Saca la hipótesis que anotaste el martes al terminar <em>Primeras disecciones</em>, junto con el número de seguridad que le pusiste. Pásala por el protocolo completo.</p>
     <label>Palabra</label>
     <input type="text" data-campo="palabra" placeholder="ej. cronómetro">
-    <label>La hipótesis (tal como la escribieron el martes)</label>
-    <textarea data-campo="hipotesis" placeholder="Piezas que propusieron y significado literal"></textarea>
+    <label>Tu hipótesis del martes, tal cual la escribiste</label>
+    <textarea data-campo="hipotesis" placeholder="Piezas que propusiste y significado literal"></textarea>
     <label>Veredicto</label>
     <div class="veredicto" data-campo="veredicto">
       <button type="button">Sobrevivió</button>
       <button type="button">Sobrevivió con ajustes</button>
       <button type="button">No sobrevivió</button>
+      <button type="button">Los jueces discrepan</button>
     </div>
-    <label>¿Qué pieza estaba bien o mal? (según las fuentes)</label>
-    <textarea data-campo="detalle" placeholder="ej. bio y logía estaban bien, pero logía no significa exactamente..."></textarea>
+    <label>¿Qué pieza estaba bien y cuál mal, según las fuentes?</label>
+    <textarea data-campo="detalle" placeholder="ej. bio y logía estaban bien, pero yo pensé que -logía era 'lista' y significa..."></textarea>
     <label>Nota de fuente</label>
-    <input type="text" data-campo="fuente" placeholder="ej. DLE + DECEL, consultados hoy">
+    <input type="text" data-campo="fuente" placeholder="ej. DLE y DECEL, consultados hoy; los dos coinciden">
     <div class="fila-botones">
       <button class="btn rosa" data-generar>Generar captura</button>
       <button class="btn gris" data-copiar style="display:none">Copiar al portapapeles</button>
@@ -95,10 +126,10 @@
     <div class="fb" data-fb></div>
   </div>
 
-  <h2>Caso 2 · Tu palabra heredada</h2>
-  <div class="card">
+  <h2>Caso 6 · Tu palabra heredada</h2>
+  <div class="card" data-captura>
     <h3>La palabra que ya nadie usa</h3>
-    <p style="font-size:.92rem;margin:.3rem 0 0">La que alguien te regaló. ¿Qué dicen las fuentes de su origen? ¿Aparece siquiera en el DLE? Si no aparece, no es fracaso: es el primer límite de los diccionarios que descubres, y documentarla se vuelve tu trabajo.</p>
+    <p style="font-size:.92rem;margin:.3rem 0 0">La que alguien de tu casa te regaló. ¿Qué dicen las fuentes de su origen? ¿Aparece siquiera? Si no aparece, no es fracaso: es el primer límite de los diccionarios que descubres con tus propias manos, y a partir de ahí documentarla es trabajo tuyo y de nadie más.</p>
     <label>Palabra</label>
     <input type="text" data-campo="palabra" placeholder="tu palabra heredada">
     <label>Quién te la regaló y qué significaba para esa persona</label>
@@ -107,7 +138,8 @@
     <div class="veredicto" data-campo="veredicto">
       <button type="button">Está en el DLE, con origen</button>
       <button type="button">Está, pero sin historia clara</button>
-      <button type="button">No aparece en ningún diccionario</button>
+      <button type="button">Solo está en el DECEL</button>
+      <button type="button">No aparece en ninguno</button>
     </div>
     <label>Lo que encontraste (o lo que falta por documentar)</label>
     <textarea data-campo="detalle" placeholder="ej. el DLE dice que viene de... / no aparece, así que la voy a documentar yo"></textarea>
@@ -122,7 +154,7 @@
   </div>
 
   <div class="instr">
-    <strong>Última estación.</strong> Pega tus dos capturas donde indique el profesor (plantilla del tablero). Las mejores palabras heredadas verificadas estrenan hoy la vitrina "Lo que produjimos" de la web, con nombre de pila y con tu permiso.
+    <strong>Última estación.</strong> Pega tus capturas donde indique el profesor. Las mejores palabras heredadas verificadas estrenan hoy la vitrina "Lo que produjimos" de la web, con nombre de pila y con tu permiso.
   </div>
 
   <footer>Semana 2 · Las palabras tienen anatomía · Este ejercicio es gimnasio: sin nota. La captura solo se guarda si tú la copias y la pegas; al cerrar la página todo se borra.</footer>
@@ -132,21 +164,143 @@
 
 <script>
 (function(){
-  document.querySelectorAll('.veredicto').forEach(function(v){
-    v.querySelectorAll('button').forEach(function(b){
+
+  var CASOS=[
+    {n:1, nivel:1, etiqueta:"Calentamiento",
+     w:"hipódromo",
+     pista:"Ya tienes las dos piezas: <b>hipo</b> (caballo) la sacaste el martes de <em>hipopótamo</em>. La otra, <b>-dromo</b>, la usas cada vez que dices <em>aeródromo</em> o <em>autódromo</em>.",
+     tras:"Esta se abre limpio y las dos fuentes coinciden. Sirve para una cosa: comprobar que cuando tienes las piezas, tu apuesta a ciegas <em>sí</em> le atina. Guarda esa sensación, porque el caso 2 te la va a quitar."},
+
+    {n:2, nivel:2, etiqueta:"Etimología popular",
+     w:"chamba",
+     pista:"Casi seguro ya oíste la explicación: que viene del inglés <em>Chamber of Commerce</em>, porque los mexicanos iban ahí a buscar trabajo. Apuesta lo que creas, con el número de seguridad que de verdad sientas.",
+     tras:"Lo que tienes que comprobar con tus propios ojos: <b>esa versión no aparece en ninguna de las dos fuentes.</b> Anota qué dicen en su lugar y de dónde sale cada dato. Esto se llama <em>etimología popular</em>: una historia que suena perfecta, se cuenta con toda seguridad y no resiste una búsqueda de dos minutos. Circula por WhatsApp, la repiten los maestros y las IA la producen sin parpadear. Tu defensa es exactamente lo que acabas de hacer."},
+
+    {n:3, nivel:2, etiqueta:"Etimología popular",
+     w:"gringo",
+     pista:"Otra que todo el mundo cree saber: que viene de <em>green go home</em>, gritado a los soldados de uniforme verde. Apuesta, y sé honesto con tu número.",
+     tras:"Busca la fecha. La palabra ya estaba escrita en diccionarios españoles <b>décadas antes</b> de esa guerra y del uniforme verde: la cronología sola tumba la historia. Anota qué origen sí registran las fuentes. Aprende el truco: cuando una etimología viene con una anécdota redonda y emocionante, desconfía. Las palabras casi siempre nacen de algo mucho más aburrido."},
+
+    {n:4, nivel:3, etiqueta:"Los jueces discrepan",
+     w:"chocolate",
+     pista:"Esta viene de aquí, del náhuatl, y aun así nadie se pone del todo de acuerdo en cómo se formó. Apuesta tu versión antes de leer nada.",
+     tras:"Compara las dos entradas con cuidado: no dicen lo mismo, y ninguna de las dos está mintiendo. <b>No elijas.</b> Documenta las dos versiones, cada una con su fuente, y llévalas a clase el viernes. Este es el caso más importante del día, porque es el que se parece a la vida real: buena parte de lo que se sabe está en discusión, y saber eso es más valioso que memorizar una respuesta."}
+  ];
+
+  var cont=document.getElementById('casos');
+
+  CASOS.forEach(function(c){
+    var card=document.createElement('div');
+    card.className='card';
+    card.dataset.caso='1';
+    card.innerHTML='<span class="nivel n'+c.nivel+'">Caso '+c.n+' · '+c.etiqueta+'</span>'
+      +'<h3>'+c.w+'</h3>'
+      +'<p style="font-size:.92rem;margin:.3rem 0 0">'+c.pista+'</p>'
+      +'<label>1 · Tu apuesta, sin buscar nada</label>'
+      +'<textarea data-ap placeholder="Yo creo que significa..."></textarea>'
+      +'<label>2 · Qué tan seguro estás (1 = ni idea, 10 = lo firmo)</label>'
+      +'<div class="seg" data-seg></div>'
+      +'<label>3 · Ahora sí: busca en DLE y DECEL, y anota lo que dicen</label>'
+      +'<textarea data-notas placeholder="DLE dice... / DECEL dice..."></textarea>'
+      +'<label>4 · Veredicto</label>'
+      +'<div class="veredicto" data-ver>'
+        +'<button type="button" data-v="ok">Mi apuesta sobrevivió</button>'
+        +'<button type="button" data-v="medio">Sobrevivió a medias</button>'
+        +'<button type="button" data-v="no">Se cayó</button>'
+        +'<button type="button" data-v="disc">Los jueces discrepan</button>'
+      +'</div>'
+      +'<div class="fila-botones"><button class="btn gris" data-tras>Ver qué había detrás de este caso</button></div>'
+      +'<div class="fb" data-fbtras></div>';
+
+    var seg=card.querySelector('[data-seg]');
+    for(var i=1;i<=10;i++){
+      (function(i){
+        var b=document.createElement('button');
+        b.type='button'; b.textContent=i; b.dataset.val=i;
+        b.addEventListener('click',function(){
+          Array.prototype.forEach.call(seg.children,function(x){x.classList.remove('sel');});
+          b.classList.add('sel');
+        });
+        seg.appendChild(b);
+      })(i);
+    }
+
+    var ver=card.querySelector('[data-ver]');
+    Array.prototype.forEach.call(ver.children,function(b){
       b.addEventListener('click',function(){
-        v.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+        Array.prototype.forEach.call(ver.children,function(x){x.classList.remove('sel');});
         b.classList.add('sel');
       });
     });
+
+    card.querySelector('[data-tras]').addEventListener('click',function(){
+      var seleccionado=card.querySelector('[data-ver] .sel');
+      var fb=card.querySelector('[data-fbtras]');
+      if(!seleccionado){
+        fb.className='fb no';
+        fb.textContent='Primero dicta tu veredicto. Ver la respuesta antes de comprometerte no entrena nada.';
+        return;
+      }
+      fb.className='fb mist';
+      fb.innerHTML=c.tras;
+    });
+
+    cont.appendChild(card);
   });
 
-  document.querySelectorAll('.card').forEach(function(card){
+  document.getElementById('btnCalib').addEventListener('click',function(){
+    var cards=cont.querySelectorAll('.card');
+    var n=0, sumaSeg=0, buenas=0, medias=0;
+    Array.prototype.forEach.call(cards,function(card){
+      var s=card.querySelector('[data-seg] .sel');
+      var v=card.querySelector('[data-ver] .sel');
+      if(!s||!v) return;
+      n++; sumaSeg+=parseInt(s.dataset.val,10);
+      if(v.dataset.v==='ok') buenas++;
+      else if(v.dataset.v==='medio') medias++;
+    });
+
+    var box=document.getElementById('calib'), txt=document.getElementById('calibTxt');
+    box.style.display='block';
+
+    if(n===0){
+      txt.innerHTML='Todavía no has cerrado ningún caso. Necesitas al menos una apuesta con su número de seguridad y su veredicto.';
+      return;
+    }
+
+    var seg=Math.round(sumaSeg/n*10)/10;
+    var tasa=Math.round((buenas+medias*0.5)/n*100);
+    var segPct=seg*10;
+    var msg='<p><strong>Cerraste '+n+' caso'+(n>1?'s':'')+'.</strong> Tu seguridad promedio fue de <strong>'+seg+' de 10</strong>. De tus apuestas sobrevivió el <strong>'+tasa+'%</strong>.</p>';
+
+    if(segPct-tasa>=25){
+      msg+='<p>Tu confianza va bastante por delante de tus datos: te sentías más seguro de lo que la realidad respaldó. No es un defecto de carácter, es la trampa más común del oficio y por eso este curso empieza aquí. La receta es corta: <strong>bájale al número, súbele a la fuente.</strong></p>';
+    } else if(tasa-segPct>=25){
+      msg+='<p>Al revés que la mayoría: <strong>sabes más de lo que crees</strong>. Le atinaste bastante más de lo que te atreviste a firmar. Eso tiene un costo real —en un examen oral te vas a callar cosas que sí sabías—, así que el trabajo del semestre es que te atrevas a sostener lo que ya traes.</p>';
+    } else {
+      msg+='<p><strong>Bien calibrado.</strong> Tu seguridad y tus aciertos van más o menos juntos, que es exactamente lo que se busca: no acertar siempre, sino saber cuándo puedes confiar en ti y cuándo tienes que ir a la fuente. Guarda este número y compáralo en el próximo tribunal.</p>';
+    }
+    msg+='<p style="font-size:.9rem;opacity:.9">Anota los dos números en tu expediente. Los vas a volver a medir, y ver cómo se acercan a lo largo del semestre es de las cosas más satisfactorias de este curso.</p>';
+    txt.innerHTML=msg;
+    box.scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
+
+  /* ---------- capturas ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-captura]'),function(card){
     var btnG=card.querySelector('[data-generar]');
     if(!btnG) return;
     var btnC=card.querySelector('[data-copiar]');
     var pre=card.querySelector('pre.captura');
     var fb=card.querySelector('[data-fb]');
+
+    Array.prototype.forEach.call(card.querySelectorAll('.veredicto'),function(v){
+      Array.prototype.forEach.call(v.children,function(b){
+        b.addEventListener('click',function(){
+          Array.prototype.forEach.call(v.children,function(x){x.classList.remove('sel');});
+          b.classList.add('sel');
+        });
+      });
+    });
 
     btnG.addEventListener('click',function(){
       var g=function(sel){var el=card.querySelector('[data-campo='+sel+']');return el?el.value.trim():'';};
@@ -162,7 +316,7 @@
         return;
       }
       fb.className='fb ok';
-      fb.textContent='Captura lista. Cópiala y pégala en la plantilla del tablero.';
+      fb.textContent='Captura lista. Cópiala y pégala donde te indique el profesor.';
       pre.textContent='PALABRA: '+palabra
         +'\nHIPÓTESIS / HISTORIA: '+(hip||'(sin registro)')
         +'\nVEREDICTO: '+vSel.textContent
@@ -174,15 +328,15 @@
 
     btnC.addEventListener('click',function(){
       var t=pre.textContent;
-      function listo(){fb.className='fb ok';fb.textContent='Copiado. Ahora pégalo en la plantilla del tablero.';}
-      if(navigator.clipboard&&navigator.clipboard.writeText){
-        navigator.clipboard.writeText(t).then(listo,function(){seleccionar();});
-      }else{seleccionar();}
+      function listo(){fb.className='fb ok';fb.textContent='Copiado. Ahora pégalo donde te indique el profesor.';}
       function seleccionar(){
         var r=document.createRange();r.selectNodeContents(pre);
         var s=window.getSelection();s.removeAllRanges();s.addRange(r);
         fb.className='fb ok';fb.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
       }
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(t).then(listo,seleccionar);
+      }else{seleccionar();}
     });
   });
 

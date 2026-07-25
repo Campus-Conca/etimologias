@@ -106,14 +106,21 @@ Abrimos con el primer quiz relámpago del semestre: 3 palabras, papel, 3 minutos
 
 Luego, el protocolo que desde hoy es ley en este curso:
 
-1. Tu hipótesis (la del martes).
+1. **Tu apuesta**, a ciegas, con tu nivel de seguridad del 1 al 10.
 2. [DLE](https://dle.rae.es) para el origen.
 3. [DECEL](http://etimologias.dechile.net) para la historia.
 4. Veredicto y fuente anotada.
 
-**Tu ejercicio:** [El tribunal de las fuentes](../ejercicios/semana-02/ejercicio-2C-tribunal-de-las-fuentes.html). Pasan por el tribunal tu hipótesis y tu palabra heredada. Si la heredada no aparece en el diccionario, no es fracaso: documentarla es trabajo de este curso, y de nadie más.
+El paso 1 es nuevo y no es un adorno: **te comprometes antes de saber**. Al final del ejercicio no importa cuántas adivinaste, sino si tu confianza correspondía a tus datos.
 
-Captura: palabra, hipótesis, veredicto, fuente.
+**Tu ejercicio:** [El tribunal de las fuentes](../ejercicios/semana-02/ejercicio-2C-tribunal-de-las-fuentes.html). Cuatro casos escogidos con mala leche: uno que se abre limpio, dos donde la explicación que todo el mundo repite —*chamba*, *gringo*— se cae a los dos minutos de búsqueda, y uno donde las dos fuentes **no coinciden entre sí**. Después pasan por el tribunal tu hipótesis del martes y tu palabra heredada.
+
+{: .ojo }
+Cuando los dos jueces discrepan, **no se elige**. Se documentan las dos versiones, cada una con su fuente, y el caso se lleva a clase abierto. Que dos autoridades no coincidan no es una falla del sistema: así se ve el conocimiento por dentro cuando dejas de verlo en un libro de texto.
+
+Si la palabra heredada no aparece en ningún diccionario, tampoco es fracaso: es el primer límite de las fuentes que descubres con tus propias manos, y de ahí en adelante documentarla es trabajo de este curso y de nadie más.
+
+Captura: palabra, apuesta, veredicto, fuente.
 
 ## Viernes · La sesión grande (2 horas)
 
