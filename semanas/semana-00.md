@@ -56,6 +56,26 @@ Todas las palabras se anotan en el pizarrón conforme salen: ese es **el primer 
 
 Buena pregunta. Respuesta corta: porque solo puedes *pensar con* lo que vive en tu cabeza. Lo que está en Google no piensa contigo; lo que memorizaste, sí. Cuando conoces la raíz *iatro* (médico), no aprendiste una palabra: desbloqueaste cincuenta, incluidas las que todavía no has visto. Eso una búsqueda no lo hace: multiplicar.
 
+Y no es solo una manía del profesor. Juan Villoro —cronista mexicano, de los mejores que hay escribiendo hoy en español— lo dijo así en una entrevista:
+
+> Hay ciertas habilidades humanas que se están perdiendo porque ya no son necesarias. **La más significativa es la memoria.** Yo en la infancia me sabía unos diez teléfonos imprescindibles, incluyendo los de las estaciones de radio a las que hablaba para votar por mis grupos favoritos, y me acuerdo de ellos hasta la fecha. […] Todo esto está haciendo que tengamos cada vez menos facultades, en el momento en que las máquinas cada vez tienen más.
+
+Lee otra vez la última línea, despacio, porque ahí está el trato que nos están ofreciendo: **nosotros perdemos facultades justo cuando ellas las ganan.**
+
+### El vampiro que traes en el bolsillo
+
+Villoro tiene otra imagen para el teléfono y es la mejor que he oído: es **un vampiro**. Y lo importante de los vampiros, dice, es que en toda la tradición **el vampiro tiene que ser invitado a pasar**. Son elegantes, seductores, tienen castillos preciosos y modales impecables. Tú le abres la puerta. Solo entonces empieza a chuparte la sangre.
+
+> Les damos la bienvenida, los activamos, ponemos nuestra clave, y poco a poco nos chupan no la sangre, sino algo tan valioso: nuestros datos personales.
+
+Y remata con una fábula de Kafka. Un esclavo está siendo azotado por su amo. Un día se rebela y logra arrebatarle el látigo: ya es su propio dueño, ya nadie manda sobre él. ¿Y qué hace entonces con el látigo? **Empieza a azotarse a sí mismo.**
+
+Que quede claro: nadie te está pidiendo tirar el teléfono al mar. Villoro tampoco lo propone, y sería una tontería —ahí traes el mapa, el reloj, a tu gente—. La pregunta es otra y es más incómoda: **quién trae el látigo**. Su receta es exacta, y resulta ser también la de este curso: *ejercer una fuerza de voluntad vinculada a la cultura*, porque en los libros, en el cine, en la ciencia hay **un conocimiento lento**, complejo, de largo plazo, que el mundo digital no da. Allá todo es un *like* o un linchamiento, y en medio no hay nada. La vida entera está en ese "en medio".
+
+Visto así, este curso es unas cuantas horas a la semana de conocimiento lento. Y diez minutos diarios de memoria que ya nadie te puede quitar.
+
+### La curva del olvido
+
 El problema es que la memoria no funciona como creemos. En 1885, Hermann Ebbinghaus midió cuánto tardaba en olvidar sílabas sin sentido y dibujó la **curva del olvido**: a las 24 horas has perdido más de la mitad de lo aprendido; a la semana, casi todo. La solución no es repasar más, sino repasar *en el momento justo*: cuando estás a punto de olvidar. Eso se llama **repetición espaciada**, y es de las técnicas de estudio con más evidencia científica que existen.
 
 Hacer esos cálculos a mano sería una pesadilla. Por eso usaremos **Anki**: una app gratuita que te muestra cada tarjeta exactamente el día que tu cerebro la necesita. Cinco a diez minutos diarios. Tu mazo será tu gimnasio de palabras, y los duelos de cada semana, tu cancha.
@@ -140,7 +160,21 @@ La sesión grande de la semana, con todo el menú:
 
 Los tres vienen en un solo documento, con su hoja recortable para pegar en el cuaderno. Puedes leerlos antes de la sesión si quieres llegar con tus objeciones preparadas: **[Los tres pactos, para imprimir y firmar](../recursos/plantillas/pactos.html)**. Firmar es escribir tu nombre y decir que estás de acuerdo, nada más — y si algo te parece injusto, se discute antes de firmar. Un acuerdo que no se puede objetar no es un acuerdo.
 
-**La cata de libros.** Una mesa con libros de verdad: novela, cuento, novela gráfica, poesía, crónica. Circulas, hojeas, lees primeras páginas, y anotas tu primera elección. Puede cambiar en las primeras dos semanas sin que nadie pregunte por qué.
+**La cata de libros: el umbral.** Una mesa con libros de verdad: novela, cuento, novela gráfica, poesía, crónica. Pero hoy no se hojea al azar. La regla es otra: de cada libro **lees solamente la primera frase**, y pasas al siguiente.
+
+Villoro dice que el escritor se juega todas sus cartas en esa frase, y que su desafío no es *atrapar* la atención, sino **inventarla**. Pone dos ejemplos:
+
+> En un lugar de la Mancha de cuyo nombre no quiero acordarme.
+>
+> — Cervantes, *Don Quijote*
+
+> No he querido saber, pero he sabido.
+>
+> — Javier Marías, *Corazón tan blanco*
+
+¿Por qué un lugar del que no se quiere acordar? ¿Cómo se entera alguien de algo que no quería saber? Ninguna de las dos frases te pide permiso: te abren un hueco y te dejan adentro. **Eso es un umbral**, y alguien lo construyó a propósito para ti.
+
+Circulas, lees umbrales, y te llevas el libro que te abrió uno. Tu elección puede cambiar en las primeras dos semanas sin que nadie pregunte por qué.
 
 **La primera lectura en voz alta.** Diez minutos de algo hermoso, sin análisis y sin tarea. Va a pasar muchas veces a lo largo del semestre, sin día fijo: cuando toque, toca.
 

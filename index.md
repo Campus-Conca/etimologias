@@ -40,6 +40,8 @@ Este curso te va a pedir algo que casi ninguna otra cosa en tu día te pide: **q
 
 Vale la pena decirlo claro: si te cuesta concentrarte, no es que estés fallando. Cada aplicación de tu teléfono la diseñó gente muy inteligente y muy bien pagada para que no puedas soltarla. Tu atención es el producto que se vende. Contra eso, la fuerza de voluntad sola pierde siempre; lo que funciona es entrenar el músculo, y para eso hace falta un lugar y un rato en los que nada te jale.
 
+Un ejemplo mínimo y escalofriante, que cuenta el escritor Juan Villoro: hay gente que reproduce las canciones en velocidad acelerada **para no perder tiempo con la canción**. Rompen el compás, deforman las voces, se comen los silencios —que en la música son la mitad del asunto— con tal de llegar antes a la siguiente. Ya no la escuchan: la consumen. Pregúntate con honestidad en qué partes de tu día estás haciendo exactamente eso.
+
 De eso habla el movimiento del **slow living**: no se trata de hacer todo despacio, sino de dejar de vivir a un ritmo que tú no escogiste. Hacer menos cosas y estar de verdad en las que haces.
 
 Hay una imagen que lo explica mejor que cualquier definición. Imagina que atraviesas la sala de un museo a paso veloz. Pasaste por todos los cuadros: podrías decir que "viste" la exposición completa. Pero no te detuviste en ninguno, no leíste una sola cédula, y a la salida no podrías describir ni uno. Estuviste ahí y no estuviste. Así se recorre buena parte de la vida cuando el ritmo lo pone otro: crees que experimentaste mucho, y en realidad rozaste muchas cosas sin poner atención en ninguna.
