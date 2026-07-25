@@ -25,26 +25,36 @@
   body.proyector header h1{font-size:2rem}
   .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
   .instr strong{color:var(--ciruela)}
-  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.8rem 0 .5rem}
+  .sub{margin:.1rem 0 .8rem;font-size:.93rem;color:#555}
   .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
-  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.25rem}
-  .paso{font-size:.8rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.04em;margin-top:.9rem}
-  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
-  textarea{min-height:3.2rem;resize:vertical}
-  .piezas{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
-  .piezas button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;font-size:1rem;cursor:pointer}
-  .piezas button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
-  .piezas button small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
-  .armado{margin-top:.5rem;min-height:2.2rem;border:1px dashed var(--borde);border-radius:.6rem;padding:.5rem;background:var(--fondo);font-weight:700;color:var(--ciruela)}
-  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
-  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
-  .btn.rosa{background:var(--rosa);color:#fff}
-  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .paso{font-size:.8rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.04em}
+  .sabes{background:var(--fondo);border-radius:.6rem;padding:.6rem .8rem;margin:.5rem 0 .8rem;font-size:.92rem}
+  .sabes b{color:var(--ciruela)}
+  .chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.45rem}
+  .pz{font-weight:700;font-size:.95rem;padding:.25rem .55rem;border-radius:.45rem;background:var(--raiz-bg);color:var(--raiz-tx)}
+  .pz small{display:block;font-weight:400;font-size:.7rem;opacity:.85}
+  .preg{margin:.2rem 0 .2rem;color:var(--rosa);font-size:1.2rem;font-weight:700}
+  .ops{display:flex;flex-direction:column;gap:.45rem;margin-top:.7rem}
+  .ops button{text-align:left;padding:.65rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:#2a2a2a;font:inherit;cursor:pointer}
+  .ops button:hover{border-color:var(--rosa)}
+  .ops button.malo{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  .ops button.bueno{background:var(--okbg);color:var(--ok);border-color:var(--ok);font-weight:700}
+  .ops button[disabled]{cursor:default}
   .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
   .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
   .fb.no{display:block;background:var(--nobg);color:var(--no)}
   .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3.2rem;resize:vertical}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .marcador{position:sticky;top:0;z-index:8;background:#fff;border-bottom:1px solid var(--borde);padding:.5rem 0;font-weight:700;color:var(--ciruela);font-size:.95rem}
   .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  .cosecha-piezas{border:1px dashed var(--rosa);border-radius:.9rem;padding:1rem 1.1rem;margin:1.4rem 0;background:var(--fondo)}
+  .cosecha-piezas h3{margin:0 0 .5rem;color:var(--ciruela);font-size:1.05rem}
   footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
 </style>
 </head>
@@ -53,26 +63,47 @@
   <div class="wrap">
     <div class="mini">Etimologías grecolatinas · Semana 2 · Sesión A</div>
     <h1>Primeras disecciones</h1>
-    <p>Toda palabra se puede abrir. Hoy abres tus primeras dos.</p>
+    <p>Hoy no vas a memorizar palabras nuevas. Vas a adivinarlas, y vas a acertar.</p>
   </div>
 </header>
 
 <div class="wrap">
 
   <div class="instr">
-    <strong>Cómo se juega.</strong> Con tu pareja, elijan dos palabras de la lista. Para cada una: (1) escriban su definición real, la que usarían hoy; (2) armen su hipótesis etimológica eligiendo las piezas; (3) escriban el significado literal. Todavía no vale usar diccionario ni celular para buscar: hoy se hipotetiza, el jueves se verifica.
+    <strong>Cómo se juega.</strong> Cada reto te da primero una palabra <em>ya resuelta</em>: una que conoces, abierta en sus piezas. Con esas piezas en la mano, tienes que deducir qué significa una palabra que probablemente nunca has abierto. <strong>No busques nada en el celular</strong>: si lo buscas, te robas a ti mismo el momento. Adivina primero. Adivinar con método tiene nombre y es de lo que vive este curso.
   </div>
 
   <div class="cuaderno">
-    <strong>Si trabajas en cuaderno:</strong> copia la palabra, escribe su definición real, dibuja sus piezas separadas con + (cada pieza con su significado abajo) y cierra con el significado literal. Mismo orden que aquí.
+    <strong>Si trabajas en cuaderno:</strong> copia la palabra nueva, sepárala en piezas con +, escribe el significado de cada pieza abajo y cierra con tu apuesta de significado. Luego compara.
   </div>
 
-  <div id="lista"></div>
+  <div class="marcador" id="marcador">Llevas 0 de 9</div>
 
-  <h2>Para cerrar</h2>
+  <h2>Ronda 1 · De la palabra al significado</h2>
+  <p class="sub">Te doy la palabra. Dime qué dice por dentro.</p>
+  <div id="r1"></div>
+
+  <h2>Ronda 2 · Del significado a la palabra</h2>
+  <p class="sub">Ahora al revés, que es más difícil y más divertido: te doy el significado y tú cazas la palabra.</p>
+  <div id="r2"></div>
+
+  <div id="cierre-marcador"></div>
+
+  <h2>Para cerrar · Tu propia hipótesis</h2>
   <div class="card">
-    <p>De las dos palabras que abriste, ¿cuál te costó más? Escribe una línea sobre por qué. Esta nota se retoma el jueves en el centro de cómputo.</p>
-    <textarea placeholder="Me costó más... porque..."></textarea>
+    <p>Saca tu <strong>palabra heredada</strong>, la que te regaló alguien de tu casa. Ábrela como abriste las de arriba: pártela en las piezas que creas y apuesta un significado. <strong>No la busques.</strong> El jueves la juzgan las fuentes en el tribunal, y entonces sabrás si le atinaste.</p>
+    <p style="margin:.8rem 0 .1rem;font-size:.92rem"><strong>Mi palabra y cómo creo que se parte:</strong></p>
+    <input type="text" placeholder="Ejemplo: des + calzo = 'sin calzado'">
+    <p style="margin:.8rem 0 .1rem;font-size:.92rem"><strong>Mi apuesta de significado literal:</strong></p>
+    <textarea placeholder="Yo creo que literalmente significa..."></textarea>
+    <p style="margin:.8rem 0 .1rem;font-size:.92rem"><strong>Qué tan seguro estoy, del 1 al 10:</strong></p>
+    <input type="text" placeholder="Un número, nada más. El jueves lo comparas con lo que pase.">
+  </div>
+
+  <div class="cosecha-piezas">
+    <h3>Las piezas que te llevas de hoy</h3>
+    <p style="margin:0 0 .6rem;font-size:.93rem">Todas estas aparecieron en los retos de arriba. Esta semana entran a tu mazo, y de ahí en adelante están en los duelos y en los quizzes. Ya no son ajenas: hoy resolviste algo con ellas.</p>
+    <div class="chips" id="cosecha"></div>
   </div>
 
   <footer>Semana 2 · Las palabras tienen anatomía · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página.</footer>
@@ -82,108 +113,157 @@
 
 <script>
 (function(){
-  var PALABRAS=[
-    {w:"biología",
-     real:"Ciencia que estudia los seres vivos.",
-     piezas:[["bio","vida",true],["-logía","estudio",true],["tele-","lejos",false],["-metro","medir",false]],
-     lit:"estudio de la vida"},
-    {w:"teléfono",
-     real:"Aparato para hablar con alguien que está lejos.",
-     piezas:[["tele-","lejos",true],["fono","sonido",true],["crono","tiempo",false],["-ia","cualidad",false]],
-     lit:"sonido a distancia"},
-    {w:"hipopótamo",
-     real:"Mamífero africano grande que vive en ríos.",
-     piezas:[["hipo","caballo",true],["pótamo","río",true],["demo","pueblo",false],["-logía","estudio",false]],
-     lit:"caballo de río"},
-    {w:"cronómetro",
-     real:"Instrumento que mide el tiempo con precisión.",
-     piezas:[["crono","tiempo",true],["-metro","medir",true],["bio","vida",false],["a-","sin",false]],
-     lit:"medidor de tiempo"},
-    {w:"filosofía",
-     real:"Estudio de preguntas fundamentales: qué existe, qué es lo bueno, qué podemos saber.",
-     piezas:[["filo","amor, amigo",true],["sofía","sabiduría",true],["fono","sonido",false],["-metro","medir",false]],
-     lit:"amor a la sabiduría"},
-    {w:"democracia",
-     real:"Sistema donde el pueblo elige a quienes gobiernan.",
-     piezas:[["demo","pueblo",true],["-cracia","poder",true],["hipo","caballo",false],["tele-","lejos",false]],
-     lit:"poder del pueblo"}
+
+  var RETOS=[
+    // ---------- RONDA 1: de la palabra al significado ----------
+    {r:1,
+     premisa:"<em>biología</em> es el estudio de la <b>vida</b>. Y hoy en clase viste que <em>amnesia</em> es <b>sin</b> memoria.",
+     piezas:[["bio","vida"],["a- / an-","sin"]],
+     preg:"¿Qué significa <em>abiótico</em>?",
+     ops:[["Que está lleno de vida",0],["Sin vida",1],["El estudio de la vida",0],["Vida a distancia",0]],
+     fb:"<b>a- (sin) + bio (vida).</b> Un ambiente abiótico es uno donde no hay vida: el fondo de un lago de sal, la superficie de Marte, el interior de un volcán. La misma <em>a-</em> de amnesia, anónimo y apolítico."},
+
+    {r:1,
+     premisa:"<em>geografía</em> lleva <b>geo</b>, tierra. Y <em>cronómetro</em> lleva <b>-metro</b>, medida.",
+     piezas:[["geo","tierra"],["-metro","medida"]],
+     preg:"¿Qué significa, literalmente, <em>geometría</em>?",
+     ops:[["El dibujo de la tierra",0],["La medida de la tierra",1],["El estudio del tiempo",0],["La tierra sin medir",0]],
+     fb:"<b>geo (tierra) + metría (medida).</b> Llevas años haciendo geometría sin saber que la palabra dice \"medir la tierra\". Y no es metáfora: nació con los egipcios midiendo otra vez los terrenos cada año, cuando el Nilo se desbordaba y borraba los linderos."},
+
+    {r:1,
+     premisa:"<em>teléfono</em> lleva <b>tele-</b>, lejos. Y <em>biografía</em> lleva <b>graf-</b>, escribir.",
+     piezas:[["tele-","lejos"],["graf-","escribir"]],
+     preg:"¿Qué significa <em>telegrafía</em>?",
+     ops:[["Sonido a distancia",0],["Escritura a distancia",1],["La escritura de una vida",0],["La medida de la distancia",0]],
+     fb:"<b>tele (lejos) + grafía (escritura).</b> Escribir lejos. Antes del teléfono, el telégrafo fue la primera vez en la historia que un mensaje viajó más rápido que el mensajero. Y la misma pieza está en tu <em>tele</em>visión: ver de lejos."},
+
+    {r:1,
+     premisa:"<em>democracia</em> lleva <b>demo-</b>, pueblo. Y ya sabes que <b>graf-</b> es escribir o describir.",
+     piezas:[["demo-","pueblo"],["graf-","escribir, describir"]],
+     preg:"¿De qué se ocupa la <em>demografía</em>?",
+     ops:[["Del poder de la escritura",0],["De describir a la población: cuántos son, dónde viven, cómo cambian",1],["Del estudio del poder",0],["De los pueblos que saben escribir",0]],
+     fb:"<b>demo (pueblo) + grafía (descripción).</b> La demografía escribe al pueblo en números: cuántos nacen, cuántos se van, cuántos quedan. Cuando dicen que un municipio de la Sierra \"perdió población\", eso es un dato demográfico."},
+
+    {r:1,
+     premisa:"Del mazo cero: <b>terr-</b> es tierra (terreno) y <b>acu-</b> es agua (acuario).",
+     piezas:[["terr-","tierra"],["acu- / aqua","agua"]],
+     preg:"Al planeta le decimos <em>globo terráqueo</em>. ¿Qué está diciendo esa palabra?",
+     ops:[["Que es de tierra firme",0],["Que es de tierra y agua",1],["Que es redondo como la tierra",0],["Que gira sobre sí mismo",0]],
+     fb:"<b>terra (tierra) + aqua (agua).</b> Terráqueo es \"de tierra y agua\", y hace justicia: casi tres cuartas partes de lo que ves en ese globo es mar. Le decimos Tierra a un planeta que es, sobre todo, agua."},
+
+    // ---------- RONDA 2: del significado a la palabra ----------
+    {r:2,
+     premisa:"<em>hipopótamo</em> se parte en <b>hipo</b> (caballo) + <b>pótamo</b> (río): caballo de río. Y en griego <b>meso-</b> es \"en medio\".",
+     piezas:[["hipo","caballo"],["potamo","río"],["meso-","en medio"]],
+     preg:"¿Cuál de estas palabras nombra una región que está <em>en medio de dos ríos</em>?",
+     ops:[["Mesoamérica",0],["Mesopotamia",1],["Hipódromo",0],["Potosí",0]],
+     fb:"<b>meso (en medio) + potamia (ríos).</b> Mesopotamia: la tierra entre el Tigris y el Éufrates. El nombre es una dirección, no un nombre propio: alguien la llamó \"la de en medio de los ríos\" y se le quedó. Ahí, de paso, se inventó la escritura. Ojo con <em>Mesoamérica</em>: misma pieza <em>meso-</em>, pero es América de en medio."},
+
+    {r:2,
+     premisa:"Ya sabes que <b>a-</b> es sin y que <b>mnem-</b> es memoria: por eso <em>amnesia</em> es quedarse sin memoria.",
+     piezas:[["a- / an-","sin"],["mnem-","memoria"]],
+     preg:"Hay una palabra que significa <em>olvido decretado por ley</em>: cuando el Estado decide no recordar un delito. ¿Cuál es?",
+     ops:[["Anemia",0],["Amnistía",1],["Amnesia",0],["Anomalía",0]],
+     fb:"<b>Amnistía</b> y <b>amnesia</b> son hermanas: las dos llevan <em>a-</em> (sin) y <em>mnem-</em> (memoria). La amnesia es un olvido que te pasa; la amnistía es un olvido que se firma. Perdonar, a veces, es memoria que se apaga a propósito. (<em>Anemia</em> también es pariente lejana: an- + haima, sin sangre.)"},
+
+    {r:2,
+     premisa:"<b>crono</b> es tiempo (cronómetro) y <b>-logía</b> es estudio u orden razonado (biología).",
+     piezas:[["crono","tiempo"],["-logía","estudio, orden"]],
+     preg:"En un museo, las piezas están acomodadas de la más antigua a la más nueva. ¿Cómo se llama ese orden?",
+     ops:[["Cronómetro",0],["Cronología",1],["Crónica",0],["Cronista",0]],
+     fb:"<b>crono (tiempo) + logía.</b> Una cronología es el tiempo puesto en orden. Y fíjate en las otras tres: <em>cronómetro</em> mide el tiempo, la <em>crónica</em> lo cuenta y el <em>cronista</em> es quien la escribe. Cuatro palabras, una sola raíz, y ya las puedes distinguir sin diccionario."},
+
+    {r:2,
+     premisa:"<b>bio</b> es vida, <b>graf-</b> es escribir, <b>-logía</b> es estudio.",
+     piezas:[["bio","vida"],["graf-","escribir"],["-logía","estudio"]],
+     preg:"Un libro cuenta la vida de alguien, escrito por otra persona. ¿Qué es?",
+     ops:[["Biología",0],["Biografía",1],["Bibliografía",0],["Biopsia",0]],
+     fb:"<b>bio (vida) + grafía (escritura).</b> La escritura de una vida. Cuidado con <em>bibliografía</em>, que se le parece pero lleva <em>biblio-</em> (libro): es la escritura de los libros, la lista de lo que se consultó. Una letra de diferencia, otro mundo."}
   ];
+
+  var COSECHA=[
+    ["a- / an-","sin"],["mnem-","memoria"],["tele-","lejos"],["meso-","en medio"],
+    ["hipo","caballo"],["potamo","río"],["demo-","pueblo"],["crono","tiempo"],
+    ["-metro","medida"],["-cracia","poder"],["fono","sonido"],["biblio-","libro"]
+  ];
+
+  var aciertos=0, resueltos=0;
+  var marcador=document.getElementById('marcador');
 
   function baraja(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
 
-  var cont=document.getElementById('lista');
+  function pinta(reto,idx,destino){
+    var card=document.createElement('div');
+    card.className='card';
 
-  PALABRAS.forEach(function(p,idx){
-    var card=document.createElement('div');card.className='card';
-    card.innerHTML='<h3>'+p.w+'</h3>'
-      +'<div class="paso">Paso 1 · Definición real</div>'
-      +'<textarea placeholder="¿Qué significa hoy? Escríbelo con tus palabras."></textarea>'
-      +'<div class="fila-botones"><button class="btn gris" data-ej>Compara con un ejemplo</button></div>'
-      +'<div class="fb" data-fbej></div>'
-      +'<div class="paso">Paso 2 · Arma la hipótesis etimológica</div>'
-      +'<p style="margin:.2rem 0 0;font-size:.92rem">Toca las piezas que crees que forman la palabra, en orden. Toca de nuevo para quitar.</p>'
-      +'<div class="piezas" data-piezas></div>'
-      +'<div class="armado" data-armado>&nbsp;</div>'
-      +'<div class="fila-botones"><button class="btn rosa" data-check>Revisar piezas</button><button class="btn gris" data-reset>Empezar de nuevo</button></div>'
-      +'<div class="fb" data-fbpz></div>'
-      +'<div class="paso">Paso 3 · Significado literal</div>'
-      +'<input type="text" placeholder="Suma las piezas: ¿qué dice la palabra, literalmente?">'
-      +'<div class="fila-botones"><button class="btn gris" data-lit>Compara con un ejemplo</button></div>'
-      +'<div class="fb" data-fblit></div>';
-    cont.appendChild(card);
+    var chips=reto.piezas.map(function(p){
+      return '<span class="pz">'+p[0]+'<small>'+p[1]+'</small></span>';
+    }).join('');
 
-    var sel=[];
-    var zona=card.querySelector('[data-piezas]');
-    var armado=card.querySelector('[data-armado]');
-    var fbpz=card.querySelector('[data-fbpz]');
+    card.innerHTML='<div class="paso">Reto '+idx+'</div>'
+      +'<div class="sabes"><b>Ya sabes esto:</b> '+reto.premisa+'<div class="chips">'+chips+'</div></div>'
+      +'<div class="preg">'+reto.preg+'</div>'
+      +'<div class="ops"></div>'
+      +'<div class="fb"></div>';
 
-    baraja(p.piezas).forEach(function(pz){
+    var zona=card.querySelector('.ops');
+    var fb=card.querySelector('.fb');
+    var cerrado=false;
+
+    baraja(reto.ops).forEach(function(op){
       var b=document.createElement('button');
-      b.innerHTML=pz[0]+'<small>'+pz[1]+'</small>';
-      b.dataset.pieza=pz[0]; b.dataset.buena=pz[2]?'1':'0';
+      b.textContent=op[0];
       b.addEventListener('click',function(){
-        var i=sel.indexOf(b);
-        if(i>-1){sel.splice(i,1);b.classList.remove('sel');}
-        else{sel.push(b);b.classList.add('sel');}
-        armado.textContent=sel.length?sel.map(function(x){return x.dataset.pieza;}).join(' + '):' ';
-        fbpz.className='fb';
+        if(cerrado) return;
+        cerrado=true;
+        resueltos++;
+        Array.prototype.forEach.call(zona.children,function(x){x.disabled=true;});
+        if(op[1]===1){
+          aciertos++;
+          b.className='bueno';
+          fb.className='fb ok';
+          fb.innerHTML='<strong>Le atinaste.</strong> '+reto.fb;
+        }else{
+          b.className='malo';
+          Array.prototype.forEach.call(zona.children,function(x){
+            if(x.textContent===reto.ops.filter(function(o){return o[1]===1;})[0][0]) x.className='bueno';
+          });
+          fb.className='fb no';
+          fb.innerHTML='<strong>No era esa, y no pasa nada: fallar aquí es gratis.</strong> '+reto.fb;
+        }
+        actualiza();
       });
       zona.appendChild(b);
     });
 
-    card.querySelector('[data-check]').addEventListener('click',function(){
-      if(!sel.length){fbpz.className='fb no';fbpz.textContent='Primero toca las piezas que crees que forman la palabra.';return;}
-      var buenas=p.piezas.filter(function(x){return x[2];});
-      var elegidasBuenas=sel.filter(function(x){return x.dataset.buena==='1';}).length;
-      var intrusas=sel.length-elegidasBuenas;
-      if(elegidasBuenas===buenas.length&&intrusas===0){
-        fbpz.className='fb ok';
-        fbpz.textContent='Hipótesis sólida: esas son las piezas. El jueves la confirmas contra las fuentes.';
-      }else if(intrusas>0){
-        fbpz.className='fb no';
-        fbpz.textContent='Hay '+intrusas+' pieza'+(intrusas>1?'s':'')+' que no pertenece'+(intrusas>1?'n':'')+' a esta palabra. Pista: lee el significado pequeño de cada pieza y pregúntate si suena dentro de "'+p.w+'".';
-      }else{
-        fbpz.className='fb no';
-        fbpz.textContent='Vas bien pero falta una pieza. La palabra tiene '+buenas.length+' piezas en total.';
-      }
-    });
+    destino.appendChild(card);
+  }
 
-    card.querySelector('[data-reset]').addEventListener('click',function(){
-      sel.forEach(function(x){x.classList.remove('sel');});sel=[];
-      armado.innerHTML='&nbsp;';fbpz.className='fb';
-    });
+  function actualiza(){
+    marcador.textContent='Llevas '+aciertos+' de 9';
+    if(resueltos===RETOS.length){
+      var c=document.getElementById('cierre-marcador');
+      var msg;
+      if(aciertos>=8) msg='<strong>'+aciertos+' de 9.</strong> Eso no fue suerte. Acabas de leer palabras que nadie te enseñó, usando piezas que sí te enseñaron. Ese es exactamente el truco de magia del curso, y lo hiciste en la semana 2.';
+      else if(aciertos>=5) msg='<strong>'+aciertos+' de 9.</strong> Ya estás infiriendo: más de la mitad de esas palabras las descifraste sin diccionario. Las que fallaste te dicen qué piezas todavía no están firmes en tu mazo. Anótalas.';
+      else msg='<strong>'+aciertos+' de 9.</strong> Todavía no, y está bien: hoy es el primer día que lo intentas. Vuelve a leer las explicaciones de arriba, porque ahí está el método completo, y dale duro al mazo. En dos semanas esto se siente distinto.';
+      c.innerHTML='<div class="fb ej" style="display:block;margin-top:1.2rem">'+msg+'</div>';
+      c.scrollIntoView({behavior:'smooth',block:'nearest'});
+    }
+  }
 
-    card.querySelector('[data-ej]').addEventListener('click',function(){
-      var fb=card.querySelector('[data-fbej]');
-      fb.className='fb ej';
-      fb.innerHTML='<strong>Un ejemplo de definición real:</strong> '+p.real+' La tuya no tiene que ser idéntica, solo tiene que explicar cómo se usa hoy.';
-    });
+  var n=0;
+  RETOS.forEach(function(r){
+    n++;
+    pinta(r,n,document.getElementById(r.r===1?'r1':'r2'));
+  });
 
-    card.querySelector('[data-lit]').addEventListener('click',function(){
-      var fb=card.querySelector('[data-fblit]');
-      fb.className='fb ej';
-      fb.innerHTML='<strong>Un ejemplo de significado literal:</strong> '+p.lit+'. Si el tuyo dice lo mismo con otras palabras, va perfecto.';
-    });
+  var cos=document.getElementById('cosecha');
+  COSECHA.forEach(function(p){
+    var s=document.createElement('span');
+    s.className='pz';
+    s.innerHTML=p[0]+'<small>'+p[1]+'</small>';
+    cos.appendChild(s);
   });
 
   document.getElementById('btnModo').addEventListener('click',function(){

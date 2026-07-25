@@ -3,11 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Semana 2 · Ejercicio B · Las dos linternas</title>
+<title>Semana 2 · Ejercicio B · El taller de las dos linternas</title>
 <style>
   :root{
     --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
-    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6; --mist:#4a3b7c; --mistbg:#efecf9;
+    --raiz-bg:#fbeaf0; --raiz-tx:#72243e;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+    --mist:#5b4b8a; --mistbg:#f1eefb;
   }
   *{box-sizing:border-box}
   body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
@@ -22,26 +24,41 @@
   body.proyector header h1{font-size:2rem}
   .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
   .instr strong{color:var(--ciruela)}
-  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.9rem 0 .4rem}
+  .sub{margin:.1rem 0 .9rem;font-size:.93rem;color:#555}
   .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
   .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.25rem}
   .paso{font-size:.8rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.04em;margin-top:.9rem}
   textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
   textarea{min-height:3.2rem;resize:vertical}
-  .piezas{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
-  .piezas button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;font-size:1rem;cursor:pointer}
-  .piezas button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
-  .piezas button small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
-  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
   .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
   .btn.rosa{background:var(--rosa);color:#fff}
   .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
   .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
   .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
   .fb.no{display:block;background:var(--nobg);color:var(--no)}
   .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
   .fb.mist{display:block;background:var(--mistbg);color:var(--mist)}
   .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  /* emparejamiento */
+  .par{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:.8rem}
+  .col h4{margin:0 0 .5rem;font-size:.85rem;text-transform:uppercase;letter-spacing:.04em;color:var(--ciruela)}
+  .col button{display:block;width:100%;text-align:left;margin-bottom:.4rem;padding:.55rem .7rem;border:1px solid var(--borde);border-radius:.55rem;background:#fff;font:inherit;cursor:pointer;font-size:.95rem}
+  .col button em{color:#666;font-size:.85rem}
+  .col button.sel{border-color:var(--rosa);background:var(--fondo);font-weight:700}
+  .col button.hecho{background:var(--okbg);border-color:var(--ok);color:var(--ok);cursor:default;opacity:.75}
+  .col button.err{border-color:var(--no);background:var(--nobg)}
+  .contador{font-weight:700;color:var(--ciruela);margin-top:.6rem;font-size:.95rem}
+  /* inferencia */
+  .ops{display:flex;flex-direction:column;gap:.45rem;margin-top:.7rem}
+  .ops button{text-align:left;padding:.65rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:#2a2a2a;font:inherit;cursor:pointer}
+  .ops button:hover{border-color:var(--rosa)}
+  .ops button.malo{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  .ops button.bueno{background:var(--okbg);color:var(--ok);border-color:var(--ok);font-weight:700}
+  .preg{margin:.2rem 0;color:var(--rosa);font-size:1.15rem;font-weight:700}
+  .rebelde{border:1px solid var(--borde);border-left:4px solid var(--mist);border-radius:0 .6rem .6rem 0;padding:.8rem 1rem;margin:.8rem 0;background:var(--mistbg)}
+  .rebelde b{color:var(--mist)}
   footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
 </style>
 </head>
@@ -57,21 +74,53 @@
 <div class="wrap">
 
   <div class="instr">
-    <strong>Cómo se juega.</strong> En equipo de tres, tomen las cuatro palabras de abajo. Para cada una enciendan las dos linternas: primero la definición real, luego la hipótesis etimológica. Aviso justo: no todas las palabras cooperan. Si una se resiste, eso también es un hallazgo, quizá el más importante del día.
+    <strong>Las dos linternas.</strong> Sobre cada palabra se pueden encender dos luces distintas.<br><br>
+    La <strong>definición real</strong> dice cómo se usa la palabra hoy, en la calle y en el diccionario. <em>Memoria: las imágenes de lo que pasó, que quedan en la mente.</em><br><br>
+    La <strong>definición etimológica</strong> hace otra cosa: dice de dónde viene la palabra, nombra sus piezas y arma un significado con ellas. <em>Amnesia: del griego</em> ἀμνησία<em>, con el prefijo</em> a- <em>(sin), la palabra</em> mnéme <em>(memoria) y el sufijo</em> -ia <em>(cualidad). Por lo tanto: la cualidad de estar sin memoria.</em><br><br>
+    No compiten. Son dos linternas sobre el mismo objeto, y ver con las dos es distinto que ver con una.
   </div>
 
   <div class="cuaderno">
-    <strong>Si trabajas en cuaderno:</strong> haz una tabla de tres columnas por palabra: definición real, piezas que propones (con significado), y un veredicto propio: se abre / se resiste / no sé. Guarda la tabla: el jueves la llevas al tribunal.
+    <strong>Si trabajas en cuaderno:</strong> haz dos columnas por palabra —definición real y definición etimológica— y en la segunda escribe las piezas separadas con +, cada una con su significado abajo.
   </div>
 
+  <h2>Bloque 1 · Enciende las dos linternas</h2>
+  <p class="sub">Dos palabras. Para cada una, las dos definiciones. En equipo de tres, en voz alta.</p>
   <div id="lista"></div>
 
-  <h2>Las palabras rebeldes</h2>
+  <h2>Bloque 2 · Cada palabra con su étimo</h2>
+  <p class="sub">Diez palabras del español y diez étimos —las palabras de origen de las que nacieron. Toca una palabra, luego su étimo. Si aciertas, se quedan juntas.</p>
+
+  <div class="par">
+    <div class="col" id="colPal"><h4>La palabra</h4></div>
+    <div class="col" id="colEti"><h4>Su étimo</h4></div>
+  </div>
+  <div class="contador" id="contador">0 de 10 emparejadas</div>
+  <div class="fb" id="fbPar"></div>
+
+  <h2>Bloque 3 · La familia crece</h2>
+  <p class="sub">Con los étimos que acabas de descubrir, ya puedes abrir palabras que nadie te explicó. Aquí es donde se paga el trabajo de arriba.</p>
+  <div id="infer"></div>
+
+  <h2>Bloque 4 · Dos que no se dejan partir</h2>
+  <p class="sub">Para que no te vuelvas loco buscándoles piezas griegas o latinas: no todas las palabras del español las tienen.</p>
+
+  <div class="rebelde">
+    <b>almohada.</b> Puedes probar todas las combinaciones que quieras: no hay pieza griega ni latina que embone. Viene del árabe <em>al-mujadda</em>, "la que se pone bajo la mejilla". El <em>al-</em> del principio es el artículo árabe, el mismo de <em>almohada, almendra, alcalde, alberca, azúcar</em>. Cuando una palabra española empieza con <em>al-</em> y no logras partirla, casi siempre estás tocando ochocientos años de árabe en la península.
+  </div>
+
+  <div class="rebelde">
+    <b>ojalá.</b> Suena a "ojal" y a "allá", y no es ninguna de las dos. Es el árabe <em>law šāʾ Allāh</em>: "si Dios quiere". Cada vez que alguien dice "ojalá llueva", está invocando a Alá sin saberlo, en pleno semidesierto queretano.
+  </div>
+
+  <div class="fb ej" style="display:block">
+    <strong>La regla que te llevas:</strong> que una palabra no se deje partir no significa que fallaste. Significa que llegó al español por otro camino —el árabe, el náhuatl, el francés, el inglés— y ese viaje es justamente el tema de la Unidad 2. Apúntala en tu lista de pendientes y no la sueltes.
+  </div>
+
+  <h2>Para cerrar</h2>
   <div class="card">
-    <p>¿Cuáles palabras se resistieron? Anótalas aquí y escribe tu mejor sospecha: ¿por qué no se dejan partir como las otras?</p>
-    <textarea placeholder="Se resistieron... y sospecho que es porque..."></textarea>
-    <div class="fila-botones"><button class="btn gris" id="btnSemilla">Una pista para llevarse</button></div>
-    <div class="fb" id="fbSemilla"></div>
+    <p>De todo lo de hoy, ¿cuál fue la palabra que más te sorprendió al abrirla, y por qué? Una línea basta.</p>
+    <textarea placeholder="La que más me sorprendió fue... porque..."></textarea>
   </div>
 
   <footer>Semana 2 · Las palabras tienen anatomía · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página.</footer>
@@ -81,101 +130,143 @@
 
 <script>
 (function(){
-  var PALABRAS=[
-    {w:"micrófono",tipo:"abre",
-     real:"Aparato que capta la voz o el sonido para amplificarlo o grabarlo.",
-     piezas:[["micro-","pequeño",true],["fono","sonido",true],["mi-","¿mío?",false],["-ófono","¿?",false]],
-     lit:"sonido pequeño (que se hace grande)"},
-    {w:"geografía",tipo:"abre",
-     real:"Ciencia que estudia la Tierra: sus territorios, climas y gentes.",
-     piezas:[["geo","tierra",true],["grafía","escritura, dibujo",true],["-fía","¿?",false],["geogra-","¿?",false]],
-     lit:"dibujo o descripción de la Tierra"},
-    {w:"mercado",tipo:"resiste",
-     real:"Lugar o sistema donde se compra y se vende.",
-     piezas:[["merc-","¿?",false],["-ado","¿como en pescado?",false],["mer-","¿mar?",false],["cado","¿caído?",false]],
-     pista:"El final -ado suena conocido, pero ¿qué significaría merc- por sí solo? ¿En qué otras palabras aparece? (comercio, mercancía, mercería...) Algo hay ahí, pero la hipótesis no cierra sola: necesita fuentes. Al tribunal del jueves."},
-    {w:"almohada",tipo:"resiste",
-     real:"Pieza blanda donde se apoya la cabeza al dormir.",
-     piezas:[["al-","¿?",false],["moha-","¿?",false],["-ada","¿como en limonada?",false],["almo-","¿alma?",false]],
-     pista:"Prueba todas las combinaciones que quieras: ninguna pieza suena griega ni latina. Esta palabra guarda un secreto de viaje. No se resuelve esta semana: apúntala en tu lista de pendientes y no la sueltes."}
-  ];
 
   function baraja(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
 
-  var cont=document.getElementById('lista');
+  /* ---------- BLOQUE 1 ---------- */
+  var PALABRAS=[
+    {w:"oculista",
+     real:"Médico que atiende los problemas de la vista.",
+     eti:"Del latín <em>oculus</em> (ojo) más el sufijo <em>-ista</em> (el que se dedica a). Literalmente: <strong>el que se dedica a los ojos</strong>."},
+    {w:"cardiaco",
+     real:"Relacionado con el corazón; también, quien padece del corazón.",
+     eti:"Del griego <em>kardía</em> (corazón) más el sufijo <em>-aco</em> (relativo a). Literalmente: <strong>relativo al corazón</strong>. Guárdate el dato: el español dice el corazón de dos maneras, con el griego <em>cardia</em> y con el latín <em>cor, cordis</em>. Por eso tenemos <em>cardiólogo</em> y <em>cordial</em>."}
+  ];
 
+  var cont=document.getElementById('lista');
   PALABRAS.forEach(function(p){
     var card=document.createElement('div');card.className='card';
     card.innerHTML='<h3>'+p.w+'</h3>'
       +'<div class="paso">Linterna 1 · Definición real</div>'
-      +'<textarea placeholder="¿Qué significa hoy? Escríbelo con tus palabras."></textarea>'
+      +'<textarea placeholder="¿Cómo se usa hoy esta palabra? Escríbelo con tus palabras."></textarea>'
       +'<div class="fila-botones"><button class="btn gris" data-ej>Compara con un ejemplo</button></div>'
       +'<div class="fb" data-fbej></div>'
-      +'<div class="paso">Linterna 2 · Hipótesis etimológica</div>'
-      +'<p style="margin:.2rem 0 0;font-size:.92rem">Toca las piezas que crees que forman la palabra. Toca de nuevo para quitar.</p>'
-      +'<div class="piezas" data-piezas></div>'
-      +'<div class="fila-botones"><button class="btn rosa" data-check>Revisar hipótesis</button><button class="btn gris" data-reset>Empezar de nuevo</button></div>'
-      +'<div class="fb" data-fbpz></div>';
+      +'<div class="paso">Linterna 2 · Definición etimológica</div>'
+      +'<p style="margin:.2rem 0 0;font-size:.92rem">Origen, piezas, y un significado armado con ellas.</p>'
+      +'<textarea placeholder="Viene de... formada con... por lo tanto significa..."></textarea>'
+      +'<div class="fila-botones"><button class="btn rosa" data-eti>Compara con un ejemplo</button></div>'
+      +'<div class="fb" data-fbeti></div>';
     cont.appendChild(card);
-
-    var sel=[];
-    var zona=card.querySelector('[data-piezas]');
-    var fbpz=card.querySelector('[data-fbpz]');
-    var intentos=0;
-
-    baraja(p.piezas).forEach(function(pz){
-      var b=document.createElement('button');
-      b.innerHTML=pz[0]+'<small>'+pz[1]+'</small>';
-      b.dataset.buena=pz[2]?'1':'0';
-      b.addEventListener('click',function(){
-        var i=sel.indexOf(b);
-        if(i>-1){sel.splice(i,1);b.classList.remove('sel');}
-        else{sel.push(b);b.classList.add('sel');}
-        fbpz.className='fb';
-      });
-      zona.appendChild(b);
-    });
-
-    card.querySelector('[data-check]').addEventListener('click',function(){
-      if(!sel.length){fbpz.className='fb no';fbpz.textContent='Primero toca las piezas que propones.';return;}
-      if(p.tipo==='abre'){
-        var buenas=p.piezas.filter(function(x){return x[2];}).length;
-        var aciertos=sel.filter(function(x){return x.dataset.buena==='1';}).length;
-        var intrusas=sel.length-aciertos;
-        if(aciertos===buenas&&intrusas===0){
-          fbpz.className='fb ok';
-          fbpz.innerHTML='Esta palabra sí se abre, y esas son sus piezas. Significado literal: <em>'+p.lit+'</em>. Falta el paso serio: verificarla en fuentes el jueves.';
-        }else if(intrusas>0){
-          fbpz.className='fb no';
-          fbpz.textContent='Alguna de esas piezas no pertenece. Pista: una pieza de verdad tiene significado propio; los pedazos con signo de interrogación son sospechosos.';
-        }else{
-          fbpz.className='fb no';
-          fbpz.textContent='Vas bien pero falta una pieza. Esta palabra tiene '+buenas+' piezas.';
-        }
-      }else{
-        intentos++;
-        fbpz.className='fb mist';
-        fbpz.innerHTML=(intentos<2)
-          ?'Mmm. Esa combinación no suma un significado que convenza. Prueba otra, o pregúntate: ¿y si esta palabra no se deja partir como las demás?'
-          :'<strong>Hallazgo del taller:</strong> esta palabra se resiste. '+p.pista;
-      }
-    });
-
-    card.querySelector('[data-reset]').addEventListener('click',function(){
-      sel.forEach(function(x){x.classList.remove('sel');});sel=[];fbpz.className='fb';
-    });
 
     card.querySelector('[data-ej]').addEventListener('click',function(){
       var fb=card.querySelector('[data-fbej]');
       fb.className='fb ej';
-      fb.innerHTML='<strong>Un ejemplo de definición real:</strong> '+p.real+' La tuya puede decirlo distinto, mientras explique cómo se usa hoy.';
+      fb.innerHTML='<strong>Definición real:</strong> '+p.real+' La tuya puede decirlo distinto, mientras explique cómo se usa hoy.';
+    });
+    card.querySelector('[data-eti]').addEventListener('click',function(){
+      var fb=card.querySelector('[data-fbeti]');
+      fb.className='fb ej';
+      fb.innerHTML='<strong>Definición etimológica:</strong> '+p.eti;
     });
   });
 
-  document.getElementById('btnSemilla').addEventListener('click',function(){
-    var fb=document.getElementById('fbSemilla');
-    fb.className='fb mist';
-    fb.innerHTML='No toda palabra del español nació del griego o del latín clásico de los libros. Algunas llegaron caminando por otros rumbos. ¿Por dónde? Esa historia empieza en la Unidad 2. Mientras tanto: toda hipótesis, hasta la más bonita, necesita verificación.';
+  /* ---------- BLOQUE 2 · emparejamiento ---------- */
+  var PARES=[
+    {p:"cordiforme", e:"cor, cordis", t:"corazón", nota:"Cordiforme es \"en forma de corazón\": así se describen muchas hojas de árbol."},
+    {p:"cardiaco",   e:"cardía",      t:"corazón", nota:"El corazón otra vez, pero en griego. Dos idiomas, un órgano, dos familias de palabras."},
+    {p:"amigo",      e:"amor",        t:"amor",    nota:"Amigo viene de amar. No es cursilería: está en la palabra."},
+    {p:"Erasmo",     e:"éros",        t:"amor",    nota:"Erasmo viene del griego erásmios, \"amable, deseado\", de éros. Otra vez: el amor en latín y en griego."},
+    {p:"domingo",    e:"dominus",     t:"señor",   nota:"Dies dominicus, \"el día del Señor\". Toda la semana se llama como se llama por alguien."},
+    {p:"oculista",   e:"oculus",      t:"ojo",     nota:"De aquí salen ocular, binoculares, monóculo e inocular."},
+    {p:"neurosis",   e:"neûron",      t:"nervio",  nota:"La misma pieza de neurona, neurólogo y neurotransmisor."},
+    {p:"capilar",    e:"capillus",    t:"cabello", nota:"Los vasos capilares se llaman así porque son finos como un cabello."},
+    {p:"esclavitud", e:"sclavus",     t:"esclavo", nota:"Guárdala: el viernes vas a descubrir que esta palabra y el saludo \"chao\" son la misma."},
+    {p:"Oriente",    e:"oriri",       t:"nacer, surgir", nota:"El Oriente es, literalmente, por donde nace el sol. Y de ahí también origen, oriundo y aborigen."}
+  ];
+
+  var colPal=document.getElementById('colPal'), colEti=document.getElementById('colEti');
+  var contador=document.getElementById('contador'), fbPar=document.getElementById('fbPar');
+  var selPal=null, hechas=0;
+
+  baraja(PARES).forEach(function(x){
+    var b=document.createElement('button');
+    b.textContent=x.p; b.dataset.k=x.p;
+    b.addEventListener('click',function(){
+      if(b.classList.contains('hecho')) return;
+      if(selPal) selPal.classList.remove('sel');
+      selPal=b; b.classList.add('sel'); fbPar.className='fb';
+    });
+    colPal.appendChild(b);
+  });
+
+  baraja(PARES).forEach(function(x){
+    var b=document.createElement('button');
+    b.innerHTML=x.e+' <em>&ldquo;'+x.t+'&rdquo;</em>'; b.dataset.k=x.p;
+    b.addEventListener('click',function(){
+      if(b.classList.contains('hecho')) return;
+      if(!selPal){ fbPar.className='fb no'; fbPar.textContent='Primero toca una palabra de la izquierda.'; return; }
+      if(b.dataset.k===selPal.dataset.k){
+        b.classList.add('hecho'); selPal.classList.remove('sel'); selPal.classList.add('hecho');
+        selPal=null; hechas++;
+        contador.textContent=hechas+' de 10 emparejadas';
+        fbPar.className='fb ok';
+        fbPar.innerHTML='<strong>Van juntas.</strong> '+x.nota;
+        if(hechas===10){
+          fbPar.className='fb ej';
+          fbPar.innerHTML='<strong>Las diez.</strong> Fíjate en lo que quedó a la vista: el corazón aparece dos veces (<em>cor</em> en latín, <em>cardía</em> en griego) y el amor también (<em>amor</em> en latín, <em>éros</em> en griego). No es casualidad ni desorden: el español heredó de dos padres, y muchas veces se quedó con las dos versiones de la misma idea. Ese es, en una frase, el nombre completo de esta materia.';
+        }
+      }else{
+        b.classList.add('err'); var bb=b;
+        setTimeout(function(){bb.classList.remove('err');},600);
+        fbPar.className='fb no';
+        fbPar.textContent='Ese no. Lee otra vez el significado del étimo y pregúntate si se oye dentro de la palabra.';
+      }
+    });
+    colEti.appendChild(b);
+  });
+
+  /* ---------- BLOQUE 3 · inferencia ---------- */
+  var INFER=[
+    {preg:"Si <em>dominus</em> es \"señor\", ¿qué es un <em>condominio</em>?",
+     ops:[["Un edificio con muchos departamentos",0],["Un dominio compartido: varios señores mandan sobre lo mismo",1],["Un contrato de renta",0]],
+     fb:"<b>con- (junto) + dominio (señorío).</b> Un condominio es propiedad mandada entre varios. Y la misma pieza está en <em>dominar</em>, <em>dueño</em> y hasta en <em>don</em> y <em>doña</em>: todos vienen de <em>dominus</em>."},
+
+    {preg:"Si <em>oriri</em> es \"nacer, surgir\", ¿qué quiere decir que alguien sea <em>oriundo</em> de Jalpan?",
+     ops:[["Que vive ahí",0],["Que nació ahí",1],["Que le gusta el lugar",0]],
+     fb:"<b>oriundo = nacido de.</b> Misma raíz que <em>origen</em>, <em>original</em>, <em>aborigen</em> y <em>Oriente</em>. Todas hablan de dónde empieza algo."},
+
+    {preg:"Si <em>cor, cordis</em> es \"corazón\", ¿qué es la <em>discordia</em>?",
+     ops:[["Una discusión a gritos",0],["Corazones separados: el desacuerdo profundo",1],["Una falta de respeto",0]],
+     fb:"<b>dis- (separación) + cor (corazón).</b> Discordia es corazones aparte; <em>concordia</em> es corazones juntos. Y <em>acordar</em> es ponerse de un solo corazón. Toda la política, en tres palabras y una raíz."},
+
+    {preg:"<em>Ocultar</em> se parece muchísimo a <em>oculus</em> (ojo). ¿Es de la misma familia?",
+     ops:[["Sí: ocultar es quitar de la vista, de los ojos",0],["No: se parecen, pero vienen de raíces distintas",1],["Sí, pero llegó por el árabe",0]],
+     fb:"<b>Aquí está la trampa del día.</b> <em>Ocultar</em> viene de <em>occulere</em> (esconder), no de <em>oculus</em> (ojo). Suenan igual, tiene todo el sentido del mundo, y es falso. Se llama etimología popular, y es la manera más común de equivocarse en esta materia. La única defensa: la fuente. Al tribunal del jueves."}
+  ];
+
+  var zi=document.getElementById('infer');
+  INFER.forEach(function(q,i){
+    var card=document.createElement('div');card.className='card';
+    card.innerHTML='<div class="paso">Reto '+(i+1)+'</div><div class="preg">'+q.preg+'</div><div class="ops"></div><div class="fb"></div>';
+    var zona=card.querySelector('.ops'), fb=card.querySelector('.fb'), cerrado=false;
+    baraja(q.ops).forEach(function(op){
+      var b=document.createElement('button');
+      b.textContent=op[0];
+      b.addEventListener('click',function(){
+        if(cerrado) return; cerrado=true;
+        Array.prototype.forEach.call(zona.children,function(x){x.disabled=true;});
+        if(op[1]===1){ b.className='bueno'; fb.className='fb ok'; fb.innerHTML='<strong>Exacto.</strong> '+q.fb; }
+        else{
+          b.className='malo';
+          Array.prototype.forEach.call(zona.children,function(x){
+            if(x.textContent===q.ops.filter(function(o){return o[1]===1;})[0][0]) x.className='bueno';
+          });
+          fb.className='fb no'; fb.innerHTML='<strong>No era esa.</strong> '+q.fb;
+        }
+      });
+      zona.appendChild(b);
+    });
+    zi.appendChild(card);
   });
 
   document.getElementById('btnModo').addEventListener('click',function(){
