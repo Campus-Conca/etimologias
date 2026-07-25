@@ -40,7 +40,7 @@ Abrimos con la palabra del día: algunas de las palabras que trajeron de casa se
 
 Después, gimnasio.
 
-**Tu ejercicio:** [Primeras disecciones](../ejercicios/semana-02/ejercicio-2A-primeras-disecciones.html). Al terminar, escribe tu hipótesis etimológica de una palabra tuya (tu heredada es perfecta). No la busques todavía: el jueves la juzgan las fuentes.
+**Tu ejercicio:** [Primeras disecciones](../ejercicios/semana-02/ejercicio-2A-primeras-disecciones.html), y no es lo que esperas: no vas a desarmar palabras que ya conoces, vas a **adivinar el significado de palabras que nunca has abierto**, usando nada más las piezas que ya traes en el mazo. Sin diccionario y sin teléfono. Al terminar, escribe tu hipótesis etimológica de una palabra tuya (tu heredada es perfecta) y apunta qué tan seguro estás, del 1 al 10. No la busques todavía: el jueves la juzgan las fuentes, y ahí comparas tu apuesta con el veredicto.
 
 Las 6 tarjetas de la semana (están aquí abajo) entran hoy a tu mazo. Los duelos ya van en serio.
 
@@ -48,12 +48,57 @@ Si faltaste: haz el ejercicio en casa y llega el jueves con tu hipótesis anotad
 
 ## Miércoles · Las dos linternas
 
-Duelo de raíces al abrir. Luego, taller por equipos: reciben palabras y construyen sus dos definiciones, la real y la etimológica; el grupo adivina cuál es cuál. Alguna trae trampa.
+Duelo de raíces al abrir. Luego, el taller.
 
-**Tu ejercicio:** [El taller de las dos linternas](../ejercicios/semana-02/ejercicio-2B-las-dos-linternas.html).
+Empecemos por lo básico, que todavía no habíamos dicho con todas sus letras: **la etimología es la explicación de las palabras por la investigación de dos cosas, su historia y su estructura.** De dónde vienen y de qué están hechas.
+
+Para ver qué significa eso en la práctica hay que separar dos maneras de definir una misma palabra.
+
+### Linterna 1 · La definición real
+
+Precisa el sentido en que se usa la palabra **hoy**, en una situación real y actual. Es la de la calle y la del diccionario.
+
+> **Memoria.** Imagen o conjunto de imágenes de hechos o situaciones pasados que quedan en la mente.
+
+### Linterna 2 · La definición etimológica
+
+Hace algo distinto, y lo hace en cuatro pasos: **(a)** da el origen de la palabra, **(b)** nombra los étimos o raíces que la componen, **(c)** identifica los prefijos y sufijos que la completan y **(d)** arma un significado con todo eso.
+
+> **Amnesia.** Del griego ἀμνησία (se lee *amnisía*), formada con:
+>
+> 1. el prefijo de negación **ἀ-** (*a-* = sin)
+> 2. la palabra **μνήμη** (*mnéme* = memoria)
+> 3. el sufijo **-σις** (*-sis* = acción)
+> 4. el sufijo **-ία** (*-ia* = cualidad)
+>
+> Por lo tanto, *amnesia* significa **"sin memoria"**.
+
+Fíjate en lo que acaba de pasar. La definición real te dice qué es la memoria y ahí se acaba. La etimológica te dice que *amnesia* es la negación de la memoria **y de pasada te regala tres piezas** —*a-*, *mnem-*, *-ia*— que vas a volver a encontrar en decenas de palabras que todavía no has visto. Una linterna alumbra la palabra; la otra alumbra el camino.
+
+Por eso no son rivales. Son dos luces sobre el mismo objeto, y ver con las dos es distinto que ver con una.
+
+### ¿Y la palabra "etimología"? También se abre
+
+<div class="dis">
+  <span class="pz pz--raiz">étymos<small>verdadero</small></span>
+  <span class="pz pz--suf">lógos<small>tratado, estudio</small></span>
+  <span class="eq">= etimología</span>
+</div>
+
+**Su definición etimológica:** del adjetivo *étymos* (verdadero) y de *lógos* (tratado, estudio). La etimología es el estudio del **significado auténtico, verdadero**, de las palabras.
+
+**Su definición real:** la ciencia que estudia el significado de las palabras a partir de tres cosas. Estas tres, exactamente, son el trabajo del semestre:
+
+| Lo que investiga | La pregunta con la que se practica |
+|---|---|
+| su **origen** | ¿De dónde viene la palabra *chamba*? |
+| su **estructura** | ¿Qué tienen en común *concordia*, *discordia* y *cardiólogo*? |
+| sus **transformaciones** | ¿Cómo hizo *esclavo* para convertirse en *chao*? |
 
 {: .ojo }
-Definición **real**: cómo se usa hoy. Definición **etimológica**: de dónde vienen sus piezas. No son rivales: son dos linternas sobre la misma palabra.
+La primera trae trampa y no te la voy a resolver aquí. La respuesta que todo el mundo repite —que *chamba* viene del inglés *Chamber of Commerce*— **no aparece en ninguna fuente seria**, y el diccionario apunta hacia otro lado completamente distinto. Es una etimología popular: suena perfecta, se cuenta con seguridad y es falsa. Llévala al tribunal del jueves y compruébalo tú.
+
+**Tu ejercicio:** [El taller de las dos linternas](../ejercicios/semana-02/ejercicio-2B-las-dos-linternas.html). Ahí enciendes las dos linternas sobre dos palabras, emparejas diez palabras del español con su étimo y descubres que el corazón y el amor están dos veces en nuestro idioma, uno por cada padre. La tercera pregunta de la tabla se responde sola el viernes.
 
 ## Jueves · El tribunal de las fuentes (centro de cómputo)
 
@@ -74,9 +119,43 @@ Captura: palabra, hipótesis, veredicto, fuente.
 
 Primero, el seminario que le da sentido a todo el sistema: **si la IA define cualquier palabra en un segundo, ¿para qué memorizar raíces?** Trae postura de verdad, porque el argumento lo construye el grupo, no el profesor. Una pista de hacia dónde vamos: quien sabe *iatro-* ya lee pediatra, geriatra, iatrogenia. Nadie le enseñó esas palabras. Se las regaló la raíz.
 
-Después abre el **Museo de Palabras**, el proyecto del semestre. Verás el caso *chao* (esclavo → *schiavo* → *ciao* → chao): así se escribe la biografía de una palabra. Dónde nació, cómo viajó, cómo llegó a ti.
+Después abre el **Museo de Palabras**, el proyecto del semestre. Una pieza del Museo es la **biografía de una palabra**: dónde nació, cómo viajó, cómo llegó a ti y qué se aprende de ella. Aquí tienes dos casos ya resueltos, para que veas el trabajo terminado antes de empezar el tuyo. Van a propósito en direcciones contrarias.
 
-**Tu ejercicio:** [Biografía de una palabra](../ejercicios/semana-02/ejercicio-2D-biografia-de-una-palabra.html): redacta la primera biografía de tu candidata a pieza. La plantilla vive en [el Museo](../museo/plantilla-biografia.html).
+### Caso resuelto 1 · *chao*, la palabra que llegó de fuera
+
+**Dónde nació.** En el latín medieval **sclavus**, "esclavo". Y esa palabra, a su vez, nació del nombre de un pueblo: los **eslavos**, capturados y vendidos por miles durante siglos en el centro de Europa. El nombre de una gente se convirtió en el nombre de una condición. Ya solo con eso la palabra tiene una historia difícil de olvidar.
+
+**Cómo viajó.**
+
+| Etapa | Qué le pasó |
+|---|---|
+| latín **sclavus** | "esclavo" |
+| véneto **s-ciào** | En Venecia la palabra se desgastó en la boca. Y ahí ocurrió lo raro: se volvió **fórmula de cortesía**. *S-ciào vostro* significaba "soy su esclavo", como quien dice hoy "para servirle" o "a sus órdenes". |
+| italiano **ciao** | La fórmula se acortó y perdió por completo el sabor de sumisión. Dejó de decir nada sobre esclavos: ahora dice hola, y también dice adiós. |
+| español **chao / chau** | Cruzó el Atlántico en el siglo XX con la migración italiana y aquí se escribió como suena. |
+
+**Cómo llegó a ti.** Cada vez que te despides con un "chao", estás diciendo, sin saberlo y sin quererlo, *soy tu esclavo*. Cuatro letras cargando la historia de un pueblo entero.
+
+**Qué enseña este caso.** Que las palabras no solo cambian de sonido: **cambian de oficio**. *Sclavus* nombraba lo más terrible que le puede pasar a una persona y terminó siendo lo que te dicen tus amigos en la puerta de la escuela.
+
+### Caso resuelto 2 · *aguacate*, la palabra que salió de aquí
+
+**Dónde nació.** En náhuatl, **ahuacatl**. Nombraba al fruto, y con la misma palabra se nombraba también al testículo: el parecido saltaba a la vista y a nadie de aquella época le pareció necesario inventar otra palabra.
+
+**Cómo viajó.**
+
+| Etapa | Qué le pasó |
+|---|---|
+| náhuatl **ahuacatl** | el fruto |
+| español **aguacate** | Los españoles oyeron *ahuacatl* y lo acomodaron a su propia boca. Lo mismo hicieron con *ahuacamolli* (*ahuacatl* + *molli*, salsa), que aquí se volvió **guacamole**. |
+| inglés **avocado** | En inglés la palabra se torció por el parecido con una vieja voz española para "abogado". O sea: le pusieron un nombre equivocado por una etimología popular, exactamente el error que este curso te enseña a cazar. |
+| el mundo | Hoy la palabra está en un menú de Sídney, en un supermercado de Berlín y en el desayuno de medio planeta. |
+
+**Cómo llegó a ti.** Al revés que *chao*: esta no vino de fuera. **Salió de aquí.** Estaba en boca de gente que vivía en este territorio antes de que existiera esta escuela, este país y este idioma.
+
+**Qué enseña este caso.** Que una palabra náhuatl esté hoy en la carta de un restaurante australiano quiere decir algo importante para lo que vas a hacer este semestre: las palabras de tu región no son "palabras locales". Son **palabras que todavía no han viajado**. La palabra que te regaló tu abuela, esa que nadie ha escrito nunca, está hoy exactamente en la misma situación en la que estuvo *ahuacatl* hace quinientos años. La diferencia es si alguien la anota o no.
+
+**Tu ejercicio:** [Biografía de una palabra](../ejercicios/semana-02/ejercicio-2D-biografia-de-una-palabra.html): redacta la primera biografía de tu candidata a pieza, con estos cuatro apartados. La plantilla vive en [el Museo](../museo/plantilla-biografia.html).
 
 Y cerramos con diez minutos de lectura en voz alta. Sin tarea, sin examen. Solo escuchar.
 
