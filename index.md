@@ -17,6 +17,70 @@ Toda palabra se puede abrir. Adentro hay piezas, viajes y gente. De eso va este 
 
 Este sitio no es un libro de texto. Es nuestro **taller** (lo que usamos en clase) y nuestra **vitrina** (lo que el grupo va construyendo). Crece cada semana con trabajo de ustedes.
 
+## ¿Y esto para qué me sirve?
+
+Pregunta justa. Va la respuesta antes de empezar, para que sepas en qué te estás metiendo.
+
+**Piensas con palabras.** No con imágenes ni con sensaciones: con palabras. Las que tienes son el material con el que puedes armar una idea, sostener un argumento, entender lo que te está pasando por dentro. Quien tiene doscientas palabras piensa cosas de doscientas palabras. No es un adorno para hablar bonito: es el tamaño del cuarto en el que vives.
+
+**Una raíz te regala cincuenta palabras.** Aprender vocabulario de uno en uno es un mal negocio: son miles y se te olvidan. Aprender la pieza es otra cosa. Quien entiende *iatro-* (médico) lee sin ayuda *pediatra*, *geriatra*, *psiquiatra*, *iatrogenia*. Nadie se las enseñó. Se las regaló la raíz. Eso es lo que aquí se entrena: no memorizar palabras, sino conseguir la llave que abre familias enteras.
+
+**Hay palabras que se usan para que no entiendas.** El contrato que vas a firmar, la receta que te dieron, el trámite que te rebotaron, el discurso que te quiere convencer. Buena parte del poder en este país se ejerce con vocabulario que da pena preguntar. Saber abrir una palabra es dejar de asentir sin entender. Es de las alfabetizaciones más políticas que existen y casi nadie la nombra así.
+
+**Tu manera de hablar tiene historia.** Lo que se dice en la Sierra no es "español mal hablado": es español con capas —latín debajo, náhuatl al lado, árabe más abajo, y palabras que solo viven aquí y que se van a morir si nadie las anota. Este curso te da las herramientas para documentar tu propia habla en lugar de avergonzarte de ella.
+
+**Y porque es un gusto raro.** *Compañero* viene del latín *cum panis*: "el que comparte el pan". Contigo lo comparte, no con otro. Cuando lo sabes, ya no puedes volver a decir "compañero" sin oír lo que dice de verdad. Eso pasa como cien veces al semestre.
+
+{: .ojo }
+Y sí: la inteligencia artificial define cualquier palabra en un segundo. También un camión te lleva a la cima del cerro. Nadie que se subió al camión se puso más fuerte.
+
+### El otro músculo: la atención
+
+Este curso te va a pedir algo que casi ninguna otra cosa en tu día te pide: **quedarte con una sola cosa un rato largo**.
+
+Vale la pena decirlo claro: si te cuesta concentrarte, no es que estés fallando. Cada aplicación de tu teléfono la diseñó gente muy inteligente y muy bien pagada para que no puedas soltarla. Tu atención es el producto que se vende. Contra eso, la fuerza de voluntad sola pierde siempre; lo que funciona es entrenar el músculo, y para eso hace falta un lugar y un rato en los que nada te jale.
+
+De eso habla el movimiento del **slow living**: no se trata de hacer todo despacio, sino de dejar de vivir a un ritmo que tú no escogiste. Hacer menos cosas y estar de verdad en las que haces.
+
+Hay una imagen que lo explica mejor que cualquier definición. Imagina que atraviesas la sala de un museo a paso veloz. Pasaste por todos los cuadros: podrías decir que "viste" la exposición completa. Pero no te detuviste en ninguno, no leíste una sola cédula, y a la salida no podrías describir ni uno. Estuviste ahí y no estuviste. Así se recorre buena parte de la vida cuando el ritmo lo pone otro: crees que experimentaste mucho, y en realidad rozaste muchas cosas sin poner atención en ninguna.
+
+Por algo el proyecto de este semestre es un **museo**, y el trabajo consiste justamente en escribir las cédulas.
+
+Y aquí las palabras nos dan la razón antes de empezar:
+
+<div class="dis">
+  <span class="pz pz--raiz">skholé<small>tiempo libre, calma</small></span>
+  <span class="eq">= escuela</span>
+</div>
+
+La escuela se llamó así por el lujo de **tener tiempo**. Alguien, en el camino, la convirtió en una carrera.
+
+<div class="dis">
+  <span class="pz pz--pre">ad-<small>hacia</small></span>
+  <span class="pz pz--raiz">tendere<small>estirarse</small></span>
+  <span class="eq">= atender</span>
+</div>
+
+Atender es **estirarse hacia algo**. No es un estado que te cae encima: es un esfuerzo, y cansa, como cualquier músculo. También, como cualquier músculo, se entrena.
+
+<div class="dis">
+  <span class="pz pz--pre">nec-<small>no</small></span>
+  <span class="pz pz--raiz">otium<small>ocio, calma</small></span>
+  <span class="eq">= negocio</span>
+</div>
+
+Durante siglos el trabajo se definió por lo que **le quita al descanso**, y no al revés. El ocio era el punto de partida; lo demás era su negación.
+
+Nada de esto es una moda reciente. Marco Aurelio —emperador de Roma, el hombre más poderoso del mundo en su momento— se escribía esto a sí mismo hace mil novecientos años:
+
+> Si buscas tranquilidad, haz menos. O, más exactamente, haz lo esencial. Casi todo lo que decimos y hacemos no es necesario: si logras eliminarlo, tendrás más tiempo y más calma. Pregúntate en cada momento: *¿esto hace falta?*
+>
+> — Marco Aurelio, *Meditaciones*
+
+Por eso aquí se lee, y se lee sin trampa: dos libros en el semestre elegidos por ti, sin control de lectura, sin resumen y sin ficha. Y en algún momento de la semana, diez minutos de lectura en voz alta sin análisis y sin tarea, solo por el gusto de escuchar. No es relleno ni premio por portarse bien: es el gimnasio de la atención, y sin ese músculo lo demás no se sostiene.
+
+Menos cosas, más hondo, y en presente. Ese es el paso de este curso.
+
 ## A dónde vamos juntos
 
 Estamos por pasar cuatro meses abriendo palabras. Esto es lo que vas a poder hacer en diciembre, y que hoy —seamos honestos— todavía no puedes:
@@ -37,7 +101,7 @@ Al final, cada quien sale con su **Museo de Palabras**: una colección propia de
 
 **Memorizar raíces** (el gimnasio). **Leer** (el placer). **Conocer las palabras por dentro** (el oficio).
 
-La IA define cualquier palabra en un segundo. Lo que no puede: memorizar por ti, leer por ti, ni querer una palabra. De eso vive este curso.
+Las tres se sostienen entre sí: sin mazo no tienes con qué pensar, sin lectura no hay atención que aguante, y sin oficio lo demás es juntar datos sueltos. De eso vive este curso.
 
 ## El semestre de un vistazo
 
