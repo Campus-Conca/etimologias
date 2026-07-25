@@ -58,7 +58,37 @@ Hoy queda funcionando tu sistema de repaso, el que sea tuyo:
 
 Con el sistema listo, fabricas tus **primeras 5 tarjetas** con el [estándar del curso](../recursos/anki.html): frente, solo la pieza; reverso, significado, palabra ancla y un dibujo si quieres (las tarjetas con imagen propia se recuerdan mejor). Una tarjeta, una idea. El material: las palabras favoritas del grupo. Tu primera tarjeta será una palabra que alguien de tu salón ama.
 
+### El mazo cero: once piezas para arrancar
+
+Esas cinco son tuyas y salieron del salón. Las once que siguen las pone el curso y son iguales para todos: es el suelo sobre el que se va a construir todo lo demás.
+
+No están escogidas al azar. Van **en pares**, porque el español tiene dos padres —el griego y el latín— y muchas veces heredó de los dos la misma idea con distinta ropa. Por eso decimos *hidratante* y *acuario* aunque las dos hablen de agua.
+
+| La idea | Pieza griega | Pieza latina |
+|---|---|---|
+| agua | **hidro-** · hidratante | **acu-** · acuario |
+| tierra | **geo-** · geografía | **terr-** · terreno |
+| vida | **bio-** · biología | **vit-** · vitamina |
+| escribir | **graf-** · fotografía | **escrib-** · manuscrito |
+| corazón | **cardio-** · cardiólogo | **cord-** · cordial |
+
+Y una pieza suelta, la más rentable del idioma:
+
+| Pieza | Significado | Palabra ancla |
+|---|---|---|
+| **-logía / -logo** | estudio de · el que estudia | biología, bióloga |
+
+**Once tarjetas, y ya puedes armar palabras que nadie te enseñó.** Júntalas y salen solas: *geo* + *grafía* es "dibujo de la tierra"; *bio* + *logía*, "estudio de la vida"; *cardio* + *logía*, "estudio del corazón"; *hidro* + *logía*, "estudio del agua". Llevas años diciendo *geografía* sin saber que estabas diciendo eso.
+
+{: .reto }
+Antes de salir del salón, cuenta cuántas palabras reales del español puedes construir usando solo estas once piezas. Si pasas de diez, ya entendiste de qué se trata el curso. Si pasas de quince, enséñaselas al grupo.
+
+Este mazo no se queda en once: **crece cada semana**. Cada raíz nueva que aparezca en clase se suma aquí y entra a los duelos y a los quizzes. Para diciembre vas a tener un mazo que no te dio nadie: lo construiste tú, pieza por pieza.
+
 El compromiso que te llevas: 5 a 10 minutos diarios con tu mazo. La evidencia es en vivo, en duelos y quizzes: aquí nadie entrega capturas de pantalla.
+
+{: .ojo }
+**El postre de la semana 🍨** — *recordar* viene del latín *re-* (de nuevo) y *cor, cordis* (corazón). Recordar es **volver a pasar algo por el corazón**. No por la cabeza: por el corazón. Y esa misma pieza está en *cordial*, en *concordia* y en *discordia*: ponerse de acuerdo es, literalmente, juntar corazones.
 
 ## Jueves · Las dos fuentes de cabecera (centro de cómputo)
 
@@ -67,8 +97,8 @@ El compromiso que te llevas: 5 a 10 minutos diarios con tu mazo. La evidencia es
 Así abre casi toda sesión del semestre, y hoy lo estrenamos. Se llama **duelo de raíces** y funciona así:
 
 1. **En parejas**, con las tarjetas que fabricaste ayer sobre la mesa (o el mazo de Anki en la mano).
-2. Uno muestra **solo el frente** de una tarjeta: la pieza sola, *iatro-*, sin nada más.
-3. El otro contesta **en voz alta y sin pensarlo mucho**: qué significa y una palabra que la lleve dentro. "Médico: pediatra."
+2. Uno muestra **solo el frente** de una tarjeta: la pieza sola, *hidro-*, sin nada más.
+3. El otro contesta **en voz alta y sin pensarlo mucho**: qué significa y una palabra que la lleve dentro. "Agua: hidratante."
 4. Si acierta, la tarjeta se aparta. Si no, **regresa al montón** y va a volver a salir en un minuto. Sin drama y sin burla: para eso es el montón.
 5. **A los dos minutos se cambian los papeles.** Quien preguntaba, ahora contesta.
 
@@ -124,7 +154,7 @@ Empieza aquí. El viernes eliges tu primer libro en la cata (dos en el semestre,
 
 Tu checklist de salida. Si algo falta, se resuelve la semana que entra, sin drama:
 
-- tu gimnasio de palabras (Anki o Leitner) con el [estándar de tarjeta](../recursos/anki.html) y 5 tarjetas dentro
+- tu gimnasio de palabras (Anki o Leitner) con el [estándar de tarjeta](../recursos/anki.html) y 16 tarjetas dentro: tus 5 y el mazo cero
 - [los tres pactos](../recursos/plantillas/pactos.html) —IA, evaluación y derechos de lector— firmados y en tu cuaderno
 - tu expediente: el cuadernillo donde vivirán tus quizzes, tu suelo y tus autoevaluaciones
 - las [dos fuentes de cabecera](../recursos/fuentes.html) y el reflejo de usarlas
