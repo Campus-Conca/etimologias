@@ -261,14 +261,57 @@ Toca una palabra y ábrela. Cada pieza tiene su nombre y su significado.
 
 ## Las tarjetas de la semana
 
-| Frente | Reverso (significado · palabra ancla) |
+Catorce piezas nuevas. Cuatro son los nombres de las partes de una palabra; el resto son piezas de verdad, y todas aparecieron esta semana en algún ejercicio: ninguna te llega de la nada.
+
+**Los nombres de las partes**
+
+| Frente | Reverso (significado · ancla) |
 |---|---|
-| étimo | palabra de origen · étimo de amnesia es mnem |
-| prefijo | pieza al inicio · a- en amnesia |
-| raíz | pieza central con el significado · mnem |
-| sufijo | pieza al final · -ia en amnesia |
-| a- | sin · amnesia |
-| mnem- | memoria · amnesia |
+| étimo | la palabra de origen de la que nace otra · el étimo de *amnesia* es *mnéme* |
+| prefijo | pieza que va al inicio y modifica · *a-* en amnesia |
+| raíz | pieza central, la que carga el significado · *mnem-* en amnesia |
+| sufijo | pieza que va al final y modifica · *-ia* en amnesia |
+
+**Las tres piezas de *amnesia***
+
+| Frente | Reverso (significado · ancla) |
+|---|---|
+| a- / an- | sin, negación · amnesia, anónimo, abiótico |
+| mnem- | memoria · amnesia, amnistía |
+| -ia | cualidad · amnesia, alegría |
+
+**El amor, uno por cada padre**
+
+| Frente | Reverso (significado · ancla) |
+|---|---|
+| amor | amor, en latín · amigo, amoroso |
+| éros | amor, en griego · erótico, Erasmo |
+
+**Latín de todos los días**
+
+| Frente | Reverso (significado · ancla) |
+|---|---|
+| oculus | ojo · oculista, binoculares, monóculo |
+| oriri | nacer, surgir · Oriente, origen, oriundo |
+
+**Alto rendimiento** (las que más te van a servir)
+
+| Frente | Reverso (significado · ancla) |
+|---|---|
+| tele- | lejos · teléfono, telescopio, telegrafía |
+| crono- | tiempo · cronómetro, cronología, crónica |
+| -metro / -metría | medida · termómetro, geometría, telemetría |
+
+### El mazo, para tu Anki
+
+**[Descargar el mazo del curso (.apkg)](../recursos/anki/etimologias-uaq.apkg)**
+
+Ábrelo con Anki ya instalado y se importa solo, con el mazo cero de la semana 0 y estas catorce dentro, cada una con su ancla y su familia de palabras. Cada pieza te la va a preguntar en las dos direcciones —de la pieza al significado y del significado a la pieza— porque así es como te la van a pedir en el quiz y en el duelo.
+
+Es **el mismo archivo todo el semestre**: cada vez que se publiquen piezas nuevas lo vuelves a descargar y a importar, y Anki suma lo nuevo sin borrar tu avance en lo viejo. Si trabajas con caja Leitner, las tablas de arriba son tu lista para copiar a mano.
+
+{: .ojo }
+Hubo muchas más piezas esta semana en los ejercicios —*meso-*, *potamo-*, *demo-*, *-cracia*, *biblio-*, *neurona*, *capillus*, *dominus*, *sclavus*— y a propósito **no entran todavía al mazo**. Ya las usaste, ya te sirvieron; entran goteadas en las próximas semanas. Meter veintisiete tarjetas nuevas de un jalón es la manera más segura de abandonar Anki en marzo, y este gimnasio tiene que durar hasta diciembre.
 
 ## Lo que produjimos
 

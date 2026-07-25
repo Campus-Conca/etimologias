@@ -8,6 +8,7 @@
   :root{
     --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
     --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+    --mist:#5b4b8a; --mistbg:#f1eefb;
   }
   *{box-sizing:border-box}
   body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
@@ -22,27 +23,28 @@
   body.proyector header h1{font-size:2rem}
   .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
   .instr strong{color:var(--ciruela)}
-  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
-  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
-  .card h3{margin:0 0 .4rem;color:var(--rosa);font-size:1.1rem}
-  textarea{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo);min-height:3.2rem;resize:vertical}
-  .opciones,.piezas,.calib{display:flex;flex-direction:column;gap:.5rem;margin-top:.6rem}
-  .piezas,.calib{flex-direction:row;flex-wrap:wrap}
-  .opciones button,.piezas button,.calib button{padding:.6rem .9rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font:inherit;font-weight:700;cursor:pointer;text-align:left}
-  .piezas button small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
-  .opciones button.sel,.piezas button.sel,.calib button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
-  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
-  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
-  .btn.rosa{background:var(--rosa);color:#fff}
-  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
-  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.9rem 0 .3rem}
+  .sub{margin:.1rem 0 .9rem;font-size:.93rem;color:#555}
+  .apuesta{border:2px solid var(--ciruela);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:var(--fondo)}
+  .apuesta h3{margin:0 0 .3rem;color:var(--ciruela);font-size:1.1rem}
+  .q{border:1px solid var(--borde);border-radius:.8rem;padding:.85rem 1rem;margin:.7rem 0;background:#fff}
+  .q .num{font-size:.75rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.05em}
+  .q .txt{font-size:1.1rem;margin:.2rem 0 .1rem}
+  .q .txt b{color:var(--rosa)}
+  .q .ayuda{font-size:.85rem;color:#777;margin:.1rem 0 0}
+  input[type=text],input[type=number]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.45rem;background:var(--fondo)}
+  input.bien{border-color:var(--ok);background:var(--okbg)}
+  input.mal{border-color:var(--no);background:var(--nobg)}
+  .fb{margin-top:.5rem;border-radius:.6rem;padding:.6rem .8rem;display:none;font-size:.92rem}
   .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
   .fb.no{display:block;background:var(--nobg);color:var(--no)}
-  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
-  .marca{display:flex;gap:.5rem;margin-top:.6rem}
-  .marca button{flex:1;padding:.5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
-  .marca button.sel-ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
-  .marca button.sel-no{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  .btn{border:none;border-radius:.6rem;padding:.6rem 1.1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.2rem 0}
+  .resultado{border:2px solid var(--rosa);border-radius:.9rem;padding:1.1rem 1.2rem;margin:1.2rem 0;background:var(--fondo);display:none}
+  .resultado h3{margin:0 0 .4rem;color:var(--rosa);font-size:1.6rem}
+  .marcador{position:sticky;top:0;z-index:8;background:#fff;border-bottom:1px solid var(--borde);padding:.5rem 0;font-weight:700;color:var(--ciruela);font-size:.95rem}
   footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
 </style>
 </head>
@@ -51,173 +53,189 @@
   <div class="wrap">
     <div class="mini">Etimologías grecolatinas · Semana 2 · Gimnasio</div>
     <h1>Quiz de gimnasio</h1>
-    <p>Práctica libre, sin nota y sin registro. Parecido al quiz de la sesión D, pero con otros reactivos: aquí se entrena, no se compite.</p>
+    <p>Veinte reactivos. Aquí no se elige entre opciones: aquí se escribe de memoria.</p>
   </div>
 </header>
 
 <div class="wrap">
 
-  <h2>Paso 0 · Calibra</h2>
-  <div class="card">
-    <p style="margin:0 0 .2rem">Antes de ver los reactivos: ¿cuántos de los 3 crees que tendrás bien?</p>
-    <div class="calib" id="calib">
-      <button>0</button><button>1</button><button>2</button><button>3</button>
-    </div>
-    <div class="fb" id="fbCalib"></div>
+  <div class="instr">
+    <strong>Por qué se escribe y no se elige.</strong> Reconocer la respuesta entre cuatro opciones es fácil y engaña: sientes que sabes. Sacarla de tu cabeza con el renglón en blanco es difícil, se siente incómodo y <strong>es exactamente ahí donde se aprende</strong>. Además es lo que de verdad te van a pedir: en el duelo, en el quiz de papel y en tu defensa oral no hay opciones entre las cuales escoger.<br><br>
+    Escribe con tus palabras. No tiene que ser idéntico, tiene que decir lo mismo. Los acentos no cuentan.
   </div>
 
-  <h2>Reactivo 1 · Arma la definición etimológica</h2>
-  <div class="card">
-    <h3>democracia</h3>
-    <p style="margin:0;font-size:.92rem">Toca las piezas correctas, en orden. Toca de nuevo para quitar.</p>
-    <div class="piezas" id="r1piezas"></div>
-    <div class="fila-botones"><button class="btn rosa" id="r1check">Revisar</button></div>
-    <div class="fb" id="r1fb"></div>
+  <div class="apuesta">
+    <h3>Antes de empezar: apuesta</h3>
+    <p style="margin:.2rem 0 0;font-size:.93rem">¿Cuántos de los 20 crees que vas a sacar bien? Escribe el número <strong>antes</strong> de ver los reactivos. Al final comparamos: la brecha entre lo que crees y lo que puedes es información, no culpa.</p>
+    <input type="number" id="apuesta" min="0" max="20" placeholder="Un número del 0 al 20">
   </div>
 
-  <h2>Reactivo 2 · El concepto</h2>
-  <div class="card">
-    <h3>¿Qué es un étimo?</h3>
-    <div class="opciones" id="r2ops"></div>
-    <div class="fila-botones"><button class="btn rosa" id="r2check">Revisar</button></div>
-    <div class="fb" id="r2fb"></div>
+  <div class="marcador" id="marcador">Sin revisar</div>
+
+  <h2>Nivel 1 · De la pieza al significado</h2>
+  <p class="sub">Te doy la pieza. Escribe qué significa.</p>
+  <div id="n1"></div>
+
+  <h2>Nivel 2 · Del significado a la pieza</h2>
+  <p class="sub">Al revés, que cuesta bastante más. Y ojo, aquí importa de qué idioma te la pido.</p>
+  <div id="n2"></div>
+
+  <h2>Nivel 3 · Desarma la palabra</h2>
+  <p class="sub">Escribe el significado literal, el que sale de sumar las piezas.</p>
+  <div id="n3"></div>
+
+  <h2>Nivel 4 · Palabras que nunca has visto</h2>
+  <p class="sub">Ninguna de estas cuatro apareció en clase. Con lo que traes en el mazo, alcanza.</p>
+  <div id="n4"></div>
+
+  <div class="fila-botones">
+    <button class="btn rosa" id="btnRevisar">Revisar todo</button>
+    <button class="btn gris" id="btnLimpiar">Empezar de nuevo</button>
   </div>
 
-  <h2>Reactivo 3 · Las dos linternas</h2>
-  <div class="card">
-    <h3>cronómetro</h3>
-    <p style="margin:0;font-size:.92rem">Escribe las dos definiciones. Luego compara con los ejemplos y márcate tú: bien o aún no.</p>
-    <label style="display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.7rem">Definición real</label>
-    <textarea placeholder="Cómo se usa hoy"></textarea>
-    <label style="display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.7rem">Definición etimológica</label>
-    <textarea placeholder="Piezas + significado literal"></textarea>
-    <div class="fila-botones"><button class="btn gris" id="r3ver">Compara con los ejemplos</button></div>
-    <div class="fb" id="r3fb"></div>
-    <div class="marca" id="r3marca" style="display:none">
-      <button data-v="bien">Me quedó bien</button>
-      <button data-v="aun">Aún no</button>
-    </div>
-  </div>
+  <div class="resultado" id="resultado"></div>
 
-  <h2>Cierre · ¿Cómo calibraste?</h2>
-  <div class="card">
-    <div class="fila-botones"><button class="btn rosa" id="btnCierre">Ver mi resultado</button></div>
-    <div class="fb" id="fbCierre"></div>
-  </div>
-
-  <footer>Semana 2 · Las palabras tienen anatomía · Gimnasio: lo que quede en "aún no" se puede reintentar cuando quieras. Cuenta tu versión más reciente, no el promedio.</footer>
+  <footer>Semana 2 · Las palabras tienen anatomía · Este quiz es gimnasio: sin nota, sin registro. Nada de lo que escribas se guarda al cerrar la página.</footer>
 </div>
 
 <button class="modo" id="btnModo">Aa proyector</button>
 
 <script>
 (function(){
-  var estado={calib:null,r1:null,r2:null,r3:null};
 
-  // Paso 0
-  var calib=document.getElementById('calib');
-  calib.querySelectorAll('button').forEach(function(b,i){
-    b.addEventListener('click',function(){
-      calib.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
-      b.classList.add('sel');estado.calib=i;
-      var fb=document.getElementById('fbCalib');
-      fb.className='fb ej';
-      fb.textContent='Anotado. Al final comparas tu predicción con tu resultado: saber cuánto sabes también es la materia.';
-    });
-  });
+  function norm(s){
+    return (s||'').toString().toLowerCase()
+      .normalize('NFD').replace(/[̀-ͯ]/g,'')
+      .replace(/[^a-z0-9ñ ]/g,' ')
+      .replace(/\s+/g,' ').trim();
+  }
 
-  // R1
-  var R1=[["demo","pueblo",true],["-cracia","poder",true],["tele-","lejos",false],["-ia","cualidad",false],["crono","tiempo",false]];
-  function baraja(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
-  var z1=document.getElementById('r1piezas'),sel1=[];
-  baraja(R1).forEach(function(pz){
-    var b=document.createElement('button');
-    b.innerHTML=pz[0]+'<small>'+pz[1]+'</small>';b.dataset.buena=pz[2]?'1':'0';
-    b.addEventListener('click',function(){
-      var i=sel1.indexOf(b);
-      if(i>-1){sel1.splice(i,1);b.classList.remove('sel');}else{sel1.push(b);b.classList.add('sel');}
-    });
-    z1.appendChild(b);
-  });
-  document.getElementById('r1check').addEventListener('click',function(){
-    var fb=document.getElementById('r1fb');
-    if(!sel1.length){fb.className='fb no';fb.textContent='Toca primero las piezas que propones.';return;}
-    var aciertos=sel1.filter(function(x){return x.dataset.buena==='1';}).length;
-    var intrusas=sel1.length-aciertos;
-    if(aciertos===2&&intrusas===0){
-      estado.r1='bien';fb.className='fb ok';
-      fb.innerHTML='Bien: demo (pueblo) + -cracia (poder) = poder del pueblo.';
-    }else{
-      estado.r1='aun';fb.className='fb no';
-      fb.textContent='Aún no. Pista: la palabra tiene exactamente 2 piezas, y una de ellas nombra a mucha gente junta.';
-    }
-  });
+  var PREGS=[
+    /* ---------- NIVEL 1: pieza -> significado ---------- */
+    {n:1, txt:'<b>mnem-</b>', ayuda:'la pieza que vive dentro de amnesia', ok:['memoria','recuerdo'],
+     fb:'<b>memoria.</b> Está en amnesia (sin memoria) y en amnistía (el olvido que se firma).'},
+    {n:1, txt:'<b>a- / an-</b>', ayuda:'prefijo', ok:['sin','negacion','no','ausencia','privacion'],
+     fb:'<b>sin.</b> Es el prefijo de negación: amnesia, anónimo, ateo, apolítico, abiótico.'},
+    {n:1, txt:'<b>cardio-</b>', ayuda:'y de qué idioma viene, si puedes', ok:['corazon'],
+     fb:'<b>corazón, en griego.</b> Cardiaco, cardiólogo, taquicardia.'},
+    {n:1, txt:'<b>cord- / cor, cordis</b>', ayuda:'la otra mitad del par', ok:['corazon'],
+     fb:'<b>corazón, en latín.</b> Cordial, concordia, discordia y la más bonita de todas: recordar, volver a pasar por el corazón.'},
+    {n:1, txt:'<b>-logía</b>', ayuda:'sufijo', ok:['estudio','ciencia','tratado','orden'],
+     fb:'<b>estudio, tratado.</b> La pieza más rentable del idioma: biología, geología, cardiología, y las que todavía no existen.'},
+    {n:1, txt:'<b>tele-</b>', ayuda:'prefijo', ok:['lejos','lejan','distancia'],
+     fb:'<b>lejos.</b> Teléfono (sonido lejano), televisión (ver lejos), telegrafía (escribir lejos), telescopio.'},
 
-  // R2
-  var R2=[
-    ["La palabra o raíz de origen de la que viene otra palabra.",true],
-    ["El significado actual de una palabra según el diccionario.",false],
-    ["Cualquier prefijo del griego.",false],
-    ["La parte de la palabra que no significa nada.",false]
+    /* ---------- NIVEL 2: significado -> pieza ---------- */
+    {n:2, txt:'"agua", en <b>griego</b>', ayuda:'la pieza, no la palabra completa', ok:['hidro','hidr'],
+     fb:'<b>hidro-.</b> Hidratante, hidrografía, hidráulico.'},
+    {n:2, txt:'"agua", en <b>latín</b>', ayuda:'', ok:['acu','aqua','acua','aqu'],
+     fb:'<b>acu- / aqua.</b> Acuario, acueducto, acuático. Dos idiomas para la misma agua: por eso el español tiene el doble de palabras que necesita, y por eso puede decir las cosas de dos maneras.'},
+    {n:2, txt:'"amor", en <b>griego</b>', ayuda:'está escondido en el nombre Erasmo', ok:['eros','ero'],
+     fb:'<b>éros.</b> De ahí erótico, y el nombre Erasmo, que significaba "amable, deseado".'},
+    {n:2, txt:'"amor", en <b>latín</b>', ayuda:'está dentro de una palabra que dices todos los días', ok:['amor','amare','ama'],
+     fb:'<b>amor.</b> Y de ahí <em>amigo</em>: no es cursilería, está en la palabra.'},
+    {n:2, txt:'"escribir", en <b>griego</b>', ayuda:'', ok:['graf','grafo','grafia','grafein'],
+     fb:'<b>graf-.</b> Fotografía, biografía, ortografía, telegrafía.'},
+
+    /* ---------- NIVEL 3: desarma la palabra ---------- */
+    {n:3, txt:'<b>cardiología</b>', ayuda:'significado literal', claves:['estudio','corazon'],
+     fb:'<b>cardio (corazón) + logía (estudio) = el estudio del corazón.</b>'},
+    {n:3, txt:'<b>hidrografía</b>', ayuda:'significado literal', claves:['agua'],
+     fb:'<b>hidro (agua) + grafía (descripción) = la descripción de las aguas:</b> los ríos, las corrientes, dónde están y por dónde van.'},
+    {n:3, txt:'<b>amnesia</b>', ayuda:'significado literal', claves:['sin','memoria'],
+     fb:'<b>a- (sin) + mnem (memoria) + -ia (cualidad) = la cualidad de estar sin memoria.</b> Cuatro piezas, un significado, y ya no se te va a olvidar.'},
+    {n:3, txt:'<b>geometría</b>', ayuda:'significado literal', claves:['medi','tierra'],
+     fb:'<b>geo (tierra) + metría (medida) = la medida de la tierra.</b> Nació midiendo terrenos a la orilla del Nilo, cada vez que la crecida borraba los linderos.'},
+    {n:3, txt:'<b>telegrafía</b>', ayuda:'significado literal', claves:['escri'], claves2:['grafia','lejos'],
+     fb:'<b>tele (lejos) + grafía (escritura) = escritura a distancia.</b> La primera vez en la historia que un mensaje viajó más rápido que el mensajero.'},
+
+    /* ---------- NIVEL 4: nunca las has visto ---------- */
+    {n:4, txt:'<b>potamología</b>', ayuda:'pista: la primera pieza salió de hipopótamo', claves:['rio'],
+     fb:'<b>potamo (río) + logía (estudio) = el estudio de los ríos.</b> Existe de verdad y es una ciencia entera.'},
+    {n:4, txt:'<b>cardiómetro</b>', ayuda:'', claves:['mid','corazon'], claves2:['medi','corazon'],
+     fb:'<b>cardio (corazón) + metro (medida) = aparato que mide el corazón.</b> Nunca la habías leído y acabas de entenderla sin buscarla en ningún lado.'},
+    {n:4, txt:'<b>telemetría</b>', ayuda:'', claves:['medi','distancia'], claves2:['medi','lejos'],
+     fb:'<b>tele (lejos) + metría (medida) = medir a distancia.</b> Es lo que hace un satélite: tomar datos de algo que no puede tocar.'},
+    {n:4, txt:'<b>cordiforme</b>', ayuda:'la segunda pieza se parece muchísimo a "forma"', claves:['forma','corazon'],
+     fb:'<b>cord (corazón) + forme (con forma de) = en forma de corazón.</b> Así se describen muchas hojas de árbol en botánica.'}
   ];
-  var z2=document.getElementById('r2ops'),sel2=null;
-  baraja(R2).forEach(function(op){
-    var b=document.createElement('button');
-    b.textContent=op[0];b.dataset.buena=op[1]?'1':'0';
-    b.addEventListener('click',function(){
-      z2.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
-      b.classList.add('sel');sel2=b;
-    });
-    z2.appendChild(b);
-  });
-  document.getElementById('r2check').addEventListener('click',function(){
-    var fb=document.getElementById('r2fb');
-    if(!sel2){fb.className='fb no';fb.textContent='Elige primero una opción.';return;}
-    if(sel2.dataset.buena==='1'){
-      estado.r2='bien';fb.className='fb ok';
-      fb.innerHTML='Bien. El étimo de <em>amnesia</em> es <em>mnem</em>: la palabra madre de la que nació.';
-    }else{
-      estado.r2='aun';fb.className='fb no';
-      fb.textContent='Aún no. Pista: étimo y "origen" son parientes. Piensa en de dónde VIENE la palabra, no en qué significa hoy.';
-    }
+
+  var campos=[];
+
+  PREGS.forEach(function(p,i){
+    var box=document.getElementById('n'+p.n);
+    var d=document.createElement('div');
+    d.className='q';
+    d.innerHTML='<div class="num">Reactivo '+(i+1)+'</div>'
+      +'<div class="txt">'+p.txt+'</div>'
+      +(p.ayuda?'<div class="ayuda">'+p.ayuda+'</div>':'')
+      +'<input type="text" placeholder="Escribe tu respuesta">'
+      +'<div class="fb"></div>';
+    box.appendChild(d);
+    campos.push({p:p, input:d.querySelector('input'), fb:d.querySelector('.fb')});
   });
 
-  // R3
-  document.getElementById('r3ver').addEventListener('click',function(){
-    var fb=document.getElementById('r3fb');
-    fb.className='fb ej';
-    fb.innerHTML='<strong>Definición real (ejemplo):</strong> instrumento que mide el tiempo con precisión, como el del celular para tomar tiempos.<br><br><strong>Definición etimológica (ejemplo):</strong> crono (tiempo) + -metro (medir) = medidor de tiempo.<br><br>Compara con lo tuyo y márcate abajo. Nadie te vigila: calibrar es el entrenamiento.';
-    document.getElementById('r3marca').style.display='flex';
-  });
-  document.querySelectorAll('#r3marca button').forEach(function(b){
-    b.addEventListener('click',function(){
-      document.querySelectorAll('#r3marca button').forEach(function(x){x.classList.remove('sel-ok','sel-no');});
-      b.classList.add(b.dataset.v==='bien'?'sel-ok':'sel-no');
-      estado.r3=b.dataset.v;
+  function evalua(c){
+    var v=norm(c.input.value);
+    if(!v) return false;
+    if(c.p.ok){
+      for(var i=0;i<c.p.ok.length;i++){
+        if(v.indexOf(norm(c.p.ok[i]))>-1) return true;
+      }
+      return false;
+    }
+    function todas(lista){
+      if(!lista) return false;
+      for(var j=0;j<lista.length;j++){ if(v.indexOf(norm(lista[j]))===-1) return false; }
+      return true;
+    }
+    return todas(c.p.claves) || todas(c.p.claves2);
+  }
+
+  document.getElementById('btnRevisar').addEventListener('click',function(){
+    var bien=0, vacios=0;
+    campos.forEach(function(c){
+      if(!c.input.value.trim()) vacios++;
+      var ok=evalua(c);
+      c.input.className=ok?'bien':'mal';
+      c.fb.className=ok?'fb ok':'fb no';
+      c.fb.innerHTML=(ok?'<strong>Bien.</strong> ':'<strong>Todavía no.</strong> ')+c.p.fb;
+      if(ok) bien++;
     });
+
+    document.getElementById('marcador').textContent='Sacaste '+bien+' de 20';
+
+    var ap=parseInt(document.getElementById('apuesta').value,10);
+    var caja=document.getElementById('resultado');
+    var html='<h3>'+bien+' de 20</h3>';
+
+    if(!isNaN(ap)){
+      var d=bien-ap;
+      html+='<p>Apostaste <strong>'+ap+'</strong> y sacaste <strong>'+bien+'</strong>. ';
+      if(d<=-4) html+='Te sobrevaloraste por '+Math.abs(d)+'. Pasa muchísimo y tiene arreglo: <strong>sentir que sabes no es lo mismo que poder escribirlo</strong>. Vuelve al mazo, y esta vez tapa el reverso antes de contestar.</p>';
+      else if(d>=4) html+='Te subvaloraste por '+d+'. <strong>Sabes más de lo que crees.</strong> Eso también cuesta caro: en una defensa oral te vas a quedar callado en cosas que sí sabías.</p>';
+      else html+='Buena puntería: te conoces. Esa habilidad vale tanto como el contenido, porque es la que te dice cuándo estudiar más y cuándo ya estás listo.</p>';
+    } else {
+      html+='<p>No apostaste antes de empezar. La próxima hazlo: el número que escribes antes vale tanto como el que sacas después.</p>';
+    }
+
+    if(vacios) html+='<p><em>Dejaste '+vacios+' en blanco. En el quiz de papel, en blanco es cero: más vale una respuesta a medias que ninguna.</em></p>';
+
+    if(bien>=17) html+='<p><strong>Estás listo para el papel.</strong> Ese nivel de recuerdo escrito es justo lo que se pide en el quiz del jueves y en el duelo.</p>';
+    else if(bien>=12) html+='<p><strong>Vas bien.</strong> Fíjate en qué nivel se te cayeron: si fue el 1 o el 2, es puro mazo y se arregla con diez minutos diarios. Si fue el 3 o el 4, es que las piezas todavía no se combinan solas en tu cabeza, y eso se arregla haciendo más ejercicios, no repasando más.</p>';
+    else html+='<p><strong>Todavía no, y está bien: para eso es el gimnasio.</strong> Diez minutos diarios con el mazo durante una semana cambian este número de una manera que no te vas a creer. Vuelve a intentarlo el viernes.</p>';
+
+    caja.innerHTML=html;
+    caja.style.display='block';
+    caja.scrollIntoView({behavior:'smooth',block:'nearest'});
   });
 
-  // Cierre
-  document.getElementById('btnCierre').addEventListener('click',function(){
-    var fb=document.getElementById('fbCierre');
-    var pend=[];
-    if(estado.calib===null)pend.push('la calibración del paso 0');
-    if(!estado.r1)pend.push('el reactivo 1');
-    if(!estado.r2)pend.push('el reactivo 2');
-    if(!estado.r3)pend.push('marcarte el reactivo 3');
-    if(pend.length){
-      fb.className='fb no';
-      fb.textContent='Todavía falta: '+pend.join(', ')+'.';
-      return;
-    }
-    var bien=[estado.r1,estado.r2,estado.r3].filter(function(x){return x==='bien';}).length;
-    var lista='Reactivo 1: '+(estado.r1==='bien'?'bien':'aún no')+' · Reactivo 2: '+(estado.r2==='bien'?'bien':'aún no')+' · Reactivo 3: '+(estado.r3==='bien'?'bien':'aún no');
-    var msj;
-    if(estado.calib===bien)msj='Calibración exacta: predijiste '+estado.calib+' y tuviste '+bien+'. Eso, en este curso, vale tanto como los aciertos.';
-    else if(estado.calib>bien)msj='Predijiste '+estado.calib+' y tuviste '+bien+'. La brecha es el dato, no la culpa: ya sabes qué reactivo reintentar.';
-    else msj='Predijiste '+estado.calib+' y tuviste '+bien+'. Sabes más de lo que crees: ajusta tu medidor interno hacia arriba.';
-    fb.className='fb ok';
-    fb.innerHTML=lista+'<br><br>'+msj+'<br><br>Lo que quedó en "aún no" se reintenta cuando quieras: recarga la página y vuelve a entrar.';
+  document.getElementById('btnLimpiar').addEventListener('click',function(){
+    campos.forEach(function(c){ c.input.value=''; c.input.className=''; c.fb.className='fb'; });
+    document.getElementById('apuesta').value='';
+    document.getElementById('marcador').textContent='Sin revisar';
+    document.getElementById('resultado').style.display='none';
+    window.scrollTo({top:0,behavior:'smooth'});
   });
 
   document.getElementById('btnModo').addEventListener('click',function(){

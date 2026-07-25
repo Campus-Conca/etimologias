@@ -89,6 +89,8 @@ Y una pieza suelta, la más rentable del idioma:
 |---|---|---|
 | **-logía / -logo** | estudio de · el que estudia | biología, bióloga |
 
+**[Descargar el mazo cero para Anki (.apkg)](../recursos/anki/etimologias-uaq.apkg)** — se importa con un clic, ya trae las once con su ancla y su familia de palabras. Si vas con caja Leitner, la tabla de arriba es tu lista para copiar a mano. Es el mismo archivo todo el semestre: cada vez que salgan piezas nuevas lo vuelves a descargar y Anki suma lo nuevo sin borrarte el avance.
+
 **Once tarjetas, y ya puedes armar palabras que nadie te enseñó.** Júntalas y salen solas: *geo* + *grafía* es "dibujo de la tierra"; *bio* + *logía*, "estudio de la vida"; *cardio* + *logía*, "estudio del corazón"; *hidro* + *logía*, "estudio del agua". Llevas años diciendo *geografía* sin saber que estabas diciendo eso.
 
 {: .reto }
@@ -165,7 +167,7 @@ Empieza aquí. El viernes eliges tu primer libro en la cata (dos en el semestre,
 
 Tu checklist de salida. Si algo falta, se resuelve la semana que entra, sin drama:
 
-- tu gimnasio de palabras (Anki o Leitner) con el [estándar de tarjeta](../recursos/anki.html) y 16 tarjetas dentro: tus 5 y el mazo cero
+- tu gimnasio de palabras (Anki o Leitner) con el [estándar de tarjeta](../recursos/anki.html) y 16 piezas dentro: tus 5 y las 11 del mazo cero
 - [los tres pactos](../recursos/plantillas/pactos.html) —IA, evaluación y derechos de lector— firmados y en tu cuaderno
 - tu expediente: el cuadernillo donde vivirán tus quizzes, tu suelo y tus autoevaluaciones
 - las [dos fuentes de cabecera](../recursos/fuentes.html) y el reflejo de usarlas
