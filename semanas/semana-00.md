@@ -35,7 +35,18 @@ Cada día tiene su sección aquí abajo, en orden. Esta página es el mapa de la
 
 ## Martes · La palabra que te trajo aquí
 
-Nadie toma apuntes hoy: se conversa. Cada quien dice su nombre y **una palabra del español que le guste**, por su sonido, su significado o su historia, y por qué. Todas se anotan: ese es el primer inventario del grupo, y varias van a volver como tarjetas y como piezas de Museo. Al final abriremos dos o tres en vivo, para que veas que toda palabra tiene tripas.
+Nadie toma apuntes hoy: se conversa. Y hay una regla que le da la vuelta a todo: **tú no te vas a presentar a ti mismo**.
+
+La dinámica se llama **el eco** y va así:
+
+1. **Tu papelito** · 5 min, a solas. Anotas tres cosas: tu nombre, **una palabra del español que te guste** —por su sonido, por lo que significa o por su historia— y por qué esa y no otra.
+2. **El corrillo** · 10 min, de tres en tres. Se cuentan sus palabras. Regla dura: **no puedes anotar nada**. Solo escuchar. Es más difícil de lo que suena.
+3. **La ronda** · 25 min. Cada quien presenta ante el grupo **la palabra de alguien más**: *"Ella es Fernanda, su palabra es melancolía, y la eligió porque…"*. Si se te fue un dato, el dueño te rescata. Aquí nadie se raja: se rescata.
+4. **La disección** · 10 min. Elegimos dos o tres palabras del pizarrón y las abrimos en vivo, con las manos, para que veas que toda palabra tiene tripas.
+
+Todas las palabras se anotan en el pizarrón conforme salen: ese es **el primer inventario del grupo**, y varias van a volver convertidas en tarjetas y en piezas de Museo.
+
+¿Y por qué presentar la palabra de otro en vez de la tuya? Por dos razones. La práctica: hablar de lo tuyo el primer día, frente a gente que apenas conoces, da nervios; hablar de lo de alguien más, no. Y la que de verdad importa: **para poder repetir la palabra de otro tuviste que escucharla en serio**. Escuchar así es el músculo que vamos a entrenar todo el semestre, y hoy empieza.
 
 **Tu tarea antes del miércoles:** lee aquí abajo "Tu memoria no es un disco duro" e instala [Anki](../recursos/anki.html) si tienes celular o computadora. Si no tienes, o prefieres el papel, no instales nada: el miércoles armas tu caja Leitner, que es igual de oficial.
 
