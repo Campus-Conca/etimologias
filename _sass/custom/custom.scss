@@ -81,3 +81,62 @@ th { background: #F7F3FB !important; color: #221A3A !important;
 .cos-sig { display:block; font-size:.9rem; color:#444; margin-top:.15rem; }
 .cos-nota2 { display:block; font-size:.84rem; color:#666; font-style:italic; margin-top:.25rem; }
 .cos-quien { display:block; font-size:.75rem; color:#C4006A; font-weight:700; margin-top:.4rem; }
+
+// ============================================================
+//  Menú lateral plegable — solo escritorio (>= 800 px)
+//  El botón lo inserta assets/js/menu-plegable.js en la barra
+//  superior. La clase .nav-plegada vive en <html>.
+//  La vista móvil no se toca: ahí el botón nunca se dibuja.
+// ============================================================
+
+.nav-toggle { display: none; }
+
+@include mq(md) {
+
+  .nav-toggle {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: .45rem;
+    height: 100%;
+    padding: 0 .9rem;
+    margin: 0;
+    border: 0;
+    border-right: $border $border-color;
+    border-radius: 0;
+    background: transparent;
+    color: #6B1E5A;
+    font-family: inherit;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color .15s ease, color .15s ease;
+  }
+  .nav-toggle:hover, .nav-toggle:focus-visible { background-color: #F7F3FB; color: #C4006A; }
+  .nav-toggle svg { width: 1.15rem; height: 1.15rem; flex: 0 0 auto; }
+  .nav-toggle__hoja { transition: opacity .15s ease; }
+
+  // Animación del plegado
+  .side-bar { transition: transform .22s ease, visibility .22s ease; }
+  .side-bar + .main { transition: margin-left .22s ease, max-width .22s ease; }
+
+  // Estado plegado
+  .nav-plegada .side-bar {
+    transform: translateX(-100%);
+    visibility: hidden;
+    border-right-color: transparent;
+  }
+  .nav-plegada .side-bar + .main {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: $content-width + 14rem;   // 64rem: más aire para tablas y ejercicios
+  }
+  .nav-plegada .nav-toggle__hoja { opacity: .25; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .side-bar, .side-bar + .main, .nav-toggle, .nav-toggle__hoja { transition: none; }
+}

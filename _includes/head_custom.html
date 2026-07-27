@@ -1,2 +1,14 @@
 <script>window.COSECHA_URL = "{{ site.cosecha_url }}";</script>
 <script defer src="{{ '/assets/js/cosecha.js' | relative_url }}"></script>
+
+<!-- Menu lateral plegable: se aplica la clase antes de pintar para evitar parpadeo -->
+<script>
+  (function () {
+    try {
+      if (window.localStorage.getItem("etim-menu") === "plegado") {
+        document.documentElement.className += " nav-plegada";
+      }
+    } catch (e) {}
+  })();
+</script>
+<script defer src="{{ '/assets/js/menu-plegable.js' | relative_url }}"></script>
