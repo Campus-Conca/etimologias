@@ -23,9 +23,21 @@ Pregunta justa. Va la respuesta antes de empezar, para que sepas en qué te est�
 
 **Piensas con palabras.** No con imágenes ni con sensaciones: con palabras. Las que tienes son el material con el que puedes armar una idea, sostener un argumento, entender lo que te está pasando por dentro. Quien tiene doscientas palabras piensa cosas de doscientas palabras. No es un adorno para hablar bonito: es el tamaño del cuarto en el que vives.
 
+<figure class="lamina">
+  <img src="assets/img/palabras-construyen-mundo.webp" alt="Dos figuras construyen con ladrillos que son palabras. La de la izquierda solo tiene tres ladrillos, rotulados BUENO, MALO y RARO, y levanta un montón informe. La de la derecha tiene una caja desbordada de ladrillos distintos y levanta una casa con puerta, ventanas y un camino.">
+  <figcaption>Tu mundo es tan grande como tu vocabulario.
+  <span>Lámina del curso, al estilo de las Sketchplanations de Jono Hey.</span></figcaption>
+</figure>
+
 **Una raíz te regala cincuenta palabras.** Aprender vocabulario de uno en uno es un mal negocio: son miles y se te olvidan. Aprender la pieza es otra cosa. Quien entiende *iatro-* (médico) lee sin ayuda *pediatra*, *geriatra*, *psiquiatra*, *iatrogenia*. Nadie se las enseñó. Se las regaló la raíz. Eso es lo que aquí se entrena: no memorizar palabras, sino conseguir la llave que abre familias enteras.
 
 **Hay palabras que se usan para que no entiendas.** El contrato que vas a firmar, la receta que te dieron, el trámite que te rebotaron, el discurso que te quiere convencer. Buena parte del poder en este país se ejerce con vocabulario que da pena preguntar. Saber abrir una palabra es dejar de asentir sin entender. Es de las alfabetizaciones más políticas que existen y casi nadie la nombra así.
+
+<figure class="lamina">
+  <img src="assets/img/matices-democracia.webp" alt="A la izquierda, un megáfono vierte bolitas idénticas por un embudo hacia dos botes rotulados NOSOTROS y ELLOS, separados por un muro de ladrillo; dentro de cada bote la gente es idéntica. A la derecha, personas distintas conversan repartidas a lo largo de una regla graduada y una de ellas camina de una marca a otra, bajo un globo que dice DEPENDE.">
+  <figcaption>Donde solo caben dos palabras, solo caben dos bandos.
+  <span>Lámina del curso, al estilo de las Sketchplanations de Jono Hey.</span></figcaption>
+</figure>
 
 **Tu manera de hablar tiene historia.** Lo que se dice en la Sierra no es "español mal hablado": es español con capas —latín debajo, náhuatl al lado, árabe más abajo, y palabras que solo viven aquí y que se van a morir si nadie las anota. Este curso te da las herramientas para documentar tu propia habla en lugar de avergonzarte de ella.
 
