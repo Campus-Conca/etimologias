@@ -149,3 +149,160 @@ th { background: #F7F3FB !important; color: #221A3A !important;
 @media (prefers-reduced-motion: reduce) {
   .side-bar, .side-bar + .main, .nav-toggle, .nav-toggle__hoja { transition: none; }
 }
+
+// ============================================================
+//  MAZOS DE LÁMINAS · la página conduce la clase proyectada
+//  Cada día de clase es un .mazo: cabecera + láminas .lam.
+//  Una idea por lámina: la frase grande .di es lo que se
+//  proyecta, el .apoyo conserva la sustancia para quien repasa.
+//  El botón Presentar abre el telón (assets/js/laminas.js).
+//  Paleta del curso: ciruela, rosa mexicano, jade y ámbar.
+// ============================================================
+
+.pista-mazos { font-size: .93rem; color: #6B6485; margin: .2rem 0 1rem; }
+
+.mazo { margin: 1.4rem 0 2.6rem; }
+
+.mazo-cabeza {
+  background: #2B2440; color: #F4EFF9; border-radius: .9rem;
+  padding: 1rem 1.25rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+}
+.mazo-cabeza .cuando { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+  font-weight: 700; color: #F4A8CE; }
+.mazo-cabeza h3 { font-family: "Bricolage Grotesque", "Inter", sans-serif; font-weight: 800;
+  letter-spacing: -.015em; font-size: 1.5rem; line-height: 1.15; margin: .2rem 0 .25rem; color: #fff; }
+.mazo-cabeza .foco { margin: 0; font-size: .97rem; color: #D9CFE8; font-style: italic; }
+.btn-presentar {
+  margin-left: auto; align-self: center; background: #FFD6E9; color: #6B1E5A;
+  border: none; border-radius: 2rem; padding: .5rem 1.15rem;
+  font-family: inherit; font-size: .9rem; font-weight: 700; cursor: pointer; white-space: nowrap;
+}
+.btn-presentar:hover { background: #fff; }
+
+.lam {
+  background: #fff; border: 1px solid #E6DFF0; border-radius: .9rem;
+  padding: 1rem 1.3rem 1.1rem; margin: .7rem 0;
+  box-shadow: 0 1px 4px rgba(43,36,64,.05);
+}
+.lam > h4 {
+  display: flex; align-items: baseline; gap: .6rem; flex-wrap: wrap; margin: 0 0 .5rem;
+  font-family: "Bricolage Grotesque", "Inter", sans-serif; font-weight: 800; letter-spacing: -.01em;
+  font-size: 1.14rem; line-height: 1.25; color: #221A3A;
+}
+.lam > h4 .n { font-family: "Bricolage Grotesque", "Inter", sans-serif; font-weight: 800;
+  font-size: 1.7rem; line-height: .9; color: #B07B12; flex: none; }
+.reloj { margin-left: auto; font-family: "Inter", sans-serif; font-size: .68rem; font-weight: 700;
+  letter-spacing: .07em; text-transform: uppercase; color: #0B5F52; background: #DFF5EE;
+  border: 1px solid #BFE7DC; border-radius: 2rem; padding: .14rem .6rem; white-space: nowrap; flex: none; }
+
+.lam .di { font-family: "Bricolage Grotesque", "Inter", sans-serif; font-weight: 800;
+  letter-spacing: -.015em; font-size: clamp(1.25rem, 3.2vw, 1.75rem); line-height: 1.3;
+  color: #221A3A; margin: .5rem 0; }
+.lam .apoyo { color: #4A3F5C; font-size: .96rem; line-height: 1.6; margin: .5rem 0 0; }
+.lam p:last-child { margin-bottom: 0; }
+.lam ul, .lam ol { margin: .5rem 0; padding-left: 1.25rem; color: #4A3F5C; font-size: .96rem; }
+.lam li { margin: .3rem 0; }
+.lam a { color: #C4006A; font-weight: 600; }
+
+.lam--oscura { background: #2B2440; border-color: #2B2440; color: #F4EFF9; }
+.lam--oscura > h4, .lam--oscura .di { color: #fff; }
+.lam--oscura .apoyo, .lam--oscura ul, .lam--oscura ol { color: #D9CFE8; }
+.lam--oscura .n { color: #F4A8CE; }
+.lam--oscura a { color: #FFD6E9; }
+.lam--oscura .reloj { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.25); color: #DFF5EE; }
+.lam--actividad { border-left: .35rem solid #C4006A; }
+
+.senal { display: inline-block; font-family: "Inter", sans-serif; font-size: .68rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; background: #C4006A; color: #fff;
+  border-radius: 2rem; padding: .22rem .7rem; margin: .1rem 0 .35rem; }
+.senal--aire { background: #FBF0D9; color: #7A5A0B; border: 1px solid #EBD9AC; }
+.senal--casa { background: #2B2440; color: #FFD6E9; }
+
+// Acotación dentro de una lámina (el postre, la advertencia, el dato)
+.lam .aparte { background: #FBF7E9; border-left: .3rem solid #B07B12; border-radius: 0 .6rem .6rem 0;
+  padding: .7rem .95rem; margin: .8rem 0 0; font-size: .95rem; line-height: 1.6; color: #5C4A1C; }
+.lam--oscura .aparte { background: rgba(255,255,255,.08); border-left-color: #F4A8CE; color: #EFE7F6; }
+
+// Cita proyectable (el blockquote del tema no llega al telón)
+.lam .cita { font-family: "Bricolage Grotesque", "Inter", sans-serif; font-weight: 600;
+  font-size: clamp(1.1rem, 2.6vw, 1.45rem); line-height: 1.4; color: #4A2440;
+  border-left: .35rem solid #C4006A; background: #FFF3F9; border-radius: 0 .6rem .6rem 0;
+  margin: .8rem 0; padding: .7rem 1rem; }
+.lam .cita cite { display: block; font-family: "Inter", sans-serif; font-weight: 400; font-style: normal;
+  font-size: .78rem; letter-spacing: .04em; color: #8A7F93; margin-top: .45rem; }
+
+// Tablas dentro de una lámina (van en HTML crudo, sin .table-wrapper)
+.lam table { width: 100%; border-collapse: collapse; margin: .7rem 0; font-size: .93rem; }
+.lam th { background: #F7F3FB; color: #221A3A; text-align: left; text-transform: uppercase;
+  font-size: .66rem; letter-spacing: .06em; padding: .45rem .6rem; border: 1px solid #E6DFF0; }
+.lam td { padding: .5rem .6rem; border: 1px solid #E6DFF0; vertical-align: top; background: #fff; color: #2B2440; }
+.lam--oscura th { background: rgba(255,255,255,.12); color: #fff; border-color: rgba(255,255,255,.2); }
+.lam--oscura td { background: rgba(255,255,255,.04); color: #EFE7F6; border-color: rgba(255,255,255,.2); }
+
+// Notas del conductor: invisibles en la página, visibles en el telón con la tecla N
+.nota-conductor { display: none; }
+
+// Portada y ticket: las genera el telón desde la cabecera del mazo
+.lam--portada .cuando { font-size: .85rem; letter-spacing: .13em; text-transform: uppercase;
+  font-weight: 700; color: #F4A8CE; }
+.lam--portada h3 { font-family: "Bricolage Grotesque", "Inter", sans-serif; font-weight: 800;
+  letter-spacing: -.02em; font-size: clamp(2rem, 5vw, 3.2rem); margin: .4rem 0; color: #fff; }
+.lam--portada .foco { font-style: italic; font-size: 1.3rem; color: #D9CFE8; }
+.lam--ticket { text-align: center; }
+.lam--ticket > h4 { justify-content: center; }
+.lam--ticket .qr-lam { width: min(50vh, 400px); max-width: 78%; display: block; margin: .8rem auto 0;
+  border: 1px solid #E6DFF0; border-radius: .7rem; background: #fff; padding: .4rem; }
+
+// ---- El telón: modo presentación a pantalla completa ----
+#telon { position: fixed; inset: 0; z-index: 1000; background: #FDFCFA; display: none;
+  flex-direction: column; font-family: "Inter", -apple-system, "Segoe UI", Roboto, sans-serif; }
+#telon.abierto { display: flex; }
+html.telon-abierto, html.telon-abierto body { overflow: hidden; }
+#telon .escenario { flex: 1 1 auto; overflow: auto; display: flex;
+  padding: clamp(.6rem, 2.5vh, 1.6rem) clamp(.8rem, 3vw, 2.2rem); }
+#telon .escenario > .lam { margin: auto; width: 100%; max-width: 1500px; min-height: min(78vh, 100%);
+  display: flex; flex-direction: column; justify-content: center; border: none;
+  box-shadow: 0 2px 24px rgba(43,36,64,.09); padding: 2.2rem 3.2rem 2.4rem;
+  font-size: 1.35rem; line-height: 1.6; }
+#telon .escenario > .lam > h4 { font-size: 2.4rem; }
+#telon .escenario > .lam > h4 .n { font-size: 3.2rem; }
+#telon .escenario > .lam .di { font-size: clamp(2rem, 4.4vw, 3.2rem); }
+#telon .escenario > .lam .apoyo { font-size: 1.3rem; }
+#telon .escenario > .lam ul, #telon .escenario > .lam ol { font-size: 1.25rem; }
+#telon .escenario > .lam .senal { font-size: .95rem; align-self: flex-start; }
+#telon .escenario > .lam.lam--ticket .senal { align-self: center; }
+#telon .escenario > .lam > svg { max-height: 46vh; }
+#telon .escenario > .lam .reloj { font-size: .85rem; }
+#telon .escenario > .lam .cita { font-size: clamp(1.7rem, 3.4vw, 2.4rem); }
+#telon .escenario > .lam .cita cite { font-size: 1rem; }
+#telon .escenario > .lam .aparte { font-size: 1.22rem; }
+#telon .escenario > .lam table { font-size: 1.2rem; }
+#telon .escenario > .lam th { font-size: .8rem; }
+// La firma del curso, agrandada para el proyector
+#telon .escenario > .lam .dis { margin: 1.2rem 0 1.4rem; gap: .6rem; }
+#telon .escenario > .lam .pz { font-size: clamp(2rem, 4.4vw, 3.1rem); }
+#telon .escenario > .lam .pz small { font-size: .78rem; }
+#telon .escenario > .lam .dis .eq { font-size: clamp(1.4rem, 3vw, 2.1rem); }
+#telon .escenario > .lam.lam--portada { text-align: center; background: #2B2440; color: #F4EFF9; }
+#telon.sin-apoyo .escenario > .lam .apoyo { display: none; }
+#telon.con-notas .escenario > .lam .nota-conductor { display: block; background: #FBF0D9;
+  border: 1px dashed #C79A2E; border-radius: .6rem; padding: .6rem .9rem; margin: .9rem 0 0;
+  font-size: 1.05rem; line-height: 1.5; color: #5C4A1C; text-align: left; }
+#telon.con-notas .escenario > .lam .nota-conductor::before { content: "Nota del conductor";
+  display: block; font-size: .66rem; letter-spacing: .11em; text-transform: uppercase;
+  font-weight: 700; margin-bottom: .2rem; }
+#telon .barra { flex: none; display: flex; align-items: center; gap: .6rem; padding: .5rem 1rem;
+  background: #2B2440; color: #D9CFE8; font-size: .88rem; }
+#telon .barra .cont { font-weight: 700; color: #fff; }
+#telon .barra .pista-teclas { opacity: .6; font-size: .8rem; }
+#telon .barra button { background: rgba(255,255,255,.12); color: #fff; border: none;
+  border-radius: .5rem; padding: .3rem .8rem; font: inherit; cursor: pointer; }
+#telon .barra button:hover { background: rgba(255,255,255,.24); }
+#telon .barra .salir { margin-left: auto; }
+
+@media (max-width: 600px) {
+  .mazo-cabeza { padding: .9rem 1rem; }
+  .btn-presentar { display: none; }
+  .lam { padding: .9rem 1rem 1rem; }
+}
+@media print { #telon, .btn-presentar { display: none !important; } }
