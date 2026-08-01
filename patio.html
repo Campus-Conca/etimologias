@@ -1,0 +1,876 @@
+---
+layout: default
+title: El patio de las palabras
+nav_order: 9
+---
+<!--
+  EL PATIO DE LAS PALABRAS · v1.1
+  Curso de Etimologías Grecolatinas · EBA-UAQ Campus Concá
+
+  DECISIONES INTERPRETATIVAS DE ESTA VERSIÓN
+  1. Identidad visual: paleta del curso (rosa mexicano, ciruela, jade, dorado)
+     y Bricolage Grotesque como display, con respaldo de sistema si no hay red.
+  2. Firma visual: la ficha sorteada se dibuja como el material físico de
+     Verbalia (tesela cuadrada para letras, moneda redonda para sílabas),
+     con una pequeña animación de caída al sortear.
+  3. Frecuencias del saco: transcritas de los inventarios del libro
+     (200 letras, 204 sílabas). Cuatro sílabas quedaron parcialmente ocultas
+     por el brillo de la foto (DA, ES, LE, RO); se reconstruyeron para que
+     el total cuadre en 204. Corregibles en las constantes LETRAS y SILABAS.
+  4. El saco sortea SIN reposición, como el saco de tela real.
+  5. DoBlograma adaptado a grupo: la escalada de la letra doble se controla
+     con un botón y un selector, porque en el aula la elige quien ganó.
+  6. Marcador: máximo 6 equipos, nombres editables al tocar.
+  7. Copy en voz docente, sin rayas largas, cero emojis, crédito explícito
+     a Verbalia de Oriol Comas y Màrius Serra.
+  8. Archivo autónomo para revisarse offline; la integración a Jekyll
+     se hace tras aprobar el fragmento.
+
+  NUEVO EN v1.1 (auditoría del 31 de julio)
+  9. Modo patio: vista de proyección a pantalla completa en el espíritu del
+     telón (fondo ciruela, ficha, consigna y reloj gigantes, marcador como
+     franja). Esc sale; barra espaciadora sortea desde dentro.
+  10. Sorteo encadenado al reloj: sacar ficha arranca los segundos, con
+      casilla para desactivarlo.
+  11. Puntaje rápido: se toca un equipo y luego un chip numérico (4 a 15).
+      El estado (saco, historial, marcador, modo) sobrevive recargas del
+      navegador vía localStorage, clave patio-palabras-v1.
+
+  NUEVO EN v1.2 (segundo fragmento)
+  12. Voleograma: sortea letra SIN arrancar el reloj (el juego es oral y sin
+      prisa), con línea opcional para proyectar la frase creciente y el
+      marcador de ADIÓS digital, que sustituye las seis fichas apartadas
+      del original. La eliminación se suaviza: con ADIÓS completo se pasa
+      a ser juez, para que nadie quede fuera mirando.
+
+  NUEVO EN v1.4 (integración al sitio)
+  14. La página vive en el repo como patio.html con front matter: entra al
+      menú del sitio y usa el layout del tema. Todos los estilos quedaron
+      aislados bajo .patio-pagina para no contaminar el tema; .senal y
+      .reloj se renombraron a .rotulo y .reloj-patio porque ya existen como
+      primitivas de las láminas en custom.scss. El telón del patio sube a
+      z-index 9999 para tapar la barra del sitio. Ajustar nav_order al
+      lugar deseado del menú.
+
+  NUEVO EN v1.3 (tercer fragmento)
+  13. ABocagrama: sortea cinco letras de golpe y las muestra en el orden en
+      que salieron (el orden es la regla). Respeta la casilla del sorteo
+      encadenado al reloj, para meter presión cuando se quiera. La
+      eliminación por tres marcadores del original se invierte: en el aula
+      se suman puntos por frase lograda en el marcador general.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rosa:#D6006D;
+  --rosa-suave:#FBE3F0;
+  --ciruela:#3E1F35;
+  --ciruela-media:#6B3A5B;
+  --jade:#0E8C6D;
+  --dorado:#C9A227;
+  --ambar:#E8A13D;
+  --papel:#FCF8F3;
+  --hueso:#F3ECE2;
+  --tinta:#2A1522;
+  --sombra:0 2px 10px rgba(62,31,53,.12);
+  --radio:14px;
+  --display:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;
+  --cuerpo:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+.patio-pagina,.patio-pagina *{box-sizing:border-box}
+.patio-pagina h1,.patio-pagina h2,.patio-pagina h3,.patio-pagina p,.patio-pagina ol{margin:0}
+.patio-pagina{background:var(--papel);color:var(--tinta);font-family:var(--cuerpo);line-height:1.5;border-radius:18px;overflow:hidden;margin:1rem 0 2rem}
+.patio-pagina button{font-family:var(--display);cursor:pointer;border:none}
+.patio-pagina button:focus-visible,.patio-pagina [contenteditable]:focus-visible{outline:3px solid var(--rosa);outline-offset:2px}
+
+/* ---------- cabecera ---------- */
+.patio-portada{background:var(--ciruela);color:var(--papel);padding:2.2rem 1.5rem 1.8rem;text-align:center}
+.patio-portada h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,5vw,3.2rem);letter-spacing:-.5px}
+.patio-portada h1 .acento{color:var(--rosa)}
+.patio-portada p.baja{margin-top:.4rem;font-size:1.05rem;color:var(--hueso)}
+.patio-portada p.credito{margin-top:.7rem;font-size:.85rem;color:#C9A9BD}
+.patio-portada p.credito em{font-style:italic}
+.btn-patio{margin-top:1.1rem;background:var(--rosa);color:#fff;font-weight:800;font-size:1rem;padding:.6rem 1.6rem;border-radius:99px;box-shadow:0 3px 0 #9C0050}
+.btn-patio:active{transform:translateY(2px);box-shadow:0 1px 0 #9C0050}
+
+/* ---------- mesa de juego ---------- */
+.mesa{display:grid;grid-template-columns:1.25fr 1fr;gap:1.2rem;max-width:1080px;margin:1.6rem auto;padding:0 1.2rem}
+.columna{display:flex;flex-direction:column;gap:1.2rem}
+.panel{background:#fff;border-radius:var(--radio);box-shadow:var(--sombra);padding:1.2rem 1.3rem;border-top:5px solid var(--rosa)}
+.panel h2{font-family:var(--display);font-weight:800;font-size:1.15rem;color:var(--ciruela);display:flex;align-items:center;gap:.55rem;flex-wrap:wrap}
+.panel h2 .resto{margin-left:auto;font-size:.8rem;font-weight:600;color:var(--ciruela-media);background:var(--hueso);padding:.15rem .6rem;border-radius:99px}
+
+/* saco */
+.modos{display:inline-flex;background:var(--hueso);border-radius:99px;padding:.2rem;margin-top:.8rem}
+.modos button{background:transparent;color:var(--ciruela-media);font-weight:600;font-size:.9rem;padding:.35rem 1rem;border-radius:99px}
+.modos button.activo{background:var(--ciruela);color:#fff}
+.escenario{min-height:190px;display:flex;align-items:center;justify-content:center;margin:1rem 0 .6rem}
+.vacio{color:var(--ciruela-media);font-size:1rem;text-align:center;max-width:24ch}
+.ficha{display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;color:var(--ciruela);user-select:none;animation:caida .45s cubic-bezier(.2,1.4,.4,1)}
+.ficha.tesela{width:150px;height:150px;border-radius:16px;font-size:5.2rem;background:linear-gradient(145deg,#FDFBF7,#E8DFD2);border:1px solid #D8CCBA;box-shadow:inset 0 -6px 0 rgba(62,31,53,.14),var(--sombra)}
+.ficha.moneda{width:160px;height:160px;border-radius:50%;font-size:3.4rem;background:radial-gradient(circle at 32% 28%,#FDFBF7,#DED2C0 78%);border:1px solid #CFC2AD;box-shadow:inset 0 -7px 0 rgba(62,31,53,.16),var(--sombra)}
+.ficha.moneda.larga{font-size:2.4rem}
+@keyframes caida{from{transform:translateY(-46px) rotate(-9deg);opacity:0}to{transform:none;opacity:1}}
+.acciones-saco{display:flex;gap:.7rem;flex-wrap:wrap}
+.btn-primario{background:var(--rosa);color:#fff;font-weight:800;font-size:1.05rem;padding:.7rem 1.5rem;border-radius:12px;flex:1;min-width:170px;box-shadow:0 3px 0 #9C0050}
+.btn-primario:active{transform:translateY(2px);box-shadow:0 1px 0 #9C0050}
+.btn-secundario{background:var(--hueso);color:var(--ciruela);font-weight:600;font-size:.9rem;padding:.7rem 1rem;border-radius:12px}
+.encadenar{display:flex;align-items:center;gap:.5rem;margin-top:.8rem;font-size:.9rem;color:var(--ciruela-media)}
+.encadenar input{width:17px;height:17px;accent-color:var(--jade)}
+.historial{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:1rem;min-height:34px}
+.historial span{font-family:var(--display);font-weight:600;font-size:.85rem;background:var(--rosa-suave);color:var(--ciruela);border:1px solid #EBB7D4;padding:.2rem .55rem;border-radius:8px}
+.historial span.silaba{border-radius:99px}
+
+/* cronómetro */
+.panel.tiempo{border-top-color:var(--jade)}
+.reloj-patio{font-family:var(--display);font-weight:800;font-size:clamp(3.4rem,7vw,4.6rem);text-align:center;color:var(--ciruela);letter-spacing:2px;line-height:1;margin:.7rem 0;font-variant-numeric:tabular-nums}
+.reloj-patio.alerta{color:var(--rosa);animation:pulso 1s infinite}
+@keyframes pulso{50%{opacity:.45}}
+.presets{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:.8rem}
+.presets button{background:var(--hueso);color:var(--ciruela);font-weight:600;padding:.4rem .9rem;border-radius:99px;font-size:.9rem}
+.presets button.activo{background:var(--jade);color:#fff}
+.control-reloj{display:flex;gap:.7rem}
+.btn-jade{background:var(--jade);color:#fff;font-weight:800;font-size:1rem;padding:.65rem;border-radius:12px;flex:2;box-shadow:0 3px 0 #086A51}
+.btn-jade:active{transform:translateY(2px);box-shadow:0 1px 0 #086A51}
+.control-reloj .btn-secundario{flex:1}
+
+/* marcador */
+.panel.marcador{border-top-color:var(--dorado)}
+.equipo{display:flex;align-items:center;gap:.6rem;padding:.5rem .4rem;border-bottom:1px dashed var(--hueso);border-radius:9px;cursor:pointer}
+.equipo.sel{background:var(--rosa-suave)}
+.equipo .nombre{flex:1;font-weight:600;font-size:1rem;padding:.2rem .4rem;border-radius:6px;min-width:0;overflow-wrap:anywhere}
+.equipo .nombre:hover{background:var(--hueso)}
+.equipo .puntos{font-family:var(--display);font-weight:800;font-size:1.7rem;color:var(--ciruela);min-width:2.2ch;text-align:right;font-variant-numeric:tabular-nums}
+.equipo.lider .puntos{color:var(--dorado)}
+.equipo .pasos{display:flex;gap:.3rem}
+.equipo .pasos button{width:40px;height:36px;border-radius:9px;background:var(--hueso);color:var(--ciruela);font-weight:800;font-size:.95rem}
+.equipo .pasos button.mas{background:var(--rosa-suave)}
+.equipo .quitar{background:none;color:#B98BA6;font-size:1.1rem;width:28px}
+.pista-chips{font-size:.82rem;color:var(--ciruela-media);margin-top:.9rem}
+.chips-puntos{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.45rem}
+.chips-puntos button{width:40px;height:40px;border-radius:50%;background:#FDF3D8;border:1.5px solid var(--dorado);color:#7A6210;font-weight:800;font-size:.95rem}
+.chips-puntos button:hover{background:var(--dorado);color:#fff}
+.pie-marcador{display:flex;gap:.7rem;margin-top:.9rem}
+.pie-marcador button{flex:1}
+
+/* ---------- ficha del juego ---------- */
+.juego{max-width:1080px;margin:0 auto 3rem;padding:0 1.2rem}
+.placa{background:var(--ciruela);border-radius:var(--radio) var(--radio) 0 0;color:#fff;padding:1.3rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.placa h2{font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,4vw,2.3rem)}
+.placa h2 .mayus{color:var(--rosa)}
+.chapas{margin-left:auto;display:flex;gap:.5rem}
+.chapa{font-family:var(--display);font-weight:600;font-size:.8rem;padding:.3rem .8rem;border-radius:99px}
+.chapa.grupo{background:var(--rosa);color:#fff}
+.chapa.minutos{background:var(--jade);color:#fff}
+.cuerpo-juego{background:#fff;border-radius:0 0 var(--radio) var(--radio);box-shadow:var(--sombra);padding:1.4rem 1.5rem}
+
+.jugada{background:var(--rosa-suave);border:2px solid #EBB7D4;border-radius:var(--radio);padding:1.2rem 1.4rem;margin-bottom:1.3rem}
+.jugada .etiqueta{font-family:var(--display);font-weight:600;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rosa)}
+.consigna{font-family:var(--display);font-weight:800;font-size:clamp(1.3rem,3.4vw,1.9rem);color:var(--ciruela);margin:.5rem 0 .9rem;line-height:1.25}
+.consigna .letra{display:inline-block;background:var(--ciruela);color:#fff;border-radius:9px;padding:.02em .3em;margin:0 .1em}
+.consigna .letra.dos{background:var(--rosa)}
+.mandos-jugada{display:flex;gap:.7rem;flex-wrap:wrap}
+.mandos-jugada .btn-primario{flex:initial;min-width:0}
+.selector-letra{margin-top:1rem;display:none}
+.selector-letra.visible{display:block}
+.selector-letra p{font-size:.9rem;color:var(--ciruela-media);margin-bottom:.5rem}
+.teclado{display:flex;flex-wrap:wrap;gap:.35rem}
+.teclado button{width:42px;height:42px;border-radius:9px;background:#fff;border:1.5px solid #EBB7D4;color:var(--ciruela);font-weight:800;font-size:1rem}
+.teclado button:hover{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+
+.patio-pagina details{border:1.5px solid var(--hueso);border-radius:12px;margin-bottom:.8rem;overflow:hidden}
+.patio-pagina details summary{font-family:var(--display);font-weight:800;font-size:1.02rem;color:var(--ciruela);padding:.85rem 1.1rem;cursor:pointer;list-style:none;display:flex;align-items:center;gap:.6rem;background:var(--papel)}
+.patio-pagina details summary::before{content:'+';color:var(--rosa);font-size:1.3rem;font-weight:800;line-height:1}
+.patio-pagina details[open] summary::before{content:'\2212'}
+.patio-pagina details .contenido{padding:.4rem 1.2rem 1.2rem;font-size:.98rem}
+.patio-pagina details .contenido p{margin:.6rem 0}
+.patio-pagina details .contenido ol{margin:.6rem 0 .6rem 1.3rem}
+.patio-pagina details .contenido ol li{margin:.45rem 0}
+.patio-pagina details .contenido strong{color:var(--ciruela)}
+.rotulo{display:inline-block;font-family:var(--display);font-weight:600;font-size:.78rem;background:var(--ambar);color:#5A3A00;padding:.15rem .6rem;border-radius:99px;margin-right:.4rem}
+
+/* voleograma */
+.linea-voleo{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin:.6rem 0 .2rem}
+.letra-viva{display:inline-flex;align-items:center;justify-content:center;min-width:70px;height:70px;padding:0 .4em;border-radius:14px;background:var(--ciruela);color:#fff;font-family:var(--display);font-weight:800;font-size:2.3rem}
+.frase-viva{margin-top:1rem;background:#fff;border:1.5px dashed #EBB7D4;border-radius:12px;padding:.8rem 1rem;font-family:var(--display);font-weight:600;font-size:1.15rem;color:var(--ciruela);min-height:3.2rem}
+.frase-viva:empty::before{content:'Escribe aquí la frase si quieres proyectarla (opcional)';color:#B98BA6;font-weight:400;font-size:.95rem}
+.sub-adios{font-family:var(--display);font-weight:800;color:var(--ciruela);margin-top:1.2rem}
+.sub-adios small{display:block;font-family:var(--cuerpo);font-weight:400;font-size:.85rem;color:var(--ciruela-media);margin-top:.15rem}
+.fila-adios{display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px dashed var(--hueso)}
+.fila-adios .nombre{flex:1;font-weight:600;padding:.2rem .4rem;border-radius:6px;min-width:0;overflow-wrap:anywhere}
+.fila-adios .nombre:hover{background:var(--hueso)}
+.fila-adios .letras{display:flex;gap:.3rem}
+.fila-adios .letras button{width:36px;height:36px;border-radius:9px;background:var(--hueso);color:#B9A9B2;font-weight:800;font-size:.95rem}
+.fila-adios .letras button.prendida{background:var(--rosa);color:#fff}
+.fila-adios .chapa-juez{display:none;font-family:var(--display);font-weight:600;font-size:.75rem;background:var(--dorado);color:#fff;padding:.15rem .6rem;border-radius:99px}
+.fila-adios.juez .chapa-juez{display:inline-block}
+.fila-adios .quitar{background:none;color:#B98BA6;font-size:1.1rem;width:28px;cursor:pointer;border:none}
+.btn-adios{margin-top:.8rem}
+
+/* abocagrama */
+.grupo-fichas{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;align-items:center}
+.ficha.tesela.chica{width:84px;height:84px;font-size:2.8rem;border-radius:12px}
+.zona-cinco{min-height:110px;display:flex;align-items:center;justify-content:center;margin:.8rem 0}
+
+.patio-pie{background:var(--hueso);color:var(--ciruela-media);text-align:center;font-size:.85rem;padding:1.4rem;line-height:1.7}
+
+/* ---------- modo patio ---------- */
+#patio{position:fixed;inset:0;background:var(--ciruela);color:var(--papel);display:none;flex-direction:column;z-index:9999;padding:1.6rem 2rem}
+body.patio-activo #patio{display:flex}
+body.patio-activo{overflow:hidden}
+#patio .arriba{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+#patio .arriba .titulo{font-family:var(--display);font-weight:600;font-size:.9rem;letter-spacing:.14em;text-transform:uppercase;color:#C9A9BD}
+#patio .zona{flex:1;display:flex;align-items:center;justify-content:center;gap:clamp(1.5rem,5vw,4.5rem);flex-wrap:wrap;text-align:center}
+#patio .ficha{color:var(--ciruela)}
+#patio .ficha.tesela{width:min(34vh,270px);height:min(34vh,270px);font-size:min(22vh,9rem);border-radius:22px}
+#patio .ficha.moneda{width:min(36vh,280px);height:min(36vh,280px);font-size:min(13vh,5.6rem)}
+#patio .ficha.moneda.larga{font-size:min(9vh,3.8rem)}
+#patio .ficha.tesela.chica{width:min(17vh,150px);height:min(17vh,150px);font-size:min(10vh,4.8rem)}
+#patio .vacio{color:#C9A9BD;font-size:1.2rem}
+#patioReloj{font-family:var(--display);font-weight:800;font-size:clamp(4.5rem,14vh,8.5rem);letter-spacing:3px;line-height:1;color:var(--papel);font-variant-numeric:tabular-nums}
+#patioReloj.alerta{color:var(--ambar);animation:pulso 1s infinite}
+#patioConsigna{width:100%;font-family:var(--display);font-weight:800;font-size:clamp(1.5rem,4.5vh,2.6rem);line-height:1.3;color:var(--papel);max-width:26ch;margin:0 auto}
+#patioConsigna .letra{display:inline-block;background:var(--papel);color:var(--ciruela);border-radius:10px;padding:.02em .3em;margin:0 .1em}
+#patioConsigna .letra.dos{background:var(--rosa);color:#fff}
+#patioMarcador{display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap;padding:.8rem 0 .4rem;font-family:var(--display);font-size:1.05rem;color:#DCC8D4}
+#patioMarcador b{color:var(--dorado);font-size:1.25rem;margin-left:.35rem}
+#patio .mandos{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;padding-top:.6rem}
+#patio .mandos .btn-primario{flex:initial;min-width:0}
+#patio .mandos .btn-secundario{background:rgba(252,248,243,.12);color:var(--papel)}
+#patio .pista{ text-align:center;font-size:.8rem;color:#A87F98;padding-top:.5rem}
+
+@media (max-width:820px){
+  .mesa{grid-template-columns:1fr}
+  .chapas{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){
+  .ficha{animation:none}
+  .reloj-patio.alerta,#patioReloj.alerta{animation:none}
+}
+</style>
+<div class="patio-pagina">
+
+
+<div class="patio-portada">
+  <h1>El patio de las <span class="acento">palabras</span></h1>
+  <p class="baja">Juegos para el tiempo libre y para romper el hielo. Se proyecta, se juega, se ríe.</p>
+  <p class="credito">Adaptados de <em>Verbalia</em>, el juego de Oriol Comas y Màrius Serra.</p>
+  <button class="btn-patio" id="abrirPatio">Modo patio: proyectar</button>
+</div>
+
+<section class="mesa">
+  <div class="columna">
+    <div class="panel">
+      <h2>El saco <span class="resto" id="restante">quedan 200 fichas</span></h2>
+      <div class="modos" role="tablist" aria-label="Tipo de ficha">
+        <button id="modoLetras" class="activo" aria-pressed="true">Letras</button>
+        <button id="modoSilabas" aria-pressed="false">Sílabas</button>
+      </div>
+      <div class="escenario" id="escenario" aria-live="polite">
+        <p class="vacio">El saco está lleno. Saca la primera ficha.</p>
+      </div>
+      <div class="acciones-saco">
+        <button class="btn-primario" id="sacar">Sacar del saco</button>
+        <button class="btn-secundario" id="reiniciarSaco">Devolver todo al saco</button>
+      </div>
+      <label class="encadenar"><input type="checkbox" id="encadenar" checked> El sorteo arranca el reloj</label>
+      <div class="historial" id="historial" aria-label="Fichas ya sorteadas"></div>
+    </div>
+  </div>
+
+  <div class="columna">
+    <div class="panel tiempo">
+      <h2>El reloj</h2>
+      <div class="reloj-patio" id="reloj">0:30</div>
+      <div class="presets">
+        <button data-seg="30" class="activo">30 s</button>
+        <button data-seg="60">1 min</button>
+        <button data-seg="90">90 s</button>
+        <button data-seg="120">2 min</button>
+      </div>
+      <div class="control-reloj">
+        <button class="btn-jade" id="marchaReloj">Arrancar</button>
+        <button class="btn-secundario" id="reiniciarReloj">Reiniciar</button>
+      </div>
+    </div>
+
+    <div class="panel marcador">
+      <h2>El marcador</h2>
+      <div id="equipos"></div>
+      <p class="pista-chips">Puntaje rápido: toca un equipo y luego el número de letras de su palabra.</p>
+      <div class="chips-puntos" id="chipsPuntos"></div>
+      <div class="pie-marcador">
+        <button class="btn-secundario" id="agregarEquipo">Agregar equipo</button>
+        <button class="btn-secundario" id="cerosMarcador">Todos a cero</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="juego" id="doblograma">
+  <div class="placa">
+    <h2><span class="mayus">D</span>o<span class="mayus">B</span>lograma</h2>
+    <div class="chapas">
+      <span class="chapa grupo">todo el grupo</span>
+      <span class="chapa minutos">10 a 30 min</span>
+    </div>
+  </div>
+  <div class="cuerpo-juego">
+
+    <div class="jugada">
+      <p class="etiqueta">La jugada en curso</p>
+      <p class="consigna" id="consigna">Saca una letra del saco para arrancar la jugada.</p>
+      <div class="mandos-jugada">
+        <button class="btn-primario" id="letraArranque">Sortear letra de arranque</button>
+        <button class="btn-secundario" id="escalar" disabled>Escalar: entra la letra doble</button>
+        <button class="btn-secundario" id="jugadaNueva">Jugada nueva</button>
+      </div>
+      <div class="selector-letra" id="selectorLetra">
+        <p>Quien escribió la palabra más larga elige la segunda letra, tomada de su propia palabra. Tócala aquí:</p>
+        <div class="teclado" id="teclado"></div>
+      </div>
+    </div>
+
+    <details open>
+      <summary>Cómo se juega</summary>
+      <div class="contenido">
+        <ol>
+          <li>Se sortea una letra y se proyecta. Todos juegan a la vez.</li>
+          <li><strong>Treinta segundos</strong> para escribir la palabra más larga que contenga esa letra <strong>una sola vez</strong>.</li>
+          <li>Cada quien gana tantos puntos como letras tiene su palabra. Las palabras se leen en voz alta; si alguien duda de una, el DLE es el árbitro.</li>
+          <li>Quien escribió la más larga elige la segunda letra, sacándola de su propia palabra. Ahora la consigna sube: la palabra debe contener la primera letra <strong>exactamente dos veces</strong> y la segunda al menos una.</li>
+          <li>Se repite mientras alguien logre una palabra válida. Cuando nadie puede, la jugada termina y se sortea letra nueva.</li>
+          <li>Se juegan las jugadas que el tiempo permita. Gana quien acumule más puntos.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details>
+      <summary>Cómo lo jugamos en grupo</summary>
+      <div class="contenido">
+        <p><span class="rotulo">modo individual</span>Cada quien con su hoja. Al cerrar el reloj, levantan la mano los que tengan palabras de 10 letras o más, luego 9, luego 8, hasta encontrar a quien manda. Así no se leen 25 palabras cada ronda.</p>
+        <p><span class="rotulo">modo equipos</span>Equipos de 4 o 5 con una sola hoja. El equipo negocia en voz baja cuál palabra anota: ahí está el juego bueno, en la discusión. El marcador lleva los puntos.</p>
+        <p><span class="rotulo">modo duelo</span>El salón partido en dos mitades. Cada mitad grita su mejor palabra por ronda. Rápido, ruidoso, perfecto para cinco minutos sueltos.</p>
+        <p>Consejo de conducción: la letra doble cambia todo el juego. Con la primera letra buscan palabras largas; con la escalada tienen que pensar la palabra por dentro. Vale la pena decirlo en voz alta la primera vez.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>De dónde viene</summary>
+      <div class="contenido">
+        <p>DoBlograma es uno de los juegos de <strong>Verbalia</strong>, creado por Oriol Comas y Màrius Serra. La versión de mesa usa fichas físicas para 1 a 8 personas; esta adaptación cambia las fichas por el saco digital para que juegue el salón entero. Las frecuencias de letras y sílabas del saco son las del juego original.</p>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<section class="juego" id="voleograma">
+  <div class="placa">
+    <h2><span class="mayus">V</span>oleograma</h2>
+    <div class="chapas">
+      <span class="chapa grupo">rompehielos oral</span>
+      <span class="chapa minutos">5 a 15 min</span>
+    </div>
+  </div>
+  <div class="cuerpo-juego">
+
+    <div class="jugada">
+      <p class="etiqueta">La letra en juego</p>
+      <div class="linea-voleo">
+        <span class="letra-viva" id="letraViva">?</span>
+        <button class="btn-primario" id="letraVoleo">Letra para quien sigue</button>
+      </div>
+      <div class="frase-viva" id="fraseViva" contenteditable="true" spellcheck="false"></div>
+      <p class="sub-adios">El marcador de ADIÓS
+        <small>Cada tropiezo enciende una letra. Con las cinco, se pasa a ser juez.</small>
+      </p>
+      <div id="filasAdios"></div>
+      <button class="btn-secundario btn-adios" id="agregarAdios">Agregar jugador o equipo</button>
+    </div>
+
+    <details open>
+      <summary>Cómo se juega</summary>
+      <div class="contenido">
+        <ol>
+          <li>Se decide el orden: en círculo, o serpenteando por las filas del salón.</li>
+          <li>Quien empieza sortea una letra y dice una palabra que empiece por ella, dejando la frase abierta.</li>
+          <li>Por turnos: se sortea letra nueva y quien sigue añade una palabra que empiece por esa letra, de modo que la frase siga viva y con sentido. Se pueden regalar artículos, conjunciones y pronombres para que embone.</li>
+          <li>La frase se sostiene de memoria colectiva: parte del juego es no perderla. El grupo entero es el árbitro de si sigue teniendo pies y cabeza.</li>
+          <li>Quien rompe la frase, dice palabra con letra equivocada o se queda en blanco tras contar hasta cinco, enciende una letra de su ADIÓS.</li>
+          <li>Con el ADIÓS completo no se sale del salón: se pasa a ser juez, con voto de calidad en las dudas. Gana quien quede al final con el ADIÓS más apagado.</li>
+        </ol>
+        <p>Del libro, para calibrar el absurdo esperado: LA CACEROLA ABSTRACTA DEL ÑU COMPRENDE EL LIBRO DE RECLAMACIONES DEL GOBIERNO...</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Cómo lo jugamos en grupo</summary>
+      <div class="contenido">
+        <p><span class="rotulo">modo serpiente</span>La frase recorre el salón fila por fila: cada estudiante una palabra. Nadie sabe cuándo le toca letra difícil, y eso mantiene a todos despiertos.</p>
+        <p><span class="rotulo">modo círculo</span>Ocho o diez voluntarios al frente, el resto es tribunal. Bueno para arrancar la clase con energía sin mover las bancas.</p>
+        <p><span class="rotulo">modo equipos</span>Cada equipo consulta tres segundos y su vocero suelta la palabra. El ADIÓS se enciende por equipo, con las filas de arriba.</p>
+        <p>Consejo de conducción: sortea la letra sin prisa y repite la frase completa en voz alta cada cuatro o cinco palabras. La risa viene de escucharla crecer.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>De dónde viene</summary>
+      <div class="contenido">
+        <p>Voleograma es uno de los juegos de <strong>Verbalia</strong>, de Oriol Comas y Màrius Serra. En la mesa original se apartan las seis fichas que deletrean ADIÓS para marcar los errores de cada jugador; aquí ese conteo se volvió digital y la eliminación se suavizó a pasar de jugador a juez, criterio de aula para que nadie quede veinte minutos fuera del juego. Aquí la letra sorteada no arranca el reloj: este juego se juega a ritmo de voz.</p>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<section class="juego" id="abocagrama">
+  <div class="placa">
+    <h2><span class="mayus">AB</span>ocagrama</h2>
+    <div class="chapas">
+      <span class="chapa grupo">improvisación oral</span>
+      <span class="chapa minutos">5 a 10 min</span>
+    </div>
+  </div>
+  <div class="cuerpo-juego">
+
+    <div class="jugada">
+      <p class="etiqueta">Las cinco letras, en su orden</p>
+      <div class="zona-cinco" id="cincoLetras">
+        <p class="vacio">Cinco letras de golpe, en el orden en que salgan del saco.</p>
+      </div>
+      <div class="mandos-jugada">
+        <button class="btn-primario" id="sortearCinco">Sortear las cinco</button>
+      </div>
+    </div>
+
+    <details open>
+      <summary>Cómo se juega</summary>
+      <div class="contenido">
+        <ol>
+          <li>Se sortean cinco letras de golpe y se proyectan <strong>en el orden en que salieron</strong>. El orden es la regla.</li>
+          <li>Quien tiene el turno dice de inmediato una frase bien construida cuyas palabras empiecen por esas letras, en ese orden. Con M, P, C, S, A: "Mi perro come sopa aguada".</li>
+          <li>La frase puede llevar más de cinco palabras: los artículos y las partículas de en medio se regalan.</li>
+          <li>El grupo valida a mano alzada. Frase lograda, punto al marcador; frase imposible, se confiesa con dignidad y pasa el turno.</li>
+          <li>Se juegan las rondas que quepan en el hueco. Gana quien acumule más frases vivas.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details>
+      <summary>Cómo lo jugamos en grupo</summary>
+      <div class="contenido">
+        <p><span class="rotulo">modo pasarela</span>Voluntarios al frente, de uno en uno. Cinco letras nuevas para cada quien; el aplauso mide la frase.</p>
+        <p><span class="rotulo">modo ruleta</span>Se sortea un nombre de la lista y le caen las cinco letras. Nadie se duerme, porque la ruleta no avisa.</p>
+        <p><span class="rotulo">modo duelo</span>Las mismas cinco letras para dos equipos: cada uno improvisa su frase y el pleno vota cuál estuvo mejor. Punto al ganador en el marcador.</p>
+        <p>Consejo de conducción: si la casilla del sorteo con reloj está activa, los segundos corren desde que salen las letras. Con 30 segundos hay presión buena; sin reloj, el juego respira más y salen frases más finas. Prueba ambos.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>De dónde viene</summary>
+      <div class="contenido">
+        <p>ABocagrama es uno de los juegos de <strong>Verbalia</strong>, de Oriol Comas y Màrius Serra. En la mesa original quien no logra frase carga un marcador y con tres queda eliminado; aquí la cuenta se invirtió: en el aula se suman puntos por frase lograda, porque castigar la improvisación fallida enfría justo lo que el juego quiere calentar.</p>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<div class="patio-pie">
+  El patio de las palabras · Etimologías Grecolatinas del Español · EBA-UAQ Campus Concá.<br>
+  Juegos adaptados con permiso de la buena fe lectora: si esto te gustó, busca el <em>Verbalia</em> original.
+</div>
+
+<!-- modo patio -->
+<div id="patio" role="dialog" aria-label="Modo patio, vista de proyección">
+  <div class="arriba">
+    <span class="titulo">El patio de las palabras</span>
+    <button class="btn-secundario" id="cerrarPatio">Salir (Esc)</button>
+  </div>
+  <div class="zona">
+    <div id="patioFicha"><p class="vacio">Barra espaciadora para sacar del saco.</p></div>
+    <div>
+      <div id="patioReloj">0:30</div>
+      <div id="patioConsigna"></div>
+    </div>
+  </div>
+  <div id="patioMarcador"></div>
+  <div class="mandos">
+    <button class="btn-primario" id="patioSacar">Sacar del saco</button>
+    <button class="btn-secundario" id="patioMarcha">Arrancar el reloj</button>
+    <button class="btn-secundario" id="patioReiniciar">Reiniciar el reloj</button>
+  </div>
+  <p class="pista">Espacio saca ficha · R reinicia el reloj · Esc sale</p>
+</div>
+
+</div>
+
+<script>
+/* ---------- inventarios (frecuencias del juego original) ---------- */
+const LETRAS = {A:30,B:4,C:10,D:6,E:20,F:2,G:4,H:2,I:14,J:2,K:2,L:8,M:8,N:10,"Ñ":2,O:12,P:4,QU:2,R:18,S:16,T:8,U:6,V:2,W:2,X:2,Y:2,Z:2};
+/* DA, ES, LE y RO reconstruidas por brillo de la foto; el total cuadra en 204 */
+const SILABAS = {A:10,AN:1,AS:2,BA:4,BAN:1,BAS:1,BE:1,BI:1,BO:1,CA:5,CAS:1,CE:3,CHA:2,CHI:1,CI:2,CO:4,CON:1,CU:1,DA:4,DAS:1,DE:5,DES:4,DI:2,DO:4,DOS:1,E:2,EN:5,ES:4,FA:1,FI:2,GA:3,GO:1,IN:1,JA:2,JE:1,LA:4,LE:3,LI:3,LLA:2,LO:2,MA:4,ME:2,MI:2,MO:2,MOS:4,NA:5,NE:3,NES:1,NI:2,NO:1,"ÑA":1,O:1,PA:3,PE:3,PI:1,PO:1,QUE:2,QUI:1,RA:5,RAIS:1,RAN:1,RAS:2,RE:6,REIS:1,REN:1,RES:2,RI:5,RO:1,RON:1,SA:3,SE:4,SEIS:1,SEN:1,SES:1,SI:1,SO:2,TA:5,TE:5,TEIS:1,TI:4,TO:3,TRA:1,TU:1,VA:1,VE:1,VI:1,ZA:4};
+
+function armarSaco(inv){const s=[];for(const [f,n] of Object.entries(inv)){for(let i=0;i<n;i++)s.push(f)}return s}
+
+const CLAVE='patio-palabras-v1';
+function guardar(){
+  try{
+    const equipos=[...zonaEquipos.querySelectorAll('.equipo')].map(f=>({
+      n:f.querySelector('.nombre').textContent,
+      p:parseInt(f.querySelector('.puntos').textContent,10)||0
+    }));
+    const hist=[...historial.children].map(c=>c.textContent);
+    localStorage.setItem(CLAVE,JSON.stringify({modo,saco,hist,equipos,segBase}));
+  }catch(e){}
+}
+function leerGuardado(){
+  try{const g=localStorage.getItem(CLAVE);return g?JSON.parse(g):null}catch(e){return null}
+}
+
+let modo='letras';
+let saco=armarSaco(LETRAS);
+const escenario=document.getElementById('escenario');
+const patioFicha=document.getElementById('patioFicha');
+const historial=document.getElementById('historial');
+const restante=document.getElementById('restante');
+const btnLetras=document.getElementById('modoLetras');
+const btnSilabas=document.getElementById('modoSilabas');
+const encadenar=document.getElementById('encadenar');
+
+function pintarResto(){restante.textContent='quedan '+saco.length+' fichas'}
+function pintarModoBotones(){
+  btnLetras.classList.toggle('activo',modo==='letras');
+  btnSilabas.classList.toggle('activo',modo==='silabas');
+  btnLetras.setAttribute('aria-pressed',modo==='letras');
+  btnSilabas.setAttribute('aria-pressed',modo==='silabas');
+}
+function cambiarModo(nuevo){modo=nuevo;pintarModoBotones();reiniciarSaco()}
+function reiniciarSaco(){
+  saco=armarSaco(modo==='letras'?LETRAS:SILABAS);
+  historial.innerHTML='';
+  escenario.innerHTML='<p class="vacio">El saco está lleno. Saca la primera ficha.</p>';
+  patioFicha.innerHTML='<p class="vacio">Barra espaciadora para sacar del saco.</p>';
+  pintarResto();guardar();
+}
+btnLetras.addEventListener('click',()=>cambiarModo('letras'));
+btnSilabas.addEventListener('click',()=>cambiarModo('silabas'));
+document.getElementById('reiniciarSaco').addEventListener('click',reiniciarSaco);
+
+function marcarHistorial(ficha){
+  const chip=document.createElement('span');
+  chip.textContent=ficha;
+  if(modo==='silabas')chip.classList.add('silaba');
+  historial.prepend(chip);
+}
+function pintarFicha(ficha){
+  const esSilaba=modo==='silabas';
+  const clases='ficha '+(esSilaba?'moneda':'tesela')+(esSilaba&&ficha.length>2?' larga':'');
+  const marca='<div class="'+clases+'">'+ficha+'</div>';
+  escenario.innerHTML=marca;
+  patioFicha.innerHTML=marca;
+}
+function sacarFicha(){
+  if(!saco.length){
+    escenario.innerHTML='<p class="vacio">El saco quedó vacío. Devuélvelo todo para seguir.</p>';
+    patioFicha.innerHTML='<p class="vacio">El saco quedó vacío.</p>';
+    return null;
+  }
+  const i=Math.floor(Math.random()*saco.length);
+  const ficha=saco.splice(i,1)[0];
+  pintarFicha(ficha);
+  marcarHistorial(ficha);
+  pintarResto();guardar();
+  if(encadenar.checked){segRestan=segBase;iniciarCuenta()}
+  return ficha;
+}
+document.getElementById('sacar').addEventListener('click',sacarFicha);
+document.getElementById('patioSacar').addEventListener('click',sacarFicha);
+
+/* ---------- cronómetro ---------- */
+let segBase=30,segRestan=30,cuenta=null;
+const reloj=document.getElementById('reloj');
+const patioReloj=document.getElementById('patioReloj');
+const marcha=document.getElementById('marchaReloj');
+const patioMarcha=document.getElementById('patioMarcha');
+
+function pintarReloj(){
+  const m=Math.floor(segRestan/60),s=segRestan%60;
+  const t=m+':'+String(s).padStart(2,'0');
+  reloj.textContent=t;patioReloj.textContent=t;
+  const alerta=segRestan<=5&&segRestan>0&&cuenta!==null;
+  reloj.classList.toggle('alerta',alerta);
+  patioReloj.classList.toggle('alerta',alerta);
+}
+function campana(){
+  try{
+    const ctx=new (window.AudioContext||window.webkitAudioContext)();
+    const o=ctx.createOscillator(),g=ctx.createGain();
+    o.connect(g);g.connect(ctx.destination);
+    o.frequency.value=880;g.gain.setValueAtTime(.001,ctx.currentTime);
+    g.gain.exponentialRampToValueAtTime(.4,ctx.currentTime+.02);
+    g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.9);
+    o.start();o.stop(ctx.currentTime+.95);
+  }catch(e){}
+}
+function pintarBotonesReloj(){
+  marcha.textContent=cuenta?'Pausa':'Arrancar';
+  patioMarcha.textContent=cuenta?'Pausa':'Arrancar el reloj';
+}
+function pararCuenta(){clearInterval(cuenta);cuenta=null;pintarBotonesReloj();pintarReloj()}
+function iniciarCuenta(){
+  if(cuenta){clearInterval(cuenta)}
+  if(segRestan<=0)segRestan=segBase;
+  cuenta=setInterval(()=>{
+    segRestan--;pintarReloj();
+    if(segRestan<=0){pararCuenta();campana()}
+  },1000);
+  pintarBotonesReloj();pintarReloj();
+}
+function alternarCuenta(){cuenta?pararCuenta():iniciarCuenta()}
+marcha.addEventListener('click',alternarCuenta);
+patioMarcha.addEventListener('click',alternarCuenta);
+function reiniciarReloj(){pararCuenta();segRestan=segBase;pintarReloj()}
+document.getElementById('reiniciarReloj').addEventListener('click',reiniciarReloj);
+document.getElementById('patioReiniciar').addEventListener('click',reiniciarReloj);
+document.querySelectorAll('.presets button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.presets button').forEach(x=>x.classList.remove('activo'));
+    b.classList.add('activo');
+    segBase=parseInt(b.dataset.seg,10);
+    pararCuenta();segRestan=segBase;pintarReloj();guardar();
+  });
+});
+
+/* ---------- marcador ---------- */
+const zonaEquipos=document.getElementById('equipos');
+const patioMarcador=document.getElementById('patioMarcador');
+let numEquipo=0;
+function pintarLider(){
+  const filas=[...zonaEquipos.querySelectorAll('.equipo')];
+  let max=-Infinity;
+  filas.forEach(f=>{max=Math.max(max,parseInt(f.querySelector('.puntos').textContent,10))});
+  filas.forEach(f=>{
+    const p=parseInt(f.querySelector('.puntos').textContent,10);
+    f.classList.toggle('lider',p===max&&p>0);
+  });
+  patioMarcador.innerHTML=filas.map(f=>
+    '<span>'+f.querySelector('.nombre').textContent+'<b>'+f.querySelector('.puntos').textContent+'</b></span>'
+  ).join('');
+}
+function equipoSel(){
+  return zonaEquipos.querySelector('.equipo.sel')||zonaEquipos.querySelector('.equipo');
+}
+function sumarPuntos(n){
+  const f=equipoSel();if(!f)return;
+  const p=f.querySelector('.puntos');
+  p.textContent=Math.max(0,parseInt(p.textContent,10)+n);
+  pintarLider();guardar();
+}
+function agregarEquipo(nombre,puntos){
+  if(zonaEquipos.children.length>=6)return;
+  numEquipo++;
+  const fila=document.createElement('div');
+  fila.className='equipo';
+  fila.innerHTML='<span class="nombre" contenteditable="true" spellcheck="false">'+(nombre||('Equipo '+numEquipo))+'</span>'+
+    '<span class="puntos">'+(puntos||0)+'</span>'+
+    '<span class="pasos">'+
+    '<button data-d="-1" aria-label="Quitar un punto">-1</button>'+
+    '<button data-d="1" class="mas" aria-label="Sumar un punto">+1</button>'+
+    '<button data-d="5" class="mas" aria-label="Sumar cinco puntos">+5</button>'+
+    '</span>'+
+    '<button class="quitar" aria-label="Quitar equipo">&times;</button>';
+  fila.addEventListener('click',e=>{
+    if(e.target.closest('button')||e.target.classList.contains('nombre'))return;
+    zonaEquipos.querySelectorAll('.equipo').forEach(x=>x.classList.remove('sel'));
+    fila.classList.add('sel');
+  });
+  fila.querySelector('.nombre').addEventListener('input',()=>{pintarLider();guardar()});
+  fila.querySelectorAll('.pasos button').forEach(b=>{
+    b.addEventListener('click',()=>{
+      const p=fila.querySelector('.puntos');
+      p.textContent=Math.max(0,parseInt(p.textContent,10)+parseInt(b.dataset.d,10));
+      pintarLider();guardar();
+    });
+  });
+  fila.querySelector('.quitar').addEventListener('click',()=>{fila.remove();pintarLider();guardar()});
+  zonaEquipos.appendChild(fila);
+  pintarLider();
+}
+document.getElementById('agregarEquipo').addEventListener('click',()=>{agregarEquipo();guardar()});
+document.getElementById('cerosMarcador').addEventListener('click',()=>{
+  zonaEquipos.querySelectorAll('.puntos').forEach(p=>p.textContent='0');pintarLider();guardar();
+});
+const chipsPuntos=document.getElementById('chipsPuntos');
+for(let n=4;n<=15;n++){
+  const b=document.createElement('button');
+  b.textContent=n;
+  b.addEventListener('click',()=>sumarPuntos(n));
+  chipsPuntos.appendChild(b);
+}
+
+/* ---------- DoBlograma: la jugada ---------- */
+const consigna=document.getElementById('consigna');
+const patioConsigna=document.getElementById('patioConsigna');
+const btnArranque=document.getElementById('letraArranque');
+const btnEscalar=document.getElementById('escalar');
+const btnNueva=document.getElementById('jugadaNueva');
+const selector=document.getElementById('selectorLetra');
+const teclado=document.getElementById('teclado');
+let letraUno=null,letraDos=null;
+
+'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'.split('').forEach(l=>{
+  const b=document.createElement('button');
+  b.textContent=l;
+  b.addEventListener('click',()=>{letraDos=l;pintarConsigna();selector.classList.remove('visible')});
+  teclado.appendChild(b);
+});
+
+function pintarConsigna(){
+  let html='';
+  if(!letraUno){
+    consigna.textContent='Saca una letra del saco para arrancar la jugada.';
+    patioConsigna.innerHTML='';
+    btnEscalar.disabled=true;return;
+  }
+  if(!letraDos){
+    html='La palabra más larga que contenga la <span class="letra">'+letraUno+'</span> exactamente una vez.';
+    consigna.innerHTML=html+' Treinta segundos.';
+    btnEscalar.disabled=false;
+  }else{
+    html='Ahora sube: la <span class="letra">'+letraUno+'</span> exactamente dos veces y la <span class="letra dos">'+letraDos+'</span> al menos una.';
+    consigna.innerHTML=html;
+  }
+  patioConsigna.innerHTML=html;
+}
+btnArranque.addEventListener('click',()=>{
+  if(modo!=='letras')cambiarModo('letras');
+  if(!saco.length)reiniciarSaco();
+  const i=Math.floor(Math.random()*saco.length);
+  let f=saco.splice(i,1)[0];
+  if(f==='QU')f='Q';
+  letraUno=f;letraDos=null;
+  pintarFicha(letraUno);marcarHistorial(letraUno);pintarResto();guardar();
+  selector.classList.remove('visible');
+  pintarConsigna();
+  if(encadenar.checked){segRestan=segBase;iniciarCuenta()}
+});
+btnEscalar.addEventListener('click',()=>{selector.classList.toggle('visible')});
+btnNueva.addEventListener('click',()=>{letraUno=null;letraDos=null;selector.classList.remove('visible');pintarConsigna()});
+
+/* ---------- Voleograma ---------- */
+const letraViva=document.getElementById('letraViva');
+document.getElementById('letraVoleo').addEventListener('click',()=>{
+  /* sortea sin arrancar el reloj: el juego es oral y a ritmo de voz */
+  if(modo!=='letras')cambiarModo('letras');
+  if(!saco.length)reiniciarSaco();
+  const i=Math.floor(Math.random()*saco.length);
+  let f=saco.splice(i,1)[0];
+  if(f==='QU')f='Q';
+  pintarFicha(f);marcarHistorial(f);pintarResto();guardar();
+  letraViva.textContent=f;
+});
+
+const filasAdios=document.getElementById('filasAdios');
+let numFilaAdios=0;
+function agregarFilaAdios(nombre){
+  numFilaAdios++;
+  const fila=document.createElement('div');
+  fila.className='fila-adios';
+  fila.innerHTML='<span class="nombre" contenteditable="true" spellcheck="false">'+(nombre||('Fila '+numFilaAdios))+'</span>'+
+    '<span class="letras"></span>'+
+    '<span class="chapa-juez">juez</span>'+
+    '<button class="quitar" aria-label="Quitar">&times;</button>';
+  const letras=fila.querySelector('.letras');
+  'ADIÓS'.split('').forEach(l=>{
+    const b=document.createElement('button');
+    b.textContent=l;
+    b.setAttribute('aria-label','Letra '+l+' del adiós');
+    b.addEventListener('click',()=>{
+      b.classList.toggle('prendida');
+      fila.classList.toggle('juez',letras.querySelectorAll('.prendida').length===5);
+    });
+    letras.appendChild(b);
+  });
+  fila.querySelector('.quitar').addEventListener('click',()=>fila.remove());
+  filasAdios.appendChild(fila);
+}
+document.getElementById('agregarAdios').addEventListener('click',()=>agregarFilaAdios());
+agregarFilaAdios('Fila 1');agregarFilaAdios('Fila 2');
+
+/* ---------- ABocagrama ---------- */
+const zonaCinco=document.getElementById('cincoLetras');
+function pintarFichas(lista){
+  const marca='<div class="grupo-fichas">'+lista.map(f=>'<div class="ficha tesela chica">'+f+'</div>').join('')+'</div>';
+  escenario.innerHTML=marca;
+  patioFicha.innerHTML=marca;
+  zonaCinco.innerHTML=marca;
+}
+document.getElementById('sortearCinco').addEventListener('click',()=>{
+  if(modo!=='letras')cambiarModo('letras');
+  if(saco.length<5)reiniciarSaco();
+  const lista=[];
+  for(let k=0;k<5;k++){
+    const i=Math.floor(Math.random()*saco.length);
+    let f=saco.splice(i,1)[0];
+    if(f==='QU')f='Q';
+    lista.push(f);marcarHistorial(f);
+  }
+  pintarFichas(lista);pintarResto();guardar();
+  if(encadenar.checked){segRestan=segBase;iniciarCuenta()}
+});
+
+/* ---------- modo patio ---------- */
+const btnAbrir=document.getElementById('abrirPatio');
+function abrirPatio(){
+  document.body.classList.add('patio-activo');
+  if(document.documentElement.requestFullscreen){document.documentElement.requestFullscreen().catch(()=>{})}
+}
+function cerrarPatio(){
+  document.body.classList.remove('patio-activo');
+  if(document.fullscreenElement&&document.exitFullscreen){document.exitFullscreen().catch(()=>{})}
+}
+btnAbrir.addEventListener('click',abrirPatio);
+document.getElementById('cerrarPatio').addEventListener('click',cerrarPatio);
+document.addEventListener('keydown',e=>{
+  if(!document.body.classList.contains('patio-activo'))return;
+  if(e.key==='Escape')cerrarPatio();
+  if(e.key===' '){e.preventDefault();sacarFicha()}
+  if(e.key==='r'||e.key==='R')reiniciarReloj();
+});
+document.addEventListener('fullscreenchange',()=>{
+  if(!document.fullscreenElement)document.body.classList.remove('patio-activo');
+});
+
+/* ---------- arranque: restaurar estado guardado ---------- */
+(function init(){
+  const g=leerGuardado();
+  if(g){
+    modo=g.modo==='silabas'?'silabas':'letras';
+    pintarModoBotones();
+    if(Array.isArray(g.saco))saco=g.saco;
+    if(Array.isArray(g.hist)){
+      [...g.hist].reverse().forEach(f=>{
+        const chip=document.createElement('span');
+        chip.textContent=f;
+        if(modo==='silabas')chip.classList.add('silaba');
+        historial.prepend(chip);
+      });
+    }
+    if(typeof g.segBase==='number'&&g.segBase>0){
+      segBase=g.segBase;segRestan=segBase;
+      document.querySelectorAll('.presets button').forEach(b=>{
+        b.classList.toggle('activo',parseInt(b.dataset.seg,10)===segBase);
+      });
+    }
+    if(Array.isArray(g.equipos)&&g.equipos.length){
+      g.equipos.forEach(eq=>agregarEquipo(eq.n,eq.p));
+    }else{agregarEquipo('Equipo 1');agregarEquipo('Equipo 2')}
+  }else{
+    agregarEquipo('Equipo 1');agregarEquipo('Equipo 2');
+  }
+  pintarResto();pintarReloj();pintarConsigna();pintarLider();
+})();
+</script>

@@ -141,13 +141,17 @@ Cuatro sesiones, cada una con su oficio. El ritmo se repite todo el semestre, as
 | Día | Qué hacemos | Qué traes |
 |---|---|---|
 | **Martes** | Conversación: las palabras que trajimos de casa o de la calle salen a la luz y abrimos dos o tres en vivo | tu palabra de la semana |
-| **Miércoles** | Taller: se trabaja con las manos —tarjetas, disecciones, matrices de raíces, juegos— | el mazo al día |
+| **Miércoles** | Taller: se trabaja con las manos —tarjetas, disecciones, matrices de raíces, [juegos](patio.html)— | el mazo al día |
 | **Jueves, centro de cómputo** | Duelo de práctica y trabajo con las fuentes: verificar, comparar, documentar | tu hipótesis del martes |
 | **Viernes, 2 horas** | La sesión grande: seminario, quiz manuscrito, torneo o defensa | todo lo de la semana |
 
 Y en algún momento de la semana, sin avisar qué día, **diez minutos de lectura en voz alta**: algo hermoso, sin análisis y sin tarea. Solo escuchar.
 
 Cada semana tiene su propia página con el detalle día por día: [Semanas](semanas/).
+
+## Cuando sobra un rato
+
+Los huecos buenos de la clase también tienen su lugar: **[El patio de las palabras](patio.html)**, juegos de palabras para proyectar y jugar con el salón completo, adaptados de *Verbalia*, de Oriol Comas y Màrius Serra. Trae su propio saco de letras y sílabas, cronómetro y marcador por equipos: no hay que preparar nada. Si terminamos antes de tiempo, ahí nos vemos.
 
 ## Lo que sí se hace en casa
 
