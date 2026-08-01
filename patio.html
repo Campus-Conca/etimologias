@@ -4,7 +4,7 @@ title: El patio de las palabras
 nav_order: 9
 ---
 <!--
-  EL PATIO DE LAS PALABRAS · v1.7
+  EL PATIO DE LAS PALABRAS · v1.8
   Curso de Etimologías Grecolatinas · EBA-UAQ Campus Concá
 
   DECISIONES INTERPRETATIVAS DE ESTA VERSIÓN
@@ -42,6 +42,15 @@ nav_order: 9
       marcador de ADIÓS digital, que sustituye las seis fichas apartadas
       del original. La eliminación se suaviza: con ADIÓS completo se pasa
       a ser juez, para que nadie quede fuera mirando.
+
+  NUEVO EN v1.8 (el décimo juego cierra la colección)
+  25. Blufigrama y BlufisílaBo fundidos en una sección: cinco fichas boca
+      abajo (teselas o monedas) que se voltean de una en una entre rondas
+      de apuesta. Las letras propias secretas del original se vuelven un
+      comodín por equipo escrito en papel; el bote vive en el marcador
+      común. La quinta volteada arranca el reloj si el encadenado está
+      activo, y el historial registra las fichas al voltearse, no al
+      repartirse, para no delatarlas.
 
   NUEVO EN v1.7 (segunda tanda de la banca)
   22. Vistagrama por relevos: la palabra viva se teclea, se vuelve fichas
@@ -308,6 +317,9 @@ nav_order: 9
 #cleptoCentro .ficha{cursor:pointer;border:none}
 .ficha.moneda.chica.marcada{outline:3px solid var(--rosa);outline-offset:2px;transform:translateY(-3px)}
 
+/* blufi: fichas boca abajo */
+.ficha.oculta{background:linear-gradient(145deg,#5B2C4E,#3E1F35);border-color:#2B1524;color:#C9A9BD;box-shadow:inset 0 -6px 0 rgba(0,0,0,.3),var(--sombra)}
+
 /* ---------- modo patio ---------- */
 #patio{position:fixed;inset:0;background:var(--ciruela);color:var(--papel);display:none;flex-direction:column;z-index:9999;padding:1.6rem 2rem}
 body.patio-activo #patio{display:flex}
@@ -368,6 +380,7 @@ body.patio-activo{overflow:hidden}
   <a href="#cleptosilabo"><span class="min">10 a 25<small>min</small></span><b>CleptosílaBo</b><span class="que">roba sílabas al grito</span></a>
   <a href="#doblograma"><span class="min">10 a 30<small>min</small></span><b>DoBlograma</b><span class="que">la palabra más larga</span></a>
   <a href="#bananasilabo"><span class="min">15 a 30<small>min</small></span><b>BananasílaBo</b><span class="que">sílabas con votación</span></a>
+  <a href="#blufigrama"><span class="min">15 a 30<small>min</small></span><b>Blufigrama</b><span class="que">póker de palabras</span></a>
   <a href="#vistagrama"><span class="min">15 a 45<small>min</small></span><b>Vistagrama</b><span class="que">la palabra que crece</span></a>
   <a href="#votagrama"><span class="min">20 a 45<small>min</small></span><b>Votagrama</b><span class="que">buenas contra malas</span></a>
 </nav>
@@ -1034,6 +1047,72 @@ body.patio-activo{overflow:hidden}
   </div>
 </section>
 
+<section class="juego" id="blufigrama">
+  <div class="placa">
+    <h2><span class="mayus">B</span>lufigrama</h2>
+    <div class="chapas">
+      <span class="chapa grupo">apuestas por equipo</span>
+      <span class="chapa minutos">15 a 30 min</span>
+    </div>
+  </div>
+  <div class="cuerpo-juego">
+
+    <div class="jugada">
+      <p class="etiqueta">Las cinco, boca abajo</p>
+      <div class="zona-cinco" id="zonaBlufi">
+        <p class="vacio">Cinco fichas boca abajo. Se voltean de una en una, entre apuestas.</p>
+      </div>
+      <div class="mandos-jugada">
+        <button class="btn-primario" id="blufiVoltear" disabled>Voltear la siguiente</button>
+        <button class="btn-secundario" id="blufiLetras">Repartir letras</button>
+        <button class="btn-secundario" id="blufiSilabas">Repartir sílabas</button>
+      </div>
+    </div>
+
+    <details open>
+      <summary>Cómo se juega</summary>
+      <div class="contenido">
+        <ol>
+          <li>Se reparten <strong>cinco fichas boca abajo</strong>. Antes de voltear nada, cada equipo escribe en secreto, en papel, su <strong>comodín</strong>: una letra propia que podrá usar al final. Y todos entran a la ronda apostando <strong>un punto</strong> de su marcador.</li>
+          <li>Se voltea una ficha y corre una ronda de apuestas: cada equipo puede <strong>subir</strong> (hasta tres puntos por ronda) o <strong>retirarse</strong>, perdiendo lo ya apostado.</li>
+          <li>Así con cada ficha: voltear, apostar, voltear, apostar. El blofeo está en subir fuerte viendo poco.</li>
+          <li>Con las cinco a la vista, los equipos vivos tienen <strong>30 segundos</strong> para armar la palabra más larga con las fichas comunes (cada una a lo más una vez) y su comodín secreto, que se revela al leer.</li>
+          <li>La palabra más larga se lleva <strong>el bote completo</strong>: lo apostado sale de los marcadores y entra al ganador. Empate: se reparte, y el sobrante queda de bote para la siguiente.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details>
+      <summary>Una primera ronda, jugada</summary>
+      <div class="contenido">
+        <div class="ronda">
+          <div class="paso">Cinco fichas boca abajo. Cada equipo anota su comodín en secreto y apuesta un punto.</div>
+          <div class="paso">Se voltea la <span class="mini"><span class="tesela-mini">R</span></span>. Dos equipos suben; uno huele derrota, se retira y pierde su punto.</div>
+          <div class="paso">Volteadas las cinco quedan <span class="mini"><span class="tesela-mini">R</span><span class="tesela-mini">A</span><span class="tesela-mini">S</span><span class="tesela-mini">T</span><span class="tesela-mini">E</span></span>. Treinta segundos.</div>
+          <div class="paso">Un equipo revela comodín O y arma <b>toreas</b>: seis letras, el bote entero a su fila del marcador.</div>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Cómo lo jugamos en grupo</summary>
+      <div class="contenido">
+        <p><span class="rotulo">las apuestas</span>Se llevan en el marcador de arriba: resta lo apostado a cada equipo al momento de apostar y suma el bote al ganador. Así nadie discute cuentas.</p>
+        <p><span class="rotulo">blufisílabo</span>El mismo juego con el botón de sílabas: cinco monedas boca abajo y palabras armadas por sílabas. Más difícil y más ruidoso.</p>
+        <p>Consejo de conducción: el retirado no muere de aburrición: los equipos fuera de la ronda son la banca y vigilan las cuentas ajenas con celo de auditor.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>De dónde viene</summary>
+      <div class="contenido">
+        <p>Blufigrama y BlufisílaBo son los juegos de apuestas de <strong>Verbalia</strong>, de Oriol Comas y Màrius Serra, para 3 a 6 jugadores con atriles, marcadores y letras propias ocultas. La versión de aula funde los dos y rediseña lo que no escala: las cuatro letras secretas de cada jugador se vuelven un comodín por equipo escrito en papel, y los veinte marcadores se vuelven puntos del marcador común. La esencia (apostar viendo poco y presumir viendo todo) queda entera.</p>
+      </div>
+    </details>
+
+  </div>
+</section>
+
 <div class="patio-pie">
   El patio de las palabras · Etimologías Grecolatinas del Español · EBA-UAQ Campus Concá.<br>
   Juegos adaptados con permiso de la buena fe lectora: si esto te gustó, busca el <em>Verbalia</em> original.
@@ -1536,6 +1615,45 @@ document.getElementById('cleptoReclamar').addEventListener('click',()=>{
   pintarClepto();
 });
 document.getElementById('cleptoVaciar').addEventListener('click',()=>{cleptoPool=[];pintarClepto()});
+
+/* ---------- Blufigrama / BlufisílaBo ---------- */
+const zonaBlufi=document.getElementById('zonaBlufi');
+const btnVoltear=document.getElementById('blufiVoltear');
+let blufiFichas=[],blufiVistas=0,blufiTipo='letras';
+function pintarBlufi(){
+  const marca='<div class="grupo-fichas">'+blufiFichas.map((f,i)=>{
+    const base=blufiTipo==='letras'?'ficha tesela chica':'ficha moneda chica'+(f.length>2?' larga':'');
+    return i<blufiVistas?'<div class="'+base+'">'+f+'</div>':'<div class="'+base+' oculta">?</div>';
+  }).join('')+'</div>';
+  pintarEnTodo(zonaBlufi,marca);
+}
+function repartirBlufi(tipo){
+  blufiTipo=tipo;
+  if(modo!==(tipo==='letras'?'letras':'silabas'))cambiarModo(tipo==='letras'?'letras':'silabas');
+  if(saco.length<5)reiniciarSaco();
+  blufiFichas=[];blufiVistas=0;
+  for(let k=0;k<5;k++){
+    const i=Math.floor(Math.random()*saco.length);
+    let f=saco.splice(i,1)[0];
+    if(tipo==='letras'&&f==='QU')f='Q';
+    blufiFichas.push(f);
+  }
+  pintarResto();guardar();
+  btnVoltear.disabled=false;
+  pintarBlufi();
+}
+document.getElementById('blufiLetras').addEventListener('click',()=>repartirBlufi('letras'));
+document.getElementById('blufiSilabas').addEventListener('click',()=>repartirBlufi('silabas'));
+btnVoltear.addEventListener('click',()=>{
+  if(blufiVistas>=5)return;
+  blufiVistas++;
+  marcarHistorial(blufiFichas[blufiVistas-1]);
+  pintarBlufi();
+  if(blufiVistas===5){
+    btnVoltear.disabled=true;
+    if(encadenar.checked){segRestan=segBase;iniciarCuenta()}
+  }
+});
 
 /* ---------- modo patio ---------- */
 const btnAbrir=document.getElementById('abrirPatio');
