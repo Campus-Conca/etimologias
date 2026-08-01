@@ -4,7 +4,7 @@ title: El patio de las palabras
 nav_order: 9
 ---
 <!--
-  EL PATIO DE LAS PALABRAS · v1.5
+  EL PATIO DE LAS PALABRAS · v1.6
   Curso de Etimologías Grecolatinas · EBA-UAQ Campus Concá
 
   DECISIONES INTERPRETATIVAS DE ESTA VERSIÓN
@@ -42,6 +42,18 @@ nav_order: 9
       marcador de ADIÓS digital, que sustituye las seis fichas apartadas
       del original. La eliminación se suaviza: con ADIÓS completo se pasa
       a ser juez, para que nadie quede fuera mirando.
+
+  NUEVO EN v1.6 (los tres del modo raíces)
+  19. BigrafosílaBo, ZomBigrama y Votagrama completan los siete juegos de
+      la v1, cada uno con ejemplo en pasos y entrada en el menú.
+  20. Modo raíces implementado en los tres: BigrafosílaBo y Votagrama con
+      botón secundario que tiende piezas grecolatinas (arreglo
+      RAICES_PIEZAS, editable) en lugar de fichas del saco; ZomBigrama con
+      casilla que suma RAÍZ GRIEGA y RAÍZ LATINA al mazo de categorías.
+      Las piezas no consumen el saco: se sortean de su propio arreglo.
+  21. Piezas visuales nuevas: tendido de buenas y malas (Votagrama), ficha
+      ancha jade para categorías y ficha dorada para raíces, con sus
+      escalas de modo patio.
 
   NUEVO EN v1.5 (retroalimentación de Eduardo, 1 de agosto)
   15. Contraste corregido: los títulos sobre fondo ciruela (portada y placas
@@ -254,6 +266,21 @@ nav_order: 9
 .ficha.moneda.chica{width:78px;height:78px;font-size:1.7rem}
 .ficha.moneda.chica.larga{font-size:1.05rem}
 
+
+/* votagrama: tendido de buenas y malas */
+.tendido{display:flex;flex-direction:column;gap:.6rem;margin:.2rem 0}
+.lote{display:flex;align-items:flex-start;gap:.7rem;flex-wrap:wrap}
+.lote-t{font-family:var(--display);font-weight:800;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--jade);min-width:60px;padding-top:.6rem}
+.lote--malas .lote-t{color:var(--rosa)}
+.ficha.tesela.mala{background:linear-gradient(145deg,#FDECF4,#F3CBDE);border-color:#E39ABF;color:var(--rosa)}
+.tesela-mini.mala{background:#F7D6E6;border-color:#E39ABF;color:var(--rosa)}
+
+/* piezas anchas: categorías gramaticales y raíces grecolatinas */
+.ficha.ancha{width:auto;min-width:80px;height:78px;padding:0 .55em;border-radius:14px;font-size:1.4rem}
+.ficha.ancha.larga{font-size:1.02rem}
+.ficha.cat{background:var(--jade);color:#fff;border:none;box-shadow:inset 0 -6px 0 rgba(0,0,0,.18),var(--sombra)}
+.ficha.raiz{background:linear-gradient(145deg,#FBF3DC,#EFDFB2);border:1px solid #D9C27A;color:#7A6210}
+
 /* ---------- modo patio ---------- */
 #patio{position:fixed;inset:0;background:var(--ciruela);color:var(--papel);display:none;flex-direction:column;z-index:9999;padding:1.6rem 2rem}
 body.patio-activo #patio{display:flex}
@@ -268,6 +295,10 @@ body.patio-activo{overflow:hidden}
 #patio .ficha.tesela.chica{width:min(17vh,150px);height:min(17vh,150px);font-size:min(10vh,4.8rem)}
 #patio .ficha.moneda.chica{width:min(15vh,130px);height:min(15vh,130px);font-size:min(7vh,3rem)}
 #patio .ficha.moneda.chica.larga{font-size:min(4.5vh,1.9rem)}
+#patio .ficha.ancha{height:min(14vh,120px);min-width:min(14vh,120px);font-size:min(6vh,2.4rem)}
+#patio .ficha.ancha.larga{font-size:min(4vh,1.6rem)}
+#patio .lote-t{color:#C9A9BD}
+#patio .lote--malas .lote-t{color:var(--ambar)}
 #patio .vacio{color:#C9A9BD;font-size:1.2rem}
 #patioReloj{font-family:var(--display);font-weight:800;font-size:clamp(4.5rem,14vh,8.5rem);letter-spacing:3px;line-height:1;color:var(--papel);font-variant-numeric:tabular-nums}
 #patioReloj.alerta{color:var(--ambar);animation:pulso 1s infinite}
@@ -304,8 +335,11 @@ body.patio-activo{overflow:hidden}
 <nav class="menu-tiempo" aria-label="Elegir juego por tiempo disponible">
   <a href="#abocagrama"><span class="min">5 a 10<small>min</small></span><b>ABocagrama</b><span class="que">frase improvisada</span></a>
   <a href="#voleograma"><span class="min">5 a 15<small>min</small></span><b>Voleograma</b><span class="que">la frase que crece</span></a>
+  <a href="#bigrafosilabo"><span class="min">10 a 20<small>min</small></span><b>BigrafosílaBo</b><span class="que">dos sílabas, mil palabras</span></a>
+  <a href="#zombigrama"><span class="min">10 a 25<small>min</small></span><b>ZomBigrama</b><span class="que">tres letras y categoría</span></a>
   <a href="#doblograma"><span class="min">10 a 30<small>min</small></span><b>DoBlograma</b><span class="que">la palabra más larga</span></a>
   <a href="#bananasilabo"><span class="min">15 a 30<small>min</small></span><b>BananasílaBo</b><span class="que">sílabas con votación</span></a>
+  <a href="#votagrama"><span class="min">20 a 45<small>min</small></span><b>Votagrama</b><span class="que">buenas contra malas</span></a>
 </nav>
 
 <section class="mesa">
@@ -625,6 +659,199 @@ body.patio-activo{overflow:hidden}
       <summary>De dónde viene</summary>
       <div class="contenido">
         <p>BananasílaBo es uno de los juegos de <strong>Verbalia</strong>, de Oriol Comas y Màrius Serra, y trae la mecánica más democrática del sistema: los propios jugadores votan las mejores frases con criterios libres. Aquí se juega por equipos para que 25 voces quepan en una ronda, y está planeado que en una segunda versión las frases se envíen desde el celular y se proyecten anónimas antes de votar.</p>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<section class="juego" id="bigrafosilabo">
+  <div class="placa">
+    <h2><span class="mayus">B</span>igrafosíla<span class="mayus">B</span>o</h2>
+    <div class="chapas">
+      <span class="chapa grupo">escritura veloz</span>
+      <span class="chapa minutos">10 a 20 min</span>
+    </div>
+  </div>
+  <div class="cuerpo-juego">
+
+    <div class="jugada">
+      <p class="etiqueta">Las dos sílabas</p>
+      <div class="zona-cinco" id="duoSilabas">
+        <p class="vacio">Dos sílabas del saco, o dos raíces si activas el modo raíces.</p>
+      </div>
+      <div class="mandos-jugada">
+        <button class="btn-primario" id="duoSortear">Sortear las dos</button>
+        <button class="btn-secundario" id="duoRaices">Sortear raíces (modo raíces)</button>
+      </div>
+    </div>
+
+    <details open>
+      <summary>Cómo se juega</summary>
+      <div class="contenido">
+        <ol>
+          <li>Salen dos sílabas del saco y se proyectan.</li>
+          <li><strong>Un minuto</strong>: escribe cuantas palabras puedas que contengan las dos sílabas, con al menos una letra entre ellas para que no sea trampa de juntarlas.</li>
+          <li>Un punto por palabra viva, y uno extra por cada palabra que nadie más trajo.</li>
+          <li>Se retiran las sílabas y salen dos nuevas. El original juega a 50 puntos; en el aula, 20 rinde mejor.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details>
+      <summary>Una primera ronda, jugada</summary>
+      <div class="contenido">
+        <div class="ronda">
+          <div class="paso">Salen <span class="mini"><span class="moneda-mini">CA</span><span class="moneda-mini">SA</span></span> y corre un minuto.</div>
+          <div class="paso"><b>casa</b> no vale: van pegadas. <b>camisa</b> y <b>cansada</b> sí, con sus letras de en medio.</div>
+          <div class="paso"><b>camisa</b> la escribió medio salón: un punto a cada quien.</div>
+          <div class="paso"><b>descansaba</b> solo la trajo un equipo: dos puntos, y presume la palabra en voz alta.</div>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Cómo lo jugamos en grupo</summary>
+      <div class="contenido">
+        <p><span class="rotulo">modo individual</span>Cada quien su lista. Al cerrar el reloj, se leen por turnos y las repetidas se tachan a coro.</p>
+        <p><span class="rotulo">modo equipos</span>Una lista por equipo, negociada en voz baja. La palabra única vale el doble de presumida.</p>
+        <p><span class="rotulo">modo raíces</span>El botón dorado sortea dos piezas grecolatinas en lugar de sílabas: una palabra real que use las dos vale 5 puntos (con <em>bio</em> y <em>grafo</em>, <em>biografía</em>), con una sola vale 1. Es el álgebra de palabras del curso, jugada.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>De dónde viene</summary>
+      <div class="contenido">
+        <p>BigrafosílaBo es uno de los juegos de <strong>Verbalia</strong>, de Oriol Comas y Màrius Serra, y el más simple de proyectar de todo el sistema: dos fichas y un reloj. El modo raíces es adaptación del curso: mismas reglas, pero el saco sortea piezas griegas y latinas productivas, así que el repaso pasa de contrabando.</p>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<section class="juego" id="zombigrama">
+  <div class="placa">
+    <h2><span class="mayus">Z</span>om<span class="mayus">B</span>igrama</h2>
+    <div class="chapas">
+      <span class="chapa grupo">letras y categoría</span>
+      <span class="chapa minutos">10 a 25 min</span>
+    </div>
+  </div>
+  <div class="cuerpo-juego">
+
+    <div class="jugada">
+      <p class="etiqueta">La jugada: tres letras y una categoría</p>
+      <div class="zona-cinco" id="zonaZombi">
+        <p class="vacio">Tres letras del saco más la categoría que toque.</p>
+      </div>
+      <div class="mandos-jugada">
+        <button class="btn-primario" id="zombiSortear">Sortear jugada</button>
+      </div>
+      <label class="encadenar"><input type="checkbox" id="zombiRaices"> Con categorías de raíz (modo raíces)</label>
+    </div>
+
+    <details open>
+      <summary>Cómo se juega</summary>
+      <div class="contenido">
+        <ol>
+          <li>Salen tres letras del saco y una categoría: <strong>nombre</strong>, <strong>verbo</strong> o <strong>adjetivo</strong>.</li>
+          <li><strong>Un minuto</strong>: palabras que contengan las tres letras y pertenezcan a la categoría. Verbos en infinitivo, adjetivos en masculino singular, nombres en singular.</li>
+          <li>Se leen las listas: palabra que otro también trajo vale 1 punto; palabra que nadie más tiene vale 3.</li>
+          <li>Las letras se retiran, la categoría vuelve al mazo y sale jugada nueva. El original juega a 100; en el aula, rondas fijas o meta de 30.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details>
+      <summary>Una primera ronda, jugada</summary>
+      <div class="contenido">
+        <div class="ronda">
+          <div class="paso">Salen <span class="mini"><span class="tesela-mini">R</span><span class="tesela-mini">A</span><span class="tesela-mini">T</span></span> y la categoría <b>VERBO</b>.</div>
+          <div class="paso">Un minuto por equipos: infinitivos que traigan las tres letras.</div>
+          <div class="paso"><b>atrapar</b> lo trajeron tres equipos: un punto a cada uno. <b>arrastrar</b> solo uno: tres puntos.</div>
+          <div class="paso"><b>rato</b> se anula entre risas: trae las tres letras, pero de verbo no tiene nada.</div>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Cómo lo jugamos en grupo</summary>
+      <div class="contenido">
+        <p><span class="rotulo">modo equipos</span>El natural: listas por equipo y lectura cruzada. Lo único que hay que vigilar es que la categoría se respete sin piedad.</p>
+        <p><span class="rotulo">modo mitades</span>Salón partido en dos, una palabra por mitad por turno, hasta que una mitad se seque. Rápido y ruidoso.</p>
+        <p><span class="rotulo">modo raíces</span>La casilla agrega dos categorías al mazo: <strong>raíz griega</strong> y <strong>raíz latina</strong>. La palabra debe traer las tres letras y una raíz de ese origen que puedas nombrar; si además la desarmas en voz alta, vale doble. Es el puente directo entre el patio y el temario.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>De dónde viene</summary>
+      <div class="contenido">
+        <p>ZomBigrama es uno de los juegos de <strong>Verbalia</strong>, de Oriol Comas y Màrius Serra. En la mesa, las categorías son cinco fichas físicas que se giran; aquí el mazo es digital y el modo raíces le suma dos categorías propias del curso, extensión orgánica de su propia regla: el juego ya pedía clasificar palabras, ahora también pide reconocer de dónde vienen.</p>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<section class="juego" id="votagrama">
+  <div class="placa">
+    <h2><span class="mayus">V</span>otagrama</h2>
+    <div class="chapas">
+      <span class="chapa grupo">buenas contra malas</span>
+      <span class="chapa minutos">20 a 45 min</span>
+    </div>
+  </div>
+  <div class="cuerpo-juego">
+
+    <div class="jugada">
+      <p class="etiqueta">El tendido: diez buenas, cuatro malas</p>
+      <div class="zona-cinco" id="tendidoVota">
+        <p class="vacio">Se tienden las letras buenas y, aparte, las malas.</p>
+      </div>
+      <div class="mandos-jugada">
+        <button class="btn-primario" id="votaLetras">Tender las letras</button>
+        <button class="btn-secundario" id="votaRaices">Tender raíces (modo raíces)</button>
+      </div>
+    </div>
+
+    <details open>
+      <summary>Cómo se juega</summary>
+      <div class="contenido">
+        <ol>
+          <li>Se tienden diez letras <strong>buenas</strong> y, aparte, cuatro <strong>malas</strong>. Nadie toca nada.</li>
+          <li><strong>Un minuto</strong>: escribe cuantas palabras quieras que no contengan ninguna mala y traigan tantas buenas como se pueda. Al menos la mitad de las letras de cada palabra deben ser buenas.</li>
+          <li>Cada palabra viva cobra un punto por cada letra buena <strong>distinta</strong> que contenga. Una palabra con una sola mala muere completa.</li>
+          <li>Quien metió más buenas en una sola palabra gana 3 extra; si empatan, manda la palabra más corta.</li>
+          <li>Las letras usadas se retiran y se tienden catorce nuevas. El original juega a 50; en el aula, 25 rinde mejor.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details>
+      <summary>Una primera ronda, jugada</summary>
+      <div class="contenido">
+        <div class="ronda">
+          <div class="paso">Entre las buenas quedaron <span class="mini"><span class="tesela-mini">T</span><span class="tesela-mini">R</span><span class="tesela-mini">A</span><span class="tesela-mini">M</span><span class="tesela-mini">O</span><span class="tesela-mini">S</span></span>; entre las malas, <span class="mini"><span class="tesela-mini mala">E</span><span class="tesela-mini mala">B</span></span>.</div>
+          <div class="paso">Un minuto de lluvia. <b>tambor</b> muere por la B; <b>amor</b> vive y cobra sus buenas.</div>
+          <div class="paso"><b>tramos</b> vive entera: T, R, A, M, O y S son buenas, seis puntos de un tiro.</div>
+          <div class="paso">Nadie metió más buenas en una palabra: 3 extra para <b>tramos</b>. Se retira lo usado y se tienden catorce nuevas.</div>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Cómo lo jugamos en grupo</summary>
+      <div class="contenido">
+        <p><span class="rotulo">modo individual</span>Cada quien su hoja y su estrategia: muchas palabras cortas o pocas cargadas de buenas. Al leer, las malas se cazan a coro.</p>
+        <p><span class="rotulo">modo equipos</span>Una lista por equipo. La discusión interna sobre qué palabra arriesga más es la mitad del juego.</p>
+        <p><span class="rotulo">modo raíces</span>El botón dorado tiende ocho piezas grecolatinas en lugar de letras: cada pieza usada en una palabra real vale 3 puntos, y la palabra que junte dos piezas vale doble. El gimnasio de raíces, disfrazado de torneo.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>De dónde viene</summary>
+      <div class="contenido">
+        <p>Votagrama es uno de los juegos de <strong>Verbalia</strong>, de Oriol Comas y Màrius Serra, el más estratégico de los de escritura: obliga a elegir entre volumen y densidad. La regla fina del original (las letras repetidas cobran una sola vez) se conserva; el modo raíces es adaptación del curso para las unidades donde los prefijos y sufijos ya están en la mesa.</p>
       </div>
     </details>
 
@@ -991,6 +1218,82 @@ document.getElementById('sortearSiete').addEventListener('click',()=>{
   patioFicha.innerHTML=marca;
   zonaSiete.innerHTML=marca;
   pintarResto();guardar();
+  if(encadenar.checked){segRestan=segBase;iniciarCuenta()}
+});
+
+/* ---------- piezas grecolatinas para los modos raíces ---------- */
+const RAICES_PIEZAS=['bio','geo','foto','fono','grafo','logo','metro','demo','poli','tele','micro','macro','termo','hidro','crono','auto','filo','psico','zoo','mono','hiper','hipo','anti','peri','hemi','neo','morfo','patía','fobia','logía','cracia','scopio'];
+function muestraDe(arr,n){const c=arr.slice();const out=[];for(let k=0;k<n;k++){out.push(c.splice(Math.floor(Math.random()*c.length),1)[0])}return out}
+function fichasChicas(lista,extra){return lista.map(f=>'<div class="ficha tesela chica'+(extra?' '+extra:'')+'">'+f+'</div>').join('')}
+function pintarEnTodo(zona,marca){zona.innerHTML=marca;escenario.innerHTML=marca;patioFicha.innerHTML=marca}
+
+/* ---------- BigrafosílaBo ---------- */
+const zonaDuo=document.getElementById('duoSilabas');
+document.getElementById('duoSortear').addEventListener('click',()=>{
+  if(modo!=='silabas')cambiarModo('silabas');
+  if(saco.length<2)reiniciarSaco();
+  const lista=[];
+  for(let k=0;k<2;k++){
+    const i=Math.floor(Math.random()*saco.length);
+    const f=saco.splice(i,1)[0];
+    lista.push(f);marcarHistorial(f);
+  }
+  const marca='<div class="grupo-fichas">'+lista.map(f=>'<div class="ficha moneda'+(f.length>2?' larga':'')+'">'+f+'</div>').join('')+'</div>';
+  pintarEnTodo(zonaDuo,marca);
+  pintarResto();guardar();
+  if(encadenar.checked){segRestan=segBase;iniciarCuenta()}
+});
+document.getElementById('duoRaices').addEventListener('click',()=>{
+  const piezas=muestraDe(RAICES_PIEZAS,2);
+  const marca='<div class="grupo-fichas">'+piezas.map(p=>'<div class="ficha ancha raiz">'+p+'</div>').join('')+'</div>';
+  pintarEnTodo(zonaDuo,marca);
+  if(encadenar.checked){segRestan=segBase;iniciarCuenta()}
+});
+
+/* ---------- ZomBigrama ---------- */
+const zonaZombi=document.getElementById('zonaZombi');
+const chkZombi=document.getElementById('zombiRaices');
+document.getElementById('zombiSortear').addEventListener('click',()=>{
+  if(modo!=='letras')cambiarModo('letras');
+  if(saco.length<3)reiniciarSaco();
+  const letras=[];
+  for(let k=0;k<3;k++){
+    const i=Math.floor(Math.random()*saco.length);
+    let f=saco.splice(i,1)[0];
+    if(f==='QU')f='Q';
+    letras.push(f);marcarHistorial(f);
+  }
+  const mazo=['NOMBRE','VERBO','ADJETIVO'].concat(chkZombi.checked?['RAÍZ GRIEGA','RAÍZ LATINA']:[]);
+  const cat=mazo[Math.floor(Math.random()*mazo.length)];
+  const marca='<div class="grupo-fichas">'+fichasChicas(letras)+'<div class="ficha ancha cat'+(cat.length>8?' larga':'')+'">'+cat+'</div></div>';
+  pintarEnTodo(zonaZombi,marca);
+  pintarResto();guardar();
+  if(encadenar.checked){segRestan=segBase;iniciarCuenta()}
+});
+
+/* ---------- Votagrama ---------- */
+const tendidoVota=document.getElementById('tendidoVota');
+document.getElementById('votaLetras').addEventListener('click',()=>{
+  if(modo!=='letras')cambiarModo('letras');
+  if(saco.length<14)reiniciarSaco();
+  const buenas=[],malas=[];
+  for(let k=0;k<14;k++){
+    const i=Math.floor(Math.random()*saco.length);
+    const f=saco.splice(i,1)[0];
+    (k<10?buenas:malas).push(f);marcarHistorial(f);
+  }
+  const marca='<div class="tendido">'+
+    '<div class="lote"><span class="lote-t">buenas</span><div class="grupo-fichas">'+fichasChicas(buenas)+'</div></div>'+
+    '<div class="lote lote--malas"><span class="lote-t">malas</span><div class="grupo-fichas">'+fichasChicas(malas,'mala')+'</div></div>'+
+    '</div>';
+  pintarEnTodo(tendidoVota,marca);
+  pintarResto();guardar();
+  if(encadenar.checked){segRestan=segBase;iniciarCuenta()}
+});
+document.getElementById('votaRaices').addEventListener('click',()=>{
+  const piezas=muestraDe(RAICES_PIEZAS,8);
+  const marca='<div class="tendido"><div class="lote"><span class="lote-t">piezas</span><div class="grupo-fichas">'+piezas.map(p=>'<div class="ficha ancha raiz">'+p+'</div>').join('')+'</div></div></div>';
+  pintarEnTodo(tendidoVota,marca);
   if(encadenar.checked){segRestan=segBase;iniciarCuenta()}
 });
 
