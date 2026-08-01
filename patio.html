@@ -4,7 +4,7 @@ title: El patio de las palabras
 nav_order: 9
 ---
 <!--
-  EL PATIO DE LAS PALABRAS · v1.1
+  EL PATIO DE LAS PALABRAS · v1.5
   Curso de Etimologías Grecolatinas · EBA-UAQ Campus Concá
 
   DECISIONES INTERPRETATIVAS DE ESTA VERSIÓN
@@ -42,6 +42,19 @@ nav_order: 9
       marcador de ADIÓS digital, que sustituye las seis fichas apartadas
       del original. La eliminación se suaviza: con ADIÓS completo se pasa
       a ser juez, para que nadie quede fuera mirando.
+
+  NUEVO EN v1.5 (retroalimentación de Eduardo, 1 de agosto)
+  15. Contraste corregido: los títulos sobre fondo ciruela (portada y placas
+      de juego) llevan color claro explícito, porque el tema del sitio
+      impone su propio color de encabezados y ganaba a la herencia.
+  16. Cada juego trae "Una primera ronda, jugada": el ejemplo en pasos
+      numerados (primitiva .ronda) con fichas miniatura, para entender el
+      juego viendo una ronda antes que leyendo reglas.
+  17. Menú por minutos bajo la portada: se elige juego según el tiempo
+      disponible, con ancla directa a su sección.
+  18. BananasílaBo entra como cuarto juego: estrena el saco de sílabas
+      (siete de golpe, en orden) y la votación 3-2-1 por equipos, con la
+      regla del original de que votar por la frase ganadora también paga.
 
   NUEVO EN v1.4 (integración al sitio)
   14. La página vive en el repo como patio.html con front matter: entra al
@@ -86,7 +99,7 @@ nav_order: 9
 
 /* ---------- cabecera ---------- */
 .patio-portada{background:var(--ciruela);color:var(--papel);padding:2.2rem 1.5rem 1.8rem;text-align:center}
-.patio-portada h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,5vw,3.2rem);letter-spacing:-.5px}
+.patio-portada h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,5vw,3.2rem);letter-spacing:-.5px;color:var(--papel)}
 .patio-portada h1 .acento{color:var(--rosa)}
 .patio-portada p.baja{margin-top:.4rem;font-size:1.05rem;color:var(--hueso)}
 .patio-portada p.credito{margin-top:.7rem;font-size:.85rem;color:#C9A9BD}
@@ -157,7 +170,7 @@ nav_order: 9
 /* ---------- ficha del juego ---------- */
 .juego{max-width:1080px;margin:0 auto 3rem;padding:0 1.2rem}
 .placa{background:var(--ciruela);border-radius:var(--radio) var(--radio) 0 0;color:#fff;padding:1.3rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
-.placa h2{font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,4vw,2.3rem)}
+.placa h2{font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,4vw,2.3rem);color:#fff}
 .placa h2 .mayus{color:var(--rosa)}
 .chapas{margin-left:auto;display:flex;gap:.5rem}
 .chapa{font-family:var(--display);font-weight:600;font-size:.8rem;padding:.3rem .8rem;border-radius:99px}
@@ -215,6 +228,32 @@ nav_order: 9
 
 .patio-pie{background:var(--hueso);color:var(--ciruela-media);text-align:center;font-size:.85rem;padding:1.4rem;line-height:1.7}
 
+
+/* menú por minutos */
+.menu-titulo{max-width:1080px;margin:1.6rem auto 0;padding:0 1.2rem;font-family:var(--display);font-weight:800;color:var(--ciruela)}
+.menu-tiempo{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.7rem;max-width:1080px;margin:.6rem auto 0;padding:0 1.2rem}
+.menu-tiempo a{background:#fff;border-radius:var(--radio);box-shadow:var(--sombra);padding:.9rem 1rem;text-decoration:none;display:flex;flex-direction:column;gap:.15rem;border-top:5px solid var(--jade)}
+.menu-tiempo a:hover{background:var(--hueso)}
+.menu-tiempo .min{font-family:var(--display);font-weight:800;font-size:1.25rem;color:var(--jade)}
+.menu-tiempo .min small{font-size:.75rem;font-weight:600;margin-left:.25rem;color:var(--ciruela-media)}
+.menu-tiempo b{font-family:var(--display);font-weight:800;color:var(--ciruela);font-size:1.02rem}
+.menu-tiempo .que{font-size:.82rem;color:var(--ciruela-media)}
+.patio-pagina .juego{scroll-margin-top:90px}
+
+/* ronda de ejemplo: pasos numerados */
+.ronda{counter-reset:paso;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.6rem;margin:.9rem 0 .3rem}
+.paso{background:var(--papel);border:1.5px solid var(--hueso);border-radius:10px;padding:.6rem .7rem .7rem;font-size:.88rem;line-height:1.45}
+.paso::before{counter-increment:paso;content:counter(paso);display:inline-flex;width:22px;height:22px;border-radius:50%;background:var(--rosa);color:#fff;font-family:var(--display);font-weight:800;font-size:.8rem;align-items:center;justify-content:center;margin-bottom:.35rem}
+.paso b{color:var(--ciruela)}
+.mini{display:inline-flex;gap:.25rem;vertical-align:middle;margin:0 .15rem}
+.tesela-mini,.moneda-mini{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;padding:0 .25rem;font-family:var(--display);font-weight:800;font-size:.85rem;background:#EFE7DA;border:1px solid #D8CCBA;color:var(--ciruela)}
+.tesela-mini{border-radius:7px}
+.moneda-mini{border-radius:99px}
+
+/* bananasílabo: hilera de monedas chicas */
+.ficha.moneda.chica{width:78px;height:78px;font-size:1.7rem}
+.ficha.moneda.chica.larga{font-size:1.05rem}
+
 /* ---------- modo patio ---------- */
 #patio{position:fixed;inset:0;background:var(--ciruela);color:var(--papel);display:none;flex-direction:column;z-index:9999;padding:1.6rem 2rem}
 body.patio-activo #patio{display:flex}
@@ -227,6 +266,8 @@ body.patio-activo{overflow:hidden}
 #patio .ficha.moneda{width:min(36vh,280px);height:min(36vh,280px);font-size:min(13vh,5.6rem)}
 #patio .ficha.moneda.larga{font-size:min(9vh,3.8rem)}
 #patio .ficha.tesela.chica{width:min(17vh,150px);height:min(17vh,150px);font-size:min(10vh,4.8rem)}
+#patio .ficha.moneda.chica{width:min(15vh,130px);height:min(15vh,130px);font-size:min(7vh,3rem)}
+#patio .ficha.moneda.chica.larga{font-size:min(4.5vh,1.9rem)}
 #patio .vacio{color:#C9A9BD;font-size:1.2rem}
 #patioReloj{font-family:var(--display);font-weight:800;font-size:clamp(4.5rem,14vh,8.5rem);letter-spacing:3px;line-height:1;color:var(--papel);font-variant-numeric:tabular-nums}
 #patioReloj.alerta{color:var(--ambar);animation:pulso 1s infinite}
@@ -258,6 +299,14 @@ body.patio-activo{overflow:hidden}
   <p class="credito">Adaptados de <em>Verbalia</em>, el juego de Oriol Comas y Màrius Serra.</p>
   <button class="btn-patio" id="abrirPatio">Modo patio: proyectar</button>
 </div>
+
+<p class="menu-titulo">¿Cuánto tiempo tienen? Elige por minutos:</p>
+<nav class="menu-tiempo" aria-label="Elegir juego por tiempo disponible">
+  <a href="#abocagrama"><span class="min">5 a 10<small>min</small></span><b>ABocagrama</b><span class="que">frase improvisada</span></a>
+  <a href="#voleograma"><span class="min">5 a 15<small>min</small></span><b>Voleograma</b><span class="que">la frase que crece</span></a>
+  <a href="#doblograma"><span class="min">10 a 30<small>min</small></span><b>DoBlograma</b><span class="que">la palabra más larga</span></a>
+  <a href="#bananasilabo"><span class="min">15 a 30<small>min</small></span><b>BananasílaBo</b><span class="que">sílabas con votación</span></a>
+</nav>
 
 <section class="mesa">
   <div class="columna">
@@ -347,6 +396,19 @@ body.patio-activo{overflow:hidden}
     </details>
 
     <details>
+      <summary>Una primera ronda, jugada</summary>
+      <div class="contenido">
+        <div class="ronda">
+          <div class="paso">Sale la <span class="mini"><span class="tesela-mini">M</span></span> del saco y corren 30 segundos.</div>
+          <div class="paso">Se comparan palabras: <b>murciélago</b> vale 10 puntos; <b>mantequilla</b>, 11, y gana la ronda.</div>
+          <div class="paso">Quien la escribió elige la segunda letra de su propia palabra: la <span class="mini"><span class="tesela-mini">T</span></span>.</div>
+          <div class="paso">Escala la consigna: la M exactamente dos veces y la T al menos una. <b>Matemáticas</b> aguanta: 11 puntos más.</div>
+          <div class="paso">Nadie encuentra otra. Se cierra la jugada y sale letra nueva del saco.</div>
+        </div>
+      </div>
+    </details>
+
+    <details>
       <summary>Cómo lo jugamos en grupo</summary>
       <div class="contenido">
         <p><span class="rotulo">modo individual</span>Cada quien con su hoja. Al cerrar el reloj, levantan la mano los que tengan palabras de 10 letras o más, luego 9, luego 8, hasta encontrar a quien manda. Así no se leen 25 palabras cada ronda.</p>
@@ -406,6 +468,19 @@ body.patio-activo{overflow:hidden}
     </details>
 
     <details>
+      <summary>Una primera ronda, jugada</summary>
+      <div class="contenido">
+        <div class="ronda">
+          <div class="paso">Sale la <span class="mini"><span class="tesela-mini">L</span></span> y quien empieza dice: "<b>Los</b>...".</div>
+          <div class="paso">Sale la <span class="mini"><span class="tesela-mini">B</span></span>: "...<b>burros</b>...".</div>
+          <div class="paso">Sale la <span class="mini"><span class="tesela-mini">V</span></span>: "...<b>vuelan</b>...".</div>
+          <div class="paso">Sale la <span class="mini"><span class="tesela-mini">S</span></span>: "...<b>sobre</b> la..." (el artículo se regala).</div>
+          <div class="paso">Sale otra <span class="mini"><span class="tesela-mini">S</span></span>: "...<b>Sierra</b>". La frase vive: <b>Los burros vuelan sobre la Sierra</b>, y sigue creciendo hasta que alguien la rompa.</div>
+        </div>
+      </div>
+    </details>
+
+    <details>
       <summary>Cómo lo jugamos en grupo</summary>
       <div class="contenido">
         <p><span class="rotulo">modo serpiente</span>La frase recorre el salón fila por fila: cada estudiante una palabra. Nadie sabe cuándo le toca letra difícil, y eso mantiene a todos despiertos.</p>
@@ -459,6 +534,18 @@ body.patio-activo{overflow:hidden}
     </details>
 
     <details>
+      <summary>Una primera ronda, jugada</summary>
+      <div class="contenido">
+        <div class="ronda">
+          <div class="paso">Salen cinco letras, en su orden: <span class="mini"><span class="tesela-mini">C</span><span class="tesela-mini">P</span><span class="tesela-mini">N</span><span class="tesela-mini">L</span><span class="tesela-mini">T</span></span>.</div>
+          <div class="paso">Quien va tiene la palabra. Piensa en voz alta; el grupo aguanta la risa.</div>
+          <div class="paso">Suelta: "<b>C</b>inco <b>p</b>ájaros <b>n</b>egros <b>l</b>legaron <b>t</b>arde". Cinco palabras, cinco letras, en orden.</div>
+          <div class="paso">El grupo la aprueba a mano alzada: punto al marcador y letras nuevas para quien sigue.</div>
+        </div>
+      </div>
+    </details>
+
+    <details>
       <summary>Cómo lo jugamos en grupo</summary>
       <div class="contenido">
         <p><span class="rotulo">modo pasarela</span>Voluntarios al frente, de uno en uno. Cinco letras nuevas para cada quien; el aplauso mide la frase.</p>
@@ -472,6 +559,72 @@ body.patio-activo{overflow:hidden}
       <summary>De dónde viene</summary>
       <div class="contenido">
         <p>ABocagrama es uno de los juegos de <strong>Verbalia</strong>, de Oriol Comas y Màrius Serra. En la mesa original quien no logra frase carga un marcador y con tres queda eliminado; aquí la cuenta se invirtió: en el aula se suman puntos por frase lograda, porque castigar la improvisación fallida enfría justo lo que el juego quiere calentar.</p>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<section class="juego" id="bananasilabo">
+  <div class="placa">
+    <h2><span class="mayus">B</span>ananasíla<span class="mayus">B</span>o</h2>
+    <div class="chapas">
+      <span class="chapa grupo">escritura y votación</span>
+      <span class="chapa minutos">15 a 30 min</span>
+    </div>
+  </div>
+  <div class="cuerpo-juego">
+
+    <div class="jugada">
+      <p class="etiqueta">Las siete sílabas, en su orden</p>
+      <div class="zona-cinco" id="sieteSilabas">
+        <p class="vacio">Siete sílabas de golpe, en el orden en que salgan del saco.</p>
+      </div>
+      <div class="mandos-jugada">
+        <button class="btn-primario" id="sortearSiete">Sortear las siete</button>
+      </div>
+    </div>
+
+    <details open>
+      <summary>Cómo se juega</summary>
+      <div class="contenido">
+        <ol>
+          <li>Se sortean siete sílabas y se proyectan <strong>en el orden en que salieron</strong>.</li>
+          <li><strong>Un minuto</strong>: cada equipo escribe una frase completa que contenga las siete sílabas, en ese orden, dentro de sus palabras. Entre sílaba y sílaba puede haber lo que sea.</li>
+          <li>Se leen en voz alta las frases logradas, exagerando las sílabas al pronunciarlas.</li>
+          <li>Votación: cada equipo reparte 3, 2 y 1 puntos entre las frases ajenas. Prohibido votarse. Los criterios son libres: que sea corta, que tenga gracia, que rime.</li>
+          <li>Regla robada del original que funciona de maravilla: quien votó por la frase ganadora <strong>cobra también los puntos que le dio</strong>. Premia el buen ojo, no solo la buena pluma.</li>
+          <li>Las sílabas usadas se retiran y sale ronda nueva. A 50 puntos el juego rinde bien.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details>
+      <summary>Una primera ronda, jugada</summary>
+      <div class="contenido">
+        <div class="ronda">
+          <div class="paso">Salen, en su orden: <span class="mini"><span class="moneda-mini">MI</span><span class="moneda-mini">CA</span><span class="moneda-mini">SA</span><span class="moneda-mini">TA</span><span class="moneda-mini">RE</span><span class="moneda-mini">TO</span><span class="moneda-mini">LA</span></span>.</div>
+          <div class="paso">Un minuto de escritura por equipos, en voz baja y con pleitos internos.</div>
+          <div class="paso">Un equipo logra: "<b>MI CA</b>mi<b>SA</b> es<b>TÁ</b> <b>RE</b>mendada y <b>TO</b>davía <b>LA</b> uso". Las siete, en orden.</div>
+          <div class="paso">Se leen todas y se vota 3, 2 y 1. La más corta con gracia suele llevarse el 3.</div>
+        </div>
+        <p>Del libro, para calibrar: con TA, CA, NA, ÑA, CA, VA, RA y TRA salió "MarTA CAmiNA cada maÑAna por CAlles VAcías paRA ir al TRAbajo".</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Cómo lo jugamos en grupo</summary>
+      <div class="contenido">
+        <p><span class="rotulo">modo equipos</span>El natural: equipos de 4 o 5, una frase por equipo, lectura teatral y votación cruzada. El marcador de arriba lleva la cuenta.</p>
+        <p><span class="rotulo">modo pleno</span>Con tiempo de sobra, cada quien escribe la suya, se leen las cinco o seis mejores levantando la mano quien crea tener algo, y se vota a aplauso medido.</p>
+        <p>Consejo de conducción: pon el reloj en 1 minuto antes de sortear. Y cuando una frase sea imposible, celebrar el intento fallido más digno también hace grupo.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>De dónde viene</summary>
+      <div class="contenido">
+        <p>BananasílaBo es uno de los juegos de <strong>Verbalia</strong>, de Oriol Comas y Màrius Serra, y trae la mecánica más democrática del sistema: los propios jugadores votan las mejores frases con criterios libres. Aquí se juega por equipos para que 25 voces quepan en una ronda, y está planeado que en una segunda versión las frases se envíen desde el celular y se proyecten anónimas antes de votar.</p>
       </div>
     </details>
 
@@ -819,6 +972,25 @@ document.getElementById('sortearCinco').addEventListener('click',()=>{
     lista.push(f);marcarHistorial(f);
   }
   pintarFichas(lista);pintarResto();guardar();
+  if(encadenar.checked){segRestan=segBase;iniciarCuenta()}
+});
+
+/* ---------- BananasílaBo ---------- */
+const zonaSiete=document.getElementById('sieteSilabas');
+document.getElementById('sortearSiete').addEventListener('click',()=>{
+  if(modo!=='silabas')cambiarModo('silabas');
+  if(saco.length<7)reiniciarSaco();
+  const lista=[];
+  for(let k=0;k<7;k++){
+    const i=Math.floor(Math.random()*saco.length);
+    const f=saco.splice(i,1)[0];
+    lista.push(f);marcarHistorial(f);
+  }
+  const marca='<div class="grupo-fichas">'+lista.map(f=>'<div class="ficha moneda chica'+(f.length>2?' larga':'')+'">'+f+'</div>').join('')+'</div>';
+  escenario.innerHTML=marca;
+  patioFicha.innerHTML=marca;
+  zonaSiete.innerHTML=marca;
+  pintarResto();guardar();
   if(encadenar.checked){segRestan=segBase;iniciarCuenta()}
 });
 
