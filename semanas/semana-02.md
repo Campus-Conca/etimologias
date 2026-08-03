@@ -115,10 +115,7 @@ Toda palabra se puede abrir. La IA define cualquier palabra en un segundo; lo qu
 <section class="lam">
 <h4>Fíjate en lo que acaba de pasar</h4>
 <p class="di">La real te dice qué es la palabra. La etimológica, además, te regala piezas.</p>
-<div class="faros">
-<div class="faro faro--real"><span class="foquito">🔦</span><b>La real</b><span>alumbra la palabra: qué significa hoy</span></div>
-<div class="faro faro--etim"><span class="foquito">🔦</span><b>La etimológica</b><span>alumbra el camino: origen, piezas y familia</span></div>
-</div>
+<img class="ilustracion" src="../assets/img/semana-02/las-dos-linternas.webp" alt="Dos personas con linterna alumbran la palabra amnesia: la luz de la real ilumina solo la palabra; la de la etimológica proyecta un camino de piedras con a-, mnem e -ia que lleva hacia amnistía, anónimo y memoria">
 <p class="apoyo"><em>a-</em>, <em>mnem-</em> y <em>-ia</em> van a reaparecer en decenas de palabras que todavía no has visto. Por eso las linternas no son rivales: son dos luces sobre el mismo objeto, y ver con las dos es distinto que ver con una.</p>
 </section>
 <section class="lam">
@@ -225,11 +222,13 @@ Toda palabra se puede abrir. La IA define cualquier palabra en un segundo; lo qu
 <section class="lam">
 <h4><span class="n">3</span> Caso 1 · chao, la que llegó de fuera <span class="reloj">15 min</span></h4>
 <p class="di">Cada vez que dices "chao" estás diciendo, sin saberlo: soy tu esclavo.</p>
+<img class="ilustracion" src="../assets/img/semana-02/el-viaje-de-chao.webp" alt="Cuatro figuras dibujadas a mano cuentan el viaje de chao: un esclavo encadenado (sclavus), una reverencia veneciana que dice s-ciào vostro, soy su esclavo, un saludo alegre que dice ciao, y un estudiante con mochila que se despide con chao al otro lado del mar">
 <p class="apoyo">Del latín <em>sclavus</em> (esclavo, nacido del nombre del pueblo eslavo) al véneto <em>s-ciào vostro</em> ("soy su esclavo", vuelto fórmula de cortesía), al italiano <em>ciao</em>, al chao que cruzó el Atlántico. La historia completa está aquí abajo, en esta misma página.</p>
 </section>
 <section class="lam">
 <h4>Caso 2 · aguacate, la que salió de aquí</h4>
 <p class="di">Esta palabra no vino de fuera. Salió de aquí.</p>
+<img class="ilustracion" src="../assets/img/semana-02/ahuacatl-salio-de-aqui.webp" alt="Un árbol de aguacate dibujado a mano con frutos etiquetados ahuacatl; dos flechas salen del árbol hacia platos de pan con aguacate etiquetados avocado, uno en Sídney y otro en Berlín">
 <p class="apoyo">Del náhuatl <em>ahuacatl</em> salieron <em>aguacate</em> y <em>guacamole</em>; el inglés <em>avocado</em> nació torcido por una etimología popular. Hoy está en menús de Sídney y de Berlín. La historia completa, con su detalle más famoso, está aquí abajo.</p>
 <p class="nota-conductor">El detalle más famoso vive en el caso completo de abajo: ahuacatl también nombraba el testículo. Cuéntalo ahí, con la página abierta; despierta al grupo garantizado y sirve para decir algo serio: la etimología no es solemne, es honesta.</p>
 </section>
