@@ -27,7 +27,7 @@ Toda palabra se puede abrir. La IA define cualquier palabra en un segundo; lo qu
 |---|---|---|
 | Martes | La cosecha: tus palabras heredadas salen a la luz | tu palabra que ya nadie usa, anotada |
 | Miércoles | Las dos linternas: definición real y etimológica | el mazo al día |
-| Jueves, centro de cómputo | El tribunal de las fuentes | tu hipótesis del martes |
+| Jueves, centro de cómputo | ¿Con qué linterna está escrita? | tu hipótesis del martes |
 | Viernes, 2 horas | El seminario de la unidad, y abre el Museo | tu argumento y tu candidata a pieza |
 
 Cada día tiene su sección aquí abajo, en orden. Esta página es el mapa de la semana: el grupo y el profesor trabajamos sobre ella.
@@ -96,27 +96,19 @@ Por eso no son rivales. Son dos luces sobre el mismo objeto, y ver con las dos e
 | sus **transformaciones** | ¿Cómo hizo *esclavo* para convertirse en *chao*? |
 
 {: .ojo }
-La primera trae trampa y no te la voy a resolver aquí. La respuesta que todo el mundo repite —que *chamba* viene del inglés *Chamber of Commerce*— **no aparece en ninguna fuente seria**, y el diccionario apunta hacia otro lado completamente distinto. Es una etimología popular: suena perfecta, se cuenta con seguridad y es falsa. Llévala al tribunal del jueves y compruébalo tú.
+La primera trae trampa y no te la voy a resolver aquí. La respuesta que todo el mundo repite —que *chamba* viene del inglés *Chamber of Commerce*— **no aparece en ninguna fuente seria**, y el diccionario apunta hacia otro lado completamente distinto. Es una etimología popular: suena perfecta, se cuenta con seguridad y es falsa. El jueves, en el cierre con las fuentes, lo compruebas tú.
 
 **Tu ejercicio:** [El taller de las dos linternas](../ejercicios/semana-02/ejercicio-2B-las-dos-linternas.html). Ahí enciendes las dos linternas sobre dos palabras, emparejas diez palabras del español con su étimo y descubres que el corazón y el amor están dos veces en nuestro idioma, uno por cada padre. La tercera pregunta de la tabla se responde sola el viernes.
 
-## Jueves · El tribunal de las fuentes (centro de cómputo)
+## Jueves · ¿Con qué linterna está escrita? (centro de cómputo)
 
 Abrimos con el primer quiz relámpago del semestre: 3 palabras, papel, 3 minutos. Antes de voltear la hoja escribes cuántas crees que tendrás bien, y al calificar comparas. La brecha es información, no culpa.
 
-Luego, el protocolo que desde hoy es ley en este curso:
+Luego, el taller del día, que es el del miércoles llevado a la cancha. Diez definiciones tomadas de diccionarios de verdad; tu trabajo es decir cuál linterna escribió cada una: **E** si es etimológica, **R** si es real. Algunas se dejan leer a la primera. Otras traen trampa, porque la linterna no la decide la palabra: la decide la definición. Y un par de palabras aparece dos veces, a propósito.
 
-1. **Tu apuesta**, a ciegas, con tu nivel de seguridad del 1 al 10.
-2. [DLE](https://dle.rae.es) para el origen.
-3. [DECEL](http://etimologias.dechile.net) para la historia.
-4. Veredicto y fuente anotada.
+**Tu ejercicio:** [¿Con qué linterna está escrita?](../ejercicios/semana-02/ejercicio-2C-con-que-linterna.html). Las diez definiciones con retroalimentación al instante, tu cosecha al final, y el remate donde volteas la herramienta: eliges una palabra de tu mazo y le escribes tú las dos definiciones, una por linterna.
 
-El paso 1 es nuevo y no es un adorno: **te comprometes antes de saber**. Al final del ejercicio no importa cuántas adivinaste, sino si tu confianza correspondía a tus datos.
-
-**Tu ejercicio:** [El tribunal de las fuentes](../ejercicios/semana-02/ejercicio-2C-tribunal-de-las-fuentes.html). Cuatro casos escogidos con mala leche: uno que se abre limpio, dos donde la explicación que todo el mundo repite —*chamba*, *gringo*— se cae a los dos minutos de búsqueda, y uno donde las dos fuentes **no coinciden entre sí**. Después pasan por el tribunal tu hipótesis del martes y tu palabra heredada.
-
-{: .ojo }
-Cuando los dos jueces discrepan, **no se elige**. Se documentan las dos versiones, cada una con su fuente, y el caso se lleva a clase abierto. Que dos autoridades no coincidan no es una falla del sistema: así se ve el conocimiento por dentro cuando dejas de verlo en un libro de texto.
+Y para cerrar, quince minutos con las fuentes de cabecera. El método, que desde hoy es costumbre de la casa: **apuesta primero** (qué crees que significa y qué tan seguro estás), busca después en el [DLE](https://dle.rae.es) y el [DECEL](http://etimologias.dechile.net), y anota el veredicto con su fuente. Pasa por ahí tu hipótesis del martes, tu palabra heredada y la *chamba* del miércoles.
 
 Si la palabra heredada no aparece en ningún diccionario, tampoco es fracaso: es el primer límite de las fuentes que descubres con tus propias manos, y de ahí en adelante documentarla es trabajo de este curso y de nadie más.
 
@@ -178,7 +170,7 @@ Todos los ejercicios de la semana, para tu celular o el centro de cómputo. Sin 
 
 - [Primeras disecciones](../ejercicios/semana-02/ejercicio-2A-primeras-disecciones.html) · martes
 - [El taller de las dos linternas](../ejercicios/semana-02/ejercicio-2B-las-dos-linternas.html) · miércoles
-- [El tribunal de las fuentes](../ejercicios/semana-02/ejercicio-2C-tribunal-de-las-fuentes.html) · jueves, centro de cómputo
+- [¿Con qué linterna está escrita?](../ejercicios/semana-02/ejercicio-2C-con-que-linterna.html) · jueves, centro de cómputo
 - [Biografía de una palabra](../ejercicios/semana-02/ejercicio-2D-biografia-de-una-palabra.html) · viernes
 - [Quiz de gimnasio](../ejercicios/semana-02/quiz-gimnasio-semana-02.html) · para ensayar cuando quieras
 

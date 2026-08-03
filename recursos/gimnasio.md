@@ -14,7 +14,7 @@ Los ejercicios de práctica de todo el semestre, semana por semana. Sin nota y s
 
 - [Primeras disecciones](../ejercicios/semana-02/ejercicio-2A-primeras-disecciones.html) · martes
 - [El taller de las dos linternas](../ejercicios/semana-02/ejercicio-2B-las-dos-linternas.html) · miércoles
-- [El tribunal de las fuentes](../ejercicios/semana-02/ejercicio-2C-tribunal-de-las-fuentes.html) · jueves, centro de cómputo
+- [¿Con qué linterna está escrita?](../ejercicios/semana-02/ejercicio-2C-con-que-linterna.html) · jueves, centro de cómputo
 - [Biografía de una palabra](../ejercicios/semana-02/ejercicio-2D-biografia-de-una-palabra.html) · viernes
 - [Quiz de gimnasio](../ejercicios/semana-02/quiz-gimnasio-semana-02.html) · ensayo libre
 

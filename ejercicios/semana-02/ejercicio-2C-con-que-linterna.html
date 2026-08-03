@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 2 · Ejercicio C · ¿Con qué linterna está escrita?</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+    --mist:#5b4b8a; --mistbg:#f1eefb;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .regla{background:var(--ciruela);color:#fff;border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;font-size:1rem}
+  .regla b{color:#ffd6e9}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.9rem 0 .4rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .2rem;color:var(--rosa);font-size:1.2rem}
+  .card .letra{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:.15rem .5rem;border-radius:1rem;background:var(--fondo);color:var(--ciruela);margin-bottom:.4rem}
+  .def{margin:.3rem 0 0;font-size:.97rem;background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.7rem .9rem}
+  .er{display:flex;gap:.5rem;margin-top:.7rem}
+  .er button{flex:1;padding:.6rem .5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer;font-size:.95rem}
+  .er button.sel{background:var(--ciruela);color:#fff;border-color:var(--ciruela)}
+  .er button:disabled{cursor:default;opacity:.7}
+  .er button.sel:disabled{opacity:1}
+  label{display:block;font-size:.8rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.04em;margin-top:.9rem}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3.2rem;resize:vertical}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.mist{display:block;background:var(--mistbg);color:var(--mist)}
+  .captura{display:none;white-space:pre-wrap;background:#2b2440;color:#ffd6e9;padding:.8rem;border-radius:.6rem;font-size:.85rem;margin-top:.7rem;overflow-x:auto}
+  .cosecha{border:2px solid var(--ciruela);border-radius:.9rem;padding:1rem 1.1rem;margin:1.2rem 0;background:var(--fondo);display:none}
+  .cosecha h3{margin:0 0 .4rem;color:var(--ciruela)}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 2 · Sesión C · Centro de cómputo</div>
+    <h1>¿Con qué linterna está escrita?</h1>
+    <p>Diez definiciones de diccionario. Tu trabajo: decir cuál linterna las escribió.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="regla">
+    Las dos linternas del miércoles, en corto. La <b>definición real</b> dice qué significa la palabra <b>hoy</b>, tal como se usa. La <b>definición etimológica</b> dice <b>de dónde viene y de qué piezas está hecha</b>, y arma el significado con ellas.
+  </div>
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Lee cada definición y marca <strong>E</strong> si es etimológica o <strong>R</strong> si es real. La primera respuesta es la que cuenta: comprométete antes de tocar.<br><br>
+    Una pista de oficio antes de empezar: la etimológica se delata con cosas como <em>"proviene de"</em>, lenguas y piezas nombradas; la real describe usos de hoy, y a veces trae marcas de diccionario como <em>Med.</em> o <em>adj.</em> Pero no te confíes, que hay definiciones con trampa. Y hay palabras que aparecen dos veces: tampoco es error.
+  </div>
+
+  <h2>Las diez definiciones</h2>
+  <div id="defs"></div>
+
+  <div class="cosecha" id="cosecha">
+    <h3>Tu cosecha</h3>
+    <div id="cosechaTxt"></div>
+  </div>
+  <div class="fila-botones"><button class="btn rosa" id="btnCosecha">Calcular mi cosecha</button></div>
+
+  <h2>Ahora enciende tú las dos linternas</h2>
+  <div class="card" data-captura>
+    <h3>Una palabra, dos luces</h3>
+    <p style="font-size:.92rem;margin:.3rem 0 0">Elige una palabra de tu mazo (<em>amnesia</em>, <em>biología</em>, <em>teléfono</em>, <em>hipopótamo</em>, <em>cronómetro</em>, <em>democracia</em>, o la que quieras) y escríbele sus dos definiciones. La real, como la diría la calle o el diccionario. La etimológica, con sus cuatro pasos: origen, piezas, prefijos y sufijos, significado armado.</p>
+    <label>Tu palabra</label>
+    <input type="text" data-campo="palabra" placeholder="ej. cronómetro">
+    <label>Su definición real (qué significa hoy)</label>
+    <textarea data-campo="real" placeholder="ej. aparato que sirve para medir el tiempo con precisión"></textarea>
+    <label>Su definición etimológica (origen, piezas y significado armado)</label>
+    <textarea data-campo="etim" placeholder="ej. del griego: crono (tiempo) + metro (medida), por lo tanto significa..."></textarea>
+    <div class="fila-botones">
+      <button class="btn rosa" data-generar>Generar captura</button>
+      <button class="btn gris" data-copiar style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura"></pre>
+    <div class="fb" data-fb></div>
+  </div>
+
+  <div class="instr">
+    <strong>Última estación.</strong> Pega tu captura donde indique el profesor. Y guarda el ojo que acabas de entrenar: desde hoy, cada vez que abras un diccionario vas a saber qué linterna tienes enfrente.
+  </div>
+
+  <footer>Semana 2 · Las palabras tienen anatomía · Este ejercicio es gimnasio: sin nota. La captura solo se guarda si tú la copias y la pegas; al cerrar la página todo se borra.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+
+  var DEFS=[
+    {l:"a", w:"cardiología", r:"E",
+     def:"'Cardiología' proviene de <em>cardia</em> “corazón” y <em>logo</em> “estudio”: “estudio del corazón”.",
+     fb:"La delatan dos cosas: nombra las piezas y arma el significado con ellas. Y esa <em>cardia</em> es el corazón griego, el primo del <em>cor</em> latino que viste el miércoles en <em>concordia</em> y <em>discordia</em>: el corazón también está dos veces en nuestro idioma, uno por cada padre."},
+
+    {l:"b", w:"facies", r:"R",
+     def:"<em>Facies</em>: (f.) <em>Med.</em> Aspecto del semblante en cuanto revela alguna alteración o enfermedad del organismo. <em>Facies hipocrática</em>: aspecto característico que presentan generalmente las facciones del enfermo próximo a la agonía.",
+     fb:"Describe cómo se usa la palabra hoy en la medicina, y no dice ni una palabra de su origen. La marca <em>Med.</em> era la pista: te dice dónde se usa, no de dónde viene. Y fíjate: <em>facies</em> es latín purito, y aun así su definición es real. La linterna no depende del idioma de la palabra."},
+
+    {l:"c", w:"alhaja", r:"R",
+     def:"<em>Alhaja</em>: (f.) Joya. Adorno o mueble precioso. Cualquier cosa de mucho valor y estima.",
+     fb:"Puros usos de hoy: joya, adorno, cosa de valor. Ni una pieza nombrada, ni una lengua de origen. Linterna real. Guarda esta palabra en la memoria, que la vas a volver a ver muy pronto."},
+
+    {l:"d", w:"alhaja", r:"E",
+     def:"'Alhaja', del árabe <em>al-haya</em>, “la cosa necesaria, el utensilio”.",
+     fb:"La misma palabra de arriba, ahora bajo la otra linterna: lengua de origen y étimo. Y una noticia que agranda el curso: la definición etimológica no es exclusiva del griego y el latín. El español también es hijo del árabe, y a mucha honra."},
+
+    {l:"e", w:"duende", r:"E",
+     def:"'Duende' es contracción de “duen de casa”: “dueño de una casa”; “duen” proviene de “dueño”, que a su vez deriva del latín <em>dominus</em> “señor”.",
+     fb:"Cuenta la historia de formación de la palabra, eslabón por eslabón, hasta el latín <em>dominus</em>. Ese señor anda por todas partes: <em>dominar</em>, <em>dominio</em>, <em>domingo</em> (el día del Señor). Un duende es, literalmente, el dueño de la casa. Piénsalo la próxima vez que se pierdan las llaves."},
+
+    {l:"f", w:"venado", r:"R",
+     def:"<em>Venado</em>: ciervo. <em>Ant.</em> Res de caza mayor, particularmente oso, jabalí o ciervo.",
+     fb:"Trampa fina y la libraste: la marca <em>Ant.</em> habla de un uso <em>antiguo</em>, y aun así la linterna es real, porque describe usos —el de hoy y el de antes—, no origen ni piezas. Antiguo no es lo mismo que etimológico."},
+
+    {l:"g", w:"orangután", r:"E",
+     def:"'Orangután', del malayo <em>ôrang</em> “hombre” y <em>hûtan</em> “selva, bosque”: “hombre de los bosques”.",
+     fb:"Lengua de origen, dos piezas y el significado armado: etimológica completa. Y sin nada de griego ni latín, porque esta herramienta funciona con cualquier palabra del mundo. El malayo también sabe armar palabras como sumas."},
+
+    {l:"h", w:"venado", r:"E",
+     def:"'Venado', del latín <em>venatus</em>, que significa “pieza cazada, cacería”.",
+     fb:"<em>Venado</em> otra vez, ahora con la linterna etimológica. Junta sus dos definiciones y tienes una biografía en miniatura: la palabra que nombraba a <em>lo cazado</em> se quedó como nombre del animal. Primero fue cualquier res de caza mayor; el tiempo la fue acorralando hasta el ciervo."},
+
+    {l:"i", w:"monocular", r:"R",
+     def:"<em>Monocular</em>: adj. Dícese de la visión que se realiza con un solo ojo, o del aparato que se emplea al efecto.",
+     fb:"La trampa del día. La palabra trae las piezas a la vista —<em>mono-</em>, <em>oculus</em>, que está en tus tarjetas de esta semana— y por eso pide a gritos una E. Pero lee la definición: describe la visión con un solo ojo tal como se usa hoy, sin nombrar origen ni piezas. <strong>La linterna no la decide la palabra: la decide la definición.</strong>"},
+
+    {l:"j", w:"aborigen", r:"E",
+     def:"'Aborigen' procede del latín <em>ab</em> “de, desde” y <em>origo, originis</em> “origen”, que a su vez proviene del verbo latino <em>oriri</em> “nacer, surgir”: “que está desde el origen”.",
+     fb:"Origen, piezas y significado armado: la etimológica de manual. Y ese <em>oriri</em> es tarjeta de tu mazo esta misma semana: <em>Oriente</em> (por donde nace el sol), <em>origen</em>, <em>oriundo</em>. Cuando el mazo y el ejercicio se saludan, vas por buen camino."}
+  ];
+
+  var cont=document.getElementById('defs');
+  var resultados={};
+
+  DEFS.forEach(function(d,ix){
+    var card=document.createElement('div');
+    card.className='card';
+    card.innerHTML='<span class="letra">Definición '+d.l+'</span>'
+      +'<h3>'+d.w+'</h3>'
+      +'<div class="def">'+d.def+'</div>'
+      +'<div class="er">'
+        +'<button type="button" data-v="E">E · etimológica</button>'
+        +'<button type="button" data-v="R">R · real</button>'
+      +'</div>'
+      +'<div class="fb" data-fb></div>';
+
+    var botones=card.querySelectorAll('.er button');
+    var fb=card.querySelector('[data-fb]');
+    Array.prototype.forEach.call(botones,function(b){
+      b.addEventListener('click',function(){
+        if(resultados[ix]!==undefined) return;
+        b.classList.add('sel');
+        Array.prototype.forEach.call(botones,function(x){x.disabled=true;});
+        var bien=(b.dataset.v===d.r);
+        resultados[ix]=bien;
+        fb.className='fb '+(bien?'ok':'no');
+        fb.innerHTML=(bien?'<strong>Eso es.</strong> ':'<strong>Era '+d.r+'.</strong> ')+d.fb;
+      });
+    });
+    cont.appendChild(card);
+  });
+
+  document.getElementById('btnCosecha').addEventListener('click',function(){
+    var box=document.getElementById('cosecha'), txt=document.getElementById('cosechaTxt');
+    box.style.display='block';
+    var n=Object.keys(resultados).length;
+    if(n<DEFS.length){
+      txt.innerHTML='Llevas '+n+' de '+DEFS.length+'. Marca todas las definiciones antes de cosechar: comprometerse con cada una es la mitad del ejercicio.';
+      box.scrollIntoView({behavior:'smooth',block:'nearest'});
+      return;
+    }
+    var buenas=0;
+    for(var k in resultados){ if(resultados[k]) buenas++; }
+    var msg='<p><strong>'+buenas+' de '+DEFS.length+'.</strong> ';
+    if(buenas>=9){
+      msg+='Ojo calibrado: ya distingues las dos linternas casi sin pensarlo. Ahora te toca la parte difícil, que es encenderlas tú.</p>';
+    } else if(buenas>=7){
+      msg+='Buen ojo. Las que se te fueron casi seguro fueron las de trampa: la definición decide la linterna, no la palabra. Reléelas antes de seguir.</p>';
+    } else {
+      msg+='Vale la pena regresar un momento al taller del miércoles y volver a intentarlo: las señales están ahí (piezas y origen contra usos de hoy), solo falta afinar el ojo. Este gimnasio no cobra las repeticiones.</p>';
+    }
+    msg+='<p>Y lo más importante del día: <em>alhaja</em> y <em>venado</em> aparecieron dos veces, una por linterna, <strong>y ninguna de las dos definiciones está mal</strong>. Son dos luces sobre el mismo objeto: la real alumbra la palabra, la etimológica alumbra el camino.</p>';
+    txt.innerHTML=msg;
+    box.scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
+
+  /* ---------- captura ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-captura]'),function(card){
+    var btnG=card.querySelector('[data-generar]');
+    if(!btnG) return;
+    var btnC=card.querySelector('[data-copiar]');
+    var pre=card.querySelector('pre.captura');
+    var fb=card.querySelector('[data-fb]');
+
+    btnG.addEventListener('click',function(){
+      var g=function(sel){var el=card.querySelector('[data-campo='+sel+']');return el?el.value.trim():'';};
+      var palabra=g('palabra'),real=g('real'),etim=g('etim');
+      var faltan=[];
+      if(!palabra)faltan.push('la palabra');
+      if(!real)faltan.push('la definición real');
+      if(!etim)faltan.push('la definición etimológica');
+      if(faltan.length){
+        fb.className='fb no';
+        fb.textContent='Las dos linternas se encienden completas. Falta: '+faltan.join(', ')+'.';
+        return;
+      }
+      fb.className='fb ok';
+      fb.textContent='Captura lista. Cópiala y pégala donde te indique el profesor.';
+      pre.textContent='PALABRA: '+palabra
+        +'\nDEFINICIÓN REAL: '+real
+        +'\nDEFINICIÓN ETIMOLÓGICA: '+etim;
+      pre.style.display='block';
+      btnC.style.display='inline-block';
+    });
+
+    btnC.addEventListener('click',function(){
+      var t=pre.textContent;
+      function listo(){fb.className='fb ok';fb.textContent='Copiado. Ahora pégalo donde te indique el profesor.';}
+      function seleccionar(){
+        var r=document.createRange();r.selectNodeContents(pre);
+        var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+        fb.className='fb ok';fb.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
+      }
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(t).then(listo,seleccionar);
+      }else{seleccionar();}
+    });
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>
