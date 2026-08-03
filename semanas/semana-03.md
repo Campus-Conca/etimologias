@@ -73,6 +73,20 @@ El resto de la sesión es para engordar el mazo. Esta semana aprendiste que cada
 
 Por equipos: construyen la matriz más grande que puedan **defender**. Cada palabra propuesta debe sobrevivir la regla de oro si otro equipo la reta, y retar también da puntos. Los cortes dudosos del banco del martes entran aquí como retos listos. El profesor es juez de última instancia, con el DECEL abierto.
 
+### Así se ve una ronda, para que nadie llegue a ciegas
+
+El equipo Fuego elige la raíz *port-* (llevar) y pone en el pizarrón: **transporte, exportar, importar, portátil, reportero, deporte y portero**. Siete palabras: siete puntos posibles, una por cada una que sobreviva.
+
+| Jugada | Qué pasa | El punto |
+|---|---|---|
+| Agua reta **deporte**: "esa no lleva nada" | Se abre el DECEL: viene del latín *deportare*, llevarse a alguien lejos, a distraerse. El corte era real y el reto falla. | Se queda con Fuego |
+| Agua reta **portero**: "trae las letras, pero ¿ahí *port-* significa llevar?" | Se abre la fuente: portero viene de *puerta* (latín *porta*), no de *portare*. Las letras estaban; el significado no. La palabra cae. | Pasa a Agua |
+| Nadie reta **transporte, exportar, importar, portátil, reportero** | Sobreviven sin pelea. | Cinco para Fuego |
+
+Resultado: Fuego defendió seis de siete; Agua cazó un espejismo con la pregunta correcta. Fíjate en cuál fue: no "esa palabra no existe", sino **"¿la pieza significa eso ahí?"**. Esa es la pregunta que gana torneos, y es la misma que el jueves te salvó con *mango*.
+
+Lo que se busca con este juego, dicho de frente: que la matriz grande no gana por grande, **gana por defendible**. Proponer sin fuente es regalar puntos; retar sin fuente es perder el turno. El músculo que se entrena es uno solo: pedir familia y fuente antes de creer, aunque la palabra sea tuya.
+
 Después, la pregunta que quedó sembrada el jueves: ¿por qué el ojo ve piezas donde no las hay? Porque el cerebro ama los patrones y los completa aunque no estén: *amigo* tampoco se corta en a + migo (viene de *amicus*). Por eso la regla de oro pide familia **y** fuente. Y por eso a nadie, ni a una IA, se le cree una etimología sin fuente.
 
 Cierre de siempre: las piezas nuevas al mazo, avance de tu biografía del Museo si vas al día, y diez minutos de lectura en voz alta.
