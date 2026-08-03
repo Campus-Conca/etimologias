@@ -25,100 +25,226 @@ Toda palabra se puede abrir. La IA define cualquier palabra en un segundo; lo qu
 
 | Día | Qué haremos | Trae |
 |---|---|---|
-| Martes | La cosecha: tus palabras heredadas salen a la luz | tu palabra que ya nadie usa, anotada |
-| Miércoles | Las dos linternas: definición real y etimológica | el mazo al día |
-| Jueves, centro de cómputo | ¿Con qué linterna está escrita? | tu hipótesis del martes |
-| Viernes, 2 horas | El seminario de la unidad, y abre el Museo | tu argumento y tu candidata a pieza |
+| [Martes 4](#martes) · 1 h | La cosecha: tus palabras heredadas salen a la luz | tu palabra que ya nadie usa, anotada |
+| [Miércoles 5](#miercoles) · 1 h | Las dos linternas: definición real y etimológica | el mazo al día |
+| [Jueves 6](#jueves) · 1 h, centro de cómputo | ¿Con qué linterna está escrita? | tu hipótesis del martes |
+| [Viernes 7](#viernes) · 2 h | El seminario de la unidad, y abre el Museo | tu argumento y tu candidata a pieza |
 
-Cada día tiene su sección aquí abajo, en orden. Esta página es el mapa de la semana: el grupo y el profesor trabajamos sobre ella.
+<p class="pista-mazos">Cada día es un mazo de láminas. En clase se proyectan una por una con el botón <strong>Presentar</strong>; aquí se quedan apiladas, en orden, para volver a ellas cuando quieras. Debajo de los mazos están los dos casos resueltos del Museo, completos.</p>
 
----
-
-## Martes · La cosecha de palabras heredadas
-
-Abrimos con la palabra del día: algunas de las palabras que trajeron de casa se presentan al grupo, con su historia y con el nombre de quien la regaló. Luego, con *amnesia* en el pizarrón, les ponemos nombre a las piezas: prefijo, raíz, sufijo, étimo. La regla que te llevas: la raíz carga el significado; las demás piezas lo modifican.
-
-Después, gimnasio.
-
-**Tu ejercicio:** [Primeras disecciones](../ejercicios/semana-02/ejercicio-2A-primeras-disecciones.html), y no es lo que esperas: no vas a desarmar palabras que ya conoces, vas a **adivinar el significado de palabras que nunca has abierto**, usando nada más las piezas que ya traes en el mazo. Sin diccionario y sin teléfono. Al terminar, escribe tu hipótesis etimológica de una palabra tuya (tu heredada es perfecta) y apunta qué tan seguro estás, del 1 al 10. No la busques todavía: el jueves la juzgan las fuentes, y ahí comparas tu apuesta con el veredicto.
-
-Las 6 tarjetas de la semana (están aquí abajo) entran hoy a tu mazo. Los duelos ya van en serio.
-
-Si faltaste: haz el ejercicio en casa y llega el jueves con tu hipótesis anotada.
-
-## Miércoles · Las dos linternas
-
-Duelo de raíces al abrir. Luego, el taller.
-
-Empecemos por lo básico, que todavía no habíamos dicho con todas sus letras: **la etimología es la explicación de las palabras por la investigación de dos cosas, su historia y su estructura.** De dónde vienen y de qué están hechas.
-
-Para ver qué significa eso en la práctica hay que separar dos maneras de definir una misma palabra.
-
-### Linterna 1 · La definición real
-
-Precisa el sentido en que se usa la palabra **hoy**, en una situación real y actual. Es la de la calle y la del diccionario.
-
-> **Memoria.** Imagen o conjunto de imágenes de hechos o situaciones pasados que quedan en la mente.
-
-### Linterna 2 · La definición etimológica
-
-Hace algo distinto, y lo hace en cuatro pasos: **(a)** da el origen de la palabra, **(b)** nombra los étimos o raíces que la componen, **(c)** identifica los prefijos y sufijos que la completan y **(d)** arma un significado con todo eso.
-
-> **Amnesia.** Del griego ἀμνησία (se lee *amnisía*), formada con:
->
-> 1. el prefijo de negación **ἀ-** (*a-* = sin)
-> 2. la palabra **μνήμη** (*mnéme* = memoria)
-> 3. el sufijo **-σις** (*-sis* = acción)
-> 4. el sufijo **-ία** (*-ia* = cualidad)
->
-> Por lo tanto, *amnesia* significa **"sin memoria"**.
-
-Fíjate en lo que acaba de pasar. La definición real te dice qué es la memoria y ahí se acaba. La etimológica te dice que *amnesia* es la negación de la memoria **y de pasada te regala tres piezas** —*a-*, *mnem-*, *-ia*— que vas a volver a encontrar en decenas de palabras que todavía no has visto. Una linterna alumbra la palabra; la otra alumbra el camino.
-
-Por eso no son rivales. Son dos luces sobre el mismo objeto, y ver con las dos es distinto que ver con una.
-
-### ¿Y la palabra "etimología"? También se abre
-
-<div class="dis">
-  <span class="pz pz--raiz">étymos<small>verdadero</small></span>
-  <span class="pz pz--suf">lógos<small>tratado, estudio</small></span>
-  <span class="eq">= etimología</span>
+<!-- ============================ MARTES ============================ -->
+<section class="mazo" id="martes">
+<div class="mazo-cabeza">
+<div>
+<div class="cuando">Martes 4 de agosto · 1 hora</div>
+<h3>La cosecha de palabras heredadas</h3>
+<p class="foco">Hoy el grupo estrena su primer tesoro.</p>
 </div>
+<button class="btn-presentar" type="button">Presentar ▸</button>
+</div>
+<section class="lam lam--actividad">
+<h4><span class="n">1</span> La cosecha <span class="reloj">20 min</span></h4>
+<span class="senal">Todo el grupo</span>
+<p class="di">Las palabras que trajeron de casa salen a la luz.</p>
+<p class="apoyo">Algunas se presentan al grupo: la palabra, su historia y el nombre de quien la regaló. Todas quedan anotadas: son las primeras candidatas a pieza del Museo.</p>
+<p class="nota-conductor">No alcanza el tiempo para todas y no hace falta: elige cuatro o cinco variadas (un objeto, un verbo, una que suene rarísimo) y garantiza en voz alta que las demás tendrán su turno. El escribano del kraft de la semana 0 puede repetir oficio. Agenda aquí el minuto del lector del martes.</p>
+</section>
+<section class="lam">
+<h4><span class="n">2</span> La anatomía <span class="reloj">15 min</span></h4>
+<p class="di">Toda palabra se puede abrir. Hoy les ponemos nombre a las piezas.</p>
+<div class="dis">
+<span class="pz pz--pre">a-<small>sin</small></span>
+<span class="pz pz--raiz">mnem<small>memoria</small></span>
+<span class="pz pz--suf">-ia<small>cualidad</small></span>
+<span class="eq">= amnesia, "sin memoria"</span>
+</div>
+<p class="apoyo">Con <em>amnesia</em> en el pizarrón: <strong>prefijo</strong> al inicio, <strong>raíz</strong> al centro, <strong>sufijo</strong> al final. Y <strong>étimo</strong>: la palabra de origen de la que nace otra.</p>
+</section>
+<section class="lam lam--oscura">
+<h4>La regla que te llevas hoy</h4>
+<p class="di">La raíz carga el significado; las demás piezas lo modifican.</p>
+</section>
+<section class="lam lam--actividad">
+<h4><span class="n">3</span> Gimnasio: primeras disecciones <span class="reloj">20 min</span></h4>
+<span class="senal">Actividad</span>
+<p class="di">No vas a abrir palabras que conoces: vas a adivinar palabras que nunca has visto.</p>
+<p class="apoyo"><a href="../ejercicios/semana-02/ejercicio-2A-primeras-disecciones.html">Primeras disecciones</a>: con las piezas que ya traes en el mazo, sin diccionario y sin teléfono. Si faltaste hoy, hazlo en casa y llega el jueves con tu hipótesis anotada.</p>
+</section>
+<section class="lam lam--actividad">
+<h4><span class="n">4</span> Tu hipótesis <span class="reloj">5 min</span></h4>
+<span class="senal">A solas</span>
+<p class="di">Parte una palabra tuya, apuesta su significado y ponle número a tu seguridad.</p>
+<p class="apoyo">Tu heredada es perfecta. Del 1 al 10: ¿qué tanto lo firmas? <strong>No la busques todavía.</strong> El jueves la juzgan las fuentes, y ahí comparas tu apuesta con el veredicto. Y no te vayas sin el mazo: las tarjetas de la semana ya están abajo y entran hoy. Los duelos van en serio.</p>
+<p class="nota-conductor">Insiste en el número de seguridad: es la primera pieza del músculo de calibración que el jueves se mide en el quiz. Nadie sale sin hipótesis anotada; treinta segundos de silencio bastan.</p>
+</section>
+</section>
 
-**Su definición etimológica:** del adjetivo *étymos* (verdadero) y de *lógos* (tratado, estudio). La etimología es el estudio del **significado auténtico, verdadero**, de las palabras.
+<!-- ============================ MIÉRCOLES ============================ -->
+<section class="mazo" id="miercoles">
+<div class="mazo-cabeza">
+<div>
+<div class="cuando">Miércoles 5 de agosto · 1 hora</div>
+<h3>Las dos linternas</h3>
+<p class="foco">Una alumbra la palabra; la otra alumbra el camino.</p>
+</div>
+<button class="btn-presentar" type="button">Presentar ▸</button>
+</div>
+<section class="lam lam--actividad">
+<h4><span class="n">1</span> Duelo de raíces <span class="reloj">10 min</span></h4>
+<span class="senal">Actividad</span>
+<p class="di">El mazo sale a la cancha. Pieza contra pieza.</p>
+<p class="apoyo">En parejas, con las tarjetas que ya traes: quien reciba una pieza tiene que usarla en una palabra que no esté en el reverso.</p>
+<p class="nota-conductor">Corto y con energía: el duelo abre la sesión, no la ocupa. Registra en el pizarrón las palabras nuevas que salgan; alguna acabará en el kraft.</p>
+</section>
+<section class="lam">
+<h4><span class="n">2</span> Qué es la etimología, con todas sus letras <span class="reloj">20 min</span></h4>
+<p class="di">La explicación de las palabras por la investigación de su historia y su estructura.</p>
+<p class="apoyo">De dónde vienen y de qué están hechas. Para verlo en la práctica hay que separar dos maneras de definir una misma palabra.</p>
+</section>
+<section class="lam">
+<h4>Linterna 1 · La definición real</h4>
+<p class="di">Dice qué significa la palabra hoy, tal como se usa.</p>
+<p class="apoyo">Es la de la calle y la del diccionario. <em>Memoria:</em> imagen o conjunto de imágenes de hechos o situaciones pasados que quedan en la mente.</p>
+</section>
+<section class="lam">
+<h4>Linterna 2 · La definición etimológica</h4>
+<p class="di">Dice de dónde viene la palabra y de qué piezas está hecha, y arma el significado con ellas.</p>
+<p class="apoyo">Cuatro pasos: el origen, los étimos o raíces, los prefijos y sufijos, y el significado armado con todo eso. <em>Amnesia</em>, del griego ἀμνησία: <em>a-</em> (sin) + <em>mnem-</em> (memoria) + <em>-ia</em> (cualidad). Por lo tanto: <strong>"sin memoria"</strong>.</p>
+</section>
+<section class="lam">
+<h4>Fíjate en lo que acaba de pasar</h4>
+<p class="di">La real te dice qué es la palabra. La etimológica, además, te regala piezas.</p>
+<p class="apoyo"><em>a-</em>, <em>mnem-</em> y <em>-ia</em> van a reaparecer en decenas de palabras que todavía no has visto. Por eso las linternas no son rivales: son dos luces sobre el mismo objeto, y ver con las dos es distinto que ver con una.</p>
+</section>
+<section class="lam">
+<h4>¿Y la palabra "etimología"? También se abre</h4>
+<div class="dis">
+<span class="pz pz--raiz">étymos<small>verdadero</small></span>
+<span class="pz pz--suf">lógos<small>tratado, estudio</small></span>
+<span class="eq">= etimología</span>
+</div>
+<p class="apoyo">El estudio del significado <strong>auténtico, verdadero</strong> de las palabras. Esa es su definición etimológica; la real dice que es la ciencia que estudia las palabras por su origen, su estructura y sus transformaciones.</p>
+</section>
+<section class="lam">
+<h4>Las tres preguntas del semestre</h4>
+<p class="di">Origen, estructura, transformaciones. Una pregunta para practicar cada una.</p>
+<table>
+<tr><th>Investiga</th><th>La pregunta con la que se practica</th></tr>
+<tr><td>su origen</td><td>¿De dónde viene la palabra <em>chamba</em>?</td></tr>
+<tr><td>su estructura</td><td>¿Qué tienen en común <em>concordia</em>, <em>discordia</em> y <em>cardiólogo</em>?</td></tr>
+<tr><td>sus transformaciones</td><td>¿Cómo hizo <em>esclavo</em> para convertirse en <em>chao</em>?</td></tr>
+</table>
+<p class="nota-conductor">La de chamba trae trampa y hoy no se resuelve: la versión del Chamber of Commerce no aparece en ninguna fuente seria. Siémbrala, deja que alguien la cuente con seguridad, y cállate: el jueves, en el cierre con las fuentes, la comprueban ellos. La tercera se responde sola el viernes con el caso de chao.</p>
+</section>
+<section class="lam lam--actividad">
+<h4><span class="n">3</span> El taller de las dos linternas <span class="reloj">30 min</span></h4>
+<span class="senal">Actividad</span>
+<p class="di">Ahora enciende las dos linternas tú, sobre palabras de verdad.</p>
+<p class="apoyo"><a href="../ejercicios/semana-02/ejercicio-2B-las-dos-linternas.html">El taller de las dos linternas</a>: dos palabras bajo ambas luces, diez palabras del español emparejadas con su étimo, y el descubrimiento de que el corazón y el amor están dos veces en nuestro idioma, uno por cada padre.</p>
+</section>
+</section>
 
-**Su definición real:** la ciencia que estudia el significado de las palabras a partir de tres cosas. Estas tres, exactamente, son el trabajo del semestre:
+<!-- ============================ JUEVES ============================ -->
+<section class="mazo" id="jueves">
+<div class="mazo-cabeza">
+<div>
+<div class="cuando">Jueves 6 de agosto · 1 hora · Centro de cómputo</div>
+<h3>¿Con qué linterna está escrita?</h3>
+<p class="foco">Diez definiciones de diccionario. Tú dices cuál linterna las escribió.</p>
+</div>
+<button class="btn-presentar" type="button">Presentar ▸</button>
+</div>
+<section class="lam lam--actividad">
+<h4><span class="n">1</span> Quiz relámpago <span class="reloj">10 min</span></h4>
+<span class="senal">A solas · papel</span>
+<p class="di">Tres palabras, papel, tres minutos. Antes de voltear la hoja: ¿cuántas crees que tendrás bien?</p>
+<p class="apoyo">El primero del semestre. Al calificar comparas tu apuesta con tu resultado. La brecha es información, no culpa.</p>
+<p class="nota-conductor">Se califica en vivo y la brecha se anota en el expediente: la serie de calibración empieza hoy. Piezas sugeridas: dos del mazo cero y una de esta semana.</p>
+</section>
+<section class="lam">
+<h4><span class="n">2</span> El taller: ¿E o R? <span class="reloj">35 min</span></h4>
+<p class="di">El taller del miércoles, llevado a la cancha.</p>
+<p class="apoyo">Diez definiciones tomadas de diccionarios de verdad. Tu trabajo: marcar <strong>E</strong> si la definición es etimológica y <strong>R</strong> si es real. La primera respuesta es la que cuenta.</p>
+</section>
+<section class="lam lam--oscura">
+<h4>La regla que salva las de trampa</h4>
+<p class="di">La linterna no la decide la palabra: la decide la definición.</p>
+<p class="apoyo">Y hay palabras que aparecen dos veces, una por linterna. No es error: ninguna de las dos definiciones está mal.</p>
+</section>
+<section class="lam lam--actividad">
+<h4>Manos al teclado</h4>
+<span class="senal">Actividad</span>
+<p class="di">Las diez definiciones te esperan, con tu cosecha al final.</p>
+<p class="apoyo"><a href="../ejercicios/semana-02/ejercicio-2C-con-que-linterna.html">¿Con qué linterna está escrita?</a> Retroalimentación al instante, y el remate donde volteas la herramienta: eliges una palabra de tu mazo y le escribes tú las dos definiciones, una por linterna.</p>
+</section>
+<section class="lam lam--actividad">
+<h4><span class="n">3</span> El cierre con las fuentes <span class="reloj">15 min</span></h4>
+<span class="senal">Actividad</span>
+<p class="di">Apuesta primero, busca después, anota el veredicto con su fuente.</p>
+<p class="apoyo">El método que desde hoy es costumbre de la casa. Pasa por el <a href="https://dle.rae.es" target="_blank" rel="noopener">DLE</a> y el <a href="http://etimologias.dechile.net" target="_blank" rel="noopener">DECEL</a> tu hipótesis del martes, tu palabra heredada y la <em>chamba</em> del miércoles. Captura: palabra, apuesta, veredicto, fuente.</p>
+<p class="nota-conductor">Si una heredada no aparece en ningún diccionario, nómbralo como hallazgo y no como fracaso: es el primer límite de las fuentes descubierto a mano, y documentarla queda como trabajo del curso. Las mejores verificadas estrenan la vitrina de "Lo que produjimos", con permiso y nombre de pila.</p>
+</section>
+</section>
 
-| Lo que investiga | La pregunta con la que se practica |
-|---|---|
-| su **origen** | ¿De dónde viene la palabra *chamba*? |
-| su **estructura** | ¿Qué tienen en común *concordia*, *discordia* y *cardiólogo*? |
-| sus **transformaciones** | ¿Cómo hizo *esclavo* para convertirse en *chao*? |
+<!-- ============================ VIERNES ============================ -->
+<section class="mazo" id="viernes" data-ticket>
+<div class="mazo-cabeza">
+<div>
+<div class="cuando">Viernes 7 de agosto · 2 horas</div>
+<h3>El seminario, y abre el Museo</h3>
+<p class="foco">Si la IA define cualquier palabra en un segundo, ¿para qué memorizar raíces?</p>
+</div>
+<button class="btn-presentar" type="button">Presentar ▸</button>
+</div>
+<section class="lam lam--actividad">
+<h4><span class="n">1</span> El seminario de la unidad <span class="reloj">40 min</span></h4>
+<span class="senal">Todo el grupo</span>
+<p class="di">Si la IA define cualquier palabra en un segundo, ¿para qué memorizar raíces?</p>
+<p class="apoyo">Trae postura de verdad: el argumento lo construye el grupo, no el profesor.</p>
+<p class="nota-conductor">Tu papel es de moderador incómodo: aboga por la IA cuando el grupo se acomode en contra, y al revés. No adelantes la pista de iatro-; guárdala para cuando la conversación la pida.</p>
+</section>
+<section class="lam">
+<h4>Una pista de hacia dónde vamos</h4>
+<p class="di">Quien sabe <em>iatro-</em> ya lee <em>pediatra</em>, <em>geriatra</em>, <em>iatrogenia</em>.</p>
+<p class="apoyo">Nadie le enseñó esas palabras. Se las regaló la raíz. La IA te da una definición; una raíz te da una familia completa.</p>
+</section>
+<section class="lam lam--oscura">
+<h4><span class="n">2</span> Abre el Museo de Palabras <span class="reloj">15 min</span></h4>
+<p class="di">El proyecto del semestre: cada quien adopta palabras y les escribe su biografía.</p>
+<p class="apoyo">Una pieza del Museo cuenta cuatro cosas: dónde nació la palabra, cómo viajó, cómo llegó a ti y qué se aprende de ella.</p>
+</section>
+<section class="lam">
+<h4><span class="n">3</span> Caso 1 · chao, la que llegó de fuera <span class="reloj">15 min</span></h4>
+<p class="di">Cada vez que dices "chao" estás diciendo, sin saberlo: soy tu esclavo.</p>
+<p class="apoyo">Del latín <em>sclavus</em> (esclavo, nacido del nombre del pueblo eslavo) al véneto <em>s-ciào vostro</em> ("soy su esclavo", vuelto fórmula de cortesía), al italiano <em>ciao</em>, al chao que cruzó el Atlántico. La historia completa está aquí abajo, en esta misma página.</p>
+</section>
+<section class="lam">
+<h4>Caso 2 · aguacate, la que salió de aquí</h4>
+<p class="di">En náhuatl, <em>ahuacatl</em> nombraba dos cosas: el fruto y el testículo.</p>
+<p class="apoyo">La misma palabra para los dos, porque el parecido saltaba a la vista y a nadie de aquella época le pareció necesario inventar otra. De ahí salieron <em>aguacate</em> y <em>guacamole</em>; el inglés <em>avocado</em> nació torcido por una etimología popular. La historia completa, aquí abajo.</p>
+<p class="nota-conductor">El dato del testículo despierta al grupo, garantizado. Úsalo para decir algo serio: la etimología no es solemne, es honesta. Y remata con la dirección del viaje: esta palabra no vino de fuera, salió de aquí.</p>
+</section>
+<section class="lam lam--oscura">
+<h4>Lo que enseñan los dos casos</h4>
+<p class="di">Las palabras de tu región no son palabras locales: son palabras que todavía no han viajado.</p>
+<p class="apoyo">Tu heredada está hoy exactamente donde estuvo <em>ahuacatl</em> hace quinientos años. La diferencia es si alguien la anota o no.</p>
+</section>
+<section class="lam lam--actividad">
+<h4><span class="n">4</span> Tu primera biografía <span class="reloj">40 min</span></h4>
+<span class="senal">Actividad</span>
+<p class="di">Redacta la biografía de tu candidata a pieza. Hoy se siembra tu Museo.</p>
+<p class="apoyo"><a href="../ejercicios/semana-02/ejercicio-2D-biografia-de-una-palabra.html">Biografía de una palabra</a>, con los cuatro apartados. La plantilla y dos biografías de muestra viven en <a href="../museo/plantilla-biografia.html">el Museo</a>.</p>
+</section>
+<section class="lam">
+<h4><span class="n">5</span> Lectura en voz alta <span class="reloj">10 min</span></h4>
+<p class="di">Sin tarea y sin examen. Solo escuchar.</p>
+<p class="apoyo">Diez minutos de un libro leído en voz alta, como se cierran las semanas buenas.</p>
+</section>
+</section>
 
-{: .ojo }
-La primera trae trampa y no te la voy a resolver aquí. La respuesta que todo el mundo repite —que *chamba* viene del inglés *Chamber of Commerce*— **no aparece en ninguna fuente seria**, y el diccionario apunta hacia otro lado completamente distinto. Es una etimología popular: suena perfecta, se cuenta con seguridad y es falsa. El jueves, en el cierre con las fuentes, lo compruebas tú.
+## Los dos casos del Museo, completos
 
-**Tu ejercicio:** [El taller de las dos linternas](../ejercicios/semana-02/ejercicio-2B-las-dos-linternas.html). Ahí enciendes las dos linternas sobre dos palabras, emparejas diez palabras del español con su étimo y descubres que el corazón y el amor están dos veces en nuestro idioma, uno por cada padre. La tercera pregunta de la tabla se responde sola el viernes.
-
-## Jueves · ¿Con qué linterna está escrita? (centro de cómputo)
-
-Abrimos con el primer quiz relámpago del semestre: 3 palabras, papel, 3 minutos. Antes de voltear la hoja escribes cuántas crees que tendrás bien, y al calificar comparas. La brecha es información, no culpa.
-
-Luego, el taller del día, que es el del miércoles llevado a la cancha. Diez definiciones tomadas de diccionarios de verdad; tu trabajo es decir cuál linterna escribió cada una: **E** si es etimológica, **R** si es real. Algunas se dejan leer a la primera. Otras traen trampa, porque la linterna no la decide la palabra: la decide la definición. Y un par de palabras aparece dos veces, a propósito.
-
-**Tu ejercicio:** [¿Con qué linterna está escrita?](../ejercicios/semana-02/ejercicio-2C-con-que-linterna.html). Las diez definiciones con retroalimentación al instante, tu cosecha al final, y el remate donde volteas la herramienta: eliges una palabra de tu mazo y le escribes tú las dos definiciones, una por linterna.
-
-Y para cerrar, quince minutos con las fuentes de cabecera. El método, que desde hoy es costumbre de la casa: **apuesta primero** (qué crees que significa y qué tan seguro estás), busca después en el [DLE](https://dle.rae.es) y el [DECEL](http://etimologias.dechile.net), y anota el veredicto con su fuente. Pasa por ahí tu hipótesis del martes, tu palabra heredada y la *chamba* del miércoles.
-
-Si la palabra heredada no aparece en ningún diccionario, tampoco es fracaso: es el primer límite de las fuentes que descubres con tus propias manos, y de ahí en adelante documentarla es trabajo de este curso y de nadie más.
-
-Captura: palabra, apuesta, veredicto, fuente.
-
-## Viernes · La sesión grande (2 horas)
-
-Primero, el seminario que le da sentido a todo el sistema: **si la IA define cualquier palabra en un segundo, ¿para qué memorizar raíces?** Trae postura de verdad, porque el argumento lo construye el grupo, no el profesor. Una pista de hacia dónde vamos: quien sabe *iatro-* ya lee pediatra, geriatra, iatrogenia. Nadie le enseñó esas palabras. Se las regaló la raíz.
-
-Después abre el **Museo de Palabras**, el proyecto del semestre. Una pieza del Museo es la **biografía de una palabra**: dónde nació, cómo viajó, cómo llegó a ti y qué se aprende de ella. Aquí tienes dos casos ya resueltos, para que veas el trabajo terminado antes de empezar el tuyo. Van a propósito en direcciones contrarias.
+Los dos casos resueltos del viernes, enteros, para consultarlos cuando escribas tu propia biografía. Van a propósito en direcciones contrarias.
 
 ### Caso resuelto 1 · *chao*, la palabra que llegó de fuera
 
@@ -145,7 +271,7 @@ Después abre el **Museo de Palabras**, el proyecto del semestre. Una pieza del 
 
 | Etapa | Qué le pasó |
 |---|---|
-| náhuatl **ahuacatl** | el fruto |
+| náhuatl **ahuacatl** | El fruto. Y también el testículo: la misma palabra para los dos, porque el parecido saltaba a la vista. |
 | español **aguacate** | Los españoles oyeron *ahuacatl* y lo acomodaron a su propia boca. Lo mismo hicieron con *ahuacamolli* (*ahuacatl* + *molli*, salsa), que aquí se volvió **guacamole**. |
 | inglés **avocado** | En inglés la palabra se torció por el parecido con una vieja voz española para "abogado". O sea: le pusieron un nombre equivocado por una etimología popular, exactamente el error que este curso te enseña a cazar. |
 | el mundo | Hoy la palabra está en un menú de Sídney, en un supermercado de Berlín y en el desayuno de medio planeta. |
@@ -153,10 +279,6 @@ Después abre el **Museo de Palabras**, el proyecto del semestre. Una pieza del 
 **Cómo llegó a ti.** Al revés que *chao*: esta no vino de fuera. **Salió de aquí.** Estaba en boca de gente que vivía en este territorio antes de que existiera esta escuela, este país y este idioma.
 
 **Qué enseña este caso.** Que una palabra náhuatl esté hoy en la carta de un restaurante australiano quiere decir algo importante para lo que vas a hacer este semestre: las palabras de tu región no son "palabras locales". Son **palabras que todavía no han viajado**. La palabra que te regaló tu abuela, esa que nadie ha escrito nunca, está hoy exactamente en la misma situación en la que estuvo *ahuacatl* hace quinientos años. La diferencia es si alguien la anota o no.
-
-**Tu ejercicio:** [Biografía de una palabra](../ejercicios/semana-02/ejercicio-2D-biografia-de-una-palabra.html): redacta la primera biografía de tu candidata a pieza, con estos cuatro apartados. La plantilla vive en [el Museo](../museo/plantilla-biografia.html).
-
-Y cerramos con diez minutos de lectura en voz alta. Sin tarea, sin examen. Solo escuchar.
 
 ## La lectura, esta semana
 
