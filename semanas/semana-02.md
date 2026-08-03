@@ -229,9 +229,9 @@ Toda palabra se puede abrir. La IA define cualquier palabra en un segundo; lo qu
 </section>
 <section class="lam">
 <h4>Caso 2 · aguacate, la que salió de aquí</h4>
-<p class="di">En náhuatl, <em>ahuacatl</em> nombraba dos cosas: el fruto y el testículo.</p>
-<p class="apoyo">La misma palabra para los dos, porque el parecido saltaba a la vista y a nadie de aquella época le pareció necesario inventar otra. De ahí salieron <em>aguacate</em> y <em>guacamole</em>; el inglés <em>avocado</em> nació torcido por una etimología popular. La historia completa, aquí abajo.</p>
-<p class="nota-conductor">El dato del testículo despierta al grupo, garantizado. Úsalo para decir algo serio: la etimología no es solemne, es honesta. Y remata con la dirección del viaje: esta palabra no vino de fuera, salió de aquí.</p>
+<p class="di">Esta palabra no vino de fuera. Salió de aquí.</p>
+<p class="apoyo">Del náhuatl <em>ahuacatl</em> salieron <em>aguacate</em> y <em>guacamole</em>; el inglés <em>avocado</em> nació torcido por una etimología popular. Hoy está en menús de Sídney y de Berlín. La historia completa, con su detalle más famoso, está aquí abajo.</p>
+<p class="nota-conductor">El detalle más famoso vive en el caso completo de abajo: ahuacatl también nombraba el testículo. Cuéntalo ahí, con la página abierta; despierta al grupo garantizado y sirve para decir algo serio: la etimología no es solemne, es honesta.</p>
 </section>
 <section class="lam lam--oscura">
 <h4>Lo que enseñan los dos casos</h4>
