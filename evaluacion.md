@@ -7,6 +7,95 @@ nav_order: 4
 
 Este curso no reparte calificaciones. Ningún quiz, ninguna defensa, ninguna pieza del Museo lleva número. Llevan otra cosa: comentarios del profesor y un lugar en tu expediente. La universidad pide tres calificaciones parciales y una final, y esas existen, pero las propones tú, con tu evidencia enfrente, y se conversan. Esta página explica todo el sistema. No tiene candado: puedes volver a ella cuando quieras, y enseñársela a quien te pregunte cómo se califica esta materia.
 
+<p class="pista-mazos">Todo el sistema cabe en un mazo de láminas: el botón <strong>Presentar</strong> lo proyecta a pantalla completa, para verlo en clase o repasarlo tú. Debajo sigue la página entera, con el detalle completo.</p>
+
+<section class="mazo" id="mazo-evaluacion">
+<div class="mazo-cabeza">
+<div>
+<div class="cuando">Tu calificación · el sistema completo</div>
+<h3>Un curso sin números (hasta que tú los propones)</h3>
+<p class="foco">Cómo se califica esta materia, en doce láminas.</p>
+</div>
+<button class="btn-presentar" type="button">Presentar ▸</button>
+</div>
+
+<section class="lam">
+<h4><span class="n">1</span> Una pregunta honesta</h4>
+<p class="di">¿Cuánto te queda de lo que estudiaste el semestre pasado?</p>
+<p class="apoyo">El ciclo conocido: atragantarse la noche anterior → vomitarlo en la hoja → cobrar el número → olvidarlo todo. Se llama <strong>educación bulímica</strong>, y es lo más común del mundo.</p>
+<p class="nota-conductor">Deja que respondan de verdad antes de avanzar. La pregunta duele porque la respuesta suele ser "casi nada", y de ahí arranca todo lo demás.</p>
+</section>
+
+<section class="lam">
+<h4>El número se lo lleva todo</h4>
+<p class="di">Pasaste horas estudiando y no te quedaste con nada.</p>
+<p class="apoyo">Comer información a la fuerza, devolverla en el examen y quedarse vacío no tiene ningún sentido. Y sin embargo es el juego que casi toda la escuela propone.</p>
+</section>
+
+<section class="lam">
+<h4><span class="n">2</span> Un experimento con niños y anagramas</h4>
+<p class="di">Susan Harter, 1978: niños, anagramas de varias dificultades, y una sola variable — si había calificación o no.</p>
+<p class="apoyo">Sin calificaciones: elegían los <strong>más difíciles</strong>, reportaban placer y rendían mejor. Con calificaciones: elegían los <strong>fáciles y seguros</strong>, con más ansiedad, y rendían peor.</p>
+<p class="nota-conductor">Harter, S. (1978). Pleasure derived from challenge and the effects of receiving grades on children's difficulty level choices. Child Development, 49(3), 788–799. Dilo en voz alta: en este curso ningún dato se cita sin fuente, tampoco los del profesor.</p>
+</section>
+
+<section class="lam">
+<h4>Léelo otra vez, porque es contraintuitivo</h4>
+<p class="di">La calificación, que supuestamente motiva, hacía exactamente lo contrario.</p>
+<p class="apoyo">Trabajando por número, los niños bajaban su desempeño y se sentían peor. Medio siglo de investigación ha repetido el hallazgo de mil formas.</p>
+</section>
+
+<section class="lam">
+<h4><span class="n">3</span> Los tres trucos de supervivencia</h4>
+<p class="di">La escuela con números nos entrena para evadir lo difícil, memorizar bulímicamente y actuar el aprendizaje.</p>
+<p class="apoyo">Y hoy hay una razón más: casi cualquier trabajo que se entrega por un número lo genera una IA en treinta segundos. Si lo que se premia es el producto, el número deja de decir algo sobre ti.</p>
+</section>
+
+<section class="lam lam--oscura">
+<h4>Por eso aquí no hay números</h4>
+<p class="di">Cuando un trabajo regresa con número, dejas de leer los comentarios.</p>
+<p class="apoyo">Aquí el error es dato, no culpa. Este curso te va a pedir arriesgar — descifrar palabras nunca vistas, defender en voz alta, leer un alfabeto de hace 2,800 años — y lo que te propone a cambio es que elijas el anagrama difícil.</p>
+</section>
+
+<section class="lam">
+<h4><span class="n">4</span> Qué recibes en lugar de números</h4>
+<p class="di">Papel: comentarios, "bien" o "aún no", y un expediente que es tuyo.</p>
+<p class="apoyo">Cada quiz regresa revisado reactivo por reactivo, y cuenta tu versión más reciente, no el promedio de tus intentos. Las defensas se miran con la rúbrica pública. El portafolio y la bitácora se comentan, no se puntúan.</p>
+</section>
+
+<section class="lam">
+<h4><span class="n">5</span> El suelo</h4>
+<p class="di">La lista de lo que debe existir al cerrar cada unidad. Quien llega con el suelo completo, no reprueba.</p>
+<p class="apoyo">No mide qué tan bien te salió: registra que estuviste y que lo hiciste. La conversación decide cuánto más. Y si algo queda pendiente, se completa en la segunda vuelta de diciembre.</p>
+</section>
+
+<section class="lam">
+<h4><span class="n">6</span> Los tres parciales</h4>
+<p class="di">La calificación la propones tú, con tu evidencia enfrente.</p>
+<p class="apoyo">Al cerrar cada unidad (semanas 7, 12 y 16) llenas tu autoevaluación y propones tu parcial desde el celular. La regla de la casa: <strong>ninguna calificación baja por escrito, solo en conversación</strong>.</p>
+<p class="nota-conductor">El dato que sorprende: la mayoría de los estudiantes se pone menos de lo que el profesor le pondría. Cuéntalo aquí.</p>
+</section>
+
+<section class="lam">
+<h4><span class="n">7</span> La final y la segunda vuelta</h4>
+<p class="di">¿Qué sabes hoy que no sabías en agosto?</p>
+<p class="apoyo">Semana 17: defiendes tu Museo en público. Diciembre: diez minutos de conversación privada, con tu expediente enfrente, y tu propuesta de calificación final. La segunda vuelta no es castigo: es la misma evaluación, en segunda oportunidad.</p>
+</section>
+
+<section class="lam">
+<h4><span class="n">8</span> Las preguntas que seguro tienes</h4>
+<p class="di">¿Entonces todos sacan 10? No: salen calificaciones de todo el rango.</p>
+<p class="apoyo">La diferencia es que ninguna te sorprende, porque tú llevas el registro. ¿Menos exigente? Al revés: nadie te pone 8.5 en el trabajo; te preguntan qué hiciste y cómo lo sabes. Y si el sistema te da ansiedad, ven a hablar: se ajusta contigo.</p>
+</section>
+
+<section class="lam lam--oscura">
+<h4>El pacto de evaluación</h4>
+<p class="di">Aquí el error no cuesta. Lo único que cuesta es no estar.</p>
+<p class="apoyo">Se firma en la semana 0 desde tu celular, junto al pacto de IA y tus derechos como lector. Tu parte: expediente al día, suelo completo, y proponer tus calificaciones con honestidad.</p>
+</section>
+
+</section>
+
 ## Por qué
 
 ### Primero, una pregunta honesta 🤔
