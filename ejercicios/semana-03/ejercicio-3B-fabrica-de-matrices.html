@@ -69,7 +69,7 @@
   </div>
 
   <div class="instr">
-    <strong>Cómo se juega.</strong> Elige la raíz de tu equipo. Produce mínimo 6 palabras reales combinándola con prefijos y sufijos. Revisa tu producción: lo que la familia respalda queda como respaldado, lo dudoso queda como hipótesis. Nada se resuelve hoy con diccionario: las hipótesis son la agenda del tribunal del jueves. Al final, genera la captura con tus 2 hipótesis más dudosas para entregarlas al cierre.
+    <strong>Cómo se juega.</strong> Elige la raíz de tu equipo. Produce mínimo 6 palabras reales combinándola con prefijos y sufijos. Revisa tu producción: lo que la familia respalda queda como respaldado, lo dudoso queda como hipótesis. Nada se resuelve hoy con diccionario: las hipótesis son retos listos para el torneo del viernes. Al final, genera la captura con tus 2 hipótesis más dudosas para entregarlas al cierre.
   </div>
 
   <div class="cuaderno">
@@ -178,7 +178,7 @@
       var n=norm(w);
       if(raizSel.trampa.indexOf(n)>-1){
         hip++;
-        html+='<li><span class="et-hip">Hipótesis:</span> '+w+'. Trae las letras, pero ¿la pieza significa "'+raizSel.sig+'" ahí? No la confirmes: márcala y llévala al tribunal del jueves.</li>';
+        html+='<li><span class="et-hip">Hipótesis:</span> '+w+'. Trae las letras, pero ¿la pieza significa "'+raizSel.sig+'" ahí? No la confirmes: márcala y llévala al torneo del viernes.</li>';
       }else if(raizSel.ok.indexOf(n)>-1){
         resp++;
         html+='<li><span class="et-ok">Respaldada:</span> '+w+'. La familia la conoce. El jueves la fuente da el veredicto final.</li>';
@@ -219,11 +219,11 @@
       return;
     }
     fbCap.className='fb ok';
-    fbCap.textContent='Captura lista. Cópiala y entrégala en el cierre: es la agenda del tribunal del jueves.';
+    fbCap.textContent='Captura lista. Cópiala y entrégala en el cierre: es tu lista de retos para el torneo del viernes.';
     pre.textContent='RAÍZ: '+raizSel.rotulo+' ('+raizSel.sig+')'
       +'\nEQUIPO: '+equipo
       +'\nPALABRAS DE LA MATRIZ: '+escritas.join(', ')
-      +'\nHIPÓTESIS PARA EL TRIBUNAL: '+hip;
+      +'\nHIPÓTESIS PARA EL TORNEO: '+hip;
     pre.style.display='block';
     btnCop.style.display='inline-block';
   });

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 3 · Ejercicio C · Veinte palabras gratis</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+    --mist:#5b4b8a; --mistbg:#f1eefb;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .regla{background:var(--ciruela);color:#fff;border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;font-size:1rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.9rem 0 .4rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .2rem;color:var(--rosa);font-size:1.25rem}
+  .card .num{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:.15rem .5rem;border-radius:1rem;background:var(--fondo);color:var(--ciruela);margin-bottom:.4rem}
+  .ops{display:flex;flex-direction:column;gap:.4rem;margin-top:.6rem}
+  .ops button{text-align:left;padding:.55rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;color:#2a2a2a;cursor:pointer}
+  .ops button.sel{background:var(--ciruela);color:#fff;border-color:var(--ciruela)}
+  .ops button:disabled{cursor:default;opacity:.75}
+  .ops button.sel:disabled{opacity:1}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb .suma{display:block;margin-top:.35rem;font-weight:700;color:var(--ciruela)}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .cosecha{border:2px solid var(--ciruela);border-radius:.9rem;padding:1rem 1.1rem;margin:1.2rem 0;background:var(--fondo);display:none}
+  .cosecha h3{margin:0 0 .4rem;color:var(--ciruela)}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 3 · Sesión C · Centro de cómputo</div>
+    <h1>Veinte palabras gratis</h1>
+    <p>Todas están hechas con piezas que ya traes. Cóbralas.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="regla">
+    La idea de la semana, en acción: una pieza no suma una palabra, <strong>multiplica</strong>. Aquí están veinte palabras armadas casi por completo con piezas de tu mazo. Nunca te las enseñó nadie. Ya las sabes leer.
+  </div>
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Para cada palabra, elige qué significa. Antes de tocar, haz el corte de cabeza: ¿qué piezas ves? La primera respuesta es la que cuenta. Cada respuesta te enseña la suma completa, y de paso te presenta alguna pieza nueva: esas también van cayendo a tu mazo en las próximas semanas.
+  </div>
+
+  <h2>Las veinte</h2>
+  <div id="items"></div>
+
+  <div class="cosecha" id="cosecha">
+    <h3>Tu cosecha</h3>
+    <div id="cosechaTxt"></div>
+  </div>
+  <div class="fila-botones"><button class="btn rosa" id="btnCosecha">Calcular mi cosecha</button></div>
+
+  <div class="instr">
+    <strong>Última estación.</strong> Las que fallaste no son derrotas: son tus mejores candidatas a tarjeta. Anótalas con su suma y métele al mazo. La semana que entra te las vuelves a topar, y esa vez van a ser tuyas.
+  </div>
+
+  <footer>Semana 3 · Sumas de palabras · Este ejercicio es gimnasio: sin nota y sin registro. Al cerrar la página todo se borra.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+
+  var ITEMS=[
+    {w:"telegrama", ops:["un mensaje escrito enviado a distancia","un aparato para medir mensajes","una carta muy pesada"], r:0,
+     suma:"tele (lejos) + grama (escrito, primo de graf-) = escrito a distancia"},
+    {w:"telescopio", ops:["un sonido que viaja lejos","un instrumento para mirar lejos","una medida de distancia"], r:1,
+     suma:"tele (lejos) + scopio (mirar) = mirar lejos"},
+    {w:"cronología", ops:["el estudio del orden en el tiempo","una máquina para medir el tiempo","la historia de los relojes"], r:0,
+     suma:"crono (tiempo) + logía (estudio) = estudio del tiempo y su orden"},
+    {w:"biografía", ops:["el estudio de los seres vivos","la escritura de una vida","una vida muy larga"], r:1,
+     suma:"bio (vida) + grafía (escritura) = escritura de una vida. Exactamente lo que haces en el Museo."},
+    {w:"geografía", ops:["la descripción escrita de la Tierra","el estudio de las piedras","la medida de los mapas"], r:0,
+     suma:"geo (tierra) + grafía (escritura) = descripción de la Tierra"},
+    {w:"geología", ops:["la escritura de los mapas","el dibujo de los volcanes","el estudio de la Tierra"], r:2,
+     suma:"geo (tierra) + logía (estudio) = estudio de la Tierra. Misma geo, otra pieza: otra palabra."},
+    {w:"psicología", ops:["el estudio de la mente","la escritura de los sueños","la medicina del cuerpo"], r:0,
+     suma:"psico (alma, mente) + logía (estudio) = estudio de la mente"},
+    {w:"fonógrafo", ops:["un teléfono antiguo","un aparato que escribe el sonido","un micrófono grande"], r:1,
+     suma:"fono (sonido) + grafo (que escribe) = el aparato que graba, o sea, escribe el sonido"},
+    {w:"telefonía", ops:["el sistema del sonido a distancia","el estudio de los teléfonos","una tienda de celulares"], r:0,
+     suma:"tele (lejos) + fono (sonido) + ia (cualidad) = el sistema del sonido a distancia"},
+    {w:"grafología", ops:["el estudio de la escritura","el arte de escribir bonito","una lista de letras"], r:0,
+     suma:"graf (escribir) + logía (estudio) = estudio de la escritura (de tu letra, por ejemplo)"},
+    {w:"caligrafía", ops:["la escritura en clave","la escritura bella","la escritura a máquina"], r:1,
+     suma:"cali (bello, pieza nueva) + grafía (escritura) = escritura bella"},
+    {w:"cronógrafo", ops:["un reloj que escribe el tiempo","un calendario griego","un historiador"], r:0,
+     suma:"crono (tiempo) + grafo (que escribe) = el instrumento que registra el tiempo"},
+    {w:"portátil", ops:["que pertenece a un puerto","que se puede llevar","que pesa poco"], r:1,
+     suma:"port (llevar) + átil = que se puede llevar. La fábrica port- en acción."},
+    {w:"reportero", ops:["el que vuelve a portarse bien","el que lleva y trae noticias","el que escribe rápido"], r:1,
+     suma:"re (de vuelta) + port (llevar) = el que va por la noticia y la trae"},
+    {w:"transporte", ops:["llevar de un lado a otro","un carro grande","un puerto de paso"], r:0,
+     suma:"trans (de un lado a otro, pieza nueva) + port (llevar) = llevar de un lado a otro"},
+    {w:"hipódromo", ops:["un hospital de caballos","una pista para carreras de caballos","un caballo de río"], r:1,
+     suma:"hipo (caballo) + dromo (pista, carrera; pieza nueva) = pista de caballos. Compárala con hipopótamo: misma pieza, otro final."},
+    {w:"termómetro", ops:["un medidor del calor","un aparato que da calor","el clima de un lugar"], r:0,
+     suma:"termo (calor, pieza nueva) + metro (medida) = medidor del calor"},
+    {w:"geometría", ops:["el dibujo de figuras","la medida de la tierra","el estudio de los mapas"], r:1,
+     suma:"geo (tierra) + metría (medida) = medir la tierra: así nació, repartiendo terrenos junto al Nilo"},
+    {w:"amnistía", ops:["un olvido decretado por la ley","una enfermedad de la memoria","un perdón a medias"], r:0,
+     suma:"a (sin) + mnem (memoria) + ia (cualidad) = el olvido jurídico. La misma familia de amnesia: el Estado decide no recordar."},
+    {w:"anónimo", ops:["muy antiguo","sin nombre","escrito a mano"], r:1,
+     suma:"an (sin) + ónoma (nombre, pieza nueva) = sin nombre. El mismo an- de tu mazo, con pieza nueva."}
+  ];
+
+  var cont=document.getElementById('items');
+  var resultados={};
+
+  ITEMS.forEach(function(d,ix){
+    var card=document.createElement('div');
+    card.className='card';
+    var ops=d.ops.map(function(o,i){return '<button type="button" data-i="'+i+'">'+o+'</button>';}).join('');
+    card.innerHTML='<span class="num">Palabra '+(ix+1)+' de '+ITEMS.length+'</span>'
+      +'<h3>'+d.w+'</h3>'
+      +'<div class="ops">'+ops+'</div>'
+      +'<div class="fb" data-fb></div>';
+    var botones=card.querySelectorAll('.ops button');
+    var fb=card.querySelector('[data-fb]');
+    Array.prototype.forEach.call(botones,function(b){
+      b.addEventListener('click',function(){
+        if(resultados[ix]!==undefined) return;
+        b.classList.add('sel');
+        Array.prototype.forEach.call(botones,function(x){x.disabled=true;});
+        var bien=(parseInt(b.dataset.i,10)===d.r);
+        resultados[ix]=bien;
+        fb.className='fb '+(bien?'ok':'no');
+        fb.innerHTML=(bien?'<strong>Tuya.</strong> ':'<strong>Era: '+d.ops[d.r]+'.</strong> ')
+          +'<span class="suma">'+d.suma+'</span>';
+      });
+    });
+    cont.appendChild(card);
+  });
+
+  document.getElementById('btnCosecha').addEventListener('click',function(){
+    var box=document.getElementById('cosecha'), txt=document.getElementById('cosechaTxt');
+    box.style.display='block';
+    var n=Object.keys(resultados).length;
+    if(n<ITEMS.length){
+      txt.innerHTML='Llevas '+n+' de '+ITEMS.length+'. Termina la ronda antes de cosechar.';
+      box.scrollIntoView({behavior:'smooth',block:'nearest'});
+      return;
+    }
+    var buenas=0;
+    for(var k in resultados){ if(resultados[k]) buenas++; }
+    var msg='<p><strong>'+buenas+' de '+ITEMS.length+'.</strong> ';
+    if(buenas>=18){
+      msg+='Eso ya no es suerte: es un mazo trabajando. Veinte palabras que nadie te enseñó, leídas con tus propias piezas.</p>';
+    } else if(buenas>=13){
+      msg+='Buena cosecha. Fíjate en las que se te fueron: casi seguro traían una pieza nueva. Esa pieza es justo la tarjeta que te falta.</p>';
+    } else {
+      msg+='La cosecha va empezando, y así empieza siempre. Vuelve a recorrer las sumas de cada respuesta: la palabra se olvida, la pieza se queda. Y este gimnasio no cobra las repeticiones.</p>';
+    }
+    msg+='<p>Ahora el remate: ninguna de estas veinte estaba en tus tarjetas, y las leíste de todos modos. Eso es lo que compra cada pieza que memorizas. No una palabra: una familia.</p>';
+    txt.innerHTML=msg;
+    box.scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

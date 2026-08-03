@@ -27,7 +27,7 @@ La regla de oro de la semana (apréndetela, se usa todo el semestre): un corte e
 |---|---|---|
 | Martes | El juego de los cortes y el banco de dudosos | el mazo al día |
 | Miércoles | La fábrica de matrices | tu matriz a medio armar |
-| Jueves, centro de cómputo | El tribunal: ¿el corte era real? | tus cortes dudosos del martes |
+| Jueves, centro de cómputo | Dos espejismos y veinte palabras nuevas | el mazo al día |
 | Viernes, 2 horas | El torneo de matrices por equipos | a tu equipo con las pilas puestas |
 
 Cada día tiene su sección aquí abajo, en orden. Esta página es el mapa de la semana: el grupo y el profesor trabajamos sobre ella.
@@ -38,9 +38,9 @@ Cada día tiene su sección aquí abajo, en orden. Esta página es el mapa de la
 
 En el pizarrón: des + ayuno. Desayunar es, literal, romper el ayuno. Aprenderás a escribir la suma de una palabra y a leerla de vuelta: dada la suma, ¿qué palabra es?
 
-**Tu ejercicio:** [Sumas de palabras](../ejercicios/semana-03/ejercicio-3A-sumas-de-palabras.html), en parejas. Anota los cortes de los que dudaron: son materia prima del jueves.
+**Tu ejercicio:** [Sumas de palabras](../ejercicios/semana-03/ejercicio-3A-sumas-de-palabras.html), en parejas. Anota los cortes de los que dudaron: son materia prima del torneo del viernes.
 
-Al cierre, el banco de dudosos: cada pareja propone su corte más sospechoso y el grupo apuesta a mano alzada si es real o espejismo, sin resolver nada. Los veredictos los dan las fuentes el jueves. Y si a alguien se le ocurre proponer re + loj: ese caso es tan bueno que tiene su propia semana.
+Al cierre, el banco de dudosos: cada pareja propone su corte más sospechoso y el grupo apuesta a mano alzada si es real o espejismo, sin resolver nada. Los veredictos caen el viernes, en el torneo, con el DECEL abierto. Y si a alguien se le ocurre proponer re + loj: ese caso es tan bueno que tiene su propia semana.
 
 Las tarjetas de la semana entran hoy al mazo.
 
@@ -53,26 +53,27 @@ Duelo de raíces al abrir. Luego verás la matriz en acción: una pieza fija con
 {: .reto }
 Una raíz no es una palabra: es una fábrica. La raíz *port-* (llevar) da exportar, importar, transporte, portátil, portero, portal, reportero. ¿Cuántas más?
 
-## Jueves · El tribunal: ¿el corte era real? (centro de cómputo)
+## Jueves · Dos espejismos y veinte palabras (centro de cómputo)
 
 Quiz relámpago al abrir: una suma directa, una inversa, un corte real o espejismo. Con tu predicción antes de voltear la hoja, como siempre.
 
-Luego el tribunal. El método es el protocolo de la semana pasada, aplicado a cortes:
+Luego, el profesor trae dos cortes al pizarrón y te va a pedir que apuestes. Los dos parecen obvios. Los dos engañan:
 
-1. Toma 3 cortes dudosos del banco del martes.
-2. Verifica en el [DLE](https://dle.rae.es) y el [DECEL](http://etimologias.dechile.net): ¿el corte era real?
-3. Resuelve el caso *mango*: ¿el de la sartén y el de comer son la misma palabra? (Ojo: son dos.)
-4. Captura: corte propuesto, veredicto del martes, veredicto de las fuentes, fuente.
+**Espejismo 1 · man + go.** El mango de la sartén viene de *manus* (mano): ese corte es real. Pero el mango que te comes llegó del tamil, por el portugués, y no tiene ni una gota de *manus*. **Dos palabras distintas disfrazadas de una.** Moraleja: a veces el espejismo es verdad a medias, y solo la fuente lo distingue.
 
-**Tu ejercicio:** [El detector de espejismos](../ejercicios/semana-03/ejercicio-3C-detector-de-espejismos.html).
+**Espejismo 2 · in + vierno.** El ojo ve el prefijo *in-* clarísimo. No está: *invierno* viene del latín *hibernum*, y ese "in" es pura casualidad de la forma. La pieza no reaparece en ninguna familia con ese significado, y la fuente lo confirma: la regla de oro trabajando.
 
-Al cierre, el marcador: ¿cuántas apuestas del martes sobrevivieron al tribunal? Ese número va a mejorar todo el semestre. La intuición se entrena con método.
+La pregunta buena no es cuál era la trampa, sino por qué el ojo ve piezas donde no las hay. Guárdala: se responde el viernes. Y el corte *re + loj* déjalo en paz: ese caso es tan bueno que tiene su propia semana.
+
+El resto de la sesión es para engordar el mazo. Esta semana aprendiste que cada pieza multiplica; hoy cobras la multiplicación.
+
+**Tu ejercicio:** [Veinte palabras gratis](../ejercicios/semana-03/ejercicio-3C-veinte-palabras-gratis.html): veinte palabras que nadie te ha enseñado, armadas casi por completo con piezas de tu mazo. Haz el corte de cabeza, apuesta el significado, y cada respuesta te regala la suma completa con alguna pieza nueva. Las que falles son tus mejores candidatas a tarjeta: anótalas con su suma y métele al mazo.
 
 ## Viernes · El torneo de matrices (2 horas)
 
-Por equipos: construyen la matriz más grande que puedan **defender**. Cada palabra propuesta debe sobrevivir la regla de oro si otro equipo la reta, y retar también da puntos. El profesor es juez de última instancia, con el DECEL abierto.
+Por equipos: construyen la matriz más grande que puedan **defender**. Cada palabra propuesta debe sobrevivir la regla de oro si otro equipo la reta, y retar también da puntos. Los cortes dudosos del banco del martes entran aquí como retos listos. El profesor es juez de última instancia, con el DECEL abierto.
 
-Después, los espejismos con historia: *invierno* no lleva el prefijo *in-* (viene de *hibernum*), *amigo* no se corta en a + migo (viene de *amicus*). La pregunta buena es por qué el ojo ve piezas donde no las hay. Por eso existe el tribunal. Y por eso a nadie, ni a una IA, se le cree una etimología sin fuente.
+Después, la pregunta que quedó sembrada el jueves: ¿por qué el ojo ve piezas donde no las hay? Porque el cerebro ama los patrones y los completa aunque no estén: *amigo* tampoco se corta en a + migo (viene de *amicus*). Por eso la regla de oro pide familia **y** fuente. Y por eso a nadie, ni a una IA, se le cree una etimología sin fuente.
 
 Cierre de siempre: las piezas nuevas al mazo, avance de tu biografía del Museo si vas al día, y diez minutos de lectura en voz alta.
 
@@ -88,7 +89,7 @@ Todos los ejercicios de la semana, para tu celular o el centro de cómputo. Sin 
 
 - [Sumas de palabras](../ejercicios/semana-03/ejercicio-3A-sumas-de-palabras.html) · martes
 - [La fábrica de matrices](../ejercicios/semana-03/ejercicio-3B-fabrica-de-matrices.html) · miércoles
-- [El detector de espejismos](../ejercicios/semana-03/ejercicio-3C-detector-de-espejismos.html) · jueves, centro de cómputo
+- [Veinte palabras gratis](../ejercicios/semana-03/ejercicio-3C-veinte-palabras-gratis.html) · jueves, centro de cómputo
 - [Quiz de gimnasio](../ejercicios/semana-03/quiz-gimnasio-semana-03.html) · para ensayar cuando quieras
 
 ## Hoja de consulta
@@ -175,7 +176,7 @@ Antes de verificar, apuesta. ¿El corte es real o es un espejismo?
 
 ## Lo que produjimos
 
-*La mejor matriz del grupo y los veredictos más sorprendentes del tribunal. Se llena al cerrar la semana.*
+*La mejor matriz del grupo y los veredictos más sorprendentes del torneo. Se llena al cerrar la semana.*
 
 ## El postre 🍨
 

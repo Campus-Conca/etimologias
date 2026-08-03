@@ -22,7 +22,7 @@ Los ejercicios de práctica de todo el semestre, semana por semana. Sin nota y s
 
 - [Sumas de palabras](../ejercicios/semana-03/ejercicio-3A-sumas-de-palabras.html) · martes
 - [La fábrica de matrices](../ejercicios/semana-03/ejercicio-3B-fabrica-de-matrices.html) · miércoles
-- [El detector de espejismos](../ejercicios/semana-03/ejercicio-3C-detector-de-espejismos.html) · jueves, centro de cómputo
+- [Veinte palabras gratis](../ejercicios/semana-03/ejercicio-3C-veinte-palabras-gratis.html) · jueves, centro de cómputo
 - [Quiz de gimnasio](../ejercicios/semana-03/quiz-gimnasio-semana-03.html) · ensayo libre
 
 **Semana 4 · El alfabeto de hace 2,800 años**
