@@ -85,7 +85,7 @@ Toda palabra se puede abrir. La IA define cualquier palabra en un segundo; lo qu
 <div>
 <div class="cuando">Miércoles 5 de agosto · 1 hora</div>
 <h3>Las dos linternas</h3>
-<p class="foco">Una alumbra la palabra; la otra alumbra el camino.</p>
+<p class="foco">🔦 Una alumbra la palabra; la otra alumbra el camino.</p>
 </div>
 <button class="btn-presentar" type="button">Presentar ▸</button>
 </div>
@@ -97,23 +97,28 @@ Toda palabra se puede abrir. La IA define cualquier palabra en un segundo; lo qu
 <p class="nota-conductor">Corto y con energía: el duelo abre la sesión, no la ocupa. Registra en el pizarrón las palabras nuevas que salgan; alguna acabará en el kraft.</p>
 </section>
 <section class="lam">
-<h4><span class="n">2</span> Qué es la etimología, con todas sus letras <span class="reloj">20 min</span></h4>
+<h4><span class="n">2</span> Qué es, con todas sus letras <span class="reloj">20 min</span></h4>
+<p class="palabra-grande">etimología</p>
 <p class="di">La explicación de las palabras por la investigación de su historia y su estructura.</p>
 <p class="apoyo">De dónde vienen y de qué están hechas. Para verlo en la práctica hay que separar dos maneras de definir una misma palabra.</p>
 </section>
 <section class="lam">
-<h4>Linterna 1 · La definición real</h4>
+<h4>🔦 Linterna 1 · La definición real</h4>
 <p class="di">Dice qué significa la palabra hoy, tal como se usa.</p>
 <p class="apoyo">Es la de la calle y la del diccionario. <em>Memoria:</em> imagen o conjunto de imágenes de hechos o situaciones pasados que quedan en la mente.</p>
 </section>
 <section class="lam">
-<h4>Linterna 2 · La definición etimológica</h4>
+<h4>🔦 Linterna 2 · La definición etimológica</h4>
 <p class="di">Dice de dónde viene la palabra y de qué piezas está hecha, y arma el significado con ellas.</p>
 <p class="apoyo">Cuatro pasos: el origen, los étimos o raíces, los prefijos y sufijos, y el significado armado con todo eso. <em>Amnesia</em>, del griego ἀμνησία: <em>a-</em> (sin) + <em>mnem-</em> (memoria) + <em>-ia</em> (cualidad). Por lo tanto: <strong>"sin memoria"</strong>.</p>
 </section>
 <section class="lam">
 <h4>Fíjate en lo que acaba de pasar</h4>
 <p class="di">La real te dice qué es la palabra. La etimológica, además, te regala piezas.</p>
+<div class="faros">
+<div class="faro faro--real"><span class="foquito">🔦</span><b>La real</b><span>alumbra la palabra: qué significa hoy</span></div>
+<div class="faro faro--etim"><span class="foquito">🔦</span><b>La etimológica</b><span>alumbra el camino: origen, piezas y familia</span></div>
+</div>
 <p class="apoyo"><em>a-</em>, <em>mnem-</em> y <em>-ia</em> van a reaparecer en decenas de palabras que todavía no has visto. Por eso las linternas no son rivales: son dos luces sobre el mismo objeto, y ver con las dos es distinto que ver con una.</p>
 </section>
 <section class="lam">
@@ -164,6 +169,10 @@ Toda palabra se puede abrir. La IA define cualquier palabra en un segundo; lo qu
 <section class="lam">
 <h4><span class="n">2</span> El taller: ¿E o R? <span class="reloj">35 min</span></h4>
 <p class="di">El taller del miércoles, llevado a la cancha.</p>
+<div class="faros">
+<div class="faro faro--real"><span class="foquito">🔦</span><b>R · la real</b><span>describe usos de hoy, sin origen ni piezas</span></div>
+<div class="faro faro--etim"><span class="foquito">🔦</span><b>E · la etimológica</b><span>nombra origen y piezas, y arma el significado</span></div>
+</div>
 <p class="apoyo">Diez definiciones tomadas de diccionarios de verdad. Tu trabajo: marcar <strong>E</strong> si la definición es etimológica y <strong>R</strong> si es real. La primera respuesta es la que cuenta.</p>
 </section>
 <section class="lam lam--oscura">
