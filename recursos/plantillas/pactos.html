@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Los tres pactos · Etimologías Grecolatinas</title>
 <style>
 @page{size:letter;margin:1.8cm}
@@ -36,7 +37,47 @@ blockquote{border-left:3px solid #c8127a;margin:.35cm 0;padding:.15cm .5cm;color
 .portada .sub{color:#c8127a;font-size:13pt;font-style:italic}
 .portada .datos{margin-top:2cm;text-align:left;width:12cm;margin-left:auto;margin-right:auto}
 .portada::after{content:none}
-@media screen{body{background:#e8e8e8}.pagina{background:#fff;max-width:21.6cm;margin:1cm auto;padding:1.8cm;box-shadow:0 2px 8px rgba(0,0,0,.2)}.pagina::after{bottom:.8cm;right:1.8cm}}
+@media screen{
+  body{background:#e8e8e8}
+  .pagina{background:#fff;max-width:21.6cm;margin:1cm auto;padding:1.8cm;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+  .pagina::after{bottom:.8cm;right:1.8cm}
+  /* En pantalla se firma con el widget; la caja de firma a mano y la línea de recorte son de papel */
+  .firma,.recorte,.solo-papel{display:none}
+}
+@media screen and (max-width:700px){
+  .pagina{margin:.4cm;padding:.9cm .7cm;min-height:auto}
+  .pagina::after{content:none}
+  .portada{min-height:auto;padding:1.2cm .2cm}
+  .portada .datos{width:auto}
+  .derechos{column-count:1}
+  h1{font-size:16pt}.portada h1{font-size:22pt}
+}
+@media print{
+  .acepta-pacto,.objecion-caja,.solo-pantalla{display:none!important}
+}
+/* Firma en pantalla (celular o compu) */
+.acepta-pacto{margin-top:.6cm;font-family:'Segoe UI',system-ui,sans-serif}
+.acepta-forma{border:1.5px solid #6b1e5a;border-radius:.25cm;padding:.45cm .55cm;background:#fbf4f9}
+.acepta-forma label{display:block;font-weight:bold;color:#6b1e5a;margin:.35cm 0 .1cm;font-size:10.5pt}
+.acepta-forma input[type=text]{display:block;width:100%;max-width:26rem;font:inherit;font-size:11pt;padding:.55rem .7rem;border:1.5px solid #d9bfd2;border-radius:8px;margin-top:.25rem;background:#fff}
+.acepta-forma input[type=text]:focus{outline:2px solid #c8127a;border-color:#c8127a}
+.acepta-forma label.check{display:flex;align-items:flex-start;gap:.5rem;font-weight:normal;margin:.4cm 0;color:#222}
+.acepta-forma label.check input{width:1.15rem;height:1.15rem;margin-top:.15rem;flex:none;accent-color:#c8127a}
+.btn-firmar{background:#c8127a;color:#fff;border:none;border-radius:999px;padding:.6rem 1.5rem;font:inherit;font-size:11pt;font-weight:bold;cursor:pointer}
+.btn-firmar:hover{filter:brightness(1.08)}
+.acepta-forma .aviso{color:#8a3b2b;font-weight:bold;margin:.2cm 0 0;min-height:1.2rem;font-size:10pt}
+.acepta-forma .nota,.acepta-hecho .nota{color:#8a6c80;font-size:9pt;margin:.25cm 0 0}
+.acepta-hecho{background:#f3ecf7;border:2px solid #d9bfd2;border-radius:.25cm;padding:.4cm .5cm}
+.acepta-hecho .rot{display:block;font-size:8pt;letter-spacing:.11em;text-transform:uppercase;font-weight:bold;color:#6b1e5a;margin-bottom:.15cm}
+.acepta-hecho p{margin:.15cm 0}
+.acepta-hecho .obj{font-size:9.5pt;color:#4a1540}
+.btn-constancia{background:#6b1e5a;color:#fff;border:none;border-radius:999px;padding:.5rem 1.2rem;font:inherit;font-size:10pt;font-weight:bold;cursor:pointer;margin:.2cm .3cm 0 0}
+.btn-constancia:hover{filter:brightness(1.15)}
+.btn-borrar{background:none;border:none;color:#8a6c80;font:inherit;font-size:9.5pt;text-decoration:underline;cursor:pointer;padding:.2cm 0 0}
+.objecion-caja{border-left:3px solid #c8127a;background:#fbf4f9;padding:.3cm .5cm;margin:.4cm 0;font-family:'Segoe UI',system-ui,sans-serif}
+.objecion-caja h3{margin-top:.1cm}
+.objecion-caja p{font-size:10pt;color:#444;margin:.1cm 0 .2cm}
+#objecion-pacto{display:block;width:100%;font:inherit;font-size:10.5pt;padding:.6rem .7rem;border:1px solid #d9bfd2;border-radius:8px;min-height:4.5rem;resize:vertical;background:#fff}
 </style>
 </head>
 <body>
@@ -47,7 +88,8 @@ blockquote{border-left:3px solid #c8127a;margin:.35cm 0;padding:.15cm .5cm;color
   <div class="datos">
     <p class="intro">Este curso se sostiene en tres acuerdos que firmamos en la semana 0: uno sobre el uso de la inteligencia artificial, uno sobre cómo se califica y uno sobre tus derechos como lector.</p>
     <p class="intro">No son reglamento. Son acuerdos: se leen en voz alta, se discuten con casos reales y se pueden objetar antes de firmarlos. Firmar aquí significa una sola cosa —<b>lo leí, lo entendí y estoy de acuerdo</b>— y se hace escribiendo tu nombre.</p>
-    <p class="intro">Imprime las tres hojas siguientes, fírmalas y pégalas en tu cuaderno. Ahí van a estar todo el semestre, que es justo el chiste.</p>
+    <p class="intro solo-pantalla">Cada pacto trae al final su caja de firma: escribes tu nombre completo, marcas la casilla y descargas tu constancia. <b>Se firma desde tu celular</b>, aquí mismo, y tu firma se queda guardada en tu navegador — no viaja a ningún servidor ni le llega a nadie. Si prefieres papel, imprime las tres hojas (Ctrl + P), fírmalas a mano y pégalas en tu cuaderno.</p>
+    <p class="intro solo-papel">Imprime las tres hojas siguientes, fírmalas y pégalas en tu cuaderno. Ahí van a estar todo el semestre, que es justo el chiste.</p>
   </div>
   <p class="mini" style="margin-top:1.6cm">Si algo de lo que aquí se firma te parece injusto, dilo antes de firmar. Un acuerdo que no se puede discutir no es un acuerdo.</p>
 </div>
@@ -77,6 +119,7 @@ blockquote{border-left:3px solid #c8127a;margin:.35cm 0;padding:.15cm .5cm;color
     <p style="margin-top:.45cm">Fecha: <span class="linea corta"></span></p>
     <p class="sello">Tu nombre escrito aquí es tu firma. No hace falta nada más.</p>
   </div>
+  <div class="acepta-pacto" data-pacto="ia" data-titulo="Pacto 1 · El uso de la inteligencia artificial"></div>
   <div class="recorte">recorta por aquí y pégalo en tu cuaderno</div>
 </div>
 
@@ -105,12 +148,19 @@ blockquote{border-left:3px solid #c8127a;margin:.35cm 0;padding:.15cm .5cm;color
 
   <p class="mini">Y una puerta que queda abierta todo el semestre: si este sistema te produce más ansiedad de la que quita, ven a hablar con el profesor. Se ajusta contigo.</p>
 
+  <div class="objecion-caja">
+    <h3>Lo que no te convence de este sistema</h3>
+    <p>Escríbelo aunque firmes. Queda guardado con tu firma y se retoma al cerrar la unidad 1, cuando ya lo hayas vivido unas semanas.</p>
+    <textarea id="objecion-pacto" placeholder="Puede quedar vacío, pero si algo te rechina, este es su lugar."></textarea>
+  </div>
+
   <div class="firma">
     <p>Yo, <span class="linea"></span>,</p>
     <p>leí este pacto, lo entendí y estoy de acuerdo.</p>
     <p style="margin-top:.45cm">Fecha: <span class="linea corta"></span></p>
     <p class="sello">Tu nombre escrito aquí es tu firma. No hace falta nada más.</p>
   </div>
+  <div class="acepta-pacto" data-pacto="evaluacion" data-titulo="Pacto 2 · Cómo se califica este curso"></div>
   <div class="recorte">recorta por aquí y pégalo en tu cuaderno</div>
 </div>
 
@@ -141,8 +191,101 @@ blockquote{border-left:3px solid #c8127a;margin:.35cm 0;padding:.15cm .5cm;color
     <p style="margin-top:.45cm">Fecha: <span class="linea corta"></span></p>
     <p class="sello">Tu nombre escrito aquí es tu firma. No hace falta nada más.</p>
   </div>
+  <div class="acepta-pacto" data-pacto="lector" data-titulo="Pacto 3 · Tus derechos como lector"></div>
   <div class="recorte">recorta por aquí y pégalo en tu cuaderno</div>
 </div>
+
+<script>
+/* Firma digital de los pactos: el estudiante escribe su nombre, marca que está
+   de acuerdo y puede descargar su constancia. El registro vive en su navegador
+   (localStorage) y en la constancia; no viaja a ningún servidor.
+   Mismo mecanismo que en el curso de Gestión y Manejo de Proyectos. */
+(function () {
+  var cajas = document.querySelectorAll('.acepta-pacto');
+  if (!cajas.length) return;
+
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+  function fechaLegible(iso) {
+    return new Date(iso).toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
+  }
+
+  Array.prototype.forEach.call(cajas, function (caja) {
+    var id = caja.getAttribute('data-pacto');
+    var titulo = caja.getAttribute('data-titulo') || 'Pacto';
+    var clave = 'etimologias-pacto-' + id;
+    var reg = null;
+    try { reg = JSON.parse(localStorage.getItem(clave) || 'null'); } catch (e) {}
+
+    function constancia(r) {
+      return '<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">'
+        + '<title>Constancia · ' + esc(titulo) + '</title></head>'
+        + '<body style="font-family:Georgia,serif;max-width:640px;margin:2rem auto;padding:0 1rem;color:#222;line-height:1.6">'
+        + '<p style="font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:#c8127a;font-weight:bold">Etimologías Grecolatinas · UAQ Campus Concá</p>'
+        + '<h1 style="color:#6b1e5a">Constancia de firma</h1>'
+        + '<p style="font-size:1.15rem"><strong>' + esc(r.n) + '</strong> leyó y firmó el <strong>' + esc(titulo) + '</strong> el ' + fechaLegible(r.f) + '.</p>'
+        + (r.o ? '<p><strong>Lo que dejó anotado que no le convence:</strong> ' + esc(r.o) + '</p>' : '')
+        + '<p>El texto completo del pacto vive en el sitio del curso:<br>'
+        + '<a href="' + location.href.split('?')[0] + '">' + location.href.split('?')[0] + '</a></p>'
+        + '<p style="color:#8a6c80;font-size:.9rem">Guarda este archivo donde no se pierda: es tu registro del pacto.</p>'
+        + '</body></html>';
+    }
+
+    function descarga() {
+      var blob = new Blob([constancia(reg)], { type: 'text/html' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'constancia-pacto-' + id + '.html';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+
+    function pintaHecho() {
+      caja.innerHTML = '<div class="acepta-hecho">'
+        + '<span class="rot">Pacto firmado</span>'
+        + '<p><strong>' + esc(reg.n) + '</strong> firmó este pacto el ' + fechaLegible(reg.f) + '.</p>'
+        + (reg.o ? '<p class="obj">Quedó anotado lo que no te convence: "' + esc(reg.o) + '". Se retoma al cerrar la unidad 1.</p>' : '')
+        + '<button type="button" class="btn-constancia">Descargar mi constancia</button>'
+        + '<button type="button" class="btn-borrar">¿Te equivocaste? Borrar y firmar de nuevo</button>'
+        + '<p class="nota">La constancia es un archivo chiquito: descárgala y mándatela a tu propio WhatsApp, para tenerla aunque cambies de teléfono.</p>'
+        + '</div>';
+      caja.querySelector('.btn-constancia').addEventListener('click', descarga);
+      caja.querySelector('.btn-borrar').addEventListener('click', function () {
+        try { localStorage.removeItem(clave); } catch (e) {}
+        reg = null;
+        pintaForma();
+      });
+    }
+
+    function pintaForma() {
+      caja.innerHTML = '<div class="acepta-forma">'
+        + '<label>Tu nombre completo'
+        + '<input type="text" class="nombre" autocomplete="name" placeholder="Como apareces en la lista del grupo"></label>'
+        + '<label class="check"><input type="checkbox" class="deacuerdo"> Leí este pacto completo, lo discutí en clase y estoy de acuerdo.</label>'
+        + '<button type="button" class="btn-firmar">Firmar el pacto</button>'
+        + '<p class="aviso"></p>'
+        + '<p class="nota">Tu firma se guarda en este navegador y en la constancia que descargues. No viaja a ningún servidor ni le llega a nadie.</p>'
+        + '</div>';
+      caja.querySelector('.btn-firmar').addEventListener('click', function () {
+        var n = caja.querySelector('.nombre').value.replace(/\s+/g, ' ').trim();
+        var ok = caja.querySelector('.deacuerdo').checked;
+        var aviso = caja.querySelector('.aviso');
+        if (n.length < 5 || n.indexOf(' ') === -1) { aviso.textContent = 'Escribe tu nombre completo, con apellidos.'; return; }
+        if (!ok) { aviso.textContent = 'Marca la casilla si ya lo leíste y estás de acuerdo.'; return; }
+        var pagina = caja.closest('.pagina');
+        var objEl = pagina ? pagina.querySelector('#objecion-pacto') : null;
+        reg = { n: n, f: new Date().toISOString(), o: objEl ? objEl.value.trim() : '' };
+        try { localStorage.setItem(clave, JSON.stringify(reg)); } catch (e) {}
+        pintaHecho();
+      });
+    }
+
+    if (reg && reg.n) pintaHecho(); else pintaForma();
+  });
+})();
+</script>
 
 </body>
 </html>

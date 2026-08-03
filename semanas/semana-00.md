@@ -327,7 +327,7 @@ Esta semana no hay quiz ni calificación de nada. Es fundación: se prepara el t
 <h4><span class="n">3</span> Los pactos <span class="reloj">25 min</span></h4>
 <span class="senal">Actividad</span>
 <p class="di">Se leen completos, se discuten con casos, y solo entonces se firman.</p>
-<p class="apoyo">Son tres y vienen juntos: el <strong>pacto de IA</strong> (qué se vale y qué no, con la regla de declarar siempre), el <strong>pacto de evaluación</strong> y tus <strong>derechos como lector</strong>. Están aquí: <a href="../recursos/plantillas/pactos.html">los tres pactos</a>.</p>
+<p class="apoyo">Son tres y vienen juntos: el <strong>pacto de IA</strong> (qué se vale y qué no, con la regla de declarar siempre), el <strong>pacto de evaluación</strong> y tus <strong>derechos como lector</strong>. Están aquí: <a href="../recursos/plantillas/pactos.html">los tres pactos</a>, y se firman ahí mismo, desde tu celular.</p>
 <p class="nota-conductor">Lectura comentada del de IA con casos concretos: ¿puedo pedirle a un chatbot que me explique una raíz? ¿que me haga la tarjeta? ¿que me escriba el guion del booktuber? El de evaluación es corto a propósito; las dudas se recogen en semáforo de salida y la explicación profunda llega al cierre de la unidad 1, cuando ya lo hayan vivido.</p>
 </section>
 <section class="lam">
@@ -338,7 +338,7 @@ Esta semana no hay quiz ni calificación de nada. Es fundación: se prepara el t
 <section class="lam lam--oscura">
 <h4>Antes de firmar</h4>
 <p class="di">Si algo te parece injusto, se discute ahora. Un acuerdo que no se puede objetar no es un acuerdo.</p>
-<p class="apoyo">Firmar es escribir tu nombre y decir que estás de acuerdo, nada más solemne que eso. Lo que quede sin resolver se anota y se retoma al cerrar la unidad 1.</p>
+<p class="apoyo">Firmar es escribir tu nombre en tu celular y decir que estás de acuerdo, nada más solemne que eso. El pacto de evaluación trae una caja para anotar lo que no te convenza: queda guardado con tu firma y se retoma al cerrar la unidad 1.</p>
 </section>
 <section class="lam">
 <h4><span class="n">4</span> La cata de libros <span class="reloj">35 min</span></h4>
@@ -444,7 +444,7 @@ Empieza el viernes: eliges tu primer libro en la cata (dos en el semestre, a tu 
 Tu checklist de salida. Si algo falta, se resuelve la semana que entra, sin drama:
 
 - tu gimnasio de palabras (Anki o Leitner) con el [estándar de tarjeta](../recursos/anki.html) y 16 piezas dentro: tus 5 y las 11 del mazo cero
-- [los tres pactos](../recursos/plantillas/pactos.html) (IA, evaluación y derechos de lector) firmados y en tu cuaderno
+- [los tres pactos](../recursos/plantillas/pactos.html) (IA, evaluación y derechos de lector) firmados desde tu celular, con tus constancias guardadas
 - tu expediente: el cuadernillo donde vivirán tus quizzes, tu suelo y tus autoevaluaciones
 - las [dos fuentes de cabecera](../recursos/fuentes.html) y el reflejo de usarlas
 - tu primer libro, elegido por ti
