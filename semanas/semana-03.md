@@ -179,14 +179,32 @@ Antes de verificar, apuesta. ¿El corte es real o es un espejismo?
 
 ## Las tarjetas de la semana
 
-| Frente | Reverso (significado · palabra ancla) |
+Quince piezas nuevas, todas aparecidas en los ejercicios de la semana: diez piezas de construcción y cinco palabras con historia. Nada de conceptos: esos viven en las sesiones, no en el mazo.
+
+**Las piezas**
+
+| Frente | Reverso (significado · ancla) |
 |---|---|
-| suma de palabras | des + arm + ar → desarmar |
-| matriz morfológica | una raíz por muchos afijos · port- |
-| evidencia de familia | la pieza reaparece · des- en deshacer |
-| espejismo | corte falso · in-vierno |
-| port- | llevar · transporte |
-| graf- | escribir · fotografía |
+| port- | llevar · transporte, portátil, reportero |
+| des- | deshacer, quitar · desayuno, desarmar |
+| -grama | escrito, registro · telegrama |
+| -scopio | mirar · telescopio, microscopio |
+| psico- | alma, mente · psicología |
+| trans- | de un lado a otro · transporte, transformar |
+| cali- | bello · caligrafía |
+| -dromo | pista, carrera · hipódromo, autódromo |
+| termo- | calor · termómetro, termo |
+| -ónimo / ónoma | nombre · anónimo, sinónimo |
+
+**Las palabras con historia**
+
+| Frente | Reverso |
+|---|---|
+| desayuno | des + ayuno: romper el ayuno |
+| deporte | de *deportare*, llevarse lejos a distraerse: el corte que parecía falso y era real |
+| portero | de *puerta* (*porta*), no de *portare*: las letras engañan, la fuente no |
+| invierno | de *hibernum*: ese in- no es prefijo |
+| mango | dos palabras disfrazadas de una: *manus* para el de agarrar, del tamil el fruto |
 
 ## Lo que produjimos
 

@@ -121,6 +121,29 @@ SEMANAS = [
             ("-metro / -metría", "medida", "griego", "termómetro", "geometría, cronómetro, telemetría, kilómetro", ""),
         ],
     },
+    {
+        "n": 3,
+        "titulo": "Semana 3 · Sumas de palabras",
+        "piezas": [
+            # --- piezas: raíces, prefijos y sufijos que aparecieron esta semana ---
+            ("port-", "llevar", "latín", "transporte", "exportar, importar, portátil, reportero, deporte", "Una raíz no es una palabra: es una fábrica."),
+            ("des-", "deshacer, quitar", "latín", "desayuno", "desarmar, deshacer, descansar, desorden", "Desayunar es, literal, romper el ayuno."),
+            ("-grama", "escrito, registro", "griego", "telegrama", "programa, crucigrama, electrocardiograma", "Primo de graf-: lo ya escrito."),
+            ("-scopio", "mirar, instrumento para mirar", "griego", "telescopio", "microscopio, periscopio, estetoscopio", ""),
+            ("psico-", "alma, mente", "griego", "psicología", "psicólogo, psiquiatra, psicosis", ""),
+            ("trans-", "de un lado a otro, a través", "latín", "transporte", "transformar, transmitir, transatlántico", ""),
+            ("cali-", "bello", "griego", "caligrafía", "calistenia", "Calistenia: fuerza y belleza en el mismo ejercicio."),
+            ("-dromo", "pista, carrera", "griego", "hipódromo", "autódromo, aeródromo, velódromo", "Compáralo con hipopótamo: misma cabeza, otro final."),
+            ("termo-", "calor", "griego", "termómetro", "térmico, termo, termostato", "El termo de tu café trae la raíz puesta."),
+            ("-ónimo / ónoma", "nombre", "griego", "anónimo", "seudónimo, sinónimo, antónimo, homónimo", "Anónimo: sin nombre. El an- de tu mazo, con pieza nueva."),
+            # --- palabras con historia que aparecieron esta semana ---
+            ("desayuno", "romper el ayuno", "español, del latín", "des + ayuno", "breakfast (break + fast), déjeuner", "Tres lenguas tuvieron la misma idea: la primera comida del día rompe el ayuno."),
+            ("deporte", "llevarse lejos, a distraerse", "latín (deportare)", "de + port + e", "deportivo, deportista", "El corte que parecía falso y era real: la fuente lo salvó en el torneo."),
+            ("portero", "el que cuida la puerta", "latín (porta)", "de puerta, no de portare", "puerta, portal, portón", "Trae las letras de port- (llevar), pero su familia es la de puerta. Las letras engañan; la fuente no."),
+            ("invierno", "la estación fría", "latín (hibernum)", "hibernum, sin prefijo", "hibernar, hibernación", "El espejismo clásico: ese in- no es prefijo, es casualidad de la forma."),
+            ("mango", "dos palabras disfrazadas de una", "latín y tamil", "manus (mano) el de agarrar; del tamil, el fruto", "manija, manual, manufactura (la familia de manus)", "El espejismo doble: solo la fuente distingue las dos."),
+        ],
+    },
 ]
 
 
