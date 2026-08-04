@@ -101,6 +101,7 @@ La regla de oro de la semana (apréndetela, se usa todo el semestre): un corte e
 <section class="lam">
 <h4>Una raíz no es una palabra: es una fábrica</h4>
 <p class="di">La raíz <em>port-</em> (llevar) da exportar, importar, transporte, portátil, reportero, deportar.</p>
+<img class="ilustracion" src="../assets/img/semana-03/la-fabrica-de-palabras.webp" alt="Una fábrica dibujada a mano con banda transportadora: entra un bloque rosa con la raíz port- (llevar), dos figuras le ensamblan piezas adentro, y salen cajas terminadas con transporte, portátil, reportero y exportar">
 <p class="apoyo">¿Cuántas más? Ese es el reto del día. Y guarda el ojo crítico: no toda palabra con esas letras es de la familia. El viernes vas a ver caer una.</p>
 </section>
 <section class="lam lam--actividad">
