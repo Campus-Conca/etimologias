@@ -38,32 +38,88 @@ window.LEEMOS = {
 };
 </script>
 
----
+<p class="pista-mazos">El programa lector es un mazo de láminas: en clase se proyecta con el botón <strong>Presentar</strong> y aquí se queda, apilado, para volver a él cuando quieras. Debajo del mazo están tus derechos completos y las vitrinas del grupo.</p>
 
-## El mapa lector del semestre
-
-Dos obras en cuatro meses, elegidas por ti. No hay control de lectura, ni resumen, ni ficha, ni fecha de entrega del libro: lo que sí hay son tres momentos en los que nos sentamos a platicar de lo que cada quien está leyendo, y dos en los que grabas algo tuyo. Ese es todo el andamiaje. El resto es tuyo y de tu libro.
-
-| Cuándo | Qué pasa | En qué consiste |
-|---|---|---|
-| **Semana 0** | La cata de libros | Una mesa con libros de verdad: novela, cuento, novela gráfica, poesía, crónica. Circulas, hojeas, lees primeras páginas y anotas tu primera elección. Puedes cambiarla en las dos semanas siguientes sin dar explicaciones. |
-| **Semana 7** | Primer círculo de lectura | 45 minutos en corro, cerrando U1. Cada quien llega con su libro y una frase subrayada. Se habla de lo que el libro te está haciendo, no de lo que pasa en él. Nadie resume, nadie evalúa. |
-| **Semanas 7 y 8** | Eliges tu segundo libro | Con lo que oíste en el círculo, la lista es otra: el tendedero y el préstamelo del salón pesan más que cualquier recomendación de internet. |
-| **Semana 9** | Primer booktuber | Grabas 2 a 3 minutos sobre tu primera obra, con tu celular. Se publica en la vitrina solo si tú lo autorizas. Las instrucciones están abajo. |
-| **Semana 12** | Segundo círculo | Cierre de U2, mismo formato. Aquí ya se nota quién leyó dos libros y quién descubrió que sí le gusta leer. Cosechamos palabras de los libros para el Museo. |
-| **Semanas 13 a 15** | Segundo booktuber | Sobre tu segunda obra. Puedes cambiar de formato: video, audio o ficha ilustrada. |
-| **Semana 16** | Tercer círculo y testamento lector | El último corro, y cada quien deja por escrito una recomendación para quien tome este curso el año que viene. Se publica al pie de esta página. |
-
-**Los tres dispositivos, en corto:**
-
-- **El círculo de lectura** (uno por unidad) es una conversación en corro, no una exposición. Se llega con el libro en la mano y una frase marcada. La regla es hablar de lo que te dio el libro, no de la trama. No se califica el contenido de lo que digas: cuenta que estés y que participes.
-- **El booktuber** (dos en el semestre, uno por obra) es tu recomendación grabada: quién eres, qué leíste, qué te dio el libro y una frase leída en voz alta desde tu ejemplar. Dos a tres minutos, vertical vale, sin edición.
-- **El testamento lector** (semana 16) es una carta breve para el grupo que viene. Se queda publicada aquí. Es la única parte de esta página que le habla a alguien que todavía no conoces.
-
-{: .ojo }
-Nada de esto se califica por gusto ni por velocidad. No importa si leíste 80 páginas o 800, ni si el libro es "difícil". Cuenta que estés, que compartas y que entregues.
-
-**¿Y si no leo nada?** Entonces los círculos son incómodos y los booktubers imposibles, porque no hay de dónde sacarlos. No hay castigo: hay una conversación contigo, y la posibilidad de cambiar de libro las veces que haga falta hasta encontrar uno que sí.
+<!-- ============================ EL PROGRAMA LECTOR ============================ -->
+<section class="mazo" id="programa">
+<div class="mazo-cabeza">
+<div>
+<div class="cuando">El programa lector · vale todo el semestre</div>
+<h3>Dos libros, y los eliges tú</h3>
+<p class="foco">Nadie mide qué tan rápido vas.</p>
+</div>
+<button class="btn-presentar" type="button">Presentar ▸</button>
+</div>
+<section class="lam">
+<h4>Este curso lee</h4>
+<p class="di">Dos obras en cuatro meses, elegidas por ti.</p>
+<p class="apoyo">Novela, cuento, novela gráfica, poesía, crónica: lo que te llame. Nadie te dirá cuál, y puedes cambiar de libro las veces que haga falta hasta encontrar uno que sí.</p>
+<p class="nota-conductor">Este mazo se proyecta dos veces: en la inaugural, antes de la cata, y al abrir la semana 7, cuando toca elegir el segundo libro. La segunda vez, salta directo al mapa y a las fuentes de recomendación.</p>
+</section>
+<section class="lam">
+<h4>Lo que no hay</h4>
+<p class="di">No hay control de lectura, ni resumen, ni ficha, ni fecha de entrega del libro.</p>
+<p class="apoyo">Lo que sí hay: tres momentos en los que nos sentamos a platicar de lo que cada quien está leyendo, y dos en los que grabas algo tuyo. Ese es todo el andamiaje. El resto es tuyo y de tu libro.</p>
+</section>
+<section class="lam">
+<h4>El mapa lector del semestre</h4>
+<table>
+<tr><th>Cuándo</th><th>Qué pasa</th></tr>
+<tr><td><strong>Semana 0</strong></td><td>La cata de libros: circulas, lees umbrales y anotas tu primera elección. Puedes cambiarla en las dos semanas siguientes sin dar explicaciones.</td></tr>
+<tr><td><strong>Semana 7</strong></td><td>Primer círculo de lectura, cerrando la unidad 1.</td></tr>
+<tr><td><strong>Semanas 7 y 8</strong></td><td>Eliges tu segundo libro, con lo que oíste en el círculo.</td></tr>
+<tr><td><strong>Semana 9</strong></td><td>Primer booktuber, sobre tu primera obra.</td></tr>
+<tr><td><strong>Semana 12</strong></td><td>Segundo círculo, cierre de la unidad 2. Cosechamos palabras de los libros para el Museo.</td></tr>
+<tr><td><strong>Semanas 13 a 15</strong></td><td>Segundo booktuber, sobre tu segunda obra.</td></tr>
+<tr><td><strong>Semana 16</strong></td><td>Tercer círculo y testamento lector.</td></tr>
+</table>
+<p class="apoyo">Tres círculos y dos grabaciones en dieciocho semanas. Todo lo demás es tiempo de leer.</p>
+</section>
+<section class="lam">
+<h4>El círculo de lectura</h4>
+<p class="di">Se llega con el libro en la mano y una frase marcada.</p>
+<p class="apoyo">Uno por unidad, 45 minutos en corro. Es una conversación, no una exposición: se habla de lo que el libro te está haciendo, no de lo que pasa en él. Nadie resume, nadie evalúa. No se califica el contenido de lo que digas: cuenta que estés y que participes.</p>
+</section>
+<section class="lam">
+<h4>El booktuber</h4>
+<p class="di">Tu recomendación grabada: dos a tres minutos con tu celular, vertical vale, sin edición.</p>
+<p class="apoyo">Dos en el semestre, uno por obra. Cuatro cosas: quién eres, qué leíste, qué te dio el libro y una frase leída en voz alta desde tu ejemplar. ¿No quieres cámara? Vale audio o ficha ilustrada con lo mismo. Se publica en la vitrina de abajo solo si tú lo autorizas.</p>
+</section>
+<section class="lam">
+<h4>El testamento lector</h4>
+<p class="di">Una carta breve para quien se siente en tu silla el año que viene.</p>
+<p class="apoyo">Se escribe en la semana 16 y se queda publicada al pie de esta página. Es la única parte que le habla a alguien que todavía no conoces.</p>
+</section>
+<section class="lam lam--oscura">
+<h4>Lo único que cuenta</h4>
+<p class="di">Nada de esto se califica por gusto ni por velocidad.</p>
+<p class="apoyo">No importa si leíste 80 páginas o 800, ni si el libro es "difícil". Cuenta que estés, que compartas y que entregues.</p>
+</section>
+<section class="lam">
+<h4>¿Y si no leo nada?</h4>
+<p class="di">Entonces los círculos son incómodos y los booktubers imposibles, porque no hay de dónde sacarlos.</p>
+<p class="apoyo">No hay castigo: hay una conversación contigo, y la posibilidad de cambiar de libro las veces que haga falta hasta encontrar uno que sí.</p>
+</section>
+<section class="lam">
+<h4>Tus derechos como lector</h4>
+<p class="di">Tienes diez, y el tercero es no terminar un libro.</p>
+<p class="apoyo">Los escribió Daniel Pennac en <em>Como una novela</em> y los firmas en la semana 0, junto con los otros pactos. La lista completa vive aquí abajo, en esta misma página.</p>
+</section>
+<section class="lam">
+<h4>Si no sabes qué leer</h4>
+<p class="di">Tienes cuatro fuentes, en este orden.</p>
+<ol>
+<li><strong>El tendedero</strong> de esta página: recomendaciones del propio grupo.</li>
+<li><strong>El préstamelo del salón</strong>: libros que tus compañeros ofrecen en préstamo.</li>
+<li><strong>El minuto del lector</strong>: cada semana alguien cuenta qué está leyendo.</li>
+<li><strong>La mesa de libros del profesor.</strong></li>
+</ol>
+</section>
+<section class="lam lam--oscura">
+<h4>Antes de buscar en internet</h4>
+<p class="di">La mejor recomendación no está en internet: está sentada junto a ti.</p>
+</section>
+</section>
 
 ---
 
@@ -86,13 +142,7 @@ Los firmamos en la semana 0 y valen todo el semestre (y toda la vida). Los escri
 
 ---
 
-## Si no sabes qué leer
-
-Tienes cuatro fuentes, en este orden: el tendedero de aquí abajo (recomendaciones del propio grupo), el préstamelo del salón (libros que tus compañeros ofrecen en préstamo), el minuto del lector (cada semana alguien cuenta qué está leyendo) y la mesa de libros del profesor. La mejor recomendación no está en internet: está sentada junto a ti.
-
----
-
-## El tendedero
+## El tendedero <span class="viva">se llena con el semestre</span>
 
 Cada obra terminada deja aquí su ficha: a quién le va a gustar y quién la recomienda. Si una te llama, pide el libro prestado.
 
@@ -100,7 +150,7 @@ Cada obra terminada deja aquí su ficha: a quién le va a gustar y quién la rec
 
 ---
 
-## Vitrina de booktubers
+## Vitrina de booktubers <span class="viva">se llena con el semestre</span>
 
 {: .ojo }
 ¿Terminaste una obra? Graba 2 a 3 minutos con tu celular (vertical vale) con cuatro cosas: quién eres, qué leíste, qué te dio el libro (no qué pasa en él) y una frase leída en voz alta desde tu ejemplar. ¿No quieres cámara? Vale audio o ficha ilustrada con lo mismo. Se publica aquí solo si tú lo autorizas.
@@ -109,7 +159,7 @@ Cada obra terminada deja aquí su ficha: a quién le va a gustar y quién la rec
 
 ---
 
-## Palabras que salieron de los libros
+## Palabras que salieron de los libros <span class="viva">se llena con el semestre</span>
 
 La cosecha de los círculos de lectura. Todas son candidatas al Museo de Palabras.
 
@@ -117,7 +167,7 @@ La cosecha de los círculos de lectura. Todas son candidatas al Museo de Palabra
 
 ---
 
-## Testamentos lectores
+## Testamentos lectores <span class="viva">se llena con el semestre</span>
 
 Al final del semestre, cada lector deja escrita una recomendación para quien tome este curso después. Esto no lo escribió un adulto: lo escribió alguien que estuvo en tu silla.
 
@@ -125,27 +175,27 @@ Al final del semestre, cada lector deja escrita una recomendación para quien to
 
 <style>
 .lee-derechos{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:.6rem;margin:1rem 0}
-.lee-d{border:1px solid #eadce6;border-radius:.9rem;padding:.8rem .95rem;background:#fbf4f9}
-.lee-d b{display:block;color:#6b1e5a;margin-bottom:.15rem}
-.lee-d span{font-size:.88rem;color:#444;line-height:1.4}
-.lee-vacio{border:1px dashed #d9c3d4;border-radius:.9rem;padding:1rem 1.1rem;background:#fdf9fc;color:#6b1e5a;font-style:italic}
+.lee-d{border:1px solid #E6DFF0;border-radius:.9rem;padding:.8rem .95rem;background:#F7F3FB}
+.lee-d b{display:block;color:#6B1E5A;margin-bottom:.15rem}
+.lee-d span{font-size:.88rem;color:#4A3F5C;line-height:1.4}
+.lee-vacio{border:1px dashed #D9C3D4;border-radius:.9rem;padding:1rem 1.1rem;background:#FDF9FC;color:#6B1E5A;font-style:italic}
 .lee-tend{display:flex;flex-wrap:wrap;gap:1rem;padding-top:1.4rem;position:relative;margin-top:.5rem}
-.lee-tend::before{content:"";position:absolute;top:.5rem;left:0;right:0;border-top:2px solid #6b1e5a;opacity:.35}
-.lee-ficha{position:relative;flex:1 1 14rem;max-width:18rem;border:1px solid #eadce6;border-radius:.7rem;background:#fff;padding:.9rem 1rem;box-shadow:0 2px 5px rgba(107,30,90,.08)}
-.lee-ficha::before{content:"";position:absolute;top:-1.15rem;left:50%;width:.55rem;height:.9rem;background:#c8127a;border-radius:.15rem;transform:translateX(-50%)}
-.lee-ficha b{color:#6b1e5a}
-.lee-ficha .si{display:block;margin:.35rem 0;color:#444;font-size:.9rem}
-.lee-ficha .q{font-size:.78rem;color:#c8127a;font-weight:700}
+.lee-tend::before{content:"";position:absolute;top:.5rem;left:0;right:0;border-top:2px solid #6B1E5A;opacity:.35}
+.lee-ficha{position:relative;flex:1 1 14rem;max-width:18rem;border:1px solid #E6DFF0;border-radius:.7rem;background:#fff;padding:.9rem 1rem;box-shadow:0 2px 5px rgba(43,36,64,.08)}
+.lee-ficha::before{content:"";position:absolute;top:-1.15rem;left:50%;width:.55rem;height:.9rem;background:#C4006A;border-radius:.15rem;transform:translateX(-50%)}
+.lee-ficha b{color:#6B1E5A}
+.lee-ficha .si{display:block;margin:.35rem 0;color:#4A3F5C;font-size:.9rem}
+.lee-ficha .q{font-size:.78rem;color:#C4006A;font-weight:700}
 .lee-bt{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.8rem}
-.lee-bt a{display:block;flex:1 1 13rem;max-width:16rem;border:1px solid #eadce6;border-radius:.7rem;padding:.8rem .95rem;background:#fbf4f9;text-decoration:none}
-.lee-bt a b{display:block;color:#6b1e5a}
-.lee-bt a span{font-size:.82rem;color:#c8127a;font-weight:700}
+.lee-bt a{display:block;flex:1 1 13rem;max-width:16rem;border:1px solid #E6DFF0;border-radius:.7rem;padding:.8rem .95rem;background:#FFF3F9;text-decoration:none}
+.lee-bt a b{display:block;color:#6B1E5A}
+.lee-bt a span{font-size:.82rem;color:#C4006A;font-weight:700}
 .lee-chips{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.8rem}
-.lee-chip{border:1px solid #d9c3d4;border-radius:1rem;padding:.3rem .8rem;background:#fff;font-size:.88rem}
-.lee-chip b{color:#c8127a}
+.lee-chip{border:1px solid #D9C3D4;border-radius:1rem;padding:.3rem .8rem;background:#fff;font-size:.88rem}
+.lee-chip b{color:#C4006A}
 .lee-chip small{color:#777}
-.lee-testa{border-left:4px solid #c8127a;background:#fbf4f9;border-radius:0 .7rem .7rem 0;padding:.85rem 1rem;margin:.7rem 0}
-.lee-testa .q{display:block;margin-top:.3rem;font-size:.8rem;color:#6b1e5a;font-weight:700}
+.lee-testa{border-left:4px solid #C4006A;background:#FFF3F9;border-radius:0 .7rem .7rem 0;padding:.85rem 1rem;margin:.7rem 0}
+.lee-testa .q{display:block;margin-top:.3rem;font-size:.8rem;color:#6B1E5A;font-weight:700}
 </style>
 
 <script>
