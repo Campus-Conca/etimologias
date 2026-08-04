@@ -25,71 +25,181 @@ La regla de oro de la semana (apréndetela, se usa todo el semestre): un corte e
 
 | Día | Qué haremos | Trae |
 |---|---|---|
-| Martes | El juego de los cortes y el banco de dudosos | el mazo al día |
-| Miércoles | La fábrica de matrices | tu matriz a medio armar |
-| Jueves, centro de cómputo | Dos espejismos y veinte palabras nuevas | el mazo al día |
-| Viernes, 2 horas | El torneo de matrices por equipos | a tu equipo con las pilas puestas |
+| [Martes 11](#martes) · 1 h | El juego de los cortes y el banco de dudosos | el mazo al día |
+| [Miércoles 12](#miercoles) · 1 h | La fábrica de matrices | tu matriz a medio armar |
+| [Jueves 13](#jueves) · 1 h, centro de cómputo | Dos espejismos y veinte palabras nuevas | el mazo al día |
+| [Viernes 14](#viernes) · 2 h | El torneo de matrices por equipos | a tu equipo con las pilas puestas |
 
-Cada día tiene su sección aquí abajo, en orden. Esta página es el mapa de la semana: el grupo y el profesor trabajamos sobre ella.
+<p class="pista-mazos">Cada día es un mazo de láminas. En clase se proyectan una por una con el botón <strong>Presentar</strong>; aquí se quedan apiladas, en orden, para volver a ellas cuando quieras.</p>
 
----
+<!-- ============================ MARTES ============================ -->
+<section class="mazo" id="martes">
+<div class="mazo-cabeza">
+<div>
+<div class="cuando">Martes 11 de agosto · 1 hora</div>
+<h3>El juego de los cortes</h3>
+<p class="foco">Desayunar es, literal, romper el ayuno.</p>
+</div>
+<button class="btn-presentar" type="button">Presentar ▸</button>
+</div>
+<section class="lam">
+<h4><span class="n">1</span> La suma en el pizarrón <span class="reloj">15 min</span></h4>
+<p class="di">Toda palabra se puede escribir como una suma.</p>
+<div class="dis">
+<span class="pz pz--pre">des<small>deshacer, quitar</small></span>
+<span class="pz pz--raiz">ayuno</span>
+<span class="eq">= desayuno, "romper el ayuno"</span>
+</div>
+<p class="apoyo">Hoy aprendes a escribir la suma de una palabra y a leerla de vuelta: dada la suma, ¿qué palabra es? Directa e inversa, como en aritmética.</p>
+</section>
+<section class="lam lam--oscura">
+<h4>La regla de oro de la semana</h4>
+<p class="di">Un corte es real solo si la pieza reaparece en otras palabras con el mismo significado, y la fuente lo confirma.</p>
+<p class="apoyo">Apréndetela: se usa todo el semestre. Familia y fuente, las dos, siempre.</p>
+</section>
+<section class="lam lam--actividad">
+<h4><span class="n">2</span> Sumas de palabras <span class="reloj">30 min</span></h4>
+<span class="senal">En parejas</span>
+<p class="di">Suma y desarma, con las piezas de tu mazo.</p>
+<p class="apoyo"><a href="../ejercicios/semana-03/ejercicio-3A-sumas-de-palabras.html">Sumas de palabras</a>, en parejas. Anota los cortes de los que dudaron: son materia prima del torneo del viernes.</p>
+</section>
+<section class="lam lam--actividad">
+<h4><span class="n">3</span> El banco de dudosos <span class="reloj">15 min</span></h4>
+<span class="senal">Todo el grupo</span>
+<p class="di">Cada pareja propone su corte más sospechoso. El grupo apuesta a mano alzada. Nadie resuelve nada.</p>
+<p class="apoyo">Los veredictos caen el viernes, en el torneo, con el DECEL abierto. Y no te vayas sin el mazo: las tarjetas de la semana entran hoy.</p>
+<p class="nota-conductor">Anota los cortes propuestos en el pizarrón o el kraft: son los retos listos del viernes. Si alguien propone re + loj, celébralo y congélalo: ese caso es tan bueno que tiene su propia semana, la 5. No lo resuelvas ni de broma.</p>
+</section>
+</section>
 
-## Martes · El juego de los cortes
+<!-- ============================ MIÉRCOLES ============================ -->
+<section class="mazo" id="miercoles">
+<div class="mazo-cabeza">
+<div>
+<div class="cuando">Miércoles 12 de agosto · 1 hora</div>
+<h3>La fábrica de matrices</h3>
+<p class="foco">Cada pieza nueva no suma una palabra: multiplica.</p>
+</div>
+<button class="btn-presentar" type="button">Presentar ▸</button>
+</div>
+<section class="lam lam--actividad">
+<h4><span class="n">1</span> Duelo de raíces <span class="reloj">10 min</span></h4>
+<span class="senal">Actividad</span>
+<p class="di">El mazo a la cancha. Ya trae piezas de tres semanas.</p>
+<p class="nota-conductor">Mete al duelo las piezas de la semana pasada (tele-, crono-, -metro) junto a las nuevas: el mazo viejo no se jubila, se recombina.</p>
+</section>
+<section class="lam">
+<h4><span class="n">2</span> La matriz en acción <span class="reloj">20 min</span></h4>
+<p class="di">Una pieza fija, muchas móviles.</p>
+<table>
+<tr><th>Fija</th><th>Móviles</th><th>Salen</th></tr>
+<tr><td><strong>-logía</strong></td><td>bio, geo, psico, crono</td><td>biología, geología, psicología, cronología</td></tr>
+<tr><td><strong>tele-</strong></td><td>fono, visión, scopio</td><td>teléfono, televisión, telescopio</td></tr>
+</table>
+<p class="apoyo">Eso es una matriz morfológica: aprendes una pieza y te llevas la fila completa.</p>
+</section>
+<section class="lam">
+<h4>Una raíz no es una palabra: es una fábrica</h4>
+<p class="di">La raíz <em>port-</em> (llevar) da exportar, importar, transporte, portátil, reportero, deportar.</p>
+<p class="apoyo">¿Cuántas más? Ese es el reto del día. Y guarda el ojo crítico: no toda palabra con esas letras es de la familia. El viernes vas a ver caer una.</p>
+</section>
+<section class="lam lam--actividad">
+<h4><span class="n">3</span> La fábrica de matrices <span class="reloj">30 min</span></h4>
+<span class="senal">En equipos</span>
+<p class="di">Armen su matriz: lo respaldado como respaldado, lo dudoso como hipótesis.</p>
+<p class="apoyo"><a href="../ejercicios/semana-03/ejercicio-3B-fabrica-de-matrices.html">La fábrica de matrices</a>. Si terminas, arma una matriz propia con piezas de tu mazo: las mejores se leen en voz alta. Las hipótesis dudosas son retos listos para el torneo del viernes.</p>
+</section>
+</section>
 
-En el pizarrón: des + ayuno. Desayunar es, literal, romper el ayuno. Aprenderás a escribir la suma de una palabra y a leerla de vuelta: dada la suma, ¿qué palabra es?
+<!-- ============================ JUEVES ============================ -->
+<section class="mazo" id="jueves">
+<div class="mazo-cabeza">
+<div>
+<div class="cuando">Jueves 13 de agosto · 1 hora · Centro de cómputo</div>
+<h3>Dos espejismos y veinte palabras</h3>
+<p class="foco">Los dos parecen obvios. Los dos engañan.</p>
+</div>
+<button class="btn-presentar" type="button">Presentar ▸</button>
+</div>
+<section class="lam lam--actividad">
+<h4><span class="n">1</span> Quiz relámpago <span class="reloj">10 min</span></h4>
+<span class="senal">A solas · papel</span>
+<p class="di">Una suma directa, una inversa, un corte a juicio. Tres minutos.</p>
+<p class="apoyo">Con tu predicción antes de voltear la hoja, como siempre. Al calificar comparas: la brecha es información, no culpa.</p>
+<p class="nota-conductor">El quiz proyectable, con respuestas y cronómetro, está en tus recursos docentes (carpeta local, quiz-relampago-semana-03.html).</p>
+</section>
+<section class="lam">
+<h4><span class="n">2</span> Espejismo 1 · man + go <span class="reloj">15 min</span></h4>
+<p class="di">¿El mango de la sartén y el mango que te comes son la misma palabra?</p>
+<p class="apoyo">El de la sartén viene de <em>manus</em> (mano): ese corte es real. Pero el fruto llegó del tamil, por el portugués, y no tiene ni una gota de <em>manus</em>. <strong>Dos palabras distintas disfrazadas de una.</strong> A veces el espejismo es verdad a medias, y solo la fuente lo distingue.</p>
+<p class="nota-conductor">Pide la apuesta a mano alzada antes de revelar nada, y deja que alguien defienda la respuesta equivocada un momento: el golpe pedagógico está en haberse comprometido.</p>
+</section>
+<section class="lam">
+<h4>Espejismo 2 · in + vierno</h4>
+<p class="di">El ojo ve el prefijo in- clarísimo. No está.</p>
+<p class="apoyo"><em>Invierno</em> viene del latín <em>hibernum</em>, y ese "in" es pura casualidad de la forma. La pieza no reaparece en ninguna familia con ese significado, y la fuente lo confirma: la regla de oro trabajando.</p>
+</section>
+<section class="lam lam--oscura">
+<h4>La pregunta que te llevas</h4>
+<p class="di">La pregunta buena no es cuál era la trampa: es por qué el ojo ve piezas donde no las hay.</p>
+<p class="apoyo">Guárdala: se responde el viernes. Y el corte <em>re + loj</em> déjalo en paz: ese caso es tan bueno que tiene su propia semana.</p>
+</section>
+<section class="lam lam--actividad">
+<h4><span class="n">3</span> Veinte palabras gratis <span class="reloj">35 min</span></h4>
+<span class="senal">Actividad</span>
+<p class="di">Esta semana aprendiste que cada pieza multiplica. Hoy cobras la multiplicación.</p>
+<p class="apoyo"><a href="../ejercicios/semana-03/ejercicio-3C-veinte-palabras-gratis.html">Veinte palabras gratis</a>: veinte palabras que nadie te ha enseñado, armadas casi por completo con piezas de tu mazo. Haz el corte de cabeza, apuesta el significado, y cada respuesta te regala la suma completa. Las que falles son tus mejores candidatas a tarjeta: anótalas con su suma y métele al mazo.</p>
+</section>
+</section>
 
-**Tu ejercicio:** [Sumas de palabras](../ejercicios/semana-03/ejercicio-3A-sumas-de-palabras.html), en parejas. Anota los cortes de los que dudaron: son materia prima del torneo del viernes.
-
-Al cierre, el banco de dudosos: cada pareja propone su corte más sospechoso y el grupo apuesta a mano alzada si es real o espejismo, sin resolver nada. Los veredictos caen el viernes, en el torneo, con el DECEL abierto. Y si a alguien se le ocurre proponer re + loj: ese caso es tan bueno que tiene su propia semana.
-
-Las tarjetas de la semana entran hoy al mazo.
-
-## Miércoles · La fábrica de matrices
-
-Duelo de raíces al abrir. Luego verás la matriz en acción: una pieza fija con muchas móviles. *-logía* con bio, geo, psico, crono. *tele-* con fono, visión, scopio. Cada pieza nueva que aprendes no suma una palabra: multiplica.
-
-**Tu ejercicio:** [La fábrica de matrices](../ejercicios/semana-03/ejercicio-3B-fabrica-de-matrices.html). Si terminas, arma una matriz propia con piezas de tu mazo: las mejores se leen en voz alta.
-
-{: .reto }
-Una raíz no es una palabra: es una fábrica. La raíz *port-* (llevar) da exportar, importar, transporte, portátil, portero, portal, reportero. ¿Cuántas más?
-
-## Jueves · Dos espejismos y veinte palabras (centro de cómputo)
-
-Quiz relámpago al abrir: una suma directa, una inversa, un corte real o espejismo. Con tu predicción antes de voltear la hoja, como siempre.
-
-Luego, el profesor trae dos cortes al pizarrón y te va a pedir que apuestes. Los dos parecen obvios. Los dos engañan:
-
-**Espejismo 1 · man + go.** El mango de la sartén viene de *manus* (mano): ese corte es real. Pero el mango que te comes llegó del tamil, por el portugués, y no tiene ni una gota de *manus*. **Dos palabras distintas disfrazadas de una.** Moraleja: a veces el espejismo es verdad a medias, y solo la fuente lo distingue.
-
-**Espejismo 2 · in + vierno.** El ojo ve el prefijo *in-* clarísimo. No está: *invierno* viene del latín *hibernum*, y ese "in" es pura casualidad de la forma. La pieza no reaparece en ninguna familia con ese significado, y la fuente lo confirma: la regla de oro trabajando.
-
-La pregunta buena no es cuál era la trampa, sino por qué el ojo ve piezas donde no las hay. Guárdala: se responde el viernes. Y el corte *re + loj* déjalo en paz: ese caso es tan bueno que tiene su propia semana.
-
-El resto de la sesión es para engordar el mazo. Esta semana aprendiste que cada pieza multiplica; hoy cobras la multiplicación.
-
-**Tu ejercicio:** [Veinte palabras gratis](../ejercicios/semana-03/ejercicio-3C-veinte-palabras-gratis.html): veinte palabras que nadie te ha enseñado, armadas casi por completo con piezas de tu mazo. Haz el corte de cabeza, apuesta el significado, y cada respuesta te regala la suma completa con alguna pieza nueva. Las que falles son tus mejores candidatas a tarjeta: anótalas con su suma y métele al mazo.
-
-## Viernes · El torneo de matrices (2 horas)
-
-Por equipos: construyen la matriz más grande que puedan **defender**. Cada palabra propuesta debe sobrevivir la regla de oro si otro equipo la reta, y retar también da puntos. Los cortes dudosos del banco del martes entran aquí como retos listos. El profesor es juez de última instancia, con el DECEL abierto.
-
-### Así se ve una ronda, para que nadie llegue a ciegas
-
-El equipo Fuego elige la raíz *port-* (llevar) y pone en el pizarrón: **transporte, exportar, importar, portátil, reportero, deporte y portero**. Siete palabras: siete puntos posibles, una por cada una que sobreviva.
-
-| Jugada | Qué pasa | El punto |
-|---|---|---|
-| Agua reta **deporte**: "esa no lleva nada" | Se abre el DECEL: viene del latín *deportare*, llevarse a alguien lejos, a distraerse. El corte era real y el reto falla. | Se queda con Fuego |
-| Agua reta **portero**: "trae las letras, pero ¿ahí *port-* significa llevar?" | Se abre la fuente: portero viene de *puerta* (latín *porta*), no de *portare*. Las letras estaban; el significado no. La palabra cae. | Pasa a Agua |
-| Nadie reta **transporte, exportar, importar, portátil, reportero** | Sobreviven sin pelea. | Cinco para Fuego |
-
-Resultado: Fuego defendió seis de siete; Agua cazó un espejismo con la pregunta correcta. Fíjate en cuál fue: no "esa palabra no existe", sino **"¿la pieza significa eso ahí?"**. Esa es la pregunta que gana torneos, y es la misma que el jueves te salvó con *mango*.
-
-Lo que se busca con este juego, dicho de frente: que la matriz grande no gana por grande, **gana por defendible**. Proponer sin fuente es regalar puntos; retar sin fuente es perder el turno. El músculo que se entrena es uno solo: pedir familia y fuente antes de creer, aunque la palabra sea tuya.
-
-Después, la pregunta que quedó sembrada el jueves: ¿por qué el ojo ve piezas donde no las hay? Porque el cerebro ama los patrones y los completa aunque no estén: *amigo* tampoco se corta en a + migo (viene de *amicus*). Por eso la regla de oro pide familia **y** fuente. Y por eso a nadie, ni a una IA, se le cree una etimología sin fuente.
-
-Cierre de siempre: las piezas nuevas al mazo, avance de tu biografía del Museo si vas al día, y diez minutos de lectura en voz alta.
+<!-- ============================ VIERNES ============================ -->
+<section class="mazo" id="viernes" data-ticket>
+<div class="mazo-cabeza">
+<div>
+<div class="cuando">Viernes 14 de agosto · 2 horas</div>
+<h3>El torneo de matrices</h3>
+<p class="foco">La matriz grande no gana por grande: gana por defendible.</p>
+</div>
+<button class="btn-presentar" type="button">Presentar ▸</button>
+</div>
+<section class="lam">
+<h4><span class="n">1</span> Las reglas del torneo <span class="reloj">20 min</span></h4>
+<p class="di">Por equipos: construyan la matriz más grande que puedan defender.</p>
+<p class="apoyo">Cada palabra propuesta debe sobrevivir la regla de oro si otro equipo la reta, y retar también da puntos. Los cortes dudosos del banco del martes entran como retos listos. El profesor es juez de última instancia, con el DECEL abierto.</p>
+</section>
+<section class="lam">
+<h4>Así se ve una ronda</h4>
+<p class="di">Fuego propone siete palabras con port-. Agua reta dos.</p>
+<table>
+<tr><th>Jugada</th><th>Qué pasa</th><th>El punto</th></tr>
+<tr><td>Agua reta <strong>deporte</strong>: "esa no lleva nada"</td><td>El DECEL responde: de <em>deportare</em>, llevarse lejos, a distraerse. El corte era real; el reto falla.</td><td>Se queda con Fuego</td></tr>
+<tr><td>Agua reta <strong>portero</strong>: "trae las letras, pero ¿ahí port- significa llevar?"</td><td>La fuente responde: viene de <em>puerta</em> (<em>porta</em>), no de <em>portare</em>. La palabra cae.</td><td>Pasa a Agua</td></tr>
+<tr><td>Nadie reta las otras cinco</td><td>Sobreviven sin pelea.</td><td>Cinco para Fuego</td></tr>
+</table>
+</section>
+<section class="lam lam--oscura">
+<h4>La pregunta que gana torneos</h4>
+<p class="di">No es "¿esa palabra existe?". Es: "¿la pieza significa eso ahí?"</p>
+<p class="apoyo">La misma que ayer desenmascaró a <em>mango</em>. Proponer sin fuente es regalar puntos; retar sin fuente es perder el turno.</p>
+</section>
+<section class="lam lam--actividad">
+<h4><span class="n">2</span> El torneo <span class="reloj">65 min</span></h4>
+<span class="senal">En equipos</span>
+<p class="di">Matriz al pizarrón, retos por turnos, el DECEL decide.</p>
+<p class="apoyo">Cada equipo presenta su matriz; los demás retan por turnos. Palabra defendida, punto para el dueño; reto certero, punto para quien retó.</p>
+<p class="nota-conductor">Equipos de tres o cuatro. Tiempo por ronda a la vista, tú cuidas el reloj. Reserva los dudosos del martes para los momentos en que el torneo se enfríe: son pólvora probada. Registra la mejor matriz y los veredictos sorprendentes: van a la vitrina de "Lo que produjimos".</p>
+</section>
+<section class="lam">
+<h4><span class="n">3</span> La pregunta sembrada el jueves <span class="reloj">15 min</span></h4>
+<p class="di">¿Por qué el ojo ve piezas donde no las hay? Porque el cerebro ama los patrones, y los completa aunque no estén.</p>
+<p class="apoyo"><em>Amigo</em> tampoco se corta en a + migo: viene de <em>amicus</em>. Por eso la regla de oro pide familia <strong>y</strong> fuente. Y por eso a nadie, ni a una IA, se le cree una etimología sin fuente.</p>
+</section>
+<section class="lam">
+<h4><span class="n">4</span> El cierre de siempre <span class="reloj">20 min</span></h4>
+<p class="di">Las piezas nuevas al mazo, tu biografía avanza, y diez minutos de lectura.</p>
+<p class="apoyo">Las tarjetas de la semana ya están abajo. Si vas al día con tu candidata del Museo, dale una vuelta a su biografía. Y cerramos con lectura en voz alta: sin tarea, sin examen, solo escuchar.</p>
+</section>
+</section>
 
 ## La lectura, esta semana
 
