@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 4 · Ejercicio C · Apuesta y verifica</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.25rem}
+  .paso{font-size:.8rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.04em;margin-top:.9rem}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3.2rem;resize:vertical}
+  .seg{display:flex;gap:.5rem;margin-top:.4rem;flex-wrap:wrap}
+  .seg button{flex:1;min-width:90px;padding:.5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;cursor:pointer}
+  .seg button.sel{background:var(--ciruela);color:#fff;border-color:var(--ciruela)}
+  .fuentes{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem}
+  .fuentes a{flex:1;min-width:120px;text-align:center;padding:.55rem;border:1px solid var(--borde);border-radius:.6rem;background:var(--fondo);color:var(--ciruela);font-weight:700;text-decoration:none}
+  .veredicto{display:flex;gap:.5rem;margin-top:.6rem}
+  .veredicto button{flex:1;padding:.55rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font-weight:700;cursor:pointer;color:var(--ciruela)}
+  .veredicto button.sel-ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
+  .veredicto button.sel-no{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 4 · Sesión C · Centro de cómputo</div>
+    <h1>Apuesta y verifica</h1>
+    <p>Cada apuesta pasa por las fuentes. Las que caigan no son fracaso: son el dato más valioso del día.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="regla">
+    <strong>La ley del tribunal:</strong> apostar primero, buscar después. Y ninguna etimología se acepta sin fuente: ni de un compañero, ni de una IA, ni tuya.
+  </div>
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Empieza por tus dos palabras apostadas de ayer, luego sigue con el banco. Por cada palabra: (1) escribe sus piezas; (2) escribe tu apuesta de significado; (3) marca tu seguridad; (4) solo entonces abre el DLE y el DECEL; (5) dicta veredicto y anota la fuente. El marcador final mide tu calibración, no tus aciertos.
+  </div>
+
+  <div class="cuaderno">
+    <strong>La captura de cada caso, aquí o en cuaderno:</strong> palabra, piezas, apuesta, seguridad, veredicto, fuente. Ese es el formato de la casa y el que se pide en las defensas.
+  </div>
+
+  <h2>Tus dos palabras de ayer</h2>
+  <div id="propias"></div>
+
+  <h2>El banco del tribunal</h2>
+  <p style="font-size:.92rem">Materias de escuela y viejas conocidas que esconden sorpresa. Alguna te va a tumbar la apuesta: para eso es el tribunal.</p>
+  <div id="banco"></div>
+
+  <h2>El marcador</h2>
+  <div class="card">
+    <div class="fila-botones"><button class="btn rosa" id="btnMarcador">Ver mi calibración</button></div>
+    <div class="fb" id="fbMarcador"></div>
+  </div>
+
+  <footer>Semana 4 · Apuesta y verifica · Gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página. Lo que quieras conservar, pásalo a tu expediente.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var BANCO=[
+    {w:"escuela",pista:"La palabra que nombra el lugar donde estás sentado ahora mismo. ¿Qué crees que significaba en griego?",q:"escuela"},
+    {w:"museo",pista:"El proyecto del semestre lleva su nombre. Los griegos lo usaban para un lugar muy concreto.",q:"museo"},
+    {w:"filosofía",pista:"Dos piezas. Una la viste en clase esta semana de refilón; la otra es puro cariño.",q:"filosofi.a"},
+    {w:"matemáticas",pista:"¿Números? El griego original decía otra cosa, más amplia.",q:"matema.ticas"},
+    {w:"gastronomía",pista:"La primera pieza la conociste el miércoles en el mapa del cuerpo. La segunda es una ley.",q:"gastronomi.a"},
+    {w:"historia",pista:"¿Cosa de fechas y héroes? Su raíz griega habla de un oficio, no de un pasado.",q:"historia"}
+  ];
+
+  var registro=[];
+
+  function cardHTML(titulo,pista,conNombre){
+    return (conNombre
+      ?'<div class="paso">La palabra</div><input type="text" data-nombre placeholder="Escribe aquí tu palabra apostada de ayer">'
+      :'<h3>'+titulo+'</h3><p style="margin:0;font-size:.92rem">'+pista+'</p>')
+      +'<div class="paso">Paso 1 · Sus piezas</div>'
+      +'<input type="text" data-piezas placeholder="Ejemplo: gastro (estómago) + nomía (...)">'
+      +'<div class="paso">Paso 2 · Tu apuesta de significado</div>'
+      +'<input type="text" data-apuesta placeholder="¿Qué dice la palabra, literalmente?">'
+      +'<div class="paso">Paso 3 · Tu seguridad</div>'
+      +'<div class="seg" data-seg><button>Bajo</button><button>Medio</button><button>Alto</button></div>'
+      +'<div class="paso">Paso 4 · Ahora sí, las fuentes</div>'
+      +'<div class="fuentes" data-fuentes></div>'
+      +'<div class="fb" data-aviso></div>'
+      +'<div class="paso">Paso 5 · Veredicto</div>'
+      +'<div class="veredicto" data-ver><button data-v="ok">Mi apuesta sobrevivió</button><button data-v="cayo">Mi apuesta cayó</button></div>'
+      +'<div class="paso">Paso 6 · La fuente que lo dice</div>'
+      +'<input type="text" data-fuente placeholder="Ejemplo: DECEL, entrada escuela. O DLE.">';
+  }
+
+  function montaCard(cont,titulo,pista,q,conNombre){
+    var est={seg:null,ver:null,abierto:false};
+    registro.push(est);
+    var card=document.createElement('div');card.className='card';
+    card.innerHTML=cardHTML(titulo,pista,conNombre);
+    cont.appendChild(card);
+
+    var segZona=card.querySelector('[data-seg]');
+    segZona.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){
+        segZona.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+        b.classList.add('sel');est.seg=b.textContent;
+      });
+    });
+
+    var fz=card.querySelector('[data-fuentes]');
+    var aviso=card.querySelector('[data-aviso]');
+    function fuenteLink(txt,url){
+      var a=document.createElement('a');a.textContent=txt;a.target='_blank';a.rel='noopener';a.href=url;
+      a.addEventListener('click',function(ev){
+        var listo=card.querySelector('[data-piezas]').value.trim()&&card.querySelector('[data-apuesta]').value.trim()&&est.seg;
+        if(!listo){
+          ev.preventDefault();
+          aviso.className='fb no';
+          aviso.textContent='Alto ahí: primero piezas, apuesta y seguridad. La ley es apostar antes de buscar.';
+          return;
+        }
+        aviso.className='fb';est.abierto=true;
+      });
+      fz.appendChild(a);
+    }
+    if(q){
+      fuenteLink('Abrir DLE','https://dle.rae.es/'+encodeURIComponent(titulo));
+      fuenteLink('Abrir DECEL','http://etimologias.dechile.net/?'+q);
+    }else{
+      fuenteLink('Abrir DLE','https://dle.rae.es/');
+      fuenteLink('Abrir DECEL','http://etimologias.dechile.net/');
+    }
+
+    card.querySelectorAll('[data-ver] button').forEach(function(b){
+      b.addEventListener('click',function(){
+        card.querySelectorAll('[data-ver] button').forEach(function(x){x.classList.remove('sel-ok');x.classList.remove('sel-no');});
+        b.classList.add(b.dataset.v==='ok'?'sel-ok':'sel-no');est.ver=b.dataset.v;
+      });
+    });
+  }
+
+  var propias=document.getElementById('propias');
+  montaCard(propias,'','',null,true);
+  montaCard(propias,'','',null,true);
+
+  var banco=document.getElementById('banco');
+  BANCO.forEach(function(p){montaCard(banco,p.w,p.pista,p.q,false);});
+
+  document.getElementById('btnMarcador').addEventListener('click',function(){
+    var fb=document.getElementById('fbMarcador');
+    var hechas=registro.filter(function(e){return e.ver;});
+    if(!hechas.length){fb.className='fb no';fb.textContent='Todavía no hay veredictos. El marcador se gana en el tribunal, no en el botón.';return;}
+    var vivas=hechas.filter(function(e){return e.ver==='ok';}).length;
+    var altas=hechas.filter(function(e){return e.seg==='Alto';});
+    var altasVivas=altas.filter(function(e){return e.ver==='ok';}).length;
+    var msj='Pasaron por el tribunal '+hechas.length+' apuesta'+(hechas.length>1?'s':'')+' y sobrevivieron '+vivas+'. ';
+    if(altas.length){
+      msj+='De tus '+altas.length+' con seguridad alta, sobrevivi'+(altasVivas===1?'ó':'eron')+' '+altasVivas+'. ';
+      msj+=(altasVivas===altas.length)?'Tu "seguro" vale: eso es calibración fina.':'Cuando un "alto" cae, la lección no es la palabra: es afinar cuándo decir "seguro".';
+    }
+    msj+=' Este número va a subir todo el semestre.';
+    fb.className='fb ej';fb.textContent=msj;
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>
