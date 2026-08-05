@@ -26,6 +26,13 @@ window.LEEMOS = {
     // {obra:"Pedro Páramo", quien:"Luis", url:"https://youtu.be/..."},
   ],
 
+  // Libros prestados: quién presta, a quién y qué libro.
+  prestamos: [
+    // {libro:"Pedro Páramo", presta:"Ana", a:"Luis"},
+    {libro:"Los peligros de fumar en la cama", presta:"el profe Lalo", a:"Ramón"},
+    {libro:"El tercer chimpancé", presta:"el profe Lalo", a:"Derek"},
+  ],
+
   // Palabras cosechadas de los libros.
   palabras: [
     // {palabra:"tolvanera", libro:"Pedro Páramo", quien:"Sofía"},
@@ -160,6 +167,14 @@ Cada obra terminada deja aquí su ficha: a quién le va a gustar y quién la rec
 
 ---
 
+## Libros prestados
+
+El préstamelo del salón, por escrito: aquí queda registrado qué libro anda en qué manos. Cuando lo termines (o lo abandones, que también es tu derecho), regrésalo para que siga circulando.
+
+<div id="lee-prestamos"></div>
+
+---
+
 ## Vitrina de booktubers <span class="viva">se llena con el semestre</span>
 
 {: .ojo }
@@ -197,6 +212,11 @@ Al final del semestre, cada lector deja escrita una recomendación para quien to
 .lee-ficha .si{display:block;margin:.35rem 0;color:#4A3F5C;font-size:.9rem}
 .lee-ficha .donde{display:block;margin-bottom:.3rem;font-size:.78rem;color:#6B1E5A;font-style:italic}
 .lee-ficha .q{font-size:.78rem;color:#C4006A;font-weight:700}
+.lee-prest{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.8rem}
+.lee-p{flex:1 1 14rem;max-width:18rem;border:1px solid #E6DFF0;border-left:4px solid #C4006A;border-radius:.7rem;background:#fff;padding:.8rem .95rem}
+.lee-p>b{display:block;color:#6B1E5A}
+.lee-p span{display:block;margin-top:.25rem;font-size:.85rem;color:#4A3F5C}
+.lee-p span b{color:#C4006A}
 .lee-bt{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.8rem}
 .lee-bt a{display:block;flex:1 1 13rem;max-width:16rem;border:1px solid #E6DFF0;border-radius:.7rem;padding:.8rem .95rem;background:#FFF3F9;text-decoration:none}
 .lee-bt a b{display:block;color:#6B1E5A}
@@ -222,6 +242,14 @@ Al final del semestre, cada lector deja escrita una recomendación para quien to
     if(!(D.tendedero||[]).length){vacio(ten,'El tendedero se inaugura al cerrar el primer círculo de lectura (7 de septiembre). Cada obra terminada colgará aquí su ficha.');}
     else{ten.innerHTML='<div class="lee-tend">'+D.tendedero.map(function(x){
       return '<div class="lee-ficha"><b>'+esc(x.libro)+'</b> · <i>'+esc(x.autor)+'</i><span class="si">Te va a gustar si '+esc(x.si)+'.</span>'+(x.donde?'<span class="donde">'+esc(x.donde)+'</span>':'')+'<span class="q">lo recomienda '+esc(x.quien)+'</span></div>';
+    }).join('')+'</div>';}
+  }
+
+  var pr=document.getElementById('lee-prestamos');
+  if(pr){
+    if(!(D.prestamos||[]).length){vacio(pr,'Ningún libro anda prestado por ahora. Cuando uno cambie de manos, aquí queda el registro.');}
+    else{pr.innerHTML='<div class="lee-prest">'+D.prestamos.map(function(x){
+      return '<div class="lee-p"><b>'+esc(x.libro)+'</b><span>'+esc(x.presta)+' se lo prestó a <b>'+esc(x.a)+'</b></span></div>';
     }).join('')+'</div>';}
   }
 
