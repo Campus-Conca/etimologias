@@ -149,7 +149,7 @@ Los firmamos en la semana 0 y valen todo el semestre (y toda la vida). Los escri
 
 ## El tendedero <span class="viva">se llena con el semestre</span>
 
-Cada obra terminada deja aquí su ficha: a quién le va a gustar y quién la recomienda. Si una te llama, pide el libro prestado.
+Cada obra terminada deja aquí su ficha: a quién le va a gustar y quién la recomienda. Si una te llama, pide el libro prestado. Las primeras cuatro fichas las colgó el profe: todas están en la biblioteca de la escuela.
 
 <div id="lee-tendedero"></div>
 
