@@ -16,31 +16,35 @@ Este curso lee. Dos libros en el semestre y los eliges tú: nadie te dirá cuál
 <script>
 window.LEEMOS = {
 
-  // El tendedero YA NO se llena desde aqui: sus fichas estan escritas
-  // directamente en HTML, mas abajo, en la seccion "El tendedero".
-  // Esta lista se conserva vacia solo por compatibilidad.
+  /* OJO: en estos scripts los comentarios van SIEMPRE como este, entre
+     barra-asterisco. El compresor de Jekyll junta todo el script en una
+     sola linea, y un comentario de doble barra se comeria el resto. */
+
+  /* El tendedero YA NO se llena desde aqui: sus fichas estan escritas
+     directamente en HTML, mas abajo, en la seccion "El tendedero".
+     Esta lista se conserva vacia solo por compatibilidad. */
   tendedero: [],
 
-  // Vitrina de booktubers: solo los autorizados por su autor.
+  /* Vitrina de booktubers: solo los autorizados por su autor.
+     {obra:"Pedro Páramo", quien:"Luis", url:"https:..."}, */
   booktubers: [
-    // {obra:"Pedro Páramo", quien:"Luis", url:"https://youtu.be/..."},
   ],
 
-  // Libros prestados: quién presta, a quién y qué libro.
+  /* Libros prestados: quién presta, a quién y qué libro.
+     {libro:"Pedro Páramo", presta:"Ana", a:"Luis"}, */
   prestamos: [
-    // {libro:"Pedro Páramo", presta:"Ana", a:"Luis"},
     {libro:"Los peligros de fumar en la cama", presta:"el profe Lalo", a:"Ramón"},
     {libro:"El tercer chimpancé", presta:"el profe Lalo", a:"Derek"},
   ],
 
-  // Palabras cosechadas de los libros.
+  /* Palabras cosechadas de los libros.
+     {palabra:"tolvanera", libro:"Pedro Páramo", quien:"Sofía"}, */
   palabras: [
-    // {palabra:"tolvanera", libro:"Pedro Páramo", quien:"Sofía"},
   ],
 
-  // Testamentos lectores (se escriben en la semana 16).
+  /* Testamentos lectores (se escriben en la semana 16).
+     {texto:"Si te gustó el terror, lee esto. Vas a dormir con la luz prendida.", quien:"Marco"}, */
   testamentos: [
-    // {texto:"Si te gustó el terror, lee esto. Vas a dormir con la luz prendida.", quien:"Marco"},
   ]
 };
 </script>
@@ -236,8 +240,8 @@ Al final del semestre, cada lector deja escrita una recomendación para quien to
   function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 
   var ten=document.getElementById('lee-tendedero');
-  // Solo actua si el contenedor viene vacio: si las fichas ya estan escritas
-  // en HTML, no las toca.
+  /* Solo actua si el contenedor viene vacio: si las fichas ya estan
+     escritas en HTML, no las toca. */
   if(ten && !ten.querySelector('.lee-ficha')){
     if(!(D.tendedero||[]).length){vacio(ten,'El tendedero se inaugura al cerrar el primer círculo de lectura (7 de septiembre). Cada obra terminada colgará aquí su ficha.');}
     else{ten.innerHTML='<div class="lee-tend">'+D.tendedero.map(function(x){
