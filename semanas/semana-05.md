@@ -289,8 +289,8 @@ La semana 4 te enseñó a desarmar palabras. Esta te enseña lo contrario: a par
 <section class="lam lam--actividad">
 <h4><span class="n">6</span> Fábrica de tarjetas <span class="reloj">10 min</span></h4>
 <span class="senal">A solas · con tu mazo abierto</span>
-<p class="di">Entran las dieciséis del cuerpo, las nueve productivas y las tres del alma.</p>
-<p class="apoyo">Son muchas de golpe y está bien: el cuerpo ya lo jugaron y las productivas ya las trabajaron en árboles. Quien use Anki vuelve a descargar el <a href="../recursos/anki/etimologias-uaq.apkg">mazo del curso</a> y se suman solas sin borrar avance. Quien use Leitner las copia a mano, empezando por las tres que le costaron en el ejercicio del cuerpo.</p>
+<p class="di">Veinticinco piezas nuevas de un jalón, y está bien.</p>
+<p class="apoyo">Quince del cuerpo, seis raíces productivas, las tres del alma y <em>pat-</em>. Varias de las que usaste esta semana ya vivían en tu mazo desde antes (<em>graf-</em>, <em>geo-</em>, <em>cardio-</em>, <em>crono-</em>): esas se repasan solas. Quien use Anki vuelve a descargar el <a href="../recursos/anki/etimologias-uaq.apkg">mazo del curso</a> y se suman solas sin borrar avance. Quien use Leitner las copia a mano, empezando por las tres que le costaron en el ejercicio del cuerpo.</p>
 <p class="nota-conductor">Si el tiempo se apretó, sacrifica esta lámina y no la galería: las tarjetas se ponen en casa, la defensa de pie no.</p>
 </section>
 
@@ -340,7 +340,7 @@ Una sola cosa para esta semana, y es opcional: si en tu lectura te topas con una
 ## Lo que queda instalado al cerrar la semana
 
 - las dieciséis raíces del cuerpo en tu mazo, y el reflejo de leer <em>hepatitis</em> sin que nadie te la explique
-- nueve raíces productivas trabajadas en árbol, no en lista
+- nueve raíces productivas trabajadas en árbol, no en lista, seis de ellas nuevas
 - <em>-fobia</em>, <em>-manía</em>, <em>-mancia</em> y <em>-latría</em>, con ejemplos que inventaste tú
 - tu segundo marcador de calibración, con fecha, junto al de la semana pasada
 - el enigma del reloj, resuelto con piezas que ya tenías
