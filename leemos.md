@@ -17,8 +17,13 @@ Este curso lee. Dos libros en el semestre y los eliges tú: nadie te dirá cuál
 window.LEEMOS = {
 
   // El tendedero: una ficha por obra terminada.
+  // El campo "donde" es opcional: si existe, la ficha dice dónde encontrar el libro.
   tendedero: [
     // {libro:"Pedro Páramo", autor:"Juan Rulfo", si:"te gustan los pueblos con secreto", quien:"Ana"},
+    {libro:"Las cavernas de la Sierra Gorda", autor:"Carlos Lazcano Sahagún", si:"quieres ver lo que hay debajo de la tierra que pisas todos los días. Lazcano lleva décadas bajando a los sótanos y abismos de la Sierra Gorda, y este libro reúne sus fotografías: cuerdas que se pierden en la oscuridad, bóvedas donde cabría una catedral entera y lugares a los que casi nadie ha llegado — a unos kilómetros de tu casa", quien:"el profe", donde:"está en la biblioteca de la escuela"},
+    {libro:"Los límites de la Fundación", autor:"Isaac Asimov", si:"quieres una galaxia entera para ti: imperios que caen, naves, robots y una ciencia inventada — la psicohistoria — que pretende predecir el futuro de la humanidad con puras matemáticas. Es parte de la saga de la Fundación, pero puede leerse solo, y Asimov escribe tan claro que las páginas se van sin sentir", quien:"el profe", donde:"está en la biblioteca de la escuela"},
+    {libro:"El escultor", autor:"Scott McCloud", si:"alguna vez te has preguntado qué darías a cambio de hacer algo que valga la pena. David, un artista fracasado, le hace un trato a la Muerte: sus manos podrán esculpir cualquier cosa, pero le quedan doscientos días de vida. Y justo entonces, claro, se enamora. Novela gráfica en tinta azul: casi quinientas páginas que se leen en dos tardes", quien:"el profe", donde:"está en la biblioteca de la escuela"},
+    {libro:"Crimen y castigo (novela gráfica)", autor:"Dostoievski · adaptación de Edu Molina", si:"quieres meterte en la cabeza de un asesino con remordimientos. Raskólnikov, un estudiante pobre, mata a una vieja usurera convencido de que hay crímenes que se justifican — y la historia es lo que su conciencia le hace después. Edu Molina cuenta en viñetas el clásico ruso completo, sin las seiscientas páginas del original", quien:"el profe", donde:"está en la biblioteca de la escuela"},
   ],
 
   // Vitrina de booktubers: solo los autorizados por su autor.
@@ -185,6 +190,7 @@ Al final del semestre, cada lector deja escrita una recomendación para quien to
 .lee-ficha::before{content:"";position:absolute;top:-1.15rem;left:50%;width:.55rem;height:.9rem;background:#C4006A;border-radius:.15rem;transform:translateX(-50%)}
 .lee-ficha b{color:#6B1E5A}
 .lee-ficha .si{display:block;margin:.35rem 0;color:#4A3F5C;font-size:.9rem}
+.lee-ficha .donde{display:block;margin-bottom:.3rem;font-size:.78rem;color:#6B1E5A;font-style:italic}
 .lee-ficha .q{font-size:.78rem;color:#C4006A;font-weight:700}
 .lee-bt{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.8rem}
 .lee-bt a{display:block;flex:1 1 13rem;max-width:16rem;border:1px solid #E6DFF0;border-radius:.7rem;padding:.8rem .95rem;background:#FFF3F9;text-decoration:none}
@@ -208,7 +214,7 @@ Al final del semestre, cada lector deja escrita una recomendación para quien to
   if(ten){
     if(!(D.tendedero||[]).length){vacio(ten,'El tendedero se inaugura al cerrar el primer círculo de lectura (7 de septiembre). Cada obra terminada colgará aquí su ficha.');}
     else{ten.innerHTML='<div class="lee-tend">'+D.tendedero.map(function(x){
-      return '<div class="lee-ficha"><b>'+esc(x.libro)+'</b> · <i>'+esc(x.autor)+'</i><span class="si">Te va a gustar si '+esc(x.si)+'.</span><span class="q">lo recomienda '+esc(x.quien)+'</span></div>';
+      return '<div class="lee-ficha"><b>'+esc(x.libro)+'</b> · <i>'+esc(x.autor)+'</i><span class="si">Te va a gustar si '+esc(x.si)+'.</span>'+(x.donde?'<span class="donde">'+esc(x.donde)+'</span>':'')+'<span class="q">lo recomienda '+esc(x.quien)+'</span></div>';
     }).join('')+'</div>';}
   }
 
