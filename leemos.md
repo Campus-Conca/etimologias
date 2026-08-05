@@ -16,15 +16,10 @@ Este curso lee. Dos libros en el semestre y los eliges tú: nadie te dirá cuál
 <script>
 window.LEEMOS = {
 
-  // El tendedero: una ficha por obra terminada.
-  // El campo "donde" es opcional: si existe, la ficha dice dónde encontrar el libro.
-  tendedero: [
-    // {libro:"Pedro Páramo", autor:"Juan Rulfo", si:"te gustan los pueblos con secreto", quien:"Ana"},
-    {libro:"Las cavernas de la Sierra Gorda", autor:"Carlos Lazcano Sahagún", si:"quieres ver lo que hay debajo de la tierra que pisas todos los días. Lazcano lleva décadas bajando a los sótanos y abismos de la Sierra Gorda, y este libro reúne sus fotografías: cuerdas que se pierden en la oscuridad, bóvedas donde cabría una catedral entera y lugares a los que casi nadie ha llegado — a unos kilómetros de tu casa", quien:"el profe", donde:"está en la biblioteca de la escuela"},
-    {libro:"Los límites de la Fundación", autor:"Isaac Asimov", si:"quieres una galaxia entera para ti: imperios que caen, naves, robots y una ciencia inventada — la psicohistoria — que pretende predecir el futuro de la humanidad con puras matemáticas. Es parte de la saga de la Fundación, pero puede leerse solo, y Asimov escribe tan claro que las páginas se van sin sentir", quien:"el profe", donde:"está en la biblioteca de la escuela"},
-    {libro:"El escultor", autor:"Scott McCloud", si:"alguna vez te has preguntado qué darías a cambio de hacer algo que valga la pena. David, un artista fracasado, le hace un trato a la Muerte: sus manos podrán esculpir cualquier cosa, pero le quedan doscientos días de vida. Y justo entonces, claro, se enamora. Novela gráfica en tinta azul: casi quinientas páginas que se leen en dos tardes", quien:"el profe", donde:"está en la biblioteca de la escuela"},
-    {libro:"Crimen y castigo (novela gráfica)", autor:"Dostoievski · adaptación de Edu Molina", si:"quieres meterte en la cabeza de un asesino con remordimientos. Raskólnikov, un estudiante pobre, mata a una vieja usurera convencido de que hay crímenes que se justifican — y la historia es lo que su conciencia le hace después. Edu Molina cuenta en viñetas el clásico ruso completo, sin las seiscientas páginas del original", quien:"el profe", donde:"está en la biblioteca de la escuela"},
-  ],
+  // El tendedero YA NO se llena desde aqui: sus fichas estan escritas
+  // directamente en HTML, mas abajo, en la seccion "El tendedero".
+  // Esta lista se conserva vacia solo por compatibilidad.
+  tendedero: [],
 
   // Vitrina de booktubers: solo los autorizados por su autor.
   booktubers: [
@@ -151,7 +146,17 @@ Los firmamos en la semana 0 y valen todo el semestre (y toda la vida). Los escri
 
 Cada obra terminada deja aquí su ficha: a quién le va a gustar y quién la recomienda. Si una te llama, pide el libro prestado. Las primeras cuatro fichas las colgó el profe: todas están en la biblioteca de la escuela.
 
-<div id="lee-tendedero"></div>
+<!-- TENDEDERO. Las fichas estan escritas aqui en HTML, a la vista.
+     Para colgar una ficha nueva, copia un bloque .lee-ficha completo y
+     cambiale los datos. El orden en que aparecen es el orden de esta lista. -->
+<div id="lee-tendedero">
+<div class="lee-tend">
+<div class="lee-ficha"><b>Las cavernas de la Sierra Gorda</b> · <i>Carlos Lazcano Sahagún</i><span class="si">Te va a gustar si quieres ver lo que hay debajo de la tierra que pisas todos los días. Lazcano lleva décadas bajando a los sótanos y abismos de la Sierra Gorda, y este libro reúne sus fotografías: cuerdas que se pierden en la oscuridad, bóvedas donde cabría una catedral entera y lugares a los que casi nadie ha llegado — a unos kilómetros de tu casa.</span><span class="donde">está en la biblioteca de la escuela</span><span class="q">lo recomienda el profe</span></div>
+<div class="lee-ficha"><b>Los límites de la Fundación</b> · <i>Isaac Asimov</i><span class="si">Te va a gustar si quieres una galaxia entera para ti: imperios que caen, naves, robots y una ciencia inventada — la psicohistoria — que pretende predecir el futuro de la humanidad con puras matemáticas. Es parte de la saga de la Fundación, pero puede leerse solo, y Asimov escribe tan claro que las páginas se van sin sentir.</span><span class="donde">está en la biblioteca de la escuela</span><span class="q">lo recomienda el profe</span></div>
+<div class="lee-ficha"><b>El escultor</b> · <i>Scott McCloud</i><span class="si">Te va a gustar si alguna vez te has preguntado qué darías a cambio de hacer algo que valga la pena. David, un artista fracasado, le hace un trato a la Muerte: sus manos podrán esculpir cualquier cosa, pero le quedan doscientos días de vida. Y justo entonces, claro, se enamora. Novela gráfica en tinta azul: casi quinientas páginas que se leen en dos tardes.</span><span class="donde">está en la biblioteca de la escuela</span><span class="q">lo recomienda el profe</span></div>
+<div class="lee-ficha"><b>Crimen y castigo (novela gráfica)</b> · <i>Dostoievski · adaptación de Edu Molina</i><span class="si">Te va a gustar si quieres meterte en la cabeza de un asesino con remordimientos. Raskólnikov, un estudiante pobre, mata a una vieja usurera convencido de que hay crímenes que se justifican — y la historia es lo que su conciencia le hace después. Edu Molina cuenta en viñetas el clásico ruso completo, sin las seiscientas páginas del original.</span><span class="donde">está en la biblioteca de la escuela</span><span class="q">lo recomienda el profe</span></div>
+</div>
+</div>
 
 ---
 
@@ -211,7 +216,9 @@ Al final del semestre, cada lector deja escrita una recomendación para quien to
   function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 
   var ten=document.getElementById('lee-tendedero');
-  if(ten){
+  // Solo actua si el contenedor viene vacio: si las fichas ya estan escritas
+  // en HTML, no las toca.
+  if(ten && !ten.querySelector('.lee-ficha')){
     if(!(D.tendedero||[]).length){vacio(ten,'El tendedero se inaugura al cerrar el primer círculo de lectura (7 de septiembre). Cada obra terminada colgará aquí su ficha.');}
     else{ten.innerHTML='<div class="lee-tend">'+D.tendedero.map(function(x){
       return '<div class="lee-ficha"><b>'+esc(x.libro)+'</b> · <i>'+esc(x.autor)+'</i><span class="si">Te va a gustar si '+esc(x.si)+'.</span>'+(x.donde?'<span class="donde">'+esc(x.donde)+'</span>':'')+'<span class="q">lo recomienda '+esc(x.quien)+'</span></div>';
