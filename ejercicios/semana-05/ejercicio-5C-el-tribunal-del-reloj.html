@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 5 · Ejercicio C · El tribunal del reloj</title>
+<style>
+  :root{--rosa:#c8127a;--ciruela:#6b1e5a;--fondo:#fbf4f9;--borde:#eadce6;--ok:#2e7d32;--okbg:#e8f5e9;--no:#b3541e;--nobg:#fdf0e6}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:720px;margin:0 auto;padding:0 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem 0;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.25rem} body.proyector .wrap{max-width:1080px} body.proyector header h1{font-size:2rem}
+  .ley{background:var(--ciruela);color:#fff;border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .ley b{display:block;font-size:1.15rem;margin-bottom:.2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  .avance{display:flex;gap:.35rem;margin:1rem 0 .5rem;flex-wrap:wrap}
+  .avance span{flex:1;min-width:1.4rem;height:.42rem;border-radius:.3rem;background:#eee}
+  .avance span.hecho{background:var(--rosa)} .avance span.aqui{background:var(--ciruela)}
+  .caso{border:1px solid var(--borde);border-radius:.9rem;padding:1.1rem;margin-bottom:1rem}
+  .caso .num{font-size:.78rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.05em}
+  .caso .palabra{font-size:2rem;font-weight:800;color:var(--rosa);line-height:1.15;margin:.1rem 0 .2rem}
+  .caso .donde{font-size:.92rem;color:#666;font-style:italic}
+  .paso{margin-top:1rem}
+  .paso label{display:block;font-weight:700;color:var(--ciruela);font-size:.92rem;margin-bottom:.25rem}
+  .paso label small{display:block;font-weight:400;color:#777;font-size:.85rem}
+  .paso input[type=text], .paso textarea{width:100%;padding:.6rem .7rem;border:1px solid var(--borde);border-radius:.6rem;font:inherit;resize:vertical}
+  .paso input:focus, .paso textarea:focus{outline:2px solid var(--rosa);outline-offset:1px}
+  .seg{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem}
+  .seg button{padding:.6rem .3rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
+  .seg button.on{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .fuentes{display:flex;gap:.5rem;flex-wrap:wrap;margin:.8rem 0}
+  .fuentes a{flex:1;min-width:8rem;text-align:center;padding:.6rem;border:1px solid var(--rosa);border-radius:.6rem;color:var(--rosa);text-decoration:none;font-weight:700}
+  .bloqueado{opacity:.45;pointer-events:none}
+  .acciones{display:flex;gap:.5rem;margin-top:1rem;flex-wrap:wrap}
+  .acciones button{flex:1;min-width:9rem;padding:.7rem;border:none;border-radius:.6rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn-ver{background:var(--ciruela);color:#fff}
+  .btn-sig{background:var(--rosa);color:#fff}
+  .btn-ver[disabled], .btn-sig[disabled]{opacity:.4;cursor:default}
+  .veredicto{margin-top:1rem;border-radius:.7rem;padding:.9rem 1rem;background:var(--fondo);border:1px solid var(--borde)}
+  .veredicto .piezas{font-weight:700;color:var(--ciruela)}
+  .veredicto .sig{margin:.3rem 0}
+  .veredicto .fuente{font-size:.86rem;color:#666}
+  .juicio{display:flex;gap:.5rem;margin-top:.8rem}
+  .juicio button{flex:1;padding:.6rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;cursor:pointer}
+  .juicio button.sí, .juicio button.si{color:var(--ok)} .juicio button.no{color:var(--no)}
+  .juicio button.on.si{background:var(--okbg);border-color:var(--ok)}
+  .juicio button.on.no{background:var(--nobg);border-color:var(--no)}
+  .marcador{border:2px solid var(--rosa);border-radius:.9rem;padding:1.1rem;margin-top:1rem}
+  .marcador h2{margin:.1rem 0 .6rem;font-size:1.2rem;color:var(--ciruela)}
+  .marcador table{width:100%;border-collapse:collapse;font-size:.95rem}
+  .marcador td{padding:.35rem 0;border-bottom:1px solid var(--borde)}
+  .marcador td:last-child{text-align:right;font-weight:700;color:var(--ciruela)}
+  .marcador .lectura{margin-top:.8rem;background:var(--fondo);border-radius:.6rem;padding:.8rem}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1.2rem 0;font-size:.93rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+  [hidden]{display:none !important}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="mini">Etimologías grecolatinas · Semana 5 · Sesión C · centro de cómputo</div>
+  <h1>El tribunal del reloj</h1>
+  <p>Ocho palabras cultas. Tú las juzgas antes de que hable la fuente.</p>
+</div></header>
+
+<div class="wrap">
+
+<div class="ley">
+  <b>La ley de esta sala</b>
+  Primero apuestas, después buscas. Nunca al revés. Y la apuesta no se borra aunque salga mal: equivocarse con honestidad vale más que acertar haciendo trampa.
+</div>
+
+<div class="instr">
+  <strong>Seis pasos por palabra.</strong> Escribes las piezas que reconoces, tu apuesta de significado y qué tan seguro estás. Hasta entonces se destraba el botón para consultar la fuente. Lees el veredicto, dices si le atinaste, y pasas a la siguiente. Al final sale tu <strong>marcador de calibración</strong>, que es lo único que copias al cuadernillo.
+</div>
+
+<div class="avance" id="avance"></div>
+<div id="zona-caso"></div>
+
+<div class="cuaderno">
+  <strong>Al cuadernillo:</strong> solo dos números y una frase. Las apuestas de seguridad alta que fallaste, las de seguridad baja que acertaste, y una línea sobre qué tipo de palabra te engaña. Con fecha, junto al marcador de la semana pasada.
+</div>
+
+<footer>Etimologías verificadas en el <a href="http://etimologias.dechile.net">DECEL</a> y el <a href="https://dle.rae.es">DLE</a>. Nada de lo que escribas aquí se guarda ni se envía a ningún lado.</footer>
+</div>
+
+<button class="modo" id="btn-proy">Modo proyector</button>
+
+<script>
+(function(){
+var CASOS=[
+ {p:"autopsia", donde:"Sale en las noticias y en las series policiacas.",
+  piezas:"auto (uno mismo) + opsis (vista)", sig:"Ver con los propios ojos. Antes de que fuera cosa de forenses, era simplemente comprobar algo viéndolo uno mismo.",
+  fuente:"DECEL, entrada autopsia"},
+ {p:"ortodoxo", donde:"Se usa para hablar de religiones y también de ideas.",
+  piezas:"ortho (recto) + doxa (opinión)", sig:"El que sostiene la opinión recta, la aceptada. Su contrario, heterodoxo, es el de la opinión distinta.",
+  fuente:"DECEL, entrada ortodoxo"},
+ {p:"apogeo", donde:"\"Estaba en su apogeo\", se dice de una carrera o de una fiesta.",
+  piezas:"apo (lejos de) + ge (tierra)", sig:"El punto de la órbita más lejano a la Tierra. De ahí pasó a significar el punto más alto de cualquier cosa. Su opuesto es perigeo.",
+  fuente:"DECEL, entrada apogeo"},
+ {p:"enciclopedia", donde:"La traes en el bolsillo aunque ya no se llame así.",
+  piezas:"en (en) + kyklos (círculo) + paideia (educación)", sig:"La educación completa, en círculo: el saber que da toda la vuelta sin dejar hueco.",
+  fuente:"DECEL, entrada enciclopedia"},
+ {p:"cacofonía", donde:"Los maestros de español la usan para corregir frases feas.",
+  piezas:"kakos (malo, feo) + phone (sonido)", sig:"Sonido feo. La misma pieza kakos está en cacografía y en caquexia; su contraria, eu (bueno), da eufonía.",
+  fuente:"DECEL, entrada cacofonía"},
+ {p:"podómetro", donde:"Lo trae tu celular aunque no lo hayas abierto nunca.",
+  piezas:"podos (pie) + metron (medida)", sig:"El que mide los pasos. Con las mismas piezas se hicieron podólogo y kilómetro.",
+  fuente:"DECEL, entradas podo- y -metro"},
+ {p:"cardiograma", donde:"Sale del aparato al que te conectan en el hospital.",
+  piezas:"kardia (corazón) + gramma (lo escrito)", sig:"Lo que el corazón escribe. Un electrocardiograma es lo mismo, escrito con electricidad.",
+  fuente:"DECEL, entrada cardiograma"},
+ {p:"hepatología", donde:"Está escrito en la puerta de un consultorio.",
+  piezas:"hepar, hepatos (hígado) + logos (estudio)", sig:"El estudio del hígado. Con la primera pieza sola y un sufijo de la semana pasada tienes hepatitis.",
+  fuente:"DECEL, entrada hepato-"}
+];
+var i=0, datos=CASOS.map(function(){return {seg:null, visto:false, juicio:null};});
+var $=function(id){return document.getElementById(id);};
+
+function avance(){
+  $('avance').innerHTML='';
+  CASOS.forEach(function(_,k){
+    var s=document.createElement('span');
+    s.className = k<i ? 'hecho' : (k===i ? 'aqui' : '');
+    $('avance').appendChild(s);
+  });
+}
+function pinta(){
+  avance();
+  if(i>=CASOS.length){ return marcador(); }
+  var c=CASOS[i], d=datos[i];
+  $('zona-caso').innerHTML =
+  '<div class="caso">'+
+    '<div class="num">Caso '+(i+1)+' de '+CASOS.length+'</div>'+
+    '<div class="palabra">'+c.p+'</div>'+
+    '<div class="donde">'+c.donde+'</div>'+
+    '<div class="paso"><label>1 · Las piezas que reconoces<small>Sepáralas como puedas, aunque no estés seguro.</small></label>'+
+      '<input type="text" id="f-piezas" placeholder="pieza + pieza" autocomplete="off"></div>'+
+    '<div class="paso"><label>2 · Tu apuesta de significado<small>Sin buscar nada todavía.</small></label>'+
+      '<textarea id="f-apuesta" rows="2" placeholder="Yo digo que significa..."></textarea></div>'+
+    '<div class="paso"><label>3 · Qué tan seguro estás</label>'+
+      '<div class="seg" id="f-seg">'+
+        '<button type="button" data-v="baja">Baja</button>'+
+        '<button type="button" data-v="media">Media</button>'+
+        '<button type="button" data-v="alta">Alta</button>'+
+      '</div></div>'+
+    '<div class="acciones"><button class="btn-ver" id="btn-ver" disabled>4 · Consultar la fuente</button></div>'+
+    '<div class="fuentes bloqueado" id="f-links">'+
+      '<a href="http://etimologias.dechile.net/?'+c.p.normalize('NFD').replace(/[\u0300-\u036f]/g,'')+'" target="_blank" rel="noopener">DECEL</a>'+
+      '<a href="https://dle.rae.es/'+c.p.normalize('NFD').replace(/[\u0300-\u036f]/g,'')+'" target="_blank" rel="noopener">DLE</a>'+
+    '</div>'+
+    '<div id="f-veredicto"></div>'+
+  '</div>';
+
+  Array.prototype.forEach.call($('f-seg').children,function(b){
+    if(d.seg===b.getAttribute('data-v')) b.classList.add('on');
+    b.addEventListener('click',function(){
+      Array.prototype.forEach.call($('f-seg').children,function(x){x.classList.remove('on');});
+      b.classList.add('on'); d.seg=b.getAttribute('data-v'); revisa();
+    });
+  });
+  ['f-piezas','f-apuesta'].forEach(function(id){ $(id).addEventListener('input',revisa); });
+  $('btn-ver').addEventListener('click',revela);
+  revisa();
+}
+function revisa(){
+  var listo = $('f-piezas').value.trim().length>1 &&
+              $('f-apuesta').value.trim().length>3 &&
+              datos[i].seg;
+  $('btn-ver').disabled = !listo;
+}
+function revela(){
+  var c=CASOS[i], d=datos[i]; d.visto=true;
+  $('btn-ver').disabled=true;
+  $('f-links').classList.remove('bloqueado');
+  $('f-veredicto').innerHTML=
+   '<div class="veredicto">'+
+     '<div class="piezas">'+c.piezas+'</div>'+
+     '<div class="sig">'+c.sig+'</div>'+
+     '<div class="fuente">'+c.fuente+'. Ábrela arriba y compruébalo tú.</div>'+
+     '<div class="juicio" id="f-juicio">'+
+       '<button type="button" class="si" data-v="si">Le atiné</button>'+
+       '<button type="button" class="no" data-v="no">Me equivoqué</button>'+
+     '</div>'+
+   '</div>'+
+   '<div class="acciones"><button class="btn-sig" id="btn-sig" disabled>Siguiente caso</button></div>';
+  Array.prototype.forEach.call($('f-juicio').children,function(b){
+    b.addEventListener('click',function(){
+      Array.prototype.forEach.call($('f-juicio').children,function(x){x.classList.remove('on');});
+      b.classList.add('on'); d.juicio=b.getAttribute('data-v');
+      $('btn-sig').disabled=false;
+    });
+  });
+  $('btn-sig').addEventListener('click',function(){ i++; pinta(); window.scrollTo(0,0); });
+}
+function marcador(){
+  var altaFallo=0, bajaAcierto=0, aciertos=0, con=0;
+  datos.forEach(function(d){
+    if(!d.juicio) return; con++;
+    if(d.juicio==='si') aciertos++;
+    if(d.seg==='alta' && d.juicio==='no') altaFallo++;
+    if(d.seg==='baja' && d.juicio==='si') bajaAcierto++;
+  });
+  var desajuste=altaFallo+bajaAcierto;
+  var lectura = desajuste===0
+    ? 'Tu seguridad y tus resultados van del mismo lado. Eso se llama estar bien calibrado y no es tan común.'
+    : (desajuste<=2
+      ? 'Casi. Un par de desajustes es normal: te conoces bastante bien.'
+      : 'Tu seguridad y tus resultados van por caminos distintos. No es un problema de saber menos, es de todavía no saber cuándo sabes.');
+  $('zona-caso').innerHTML=
+   '<div class="marcador">'+
+     '<h2>Tu marcador de calibración</h2>'+
+     '<table>'+
+       '<tr><td>Casos juzgados</td><td>'+con+'</td></tr>'+
+       '<tr><td>Le atinaste</td><td>'+aciertos+'</td></tr>'+
+       '<tr><td>Seguridad alta que falló</td><td>'+altaFallo+'</td></tr>'+
+       '<tr><td>Seguridad baja que acertó</td><td>'+bajaAcierto+'</td></tr>'+
+       '<tr><td>Desajuste total</td><td>'+desajuste+'</td></tr>'+
+     '</table>'+
+     '<div class="lectura">'+lectura+' Compáralo con el de la semana pasada: lo que importa no es el número de hoy, sino hacia dónde se movió.</div>'+
+   '</div>'+
+   '<div class="acciones"><button class="btn-sig" id="btn-otra">Empezar de nuevo</button></div>';
+  $('btn-otra').addEventListener('click',function(){
+    i=0; datos=CASOS.map(function(){return {seg:null,visto:false,juicio:null};}); pinta(); window.scrollTo(0,0);
+  });
+  avance();
+}
+$('btn-proy').addEventListener('click',function(){
+  document.body.classList.toggle('proyector');
+  this.textContent=document.body.classList.contains('proyector')?'Modo celular':'Modo proyector';
+});
+pinta();
+})();
+</script>
+</body>
+</html>

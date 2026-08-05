@@ -3,268 +3,226 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Semana 5 · Quiz de gimnasio</title>
+<title>Semana 5 · Quiz relámpago</title>
 <style>
-  :root{
-    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
-    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
-  }
+  :root{--rosa:#c8127a;--ciruela:#6b1e5a;--fondo:#fbf4f9;--borde:#eadce6;--ok:#2e7d32;--okbg:#e8f5e9;--no:#b3541e;--nobg:#fdf0e6}
   *{box-sizing:border-box}
   body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
-  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
-  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  .wrap{max-width:700px;margin:0 auto;padding:0 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem 0;border-radius:0 0 .9rem .9rem}
   header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
   header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
   header p{margin:0;font-size:.95rem;opacity:.95}
   .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
-  body.proyector{font-size:1.35rem}
-  body.proyector .wrap{max-width:960px}
-  body.proyector header h1{font-size:2rem}
-  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
-  .instr strong{color:var(--ciruela)}
-  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
-  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
-  .card h3{margin:0 0 .4rem;color:var(--rosa);font-size:1.1rem}
-  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
-  textarea{min-height:3.2rem;resize:vertical}
-  .opciones,.piezas,.calib{display:flex;flex-direction:column;gap:.5rem;margin-top:.6rem}
-  .piezas,.calib{flex-direction:row;flex-wrap:wrap}
-  .opciones button,.piezas button,.calib button{padding:.6rem .9rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font:inherit;font-weight:700;cursor:pointer;text-align:left}
-  .piezas button small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
-  .opciones button.sel,.piezas button.sel,.calib button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
-  .paso{font-size:.8rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.04em;margin-top:.9rem}
-  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
-  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
-  .btn.rosa{background:var(--rosa);color:#fff}
-  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
-  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
-  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
-  .fb.no{display:block;background:var(--nobg);color:var(--no)}
-  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
-  .marca{display:flex;gap:.5rem;margin-top:.6rem}
-  .marca button{flex:1;padding:.5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
-  .marca button.sel-ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
-  .marca button.sel-no{background:var(--nobg);color:var(--no);border-color:var(--no)}
-  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  body.proyector{font-size:1.3rem} body.proyector .wrap{max-width:1000px} body.proyector header h1{font-size:2rem}
+  .carriles{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.2rem 0}
+  .carriles button{padding:1rem .8rem;border:1px solid var(--borde);border-radius:.9rem;background:#fff;font:inherit;cursor:pointer;text-align:left}
+  .carriles button:hover{border-color:var(--rosa)}
+  .carriles b{display:block;color:var(--ciruela);font-size:1.05rem;margin-bottom:.2rem}
+  .carriles span{font-size:.88rem;color:#666}
+  .aviso{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .aviso strong{color:var(--ciruela)}
+  .avance{display:flex;gap:.3rem;margin:1.2rem 0 .8rem;flex-wrap:wrap}
+  .avance span{flex:1;min-width:1rem;height:.4rem;border-radius:.3rem;background:#eee}
+  .avance span.hecho{background:var(--rosa)} .avance span.aqui{background:var(--ciruela)}
+  .reactivo{border:1px solid var(--borde);border-radius:.9rem;padding:1.1rem}
+  .reactivo .num{font-size:.78rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.05em}
+  .reactivo .preg{font-size:1.25rem;font-weight:700;color:var(--ciruela);margin:.3rem 0 .1rem;line-height:1.3}
+  .reactivo .pieza{font-size:2.1rem;font-weight:800;color:var(--rosa);line-height:1.1;margin:.2rem 0}
+  .seg{margin-top:.9rem}
+  .seg .rot{font-weight:700;color:var(--ciruela);font-size:.92rem;margin-bottom:.3rem}
+  .seg .rot small{display:block;font-weight:400;color:#777;font-size:.85rem}
+  .seg .bts{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem}
+  .seg button{padding:.55rem .3rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
+  .seg button.on{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .ops{display:grid;gap:.45rem;margin-top:.9rem}
+  .ops button{padding:.75rem .9rem;border:1px solid var(--borde);border-radius:.7rem;background:#fff;font:inherit;text-align:left;cursor:pointer}
+  .ops button:hover:not(:disabled){border-color:var(--rosa)}
+  .ops button.ok{background:var(--okbg);border-color:var(--ok);font-weight:700}
+  .ops button.no{background:var(--nobg);border-color:var(--no)}
+  .ops button:disabled{cursor:default}
+  .ops.bloq{opacity:.45;pointer-events:none}
+  .porque{margin-top:.8rem;background:var(--fondo);border-left:4px solid var(--rosa);border-radius:0 .6rem .6rem 0;padding:.7rem .9rem;font-size:.93rem}
+  .sig{margin:1rem auto 0;display:block;padding:.7rem 1.5rem;border:none;border-radius:.6rem;background:var(--rosa);color:#fff;font-weight:700;font:inherit;cursor:pointer}
+  .cierre{border:2px solid var(--rosa);border-radius:.9rem;padding:1.1rem}
+  .cierre h2{margin:.1rem 0 .6rem;font-size:1.2rem;color:var(--ciruela)}
+  .cierre table{width:100%;border-collapse:collapse;font-size:.95rem}
+  .cierre td{padding:.35rem 0;border-bottom:1px solid var(--borde)}
+  .cierre td:last-child{text-align:right;font-weight:700;color:var(--ciruela)}
+  .cierre .lectura{margin-top:.8rem;background:var(--fondo);border-radius:.6rem;padding:.8rem}
+  .cierre ul{margin:.5rem 0 0;padding-left:1.1rem}
   footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+  [hidden]{display:none !important}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <div class="mini">Etimologías grecolatinas · Semana 5 · Gimnasio</div>
-    <h1>Quiz de gimnasio</h1>
-    <p>Práctica libre, sin nota y sin registro. Parecido al quiz de la sesión D, pero con otros reactivos: aquí se entrena, no se compite.</p>
-  </div>
-</header>
+<header><div class="wrap">
+  <div class="mini">Etimologías grecolatinas · Semana 5</div>
+  <h1>Quiz relámpago</h1>
+  <p>No cuenta para el acta. Cuenta para saber dónde estás parado.</p>
+</div></header>
 
 <div class="wrap">
 
-  <div class="instr">
-    <strong>Cómo se juega.</strong> Primero calibra: predice cuántos de los 3 reactivos tendrás bien. Luego resuélvelos. Al final comparas predicción contra resultado, en clave "bien / aún no". Acertar tu predicción vale tanto como acertar los reactivos.
+<div id="portada">
+  <div class="aviso">
+    <strong>Antes de responder cada pregunta marcas qué tan seguro estás.</strong> Eso es la mitad del ejercicio: acertar es fácil de fingir, saber si vas a acertar no lo es. Al final tienes tu resultado y tu calibración, y solo esa segunda cifra se copia al cuadernillo.
   </div>
-
-  <div class="cuaderno">
-    <strong>Si trabajas en cuaderno:</strong> escribe tu predicción (0 a 3), resuelve los tres reactivos a mano y al final compárate: predicción contra resultado. Mismo juego, otra superficie.
+  <p><strong>Elige tu carril.</strong> Los dos son legítimos y nadie se entera de cuál tomaste.</p>
+  <div class="carriles">
+    <button type="button" id="c-largo">
+      <b>Carril completo</b>
+      <span>Doce preguntas, con las piezas de esta semana y de las anteriores.</span>
+    </button>
+    <button type="button" id="c-seguro">
+      <b>Carril seguro</b>
+      <span>Seis preguntas, solo lo esencial. Si vienes con el mazo flojo, este es el tuyo. No penaliza.</span>
+    </button>
   </div>
-
-  <h2>Paso 0 · Calibra</h2>
-  <div class="card">
-    <p style="margin:0 0 .2rem">Antes de ver los reactivos: ¿cuántos de los 3 crees que tendrás bien?</p>
-    <div class="calib" id="calib">
-      <button>0</button><button>1</button><button>2</button><button>3</button>
-    </div>
-    <div class="fb" id="fbCalib"></div>
-  </div>
-
-  <h2>Reactivo 1 · Tres raíces sueltas</h2>
-  <div class="card">
-    <h3>¿Qué significa cada raíz?</h3>
-    <div id="r1zona"></div>
-    <div class="fila-botones"><button class="btn rosa" id="r1check">Revisar</button></div>
-    <div class="fb" id="r1fb"></div>
-  </div>
-
-  <h2>Reactivo 2 · La familia completa</h2>
-  <div class="card">
-    <h3>tele- (lejos)</h3>
-    <p style="margin:0;font-size:.92rem">Escribe 4 palabras reales de su familia. Sin repetir.</p>
-    <input type="text" data-r2 placeholder="Palabra 1">
-    <input type="text" data-r2 placeholder="Palabra 2">
-    <input type="text" data-r2 placeholder="Palabra 3">
-    <input type="text" data-r2 placeholder="Palabra 4">
-    <div class="fila-botones"><button class="btn rosa" id="r2check">Revisar</button></div>
-    <div class="fb" id="r2fb"></div>
-  </div>
-
-  <h2>Reactivo 3 · Descompón la palabra</h2>
-  <div class="card">
-    <h3>geografía</h3>
-    <p style="margin:0;font-size:.92rem">Toca las piezas que la forman. Toca de nuevo para quitar.</p>
-    <div class="piezas" id="r3piezas"></div>
-    <div class="fila-botones"><button class="btn rosa" id="r3check">Revisar</button></div>
-    <div class="fb" id="r3fb"></div>
-  </div>
-
-  <h2>Cierre · ¿Cómo calibraste?</h2>
-  <div class="card">
-    <div class="fila-botones"><button class="btn rosa" id="btnCierre">Ver mi resultado</button></div>
-    <div class="fb" id="fbCierre"></div>
-  </div>
-
-  <footer>Semana 5 · Una raíz, veinte palabras · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página. Lo que quede en "aún no" se reintenta cuando quieras: cuenta tu versión más reciente, no el promedio.</footer>
 </div>
 
-<button class="modo" id="btnModo">Aa proyector</button>
+<div id="juego" hidden>
+  <div class="avance" id="avance"></div>
+  <div id="zona"></div>
+</div>
+
+<footer>Etimologías verificadas en el <a href="http://etimologias.dechile.net">DECEL</a>. Nada se guarda ni se envía: lo que pase aquí se queda en tu pantalla.</footer>
+</div>
+
+<button class="modo" id="btn-proy">Modo proyector</button>
 
 <script>
 (function(){
-  var estado={calib:null,r1:null,r2:null,r3:null};
+var BANCO=[
+ {seguro:true, tipo:"pieza", q:"-itis", pregunta:"Esta pieza significa...",
+  ops:["inflamación","dolor","miedo"], ok:0, por:"Otitis, gastritis, hepatitis: siempre inflamación. El dolor es -algia."},
+ {seguro:true, tipo:"pieza", q:"cardio-", pregunta:"Esta pieza significa...",
+  ops:["corazón","pecho","sangre"], ok:0, por:"De καρδία. La sangre es hemo-, como en hemorragia."},
+ {seguro:false, tipo:"pieza", q:"hipo-", pregunta:"Esta pieza significa...",
+  ops:["por debajo de lo normal","por encima de lo normal","alrededor"], ok:0, por:"Hipotermia, hipotensión. Su contraria es hiper-, y las dos se confunden todo el tiempo."},
+ {seguro:true, tipo:"pieza", q:"graf-", pregunta:"Esta pieza significa...",
+  ops:["escribir","hablar","medir"], ok:0, por:"De γράφω. Medir es -metro, hablar es -logía o fono-."},
+ {seguro:false, tipo:"pieza", q:"eco- (οἶκος)", pregunta:"Esta pieza significa...",
+  ops:["casa","sonido que rebota","naturaleza"], ok:0, por:"Trampa clásica: el eco que rebota viene de la ninfa Ἠχώ, otra raíz. La de ecología y economía es la casa."},
+ {seguro:true, tipo:"pieza", q:"estoma", pregunta:"Esta parte del cuerpo es...",
+  ops:["la boca","el estómago","la garganta"], ok:0, por:"Στόμα es boca. Y estómago sale de ahí: era la boca del vientre."},
+ {seguro:true, tipo:"pieza", q:"podo-", pregunta:"Esta parte del cuerpo es...",
+  ops:["el pie","la mano","la pierna"], ok:0, por:"Πούς, ποδός. La mano es quiro-, como en quirófano."},
+ {seguro:false, tipo:"pieza", q:"nefro-", pregunta:"Esta parte del cuerpo es...",
+  ops:["el riñón","el hígado","el pulmón"], ok:0, por:"Νεφρός. El hígado es hepato-, como en hepatitis."},
+ {seguro:false, tipo:"arma", q:"hepato + -itis", pregunta:"Estas dos piezas juntas dan...",
+  ops:["inflamación del hígado","dolor de hígado","estudio del hígado"], ok:0, por:"Hepatitis. Con -algia sería dolor y con -logía, estudio."},
+ {seguro:false, tipo:"arma", q:"orto + odonto", pregunta:"Estas dos piezas juntas dan...",
+  ops:["dientes rectos","dolor de dientes","dientes sanos"], ok:0, por:"Ortodoncia. Orto es recto: la misma pieza de ortografía."},
+ {seguro:false, tipo:"desarma", q:"cronología", pregunta:"Esta palabra está hecha de...",
+  ops:["tiempo + estudio","corona + estudio","tiempo + medida"], ok:0, por:"Χρόνος más λόγος. Tiempo más medida sería cronómetro."},
+ {seguro:false, tipo:"desarma", q:"quiromancia", pregunta:"Esta palabra está hecha de...",
+  ops:["mano + adivinación","mano + obsesión","mano + miedo"], ok:0, por:"Quiro más mancia. La obsesión es -manía y el miedo, -fobia: se parecen y no son lo mismo."},
+ {seguro:false, tipo:"pieza", q:"-mancia", pregunta:"Esta terminación significa...",
+  ops:["adivinación","obsesión","adoración"], ok:0, por:"De μαντεία. La obsesión es -manía y la adoración, -latría."},
+ {seguro:false, tipo:"pieza", q:"auto-", pregunta:"Esta pieza significa...",
+  ops:["uno mismo","automóvil","movimiento"], ok:0, por:"Αὐτός. Lo del coche vino después, de automóvil: el que se mueve por sí mismo."},
+ {seguro:false, tipo:"desarma", q:"apogeo", pregunta:"Esta palabra está hecha de...",
+  ops:["lejos de + tierra","alto + cielo","sobre + monte"], ok:0, por:"Apo más ge. Es el punto de la órbita más lejano a la Tierra, y de ahí, el punto más alto de cualquier cosa."}
+];
+var $=function(id){return document.getElementById(id);};
+var pool=[], i=0, respuestas=[];
 
-  function baraja(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
-  function norm(s){return s.toLowerCase().trim().normalize('NFD').replace(/[̀-ͯ]/g,'');}
-
-  // Paso 0
-  var calib=document.getElementById('calib');
-  calib.querySelectorAll('button').forEach(function(b,i){
+function baraja(a){ return a.slice().sort(function(){return Math.random()-.5;}); }
+function arranca(seguro){
+  pool = seguro ? BANCO.filter(function(r){return r.seguro;}).slice(0,6)
+                : baraja(BANCO).slice(0,12);
+  i=0; respuestas=[];
+  $('portada').hidden=true; $('juego').hidden=false;
+  pinta();
+}
+function avance(){
+  $('avance').innerHTML='';
+  pool.forEach(function(_,k){
+    var s=document.createElement('span');
+    s.className = k<i ? 'hecho' : (k===i ? 'aqui' : '');
+    $('avance').appendChild(s);
+  });
+}
+function pinta(){
+  avance();
+  if(i>=pool.length) return cierre();
+  var r=pool[i];
+  var etiqueta = r.tipo==='arma' ? 'Arma la palabra' : (r.tipo==='desarma' ? 'Desarma la palabra' : 'La pieza');
+  var opciones = r.ops.map(function(t,k){return {t:t,k:k};});
+  opciones = baraja(opciones);
+  $('zona').innerHTML=
+   '<div class="reactivo">'+
+     '<div class="num">'+(i+1)+' de '+pool.length+' · '+etiqueta+'</div>'+
+     '<div class="pieza">'+r.q+'</div>'+
+     '<div class="preg">'+r.pregunta+'</div>'+
+     '<div class="seg"><div class="rot">Antes de responder: ¿qué tan seguro estás?<small>Sé honesto. Aquí no hay nadie mirando.</small></div>'+
+       '<div class="bts" id="seg">'+
+         '<button type="button" data-v="baja">Baja</button>'+
+         '<button type="button" data-v="media">Media</button>'+
+         '<button type="button" data-v="alta">Alta</button>'+
+       '</div></div>'+
+     '<div class="ops bloq" id="ops">'+
+       opciones.map(function(o){return '<button type="button" data-k="'+o.k+'">'+o.t+'</button>';}).join('')+
+     '</div>'+
+     '<div id="fb"></div>'+
+   '</div>';
+  var seg=null;
+  Array.prototype.forEach.call($('seg').children,function(b){
     b.addEventListener('click',function(){
-      calib.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
-      b.classList.add('sel');estado.calib=i;
-      var fb=document.getElementById('fbCalib');
-      fb.className='fb ej';
-      fb.textContent='Anotado. Al final comparas tu predicción con tu resultado: saber cuánto sabes también es la materia.';
+      Array.prototype.forEach.call($('seg').children,function(x){x.classList.remove('on');});
+      b.classList.add('on'); seg=b.getAttribute('data-v');
+      $('ops').classList.remove('bloq');
     });
   });
-
-  // R1: significado de tres raíces
-  var R1=[
-    {raiz:'fono-',ops:[['sonido',true],['luz',false],['lejos',false],['tiempo',false]],pista:'piensa en lo que capta un micrófono.'},
-    {raiz:'crono-',ops:[['tiempo',true],['medir',false],['escribir',false],['vida',false]],pista:'piensa en qué corre cuando arrancas un cronómetro.'},
-    {raiz:'-scopio',ops:[['observar',true],['calor',false],['poder',false],['estudio',false]],pista:'piensa en para qué acercas el ojo a un microscopio.'}
-  ];
-  var z1=document.getElementById('r1zona');
-  R1.forEach(function(item,idx){
-    var p=document.createElement('div');p.className='paso';p.textContent=item.raiz;
-    z1.appendChild(p);
-    var ops=document.createElement('div');ops.className='opciones';ops.dataset.idx=idx;
-    baraja(item.ops).forEach(function(op){
-      var b=document.createElement('button');
-      b.textContent=op[0];b.dataset.buena=op[1]?'1':'0';
-      b.addEventListener('click',function(){
-        ops.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
-        b.classList.add('sel');
+  Array.prototype.forEach.call($('ops').children,function(b){
+    b.addEventListener('click',function(){
+      if(!seg) return;
+      var k=+b.getAttribute('data-k'), bien = (k===r.ok);
+      Array.prototype.forEach.call($('ops').children,function(x){
+        x.disabled=true;
+        if(+x.getAttribute('data-k')===r.ok) x.classList.add('ok');
       });
-      ops.appendChild(b);
+      if(!bien) b.classList.add('no');
+      respuestas.push({bien:bien, seg:seg, q:r.q});
+      $('fb').innerHTML='<div class="porque">'+r.por+'</div>'+
+        '<button class="sig" id="btn-sig">'+(i===pool.length-1?'Ver mi resultado':'Siguiente')+'</button>';
+      $('btn-sig').addEventListener('click',function(){ i++; pinta(); window.scrollTo(0,0); });
     });
-    z1.appendChild(ops);
   });
-  document.getElementById('r1check').addEventListener('click',function(){
-    var fb=document.getElementById('r1fb');
-    var grupos=z1.querySelectorAll('.opciones');
-    var sinElegir=[],mal=[];
-    grupos.forEach(function(g){
-      var sel=g.querySelector('button.sel');
-      var raiz=R1[+g.dataset.idx].raiz;
-      if(!sel)sinElegir.push(raiz);
-      else if(sel.dataset.buena!=='1')mal.push(+g.dataset.idx);
-    });
-    if(sinElegir.length){fb.className='fb no';fb.textContent='Te falta elegir en: '+sinElegir.join(', ')+'.';return;}
-    if(!mal.length){
-      estado.r1='bien';fb.className='fb ok';
-      fb.textContent='Bien: fono (sonido), crono (tiempo), scopio (observar). Tres llaves más en el llavero.';
-    }else{
-      estado.r1='aun';fb.className='fb no';
-      fb.innerHTML='Aún no. '+mal.map(function(i){return 'Pista para '+R1[i].raiz+': '+R1[i].pista;}).join('<br>');
-    }
-  });
-
-  // R2: cuatro de la familia de tele-
-  var BANCO=['teléfono','telefonía','telefonista','televisión','televisor','televidente','telescopio','telescópico','telegrama','telégrafo','telegrafista','telepatía','telepático','teletrabajo','telecomunicación','telecomunicaciones','teledirigido','telenovela','telesilla','teleférico','telemetría','telediario','telerrealidad','teletransportación','teletransporte','telémetro','teleobjetivo','telequinesis'];
-  var BANCON=BANCO.map(norm);
-  document.getElementById('r2check').addEventListener('click',function(){
-    var fb=document.getElementById('r2fb');
-    var vals=[];
-    document.querySelectorAll('[data-r2]').forEach(function(inp){
-      var v=inp.value.trim();
-      if(v)vals.push(v);
-    });
-    if(vals.length<4){fb.className='fb no';fb.textContent='Van '+vals.length+' de 4. La familia de tele- da para eso y más.';return;}
-    var vistos=[],repetidas=[],sinRaiz=[],dudosas=[],buenas=[];
-    vals.forEach(function(v){
-      var n=norm(v);
-      if(vistos.indexOf(n)>-1){repetidas.push(v);return;}
-      vistos.push(n);
-      if(n.indexOf('tele')!==0){sinRaiz.push(v);}
-      else if(BANCON.indexOf(n)>-1){buenas.push(v);}
-      else{dudosas.push(v);}
-    });
-    if(buenas.length>=4){
-      estado.r2='bien';fb.className='fb ok';
-      fb.textContent='Bien: '+buenas.join(', ')+'. Cuatro palabras que no estudiaste una por una: la raíz te las regaló.';
-      return;
-    }
-    estado.r2='aun';fb.className='fb no';
-    var msj='Aún no. ';
-    if(repetidas.length)msj+='Repetiste: '+repetidas.join(', ')+' (en la cadena, repetir te saca de la ronda). ';
-    if(sinRaiz.length)msj+='Estas no traen la raíz al frente: '+sinRaiz.join(', ')+'. ';
-    if(dudosas.length)msj+='Estas no están en mi lista: '+dudosas.join(', ')+'. Podrían existir: verifícalas en el DECEL y, si sobreviven, cuéntatelas. ';
-    msj+='Pista: piensa en aparatos y actividades que acercan lo lejano (verlo, oírlo, mandarlo, moverlo).';
-    fb.textContent=msj;
-  });
-
-  // R3: descomponer geografía
-  var R3=[['geo','tierra',true],['grafía','escribir, dibujar',true],['tele-','lejos',false],['-logía','estudio',false],['foto-','luz',false]];
-  var z3=document.getElementById('r3piezas'),sel3=[];
-  baraja(R3).forEach(function(pz){
-    var b=document.createElement('button');
-    b.innerHTML=pz[0]+'<small>'+pz[1]+'</small>';b.dataset.buena=pz[2]?'1':'0';
-    b.addEventListener('click',function(){
-      var i=sel3.indexOf(b);
-      if(i>-1){sel3.splice(i,1);b.classList.remove('sel');}else{sel3.push(b);b.classList.add('sel');}
-    });
-    z3.appendChild(b);
-  });
-  document.getElementById('r3check').addEventListener('click',function(){
-    var fb=document.getElementById('r3fb');
-    if(!sel3.length){fb.className='fb no';fb.textContent='Toca primero las piezas que propones.';return;}
-    var aciertos=sel3.filter(function(x){return x.dataset.buena==='1';}).length;
-    var intrusas=sel3.length-aciertos;
-    if(aciertos===2&&intrusas===0){
-      estado.r3='bien';fb.className='fb ok';
-      fb.innerHTML='Bien: geo (tierra) + grafía (escribir, dibujar) = descripción o dibujo de la Tierra.';
-    }else{
-      estado.r3='aun';fb.className='fb no';
-      fb.textContent='Aún no. Pista: son exactamente 2 piezas. Una nombra al planeta y la otra la conoces desde el árbol de las nueve palabras.';
-    }
-  });
-
-  // Cierre
-  document.getElementById('btnCierre').addEventListener('click',function(){
-    var fb=document.getElementById('fbCierre');
-    var pend=[];
-    if(estado.calib===null)pend.push('la calibración del paso 0');
-    if(!estado.r1)pend.push('el reactivo 1');
-    if(!estado.r2)pend.push('el reactivo 2');
-    if(!estado.r3)pend.push('el reactivo 3');
-    if(pend.length){
-      fb.className='fb no';
-      fb.textContent='Todavía falta: '+pend.join(', ')+'.';
-      return;
-    }
-    var bien=[estado.r1,estado.r2,estado.r3].filter(function(x){return x==='bien';}).length;
-    var lista='Reactivo 1: '+(estado.r1==='bien'?'bien':'aún no')+' · Reactivo 2: '+(estado.r2==='bien'?'bien':'aún no')+' · Reactivo 3: '+(estado.r3==='bien'?'bien':'aún no');
-    var msj;
-    if(estado.calib===bien)msj='Calibración exacta: predijiste '+estado.calib+' y tuviste '+bien+'. Eso, en este curso, vale tanto como los aciertos.';
-    else if(estado.calib>bien)msj='Predijiste '+estado.calib+' y tuviste '+bien+'. La brecha es el dato, no la culpa: ya sabes qué reactivo reintentar.';
-    else msj='Predijiste '+estado.calib+' y tuviste '+bien+'. Sabes más de lo que crees: ajusta tu medidor interno hacia arriba.';
-    fb.className='fb ok';
-    fb.innerHTML=lista+'<br><br>'+msj+'<br><br>Lo que quedó en "aún no" se reintenta cuando quieras: recarga la página y vuelve a entrar.';
-  });
-
-  document.getElementById('btnModo').addEventListener('click',function(){
-    document.body.classList.toggle('proyector');
-    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
-  });
+}
+function cierre(){
+  var bien=respuestas.filter(function(r){return r.bien;}).length;
+  var altaFallo=respuestas.filter(function(r){return r.seg==='alta' && !r.bien;}).length;
+  var bajaAcierto=respuestas.filter(function(r){return r.seg==='baja' && r.bien;}).length;
+  var desajuste=altaFallo+bajaAcierto;
+  var falladas=respuestas.filter(function(r){return !r.bien;}).map(function(r){return r.q;});
+  var lectura = desajuste===0
+   ? 'Tu seguridad coincide con tus resultados. Estás bien calibrado, y eso vale más que el número de aciertos.'
+   : (desajuste<=2 ? 'Un par de desajustes, nada grave: te conoces bastante bien.'
+                   : 'Tu seguridad va por un lado y tus resultados por otro. No es que sepas menos: es que todavía no sabes cuándo sabes.');
+  $('zona').innerHTML=
+   '<div class="cierre">'+
+     '<h2>Cómo te fue</h2>'+
+     '<table>'+
+       '<tr><td>Aciertos</td><td>'+bien+' de '+respuestas.length+'</td></tr>'+
+       '<tr><td>Seguridad alta que falló</td><td>'+altaFallo+'</td></tr>'+
+       '<tr><td>Seguridad baja que acertó</td><td>'+bajaAcierto+'</td></tr>'+
+       '<tr><td>Desajuste de calibración</td><td>'+desajuste+'</td></tr>'+
+     '</table>'+
+     '<div class="lectura">'+lectura+'</div>'+
+     (falladas.length ? '<div class="lectura"><strong>Al mazo, esta semana:</strong><ul><li>'+falladas.join('</li><li>')+'</li></ul></div>' : '')+
+   '</div>'+
+   '<button class="sig" id="btn-otra">Otra ronda</button>';
+  $('btn-otra').addEventListener('click',function(){ $('juego').hidden=true; $('portada').hidden=false; window.scrollTo(0,0); });
+  avance();
+}
+$('c-largo').addEventListener('click',function(){arranca(false);});
+$('c-seguro').addEventListener('click',function(){arranca(true);});
+$('btn-proy').addEventListener('click',function(){
+  document.body.classList.toggle('proyector');
+  this.textContent=document.body.classList.contains('proyector')?'Modo celular':'Modo proyector';
+});
 })();
 </script>
 </body>

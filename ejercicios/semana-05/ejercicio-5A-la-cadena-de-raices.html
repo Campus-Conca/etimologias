@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 5 · Ejercicio A · La cadena de raíces</title>
+<style>
+  :root{--rosa:#c8127a;--ciruela:#6b1e5a;--fondo:#fbf4f9;--borde:#eadce6;--ok:#2e7d32;--okbg:#e8f5e9;--no:#b3541e;--nobg:#fdf0e6;--gris:#6b6b6b}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:720px;margin:0 auto;padding:0 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem 0;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.25rem} body.proyector .wrap{max-width:1080px} body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  .raices{display:flex;gap:.45rem;flex-wrap:wrap;margin:1rem 0 .8rem}
+  .raices button{padding:.55rem .85rem;border:1px solid var(--borde);border-radius:.7rem;background:#fff;color:var(--ciruela);font:inherit;font-weight:700;cursor:pointer}
+  .raices button.on{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .raices button .cuenta{font-size:.75rem;opacity:.8;font-weight:400;margin-left:.25rem}
+  .ficha{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;background:var(--fondo);margin-bottom:.8rem}
+  .ficha .pieza{font-size:2rem;font-weight:800;color:var(--rosa);line-height:1.1}
+  .ficha .griego{color:var(--ciruela);font-size:1.05rem}
+  .ficha .sig{margin-top:.25rem}
+  .barra{display:flex;gap:.5rem;margin:.6rem 0}
+  .barra input{flex:1;padding:.7rem .8rem;border:1px solid var(--borde);border-radius:.7rem;font:inherit}
+  .barra input:focus{outline:2px solid var(--rosa);outline-offset:1px}
+  .barra button{padding:.7rem 1.1rem;border:none;border-radius:.7rem;background:var(--rosa);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+  .medidor{display:flex;justify-content:space-between;align-items:baseline;color:var(--ciruela);font-weight:700;margin:.3rem 0 .6rem}
+  .medidor .n{font-size:1.6rem}
+  .lista{list-style:none;padding:0;margin:0}
+  .lista li{border-radius:.6rem;padding:.55rem .8rem;margin-bottom:.4rem;border:1px solid var(--borde);background:#fff}
+  .lista li.si{background:var(--okbg);border-color:#bcdcbe}
+  .lista li.no{background:var(--nobg);border-color:#f0d0b6}
+  .lista li.duda{background:#f4f4f4}
+  .lista .pal{font-weight:700;color:var(--ciruela)}
+  .lista .por{display:block;font-size:.9rem;color:#555;margin-top:.15rem}
+  .lista .marca{float:right;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+  li.si .marca{color:var(--ok)} li.no .marca{color:var(--no)} li.duda .marca{color:var(--gris)}
+  .titulillo{font-size:.8rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.04em;margin:1.2rem 0 .4rem}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1.2rem 0;font-size:.93rem}
+  .pistas{font-size:.9rem;color:#666;margin:.4rem 0 0}
+  .pistas button{background:none;border:none;color:var(--rosa);font:inherit;text-decoration:underline;cursor:pointer;padding:0}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+  [hidden]{display:none !important}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="mini">Etimologías grecolatinas · Semana 5 · Sesión A</div>
+  <h1>La cadena de raíces</h1>
+  <p>Nueve piezas. Cada una abre una familia. A ver de cuánto son capaces.</p>
+</div></header>
+
+<div class="wrap">
+
+<div class="instr">
+  <strong>Cómo se juega.</strong> Elige una raíz y escribe todas las palabras de su familia que se te ocurran, una por una. El ejercicio te dice si la palabra de verdad viene de ahí. Ojo: hay <strong>impostoras</strong>, palabras que suenan a la raíz y vienen de otro lado; cuando caiga una, te explica por qué. Y si escribes algo que el ejercicio no reconoce, no se descarta: se va a tu <strong>lista para el tribunal</strong> del jueves, para buscarla en fuentes.
+</div>
+
+<div class="raices" id="raices"></div>
+
+<div class="ficha" id="ficha"></div>
+
+<div class="barra">
+  <input id="entrada" type="text" placeholder="Escribe una palabra y presiona Enter" autocomplete="off" autocapitalize="off" spellcheck="false">
+  <button id="sumar" type="button">Sumar</button>
+</div>
+<p class="pistas" id="zona-pista"></p>
+
+<div class="medidor"><span>Tu familia</span><span><span class="n" id="cuenta">0</span> palabras</span></div>
+<ul class="lista" id="lista"></ul>
+
+<div id="zona-dudas" hidden>
+  <div class="titulillo">Lista para el tribunal del jueves</div>
+  <ul class="lista" id="dudas"></ul>
+</div>
+
+<div class="cuaderno">
+  <strong>Antes de cerrar:</strong> anota en tu cuadernillo la raíz con la que armaste la familia más larga y la impostora que más te sorprendió. Esas dos cosas se comentan en voz alta al final de la sesión.
+</div>
+
+<footer>Etimologías verificadas en el <a href="http://etimologias.dechile.net">DECEL</a>. Sin nota y sin registro: puro entrenamiento.</footer>
+</div>
+
+<button class="modo" id="btn-proy">Modo proyector</button>
+
+<script>
+(function(){
+var R = {
+ "graf-": {g:"γράφω (gráphō)", s:"escribir, trazar",
+  fam:{ "fotografia":"escribir con luz", "autografo":"escrito por uno mismo", "ortografia":"escritura recta",
+   "biografia":"escribir una vida", "autobiografia":"escribir la propia vida", "caligrafia":"escritura bella",
+   "geografia":"escribir la tierra", "telegrafo":"escribir a lo lejos", "telegrama":"lo escrito a lo lejos",
+   "grafiti":"lo rayado en un muro", "grafica":"lo trazado", "grafico":"lo trazado", "parrafo":"lo escrito al margen",
+   "epigrafe":"lo escrito encima", "bibliografia":"escribir sobre libros", "cartografia":"escribir mapas",
+   "sismografo":"el que traza los temblores", "mecanografia":"escribir con máquina", "monografia":"escribir sobre un solo asunto",
+   "grafologia":"el estudio de la escritura", "radiografia":"escribir con rayos", "ecografia":"escribir con el eco",
+   "coreografia":"escribir la danza", "tipografia":"escribir con tipos", "grafito":"el mineral con que se escribe",
+   "cardiograma":"lo escrito por el corazón", "diagrama":"lo trazado a través", "programa":"lo escrito antes",
+   "ortografo":"el que escribe recto", "digrafo":"dos letras que escriben un sonido"},
+  trampas:{ "grafo":"esa sí es de la raíz, pero escríbela dentro de una palabra completa",
+   "gracia":"viene del latín gratia, favor; el parecido es pura casualidad",
+   "grasa":"viene del latín crassus, gordo"}},
+ "geo-": {g:"γῆ (gê)", s:"tierra",
+  fam:{ "geografia":"escribir la tierra", "geologia":"el estudio de la tierra", "geometria":"medir la tierra",
+   "geopolitica":"la política de los territorios", "geotermia":"el calor de la tierra", "geocentrico":"con la tierra al centro",
+   "apogeo":"el punto más lejano de la tierra", "perigeo":"el punto más cercano a la tierra", "hipogeo":"lo que está bajo tierra",
+   "geoda":"piedra hueca con forma de tierra", "geodesia":"la división de la tierra", "geofisica":"la física de la tierra",
+   "georgica":"el trabajo de la tierra", "jorge":"el que trabaja la tierra: Georgios",
+   "geosfera":"la esfera de tierra", "geoquimica":"la química de la tierra"},
+  trampas:{ "geografo":"esa sí, pero cuéntala junto a geografía",
+   "gente":"viene del latín gens, estirpe", "genio":"viene del latín genius, no de la tierra"}},
+ "fono-": {g:"φωνή (phōné)", s:"voz, sonido",
+  fam:{ "telefono":"la voz a lo lejos", "microfono":"la voz pequeña, amplificada", "audifono":"para oír la voz",
+   "megafono":"la voz grande", "fonoteca":"el archivo de sonidos", "sinfonia":"sonidos juntos",
+   "cacofonia":"sonido feo", "eufonia":"sonido agradable", "fonetica":"lo que estudia los sonidos",
+   "fonologia":"el estudio del sistema de sonidos", "afonia":"quedarse sin voz", "homofono":"que suena igual",
+   "xilofono":"la voz de la madera", "saxofon":"el sonido de Sax", "gramofono":"el que escribe el sonido",
+   "polifonia":"muchas voces", "interfono":"la voz entre dos puntos", "telefonia":"el sistema de voz a distancia",
+   "disfonia":"la voz dañada", "fonema":"la unidad de sonido", "magnetofono":"el sonido en cinta magnética",
+   "altisonante":"no, esa es latina"},
+  trampas:{ "fondo":"viene del latín fundus, el suelo de algo",
+   "fontanero":"viene del latín fons, fuente", "fuente":"latín fons, nada que ver con la voz"}},
+ "crono-": {g:"χρόνος (khrónos)", s:"tiempo",
+  fam:{ "cronometro":"medir el tiempo", "cronologia":"el orden del tiempo", "cronica":"el relato en orden de tiempo",
+   "cronista":"el que escribe en orden de tiempo", "sincronizar":"poner en el mismo tiempo", "sincronia":"al mismo tiempo",
+   "anacronismo":"fuera de su tiempo", "diacronico":"a través del tiempo", "cronograma":"lo escrito del tiempo",
+   "cronofobia":"miedo al tiempo", "crono":"el tiempo, a secas", "cronicidad":"la duración larga de algo",
+   "isocrono":"de igual duración"},
+  trampas:{ "corona":"viene del latín corona, la guirnalda",
+   "cronopio":"la inventó Cortázar; no está en el diccionario, pero la idea es griega",
+   "crema":"del latín crema, nada que ver"}},
+ "auto-": {g:"αὐτός (autós)", s:"uno mismo, propio",
+  fam:{ "autografo":"escrito por uno mismo", "autobiografia":"la propia vida escrita", "automatico":"que se mueve solo",
+   "automata":"el que se mueve por sí mismo", "autonomia":"darse la propia ley", "autopsia":"ver por uno mismo",
+   "autodidacta":"el que se enseña solo", "autorretrato":"retratarse a sí mismo", "autoservicio":"servirse uno mismo",
+   "autoestima":"estimarse a uno mismo", "autocritica":"criticarse a uno mismo", "autoayuda":"ayudarse solo",
+   "autismo":"replegarse en uno mismo", "autonomo":"el que se rige solo", "autoevaluacion":"evaluarse a uno mismo",
+   "automovil":"que se mueve solo, mitad griego y mitad latín"},
+  trampas:{ "autor":"viene del latín auctor, el que hace crecer algo",
+   "autoridad":"latín auctoritas, de la misma familia de autor",
+   "auto":"si te refieres al coche, sí viene de automóvil; si te refieres al auto judicial, es latín"}},
+ "foto-": {g:"φῶς, φωτός (phôs, photós)", s:"luz",
+  fam:{ "fotografia":"escribir con luz", "fotosintesis":"componer con luz", "fotocopia":"copiar con luz",
+   "foton":"la partícula de luz", "fotogenico":"que la luz favorece", "fotometro":"medir la luz",
+   "fotofobia":"miedo, o intolerancia, a la luz", "fototropismo":"girar hacia la luz", "fotograma":"lo escrito por la luz",
+   "telefoto":"la luz de lejos", "fotoelectrico":"la electricidad por la luz", "fosforo":"el que lleva la luz"},
+  trampas:{ "fotuto":"no existe con esa raíz",
+   "fotografo":"esa sí, cuéntala junto a fotografía"}},
+ "eco-": {g:"οἶκος (oîkos)", s:"casa",
+  fam:{ "ecologia":"el estudio de la casa", "economia":"la administración de la casa", "ecosistema":"el sistema de la casa",
+   "economo":"el que administra la casa", "economico":"lo que cuida la casa", "ecumene":"la tierra habitada, la casa del mundo",
+   "parroquia":"la vecindad, los de al lado de la casa", "diocesis":"la administración de una casa grande",
+   "ecoturismo":"turismo de la casa común", "ecocidio":"matar la casa"},
+  trampas:{ "eco":"el sonido que rebota viene de Ἠχώ, la ninfa Eco: otra raíz completamente distinta",
+   "ecolocalizacion":"esa es de la ninfa Eco, no de la casa",
+   "ecuador":"viene del latín aequare, igualar"}},
+ "orto-": {g:"ὀρθός (orthós)", s:"recto, correcto",
+  fam:{ "ortografia":"escritura recta", "ortodoncia":"dientes rectos", "ortopedia":"enderezar al niño",
+   "ortodoxo":"de opinión recta", "ortogonal":"en ángulo recto", "ortoptero":"de alas rectas",
+   "ortoedro":"el cuerpo de caras rectas", "ortofonia":"la corrección del habla"},
+  trampas:{ "hortaliza":"viene del latín hortus, huerto",
+   "ortiga":"viene del latín urtica", "ortega":"es un apellido, no una raíz"}},
+ "ciclo-": {g:"κύκλος (kýklos)", s:"círculo, rueda",
+  fam:{ "bicicleta":"dos ruedas", "triciclo":"tres ruedas", "motocicleta":"la rueda con motor",
+   "ciclon":"el viento que gira", "reciclar":"volver a meter al círculo", "ciclo":"el círculo del tiempo",
+   "enciclopedia":"la educación en círculo, todo el saber", "ciclista":"el de la rueda", "ciclico":"que vuelve al mismo punto",
+   "hemiciclo":"medio círculo", "ciclomotor":"la rueda con motor pequeño", "ciclotron":"el acelerador circular"},
+  trampas:{ "circulo":"viene del latín circulus; misma idea, otra lengua",
+   "ciclope":"esa sí viene del griego, pero de kýklops: el del ojo redondo, y ahí sí está kýklos",
+   "ciclamen":"la flor viene de kýklos por su bulbo redondo; esa te la aceptamos"}}
+};
+var orden = Object.keys(R);
+var estado = {}; orden.forEach(function(k){estado[k]={ok:[],mal:[],duda:[]};});
+var actual = orden[0];
+var $ = function(id){return document.getElementById(id);};
+function norm(s){
+  return s.toLowerCase().trim()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/[^a-zñ ]/g,'').replace(/\s+/g,' ');
+}
+function pintaRaices(){
+  $('raices').innerHTML='';
+  orden.forEach(function(k){
+    var b=document.createElement('button'); b.type='button';
+    b.innerHTML = k + '<span class="cuenta">'+estado[k].ok.length+'</span>';
+    if(k===actual) b.className='on';
+    b.addEventListener('click',function(){actual=k;pinta();});
+    $('raices').appendChild(b);
+  });
+}
+function pinta(){
+  var d=R[actual], e=estado[actual];
+  pintaRaices();
+  $('ficha').innerHTML='<div class="pieza">'+actual+'</div>'+
+    '<div class="griego">'+d.g+'</div><div class="sig">'+d.s+'</div>';
+  $('cuenta').textContent=e.ok.length;
+  var l=$('lista'); l.innerHTML='';
+  e.ok.concat(e.mal).forEach(function(it){
+    var li=document.createElement('li'); li.className=it.tipo;
+    li.innerHTML='<span class="marca">'+(it.tipo==='si'?'sí':'impostora')+'</span>'+
+      '<span class="pal">'+it.palabra+'</span><span class="por">'+it.por+'</span>';
+    l.appendChild(li);
+  });
+  var dz=$('dudas'); dz.innerHTML='';
+  $('zona-dudas').hidden = e.duda.length===0;
+  e.duda.forEach(function(p){
+    var li=document.createElement('li'); li.className='duda';
+    li.innerHTML='<span class="marca">por verificar</span><span class="pal">'+p+'</span>'+
+      '<span class="por">Anótala: se resuelve el jueves con el DECEL.</span>';
+    dz.appendChild(li);
+  });
+  var faltan = Object.keys(d.fam).length - e.ok.length;
+  $('zona-pista').innerHTML = e.ok.length===0 ? '' :
+    'Van '+e.ok.length+'. Quedan al menos '+faltan+' que este ejercicio conoce. '+
+    '<button type="button" id="btn-pista">Dame una pista</button>';
+  var bp=$('btn-pista');
+  if(bp) bp.addEventListener('click',function(){
+    var pend = Object.keys(d.fam).filter(function(k){
+      return !e.ok.some(function(o){return norm(o.palabra)===k;});
+    });
+    if(!pend.length){$('zona-pista').textContent='Ya no queda ninguna. Esa familia está completa.';return;}
+    var p = pend[Math.floor(Math.random()*pend.length)];
+    $('zona-pista').innerHTML='Pista: una que falta significa <em>'+d.fam[p]+'</em>. Tiene '+p.length+' letras.';
+  });
+}
+function sumar(){
+  var bruto=$('entrada').value.trim(); if(!bruto) return;
+  var p=norm(bruto), d=R[actual], e=estado[actual];
+  $('entrada').value='';
+  var ya = e.ok.concat(e.mal).some(function(i){return norm(i.palabra)===p;}) || e.duda.some(function(x){return norm(x)===p;});
+  if(ya){ pinta(); return; }
+  if(d.fam[p]) e.ok.push({palabra:bruto,por:d.fam[p],tipo:'si'});
+  else if(d.trampas[p]) e.mal.push({palabra:bruto,por:d.trampas[p],tipo:'no'});
+  else e.duda.push(bruto);
+  pinta();
+}
+$('sumar').addEventListener('click',sumar);
+$('entrada').addEventListener('keydown',function(ev){ if(ev.key==='Enter') sumar(); });
+$('btn-proy').addEventListener('click',function(){
+  document.body.classList.toggle('proyector');
+  this.textContent=document.body.classList.contains('proyector')?'Modo celular':'Modo proyector';
+});
+pinta();
+})();
+</script>
+</body>
+</html>
