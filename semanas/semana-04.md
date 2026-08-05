@@ -246,7 +246,7 @@ El español está lleno de griego. No en los libros viejos: en la farmacia, en e
 <span class="senal">Por equipos · 3 rondas</span>
 <p class="di">Ronda 1, diagnóstico exprés: el término médico aparece, el equipo lo traduce solo con piezas.</p>
 <p class="apoyo">Cefalalgia, hipotermia, gastritis, neuralgia, anestesia, dermatólogo, otorrinolaringólogo y las que el profesor traiga. Con el mapa del cuerpo proyectado como vitrina. Vale razonar en voz alta; no vale el celular. Punto por traducción defendible.</p>
-<p class="nota-conductor">Marcador visible y premio simbólico. La vitrina proyectada nivela: no se premia memoria, se premia saber combinar. Sube la dificultad con hipoglucemia (glykys, dulce: azúcar de menos en la sangre) si algún equipo va sobrado.</p>
+<p class="nota-conductor">El juego se conduce con su propio mazo proyectable: <a href="../ejercicios/semana-04/consultorio-griego-semana-04.html">El consultorio griego</a>, con las tres rondas armadas, cronómetro, marcador de equipos y banco de reserva. Marcador visible y premio simbólico. La vitrina proyectada nivela: no se premia memoria, se premia saber combinar. Sube la dificultad con hipoglucemia (glykys, dulce: azúcar de menos en la sangre) si algún equipo va sobrado.</p>
 </section>
 <section class="lam lam--actividad">
 <h4>Ronda 2: la receta al revés</h4>
