@@ -92,6 +92,26 @@ El español está lleno de griego. No en los libros viejos: en la farmacia, en e
 <p class="di">Palabras de farmacia y consultorio: apuesta qué significan antes de que la pantalla lo revele.</p>
 <p class="apoyo"><a href="../ejercicios/semana-04/ejercicio-4A-botiquin-griego.html">El botiquín griego</a>, con tu celular. Cada palabra trae sus piezas; tú apuestas el significado y tu nivel de seguridad. Anota las que te sorprendan: son materia prima del jueves.</p>
 </section>
+<section class="lam">
+<h4>El juguete lleva 2,800 años en uso</h4>
+<p class="di">Estas letras nunca se jubilaron: están en tu clase de mates y en las noticias de hoy.</p>
+<table>
+<tr><th>Letra</th><th>Dónde vive hoy</th></tr>
+<tr><td>π (pi)</td><td>el 3.1416 de tus fórmulas: la inicial griega de "perímetro"</td></tr>
+<tr><td>Σ (sigma)</td><td>el símbolo de sumar en matemáticas</td></tr>
+<tr><td>Δ (delta)</td><td>el cambio en física… y el delta de un río, que tiene su forma de triángulo</td></tr>
+<tr><td>Ω (omega)</td><td>los ohms de la electricidad</td></tr>
+<tr><td>μ (mi)</td><td>"micro": la millonésima parte, en tu etiqueta de vitaminas (µg)</td></tr>
+</table>
+<p class="apoyo">A la ciencia se le acabaron las letras latinas y fue a pedirle prestado al griego. Por eso ya leías griego antes de esta semana: nada más que nadie te lo había presentado.</p>
+<p class="nota-conductor">Pregunta al aire antes de proyectar la tabla: ¿dónde han visto una letra griega esta semana, fuera de esta clase? El cuaderno de mates o de física siempre trae alguna. La tabla no se dicta ni entra al quiz: es el juguete presumiendo su currículum.</p>
+</section>
+<section class="lam">
+<h4>El alfa y el omega</h4>
+<p class="di">Ser "el alfa y el omega" es ser el principio y el fin: la primera y la última letra.</p>
+<p class="apoyo">La frase viene del Apocalipsis ("Yo soy el alfa y el omega") y sigue viva: la <em>versión alfa</em> y la <em>versión beta</em> de un videojuego son sus primeras formas; el <em>macho alfa</em> es el primero de la manada; los <em>rayos gamma</em> se llevaron la tercera letra; y las variantes del COVID recorrieron el alfabeto entero: alfa, beta, delta, ómicron. El pilón: <em>alfabeto</em> es alfa + beta. Es como decirle "el abecé", pero en griego.</p>
+<p class="nota-conductor">El alfabeto no es pieza de museo: es un juguete que el mundo sigue usando. Si el grupo trae cuerda, pregunta qué letra elegirían para nombrar algo nuevo (¿una variante, un huracán, su equipo?) y por qué. Treinta segundos, y de ahí al cierre del día.</p>
+</section>
 <section class="lam lam--actividad">
 <h4><span class="n">4</span> Antes del miércoles <span class="reloj">13 min</span></h4>
 <span class="senal senal--casa">Para llevar a casa</span>
@@ -246,7 +266,7 @@ El español está lleno de griego. No en los libros viejos: en la farmacia, en e
 <span class="senal">Por equipos · 3 rondas</span>
 <p class="di">Ronda 1, diagnóstico exprés: el término médico aparece, el equipo lo traduce solo con piezas.</p>
 <p class="apoyo">Cefalalgia, hipotermia, gastritis, neuralgia, anestesia, dermatólogo, otorrinolaringólogo y las que el profesor traiga. Con el mapa del cuerpo proyectado como vitrina. Vale razonar en voz alta; no vale el celular. Punto por traducción defendible.</p>
-<p class="nota-conductor">El juego se conduce con su propio mazo proyectable: <a href="../ejercicios/semana-04/consultorio-griego-semana-04.html">El consultorio griego</a>, con las tres rondas armadas, cronómetro, marcador de equipos y banco de reserva. Marcador visible y premio simbólico. La vitrina proyectada nivela: no se premia memoria, se premia saber combinar. Sube la dificultad con hipoglucemia (glykys, dulce: azúcar de menos en la sangre) si algún equipo va sobrado.</p>
+<p class="nota-conductor">Marcador visible y premio simbólico. La vitrina proyectada nivela: no se premia memoria, se premia saber combinar. Sube la dificultad con hipoglucemia (glykys, dulce: azúcar de menos en la sangre) si algún equipo va sobrado.</p>
 </section>
 <section class="lam lam--actividad">
 <h4>Ronda 2: la receta al revés</h4>
@@ -298,20 +318,9 @@ El minuto del lector sigue, la voz alta cierra el viernes y tu bitácora suma l�
 
 ---
 
-## El gimnasio completo
-
-Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
-
-- [El botiquín griego](../ejercicios/semana-04/ejercicio-4A-botiquin-griego.html) · martes
-- [Apuesta y verifica](../ejercicios/semana-04/ejercicio-4C-apuesta-y-verifica.html) · jueves, centro de cómputo
-- [Quiz de gimnasio](../ejercicios/semana-04/quiz-gimnasio-semana-04.html) · para ensayar cuando quieras
-
-**Los juegos del alfabeto** (sin mazo, sin quiz, puro juego):
-
-- [Tu nombre en griego](../ejercicios/semana-04/ejercicio-4A-tu-nombre-en-griego.html)
-- [Decodifica la palabra](../ejercicios/semana-04/ejercicio-4A-decodifica-la-palabra.html)
-
 ## Hoja de consulta
+
+Primero, qué es lo que estás consultando. Como viste en la semana 2, toda palabra culta se corta en piezas: el **prefijo** ajusta, la **raíz** carga el significado y el **sufijo** remata. Cada pieza griega dice algo por sí misma y reaparece de palabra en palabra: por eso una tabla corta te deja leer cientos de términos que nunca has estudiado. Estas tablas no son para memorizar, son para consultar y combinar: al mazo solo van las nueve piezas de la semana; el resto se queda aquí, como tu traductor de bolsillo.
 
 ### Las piezas de la semana
 
@@ -363,6 +372,19 @@ Para saber a quién pedirle cita, sin preguntarle a nadie:
 | oído, nariz o garganta | otorrinolaringólogo | las tres, en una palabra |
 | llevas al hermanito | pediatra | médico de niños |
 | llevas al abuelo | geriatra | médico de la vejez |
+
+## El gimnasio completo
+
+Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
+
+- [El botiquín griego](../ejercicios/semana-04/ejercicio-4A-botiquin-griego.html) · martes
+- [Apuesta y verifica](../ejercicios/semana-04/ejercicio-4C-apuesta-y-verifica.html) · jueves, centro de cómputo
+- [Quiz de gimnasio](../ejercicios/semana-04/quiz-gimnasio-semana-04.html) · para ensayar cuando quieras
+
+**Los juegos del alfabeto** (sin mazo, sin quiz, puro juego):
+
+- [Tu nombre en griego](../ejercicios/semana-04/ejercicio-4A-tu-nombre-en-griego.html)
+- [Decodifica la palabra](../ejercicios/semana-04/ejercicio-4A-decodifica-la-palabra.html)
 
 ## El alfabeto, para jugar
 
