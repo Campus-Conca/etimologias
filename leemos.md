@@ -155,17 +155,53 @@ Los firmamos en la semana 0 y valen todo el semestre (y toda la vida). Los escri
 
 ## El tendedero <span class="viva">se llena con el semestre</span>
 
-Cada obra terminada deja aquí su ficha: a quién le va a gustar y quién la recomienda. Si una te llama, pide el libro prestado. Las primeras cuatro fichas las colgó el profe: todas están en la biblioteca de la escuela.
+Cada obra terminada deja aquí su ficha: a quién le va a gustar y quién la recomienda. Las primeras cuatro las colgó el profe (todas están en la biblioteca de la escuela); el resto las colgó el grupo con sus propias palabras. Las fichas con clavija verde y etiqueta <strong>se presta</strong> tienen dueño dispuesto a traer su ejemplar: pídeselo directamente.
 
 <!-- TENDEDERO. Las fichas estan escritas aqui en HTML, a la vista.
      Para colgar una ficha nueva, copia un bloque .lee-ficha completo y
-     cambiale los datos. El orden en que aparecen es el orden de esta lista. -->
+     cambiale los datos. El orden en que aparecen es el orden de esta lista.
+     Si el libro se presta: agrega la clase "presta" al div y la etiqueta
+     <span class="pr">se presta</span> despues del autor. -->
 <div id="lee-tendedero">
 <div class="lee-tend">
 <div class="lee-ficha"><b>Las cavernas de la Sierra Gorda</b> · <i>Carlos Lazcano Sahagún</i><span class="si">Te va a gustar si quieres ver lo que hay debajo de la tierra que pisas todos los días. Lazcano lleva décadas bajando a los sótanos y abismos de la Sierra Gorda, y este libro reúne sus fotografías: cuerdas que se pierden en la oscuridad, bóvedas donde cabría una catedral entera y lugares a los que casi nadie ha llegado — a unos kilómetros de tu casa.</span><span class="donde">está en la biblioteca de la escuela</span><span class="q">lo recomienda el profe</span></div>
 <div class="lee-ficha"><b>Los límites de la Fundación</b> · <i>Isaac Asimov</i><span class="si">Te va a gustar si quieres una galaxia entera para ti: imperios que caen, naves, robots y una ciencia inventada — la psicohistoria — que pretende predecir el futuro de la humanidad con puras matemáticas. Es parte de la saga de la Fundación, pero puede leerse solo, y Asimov escribe tan claro que las páginas se van sin sentir.</span><span class="donde">está en la biblioteca de la escuela</span><span class="q">lo recomienda el profe</span></div>
 <div class="lee-ficha"><b>El escultor</b> · <i>Scott McCloud</i><span class="si">Te va a gustar si alguna vez te has preguntado qué darías a cambio de hacer algo que valga la pena. David, un artista fracasado, le hace un trato a la Muerte: sus manos podrán esculpir cualquier cosa, pero le quedan doscientos días de vida. Y justo entonces, claro, se enamora. Novela gráfica en tinta azul: casi quinientas páginas que se leen en dos tardes.</span><span class="donde">está en la biblioteca de la escuela</span><span class="q">lo recomienda el profe</span></div>
 <div class="lee-ficha"><b>Crimen y castigo (novela gráfica)</b> · <i>Dostoievski · adaptación de Edu Molina</i><span class="si">Te va a gustar si quieres meterte en la cabeza de un asesino con remordimientos. Raskólnikov, un estudiante pobre, mata a una vieja usurera convencido de que hay crímenes que se justifican — y la historia es lo que su conciencia le hace después. Edu Molina cuenta en viñetas el clásico ruso completo, sin las seiscientas páginas del original.</span><span class="donde">está en la biblioteca de la escuela</span><span class="q">lo recomienda el profe</span></div>
+<div class="lee-ficha"><b>No me puedes lastimar</b> · <i>David Goggins</i><span class="si">«Me gustaría que más gente lo leyera.»</span><span class="q">lo recomienda Johan</span></div>
+<div class="lee-ficha"><b>Veinte mil leguas de viaje submarino</b> · <i>Julio Verne</i><span class="si">«Me encanta y me gustaría compartir la experiencia de leerlo.»</span><span class="q">lo recomienda Johan</span></div>
+<div class="lee-ficha presta"><b>El esclavo</b> · <i>Anand Dilvar</i> <span class="pr">se presta</span><span class="si">«Es una historia que te hace pensar en lo que tienes pero no aprecias, y hasta que no puedes hacer muchas cosas es cuando lo ves.»</span><span class="q">lo presta Yael — pídeselo</span></div>
+<div class="lee-ficha"><b>Robinson Crusoe</b> · <i>Daniel Defoe</i><span class="si">«Es una historia muy entretenida.»</span><span class="q">lo recomienda Yael</span></div>
+<div class="lee-ficha"><b>El diario de Ana Frank</b> · <i>Ana Frank</i><span class="si">«Está entretenido.»</span><span class="q">lo recomienda Carlo</span></div>
+<div class="lee-ficha"><b>Caperucita Roja</b> · <i>Charles Perrault</i><span class="si">«Porque es una belleza.»</span><span class="q">lo recomienda Carlo</span></div>
+<div class="lee-ficha presta"><b>El principito</b> · <i>Antoine de Saint-Exupéry</i> <span class="pr">se presta</span><span class="si">«Está muy bueno y entretenido.»</span><span class="q">lo presta Alexander — pídeselo</span></div>
+<div class="lee-ficha presta"><b>Padre rico, padre pobre</b> · <i>Robert Kiyosaki</i> <span class="pr">se presta</span><span class="si">«Te ayuda a cambiar hábitos.»</span><span class="q">lo presta Alexander — pídeselo</span></div>
+<div class="lee-ficha"><b>Anatomía del Mal</b> · <i>Jordi Wild</i><span class="si">«Bastante interesante.»</span><span class="q">lo recomienda Francisco</span></div>
+<div class="lee-ficha"><b>Halo (la novela)</b><span class="si">«Bastante interesante.»</span><span class="q">lo recomienda Francisco</span></div>
+<div class="lee-ficha presta"><b>Las ventajas de ser invisible</b> · <i>Stephen Chbosky</i> <span class="pr">se presta</span><span class="si">«Se me hizo muy interesante.»</span><span class="q">lo presta Sara — pídeselo</span></div>
+<div class="lee-ficha presta"><b>Viaje al centro de la Tierra</b> · <i>Julio Verne</i> <span class="pr">se presta</span><span class="si">«Es muy entretenido.»</span><span class="q">lo presta Sara — pídeselo</span></div>
+<div class="lee-ficha"><b>Viaje al centro de la Tierra</b> · <i>Julio Verne</i><span class="si">«Es un libro de ciencia ficción que para mí fue muy interesante.»</span><span class="q">lo recomienda Alan</span></div>
+<div class="lee-ficha"><b>El tesoro cósmico</b> · <i>Stephen y Lucy Hawking</i><span class="si">«Tiene una historia muy bonita con un final muy bueno.»</span><span class="q">lo recomienda Alan</span></div>
+<div class="lee-ficha presta"><b>El principito</b> · <i>Antoine de Saint-Exupéry</i> <span class="pr">se presta</span><span class="si">«Deja enseñanzas sobre la amistad y la importancia de valorar lo que importa.»</span><span class="q">lo presta Rafael — pídeselo</span></div>
+<div class="lee-ficha"><b>Boulevard</b> · <i>Flor M. Salvador</i><span class="si">«Es una novela que habla sobre el amor, las decisiones y el crecimiento personal a través de una historia emotiva. Invita a reflexionar sobre las relaciones, la importancia de valorar a las personas y las consecuencias de nuestras acciones.»</span><span class="q">lo recomienda Iris</span></div>
+<div class="lee-ficha"><b>La sociedad de los poetas muertos</b> · <i>N. H. Kleinbaum</i><span class="si">«Es una novela que inspira a perseguir los sueños, pensar de manera crítica y valorar el conocimiento. A través de sus personajes, transmite enseñanzas sobre la amistad, el crecimiento personal y la importancia de ser uno mismo.»</span><span class="q">lo recomienda Iris</span></div>
+<div class="lee-ficha"><b>A dos metros de ti</b> · <i>Rachael Lippincott</i><span class="si">«Es una historia que te hace pensar muchas cosas; es muy bonita pero tiene algunas cosas demasiado tristes.»</span><span class="q">lo recomienda Yoali</span></div>
+<div class="lee-ficha presta"><b>Bajo la misma estrella</b> · <i>John Green</i> <span class="pr">se presta</span><span class="si">«Es una historia donde el chico es muy positivo y trata de entender a la chica, pero es triste a la vez.»</span><span class="q">lo presta Yoali — pídeselo</span></div>
+<div class="lee-ficha"><b>Leyendas mexicanas</b><span class="si">«El libro cuenta con una variedad de leyendas mexicanas de diferentes estados.»</span><span class="q">lo recomienda Kevin</span></div>
+<div class="lee-ficha presta"><b>Harry Potter</b> · <i>J. K. Rowling</i> <span class="pr">se presta</span><span class="si">«Narra la historia de un joven que vivía con sus tíos que lo trataban mal; después le llegó una carta donde decía que había sido seleccionado para la mejor escuela de magia.»</span><span class="q">lo presta Kevin — pídeselo</span></div>
+<div class="lee-ficha presta"><b>El diario de Ana Frank</b> · <i>Ana Frank</i> <span class="pr">se presta</span><span class="si">«Es muy buen libro, más si te gustan los libros de hechos reales. Está escrito en primera persona, lo que te hace pensar que tú eres quien lo está viviendo, y te hace empatizar e identificarte mucho con ella.»</span><span class="q">lo presta Arely — pídeselo</span></div>
+<div class="lee-ficha"><b>El enigma de la Atlántida</b><span class="si">«Te pone a pensar y te adentra mucho en la historia.»</span><span class="q">lo recomienda Arely</span></div>
+<div class="lee-ficha"><b>El principito</b> · <i>Antoine de Saint-Exupéry</i><span class="si">«Parece un libro para niños pero en realidad es como una crítica al mundo adulto; tiene metáforas muy buenas.»</span><span class="q">lo recomienda Camila</span></div>
+<div class="lee-ficha presta"><b>Fazbear Frights</b> · <i>Scott Cawthon</i> <span class="pr">se presta</span><span class="si">«Son tres historias que ocurren en diferentes lugares; algunas terminan bien, otras mal.»</span><span class="q">lo presta Iker — pídeselo</span></div>
+<div class="lee-ficha presta"><b>The Twisted Ones</b> · <i>Scott Cawthon</i> <span class="pr">se presta</span><span class="si">«Es la novela gráfica, y está buena tanto la historia como los dibujos.»</span><span class="q">lo presta Iker — pídeselo</span></div>
+<div class="lee-ficha"><b>Siete clásicos de golpe</b> · <i>de Poe a Rulfo</i><span class="si">«Son de cultura 🔝»: El corazón delator (Edgar Allan Poe), Los juegos del hambre (Suzanne Collins), El principito (Saint-Exupéry), La Odisea (Homero), Las batallas en el desierto (José Emilio Pacheco), Pedro Páramo (Juan Rulfo) y La metamorfosis (Franz Kafka).</span><span class="q">los recomienda Ainara</span></div>
+<div class="lee-ficha presta"><b>El colmillo blanco</b> · <i>Jack London</i> <span class="pr">se presta</span><span class="si">«Es una joya, ya lo leí tres veces.»</span><span class="q">lo presta Angel — pídeselo</span></div>
+<div class="lee-ficha"><b>El principito</b> · <i>Antoine de Saint-Exupéry</i><span class="si">«Es poesía y muy filosófico.»</span><span class="q">lo recomienda Angel</span></div>
+<div class="lee-ficha"><b>Boulevard</b> · <i>Flor M. Salvador</i><span class="si">«Es una historia muy bonita, que hace sentir muchos sentimientos a la vez, y una vez que le agarras la onda te quedas picado leyendo y leyendo. Nada más que este libro es más para gente aficionada del romance.»</span><span class="q">lo recomienda Yamila</span></div>
+<div class="lee-ficha presta"><b>Bajo la misma estrella</b> · <i>John Green</i> <span class="pr">se presta</span><span class="si">«Está muy bonito: es un amor que, a pesar de las dificultades de una enfermedad, pues existe y es verdadero.»</span><span class="q">lo presta Yamila — pídeselo</span></div>
+<div class="lee-ficha presta"><b>A dos metros de ti</b> · <i>Rachael Lippincott</i> <span class="pr">se presta</span><span class="si">«Habla de los límites que se rompen por el amor hacia alguien.»</span><span class="q">lo presta Yuritza — pídeselo</span></div>
+<div class="lee-ficha"><b>El club de los psicópatas</b> · <i>John Katzenbach</i><span class="si">«Es muy interesante saber hasta dónde llegan las redes sociales.»</span><span class="q">lo recomienda Yuritza</span></div>
+<div class="lee-ficha"><b>Yo antes de ti</b> · <i>Jojo Moyes</i><span class="si">«Novela dramática; te deja una reflexión sobre la libertad y la importancia de vivir.»</span><span class="q">lo recomienda Mariana</span></div>
 </div>
 </div>
 
@@ -216,6 +252,9 @@ Al final del semestre, cada lector deja escrita una recomendación para quien to
 .lee-ficha .si{display:block;margin:.35rem 0;color:#4A3F5C;font-size:.9rem}
 .lee-ficha .donde{display:block;margin-bottom:.3rem;font-size:.78rem;color:#6B1E5A;font-style:italic}
 .lee-ficha .q{font-size:.78rem;color:#C4006A;font-weight:700}
+.lee-ficha.presta::before{background:#2E7D32}
+.lee-ficha.presta .q{color:#2E7D32}
+.lee-ficha .pr{display:inline-block;margin-left:.25rem;font-size:.66rem;font-weight:700;color:#fff;background:#2E7D32;border-radius:1rem;padding:.1rem .55rem;vertical-align:middle;text-transform:uppercase;letter-spacing:.04em}
 .lee-prest{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.8rem}
 .lee-p{flex:1 1 14rem;max-width:18rem;border:1px solid #E6DFF0;border-left:4px solid #C4006A;border-radius:.7rem;background:#fff;padding:.8rem .95rem}
 .lee-p>b{display:block;color:#6B1E5A}
