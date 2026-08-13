@@ -166,7 +166,7 @@ La regla de oro de la semana (apréndetela, se usa todo el semestre): un corte e
 <section class="lam">
 <h4><span class="n">1</span> Las reglas del torneo <span class="reloj">20 min</span></h4>
 <p class="di">Por equipos: construyan la matriz más grande que puedan defender.</p>
-<p class="apoyo">Cada palabra propuesta debe sobrevivir la regla de oro si otro equipo la reta, y retar también da puntos. Los cortes dudosos del banco del martes entran como retos listos. El profesor es juez de última instancia, con el DECEL abierto.</p>
+<p class="apoyo">Cada palabra propuesta debe sobrevivir la regla de oro si otro equipo la reta, y retar también da puntos. Los cortes dudosos del banco del martes entran como retos listos. El profesor es juez de última instancia, con el DECEL abierto. Las <a href="../ejercicios/semana-03/reglas-torneo-matrices.html">reglas completas, con ejemplos</a>, están publicadas: pásenlas por su matriz antes de salir a la cancha.</p>
 </section>
 <section class="lam">
 <h4>Así se ve una ronda</h4>
@@ -215,7 +215,9 @@ Todos los ejercicios de la semana, para tu celular o el centro de cómputo. Sin 
 - [Sumas de palabras](../ejercicios/semana-03/ejercicio-3A-sumas-de-palabras.html) · martes
 - [La fábrica de matrices](../ejercicios/semana-03/ejercicio-3B-fabrica-de-matrices.html) · miércoles
 - [Veinte palabras gratis](../ejercicios/semana-03/ejercicio-3C-veinte-palabras-gratis.html) · jueves, centro de cómputo
+- [Reglas del torneo de matrices](../ejercicios/semana-03/reglas-torneo-matrices.html) · viernes, con ejemplos de qué cuenta y qué no
 - [Quiz de gimnasio](../ejercicios/semana-03/quiz-gimnasio-semana-03.html) · para ensayar cuando quieras
+- [El quiz destapable](../ejercicios/semana-03/quiz-abierto-todo-lo-visto.html) · repaso general de las semanas 0 a 3, con puntaje
 
 ## Hoja de consulta
 
