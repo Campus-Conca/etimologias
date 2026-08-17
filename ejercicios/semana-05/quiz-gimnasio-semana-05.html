@@ -87,7 +87,7 @@
 
   <h2>Reactivo 2 · La familia completa</h2>
   <div class="card">
-    <h3>tele- (lejos)</h3>
+    <h3>hemo- / hemato- (sangre)</h3>
     <p style="margin:0;font-size:.92rem">Escribe 4 palabras reales de su familia. Sin repetir.</p>
     <input type="text" data-r2 placeholder="Palabra 1">
     <input type="text" data-r2 placeholder="Palabra 2">
@@ -99,7 +99,7 @@
 
   <h2>Reactivo 3 · Descompón la palabra</h2>
   <div class="card">
-    <h3>geografía</h3>
+    <h3>cosmonauta</h3>
     <p style="margin:0;font-size:.92rem">Toca las piezas que la forman. Toca de nuevo para quitar.</p>
     <div class="piezas" id="r3piezas"></div>
     <div class="fila-botones"><button class="btn rosa" id="r3check">Revisar</button></div>
@@ -138,9 +138,9 @@
 
   // R1: significado de tres raíces
   var R1=[
-    {raiz:'fono-',ops:[['sonido',true],['luz',false],['lejos',false],['tiempo',false]],pista:'piensa en lo que capta un micrófono.'},
-    {raiz:'crono-',ops:[['tiempo',true],['medir',false],['escribir',false],['vida',false]],pista:'piensa en qué corre cuando arrancas un cronómetro.'},
-    {raiz:'-scopio',ops:[['observar',true],['calor',false],['poder',false],['estudio',false]],pista:'piensa en para qué acercas el ojo a un microscopio.'}
+    {raiz:'-teca',ops:[['depósito, caja',true],['libro',false],['lectura',false],['ciudad',false]],pista:'no es "libro": eso es biblio-. Piensa en qué tienen en común una biblioteca, una discoteca y una hemeroteca.'},
+    {raiz:'-nauta',ops:[['navegante',true],['estrella',false],['aire',false],['viaje',false]],pista:'piensa en qué hace un astronauta allá arriba, y en por qué te mareas en un barco.'},
+    {raiz:'hipo- (de híppos)',ops:[['caballo',true],['de menos',false],['debajo',false],['río',false]],pista:'ojo con la trampa de la semana: hay otro hipo- que sí significa "de menos". Este es el del hipódromo.'}
   ];
   var z1=document.getElementById('r1zona');
   R1.forEach(function(item,idx){
@@ -171,15 +171,15 @@
     if(sinElegir.length){fb.className='fb no';fb.textContent='Te falta elegir en: '+sinElegir.join(', ')+'.';return;}
     if(!mal.length){
       estado.r1='bien';fb.className='fb ok';
-      fb.textContent='Bien: fono (sonido), crono (tiempo), scopio (observar). Tres llaves más en el llavero.';
+      fb.textContent='Bien: -teca (depósito), -nauta (navegante), hipo- (caballo). Tres llaves más en el llavero, y ninguna repetida.';
     }else{
       estado.r1='aun';fb.className='fb no';
       fb.innerHTML='Aún no. '+mal.map(function(i){return 'Pista para '+R1[i].raiz+': '+R1[i].pista;}).join('<br>');
     }
   });
 
-  // R2: cuatro de la familia de tele-
-  var BANCO=['teléfono','telefonía','telefonista','televisión','televisor','televidente','telescopio','telescópico','telegrama','telégrafo','telegrafista','telepatía','telepático','teletrabajo','telecomunicación','telecomunicaciones','teledirigido','telenovela','telesilla','teleférico','telemetría','telediario','telerrealidad','teletransportación','teletransporte','telémetro','teleobjetivo','telequinesis'];
+  // R2: cuatro de la familia de hemo- / hemato-
+  var BANCO=['hemorragia','hemofilia','hemofílico','hemoglobina','hematoma','hematología','hematólogo','hematóloga','hemodiálisis','anemia','anémico','anémica','hemograma','hemostasia','hemostático','hemocultivo','hemático','hematíe','hemorroide','hemoptisis','hematuria','hemoterapia'];
   var BANCON=BANCO.map(norm);
   document.getElementById('r2check').addEventListener('click',function(){
     var fb=document.getElementById('r2fb');
@@ -188,14 +188,14 @@
       var v=inp.value.trim();
       if(v)vals.push(v);
     });
-    if(vals.length<4){fb.className='fb no';fb.textContent='Van '+vals.length+' de 4. La familia de tele- da para eso y más.';return;}
+    if(vals.length<4){fb.className='fb no';fb.textContent='Van '+vals.length+' de 4. La familia de hemo- da para eso y más.';return;}
     var vistos=[],repetidas=[],sinRaiz=[],dudosas=[],buenas=[];
     vals.forEach(function(v){
       var n=norm(v);
       if(vistos.indexOf(n)>-1){repetidas.push(v);return;}
       vistos.push(n);
-      if(n.indexOf('tele')!==0){sinRaiz.push(v);}
-      else if(BANCON.indexOf(n)>-1){buenas.push(v);}
+      if(BANCON.indexOf(n)>-1){buenas.push(v);}
+      else if(n.indexOf('hem')!==0){sinRaiz.push(v);}
       else{dudosas.push(v);}
     });
     if(buenas.length>=4){
@@ -206,14 +206,14 @@
     estado.r2='aun';fb.className='fb no';
     var msj='Aún no. ';
     if(repetidas.length)msj+='Repetiste: '+repetidas.join(', ')+' (en la cadena, repetir te saca de la ronda). ';
-    if(sinRaiz.length)msj+='Estas no traen la raíz al frente: '+sinRaiz.join(', ')+'. ';
+    if(sinRaiz.length)msj+='Estas no traen la raíz de la sangre: '+sinRaiz.join(', ')+'. Ojo con hemisferio y hemiciclo: ese hemi- es "mitad", otra pieza distinta. ';
     if(dudosas.length)msj+='Estas no están en mi lista: '+dudosas.join(', ')+'. Podrían existir: verifícalas en el DECEL y, si sobreviven, cuéntatelas. ';
-    msj+='Pista: piensa en aparatos y actividades que acercan lo lejano (verlo, oírlo, mandarlo, moverlo).';
+    msj+='Pista: piensa en lo que se sale, lo que se coagula, lo que le falta y quién la estudia. Y una que no empieza con hemo: la que aprendiste en la semana 4 con an- (sin).';
     fb.textContent=msj;
   });
 
   // R3: descomponer geografía
-  var R3=[['geo','tierra',true],['grafía','escribir, dibujar',true],['tele-','lejos',false],['-logía','estudio',false],['foto-','luz',false]];
+  var R3=[['cosmo','orden, mundo',true],['-nauta','navegante',true],['-polis','ciudad',false],['zoo-','animal',false],['-teca','depósito',false]];
   var z3=document.getElementById('r3piezas'),sel3=[];
   baraja(R3).forEach(function(pz){
     var b=document.createElement('button');
@@ -231,10 +231,10 @@
     var intrusas=sel3.length-aciertos;
     if(aciertos===2&&intrusas===0){
       estado.r3='bien';fb.className='fb ok';
-      fb.innerHTML='Bien: geo (tierra) + grafía (escribir, dibujar) = descripción o dibujo de la Tierra.';
+      fb.innerHTML='Bien: cosmo (orden, mundo) + -nauta (navegante) = el que navega el cosmos. La misma pieza -nauta del astronauta, del internauta y de la náusea.';
     }else{
       estado.r3='aun';fb.className='fb no';
-      fb.textContent='Aún no. Pista: son exactamente 2 piezas. Una nombra al planeta y la otra la conoces desde el árbol de las nueve palabras.';
+      fb.textContent='Aún no. Pista: son exactamente 2 piezas. Una es la que comparten el universo y el cosmético; la otra es la que marea en los barcos.';
     }
   });
 

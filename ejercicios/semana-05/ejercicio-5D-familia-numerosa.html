@@ -73,9 +73,9 @@
   <div class="card">
     <h3>Datos del personaje</h3>
     <label>La palabra elegida</label>
-    <input type="text" data-campo="palabra" placeholder="ej. fotografía">
+    <input type="text" data-campo="palabra" placeholder="ej. cosmético">
     <label>Su raíz (o raíces) y significado</label>
-    <input type="text" data-campo="raiz" placeholder="ej. foto- (luz) + graf- (escribir)">
+    <input type="text" data-campo="raiz" placeholder="ej. cosmo- (orden, mundo)">
     <label>Sus parientes: mínimo 4 palabras de la misma raíz, separadas por comas</label>
     <textarea data-campo="parientes" placeholder="ej. fotosíntesis, fotón, fotocopia, fotofobia"></textarea>
     <label>La biografía (un párrafo: de dónde viene, qué dice literalmente, quiénes son sus parientes y por qué la elegiste)</label>
@@ -112,7 +112,7 @@
   document.getElementById('btnEjemplo').addEventListener('click',function(){
     var fb=document.getElementById('fbEjemplo');
     fb.className='fb ej';
-    fb.innerHTML='<strong>Una biografía modelo (fotografía):</strong> Fotografía nació de dos raíces griegas: <em>foto-</em> (luz) y <em>graf-</em> (escribir). Literalmente es "escritura con luz", que es exactamente lo que hace una cámara: deja que la luz escriba sobre una superficie. Es de familia doblemente numerosa. Por el lado de la luz tiene a fotosíntesis, fotón, fotocopia y fotofobia; por el lado de la escritura, a biografía, ortografía, telégrafo y grafiti. La elegí porque una palabra que usamos a diario para las selfies carga adentro un taller griego de escritura luminosa.<br><br>La tuya no tiene que sonar igual: tiene que presentar al personaje y a su parentela con tu voz.';
+    fb.innerHTML='<strong>Una biografía modelo (cosmético):</strong> Cosmético viene del griego <em>kósmos</em>, que no significaba "universo" sino <em>orden</em>. De ahí salió <em>kosmetikós</em>: lo que sirve para poner en orden, para arreglar. Maquillarse es, literalmente, ordenarse la cara. Su familia es numerosa y sorprendente: por un lado los parientes elegantes —cosmos, cósmico, cosmología, cosmogonía—, y por otro los que se dedican a la gente: cosmopolita (el que tiene por ciudad al mundo entero), cosmonauta (el navegante del cosmos) y microcosmos. La elegí porque el universo y un labial comparten raíz: los griegos pensaban que el cielo era hermoso porque estaba ordenado, y que una persona arreglada era, en pequeño, la misma idea.<br><br>La tuya no tiene que sonar igual: tiene que presentar al personaje y a su parentela con tu voz.';
   });
 
   document.getElementById('btnGenerar').addEventListener('click',function(){
