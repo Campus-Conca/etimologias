@@ -23,11 +23,14 @@ Los ejercicios de práctica de todo el semestre, semana por semana. Sin nota y s
 - [Sumas de palabras](../ejercicios/semana-03/ejercicio-3A-sumas-de-palabras.html) · martes
 - [La fábrica de matrices](../ejercicios/semana-03/ejercicio-3B-fabrica-de-matrices.html) · miércoles
 - [Veinte palabras gratis](../ejercicios/semana-03/ejercicio-3C-veinte-palabras-gratis.html) · jueves, centro de cómputo
+- [Reglas del torneo de matrices](../ejercicios/semana-03/reglas-torneo-matrices.html) · viernes
 - [Quiz de gimnasio](../ejercicios/semana-03/quiz-gimnasio-semana-03.html) · ensayo libre
+- [El quiz destapable](../ejercicios/semana-03/quiz-abierto-todo-lo-visto.html) · repaso general de las semanas 0 a 3, con puntaje
 
 **Semana 4 · El griego que ya hablas**
 
 - [El botiquín griego](../ejercicios/semana-04/ejercicio-4A-botiquin-griego.html) · martes
+- [El cuerpo en griego](../ejercicios/semana-04/ejercicio-4B-el-cuerpo-en-griego.html) · miércoles
 - [Apuesta y verifica](../ejercicios/semana-04/ejercicio-4C-apuesta-y-verifica.html) · jueves, centro de cómputo
 - [Quiz de gimnasio](../ejercicios/semana-04/quiz-gimnasio-semana-04.html) · ensayo libre
 

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz destapable · Todo lo visto hasta hoy</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 5rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.3rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.9rem 0 .3rem}
+  .sec-intro{margin:.2rem 0 .8rem;font-size:.95rem;color:#555}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card .num{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:.15rem .5rem;border-radius:1rem;background:var(--fondo);color:var(--ciruela);margin-bottom:.4rem}
+  .card .preg{margin:0 0 .3rem;font-weight:700;color:#2a2a2a}
+  textarea{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo);min-height:3rem;resize:vertical}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .marca{display:none;gap:.5rem;margin-top:.6rem}
+  .marca button{flex:1;padding:.5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
+  .marca button.sel-ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
+  .marca button.sel-no{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  .chip{position:fixed;bottom:1rem;left:1rem;z-index:9;background:#fff;border:2px solid var(--ciruela);color:var(--ciruela);border-radius:2rem;padding:.5rem .9rem;font-size:.9rem;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+  input[type=number]{border:1px solid var(--borde);border-radius:.6rem;padding:.5rem;font:inherit;width:6rem;background:var(--fondo)}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Repaso general · Semanas 0 a 3</div>
+    <h1>El quiz destapable</h1>
+    <p>Todo lo visto hasta hoy: piezas, conceptos y palabras con historia. Escribes tu respuesta, destapas la buena y te calificas tú. Nadie te vigila: calibrar es el entrenamiento.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Cada pregunta se responde por escrito, de memoria y sin fuentes (esta vez el punto es medir tu mazo, no tu buscador). Luego tocas <strong>Destapar</strong>, comparas con la respuesta y te marcas: <em>la tuve bien</em> o <em>aún no</em>. El marcador te sigue abajo a la izquierda, y al final hay puntaje completo con tus pendientes.
+  </div>
+
+  <h2>Paso 0 · Calibra</h2>
+  <div class="card">
+    <p class="preg">Son <span data-total-preg></span> preguntas. Antes de empezar: ¿cuántas crees que tendrás bien?</p>
+    <div class="fila-botones">
+      <input type="number" id="calibNum" min="0" value="">
+      <button class="btn gris" id="calibBtn">Anotar</button>
+    </div>
+    <div class="fb" id="calibFb"></div>
+  </div>
+
+  <div id="quiz"></div>
+
+  <h2>El puntaje</h2>
+  <div class="card">
+    <div class="fila-botones"><button class="btn rosa" id="btnFinal">Ver mi puntaje</button></div>
+    <div class="fb" id="fbFinal"></div>
+  </div>
+
+  <footer>Repaso general · Semanas 0 a 3 · Gimnasio: sin nota y sin registro. Al cerrar la página todo se borra, así que anota tus pendientes antes de irte: son tus candidatas a repaso en el mazo.</footer>
+</div>
+
+<div class="chip" id="chip">✔ 0 · 0 marcadas</div>
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+
+  var SECS=[
+
+  {t:"A · Las piezas del mazo",
+   intro:"De la pieza al significado y de vuelta. En cada respuesta va también una palabra ancla: si la tuya es otra pero es real, cuenta igual.",
+   items:[
+    {q:"La idea de <em>agua</em> llegó al español por sus dos padres. ¿Cuál es la pieza griega y cuál la latina? Da una palabra con cada una.",
+     a:"<strong>hidro-</strong> (griega): hidratante, hidrología · <strong>acu-</strong> (latina): acuario, acueducto."},
+    {q:"Lo mismo con <em>tierra</em>: la pieza griega, la latina, y una palabra con cada una.",
+     a:"<strong>geo-</strong> (griega): geografía, geología · <strong>terr-</strong> (latina): terreno, territorio."},
+    {q:"Y con <em>vida</em>: pieza griega, pieza latina, una palabra con cada una.",
+     a:"<strong>bio-</strong> (griega): biología, biografía · <strong>vit-</strong> (latina): vitamina, vital."},
+    {q:"Y con <em>escribir</em>: pieza griega, pieza latina, una palabra con cada una.",
+     a:"<strong>graf-</strong> (griega): fotografía, grafología · <strong>escrib-</strong> (latina): manuscrito, escribano."},
+    {q:"Y con <em>corazón</em>: pieza griega, pieza latina, una palabra con cada una.",
+     a:"<strong>cardio-</strong> (griega): cardiólogo · <strong>cord-</strong> (latina): cordial, concordia, discordia."},
+    {q:"¿Qué significan <em>-logía</em> y <em>-logo</em>, y por qué decimos que es la pieza más rentable del idioma?",
+     a:"<strong>Estudio de</strong> y <strong>el que estudia</strong>: biología, bióloga. Es la más rentable porque se pega a casi cualquier raíz: geología, psicología, cronología, grafología…"},
+    {q:"¿Qué significa la pieza <em>a- / an-</em>? Da dos palabras donde aparezca.",
+     a:"<strong>Sin, negación</strong> · amnesia, anónimo, abiótico."},
+    {q:"¿Qué significa <em>mnem-</em>? ¿En qué palabras la has visto?",
+     a:"<strong>Memoria</strong> · amnesia, amnistía. El étimo es el griego <em>mnéme</em>."},
+    {q:"¿Qué significa el sufijo <em>-ia</em>? Da una palabra donde trabaje.",
+     a:"<strong>Cualidad</strong> · amnesia (cualidad de estar sin memoria), alegría, telefonía."},
+    {q:"El amor está dos veces en el español, una por cada padre. ¿Cuáles son las dos piezas y qué palabra dejó cada una?",
+     a:"<strong>amor</strong> (latín): amigo, amoroso · <strong>éros</strong> (griego): erótico."},
+    {q:"¿Qué significa el latín <em>oculus</em>? Da dos palabras de su familia.",
+     a:"<strong>Ojo</strong> · oculista, binoculares, monóculo."},
+    {q:"¿Qué significa el latín <em>oriri</em>? ¿Qué tiene que ver con el Oriente?",
+     a:"<strong>Nacer, surgir</strong> · origen, oriundo… y Oriente: el rumbo por donde nace el sol."},
+    {q:"¿Qué significa <em>tele-</em>? Tres palabras de su matriz.",
+     a:"<strong>Lejos</strong> · teléfono, telescopio, telegrama, televisión."},
+    {q:"¿Qué significa <em>crono-</em>? Dos palabras de su familia.",
+     a:"<strong>Tiempo</strong> · cronómetro, cronología, crónica."},
+    {q:"¿Qué pieza significa <em>medida</em>? Da dos palabras donde aparezca.",
+     a:"<strong>-metro / -metría</strong> · termómetro, geometría, telemetría."},
+    {q:"¿Qué significa <em>port-</em>? Tres palabras de su fábrica.",
+     a:"<strong>Llevar</strong> (del latín <em>portare</em>) · transporte, portátil, reportero, exportar, deporte."},
+    {q:"¿Qué significa el prefijo <em>des-</em>? Da dos palabras.",
+     a:"<strong>Deshacer, quitar</strong> · desayuno (romper el ayuno), desarmar."},
+    {q:"¿Qué significa <em>-grama</em>? ¿De qué pieza de tu mazo es primo?",
+     a:"<strong>Escrito, registro</strong> · telegrama. Es primo de <em>graf-</em> (escribir)."},
+    {q:"¿Qué pieza significa <em>mirar</em>? Da dos palabras donde aparezca.",
+     a:"<strong>-scopio</strong> · telescopio, microscopio."},
+    {q:"¿Qué significa <em>psico-</em>? ¿Qué es entonces la psicología, en suma?",
+     a:"<strong>Alma, mente</strong> · psico + logía = estudio de la mente."},
+    {q:"¿Qué significa <em>trans-</em>? Dos palabras donde trabaje.",
+     a:"<strong>De un lado a otro</strong> · transporte, transformar."},
+    {q:"¿Qué significa <em>cali-</em>? ¿Qué es entonces la caligrafía, en suma?",
+     a:"<strong>Bello</strong> · cali + grafía = escritura bella."},
+    {q:"¿Qué significa <em>-dromo</em>? Da dos palabras de su familia.",
+     a:"<strong>Pista, carrera</strong> · hipódromo (pista de caballos), autódromo."},
+    {q:"¿Qué significa <em>termo-</em>? Dos palabras de su familia.",
+     a:"<strong>Calor</strong> · termómetro, termo."},
+    {q:"¿Qué pieza significa <em>nombre</em>? ¿Qué dice entonces <em>anónimo</em>, en suma?",
+     a:"<strong>-ónimo / ónoma</strong> · an (sin) + ónoma (nombre) = sin nombre. También en sinónimo."}
+  ]},
+
+  {t:"B · Los conceptos",
+   intro:"Las definiciones del oficio. Con tus palabras vale, si dicen lo mismo.",
+   items:[
+    {q:"¿Qué es un <em>étimo</em>?",
+     a:"La palabra de origen de la que nace otra. El étimo de <em>amnesia</em> es el griego <em>mnéme</em>."},
+    {q:"Nombra las tres piezas que puede tener una palabra, di dónde va cada una y cuál carga el significado.",
+     a:"<strong>Prefijo</strong> (al inicio, modifica), <strong>raíz</strong> (al centro, <strong>carga el significado</strong>) y <strong>sufijo</strong> (al final, modifica). En amnesia: a- + mnem + -ia."},
+    {q:"¿Qué significa la palabra <em>etimología</em>, abierta en sus propias piezas? ¿Y qué estudia esa ciencia?",
+     a:"<em>étymos</em> (verdadero) + <em>lógos</em> (estudio): el estudio del significado verdadero. La ciencia estudia las palabras por su <strong>origen</strong>, su <strong>estructura</strong> y sus <strong>transformaciones</strong>."},
+    {q:"¿Qué es la <em>definición real</em> de una palabra?",
+     a:"La que dice qué significa <strong>hoy</strong>, tal como se usa: la de la calle y la del diccionario. Sin origen y sin piezas."},
+    {q:"¿Qué es la <em>definición etimológica</em>? ¿Qué te regala que la real no?",
+     a:"La que dice <strong>de dónde viene</strong> la palabra y <strong>de qué piezas está hecha</strong>, y arma el significado con ellas. Te regala piezas que reaparecen en decenas de palabras que aún no has visto."},
+    {q:"Recita la <strong>regla de oro</strong>: ¿cuándo es real un corte?",
+     a:"Un corte es real solo si la pieza <strong>reaparece en otras palabras con el mismo significado</strong>, y <strong>la fuente lo confirma</strong>. Familia y fuente, las dos, siempre."},
+    {q:"¿Qué es un <em>espejismo</em>? Da un ejemplo y di por qué el ojo cae en ellos.",
+     a:"Un corte que el ojo ve pero que no existe: <em>in + vierno</em>, <em>a + migo</em>. Caemos porque el cerebro ama los patrones y los completa aunque no estén."},
+    {q:"¿Qué es una <em>matriz morfológica</em>?",
+     a:"Una pieza fija con muchas móviles: aprendes una pieza y te llevas la fila completa. <em>-logía</em>: biología, geología, psicología, cronología."},
+    {q:"¿Cuáles son las dos fuentes de cabecera del curso y para qué sirve cada una?",
+     a:"El <strong>DLE</strong> (qué significa la palabra hoy) y el <strong>DECEL</strong> (de dónde viene). Cuando discrepan no se elige: se documentan las dos versiones."},
+    {q:"Recita la ley del curso, la única que no se negocia.",
+     a:"<strong>Ninguna etimología se acepta sin fuente.</strong> Ni de un compañero, ni de una IA, ni del profesor."}
+  ]},
+
+  {t:"C · Palabras con historia",
+   intro:"Las que ya abrimos en clase. Cuenta su suma o su historia, lo que la palabra pida.",
+   items:[
+    {q:"Escribe la suma completa de <em>amnesia</em>.",
+     a:"a- (sin) + mnem (memoria) + -ia (cualidad) = cualidad de estar sin memoria."},
+    {q:"¿Qué dice <em>recordar</em>, abierta en sus piezas?",
+     a:"re- (de nuevo) + cor, cordis (corazón) = <strong>volver a pasar por el corazón</strong>. La misma pieza de cordial, concordia y discordia."},
+    {q:"¿Qué dice <em>melancolía</em>, abierta en sus piezas, y qué creía la medicina antigua?",
+     a:"melan (negro) + colía (bilis) = bilis negra. La medicina antigua creía que la tristeza sin causa venía de esa bilis oscura; la palabra lo sigue diciendo aunque ya nadie crea en los humores."},
+    {q:"¿Qué es, literalmente, <em>desayunar</em>?",
+     a:"des- (deshacer) + ayuno = <strong>romper el ayuno</strong>. Igual que el inglés <em>breakfast</em> y el francés <em>déjeuner</em>: tres lenguas con la misma idea."},
+    {q:"<em>Deporte</em> parecía no llevar nada de <em>port-</em>… y llevaba. ¿Cuál es su historia?",
+     a:"Viene del latín <em>deportare</em>: llevarse lejos, a distraerse. El corte que parecía falso y era real: por eso se verifica antes de retar."},
+    {q:"<em>Portero</em> trae las letras de <em>port-</em>. ¿Por qué cayó del torneo?",
+     a:"Porque viene de <em>puerta</em> (<em>porta</em>), no de <em>portare</em> (llevar). Las letras engañan; la fuente no."},
+    {q:"El ojo ve clarísimo un prefijo en <em>in-vierno</em>. ¿Qué dice la fuente?",
+     a:"Que viene del latín <em>hibernum</em>: ese <em>in</em> es pura casualidad de la forma. Espejismo."},
+    {q:"¿El mango de la sartén y el mango que te comes son la misma palabra?",
+     a:"No: son <strong>dos palabras distintas disfrazadas de una</strong>. El de agarrar viene de <em>manus</em> (mano); el fruto llegó del tamil, por el portugués. A veces el espejismo es verdad a medias, y solo la fuente lo distingue."},
+    {q:"Alguien jura que <em>alumno</em> viene de <em>a-</em> (sin) + <em>lumno</em> (luz): «el que no tiene luz». Dictamina con la regla de oro.",
+     a:"Espejismo: <em>lumno</em> no reaparece en ninguna familia. <em>Alumno</em> viene del latín <em>alumnus</em>: el que es alimentado y criado."},
+    {q:"Cada vez que dices <em>chao</em> estás diciendo, sin saberlo, otra cosa. ¿Cuál es su viaje?",
+     a:"Latín <em>sclavus</em> (esclavo, del nombre del pueblo eslavo) → véneto <em>s-ciào vostro</em> («soy su esclavo», fórmula de cortesía) → italiano <em>ciao</em> → chao. Literalmente: <strong>soy tu esclavo</strong>."},
+    {q:"<em>Aguacate</em> no vino de fuera: salió de aquí. Cuenta su historia (con todo y el detalle famoso).",
+     a:"Del náhuatl <em>ahuacatl</em>, que nombraba al fruto… y también al testículo. De <em>ahuacamolli</em> salió guacamole; el inglés <em>avocado</em> nació torcido por una etimología popular. Hoy está en menús de Sídney y Berlín."},
+    {q:"¿Qué es una <em>amnistía</em> y por qué es de la misma familia que <em>amnesia</em>?",
+     a:"a (sin) + mnem (memoria) + ia = el <strong>olvido jurídico</strong>: el Estado decide no recordar un delito. Misma raíz <em>mnem</em>."}
+  ]},
+
+  {t:"D · Palabras de estreno",
+   intro:"Estas ocho nadie te las ha enseñado. Corta de cabeza con las piezas de tu mazo, apuesta el significado y destapa. Ojo: no todas se dejan cortar — un par esconden sorpresa, como mango.",
+   items:[
+    {q:"<em>apogeo</em> — corta y apuesta: ¿qué significa?",
+     a:"<strong>apo-</strong> (lejos de; pieza nueva) + <strong>geo</strong> (tierra) = el punto de la órbita en que la Luna o un satélite está <strong>más lejos de la Tierra</strong>. De ahí el sentido de hoy: el punto más alto de algo — «el apogeo de su carrera»."},
+    {q:"<em>periscopio</em> — corta y apuesta: ¿qué es?",
+     a:"<strong>peri-</strong> (alrededor; pieza nueva) + <strong>-scopio</strong> (mirar) = <strong>mirar alrededor</strong>: el tubo del submarino para ver la superficie sin asomarse."},
+    {q:"<em>biopsia</em> — corta y apuesta: ¿qué es?",
+     a:"<strong>bio</strong> (vida) + <strong>ópsis</strong> (vista, mirada; pieza nueva) = <strong>mirar lo vivo</strong>: examinar un pedacito de tejido tomado de un ser vivo para diagnosticar."},
+    {q:"<em>oncólogo</em> — corta y apuesta: ¿qué médico es?",
+     a:"<strong>onco-</strong> (masa, tumor; pieza nueva) + <strong>-logo</strong> (el que estudia) = el médico que estudia y trata los tumores: el del cáncer."},
+    {q:"<em>cleptómano</em> — corta y apuesta: ¿quién es?",
+     a:"<strong>clepto-</strong> (robar; pieza nueva) + <strong>-mano</strong> (de <em>manía</em>: locura, pasión) = quien roba por un impulso que no controla, no por necesidad."},
+    {q:"<em>maniqueo</em> — ¿se deja cortar? Apuesta qué significa.",
+     a:"<strong>Sorpresa: no se corta.</strong> Viene de <strong>Manes (Mani)</strong>, profeta persa del siglo III que dividía el universo en luz contra oscuridad. Hoy: quien ve todo como buenos contra malos, sin grises. Palabra nacida de un nombre propio: un <em>epónimo</em>."},
+    {q:"<em>sima</em> — la Sierra Gorda está llena de ellas. ¿Qué es, y qué dicen las fuentes de su origen?",
+     a:"Una <strong>cavidad grande, vertical y muy profunda en la tierra</strong> (el Sótano del Barro es una). Y aquí las fuentes <strong>discrepan</strong>: el DLE dice «origen incierto»; el DECEL propone el griego <em>simós</em> (cóncavo). Cuando discrepan no se elige: se documentan las dos. Y no la confundas con <em>cima</em>: la más alta y la más honda se separan por una letra."},
+    {q:"<em>dolina</em> — otra del paisaje de por acá. ¿Qué es y de qué lengua viene?",
+     a:"Una <strong>hondonada circular en terreno de caliza</strong>, donde el agua disolvió la roca. Y no es ni griega ni latina: es un préstamo del <strong>esloveno</strong> <em>dolina</em>, «valle» — de la región del Karst, en Eslovenia, salió el vocabulario científico de estos paisajes. El español también adopta palabras jóvenes."}
+  ]}
+
+  ];
+
+  /* ---- estado ---- */
+  var total=0;
+  SECS.forEach(function(s){total+=s.items.length;});
+  var marcas={}; /* idx -> 'bien' | 'aun' */
+  var destapadas={};
+  var calib=null;
+
+  document.querySelectorAll('[data-total-preg]').forEach(function(el){el.textContent=total;});
+  var calibInput=document.getElementById('calibNum');
+  calibInput.max=total;
+
+  document.getElementById('calibBtn').addEventListener('click',function(){
+    var v=parseInt(calibInput.value,10);
+    var fb=document.getElementById('calibFb');
+    if(isNaN(v)||v<0||v>total){fb.className='fb no';fb.textContent='Escribe un número entre 0 y '+total+'.';return;}
+    calib=v;
+    fb.className='fb ej';
+    fb.textContent='Anotado: '+v+' de '+total+'. Al final comparas tu predicción con tu resultado: saber cuánto sabes también es la materia.';
+  });
+
+  /* ---- construir el quiz ---- */
+  var cont=document.getElementById('quiz');
+  var chip=document.getElementById('chip');
+  var idx=0;
+  var etiquetas={};
+
+  SECS.forEach(function(sec){
+    var h=document.createElement('h2');h.textContent=sec.t;cont.appendChild(h);
+    var pi=document.createElement('p');pi.className='sec-intro';pi.innerHTML=sec.intro;cont.appendChild(pi);
+    sec.items.forEach(function(it){
+      var i=idx++;
+      var etiqueta=it.q.replace(/<[^>]*>/g,'');
+      if(etiqueta.length>60)etiqueta=etiqueta.slice(0,57)+'…';
+      etiquetas[i]=etiqueta;
+      var card=document.createElement('div');card.className='card';
+      card.innerHTML='<span class="num">Pregunta '+(i+1)+' de '+total+'</span>'
+        +'<p class="preg">'+it.q+'</p>'
+        +'<textarea placeholder="Tu respuesta, de memoria"></textarea>'
+        +'<div class="fila-botones"><button class="btn rosa" type="button">Destapar la respuesta</button></div>'
+        +'<div class="fb" data-fb></div>'
+        +'<div class="marca" data-marca><button type="button" data-v="bien">La tuve bien</button><button type="button" data-v="aun">Aún no</button></div>';
+      var btn=card.querySelector('.btn');
+      var fb=card.querySelector('[data-fb]');
+      var marca=card.querySelector('[data-marca]');
+      btn.addEventListener('click',function(){
+        destapadas[i]=true;
+        fb.className='fb ej';
+        fb.innerHTML=it.a;
+        marca.style.display='flex';
+        btn.disabled=true;btn.textContent='Destapada';btn.className='btn gris';
+      });
+      marca.querySelectorAll('button').forEach(function(b){
+        b.addEventListener('click',function(){
+          marca.querySelectorAll('button').forEach(function(x){x.classList.remove('sel-ok','sel-no');});
+          b.classList.add(b.dataset.v==='bien'?'sel-ok':'sel-no');
+          marcas[i]=b.dataset.v;
+          pintaChip();
+        });
+      });
+      cont.appendChild(card);
+    });
+  });
+
+  function cuenta(){
+    var bien=0,marcadas=0;
+    for(var k in marcas){marcadas++;if(marcas[k]==='bien')bien++;}
+    return {bien:bien,marcadas:marcadas};
+  }
+  function pintaChip(){
+    var c=cuenta();
+    chip.textContent='✔ '+c.bien+' · '+c.marcadas+' de '+total;
+  }
+  pintaChip();
+
+  /* ---- puntaje final ---- */
+  document.getElementById('btnFinal').addEventListener('click',function(){
+    var fb=document.getElementById('fbFinal');
+    var c=cuenta();
+    if(c.marcadas===0){
+      fb.className='fb no';
+      fb.textContent='Todavía no te has marcado ninguna. Destapa, compara y márcate: así se arma el puntaje.';
+      return;
+    }
+    var pend=[];
+    for(var k in marcas){if(marcas[k]==='aun')pend.push('· '+etiquetas[k]);}
+    var pct=Math.round(100*c.bien/c.marcadas);
+    var html='<strong>'+c.bien+' bien de '+c.marcadas+' marcadas ('+pct+'%)</strong>';
+    if(c.marcadas<total)html+=' · te faltan '+(total-c.marcadas)+' por destapar o marcar.';
+    if(calib!==null){
+      html+='<br><br>';
+      if(calib===c.bien)html+='Calibración exacta: predijiste '+calib+' y tuviste '+c.bien+'. Eso, en este curso, vale tanto como los aciertos.';
+      else if(calib>c.bien)html+='Predijiste '+calib+' y llevas '+c.bien+'. La brecha es el dato, no la culpa: ya sabes qué repasar.';
+      else html+='Predijiste '+calib+' y llevas '+c.bien+'. Sabes más de lo que crees: ajusta tu medidor interno hacia arriba.';
+    }
+    if(pend.length){
+      html+='<br><br><strong>Tus candidatas a repaso ('+pend.length+'):</strong><br>'+pend.join('<br>');
+      html+='<br><br>Las que quedaron en «aún no» no son derrotas: son tus mejores candidatas a tarjeta. Anótalas y métele al mazo.';
+    }else{
+      html+='<br><br>Nada pendiente de lo que marcaste. El mazo está haciendo su trabajo.';
+    }
+    fb.className='fb ok';
+    fb.innerHTML=html;
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

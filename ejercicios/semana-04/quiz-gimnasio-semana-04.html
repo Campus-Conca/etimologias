@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Semana 4 · Quiz de gimnasio</title>
+<title>Semana 4 · Quiz de gimnasio · El griego que ya hablas</title>
 <style>
   :root{
     --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
@@ -20,20 +20,18 @@
   body.proyector{font-size:1.35rem}
   body.proyector .wrap{max-width:960px}
   body.proyector header h1{font-size:2rem}
-  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
-  .instr strong{color:var(--ciruela)}
   h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
   .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
-  .card h3{margin:0 0 .4rem;color:var(--rosa);font-size:1.1rem}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.25rem}
   textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
   textarea{min-height:3.2rem;resize:vertical}
-  .opciones,.piezas,.calib{display:flex;flex-direction:column;gap:.5rem;margin-top:.6rem}
-  .piezas,.calib{flex-direction:row;flex-wrap:wrap}
-  .opciones button,.piezas button,.calib button{padding:.6rem .9rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font:inherit;font-weight:700;cursor:pointer;text-align:left}
+  .piezas{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+  .piezas button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;font-size:1rem;cursor:pointer}
+  .piezas button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
   .piezas button small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
-  .opciones button.sel,.piezas button.sel,.calib button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
-  .letra-grande{font-size:2.6rem;font-weight:800;color:var(--ciruela);line-height:1;margin:.3rem 0}
-  .subreactivo{border-top:1px dashed var(--borde);padding-top:.7rem;margin-top:.9rem}
+  .calib{display:flex;gap:.5rem;margin-top:.5rem}
+  .calib button{flex:1;padding:.6rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;font-size:1.05rem;cursor:pointer}
+  .calib button.sel{background:var(--ciruela);color:#fff;border-color:var(--ciruela)}
   .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
   .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
   .btn.rosa{background:var(--rosa);color:#fff}
@@ -43,7 +41,7 @@
   .fb.no{display:block;background:var(--nobg);color:var(--no)}
   .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
   .marca{display:flex;gap:.5rem;margin-top:.6rem}
-  .marca button{flex:1;padding:.5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
+  .marca button{flex:1;padding:.55rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font-weight:700;cursor:pointer;color:var(--ciruela)}
   .marca button.sel-ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
   .marca button.sel-no{background:var(--nobg);color:var(--no);border-color:var(--no)}
   footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
@@ -52,9 +50,9 @@
 <body>
 <header>
   <div class="wrap">
-    <div class="mini">Etimologías grecolatinas · Semana 4 · Gimnasio</div>
-    <h1>Quiz de gimnasio</h1>
-    <p>Práctica libre, sin nota y sin registro. Parecido al quiz de la sesión D, pero con otros reactivos: aquí se entrena, no se compite.</p>
+    <div class="mini">Etimologías grecolatinas · Semana 4 · Quiz de gimnasio</div>
+    <h1>El griego que ya hablas</h1>
+    <p>Tres reactivos como los del quiz de papel. Primero calibra, luego juega.</p>
   </div>
 </header>
 
@@ -69,21 +67,21 @@
     <div class="fb" id="fbCalib"></div>
   </div>
 
-  <h2>Reactivo 1 · Lee tres letras</h2>
+  <h2>Reactivo 1 · Arma la palabra</h2>
   <div class="card">
-    <h3>¿Cómo suena cada una?</h3>
-    <p style="margin:0;font-size:.92rem">Elige el sonido de las tres letras y luego revisa. Cada vez que recargues la página salen otras: el mazo digital no se acaba.</p>
-    <div id="r1zona"></div>
+    <h3>cardiólogo</h3>
+    <p style="margin:0;font-size:.92rem">Toca las piezas correctas, en orden. Hay intrusas. Toca de nuevo para quitar.</p>
+    <div class="piezas" id="r1piezas"></div>
     <div class="fila-botones"><button class="btn rosa" id="r1check">Revisar</button></div>
     <div class="fb" id="r1fb"></div>
   </div>
 
-  <h2>Reactivo 2 · Tu nombre en griego</h2>
+  <h2>Reactivo 2 · Recupera la pieza</h2>
   <div class="card">
-    <h3>Escríbelo sin ver la tabla</h3>
-    <p style="margin:0;font-size:.92rem">Con tu teclado griego si lo tienes, o en tu cuaderno si estás en papel. Luego compara con el ejemplo y márcate tú: bien o aún no.</p>
-    <textarea placeholder="Tu nombre, letra griega por letra griega"></textarea>
-    <div class="fila-botones"><button class="btn gris" id="r2ver">Compara con un ejemplo</button></div>
+    <h3>La pieza que significa "sin"</h3>
+    <p style="margin:0;font-size:.92rem">Escríbela de memoria, con una palabra donde viva. Luego compara y márcate tú: bien o aún no.</p>
+    <input type="text" placeholder="La pieza y una palabra donde reaparece">
+    <div class="fila-botones"><button class="btn gris" id="r2ver">Compara con la respuesta</button></div>
     <div class="fb" id="r2fb"></div>
     <div class="marca" id="r2marca" style="display:none">
       <button data-v="bien">Me quedó bien</button>
@@ -91,13 +89,17 @@
     </div>
   </div>
 
-  <h2>Reactivo 3 · Decodifica</h2>
+  <h2>Reactivo 3 · La receta al revés</h2>
   <div class="card">
-    <h3>ἄρωμα</h3>
-    <p style="margin:0;font-size:.92rem">Léela letra por letra. ¿Qué palabra española es?</p>
-    <input type="text" id="r3resp" placeholder="Escríbela cuando la oigas">
-    <div class="fila-botones"><button class="btn rosa" id="r3check">Revisar</button></div>
+    <h3>"Inflamación del estómago"</h3>
+    <p style="margin:0;font-size:.92rem">El médico lo escribiría en griego, en una sola palabra. Escríbela tú. Luego compara y márcate.</p>
+    <input type="text" placeholder="La palabra, armada con sus piezas">
+    <div class="fila-botones"><button class="btn gris" id="r3ver">Compara con la respuesta</button></div>
     <div class="fb" id="r3fb"></div>
+    <div class="marca" id="r3marca" style="display:none">
+      <button data-v="bien">Me quedó bien</button>
+      <button data-v="aun">Aún no</button>
+    </div>
   </div>
 
   <h2>Cierre · ¿Cómo calibraste?</h2>
@@ -106,7 +108,7 @@
     <div class="fb" id="fbCierre"></div>
   </div>
 
-  <footer>Semana 4 · El alfabeto de hace 2,800 años · Gimnasio: sin nota, sin registro, nada se guarda al cerrar la página. Lo que quede en "aún no" se reintenta cuando quieras: cuenta tu versión más reciente, no el promedio.</footer>
+  <footer>Semana 4 · El griego que ya hablas · Gimnasio: lo que quede en "aún no" se puede reintentar cuando quieras. Cuenta tu versión más reciente, no el promedio.</footer>
 </div>
 
 <button class="modo" id="btnModo">Aa proyector</button>
@@ -127,59 +129,30 @@
     });
   });
 
+  // R1
+  var R1=[["cardio","corazón",true],["-logo","especialista, el que estudia",true],["-itis","inflamación",false],["iatro","médico",false],["hiper-","de más",false]];
   function baraja(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
-
-  // R1: tres letras al azar
-  var POOL=[
-    ["η","e",["n","i"],"parece n latina pero es una e, la e larga"],
-    ["ν","n",["v","m"],"parece v latina pero es la primera de Νίκη"],
-    ["ρ","r",["p","f"],"parece p latina pero es la de δράμα (drama)"],
-    ["υ","i/u",["v","n"],"es la ípsilon: suena i o u según la palabra"],
-    ["χ","j",["x","k"],"es la primera de χάος (caos)"],
-    ["ω","o",["w","u"],"es la omega, la o larga de los ohms"],
-    ["θ","z/th",["o","b"],"es la theta, la que abre θέατρον (teatro)"],
-    ["ξ","x",["e","s"],"es la xi, la de xilófono"],
-    ["φ","f",["p","o"],"es la fi, la que abre φιλοσοφία"],
-    ["ψ","ps",["y","w"],"es la psi, la que abre psicología"],
-    ["γ","g",["y","v"],"es la gamma, la de los rayos gamma"],
-    ["λ","l",["a","n"],"es la lambda, la de λαβύρινθος (laberinto)"],
-    ["ζ","z",["e","x"],"es la dseta, la de zodíaco"],
-    ["δ","d",["o","b"],"es la delta, la del delta de un río"]
-  ];
-  var tres=baraja(POOL).slice(0,3);
-  var zona=document.getElementById('r1zona');
-  var sel1=[null,null,null];
-  tres.forEach(function(L,idx){
-    var div=document.createElement('div');
-    div.className='subreactivo';
-    div.innerHTML='<div class="letra-grande">'+L[0]+'</div>';
-    var ops=document.createElement('div');
-    ops.className='piezas';
-    baraja([L[1]].concat(L[2])).forEach(function(s){
-      var b=document.createElement('button');
-      b.textContent=s;b.dataset.buena=(s===L[1])?'1':'0';
-      b.addEventListener('click',function(){
-        ops.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
-        b.classList.add('sel');sel1[idx]=b;
-      });
-      ops.appendChild(b);
+  var z1=document.getElementById('r1piezas'),sel1=[];
+  baraja(R1).forEach(function(pz){
+    var b=document.createElement('button');
+    b.innerHTML=pz[0]+'<small>'+pz[1]+'</small>';b.dataset.buena=pz[2]?'1':'0';
+    b.addEventListener('click',function(){
+      var i=sel1.indexOf(b);
+      if(i>-1){sel1.splice(i,1);b.classList.remove('sel');}else{sel1.push(b);b.classList.add('sel');}
     });
-    div.appendChild(ops);
-    zona.appendChild(div);
+    z1.appendChild(b);
   });
   document.getElementById('r1check').addEventListener('click',function(){
     var fb=document.getElementById('r1fb');
-    var faltan=sel1.filter(function(x){return !x;}).length;
-    if(faltan){fb.className='fb no';fb.textContent='Te falta elegir el sonido de '+faltan+' letra'+(faltan>1?'s':'')+'.';return;}
-    var malas=[];
-    sel1.forEach(function(b,i){if(b.dataset.buena!=='1')malas.push(i);});
-    if(!malas.length){
+    if(!sel1.length){fb.className='fb no';fb.textContent='Toca primero las piezas que propones.';return;}
+    var aciertos=sel1.filter(function(x){return x.dataset.buena==='1';}).length;
+    var intrusas=sel1.length-aciertos;
+    if(aciertos===2&&intrusas===0){
       estado.r1='bien';fb.className='fb ok';
-      fb.textContent='Bien: las tres leídas. Las tramposas ya no te venden espejitos.';
+      fb.innerHTML='Bien: cardio (corazón) + logo (especialista) = el especialista en corazón. Ojo con la trampa de iatro: también es "médico", pero cardiólogo no lo trae; iatro vive en pediatra, psiquiatra y geriatra.';
     }else{
       estado.r1='aun';fb.className='fb no';
-      var pistas=malas.map(function(i){return 'La '+tres[i][0]+' '+tres[i][3]+'.';});
-      fb.textContent='Aún no. Pista: '+pistas.join(' ');
+      fb.textContent='Aún no. Pista: la suma tiene exactamente 2 piezas, y una de ellas nombra al especialista. Cuidado: dos de las intrusas también huelen a consultorio.';
     }
   });
 
@@ -187,7 +160,7 @@
   document.getElementById('r2ver').addEventListener('click',function(){
     var fb=document.getElementById('r2fb');
     fb.className='fb ej';
-    fb.innerHTML='<strong>Un ejemplo armado:</strong> Eduardo queda Εδουαρδο (E→Ε, d→δ, u→ου, a→α, r→ρ, d→δ, o→ο).<br><br><strong>Revisa lo tuyo:</strong> ¿la h muda desapareció? ¿toda u va como ου? ¿la s final es ς? ¿cada sonido tiene su letra? La aproximación fonética cuenta: no somos helenistas. Compara y márcate abajo, nadie te vigila.';
+    fb.innerHTML='<strong>La respuesta:</strong> a- o an- (la misma pieza, con o sin n según la palabra que sigue). Vive en analgésico (sin dolor), anestesia (sin sensación), anemia (sangre que falta), apatía (sin sentimientos), analfabeta (sin letras).<br><br>Si escribiste la pieza y al menos una palabra donde reaparece con ese valor, va bien. Compara y márcate abajo: nadie te vigila, calibrar es el entrenamiento.';
     document.getElementById('r2marca').style.display='flex';
   });
   document.querySelectorAll('#r2marca button').forEach(function(b){
@@ -199,21 +172,18 @@
   });
 
   // R3
-  var r3intentos=0;
-  document.getElementById('r3check').addEventListener('click',function(){
+  document.getElementById('r3ver').addEventListener('click',function(){
     var fb=document.getElementById('r3fb');
-    var v=document.getElementById('r3resp').value.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z]/g,'');
-    if(!v){fb.className='fb no';fb.textContent='Escribe primero la palabra que crees que es.';return;}
-    if(v==='aroma'){
-      estado.r3='bien';fb.className='fb ok';
-      fb.textContent='Bien: ἄρωμα se lee aroma. La ρ te quiso vender una p y la ω una w, y no caíste.';
-    }else{
-      r3intentos++;
-      estado.r3='aun';fb.className='fb no';
-      fb.textContent=r3intentos>=2
-        ?'Aún no. Pista fuerte: cinco sonidos, a-r-o-m-a. Es algo que hueles.'
-        :'Aún no. Pista: trae dos tramposas, la ρ no es p latina y la ω es una o. Léela de nuevo en voz alta.';
-    }
+    fb.className='fb ej';
+    fb.innerHTML='<strong>La respuesta:</strong> gastritis. gastro (estómago) + -itis (inflamación). Si armaste "gastroitis" o algo parecido, la lógica va perfecta: las piezas se liman al juntarse, y eso se pule con el uso.<br><br>Bono para presumir el viernes: "dolor de estómago" en griego de receta es gastralgia.<br><br>Compara con lo tuyo y márcate abajo.';
+    document.getElementById('r3marca').style.display='flex';
+  });
+  document.querySelectorAll('#r3marca button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('#r3marca button').forEach(function(x){x.classList.remove('sel-ok','sel-no');});
+      b.classList.add(b.dataset.v==='bien'?'sel-ok':'sel-no');
+      estado.r3=b.dataset.v;
+    });
   });
 
   // Cierre
@@ -223,7 +193,7 @@
     if(estado.calib===null)pend.push('la calibración del paso 0');
     if(!estado.r1)pend.push('el reactivo 1');
     if(!estado.r2)pend.push('marcarte el reactivo 2');
-    if(!estado.r3)pend.push('el reactivo 3');
+    if(!estado.r3)pend.push('marcarte el reactivo 3');
     if(pend.length){
       fb.className='fb no';
       fb.textContent='Todavía falta: '+pend.join(', ')+'.';
@@ -236,7 +206,7 @@
     else if(estado.calib>bien)msj='Predijiste '+estado.calib+' y tuviste '+bien+'. La brecha es el dato, no la culpa: ya sabes qué reactivo reintentar.';
     else msj='Predijiste '+estado.calib+' y tuviste '+bien+'. Sabes más de lo que crees: ajusta tu medidor interno hacia arriba.';
     fb.className='fb ok';
-    fb.innerHTML=lista+'<br><br>'+msj+'<br><br>Lo que quedó en "aún no" se reintenta cuando quieras: recarga la página y salen letras nuevas.';
+    fb.innerHTML=lista+'<br><br>'+msj+'<br><br>Lo que quedó en "aún no" se reintenta cuando quieras: recarga la página y vuelve a entrar.';
   });
 
   document.getElementById('btnModo').addEventListener('click',function(){

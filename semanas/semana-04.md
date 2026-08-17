@@ -202,6 +202,7 @@ El español está lleno de griego. No en los libros viejos: en la farmacia, en e
 <span class="senal">Actividad · en parejas</span>
 <p class="di">Yo digo el malestar, ustedes dicen el especialista. Solo con piezas.</p>
 <p class="apoyo">Te arde el estómago: gastroenterólogo. Ves borroso: oftalmólogo. Te duele una muela: odontólogo. El corazón te brinca: cardiólogo. Un sarpullido: dermatólogo. En parejas, con el mapa del cuerpo enfrente: veredicto por escrito, malestar por malestar, y luego la puesta en común. Esto no es cultura general: es saber pedir la cita correcta.</p>
+<p class="apoyo">Para practicarlo por tu cuenta, con el cuerpo entero y no solo con estas cinco: <a href="../ejercicios/semana-04/ejercicio-4B-el-cuerpo-en-griego.html">El cuerpo en griego</a>.</p>
 <p class="nota-conductor">Incluye dos con trampa: ¿a quién vas si te truena la rodilla? (traumatólogo u ortopedista: ninguno se decodifica fácil con lo visto, y está bien decir "esta no se deja"). El método también enseña sus límites. Cierra preguntando quién ha acompañado a alguien a un especialista: la utilidad se vuelve personal.</p>
 </section>
 <section class="lam lam--actividad">

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 3 · El torneo de matrices · Reglas y ejemplos</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.3rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .regla{background:var(--ciruela);color:#fff;border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;font-size:1rem}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.9rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .4rem;color:var(--rosa);font-size:1.05rem}
+  .card p{margin:.4rem 0}
+  table{border-collapse:collapse;width:100%;margin:.6rem 0;font-size:.95rem}
+  th{background:var(--fondo);color:var(--ciruela);text-align:left}
+  th,td{border:1px solid var(--borde);padding:.5rem .6rem;vertical-align:top}
+  .si{color:var(--ok);font-weight:700}
+  .cae{color:var(--no);font-weight:700}
+  .pill{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:.15rem .55rem;border-radius:1rem;background:var(--fondo);color:var(--ciruela);margin-right:.4rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 3 · Viernes</div>
+    <h1>El torneo de matrices · Reglas y ejemplos</h1>
+    <p>La matriz grande no gana por grande: gana por defendible.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="regla">
+    <strong>El juego en una frase.</strong> Por equipos de tres o cuatro: construyan la matriz más grande que puedan <strong>defender</strong>. Cada palabra vale un punto… si sobrevive.
+  </div>
+
+  <h2>1 · Cómo se arma una matriz</h2>
+  <div class="card">
+    <p>Eligen una <strong>pieza fija</strong> del mazo y anotan todas las palabras reales del español donde esa pieza aparezca <em>con ese significado</em>.</p>
+    <table>
+      <tr><th>Fija</th><th>Palabras propuestas</th></tr>
+      <tr><td><strong>port-</strong> (llevar)</td><td>transporte, portátil, reportero, exportar, importar, deporte, deportar</td></tr>
+    </table>
+    <p>Al pizarrón va la pieza arriba y las palabras en fila. Cada palabra es una apuesta: los otros equipos pueden retarla.</p>
+  </div>
+
+  <h2>2 · Qué cuenta como palabra (y qué no)</h2>
+
+  <div class="card">
+    <h3><span class="pill">Regla 1</span> Solo palabras que existen</h3>
+    <p>Si el DLE no la conoce, no juega. <em>Portamundos</em> suena precioso y vale cero. La sorpresa buena también existe: el diccionario conoce más palabras que tú, así que ante la duda, propónla como hipótesis y que decida la fuente.</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="pill">Regla 2</span> No se vale conjugar</h3>
+    <p><em>Reportar, reporté, reportaste, reportaríamos</em>: <strong>una sola palabra</strong>, no cuatro. La conjugación no cambia las piezas, solo la terminación. El verbo se anota una vez, en infinitivo.</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="pill">Regla 3</span> Tampoco se vale inflar</h3>
+    <p>Plurales (<em>transporte / transportes</em>), masculino y femenino (<em>portero / portera</em>), diminutivos, aumentativos y superlativos (<em>-ito, -ota, -ísimo</em>): la misma palabra. La prueba rápida: si no cambió ninguna pieza con significado (prefijo, raíz o sufijo), no es palabra nueva.</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="pill">Regla 4</span> Las derivadas sí cuentan, una por una</h3>
+    <p><em>Exportar, exportación, exportador</em>: <strong>tres palabras</strong>, porque cada una trae una pieza distinta que le cambia el oficio. Pero cada una se defiende sola: si proponen las tres, las tres pueden ser retadas.</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="pill">Regla 5</span> La pieza tiene que significar eso ahí</h3>
+    <p><em>Portero</em> trae las letras de <em>port-</em>, pero ahí no hay "llevar": hay <em>puerta</em> (<em>porta</em>). Las letras engañan; la fuente no. Es la regla de oro de la semana: un corte es real solo si la pieza reaparece en otras palabras con el mismo significado, <strong>y la fuente lo confirma</strong>.</p>
+  </div>
+
+  <div class="card">
+    <h3>Las cinco reglas, en jugadas</h3>
+    <table>
+      <tr><th>Jugada</th><th>Veredicto</th></tr>
+      <tr><td>Con <strong>port-</strong>: exportar, exporté, exportaste</td><td><span class="cae">Una palabra, no tres.</span> Se anota <em>exportar</em> y ya. (Regla 2)</td></tr>
+      <tr><td>Con <strong>tele-</strong>: televisión y televisiones</td><td><span class="cae">Una palabra.</span> El plural no trae pieza nueva. (Regla 3)</td></tr>
+      <tr><td>Con <strong>port-</strong>: exportar, exportador, exportación</td><td><span class="si">Tres palabras legítimas.</span> Tres puntos… si las defienden. (Regla 4)</td></tr>
+      <tr><td>Con <strong>port-</strong>: portero</td><td><span class="cae">Puede jugar… hasta que alguien la rete.</span> Viene de <em>puerta</em>, no de <em>portare</em>: reto certero. (Regla 5)</td></tr>
+      <tr><td>Con <strong>fon-</strong>: fonda</td><td><span class="cae">Trae las letras, no el sonido.</span> Reto certero. (Regla 5)</td></tr>
+      <tr><td>Con <strong>-scopio</strong>: telescopio, microscopio, periscopio</td><td><span class="si">Tres puntos defendibles.</span> Cada una con pieza móvil distinta.</td></tr>
+    </table>
+  </div>
+
+  <h2>3 · Cómo corre una ronda</h2>
+  <div class="card">
+    <p><strong>1.</strong> El equipo en turno pasa su matriz al pizarrón y la lee en voz alta (2 minutos).</p>
+    <p><strong>2.</strong> Los demás equipos, por turnos, retan: <strong>un reto por equipo por ronda</strong>. Retar es decir en voz alta qué regla no cumple la palabra, o por qué la pieza no significa eso ahí.</p>
+    <p><strong>3.</strong> El DECEL da el veredicto, con el profesor de juez de última instancia.</p>
+    <p><strong>4.</strong> Se anotan los puntos y pasa el siguiente equipo.</p>
+    <p>Los cortes dudosos del banco del martes entran como retos listos cuando el juez lo decida. El de <em>re + loj</em> sigue congelado: ni lo intenten, tiene su propia semana.</p>
+  </div>
+
+  <h2>4 · Los puntos</h2>
+  <div class="card">
+    <table>
+      <tr><th>Qué pasó</th><th>Punto</th></tr>
+      <tr><td>Palabra que nadie reta (y es real)</td><td><span class="si">1 para el equipo dueño</span></td></tr>
+      <tr><td>Palabra retada y defendida con familia y fuente</td><td><span class="si">1 para el dueño</span> · el reto falló, pero no castiga: se gasta</td></tr>
+      <tr><td>Reto certero: la palabra cae</td><td><span class="cae">el punto pasa al equipo retador</span></td></tr>
+      <tr><td>Palabra inflada (conjugación, plural, diminutivo) que un rival caza</td><td><span class="cae">el punto es para el cazador</span></td></tr>
+      <tr><td>Retar sin argumento ("nomás porque no")</td><td><span class="cae">se pierde el turno de retar</span></td></tr>
+    </table>
+    <p>Gana el equipo con más puntos al final. <strong>Empate:</strong> muerte súbita con un dudoso del banco: el primer equipo que dé el veredicto correcto, con la fuente en pantalla, se lo lleva.</p>
+  </div>
+
+  <div class="regla">
+    <strong>La pregunta que gana torneos</strong> no es "¿esa palabra existe?". Es: <strong>"¿la pieza significa eso ahí?"</strong> La misma que desenmascaró a <em>mango</em>. Proponer sin fuente es regalar puntos; retar sin fuente es perder el turno.
+  </div>
+
+  <h2>5 · Estrategia (gratis, porque somos buena gente)</h2>
+  <div class="card">
+    <p>· Antes de anotar una palabra, pásenla por las cinco reglas: es más barato que perderla en vivo.</p>
+    <p>· Una matriz de doce palabras blindadas vale más que una de veinte con cinco espejismos: cada espejismo es un punto que regalan.</p>
+    <p>· Repartan oficios: alguien propone, alguien verifica, alguien prepara los retos contra los rivales.</p>
+    <p>· Guarden un reto para el cierre: al final los rivales anotan con hambre, y con hambre se cometen errores.</p>
+  </div>
+
+  <footer>Semana 3 · Sumas de palabras · Viernes, 2 horas · El profesor es juez, el DECEL es la ley, y la regla de oro no descansa.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>
