@@ -66,6 +66,7 @@ Este curso no reparte calificaciones. Ningún quiz, ninguna defensa, ninguna pie
 <section class="lam">
 <h4><span class="n">5</span> El suelo</h4>
 <p class="di">La lista de lo que debe existir al cerrar cada unidad. Quien llega con el suelo completo, no reprueba.</p>
+<img class="ilustracion" src="assets/img/semana-07/el-suelo.webp" alt="Una figura dibujada a mano parada firme sobre un piso de cinco tablas rotuladas quizzes intentados, pieza del Museo, defensa en parejas, círculo de lectura y bitácora viva; del piso sube una escalera rosa que dice la conversación decide cuánto más, y a la derecha falta un pedazo de tabla con un martillo encima y la nota si falta una tabla, se repone">
 <p class="apoyo">No mide qué tan bien te salió: registra que estuviste y que lo hiciste. La conversación decide cuánto más. Y si algo queda pendiente, se completa en la segunda vuelta de diciembre.</p>
 </section>
 
@@ -186,6 +187,13 @@ Estas son las plantillas, para que veas de qué estamos hablando antes de que em
     <span class="pl-cta">Verlo y descargarlo →</span>
   </a>
 
+  <a class="pl-card" href="recursos/plantillas/cuadernillo-u1.html">
+    <span class="pl-tag">cuadernillo · 8 páginas · semana 7</span>
+    <b>El cierre de la Unidad 1</b>
+    <span class="pl-desc">El cuadernillo que llenas para proponer tu primer parcial, pensado para quien nunca ha vivido esto: qué cuenta como argumento y qué no, tu suelo detallado, tu serie de calibración explicada, el mapa de tus evidencias y el ensayo en parejas antes de la conversación.</span>
+    <span class="pl-cta">Verlo y descargarlo →</span>
+  </a>
+
   <a class="pl-card" href="recursos/plantillas/pactos.html">
     <span class="pl-tag">se firman en tu celular</span>
     <b>Los tres pactos</b>
@@ -223,7 +231,19 @@ Se abren en el navegador y se imprimen con Ctrl/Cmd + P (o se guardan como PDF d
 
 El suelo es la lista de lo que debe existir al cerrar cada unidad. No mide qué tan bien te salió: registra que estuviste y que lo hiciste. Quien llega al cierre con el suelo completo tiene una garantía: **no reprueba**. La conversación decide cuánto más.
 
-**Suelo de la unidad 1** (semanas 2 a 7): quizzes intentados (el resultado no importa, el intento sí) · tu primera pieza del Museo en el portafolio · defensa en parejas hecha · presencia en el primer círculo de lectura · bitácora del lector viva.
+<img class="ilustracion" src="assets/img/semana-07/el-suelo.webp" alt="Una figura dibujada a mano parada firme sobre un piso de cinco tablas rotuladas quizzes intentados, pieza del Museo, defensa en parejas, círculo de lectura y bitácora viva; del piso sube una escalera rosa que dice la conversación decide cuánto más, y a la derecha falta un pedazo de tabla con un martillo encima y la nota si falta una tabla, se repone">
+
+**Suelo de la unidad 1** (semanas 2 a 7). Como es el primero, va desglosado:
+
+| Lo que debe existir | Qué cuenta exactamente |
+|---|---|
+| Los seis quizzes intentados | #1 (semana 2), #2 (3), #3 (4), #4 (5), #5 (6) y el integrador (7). El resultado no importa, el intento sí. Si faltaste a uno, se reintenta. |
+| Tu primera pieza del Museo | En el portafolio, con su ficha completa: palabra, origen, viaje, por qué la elegiste y registro de fuentes. |
+| Tu defensa en parejas | Peldaño 1 de la escalera, hecha ante el profesor en la semana 7. |
+| El primer círculo de lectura | Estuviste, y tu obra terminada dejó su ficha en el tendedero de [Leemos](leemos.html). |
+| Tu bitácora del lector, viva | Viva es con rastro reciente. Nadie la lee por dentro: se revisa que exista. |
+
+Todo eso se palomea en el [cuadernillo de cierre de la unidad 1](recursos/plantillas/cuadernillo-u1.html), que además trae lo que sigue: cómo se lee tu serie de calibración, qué cuenta como argumento y qué no, y el ensayo en parejas antes de la conversación.
 
 **Suelo de la unidad 2** (semanas 8 a 12): quizzes intentados · piezas de la unidad en el portafolio · defensa individual hecha · presencia en el segundo círculo · primer booktuber entregado (en cualquiera de sus formatos) · bitácora viva.
 

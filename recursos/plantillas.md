@@ -17,6 +17,13 @@ Todo lo que en este curso se llena a mano vive aquí. Se abren en el navegador, 
     <span class="pl-cta">Abrir e imprimir →</span>
   </a>
 
+  <a class="pl-card" href="plantillas/cuadernillo-u1.html">
+    <span class="pl-tag">cuadernillo · 8 páginas · semana 7</span>
+    <b>Cierre de la Unidad 1</b>
+    <span class="pl-desc">El cuadernillo que llenas para proponer tu primer parcial: qué es esto y por qué existe, tu suelo con nombre y apellido, tu serie de calibración leída, el mapa de tus evidencias, el ensayo en parejas y la propuesta que transcribes al formulario. Si es tu primera vez con este sistema, empieza por aquí.</span>
+    <span class="pl-cta">Abrir e imprimir →</span>
+  </a>
+
   <a class="pl-card" href="plantillas/pactos.html">
     <span class="pl-tag">se firman en tu celular</span>
     <b>Los tres pactos</b>
