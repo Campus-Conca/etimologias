@@ -34,7 +34,7 @@ Traes tu palabra y una ficha de apoyo. No se lee todo. Lo que cuenta es que pued
 
 ### Tu segundo parcial
 
-Igual que en la semana 7: quiz y defensa son evidencia, no nota. Autoevaluación de unidad en tu expediente el fin de semana, y el bloque final al [formulario de parciales](https://docs.google.com/forms/d/e/1FAIpQLSc32h4aoWfVteMZkbvdmHb0NNEsG3KrhUAi2Y2LYqOqIEEsHw/viewform) antes del lunes. Las reglas, por si las quieres releer: [Tu calificación](../evaluacion.html).
+Igual que en la semana 7: quiz y defensa son evidencia, no nota. Autoevaluación de unidad en tu expediente el fin de semana, y el bloque final al [formulario de parciales](https://forms.gle/wVMNguqu3Nfu7yBX7) antes del lunes. Las reglas, por si las quieres releer: [Tu calificación](../evaluacion.html).
 
 ---
 

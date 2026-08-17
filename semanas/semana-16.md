@@ -80,7 +80,7 @@ Todos hicieron exactamente lo que tú vas a hacer esta semana: encontrar un huec
 
 ### Tu tercer parcial
 
-El último del semestre. Quiz integrador y defensa socrática son tu evidencia. Autoevaluación de unidad en el expediente el fin de semana, bloque final al [formulario de parciales](https://docs.google.com/forms/d/e/1FAIpQLSc32h4aoWfVteMZkbvdmHb0NNEsG3KrhUAi2Y2LYqOqIEEsHw/viewform) antes del lunes. La autoevaluación final (la del semestre completo) todavía no: esa se escribe después del Museo. Reglas completas: [Tu calificación](../evaluacion.html).
+El último del semestre. Quiz integrador y defensa socrática son tu evidencia. Autoevaluación de unidad en el expediente el fin de semana, bloque final al [formulario de parciales](https://forms.gle/wVMNguqu3Nfu7yBX7) antes del lunes. La autoevaluación final (la del semestre completo) todavía no: esa se escribe después del Museo. Reglas completas: [Tu calificación](../evaluacion.html).
 
 ---
 
