@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 4 · Ejercicio A · El botiquín griego</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.25rem}
+  .piezas{display:flex;gap:.4rem;flex-wrap:wrap;margin:.5rem 0 .2rem}
+  .pz{display:inline-block;border-radius:.5rem;padding:.35rem .6rem;font-weight:700;font-size:.95rem;line-height:1.15}
+  .pz small{display:block;font-weight:400;font-size:.72rem;opacity:.85}
+  .pz--pre{background:#ffe3f0;color:#a30058}
+  .pz--raiz{background:#2b2440;color:#ffd6e9}
+  .pz--suf{background:#dff5ee;color:#0b5f52}
+  .apuesta{display:flex;flex-direction:column;gap:.5rem;margin-top:.6rem}
+  .apuesta input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;background:var(--fondo)}
+  .seguridad{display:flex;gap:.5rem;flex-wrap:wrap}
+  .seguridad button{flex:1;min-width:5.5rem;padding:.5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font:inherit;font-weight:700;cursor:pointer}
+  .seguridad button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .marca{display:flex;gap:.5rem;margin-top:.6rem}
+  .marca button{flex:1;padding:.5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
+  .marca button.sel-ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
+  .marca button.sel-no{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
+  .marcador{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--borde);padding:.5rem 0;font-weight:700;color:var(--ciruela);display:flex;justify-content:space-between;font-size:.95rem}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 4 · Martes</div>
+    <h1>El botiquín griego</h1>
+    <p>Doce palabras de farmacia y consultorio. Tú apuestas qué dicen; la pantalla revela después.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="marcador">
+    <span>Apuestas ganadas: <span id="mGanadas">0</span> / <span id="mHechas">0</span></span>
+    <span id="mSeg">seguridad alta: 0/0</span>
+  </div>
+
+  <div class="instr">
+    <strong>Cómo se juega, en parejas.</strong> Cada tarjeta te da la palabra y sus piezas. Ustedes escriben qué creen que significa <em>antes</em> de tocar "Revelar", y marcan qué tan seguros están. Después comparan y se califican solos: <strong>le atiné</strong> o <strong>aún no</strong>. Nadie apunta nada en una lista: esto es gimnasio.
+  </div>
+
+  <div class="regla">
+    <strong>Las cuatro llaves del botiquín:</strong> <em>a- / an-</em> quita · <em>anti-</em> pelea · <em>hiper-</em> es de más · <em>hipo-</em> es de menos. Con esas cuatro y dos raíces del cuerpo, la mitad de la farmacia se deja leer.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> tres columnas —palabra, mi apuesta, veredicto— y una marca de seguridad (bajo, medio, alto) en cada renglón. Mismo juego, otra superficie.
+  </div>
+
+  <h2>Las doce del botiquín</h2>
+  <div id="tarjetas"></div>
+
+  <div class="instr" id="cierre">
+    <strong>Antes de cerrar.</strong> Mira tus apuestas de seguridad alta: ¿cuántas sobrevivieron? Ese es tu número de calibración del día, y va a subir todo el semestre. Y anota las dos palabras que más te sorprendieron: son materia prima del tribunal del jueves.
+  </div>
+
+  <footer>Semana 4 · El griego que ya hablas · Este ejercicio es gimnasio: sin nota, sin registro. Nada se guarda; al cerrar la página todo se borra.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var P=[
+    {w:"otitis",
+     pz:[["ot-","oreja","raiz"],["-itis","inflamación","suf"]],
+     sig:"Inflamación del oído.",
+     nota:"La pieza que vale por diez diagnósticos: cámbiale la raíz y tienes gastritis, dermatitis, laringitis, apendicitis."},
+    {w:"cefalalgia",
+     pz:[["cefal-","cabeza","raiz"],["-algia","dolor","suf"]],
+     sig:"Dolor de cabeza.",
+     nota:"Lo que el médico escribe en la receta cuando tú dirías «me duele la cabeza». La misma palabra, en griego de consultorio."},
+    {w:"analgésico",
+     pz:[["an-","sin","pre"],["-algia","dolor","suf"]],
+     sig:"Lo que quita el dolor.",
+     nota:"Literalmente «sin dolor». Si sabes leer la caja, sabes para qué es la pastilla."},
+    {w:"anemia",
+     pz:[["an-","sin","pre"],["-emia","sangre","suf"]],
+     sig:"Sangre que falta: pocos glóbulos rojos.",
+     nota:"La misma pieza an- de anónimo y de amnesia, trabajando en otra familia."},
+    {w:"antibiótico",
+     pz:[["anti-","contra","pre"],["bio-","vida","raiz"]],
+     sig:"Lo que va contra la vida (la de la bacteria).",
+     nota:"Suena feo dicho así, y es exactamente eso. Por eso no sirve contra un virus: no está vivo del mismo modo."},
+    {w:"hipertensión",
+     pz:[["hiper-","de más","pre"],["tensión","presión","raiz"]],
+     sig:"Presión arterial más alta de lo normal.",
+     nota:"Dato fino: mitad griega, mitad latina. Las lenguas también se mezclan, y nadie las regaña."},
+    {w:"hipotermia",
+     pz:[["hipo-","de menos","pre"],["termo-","calor","raiz"]],
+     sig:"Temperatura del cuerpo más baja de lo normal.",
+     nota:"termo- es vieja conocida: termómetro, termo, termostato. La pieza no cambia de trabajo al cambiar de palabra."},
+    {w:"gastritis",
+     pz:[["gastro-","estómago","raiz"],["-itis","inflamación","suf"]],
+     sig:"Inflamación del estómago.",
+     nota:"Y de pilón: gastronomía es «las reglas del estómago». La misma raíz que te duele es la que te da de comer."},
+    {w:"neuralgia",
+     pz:[["neuro-","nervio","raiz"],["-algia","dolor","suf"]],
+     sig:"Dolor de un nervio.",
+     nota:"Dos piezas que ya tenías. Nadie te enseñó esta palabra y ya la lees: eso es la semana funcionando."},
+    {w:"anestesia",
+     pz:[["an-","sin","pre"],["aisthesis","sensación","raiz"]],
+     sig:"Sin sensación.",
+     nota:"De la misma familia que «estética»: lo que se percibe por los sentidos. Anestesia es apagar esa percepción un rato."},
+    {w:"hipoglucemia",
+     pz:[["hipo-","de menos","pre"],["glyk-","dulce","raiz"],["-emia","sangre","suf"]],
+     sig:"Azúcar de menos en la sangre.",
+     nota:"Tres piezas seguidas y ninguna nueva. Si esta te salió, ya lees etiquetas de laboratorio."},
+    {w:"nostalgia",
+     pz:[["nóstos","regreso","raiz"],["-algia","dolor","suf"]],
+     sig:"El dolor por el regreso que no llega.",
+     nota:"La palabra más bonita del botiquín, y no es médica: la inventó un estudiante suizo en 1688 para nombrar la enfermedad de extrañar la casa. Los griegos ya sabían que hay dolores que no son del cuerpo."}
+  ];
+
+  var ganadas=0, hechas=0, segAlta=0, segAltaOk=0;
+  var mG=document.getElementById('mGanadas'), mH=document.getElementById('mHechas'), mS=document.getElementById('mSeg');
+  var caja=document.getElementById('tarjetas');
+
+  function pinta(){
+    mG.textContent=ganadas; mH.textContent=hechas;
+    mS.textContent='seguridad alta: '+segAltaOk+'/'+segAlta;
+  }
+
+  P.forEach(function(item,idx){
+    var card=document.createElement('div');
+    card.className='card';
+
+    var piezas=item.pz.map(function(p){
+      return '<span class="pz pz--'+p[2]+'">'+p[0]+'<small>'+p[1]+'</small></span>';
+    }).join('');
+
+    card.innerHTML=
+      '<h3>'+(idx+1)+' · '+item.w+'</h3>'+
+      '<div class="piezas">'+piezas+'</div>'+
+      '<div class="apuesta">'+
+        '<input type="text" placeholder="Tu apuesta: ¿qué significa?">'+
+        '<div class="seguridad"><button type="button">Seguridad baja</button><button type="button">Media</button><button type="button">Alta</button></div>'+
+      '</div>'+
+      '<div class="fila-botones"><button class="btn rosa" data-revelar>Revelar</button></div>'+
+      '<div class="fb" data-fb></div>'+
+      '<div class="marca" data-marca hidden><button type="button" data-v="ok">Le atiné</button><button type="button" data-v="no">Aún no</button></div>';
+
+    var inp=card.querySelector('input');
+    var seg=card.querySelector('.seguridad');
+    var fb=card.querySelector('[data-fb]');
+    var marca=card.querySelector('[data-marca]');
+    var segSel=null, marcado=false;
+
+    seg.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){
+        seg.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+        b.classList.add('sel');
+        segSel=b.textContent;
+      });
+    });
+
+    card.querySelector('[data-revelar]').addEventListener('click',function(){
+      if(!inp.value.trim()){
+        fb.className='fb no';
+        fb.textContent='Primero la apuesta. Si buscas o revelas antes de apostar, no entrenas nada: copias.';
+        return;
+      }
+      if(!segSel){
+        fb.className='fb no';
+        fb.textContent='Falta tu nivel de seguridad. Saber cuánto sabes vale tanto como saber.';
+        return;
+      }
+      fb.className='fb ej';
+      fb.innerHTML='<strong>'+item.sig+'</strong><br>'+item.nota;
+      marca.hidden=false;
+      this.disabled=true;
+      inp.disabled=true;
+    });
+
+    marca.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){
+        if(marcado) return;
+        marcado=true;
+        hechas++;
+        var acierto=(b.getAttribute('data-v')==='ok');
+        if(acierto){ ganadas++; b.classList.add('sel-ok'); }
+        else { b.classList.add('sel-no'); }
+        if(segSel==='Alta'){ segAlta++; if(acierto) segAltaOk++; }
+        marca.querySelectorAll('button').forEach(function(x){x.disabled=true;});
+        pinta();
+      });
+    });
+
+    caja.appendChild(card);
+  });
+
+  pinta();
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

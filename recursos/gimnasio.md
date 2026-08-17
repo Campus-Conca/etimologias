@@ -25,12 +25,13 @@ Los ejercicios de práctica de todo el semestre, semana por semana. Sin nota y s
 - [Veinte palabras gratis](../ejercicios/semana-03/ejercicio-3C-veinte-palabras-gratis.html) · jueves, centro de cómputo
 - [Quiz de gimnasio](../ejercicios/semana-03/quiz-gimnasio-semana-03.html) · ensayo libre
 
-**Semana 4 · El alfabeto de hace 2,800 años**
+**Semana 4 · El griego que ya hablas**
 
-- [Decodifica la palabra](../ejercicios/semana-04/ejercicio-4A-decodifica-la-palabra.html) · martes
-- [Tu nombre en griego](../ejercicios/semana-04/ejercicio-4A-tu-nombre-en-griego.html) · martes
-- [Decodifica y verifica](../ejercicios/semana-04/ejercicio-4C-decodifica-y-verifica.html) · jueves, centro de cómputo
+- [El botiquín griego](../ejercicios/semana-04/ejercicio-4A-botiquin-griego.html) · martes
+- [Apuesta y verifica](../ejercicios/semana-04/ejercicio-4C-apuesta-y-verifica.html) · jueves, centro de cómputo
 - [Quiz de gimnasio](../ejercicios/semana-04/quiz-gimnasio-semana-04.html) · ensayo libre
+
+Y los juegos del alfabeto, sin mazo y sin quiz: [Tu nombre en griego](../ejercicios/semana-04/ejercicio-4A-tu-nombre-en-griego.html) · [Decodifica la palabra](../ejercicios/semana-04/ejercicio-4A-decodifica-la-palabra.html) · [Decodifica y verifica](../ejercicios/semana-04/ejercicio-4C-decodifica-y-verifica.html)
 
 **Semana 5 · Una raíz, veinte palabras**
 

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 4 · Ejercicio C · Apuesta y verifica</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3rem;resize:vertical}
+  .protocolo{counter-reset:paso;list-style:none;padding:0;margin:.5rem 0 0}
+  .protocolo li{position:relative;padding:.7rem .8rem .7rem 3rem;border:1px solid var(--borde);border-radius:.7rem;margin-top:.5rem;background:#fff}
+  .protocolo li::before{counter-increment:paso;content:counter(paso);position:absolute;left:.8rem;top:.75rem;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--rosa);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+  .protocolo a{color:var(--rosa);font-weight:700}
+  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
+  .veredicto,.seguridad{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.4rem}
+  .veredicto button,.seguridad button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;cursor:pointer;font:inherit}
+  .veredicto button.sel,.seguridad button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+  .banco{display:flex;flex-wrap:wrap;gap:.4rem;margin:.6rem 0}
+  .banco button{padding:.45rem .75rem;border:1px solid var(--borde);border-radius:2rem;background:#fff;color:var(--ciruela);font:inherit;font-weight:700;cursor:pointer;font-size:.9rem}
+  .banco button.usada{background:var(--fondo);color:#999;text-decoration:line-through}
+  .pistabanco{background:var(--fondo);border:1px solid var(--borde);border-radius:.7rem;padding:.7rem .9rem;margin-top:.5rem;font-size:.92rem;display:none}
+  .pistabanco b{color:var(--ciruela)}
+  .marcador{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--borde);padding:.5rem 0;font-weight:700;color:var(--ciruela);font-size:.95rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 4 · Jueves · Centro de cómputo</div>
+    <h1>Apuesta y verifica</h1>
+    <p>El tribunal de las apuestas. Primero apuestas, después preguntas a las fuentes. Ese orden es la ley.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="marcador">Apuestas que sobrevivieron: <span id="mOk">0</span> de <span id="mTot">0</span></div>
+
+  <div class="regla">
+    <strong>La ley del tribunal:</strong> apostar primero, buscar después. Si buscas primero no entrenas nada: copias. Y ninguna etimología se acepta sin fuente: ni de un compañero, ni de una IA, ni tuya.
+  </div>
+
+  <h2>El protocolo</h2>
+  <ol class="protocolo">
+    <li>Escribe la palabra y córtala en piezas, con lo que traes en el mazo. Sin buscar todavía.</li>
+    <li>Apuesta el significado y anota tu nivel de seguridad: bajo, medio o alto.</li>
+    <li>Ahora sí: busca en el <a href="http://etimologias.dechile.net" target="_blank" rel="noopener">DECEL</a> el origen, y en el <a href="https://dle.rae.es" target="_blank" rel="noopener">DLE</a> lo que significa hoy.</li>
+    <li>Dicta el veredicto: tu apuesta sobrevivió, sobrevivió con ajustes, o cayó. Y anota la fuente: sin ella la captura no vale.</li>
+  </ol>
+
+  <h2>Caso 1 · Tu primera palabra apostada</h2>
+  <div class="card">
+    <h3>La que trajiste del miércoles</h3>
+    <p style="font-size:.92rem;margin:.3rem 0 0">Empieza por las tuyas: las que cazaste en tu casa o sacaste del directorio médico. Todavía valen más que las del banco, porque las elegiste tú.</p>
+    <label>La palabra</label>
+    <input type="text" data-campo data-cap="PALABRA" data-req="la palabra" placeholder="ej. otorrinolaringólogo">
+    <label>Sus piezas, como tú las cortas</label>
+    <input type="text" data-campo data-cap="PIEZAS" data-req="las piezas" placeholder="ej. oto + rino + laringo + -logo">
+    <label>Tu apuesta de significado (antes de buscar)</label>
+    <textarea data-campo data-cap="APUESTA" data-req="tu apuesta" placeholder="ej. el especialista en oreja, nariz y garganta"></textarea>
+    <label>Qué tan seguro estás</label>
+    <div class="seguridad" data-cap="SEGURIDAD">
+      <button type="button">Baja</button>
+      <button type="button">Media</button>
+      <button type="button">Alta</button>
+    </div>
+    <label>Lo que dijeron las fuentes</label>
+    <textarea data-campo data-cap="LO QUE DICEN LAS FUENTES" placeholder="ej. el DECEL confirma las cuatro piezas; el DLE lo define como médico de oído, nariz y laringe"></textarea>
+    <label>Veredicto</label>
+    <div class="veredicto" data-cap="VEREDICTO" data-cuenta>
+      <button type="button" data-ok="1">Mi apuesta sobrevivió</button>
+      <button type="button" data-ok="1">Sobrevivió con ajustes</button>
+      <button type="button" data-ok="0">Se cayó</button>
+    </div>
+    <label>Nota de fuente</label>
+    <input type="text" data-campo data-cap="FUENTE" data-req="la nota de fuente" placeholder="ej. DECEL y DLE, consultados hoy">
+    <div class="fila-botones">
+      <button class="btn rosa" data-generar>Generar captura</button>
+      <button class="btn gris" data-copiar style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura"></pre>
+    <div class="fb" data-fb></div>
+  </div>
+
+  <h2>Caso 2 · Tu segunda palabra apostada</h2>
+  <div class="card">
+    <h3>La otra que traías</h3>
+    <p style="font-size:.92rem;margin:.3rem 0 0">Mismo circuito. Si esta se cae, mejor: una apuesta tumbada por la fuente enseña más que dos atinadas de suerte.</p>
+    <label>La palabra</label>
+    <input type="text" data-campo data-cap="PALABRA" data-req="la palabra" placeholder="ej. biblioteca">
+    <label>Sus piezas, como tú las cortas</label>
+    <input type="text" data-campo data-cap="PIEZAS" data-req="las piezas" placeholder="ej. biblio + teca">
+    <label>Tu apuesta de significado (antes de buscar)</label>
+    <textarea data-campo data-cap="APUESTA" data-req="tu apuesta" placeholder="ej. el lugar donde se guardan los libros"></textarea>
+    <label>Qué tan seguro estás</label>
+    <div class="seguridad" data-cap="SEGURIDAD">
+      <button type="button">Baja</button>
+      <button type="button">Media</button>
+      <button type="button">Alta</button>
+    </div>
+    <label>Lo que dijeron las fuentes</label>
+    <textarea data-campo data-cap="LO QUE DICEN LAS FUENTES" placeholder="qué confirmaron, qué corrigieron"></textarea>
+    <label>Veredicto</label>
+    <div class="veredicto" data-cap="VEREDICTO" data-cuenta>
+      <button type="button" data-ok="1">Mi apuesta sobrevivió</button>
+      <button type="button" data-ok="1">Sobrevivió con ajustes</button>
+      <button type="button" data-ok="0">Se cayó</button>
+    </div>
+    <label>Nota de fuente</label>
+    <input type="text" data-campo data-cap="FUENTE" data-req="la nota de fuente" placeholder="ej. DECEL, consultado hoy">
+    <div class="fila-botones">
+      <button class="btn rosa" data-generar>Generar captura</button>
+      <button class="btn gris" data-copiar style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura"></pre>
+    <div class="fb" data-fb></div>
+  </div>
+
+  <h2>El banco de la casa</h2>
+  <p style="font-size:.95rem">Cuando termines con las tuyas, sigue por aquí. Toca una palabra para ver su pista, apuéstala en tu cuaderno o en el caso libre de abajo, y llévala a las fuentes. Hay materias de escuela, términos de consultorio y tres impostores: palabras que <em>parecen</em> griegas y no lo son.</p>
+  <div class="banco" id="banco"></div>
+  <div class="pistabanco" id="pista"></div>
+
+  <h2>Caso 3 · Libre (una del banco, o la que se te atravesó)</h2>
+  <div class="card">
+    <h3>Una más, la que quieras</h3>
+    <label>La palabra</label>
+    <input type="text" data-campo data-cap="PALABRA" data-req="la palabra" placeholder="ej. democracia">
+    <label>Sus piezas</label>
+    <input type="text" data-campo data-cap="PIEZAS" data-req="las piezas" placeholder="ej. demo + cracia">
+    <label>Tu apuesta (antes de buscar)</label>
+    <textarea data-campo data-cap="APUESTA" data-req="tu apuesta"></textarea>
+    <label>Qué tan seguro estás</label>
+    <div class="seguridad" data-cap="SEGURIDAD">
+      <button type="button">Baja</button>
+      <button type="button">Media</button>
+      <button type="button">Alta</button>
+    </div>
+    <label>Lo que dijeron las fuentes</label>
+    <textarea data-campo data-cap="LO QUE DICEN LAS FUENTES"></textarea>
+    <label>Veredicto</label>
+    <div class="veredicto" data-cap="VEREDICTO" data-cuenta>
+      <button type="button" data-ok="1">Mi apuesta sobrevivió</button>
+      <button type="button" data-ok="1">Sobrevivió con ajustes</button>
+      <button type="button" data-ok="0">Se cayó</button>
+    </div>
+    <label>Nota de fuente</label>
+    <input type="text" data-campo data-cap="FUENTE" data-req="la nota de fuente">
+    <div class="fila-botones">
+      <button class="btn rosa" data-generar>Generar captura</button>
+      <button class="btn gris" data-copiar style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura"></pre>
+    <div class="fb" data-fb></div>
+  </div>
+
+  <div class="instr">
+    <strong>Última estación.</strong> Pega tus capturas donde indique el profesor. En el marcador del grupo se suma una sola cosa: cuántas apuestas del salón sobrevivieron a las fuentes. Ese número va a subir todo el semestre, y con él tu calibración: saber cuánto sabes vale tanto como saber.
+  </div>
+
+  <footer>Semana 4 · El griego que ya hablas · Este ejercicio es gimnasio: sin nota, sin registro. La captura solo se guarda si tú la copias y la pegas; al cerrar la página todo se borra.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  /* --- banco de palabras con pista --- */
+  var BANCO=[
+    ["biología","bio- (vida) + -logía (estudio de). Tu horario también es griego: cada materia es una promesa."],
+    ["geografía","geo- (tierra) + -grafía (escribir). El dibujo escrito de la tierra."],
+    ["filosofía","filo- (amor) + sofía (sabiduría). La materia que promete amar el saber."],
+    ["matemáticas","del griego máthema: lo que se aprende. Sí: hasta esa es griega."],
+    ["química","cuidado, esta trae escala. Nos llegó del árabe alquimia, y esa quizá traía griego adentro. Que la fuente decida."],
+    ["geometría","geo- (tierra) + -metría (medida). Nació midiendo terrenos, no cuadernos."],
+    ["pediatra","pedi- (niño) + iatra (médico). La promesa de la semana 0, pagada."],
+    ["geriatra","misma pieza iatra, otra edad. ¿Qué raíz le pusieron a la vejez?"],
+    ["oftalmólogo","oftalmo- (ojo) + -logo (especialista). El del ojo borroso."],
+    ["odontólogo","odonto- (diente) + -logo. Y de pilón: mastodonte, diente de pecho."],
+    ["dermatólogo","derma (piel) + -logo. Primo del paquidermo, el de piel gruesa."],
+    ["claustrofobia","-fobia es miedo. ¿Y claustro? Ojo: esa mitad no es griega."],
+    ["megalomanía","megalo- (grande) + manía (entusiasmo desbocado). La locura de grandeza."],
+    ["pandemia","pan- (todo) + demos (pueblo). Todo el pueblo, a la vez."],
+    ["democracia","demo- (pueblo) + -cracia (poder). El griego que gobierna el noticiero."],
+    ["quimera","la criatura de fuego, león, cabra y dragón. Hoy, lo imposible."],
+    ["virus","IMPOSTOR: suena a laboratorio y a griego, pero es latín puro: veneno."],
+    ["jarabe","IMPOSTOR: está en la farmacia, pero llegó del árabe. La farmacia no habla una sola lengua."],
+    ["vitamina","IMPOSTOR: del latín vita (vida) más amina. Ojo: su prima griega es bio-."]
+  ];
+  var caja=document.getElementById('banco'), pista=document.getElementById('pista');
+  BANCO.forEach(function(p){
+    var b=document.createElement('button');
+    b.textContent=p[0];
+    b.addEventListener('click',function(){
+      b.classList.add('usada');
+      pista.style.display='block';
+      pista.innerHTML='<b>'+p[0]+'</b> · '+p[1];
+    });
+    caja.appendChild(b);
+  });
+
+  /* --- marcador de apuestas --- */
+  var ok=0, tot=0;
+  var mOk=document.getElementById('mOk'), mTot=document.getElementById('mTot');
+
+  document.querySelectorAll('.veredicto, .seguridad').forEach(function(v){
+    var cuenta=v.hasAttribute('data-cuenta');
+    var yaContado=false;
+    v.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){
+        v.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+        b.classList.add('sel');
+        if(cuenta && !yaContado){
+          yaContado=true; tot++;
+          if(b.getAttribute('data-ok')==='1') ok++;
+          mOk.textContent=ok; mTot.textContent=tot;
+        }
+      });
+    });
+  });
+
+  /* --- capturas --- */
+  document.querySelectorAll('.card').forEach(function(card){
+    var btnG=card.querySelector('[data-generar]');
+    if(!btnG) return;
+    var btnC=card.querySelector('[data-copiar]');
+    var pre=card.querySelector('pre.captura');
+    var fb=card.querySelector('[data-fb]');
+
+    btnG.addEventListener('click',function(){
+      var faltan=[];
+      card.querySelectorAll('[data-req]').forEach(function(el){
+        if(!el.value.trim())faltan.push(el.getAttribute('data-req'));
+      });
+      var seg=card.querySelector('.seguridad .sel');
+      if(!seg)faltan.push('tu nivel de seguridad');
+      var ver=card.querySelector('.veredicto .sel');
+      if(!ver)faltan.push('el veredicto');
+      if(faltan.length){
+        fb.className='fb no';
+        fb.textContent='La captura no sale sin expediente completo. Falta: '+faltan.join(', ')+'.';
+        return;
+      }
+      var lineas=[];
+      card.querySelectorAll('[data-campo]').forEach(function(el){
+        lineas.push(el.getAttribute('data-cap')+': '+(el.value.trim()||'(sin registro)'));
+        if(el.getAttribute('data-cap')==='APUESTA'){
+          lineas.push('SEGURIDAD: '+seg.textContent);
+        }
+      });
+      lineas.splice(lineas.length-1,0,'VEREDICTO: '+ver.textContent);
+      fb.className='fb ok';
+      fb.textContent='Captura lista. Cópiala y pégala donde indique el profesor.';
+      pre.textContent=lineas.join('\n');
+      pre.style.display='block';
+      btnC.style.display='inline-block';
+    });
+
+    btnC.addEventListener('click',function(){
+      var t=pre.textContent;
+      function listo(){fb.className='fb ok';fb.textContent='Copiado. Ahora pégalo donde indique el profesor.';}
+      function seleccionar(){
+        var r=document.createRange();r.selectNodeContents(pre);
+        var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+        fb.className='fb ok';fb.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
+      }
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(t).then(listo,seleccionar);
+      }else{seleccionar();}
+    });
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>
