@@ -40,21 +40,28 @@ No hay tema nuevo. Esta semana se ve lo que ya sabes. Y pasa algo que no había 
 </div>
 <button class="btn-presentar" type="button">Presentar ▸</button>
 </div>
+<section class="lam">
+<h4><span class="n">1</span> El minuto del lector <span class="reloj">3 min</span></h4>
+<span class="senal senal--aire">Al aire</span>
+<p class="di">Una persona, un minuto: qué estoy leyendo y por dónde voy.</p>
+<p class="apoyo">Sin resumen y sin recomendación forzada. Solo el título, por dónde vas y si te está gustando o no. Se vale decir que no.</p>
+<p class="nota-conductor">El último minuto del lector antes del círculo del viernes. Si alguien no ha terminado su libro, aquí se entera de que no es el único, y llega menos nervioso al corro.</p>
+</section>
 <section class="lam lam--actividad">
-<h4><span class="n">1</span> Ritual: duelo del mazo completo <span class="reloj">7 min</span></h4>
+<h4><span class="n">2</span> Ritual: duelo del mazo completo <span class="reloj">7 min</span></h4>
 <span class="senal">Actividad · en parejas</span>
 <p class="di">Noventa piezas en tu mazo. Hoy se barajan todas.</p>
 <p class="apoyo">Modo aleatorio, sin avisar de qué semana viene cada una. Y una consigna: <strong>anota las cinco que más se te resistan</strong>. Esas cinco no son un fracaso, son tu lista de tarea, y el viernes las vas a necesitar por escrito.</p>
 <p class="nota-conductor">Insiste en que apunten las cinco. Es el insumo del renglón "lo que quedó en aún no" del cuadernillo, y quien no lo haga hoy va a inventar algo genérico el domingo.</p>
 </section>
 <section class="lam lam--oscura">
-<h4><span class="n">2</span> Qué se ve esta semana <span class="reloj">6 min</span></h4>
+<h4><span class="n">3</span> Qué se ve esta semana <span class="reloj">6 min</span></h4>
 <p class="di">Nada nuevo. Solo lo que ya sabes, y qué tan bien lo sabes.</p>
 <p class="apoyo">Tres cosas pasan esta semana y ninguna lleva número: el quiz integrador del viernes, tu primera defensa oral el jueves y el primer círculo de lectura. Las tres son <strong>evidencia</strong>. La calificación no sale de ellas: sale de lo que tú escribas el fin de semana, con esa evidencia enfrente.</p>
 <p class="nota-conductor">Dilo despacio y sin adornos, porque es la primera vez que lo viven de verdad. Si alguien pregunta "entonces ¿qué cuenta?", la respuesta corta es: cuenta que estés y que puedas mostrar lo que hiciste.</p>
 </section>
 <section class="lam">
-<h4><span class="n">3</span> Las cuatro trampas de la unidad <span class="reloj">12 min</span></h4>
+<h4><span class="n">4</span> Las cuatro trampas de la unidad <span class="reloj">12 min</span></h4>
 <p class="di">El ojo ve piezas donde no las hay. Estas cuatro son las que más se caen.</p>
 <table>
 <tr><th>El corte que se ve</th><th>La fuente dice</th></tr>
@@ -67,14 +74,14 @@ No hay tema nuevo. Esta semana se ve lo que ya sabes. Y pasa algo que no había 
 <p class="nota-conductor">Hay un submazo chiquito de Anki con estas cuatro más la regla de oro ("las cinco que se resisten"). Si el grupo trae cuerda, pídeles que inventen una quinta trampa: sale material buenísimo, casi siempre equivocado, y esa es la lección.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">4</span> Gimnasio: el taller de pistas <span class="reloj">28 min</span></h4>
+<h4><span class="n">5</span> Gimnasio: el taller de pistas <span class="reloj">25 min</span></h4>
 <span class="senal">Actividad · en equipos</span>
 <p class="di">Cada equipo escribe pistas; el equipo de junto las resuelve.</p>
 <p class="apoyo"><a href="../ejercicios/semana-07/ejercicio-7A-el-taller-de-pistas.html">El taller de pistas</a>. Escribir la pista es más difícil que resolverla: obliga a saber exactamente qué hace cada pieza. Antes de intercambiar, revisen las suyas con la lista del ejercicio.</p>
 <p class="nota-conductor">Los crucigramas mejores se guardan para "Lo que produjimos". Y fíjate en qué piezas eligen para las pistas: es un termómetro honesto de qué se quedó de la unidad.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">5</span> Antes del miércoles <span class="reloj">7 min</span></h4>
+<h4><span class="n">6</span> Antes del miércoles <span class="reloj">7 min</span></h4>
 <span class="senal senal--casa">Para llevar a casa</span>
 <p class="di">Trae tu palabra del Museo y la fuente donde la verificaste.</p>
 <p class="apoyo">Mañana se ensaya la defensa, y sin palabra no hay ensayo. Elige la que más te guste, no la más difícil: vas a hablar de ella tres minutos y se nota cuando a alguien le importa la suya.</p>
@@ -187,17 +194,28 @@ No hay tema nuevo. Esta semana se ve lo que ya sabes. Y pasa algo que no había 
 <p class="nota-conductor">Dales el minuto de silencio para mirarla. Es la primera vez que la serie está completa y el efecto es real: muchos descubren que se subestiman.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">3</span> El primer círculo de lectura <span class="reloj">35 min</span></h4>
-<span class="senal">Todo el grupo</span>
-<p class="di">Tu obra terminada, contada en voz alta a quien no la ha leído.</p>
-<p class="apoyo">Sin resumen escolar y sin análisis: qué leíste, qué te pasó con eso y a quién se lo recomendarías. Al terminar, tu ficha va al tendedero de <a href="../leemos.html">Leemos</a>, donde se queda para que otro la descuelgue.</p>
-<p class="nota-conductor">Si alguien no terminó su libro, participa igual contando por dónde va y por qué. El círculo no verifica lecturas: las contagia. Nadie se salta su turno, pero nadie está obligado a haber terminado.</p>
+<h4><span class="n">3</span> El primer círculo de lectura <span class="reloj">45 min</span></h4>
+<span class="senal">Todo el grupo · en corro</span>
+<p class="di">Tu libro en la mano y una frase marcada. Se habla de lo que te dio, no de lo que pasa en él.</p>
+<p class="apoyo">Cinco minutos antes de sentarnos, llena la hoja "Antes de cada círculo" de tu <a href="../recursos/plantillas/bitacora-lector.html">bitácora del lector</a>: la frase que marcaste y qué te está dando el libro. No se entrega; es para que el silencio no te agarre en frío.</p>
+<p class="nota-conductor">Corro de verdad: sillas en círculo, sin mesas de por medio, y tú sentado como uno más. Nadie resume, nadie evalúa. Si alguien no terminó su libro, participa igual contando por dónde va y por qué: el círculo no verifica lecturas, las contagia. Nadie se salta su turno.</p>
+</section>
+<section class="lam">
+<h4>Las tres cosas que pasan al cerrar el corro</h4>
+<table>
+<tr><th>Qué</th><th>En qué consiste</th></tr>
+<tr><td><strong>Tu ficha al tendedero</strong></td><td>Si terminaste la obra: libro, autor, "te va a gustar si…" y tu nombre. La generas en el ejercicio de hoy y se publica en <a href="../leemos.html">Leemos</a>, para que otro la descuelgue.</td></tr>
+<tr><td><strong>El préstamelo del salón</strong></td><td>Quien quiera prestar su libro lo pone sobre la mesa con un papelito con su nombre. Ahí se arma la mejor biblioteca que va a tener este grupo.</td></tr>
+<tr><td><strong>Tu segundo libro</strong></td><td>Con lo que acabas de oír, la lista es otra. Eliges hoy o la semana que entra, y lo anotas en tu bitácora.</td></tr>
+</table>
+<p class="apoyo">La mejor recomendación no está en internet: está sentada junto a ti. Por eso el segundo libro se elige después del círculo y no antes.</p>
+<p class="nota-conductor">Lleva papelitos y un plumón para el préstamelo. Y anota tú quién presta qué: en dos semanas alguien va a preguntar de quién era el libro que se llevó.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">4</span> Cosecha de palabras <span class="reloj">15 min</span></h4>
+<h4><span class="n">4</span> Cosecha de palabras <span class="reloj">10 min</span></h4>
 <span class="senal">Actividad · individual</span>
 <p class="di">Del libro a tu Museo: una palabra que te encontraste leyendo.</p>
-<p class="apoyo"><a href="../ejercicios/semana-07/ejercicio-7D-cosecha-de-palabras.html">Cosecha de palabras</a>. Las palabras que llegan de un libro suelen ser mejores candidatas al Museo que las que llegan de una lista: traen la historia de dónde te las encontraste.</p>
+<p class="apoyo"><a href="../ejercicios/semana-07/ejercicio-7D-cosecha-de-palabras.html">Cosecha de palabras</a>. Las palabras que llegan de un libro suelen ser mejores candidatas al Museo que las que llegan de una lista: traen la historia de dónde te las encontraste. En el mismo ejercicio, al final, generas tu ficha del tendedero.</p>
 </section>
 <section class="lam lam--actividad">
 <h4><span class="n">5</span> El ensayo de la conversación <span class="reloj">15 min</span></h4>
@@ -220,7 +238,7 @@ No hay tema nuevo. Esta semana se ve lo que ya sabes. Y pasa algo que no había 
 <p class="nota-conductor">Reparte el cuadernillo impreso hoy, no el lunes. Y di en voz alta el dato que más tranquiliza: la mayoría de los estudiantes se pone menos de lo que el profesor le pondría, y cuando eso pasa, la calificación sube.</p>
 </section>
 <section class="lam">
-<h4><span class="n">7</span> Cierra la unidad <span class="reloj">10 min</span></h4>
+<h4><span class="n">7</span> Cierra la unidad <span class="reloj">5 min</span></h4>
 <p class="di">Seis semanas atrás no sabías cortar una palabra. Ahora lees las que nadie te enseñó.</p>
 <p class="apoyo">La unidad 2 empieza con una pregunta que lleva colgada desde la semana 2: ¿de dónde salió <em>almohada</em>? Pista: no es griega ni latina, y ese <em>al-</em> delata a una lengua entera que vivió aquí ochocientos años.</p>
 </section>

@@ -41,13 +41,20 @@ El español está lleno de griego. No en los libros viejos: en la farmacia, en e
 <button class="btn-presentar" type="button">Presentar ▸</button>
 </div>
 <section class="lam">
-<h4><span class="n">1</span> Ritual: quiz relámpago <span class="reloj">7 min</span></h4>
+<h4><span class="n">1</span> El minuto del lector <span class="reloj">3 min</span></h4>
+<span class="senal senal--aire">Al aire</span>
+<p class="di">Una persona, un minuto: qué estoy leyendo y por dónde voy.</p>
+<p class="apoyo">Sin resumen y sin recomendación forzada. Solo el título, por dónde vas y si te está gustando o no. Se vale decir que no.</p>
+<p class="nota-conductor">Lleva la lista y ve tachando: en el semestre pasa todo el grupo, uno por martes. Arranca tú la primera vez, con el libro que traigas leyendo de verdad: se copia lo que ven, no lo que se les pide.</p>
+</section>
+<section class="lam">
+<h4><span class="n">2</span> Ritual: quiz relámpago <span class="reloj">7 min</span></h4>
 <p class="di">Tres reactivos de las semanas 2 y 3. Primero tu apuesta, luego la hoja.</p>
 <p class="apoyo">Como siempre: antes de voltear la hoja, predice cuántas tendrás bien. Las piezas griegas de esta semana entran al quiz el viernes.</p>
 <p class="nota-conductor">Reactivos sugeridos: una suma directa, un corte real o espejismo, una pieza de la semana 2. Rápido: la sesión trae gancho fuerte y no hay que gastarlo.</p>
 </section>
 <section class="lam">
-<h4><span class="n">2</span> La caja de medicina <span class="reloj">18 min</span></h4>
+<h4><span class="n">3</span> La caja de medicina <span class="reloj">18 min</span></h4>
 <span class="senal senal--aire">Al aire</span>
 <p class="di">Otitis. Gastritis. Conjuntivitis. ¿Qué tienen en común?</p>
 <p class="apoyo">Todas terminan igual. Y esa terminación no es adorno: es información médica en griego.</p>
@@ -89,7 +96,7 @@ El español está lleno de griego. No en los libros viejos: en la farmacia, en e
 <p class="nota-conductor">No dictes la tabla: tapa la tercera columna y que la armen pieza por pieza. La meta emocional del día es que sientan que esto ya lo sabían.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">3</span> Gimnasio: el botiquín griego <span class="reloj">22 min</span></h4>
+<h4><span class="n">4</span> Gimnasio: el botiquín griego <span class="reloj">22 min</span></h4>
 <span class="senal">Actividad · en parejas</span>
 <p class="di">Palabras de farmacia y consultorio: apuesta qué significan antes de que la pantalla lo revele.</p>
 <p class="apoyo"><a href="../ejercicios/semana-04/ejercicio-4A-botiquin-griego.html">El botiquín griego</a>, con tu celular. Cada palabra trae sus piezas; tú apuestas el significado y tu nivel de seguridad. Anota las que te sorprendan: son materia prima del jueves.</p>
@@ -116,7 +123,7 @@ El español está lleno de griego. No en los libros viejos: en la farmacia, en e
 <p class="nota-conductor">El alfabeto no es pieza de museo: es un juguete que el mundo sigue usando. Si el grupo trae cuerda, pregunta qué letra elegirían para nombrar algo nuevo (¿una variante, un huracán, su equipo?) y por qué. Treinta segundos, y de ahí al cierre del día.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">4</span> Antes del miércoles <span class="reloj">13 min</span></h4>
+<h4><span class="n">5</span> Antes del miércoles <span class="reloj">10 min</span></h4>
 <span class="senal senal--casa">Para llevar a casa</span>
 <p class="di">Caza una palabra griega en tu casa y tráela mañana.</p>
 <p class="apoyo">En el botiquín, en una etiqueta, en un empaque, en la tele. Pista: si suena a consultorio o a ciencia, probablemente es griega. Al mazo entran hoy las seis piezas del día: <em>-itis</em>, <em>-algia</em>, <em>a-/an-</em>, <em>anti-</em>, <em>hiper-</em>, <em>hipo-</em>. Y de una vez el juego de la semana: escribe tu nombre con el <a href="#el-alfabeto-para-jugar">alfabeto de aquí abajo</a> o con <a href="../ejercicios/semana-04/ejercicio-4A-tu-nombre-en-griego.html">Tu nombre en griego</a>. Las letras no se memorizan ni entran al quiz: son el juguete de la semana.</p>
@@ -318,7 +325,7 @@ El español está lleno de griego. No en los libros viejos: en la farmacia, en e
 
 ## La lectura, esta semana
 
-El minuto del lector sigue, la voz alta cierra el viernes y tu bitácora suma líneas. ¿El libro que elegiste no te está gustando? Cambiarlo no es fracaso, es tu derecho número 3: está completo en [Leemos](../leemos.html).
+El **minuto del lector** abre el martes (pasa una persona por semana, hasta que pasa todo el grupo), la voz alta cierra el viernes y tu bitácora suma líneas. ¿El libro que elegiste no te está gustando? Cambiarlo no es fracaso, es tu derecho número 3: está completo en [Leemos](../leemos.html).
 
 ---
 

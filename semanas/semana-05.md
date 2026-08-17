@@ -40,15 +40,22 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 </div>
 <button class="btn-presentar" type="button">Presentar ▸</button>
 </div>
+<section class="lam">
+<h4><span class="n">1</span> El minuto del lector <span class="reloj">3 min</span></h4>
+<span class="senal senal--aire">Al aire</span>
+<p class="di">Una persona, un minuto: qué estoy leyendo y por dónde voy.</p>
+<p class="apoyo">Sin resumen y sin recomendación forzada. Solo el título, por dónde vas y si te está gustando o no. Se vale decir que no.</p>
+<p class="nota-conductor">Lleva la lista y ve tachando: en el semestre pasa todo el grupo, uno por martes. Es la fuente de recomendaciones más eficaz que tiene el curso, y solo funciona si de verdad ocurre cada semana. Si el que toca faltó, pasa el siguiente y él queda para la próxima.</p>
+</section>
 <section class="lam lam--actividad">
-<h4><span class="n">1</span> Ritual: duelo de piezas <span class="reloj">7 min</span></h4>
+<h4><span class="n">2</span> Ritual: duelo de piezas <span class="reloj">7 min</span></h4>
 <span class="senal">Actividad · en parejas</span>
 <p class="di">El mazo a la cancha. Ya trae cuatro semanas encima.</p>
 <p class="apoyo">Se dice la pieza, el rival da el significado y una palabra donde viva. Quien usa Leitner juega con sus fichas. Esta semana no hay quiz el martes: cae el jueves, con las raíces nuevas ya puestas.</p>
 <p class="nota-conductor">Mete piezas griegas de la semana 4 (-itis, -algia, iatro-, hiper-, hipo-) junto con las latinas viejas. Guarda hipo- para el final del duelo, sin decir nada: mañana esa pieza les va a explotar en la cara.</p>
 </section>
 <section class="lam">
-<h4><span class="n">2</span> Una raíz es una llave maestra <span class="reloj">8 min</span></h4>
+<h4><span class="n">3</span> Una raíz es una llave maestra <span class="reloj">8 min</span></h4>
 <p class="di">Aprender una raíz no suma una palabra: abre una fila entera de puertas.</p>
 <div class="dis">
 <span class="pz pz--raiz">hemo<small>sangre</small></span>
@@ -65,14 +72,14 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <p class="apoyo">Diez piezas nuevas esta semana. Si cada una rinde ocho palabras, hoy sales con ochenta que no tenías el lunes. Esa multiplicación es todo el negocio de la etimología, y es la razón por la que este curso no te pide memorizar listas de palabras.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">3</span> Gimnasio: la cadena de raíces <span class="reloj">30 min</span></h4>
+<h4><span class="n">4</span> Gimnasio: la cadena de raíces <span class="reloj">27 min</span></h4>
 <span class="senal">Actividad · en equipos</span>
 <p class="di">Elige una raíz y escribe todas las palabras de su familia que puedas, contra reloj.</p>
 <p class="apoyo"><a href="../ejercicios/semana-05/ejercicio-5A-cadena-de-raices.html">La cadena de raíces</a>, con tres minutos por raíz. Cinco familias para escoger: hemo-, cosmo-, -polis, zoo- y -teca. Repetir te saca de la ronda, y las palabras dudosas no se borran: se marcan con "?" y se van al tribunal del jueves.</p>
 <p class="nota-conductor">Deja que jueguen por lo menos dos raíces distintas. La que casi siempre da más lejos es -teca, porque nadie espera que botica y bodega estén ahí. Anota los "?" del grupo en el pizarrón: son la pólvora del jueves.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">4</span> Antes del miércoles <span class="reloj">13 min</span></h4>
+<h4><span class="n">5</span> Antes del miércoles <span class="reloj">13 min</span></h4>
 <span class="senal senal--casa">Para llevar a casa</span>
 <p class="di">Trae la palabra más inesperada que te salió hoy.</p>
 <p class="apoyo">Una sola, con la raíz de la que salió y una línea de por qué te sorprendió. Y al mazo entran hoy las cinco raíces que jugaste: las tarjetas están abajo, con el estándar del curso —frente, solo la pieza; reverso, significado y palabra ancla—.</p>
@@ -267,7 +274,7 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 
 ## La lectura, esta semana
 
-El minuto del lector sigue, la voz alta cierra el viernes y tu bitácora suma líneas. ¿El libro que elegiste no te está gustando? Cambiarlo no es fracaso, es tu derecho número 3: está completo en [Leemos](../leemos.html).
+El **minuto del lector** abre el martes (pasa una persona por semana, hasta que pasa todo el grupo), la voz alta cierra el viernes y tu bitácora suma líneas. ¿El libro que elegiste no te está gustando? Cambiarlo no es fracaso, es tu derecho número 3: está completo en [Leemos](../leemos.html).
 
 ---
 

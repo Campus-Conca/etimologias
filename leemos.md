@@ -47,7 +47,8 @@ Dos obras en cuatro meses, elegidas por ti. No hay control de lectura, ni resume
 | Cuándo | Qué pasa | En qué consiste |
 |---|---|---|
 | **Semana 0** | La cata de libros | Una mesa con libros de verdad: novela, cuento, novela gráfica, poesía, crónica. Circulas, hojeas, lees primeras páginas y anotas tu primera elección. Puedes cambiarla en las dos semanas siguientes sin dar explicaciones. |
-| **Semana 7** | Primer círculo de lectura | 45 minutos en corro, cerrando U1. Cada quien llega con su libro y una frase subrayada. Se habla de lo que el libro te está haciendo, no de lo que pasa en él. Nadie resume, nadie evalúa. |
+| **Cada martes** | El minuto del lector | Un minuto, una persona: qué estoy leyendo y por dónde voy. Pasa uno por semana, hasta que pasa el grupo entero. Ni resumen ni recomendación forzada: se vale decir que el libro no te está gustando. |
+| **Semana 7** | Primer círculo de lectura | 45 minutos en corro, cerrando U1. Cada quien llega con su libro y una frase subrayada. Se habla de lo que el libro te está haciendo, no de lo que pasa en él. Nadie resume, nadie evalúa. Al cerrar el corro pasan tres cosas: tu ficha va al tendedero, se instala el préstamelo del salón y eliges tu segundo libro. |
 | **Semanas 7 y 8** | Eliges tu segundo libro | Con lo que oíste en el círculo, la lista es otra: el tendedero y el préstamelo del salón pesan más que cualquier recomendación de internet. |
 | **Semana 9** | Primer booktuber | Grabas 2 a 3 minutos sobre tu primera obra, con tu celular. Se publica en la vitrina solo si tú lo autorizas. Las instrucciones están abajo. |
 | **Semana 12** | Segundo círculo | Cierre de U2, mismo formato. Aquí ya se nota quién leyó dos libros y quién descubrió que sí le gusta leer. Cosechamos palabras de los libros para el Museo. |
@@ -88,7 +89,7 @@ Los firmamos en la semana 0 y valen todo el semestre (y toda la vida). Los escri
 
 ## Si no sabes qué leer
 
-Tienes cuatro fuentes, en este orden: el tendedero de aquí abajo (recomendaciones del propio grupo), el préstamelo del salón (libros que tus compañeros ofrecen en préstamo), el minuto del lector (cada semana alguien cuenta qué está leyendo) y la mesa de libros del profesor. La mejor recomendación no está en internet: está sentada junto a ti.
+Tienes cuatro fuentes, en este orden: el **tendedero** de aquí abajo (recomendaciones del propio grupo), el **préstamelo del salón** (la mesa de libros que se instala al cerrar el primer círculo, con el nombre de quien presta cada uno), el **minuto del lector** (cada martes alguien cuenta qué está leyendo) y la **mesa de libros del profesor**, la misma de la cata de la semana 0. La mejor recomendación no está en internet: está sentada junto a ti.
 
 ---
 

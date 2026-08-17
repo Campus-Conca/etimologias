@@ -98,6 +98,27 @@
     <div class="fb" data-fb></div>
   </div>
 
+  <h2>Tu ficha para el tendedero</h2>
+  <div class="card" id="ficha-tendedero">
+    <h3>Solo si terminaste la obra</h3>
+    <p style="font-size:.92rem;margin:.3rem 0 0">El tendedero de <a href="../../leemos.html" target="_blank" rel="noopener">Leemos</a> no es una lista de lecturas: es un muro de recomendaciones para que alguien más descuelgue tu libro. Por eso la ficha tiene una sola pregunta difícil: <strong>¿a quién le va a gustar?</strong> Si vas a la mitad, sáltate esta parte y vuelve cuando termines.</p>
+    <label>El libro</label>
+    <input type="text" data-f="libro" placeholder="ej. Pedro Páramo">
+    <label>Quién lo escribió</label>
+    <input type="text" data-f="autor" placeholder="ej. Juan Rulfo">
+    <label>Te va a gustar si…</label>
+    <input type="text" data-f="si" placeholder="ej. te gustan los pueblos con secreto">
+    <p style="font-size:.85rem;color:#777;margin:.3rem 0 0">Completa la frase, en minúsculas y sin punto final. No digas de qué trata: di a quién le va a caer bien.</p>
+    <label>Quién lo recomienda (tu nombre de pila)</label>
+    <input type="text" data-f="quien" placeholder="ej. Ana">
+    <div class="fila-botones">
+      <button class="btn rosa" data-generar-ficha>Generar mi ficha</button>
+      <button class="btn gris" id="copiarFicha" style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura" id="preFicha"></pre>
+    <div class="fb" id="fbFicha"></div>
+  </div>
+
   <div class="regla">
     <strong>Fíjate en esto:</strong> varias de las palabras cosechadas hoy no van a sonar ni griegas ni latinas. Esa es exactamente la pregunta que abre la Unidad 2: ¿de dónde vienen las palabras que hablo yo? Y sigue pendiente una deuda de la semana 2: <em>almohada</em> se resiste, guarda el misterio. La respuesta empieza el martes.
   </div>
@@ -113,6 +134,55 @@
 
 <script>
 (function(){
+  /* --- la ficha del tendedero: sale lista para pegar en leemos.md --- */
+  var fichaCard=document.getElementById('ficha-tendedero');
+  if(fichaCard){
+    var preF=document.getElementById('preFicha'),
+        fbF=document.getElementById('fbFicha'),
+        btnCF=document.getElementById('copiarFicha');
+
+    function esc(s){return s.replace(/\\/g,'\\\\').replace(/"/g,'\\"');}
+
+    fichaCard.querySelector('[data-generar-ficha]').addEventListener('click',function(){
+      var v={};
+      fichaCard.querySelectorAll('[data-f]').forEach(function(el){v[el.getAttribute('data-f')]=el.value.trim();});
+      var faltan=[];
+      if(!v.libro)faltan.push('el libro');
+      if(!v.autor)faltan.push('quién lo escribió');
+      if(!v.si)faltan.push('a quién le va a gustar');
+      if(!v.quien)faltan.push('tu nombre');
+      if(faltan.length){
+        fbF.className='fb no';
+        fbF.textContent='Al tendedero no sube ficha incompleta. Falta: '+faltan.join(', ')+'.';
+        return;
+      }
+      if(/^te gusta/i.test(v.si)===false && /^(eres|andas|vienes|quieres|te )/i.test(v.si)===false){
+        fbF.className='fb ej';
+        fbF.textContent='Ojo: la frase se lee como "Te va a gustar si '+v.si+'." Léela completa en voz baja; si no cuadra, ajústala y vuelve a generar.';
+      }else{
+        fbF.className='fb ok';
+        fbF.textContent='Ficha lista. Cópiala y entrégala como indique el profesor: así entra al tendedero de Leemos.';
+      }
+      preF.textContent='{libro:"'+esc(v.libro)+'", autor:"'+esc(v.autor)+'", si:"'+esc(v.si)+'", quien:"'+esc(v.quien)+'"},';
+      preF.style.display='block';
+      btnCF.style.display='inline-block';
+    });
+
+    btnCF.addEventListener('click',function(){
+      var t=preF.textContent;
+      function sel(){
+        var r=document.createRange();r.selectNodeContents(preF);
+        var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+        fbF.className='fb ok';fbF.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
+      }
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(t).then(function(){
+          fbF.className='fb ok';fbF.textContent='Copiado. Entrégalo como indique el profesor.';
+        },sel);
+      }else{sel();}
+    });
+  }
+
   document.querySelectorAll('.veredicto').forEach(function(v){
     v.querySelectorAll('button').forEach(function(b){
       b.addEventListener('click',function(){

@@ -40,15 +40,22 @@ nav_order: 7
 </div>
 <button class="btn-presentar" type="button">Presentar ▸</button>
 </div>
+<section class="lam">
+<h4><span class="n">1</span> El minuto del lector <span class="reloj">3 min</span></h4>
+<span class="senal senal--aire">Al aire</span>
+<p class="di">Una persona, un minuto: qué estoy leyendo y por dónde voy.</p>
+<p class="apoyo">Sin resumen y sin recomendación forzada. Solo el título, por dónde vas y si te está gustando o no. Se vale decir que no.</p>
+<p class="nota-conductor">Lleva la lista y ve tachando: uno por martes, hasta que pase todo el grupo. A estas alturas ya hay quien cambió de libro dos veces: eso también se cuenta y también se aplaude.</p>
+</section>
 <section class="lam lam--actividad">
-<h4><span class="n">1</span> Ritual: duelo de piezas <span class="reloj">7 min</span></h4>
+<h4><span class="n">2</span> Ritual: duelo de piezas <span class="reloj">7 min</span></h4>
 <span class="senal">Actividad · en parejas</span>
 <p class="di">El mazo completo: cinco semanas de piezas en la cancha.</p>
 <p class="apoyo">Se dice la pieza, el rival da significado y ancla. Hoy el duelo no es de calentamiento: las piezas que traigas afiladas son exactamente las que te van a servir en veinte minutos.</p>
 <p class="nota-conductor">Prioriza los sufijos griegos (-logía, -fobia, -cracia, -itis, -algia, -teca): son las piezas que más rinden al descifrar a ciegas. El quiz de esta semana cae el jueves.</p>
 </section>
 <section class="lam lam--oscura">
-<h4><span class="n">2</span> La palabra imposible <span class="reloj">10 min</span></h4>
+<h4><span class="n">3</span> La palabra imposible <span class="reloj">10 min</span></h4>
 <p class="di">hemeralopía</p>
 <p class="apoyo">Nadie en este salón la ha visto en su vida. Nadie la ha estudiado. Y en treinta segundos todo el grupo va a saber qué significa. Apuesten primero, en voz alta.</p>
 <p class="nota-conductor">Escríbela sola en el pizarrón, sin contexto, y deja que el silencio incomode tantito. Pide apuestas antes de dar cualquier pista: el punto de la semana es que se atrevan.</p>
@@ -64,7 +71,7 @@ nav_order: 7
 <p class="apoyo">Problema para ver con luz de día. La segunda pieza ya la conocías por <em>miopía</em>; la primera vuelve más adelante en la semana, en un lugar donde no la esperas. Y su gemela exacta es <em>nictalopía</em>: lo mismo, pero de noche.</p>
 </section>
 <section class="lam">
-<h4><span class="n">3</span> El método, en tres pasos <span class="reloj">8 min</span></h4>
+<h4><span class="n">4</span> El método, en tres pasos <span class="reloj">8 min</span></h4>
 <p class="di">Cortar · apostar · verificar. En ese orden, siempre.</p>
 <table>
 <tr><th>Paso</th><th>Qué haces</th><th>Qué no haces</th></tr>
@@ -75,14 +82,14 @@ nav_order: 7
 <p class="apoyo">Es el mismo protocolo del tribunal de la semana 4, pero con la dificultad subida: allá apostabas sobre palabras que habías oído; aquí, sobre palabras que no existen para ti hasta este momento.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">4</span> Gimnasio: la prueba de fuego <span class="reloj">28 min</span></h4>
+<h4><span class="n">5</span> Gimnasio: la prueba de fuego <span class="reloj">25 min</span></h4>
 <span class="senal">Actividad · en parejas</span>
 <p class="di">Cinco palabras que nunca has visto. Una por una.</p>
 <p class="apoyo"><a href="../ejercicios/semana-06/ejercicio-6A-la-prueba-de-fuego.html">La prueba de fuego</a>. Cada palabra trae cuatro piezas en el banco y solo dos son las suyas: primero cortas, luego apuestas. Al final del ejercicio hay un banco libre para armar tu propio monstruo. Anótalo bien, porque el jueves lo llevamos a juicio.</p>
 <p class="nota-conductor">Las cinco son reales y están documentadas: hemeralopía, nictalopía, batracofagia, heliolatría y glosolalia. Si alguien duda de que existan, perfecto: eso es el jueves.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">5</span> Antes del miércoles <span class="reloj">7 min</span></h4>
+<h4><span class="n">6</span> Antes del miércoles <span class="reloj">7 min</span></h4>
 <span class="senal senal--casa">Para llevar a casa</span>
 <p class="di">Caza una palabra larga y descífrala antes de buscarla.</p>
 <p class="apoyo">En un libro de texto, en una etiqueta, en las noticias. La regla es una sola: <strong>apuesta antes de buscar</strong>. Trae la palabra, tu corte, tu apuesta y, si la buscaste, el veredicto.</p>
@@ -246,7 +253,7 @@ nav_order: 7
 
 ## La lectura, esta semana
 
-El minuto del lector sigue, la voz alta cierra el viernes y tu bitácora suma líneas. La semana que entra estrenas el círculo de lectura: si tu obra ya está terminada, ve preparando su ficha para el tendedero de [Leemos](../leemos.html).
+El **minuto del lector** abre el martes (pasa una persona por semana, hasta que pasa todo el grupo), la voz alta cierra el viernes y tu bitácora suma líneas. La semana que entra estrenas el círculo de lectura: si tu obra ya está terminada, ve preparando su ficha para el tendedero de [Leemos](../leemos.html).
 
 ---
 
