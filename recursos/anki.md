@@ -116,9 +116,23 @@ Fíjate en lo que tienen las tres: **una sola pieza al frente**; un **ancla** qu
 
 Las tarjetas se arman en clase. Estos mazos son la red de seguridad por si faltaste, no el atajo.
 
-| Mazo | Descarga |
-|---|---|
-| Semana 2 · Conceptos fundadores | *disponible con la semana 2* |
+Cada semana tiene su mazo suelto, y abajo está el semestre completo en un solo archivo. Los dos traen las mismas tarjetas: bajar el completo dos veces no duplica nada, porque Anki reconoce cada tarjeta por su identificador y conserva tu avance.
+
+| Mazo | Piezas | Descarga |
+|---|---|---|
+| Semana 0 · El mazo cero | 11 | [etimologias-semana-00.apkg](anki/etimologias-semana-00.apkg) |
+| Semana 2 · Anatomía y primeras raíces | 14 | [etimologias-semana-02.apkg](anki/etimologias-semana-02.apkg) |
+| Semana 3 · Sumas de palabras | 15 | [etimologias-semana-03.apkg](anki/etimologias-semana-03.apkg) |
+| Semana 4 · El griego que ya hablas | 15 | [etimologias-semana-04.apkg](anki/etimologias-semana-04.apkg) |
+| Semana 5 · Una raíz, veinte palabras | 15 | [etimologias-semana-05.apkg](anki/etimologias-semana-05.apkg) |
+| Semana 6 · Descifrar a ciegas | 15 | [etimologias-semana-06.apkg](anki/etimologias-semana-06.apkg) |
+| Semana 7 · Las cinco que se resisten | 5 | [etimologias-semana-07.apkg](anki/etimologias-semana-07.apkg) |
+| **Todo el semestre**, en submazos | 90 | [etimologias-uaq.apkg](anki/etimologias-uaq.apkg) |
+
+{: .ojo }
+**Cómo se instala:** baja el archivo, ábrelo (o en Anki: Archivo › Importar) y aparece como submazo dentro de "Etimologías UAQ". Si ya lo tenías, se actualiza el contenido y **no se pierde tu avance**.
+
+Dos cosas que notarás al abrirlos. La primera: ninguna pieza se repite entre semanas. Si *bio-* salió en la semana 0, no vuelve a salir en la 4 aunque ahí se use; tu mazo no te hace estudiar dos veces lo mismo. La segunda: cada semana trae, además de sus piezas, unas cuantas **palabras con historia** —nostalgia, reloj, pulpo, náusea, dinosaurio—, que no son para memorizar sino para que te acuerdes de por qué esto vale la pena.
 
 <style>
 .tj-nota{font-size:.9rem;color:#6b1e5a;font-weight:700;margin:1.2rem 0 .4rem}
