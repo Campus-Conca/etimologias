@@ -272,27 +272,28 @@ El español está lleno de griego. No en los libros viejos: en la farmacia, en e
 <h4><span class="n">1</span> Ritual: quiz relámpago <span class="reloj">10 min</span></h4>
 <p class="di">Tres reactivos con las piezas de la semana. Tu apuesta primero, como siempre.</p>
 <p class="apoyo">El griego ya compite: una pieza al significado, un significado a la pieza, una palabra a decodificar. Es el termómetro real de la semana.</p>
+<p class="nota-conductor">Los tres reactivos ya vienen listos en la pestaña <em>Triage</em> del <a href="../ejercicios/semana-04/consultorio-griego-tablero.html">tablero del consultorio</a>: -algia, hipo- y cardiopatía (pieza vieja + pieza nueva). Abre el tablero desde aquí y ya no lo cierres: toda la sesión corre en esa pantalla.</p>
 </section>
 <section class="lam lam--actividad">
 <h4><span class="n">2</span> El consultorio griego <span class="reloj">50 min</span></h4>
 <span class="senal">Por equipos · 3 rondas</span>
-<p class="di">Ronda 1, diagnóstico exprés: el término médico aparece, el equipo lo traduce solo con piezas.</p>
-<p class="apoyo">Cefalalgia, hipotermia, gastritis, neuralgia, anestesia, dermatólogo, otorrinolaringólogo y las que el profesor traiga. Con el mapa del cuerpo proyectado como vitrina. Vale razonar en voz alta; no vale el celular. Punto por traducción defendible.</p>
-<p class="nota-conductor">Marcador visible y premio simbólico. La vitrina proyectada nivela: no se premia memoria, se premia saber combinar. Sube la dificultad con hipoglucemia (glykys, dulce: azúcar de menos en la sangre) si algún equipo va sobrado.</p>
+<p class="di">Ronda 1, diagnóstico exprés: el equipo elige su ficha de turno, el término aparece y lo traduce solo con piezas.</p>
+<p class="apoyo">Todo el juego vive en el <a href="../ejercicios/semana-04/consultorio-griego-tablero.html">tablero del consultorio</a>: doce pacientes en la sala de espera, del calentamiento (otitis) al jefe de nueve sílabas (otorrinolaringólogo); las fichas 11 y 12 valen doble. Con el mapa del cuerpo a la mano como vitrina. Vale razonar en voz alta; no vale el celular. Punto por traducción defendible.</p>
+<p class="nota-conductor">El marcador de equipos y el cronómetro vienen en el mismo tablero (los nombres de equipo se editan tocándolos; el marcador sobrevive si se recarga la página). Cada palabra trae sus piezas y su veredicto con botón de revelar: apuesta del equipo primero, revelación después, como toda la semana. Hipoglucemia es la ficha 12: glykys, dulce, se deduce por eliminación.</p>
 </section>
 <section class="lam lam--actividad">
 <h4>Ronda 2: la receta al revés</h4>
 <span class="senal">Por equipos</span>
 <p class="di">Yo digo el malestar, ustedes arman la palabra.</p>
-<p class="apoyo">"Inflamación de la piel": dermatitis. "Dolor de estómago, en griego de receta": gastralgia. "Médico del corazón": cardiólogo. Con el mapa proyectado, cada equipo escribe su candidata. Vale aproximar: se premia la lógica de las piezas, no la ortografía perfecta.</p>
-<p class="nota-conductor">Aquí se ve si la semana cuajó: armar palabra es un nivel arriba de leerla. Si un equipo inventa una palabra que no existe pero está bien construida (otalgia sí existe, por cierto), celebra la lógica y mándala al DECEL en vivo.</p>
+<p class="apoyo">Ocho recetas esperan en el recetario del <a href="../ejercicios/semana-04/consultorio-griego-tablero.html">tablero</a>: de "inflamación de la piel" (dermatitis) a "médico de la vejez" (geriatra), pasando por una joya escondida: "dolor de oído", otalgia, que existe y casi nadie conoce. Cada equipo escribe su candidata en grande en una hoja y a la cuenta de tres todos la muestran. Vale aproximar: se premia la lógica de las piezas, no la ortografía perfecta.</p>
+<p class="nota-conductor">Aquí se ve si la semana cuajó: armar palabra es un nivel arriba de leerla. Cada receta revela la palabra con sus piezas y una nota de si existe en las fuentes. Si un equipo inventa una palabra que no venía pero está bien construida, celebra la lógica y mándala al DECEL en vivo: si existe, punto doble.</p>
 </section>
 <section class="lam lam--actividad">
 <h4>Ronda 3: el impostor</h4>
 <span class="senal">Por equipos</span>
-<p class="di">En cada lista hay una palabra que parece griega y no lo es. Cácenla.</p>
-<p class="apoyo">El reflejo de la semana 3 vuelve: las letras engañan, la fuente no. Los impostores se revelan con el DECEL proyectado, veredicto en vivo.</p>
-<p class="nota-conductor">Impostores sugeridos, verificados: <em>virus</em> (latín puro), <em>jarabe</em> y <em>almohada</em> (árabe), <em>vitamina</em> (latín <em>vita</em>). Mézclalos entre palabras griegas de la semana. Si un equipo caza al impostor con argumento de piezas antes del DECEL, punto doble.</p>
+<p class="di">En cada expediente hay un doctor que solo trae la bata puesta: su palabra no es griega. Cácenlo.</p>
+<p class="apoyo">Cinco expedientes de personal del consultorio en el <a href="../ejercicios/semana-04/consultorio-griego-tablero.html">tablero</a>: en cada uno, tres palabras griegas certificadas y un impostor con credencial falsa (virus es latín puro; jarabe, almohada y azúcar llegaron del árabe; vitamina viene de <em>vita</em>, latín). El reflejo de la semana 3 vuelve: las letras engañan, la fuente no.</p>
+<p class="nota-conductor">Cada equipo escribe su sospechoso y su argumento de piezas antes de revelar: punto por atinarle, doble si el argumento venía antes del veredicto. Al revelar, el impostor se delata solo con su origen verdadero. Azúcar trae regalo: viajó del sánscrito al árabe al español, y esa ruta se retoma en la unidad 2.</p>
 </section>
 <section class="lam">
 <h4><span class="n">3</span> El griego de las noticias <span class="reloj">15 min</span></h4>
@@ -391,6 +392,7 @@ Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y
 
 - [El botiquín griego](../ejercicios/semana-04/ejercicio-4A-botiquin-griego.html) · martes
 - [Apuesta y verifica](../ejercicios/semana-04/ejercicio-4C-apuesta-y-verifica.html) · jueves, centro de cómputo
+- [El consultorio griego, tablero del juego](../ejercicios/semana-04/consultorio-griego-tablero.html) · viernes, para proyectar: triage, sala de espera, recetario, impostores y urgencias, con marcador de equipos
 - [Quiz de gimnasio](../ejercicios/semana-04/quiz-gimnasio-semana-04.html) · para ensayar cuando quieras
 
 **Los juegos del alfabeto** (sin mazo, sin quiz, puro juego):

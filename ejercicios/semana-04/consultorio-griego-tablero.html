@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 4 · El consultorio griego · Tablero para proyectar</title>
+<style>
+  :root{
+    --fondo:#221126; --panel:#2e1a34; --panel2:#3a2340; --borde:#553057;
+    --rosa:#ff7ab8; --rosaf:#c8127a; --crema:#f6e9f2; --tinta:#efe3ec;
+    --ok:#7ee2a0; --okd:#1f8a4c; --no:#ff9d6b; --nod:#b3541e;
+    --pre-bg:#1c3a5c; --pre-tx:#a8d4ff;
+    --raiz-bg:#5c2038; --raiz-tx:#ffc2d6;
+    --suf-bg:#2c4a1c; --suf-tx:#c8f0a8;
+  }
+  *{box-sizing:border-box}
+  html{font-size:clamp(14px,1.35vw,22px)}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--fondo);color:var(--tinta);line-height:1.5}
+  .wrap{max-width:1200px;margin:0 auto;padding:1rem 1.2rem 4rem}
+
+  /* ---------- cabecera ---------- */
+  header{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-bottom:2px solid var(--borde);padding:.8rem 0 .7rem}
+  header .tit .mini{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--rosa)}
+  header h1{margin:.05rem 0 0;font-size:1.7rem;color:#fff}
+  header h1 .cruz{color:var(--rosa)}
+  .reloj-caja{display:flex;align-items:center;gap:.5rem}
+  .reloj-num{font-variant-numeric:tabular-nums;font-size:1.9rem;font-weight:800;color:#fff;background:var(--panel);border:1px solid var(--borde);border-radius:.6rem;padding:.15rem .7rem;min-width:5.2rem;text-align:center}
+  .reloj-num.rojo{color:var(--no);animation:parp .6s steps(2) infinite}
+  @keyframes parp{50%{opacity:.35}}
+  .reloj-caja button{border:1px solid var(--borde);background:var(--panel);color:var(--tinta);border-radius:.6rem;padding:.45rem .7rem;font:inherit;font-weight:700;cursor:pointer}
+  .reloj-caja button:hover{border-color:var(--rosa)}
+
+  /* ---------- marcador ---------- */
+  #marcador{display:flex;gap:.7rem;flex-wrap:wrap;align-items:stretch;margin:.9rem 0 .4rem}
+  .equipo{background:var(--panel);border:1px solid var(--borde);border-radius:.8rem;padding:.5rem .8rem .6rem;min-width:9.5rem;flex:1;max-width:14rem;position:relative}
+  .equipo .nom{font-size:.85rem;font-weight:700;color:var(--rosa);outline:none;border-bottom:1px dashed transparent;min-height:1.2em}
+  .equipo .nom:focus{border-bottom-color:var(--rosa)}
+  .equipo .pts{font-size:2.4rem;font-weight:800;color:#fff;line-height:1.1;font-variant-numeric:tabular-nums}
+  .equipo .botones{display:flex;gap:.35rem;margin-top:.25rem}
+  .equipo .botones button{flex:1;border:1px solid var(--borde);background:var(--panel2);color:var(--tinta);border-radius:.5rem;padding:.25rem 0;font:inherit;font-weight:800;cursor:pointer;font-size:.85rem}
+  .equipo .botones button:hover{border-color:var(--rosa)}
+  .equipo .botones .mas2{color:var(--ok)}
+  .equipo.lider{border-color:var(--rosa);box-shadow:0 0 0 1px var(--rosa)}
+  .equipo.lider::after{content:"★";position:absolute;top:.35rem;right:.55rem;color:var(--rosa)}
+  #eqCtrl{display:flex;flex-direction:column;gap:.4rem;justify-content:center}
+  #eqCtrl button{border:1px dashed var(--borde);background:none;color:var(--tinta);border-radius:.6rem;padding:.35rem .7rem;font:inherit;cursor:pointer;font-size:.8rem}
+  #eqCtrl button:hover{border-color:var(--rosa);color:var(--rosa)}
+
+  /* ---------- navegación de rondas ---------- */
+  nav{display:flex;gap:.5rem;flex-wrap:wrap;margin:1rem 0 1.2rem}
+  nav button{border:1px solid var(--borde);background:var(--panel);color:var(--tinta);border-radius:2rem;padding:.5rem 1.1rem;font:inherit;font-weight:700;cursor:pointer;font-size:.9rem}
+  nav button.on{background:var(--rosaf);border-color:var(--rosaf);color:#fff}
+  nav button:hover{border-color:var(--rosa)}
+
+  section.ronda{display:none}
+  section.ronda.on{display:block;animation:entra .25s ease}
+  @keyframes entra{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .como{background:var(--panel);border-left:4px solid var(--rosaf);border-radius:0 .7rem .7rem 0;padding:.7rem 1rem;margin:0 0 1rem;font-size:.95rem;color:var(--crema)}
+  .como strong{color:var(--rosa)}
+
+  /* ---------- triage ---------- */
+  .triage-lista{display:grid;gap:.8rem}
+  .triage{background:var(--panel);border:1px solid var(--borde);border-radius:.8rem;padding:1rem 1.2rem}
+  .triage .tipo{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--rosa)}
+  .triage .preg{font-size:1.45rem;font-weight:700;color:#fff;margin:.25rem 0 .5rem}
+  .triage .resp{display:none;font-size:1.15rem;background:var(--panel2);border:1px solid var(--okd);border-radius:.6rem;padding:.6rem .9rem;color:var(--ok)}
+  .triage .resp.ver{display:block}
+  .triage button{border:none;background:var(--rosaf);color:#fff;border-radius:.6rem;padding:.45rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+
+  /* ---------- fichas de turno (ronda 1) ---------- */
+  .turnos{display:grid;grid-template-columns:repeat(auto-fill,minmax(9.5rem,1fr));gap:.8rem}
+  .turno{background:var(--crema);color:#3a1b33;border-radius:.7rem;padding:.7rem .5rem .8rem;text-align:center;cursor:pointer;border:none;font:inherit;position:relative;transition:.15s;box-shadow:0 3px 0 rgba(0,0,0,.35)}
+  .turno::before,.turno::after{content:"";position:absolute;top:50%;width:1rem;height:1rem;background:var(--fondo);border-radius:50%;transform:translateY(-50%)}
+  .turno::before{left:-.5rem}.turno::after{right:-.5rem}
+  .turno:hover{transform:translateY(-3px)}
+  .turno .eti{font-size:.66rem;text-transform:uppercase;letter-spacing:.14em;color:#8a5c80}
+  .turno .num{font-size:2.1rem;font-weight:800;line-height:1.15;color:#6b1e5a}
+  .turno .dif{font-size:.7rem;color:#8a5c80}
+  .turno.hecho{opacity:.38;text-decoration:none}
+  .turno.hecho .num::after{content:" ✓";color:var(--okd)}
+
+  /* ---------- recetario (ronda 2) ---------- */
+  .recetas{display:grid;grid-template-columns:repeat(auto-fill,minmax(16rem,1fr));gap:.9rem}
+  .receta{background:#fdfbf4;color:#33251f;border-radius:.5rem .5rem .7rem .7rem;padding:0;border:none;font:inherit;text-align:left;cursor:pointer;overflow:hidden;transition:.15s;box-shadow:0 3px 0 rgba(0,0,0,.35)}
+  .receta:hover{transform:translateY(-3px)}
+  .receta .rx-cab{display:flex;justify-content:space-between;align-items:center;background:#efe6d2;padding:.35rem .8rem;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:#7a6a4f}
+  .receta .rx-cab b{font-size:1.15rem;font-family:Georgia,serif;color:#6b1e5a;text-transform:none;letter-spacing:0}
+  .receta .malestar{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:1.12rem;padding:.8rem .9rem 1rem;color:#4a3428;min-height:4.2rem}
+  .receta.hecho{opacity:.4}
+  .receta.hecho .rx-cab::after{content:"surtida ✓";color:var(--okd)}
+
+  /* ---------- credenciales (ronda 3) ---------- */
+  .expediente{background:var(--panel);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:0 0 1.1rem}
+  .expediente h3{margin:0 0 .6rem;color:#fff;font-size:1.05rem}
+  .expediente h3 small{color:var(--rosa);font-weight:400}
+  .gafetes{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.7rem;margin-bottom:.7rem}
+  .gafete{background:var(--crema);color:#3a1b33;border-radius:.6rem;padding:.6rem .7rem;text-align:center;position:relative;border-top:.45rem solid #9c7d95;transition:.3s}
+  .gafete .foto{width:2.1rem;height:2.1rem;border-radius:50%;background:#d9c3d4;margin:0 auto .3rem;display:flex;align-items:center;justify-content:center;font-size:1.15rem}
+  .gafete .pal{font-weight:800;font-size:1.12rem;color:#4a1440;word-break:break-word}
+  .gafete .ori{display:none;font-size:.78rem;margin-top:.35rem;line-height:1.35}
+  .expediente.revelado .gafete{border-top-color:var(--okd)}
+  .expediente.revelado .gafete .ori{display:block;color:var(--okd)}
+  .expediente.revelado .gafete.impostor{background:#fdece3;border-top-color:var(--nod);animation:tiembla .4s ease}
+  .expediente.revelado .gafete.impostor .pal{color:var(--nod);text-decoration:line-through}
+  .expediente.revelado .gafete.impostor .ori{color:var(--nod);font-weight:700}
+  .expediente.revelado .gafete.impostor .foto{background:#f5c9ae}
+  @keyframes tiembla{0%,100%{transform:none}25%{transform:translateX(-5px) rotate(-1deg)}75%{transform:translateX(5px) rotate(1deg)}}
+  .expediente .rev-btn{border:none;background:var(--rosaf);color:#fff;border-radius:.6rem;padding:.5rem 1.1rem;font:inherit;font-weight:700;cursor:pointer}
+  .expediente.revelado .rev-btn{display:none}
+
+  /* ---------- urgencias ---------- */
+  .urgencias-lista{display:grid;gap:.9rem}
+  .urgencia{background:var(--panel);border:1px solid var(--nod);border-radius:.8rem;padding:1rem 1.2rem}
+  .urgencia .eti{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--no)}
+  .urgencia .pal{font-size:2rem;font-weight:800;color:#fff;margin:.2rem 0 .4rem;word-break:break-word}
+  .urgencia .dec{display:none}
+  .urgencia .dec.ver{display:block}
+  .urgencia button{border:1px solid var(--nod);background:none;color:var(--no);border-radius:.6rem;padding:.4rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+
+  /* ---------- piezas (chips) ---------- */
+  .dis{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;margin:.5rem 0}
+  .pz{border-radius:.55rem;padding:.32rem .6rem;font-weight:800;font-size:1.05rem;text-align:center;line-height:1.15}
+  .pz small{display:block;font-weight:400;font-size:.68rem;opacity:.92}
+  .pz--pre{background:var(--pre-bg);color:var(--pre-tx)}
+  .pz--raiz{background:var(--raiz-bg);color:var(--raiz-tx)}
+  .pz--suf{background:var(--suf-bg);color:var(--suf-tx)}
+  .eq{font-weight:800;color:var(--rosa);font-size:1.05rem}
+
+  /* ---------- telón (overlay) ---------- */
+  #telon{position:fixed;inset:0;background:var(--fondo);z-index:50;display:none;flex-direction:column;padding:2rem clamp(1rem,6vw,5rem)}
+  #telon.ver{display:flex}
+  #telon .t-eti{font-size:.85rem;text-transform:uppercase;letter-spacing:.15em;color:var(--rosa)}
+  #telon .t-pal{font-size:clamp(2.6rem,9vw,7rem);font-weight:800;color:#fff;line-height:1.05;margin:.4rem 0 .6rem;word-break:break-word}
+  #telon .t-pal.receta-pal{font-family:Georgia,serif;font-style:italic;font-size:clamp(2rem,6vw,4.2rem);color:var(--crema)}
+  #telon .t-zona{flex:1;overflow:auto}
+  #telon .t-dis{display:none}
+  #telon .t-dis.ver{display:block}
+  #telon .t-dis .dis .pz{font-size:clamp(1.2rem,2.6vw,2rem);padding:.5rem .9rem}
+  #telon .t-dis .dis .pz small{font-size:clamp(.75rem,1.3vw,1rem)}
+  #telon .t-dis .eq{font-size:clamp(1.2rem,2.6vw,2rem)}
+  #telon .t-ver{display:none;font-size:clamp(1.15rem,2.4vw,1.8rem);color:var(--ok);background:var(--panel);border:1px solid var(--okd);border-radius:.8rem;padding:1rem 1.3rem;margin-top:1rem;line-height:1.5}
+  #telon .t-ver.ver{display:block}
+  #telon .t-pie{display:flex;gap:.7rem;flex-wrap:wrap;padding-top:1rem}
+  #telon .t-pie button{border:none;border-radius:.7rem;padding:.7rem 1.4rem;font:inherit;font-weight:700;cursor:pointer;font-size:1.05rem}
+  .b-rosa{background:var(--rosaf);color:#fff}
+  .b-verde{background:var(--okd);color:#fff}
+  .b-gris{background:var(--panel);color:var(--tinta);border:1px solid var(--borde) !important}
+
+  footer{margin-top:2.5rem;font-size:.8rem;color:#9c7d95;border-top:1px solid var(--borde);padding-top:.9rem}
+  footer a{color:var(--rosa)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="tit">
+    <div class="mini">Etimologías grecolatinas · Semana 4 · Viernes · tablero para proyectar</div>
+    <h1><span class="cruz">✚</span> El consultorio griego</h1>
+  </div>
+  <div class="reloj-caja">
+    <div class="reloj-num" id="relojNum">--:--</div>
+    <button id="r30">30 s</button>
+    <button id="r60">1 min</button>
+    <button id="rStop">✕</button>
+  </div>
+</header>
+
+<div id="marcador"></div>
+<div id="eqCtrl" style="flex-direction:row;display:flex;gap:.5rem">
+  <button id="btnMasEq">+ equipo</button>
+  <button id="btnMenosEq">− equipo</button>
+  <button id="btnCeros">marcador en ceros</button>
+</div>
+
+<nav id="navRondas">
+  <button data-r="triage" class="on">Triage</button>
+  <button data-r="r1">Ronda 1 · Sala de espera</button>
+  <button data-r="r2">Ronda 2 · El recetario</button>
+  <button data-r="r3">Ronda 3 · El impostor</button>
+  <button data-r="urg">Urgencias · desempate</button>
+</nav>
+
+<!-- ================= TRIAGE ================= -->
+<section class="ronda on" id="triage">
+  <div class="como"><strong>Triage: el quiz relámpago de siempre.</strong> Tres reactivos con las piezas de la semana. Cada quien apuesta en su cuaderno antes de revelar. Predice cuántas tendrás bien: el termómetro real es la calibración.</div>
+  <div class="triage-lista">
+    <div class="triage">
+      <div class="tipo">Reactivo 1 · de la pieza al significado</div>
+      <div class="preg">-algia significa…</div>
+      <div class="resp">Dolor. Vive en cefalalgia, neuralgia y hasta en nostalgia: el dolor del regreso que no llega.</div>
+      <button>Revelar</button>
+    </div>
+    <div class="triage">
+      <div class="tipo">Reactivo 2 · del significado a la pieza</div>
+      <div class="preg">"De menos, por debajo" se dice…</div>
+      <div class="resp">hipo-. Hipotermia (calor de menos), hipoglucemia (azúcar de menos). Su gemela contraria: hiper-.</div>
+      <button>Revelar</button>
+    </div>
+    <div class="triage">
+      <div class="tipo">Reactivo 3 · palabra a decodificar</div>
+      <div class="preg">cardiopatía</div>
+      <div class="resp">cardio (corazón) + patía (padecimiento, el pathos de apatía y simpatía): una enfermedad del corazón. Pieza vieja + pieza nueva = palabra que nadie les enseñó.</div>
+      <button>Revelar</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RONDA 1 ================= -->
+<section class="ronda" id="r1">
+  <div class="como"><strong>Diagnóstico exprés.</strong> Un equipo elige ficha de turno. El término aparece en pantalla y el equipo lo traduce solo con piezas, razonando en voz alta. Vale discutir; no vale el celular. Punto por traducción defendible. Las fichas 11 y 12 valen doble: avísales antes de que las pidan.</div>
+  <div class="turnos" id="turnos"></div>
+</section>
+
+<!-- ================= RONDA 2 ================= -->
+<section class="ronda" id="r2">
+  <div class="como"><strong>La receta al revés.</strong> Ahora el consultorio dicta el malestar y los equipos <em>arman</em> la palabra: cada equipo la escribe en grande en una hoja, a la cuenta de tres todos la muestran. Se premia la lógica de las piezas, no la ortografía perfecta. Si un equipo arma una palabra bien construida que no venía en el plan, al DECEL en vivo: si existe, punto doble.</div>
+  <div class="recetas" id="recetas"></div>
+</section>
+
+<!-- ================= RONDA 3 ================= -->
+<section class="ronda" id="r3">
+  <div class="como"><strong>El impostor.</strong> Cinco expedientes de personal del consultorio. En cada uno hay tres palabras griegas certificadas y una que solo trae la bata puesta. Cada equipo escribe su sospechoso <em>y su argumento de piezas</em> antes de revelar. Punto por atinarle; punto doble si el argumento venía antes del veredicto. El reflejo de la semana 3: las letras engañan, la fuente no.</div>
+  <div id="expedientes"></div>
+</section>
+
+<!-- ================= URGENCIAS ================= -->
+<section class="ronda" id="urg">
+  <div class="como"><strong>Sala de urgencias: muerte súbita.</strong> Solo si hay empate. Palabra monstruosa en pantalla; el primer equipo que la corte completa y defendible, gana. Sin turnos: a mano alzada.</div>
+  <div class="urgencias-lista">
+    <div class="urgencia">
+      <div class="eti">Caso urgente 1</div>
+      <div class="pal">electrocardiograma</div>
+      <div class="dec">
+        <div class="dis"><span class="pz pz--pre">electro<small>electricidad</small></span><span class="pz pz--raiz">cardio<small>corazón</small></span><span class="pz pz--suf">-grama<small>registro, dibujo</small></span></div>
+        <p>El dibujo eléctrico del corazón. La -grama es hermana de la -grafía de demografía.</p>
+      </div>
+      <button>Veredicto</button>
+    </div>
+    <div class="urgencia">
+      <div class="eti">Caso urgente 2</div>
+      <div class="pal">gastroenterólogo</div>
+      <div class="dec">
+        <div class="dis"><span class="pz pz--pre">gastro<small>estómago</small></span><span class="pz pz--raiz">entero<small>intestino</small></span><span class="pz pz--suf">-logo<small>especialista</small></span></div>
+        <p>Especialista en estómago e intestino: el del directorio médico, ya sin misterio.</p>
+      </div>
+      <button>Veredicto</button>
+    </div>
+    <div class="urgencia">
+      <div class="eti">Caso urgente 3 · el jefe final</div>
+      <div class="pal">electroencefalograma</div>
+      <div class="dec">
+        <div class="dis"><span class="pz pz--pre">electro<small>electricidad</small></span><span class="pz pz--pre">en-<small>dentro</small></span><span class="pz pz--raiz">céfalo<small>cabeza</small></span><span class="pz pz--suf">-grama<small>registro</small></span></div>
+        <p>El registro eléctrico de lo que hay dentro de la cabeza. Ocho sílabas y ni una sobra.</p>
+      </div>
+      <button>Veredicto</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Semana 4 · El consultorio griego · Tablero del viernes. El marcador se guarda solo en esta computadora; el botón «marcador en ceros» lo reinicia. Fuentes de los veredictos: <a href="https://dle.rae.es" target="_blank" rel="noopener">DLE</a> y <a href="http://etimologias.dechile.net" target="_blank" rel="noopener">DECEL</a>.
+</footer>
+</div>
+
+<!-- ================= TELÓN ================= -->
+<div id="telon">
+  <div class="t-eti" id="tEti"></div>
+  <div class="t-pal" id="tPal"></div>
+  <div class="t-zona">
+    <div class="t-dis" id="tDis"></div>
+    <div class="t-ver" id="tVer"></div>
+  </div>
+  <div class="t-pie">
+    <button class="b-gris" id="tBtnDis">Ver piezas</button>
+    <button class="b-rosa" id="tBtnVer">Veredicto</button>
+    <button class="b-verde" id="tBtnFin">Atendido ✓</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  /* ============ datos ============ */
+
+  /* Ronda 1: pacientes de la sala de espera. [palabra, piezas[[texto,significado,clase]], veredicto, dificultad] */
+  var PACIENTES=[
+    ["otitis",[["ot","oreja","raiz"],["-itis","inflamación","suf"]],
+     "Inflamación del oído. La primera del martes: si esta no cae, la semana no pasó por aquí.","calentamiento"],
+    ["gastritis",[["gastro","estómago","raiz"],["-itis","inflamación","suf"]],
+     "Inflamación del estómago. La misma -itis del martes, con otra víctima.","calentamiento"],
+    ["cefalalgia",[["céfalo","cabeza","raiz"],["-algia","dolor","suf"]],
+     "Dolor de cabeza, en griego de receta. Lo que el médico escribe cuando no quiere escribir «le duele la cabeza».","normal"],
+    ["neuralgia",[["neuro","nervio","raiz"],["-algia","dolor","suf"]],
+     "Dolor de un nervio. La -algia otra vez, ahora en el cableado.","normal"],
+    ["hipotermia",[["hipo-","de menos","pre"],["termo","calor","raiz"],["-ia","estado","suf"]],
+     "Calor de menos: el cuerpo por debajo de su temperatura. Su gemela hipertermia dice lo contrario.","normal"],
+    ["anestesia",[["an-","sin","pre"],["aisthesis","sensación","raiz"]],
+     "Sin sensación. El interruptor an- apagando los sentidos. De la misma familia: estética, lo que sí se siente.","normal"],
+    ["anemia",[["an-","sin","pre"],["-emia","sangre","suf"]],
+     "Sangre que falta. Cuando una palabra médica termina en -emia, está hablando de la sangre.","normal"],
+    ["hipertensión",[["hiper-","de más","pre"],["tensión","tensión (¡latín!)","raiz"]],
+     "Tensión de más. Dato fino para el punto: es mitad griega y mitad latina. Las lenguas también se mezclan.","normal"],
+    ["dermatólogo",[["derma","piel","raiz"],["-logo","especialista","suf"]],
+     "Especialista en piel: el del sarpullido. Prima de paquidermo, el animal de piel gruesa.","normal"],
+    ["oftalmólogo",[["oftalmo","ojo","raiz"],["-logo","especialista","suf"]],
+     "Especialista en ojos: con el que vas si ves borroso.","normal"],
+    ["otorrinolaringólogo",[["oto","oreja","pre"],["rino","nariz","pre"],["laringo","garganta","raiz"],["-logo","especialista","suf"]],
+     "Oreja, nariz y garganta: tres consultorios en una palabra. Nueve sílabas y ninguna de adorno.","vale doble"],
+    ["hipoglucemia",[["hipo-","de menos","pre"],["glyký","dulce","raiz"],["-emia","sangre","suf"]],
+     "Azúcar de menos en la sangre. Glykýs, dulce: la pieza nueva se deduce por eliminación. Traducirla completa es jugada maestra.","vale doble"]
+  ];
+
+  /* Ronda 2: recetas. [malestar dictado, palabra, piezas, nota] */
+  var RECETAS=[
+    ["Inflamación de la piel","dermatitis",[["derma","piel","raiz"],["-itis","inflamación","suf"]],
+     "El sarpullido con nombre técnico. Existe y está en el DLE."],
+    ["Dolor de estómago, en griego de receta","gastralgia",[["gastro","estómago","raiz"],["-algia","dolor","suf"]],
+     "Existe: así lo escribe el médico cuando se pone formal."],
+    ["Médico del corazón","cardiólogo",[["cardio","corazón","raiz"],["-logo","especialista","suf"]],
+     "El del electrocardiograma. Directo del directorio médico."],
+    ["Dolor de oído","otalgia",[["ot","oreja","raiz"],["-algia","dolor","suf"]],
+     "¡Existe! Y casi nadie la conoce: quien la armó aquí la inventó bien. Al DECEL en vivo para el aplauso."],
+    ["Inflamación de un nervio","neuritis",[["neuro","nervio","raiz"],["-itis","inflamación","suf"]],
+     "Existe. Neuralgia duele, neuritis se inflama: las dos caras del mismo nervio."],
+    ["Lo que te deja sin dolor","analgésico",[["an-","sin","pre"],["algos","dolor","raiz"],["-ico","relativo a","suf"]],
+     "El interruptor an- apagando la -algia. La caja de la farmacia lo dice en griego."],
+    ["Médico de la vejez","geriatra",[["geron","vejez","raiz"],["iatra","médico","suf"]],
+     "La promesa del miércoles: iatro trabajando. Hermano de pediatra y psiquiatra."],
+    ["Inflamación de la garganta","laringitis",[["laringo","garganta","raiz"],["-itis","inflamación","suf"]],
+     "La garganta del otorrino, ahora inflamada. Cuando el grito del partido cobra factura."]
+  ];
+
+  /* Ronda 3: expedientes. words: [palabra, esImpostor, origen] */
+  var EXPEDIENTES=[
+    {t:"Expediente A · turno de la mañana",g:[
+      ["gastritis",false,"griego certificado: gastro + -itis"],
+      ["jarabe",true,"¡Árabe! De šarāb, «bebida». Entró por la farmacia, pero no por Grecia."],
+      ["otitis",false,"griego certificado: ot + -itis"],
+      ["dermatitis",false,"griego certificado: derma + -itis"]]},
+    {t:"Expediente B · los especialistas",g:[
+      ["cardiólogo",false,"griego certificado: cardio + -logo"],
+      ["neurólogo",false,"griego certificado: neuro + -logo"],
+      ["virus",true,"¡Latín puro! Significaba «veneno». Ni una pieza griega encima."],
+      ["oftalmólogo",false,"griego certificado: oftalmo + -logo"]]},
+    {t:"Expediente C · la farmacia",g:[
+      ["anestesia",false,"griego certificado: an- + aisthesis"],
+      ["anemia",false,"griego certificado: an- + -emia"],
+      ["almohada",true,"¡Árabe! De al-muẖádda, «donde se apoya la mejilla». El al- la delata."],
+      ["analgésico",false,"griego certificado: an- + algos"]]},
+    {t:"Expediente D · el horario de clases",g:[
+      ["biología",false,"griego certificado: bio + -logía"],
+      ["vitamina",true,"¡Latín! De vita, «vida», + amina (química). Parece bio-, pero es vita-."],
+      ["psicología",false,"griego certificado: psico + -logía"],
+      ["cardiología",false,"griego certificado: cardio + -logía"]]},
+    {t:"Expediente E · turno de la tarde",g:[
+      ["hipotermia",false,"griego certificado: hipo- + termo"],
+      ["hipertensión",false,"griego mestizo pero certificado: hiper- es griego (tensión, latín)"],
+      ["azúcar",true,"¡Árabe! De as-sukkar… que venía del sánscrito. Una palabra viajera: más de ella en la unidad 2."],
+      ["hipoglucemia",false,"griego certificado: hipo- + glyký + -emia"]]}
+  ];
+
+  /* ============ util ============ */
+  function el(t,c,h){var d=document.createElement(t);if(c)d.className=c;if(h!=null)d.innerHTML=h;return d;}
+  function disHTML(piezas,palabra){
+    var h='<div class="dis">';
+    piezas.forEach(function(p){h+='<span class="pz pz--'+p[2]+'">'+p[0]+'<small>'+p[1]+'</small></span>';});
+    if(palabra)h+='<span class="eq">= '+palabra+'</span>';
+    return h+'</div>';
+  }
+
+  /* ============ marcador ============ */
+  var KEY='cg4-marcador';
+  var equipos;
+  try{equipos=JSON.parse(localStorage.getItem(KEY)||'null');}catch(e){equipos=null;}
+  if(!equipos||!equipos.length)equipos=[{n:"Equipo 1",p:0},{n:"Equipo 2",p:0},{n:"Equipo 3",p:0}];
+  var marc=document.getElementById('marcador');
+  function guarda(){try{localStorage.setItem(KEY,JSON.stringify(equipos));}catch(e){}}
+  function pintaMarcador(){
+    marc.innerHTML='';
+    var max=Math.max.apply(null,equipos.map(function(e){return e.p;}));
+    equipos.forEach(function(eq,i){
+      var d=el('div','equipo'+(eq.p===max&&eq.p>0?' lider':''));
+      var nom=el('div','nom',eq.n);
+      nom.contentEditable=true;nom.spellcheck=false;
+      nom.addEventListener('blur',function(){eq.n=nom.textContent.trim()||('Equipo '+(i+1));guarda();});
+      var pts=el('div','pts',eq.p);
+      var bts=el('div','botones');
+      [['−1',-1,''],['+1',1,''],['+2',2,'mas2']].forEach(function(b){
+        var x=el('button',b[2],b[0]);
+        x.addEventListener('click',function(){eq.p=Math.max(0,eq.p+b[1]);guarda();pintaMarcador();});
+        bts.appendChild(x);
+      });
+      d.appendChild(nom);d.appendChild(pts);d.appendChild(bts);
+      marc.appendChild(d);
+    });
+  }
+  pintaMarcador();
+  document.getElementById('btnMasEq').addEventListener('click',function(){
+    if(equipos.length<6){equipos.push({n:"Equipo "+(equipos.length+1),p:0});guarda();pintaMarcador();}
+  });
+  document.getElementById('btnMenosEq').addEventListener('click',function(){
+    if(equipos.length>2){equipos.pop();guarda();pintaMarcador();}
+  });
+  document.getElementById('btnCeros').addEventListener('click',function(){
+    equipos.forEach(function(e){e.p=0;});guarda();pintaMarcador();
+  });
+
+  /* ============ reloj ============ */
+  var rNum=document.getElementById('relojNum'),rInt=null,rFin=0;
+  function rTic(){
+    var s=Math.max(0,Math.round((rFin-Date.now())/1000));
+    rNum.textContent=Math.floor(s/60)+':'+('0'+s%60).slice(-2);
+    rNum.classList.toggle('rojo',s<=5&&s>0);
+    if(s<=0){clearInterval(rInt);rInt=null;rNum.textContent='¡0:00!';}
+  }
+  function rArranca(seg){rFin=Date.now()+seg*1000;if(rInt)clearInterval(rInt);rTic();rInt=setInterval(rTic,250);}
+  document.getElementById('r30').addEventListener('click',function(){rArranca(30);});
+  document.getElementById('r60').addEventListener('click',function(){rArranca(60);});
+  document.getElementById('rStop').addEventListener('click',function(){if(rInt)clearInterval(rInt);rInt=null;rNum.textContent='--:--';rNum.classList.remove('rojo');});
+
+  /* ============ navegación ============ */
+  var nav=document.getElementById('navRondas');
+  nav.addEventListener('click',function(ev){
+    var b=ev.target.closest('button');if(!b)return;
+    nav.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});
+    b.classList.add('on');
+    document.querySelectorAll('section.ronda').forEach(function(s){s.classList.toggle('on',s.id===b.getAttribute('data-r'));});
+  });
+
+  /* ============ triage ============ */
+  document.querySelectorAll('.triage button').forEach(function(b){
+    b.addEventListener('click',function(){
+      b.previousElementSibling.classList.add('ver');
+      b.style.display='none';
+    });
+  });
+
+  /* ============ telón ============ */
+  var telon=document.getElementById('telon'),tEti=document.getElementById('tEti'),
+      tPal=document.getElementById('tPal'),tDis=document.getElementById('tDis'),
+      tVer=document.getElementById('tVer'),tBtnDis=document.getElementById('tBtnDis'),
+      tBtnVer=document.getElementById('tBtnVer'),tBtnFin=document.getElementById('tBtnFin'),
+      alCerrar=null;
+  function abreTelon(o){
+    /* o: {eti, pal, palClase, dis, ver, fin} */
+    tEti.textContent=o.eti;
+    tPal.textContent=o.pal;
+    tPal.className='t-pal'+(o.palClase?' '+o.palClase:'');
+    tDis.innerHTML=o.dis||'';tDis.classList.remove('ver');
+    tVer.innerHTML=o.ver||'';tVer.classList.remove('ver');
+    tBtnDis.style.display=o.dis?'':'none';
+    alCerrar=o.fin||null;
+    telon.classList.add('ver');
+  }
+  tBtnDis.addEventListener('click',function(){tDis.classList.add('ver');});
+  tBtnVer.addEventListener('click',function(){tDis.classList.add('ver');tVer.classList.add('ver');});
+  tBtnFin.addEventListener('click',function(){telon.classList.remove('ver');if(alCerrar)alCerrar();});
+  document.addEventListener('keydown',function(ev){
+    if(ev.key==='Escape'&&telon.classList.contains('ver')){telon.classList.remove('ver');if(alCerrar)alCerrar();}
+  });
+
+  /* ============ ronda 1: fichas de turno ============ */
+  var turnos=document.getElementById('turnos');
+  PACIENTES.forEach(function(p,i){
+    var b=el('button','turno',
+      '<div class="eti">su turno</div><div class="num">'+('0'+(i+1)).slice(-2)+'</div><div class="dif">'+p[3]+'</div>');
+    b.addEventListener('click',function(){
+      abreTelon({
+        eti:'Diagnóstico exprés · turno '+('0'+(i+1)).slice(-2)+(p[3]==='vale doble'?' · vale doble':''),
+        pal:p[0],
+        dis:disHTML(p[1],p[0]),
+        ver:p[2],
+        fin:function(){b.classList.add('hecho');}
+      });
+    });
+    turnos.appendChild(b);
+  });
+
+  /* ============ ronda 2: recetario ============ */
+  var recetas=document.getElementById('recetas');
+  RECETAS.forEach(function(r,i){
+    var b=el('button','receta',
+      '<div class="rx-cab"><b>℞</b><span>receta '+(i+1)+' de '+RECETAS.length+'</span></div>'+
+      '<div class="malestar">«'+r[0]+'»</div>');
+    b.addEventListener('click',function(){
+      abreTelon({
+        eti:'La receta al revés · receta '+(i+1),
+        pal:'«'+r[0]+'»',
+        palClase:'receta-pal',
+        dis:disHTML(r[2],r[1]),
+        ver:'<strong style="font-size:1.3em">'+r[1]+'</strong> · '+r[3],
+        fin:function(){b.classList.add('hecho');}
+      });
+    });
+    recetas.appendChild(b);
+  });
+
+  /* ============ ronda 3: expedientes ============ */
+  var exp=document.getElementById('expedientes');
+  EXPEDIENTES.forEach(function(x){
+    var d=el('div','expediente','<h3>'+x.t+' <small>· uno de estos cuatro no es griego</small></h3>');
+    var g=el('div','gafetes');
+    x.g.forEach(function(w){
+      g.appendChild(el('div','gafete'+(w[1]?' impostor':''),
+        '<div class="foto">'+(w[1]?'🕵️':'⚕️')+'</div><div class="pal">'+w[0]+'</div><div class="ori">'+w[2]+'</div>'));
+    });
+    var b=el('button','rev-btn','El veredicto del DECEL');
+    b.addEventListener('click',function(){d.classList.add('revelado');});
+    d.appendChild(g);d.appendChild(b);
+    exp.appendChild(d);
+  });
+
+  /* ============ urgencias ============ */
+  document.querySelectorAll('.urgencia button').forEach(function(b){
+    b.addEventListener('click',function(){
+      b.parentElement.querySelector('.dec').classList.add('ver');
+      b.style.display='none';
+    });
+  });
+})();
+</script>
+</body>
+</html>
