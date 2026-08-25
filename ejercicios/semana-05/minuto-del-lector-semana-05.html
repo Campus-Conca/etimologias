@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El minuto del lector · Semana 5 · Martes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ciruela:#2B2440; --morado:#6B1E5A; --rosa:#C4006A; --rosa-suave:#FFD6E9; --rosa-luz:#F4A8CE;
+    --jade:#0B5F52; --jade-suave:#DFF5EE; --dorado:#B07B12; --tinta:#221A3A; --gris:#4A3F5C;
+    --borde:#E6DFF0; --fondo:#F4EFF9; --rojo:#A3312B; --rojo-suave:#FDECEC;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  html,body{height:100%}
+  body{font-family:"Inter",system-ui,sans-serif; background:var(--fondo); color:var(--tinta); overflow:hidden}
+  .disp{font-family:"Bricolage Grotesque","Inter",sans-serif; font-weight:800; letter-spacing:-.015em}
+
+  .slide{position:absolute; inset:0; display:none; flex-direction:column; justify-content:center;
+    align-items:center; text-align:center; padding:4vmin 7vmin 12vmin; gap:2.2vmin}
+  .slide.activa{display:flex}
+  .slide--oscura{background:var(--ciruela); color:#F4EFF9}
+  .slide--tinta{background:var(--morado); color:#FFE9F4}
+
+  .kicker{font-size:2vmin; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--rosa)}
+  .slide--oscura .kicker, .slide--tinta .kicker{color:var(--rosa-luz)}
+  h1{font-size:7.5vmin; line-height:1.1; max-width:82vw}
+  h1.chico{font-size:5.6vmin}
+  .sub{font-size:3vmin; color:var(--gris); max-width:72vw; line-height:1.5}
+  .slide--oscura .sub, .slide--tinta .sub{color:#D9CFE8}
+  .mini{font-size:2.4vmin; color:var(--gris); max-width:66vw; line-height:1.5; font-style:italic}
+  .slide--oscura .mini, .slide--tinta .mini{color:#C9BCDD}
+
+  /* termómetro */
+  .term{display:flex; width:86vw; align-items:stretch; gap:1.2vmin; margin-top:1vmin}
+  .term div{flex:1; border-radius:1.6vmin; padding:2.6vmin 2vmin; font-weight:700; font-size:2.9vmin; line-height:1.25}
+  .term .t1{background:var(--jade-suave); color:var(--jade)}
+  .term .t2{background:#FFF3DA; color:var(--dorado)}
+  .term .t3{background:var(--rojo-suave); color:var(--rojo)}
+  .term small{display:block; font-weight:400; font-size:2vmin; opacity:.8; margin-top:.8vmin}
+
+  /* ficha */
+  .ficha{background:#fff; border:.5vmin solid var(--borde); border-radius:2vmin; padding:4vmin 5vmin;
+    width:74vw; text-align:left; box-shadow:0 1.5vmin 4vmin rgba(43,36,64,.10)}
+  .ficha .campo{font-size:4.2vmin; font-weight:700; margin-bottom:2.4vmin; color:var(--tinta)}
+  .ficha .campo span{display:inline-block; min-width:30vmin; border-bottom:.5vmin solid var(--rosa); vertical-align:baseline}
+  .ficha hr{border:none; border-top:2px dashed var(--borde); margin:2.4vmin 0}
+  .ficha .casillas{font-size:3vmin; color:var(--gris); line-height:1.9}
+  .ficha .casillas b{color:var(--tinta); font-weight:600}
+
+  /* fragmento literario */
+  .frag{font-family:"Instrument Serif","Georgia",serif; font-size:4.4vmin; line-height:1.35;
+    max-width:80vw; text-align:left}
+  .frag--corto{font-size:5.6vmin; text-align:center; max-width:76vw}
+  .frag em{font-style:italic}
+  .fuente{font-size:2.1vmin; color:var(--gris); letter-spacing:.04em}
+  .slide--oscura .fuente, .slide--tinta .fuente{color:#C9BCDD}
+
+  /* piezas / familia */
+  .dis{display:flex; gap:1.1vmin; align-items:center; justify-content:center; flex-wrap:wrap; margin-top:1vmin; max-width:88vw}
+  .pz{display:inline-block; border-radius:1.2vmin; padding:1.1vmin 1.9vmin; font-weight:700; font-size:3.2vmin; line-height:1.1}
+  .pz small{display:block; font-weight:400; font-size:1.7vmin; opacity:.85}
+  .pz--raiz{background:#2B2440; color:#FFD6E9}
+  .pz--lat{background:#FFE3F0; color:#A30058}
+  .pz--gr{background:var(--jade-suave); color:var(--jade)}
+  .dis--apretada .pz{font-size:2.7vmin; padding:.9vmin 1.5vmin}
+  .dis--apretada .pz small{font-size:1.5vmin}
+  .resp{font-size:6.5vmin; color:var(--jade)}
+  .explica{font-size:2.8vmin; color:var(--gris); max-width:74vw; line-height:1.55}
+  .slide--oscura .explica, .slide--tinta .explica{color:#D9CFE8}
+  .flecha{font-size:4vmin; color:var(--rosa); font-weight:800}
+
+  /* cronómetro */
+  #crono{position:fixed; top:2.5vmin; right:2.5vmin; z-index:10; display:flex; align-items:center; gap:.9vmin;
+    background:var(--jade-suave); border:1px solid #BFE7DC; border-radius:3vmin; padding:.8vmin 1.6vmin}
+  #crono b{font-variant-numeric:tabular-nums; font-size:3.2vmin; color:var(--jade)}
+  #crono button{border:none; background:none; cursor:pointer; font-size:2.4vmin; color:var(--jade); font-family:inherit; font-weight:700}
+  #crono .preset{font-size:1.9vmin; opacity:.7}
+  #crono .preset.on{opacity:1; text-decoration:underline}
+  #crono.alerta{background:var(--rojo-suave); border-color:#F2C4C1}
+  #crono.alerta b, #crono.alerta button{color:var(--rojo)}
+  #turnos{position:fixed; top:2.5vmin; right:28vmin; z-index:10; display:none; align-items:center; gap:.7vmin;
+    background:var(--rosa-suave); color:var(--morado); border-radius:3vmin; padding:.9vmin 1.8vmin;
+    font-weight:700; font-size:2.2vmin; cursor:pointer; border:1px solid #F2BFD9}
+  #turnos.on{display:flex}
+  #turnos b{font-variant-numeric:tabular-nums; font-size:2.8vmin}
+
+  /* controles */
+  #controles{position:fixed; bottom:2.5vmin; left:0; right:0; display:flex; justify-content:center; gap:2vmin; z-index:10}
+  #controles button{font-family:inherit; font-weight:700; font-size:2.4vmin; border:none; cursor:pointer;
+    border-radius:3vmin; padding:1.2vmin 3vmin; background:var(--rosa-suave); color:var(--morado)}
+  #controles button:hover{background:#fff}
+  #cuenta{position:fixed; bottom:3vmin; right:3vmin; font-size:2vmin; color:var(--gris); z-index:10}
+  .tecla{font-size:1.9vmin; color:var(--gris); opacity:.75}
+  .slide--oscura .tecla, .slide--tinta .tecla{color:#D9CFE8}
+  .marca{position:fixed; bottom:3vmin; left:3vmin; font-size:1.8vmin; color:var(--gris); opacity:.7; z-index:10}
+  .marca em{font-style:normal; font-variant-numeric:tabular-nums; color:var(--morado); font-weight:700}
+  #barra{position:fixed; top:0; left:0; height:.5vmin; background:var(--rosa); z-index:12; width:0; transition:width .18s}
+
+  /* nota del conductor */
+  #nota{position:fixed; left:3vmin; right:3vmin; bottom:9vmin; z-index:14; display:none;
+    background:rgba(34,26,58,.95); color:#FFE9F4; border-radius:1.6vmin; padding:2.2vmin 3vmin;
+    font-size:2.2vmin; line-height:1.5; box-shadow:0 1vmin 4vmin rgba(0,0,0,.35)}
+  #nota.on{display:block}
+  #nota b{color:var(--rosa-luz); letter-spacing:.1em; text-transform:uppercase; font-size:1.7vmin; display:block; margin-bottom:.8vmin}
+
+  /* apagón, ayuda, marcas */
+  #apagon{position:fixed; inset:0; background:#000; z-index:60; display:none}
+  #apagon.on{display:block}
+  #ayuda{position:fixed; inset:0; z-index:50; display:none; align-items:center; justify-content:center;
+    background:rgba(43,36,64,.94); color:#F4EFF9; padding:6vmin}
+  #ayuda.on{display:flex}
+  #ayuda table{border-collapse:collapse; font-size:2.6vmin}
+  #ayuda td{padding:.9vmin 2vmin}
+  #ayuda kbd{background:var(--rosa-suave); color:var(--morado); border-radius:.7vmin; padding:.4vmin 1.3vmin;
+    font-family:inherit; font-weight:700}
+  .opc{position:fixed; top:2.5vmin; left:2.5vmin; z-index:10; font-size:1.8vmin; color:var(--gris);
+    background:#fff; border:1px solid var(--borde); border-radius:2vmin; padding:.5vmin 1.4vmin; display:none}
+  .opc.on{display:block}
+</style>
+</head>
+<body>
+
+<div id="barra"></div>
+
+<div id="turnos" title="Turnos leídos · clic para poner en cero">turno <b>0</b></div>
+
+<div id="crono" title="60 s para cada minuto · 45 s para la ficha">
+  <button class="preset on" id="p60" type="button">60s</button>
+  <button class="preset" id="p45" type="button">45s</button>
+  <b id="crono-num">1:00</b>
+  <button id="crono-play" type="button">▶</button>
+  <button id="crono-reset" type="button">↺</button>
+</div>
+
+<div class="opc" id="avisoRuta">ruta corta · se saltan las láminas opcionales</div>
+
+<!-- 1 · Portada -->
+<section class="slide slide--oscura activa"
+  data-nota="Arranca sin explicar el ritual. Solo pon la lámina y di: hoy no hablamos del libro de la clase. Pulsa H si quieres ver las teclas.">
+  <div class="kicker">Semana 5 · Martes 25 de agosto · Al aire</div>
+  <h1 class="disp">El minuto del lector</h1>
+  <p class="sub">Hoy hablamos del libro. No del libro de la clase: del tuyo, el que elegiste.</p>
+  <p class="tecla">Avanza con → o espacio · regresa con ← · teclas con H</p>
+</section>
+
+<!-- 2 · El termómetro -->
+<section class="slide"
+  data-nota="3 min. Que se paren y CAMINEN: si se quedan sentados señalando, se pierde el efecto. Tú no comentes dónde se paró nadie. Cuenta en silencio cuántos hay en la tercera pared: ese número te dice cómo va el programa lector, y no se dice en voz alta.">
+  <div class="kicker">Primero, sin hablar</div>
+  <h1 class="disp chico">Párense y ubíquense</h1>
+  <div class="term">
+    <div class="t1">Me lo estoy devorando<small>voy volando, quiero seguir</small></div>
+    <div class="t2">Ahí la llevo<small>avanzo, pero a mi ritmo</small></div>
+    <div class="t3">Lo estoy arrastrando<small>o lo abandoné, o no lo he abierto</small></div>
+  </div>
+  <p class="sub">Nadie tiene que decir nada todavía. Solo camina y párate donde estés de verdad.</p>
+</section>
+
+<!-- 3 · Miren (OPCIONAL) -->
+<section class="slide slide--oscura" data-opcional
+  data-nota="Lámina opcional (30 s). Vale oro si la tercera pared está llena: legitima el abandono antes de que nadie tenga que confesarlo. Si el grupo ya está cómodo, sáltala.">
+  <div class="kicker">Desde donde están parados</div>
+  <h1 class="disp">Miren alrededor</h1>
+  <p class="sub">Nadie explica por qué está donde está. Solo véanse.</p>
+  <p class="mini">Abandonar un libro es una decisión lectora, no un fracaso. Aquí no hay una pared correcta.</p>
+</section>
+
+<!-- 4 · La ficha -->
+<section class="slide" data-crono="45"
+  data-nota="El cronómetro ya se puso solo en 45 s: pulsa T para arrancarlo. Reparte los papelitos ANTES de proyectar esta lámina. Repite dos veces que nadie va a recoger los papeles. Si alguien pregunta si cuenta para calificación: no, y dilo rápido.">
+  <div class="kicker">Siéntense · 45 segundos · nadie ve tu papel</div>
+  <div class="ficha">
+    <div class="campo">Título y autor: <span></span></div>
+    <div class="campo">Voy en la página: <span style="min-width:16vmin"></span></div>
+    <div class="campo">Una palabra: <span style="min-width:22vmin"></span></div>
+    <hr>
+    <div class="casillas">
+      ☐ <b>No lo he abierto.</b> &nbsp;&nbsp; ☐ <b>Lo abandoné.</b> &nbsp;&nbsp; ☐ <b>Prefiero no decir cuál.</b>
+    </div>
+  </div>
+  <p class="mini">Las tres casillas valen lo mismo que los tres renglones.</p>
+</section>
+
+<!-- 5 · Frontera: los minutos -->
+<section class="slide slide--tinta" data-crono="60"
+  data-nota="Las dos preguntas prohibidas son el corazón de la regla: sin ellas esto se vuelve reseña. Dilas despacio. Y deja claro el trato de hoy: pasan voluntarios; del próximo martes en adelante toca uno por semana en orden.">
+  <div class="kicker">Ahora sí</div>
+  <h1 class="disp">Un minuto cada quien</h1>
+  <p class="sub">Lees tu papel en voz alta. Nada más. <strong>Sin resumen.</strong></p>
+  <p class="sub" style="color:var(--rosa-luz)">Después, el grupo puede hacer <strong>una</strong> pregunta.<br>Dos están prohibidas: <em>¿de qué trata?</em> y <em>¿lo recomiendas?</em></p>
+  <p class="mini" style="color:#E8D7EE">Hoy pasan los que quieran. Del próximo martes en adelante: uno por semana, hasta que pase el grupo entero.</p>
+</section>
+
+<!-- 6 · Mi minuto -->
+<section class="slide" data-crono="60" data-turno
+  data-nota="Modelas tú primero, con el cronómetro corriendo y dejando que te corte. Que te vean obedecer la regla del reloj: es lo único que hace creíble cortarles a ellos.">
+  <div class="kicker">Empiezo yo</div>
+  <div class="ficha" style="width:70vw">
+    <div class="campo">Título y autor: <span style="border-bottom-color:var(--gris); min-width:auto"><em>Orbital</em> · Samantha Harvey</span></div>
+    <div class="campo">Voy en la página: <span style="border-bottom-color:var(--gris); min-width:auto">16</span></div>
+    <div class="campo">Una palabra: <span style="border-bottom-color:var(--gris); min-width:auto">lento</span></div>
+  </div>
+  <p class="mini">Y no me pregunten de qué trata, ni si lo recomiendo. Ese no es el trato aquí.</p>
+</section>
+
+<!-- 7 · El minuto corre -->
+<section class="slide slide--oscura" data-crono="60" data-turno
+  data-nota="Esta es la lámina que se queda puesta mientras pasan los lectores. T arranca cada minuto y suma un turno; el contador de arriba lleva la cuenta. Con 5 voluntarios son ~8 min con preguntas. Corta a los 60 s la primera vez aunque duela: la segunda ya nadie se pasa.">
+  <div class="kicker">La regla del reloj</div>
+  <h1 class="disp">Un minuto es un minuto</h1>
+  <p class="sub">Cuando el cronómetro llega a cero, se acaba tu turno. Aunque estés a media frase.</p>
+  <p class="mini">No es rigor: es lo que impide que esto se vuelva una reseña.</p>
+</section>
+
+<!-- 8 · Frontera: la lectura -->
+<section class="slide slide--tinta"
+  data-nota="Cambio de aire. Aquí guardan los papeles y se sientan a escuchar. No anuncies que hay etimología adelante: el remate de spec- se cae si lo ven venir.">
+  <div class="kicker">Y ahora déjenme leerles algo</div>
+  <h1 class="disp">Del libro que estoy leyendo</h1>
+  <p class="sub">Tres párrafos. Un salón de clases, un cuadro y un muchacho de quince años al que la clase le pareció una pérdida de tiempo.</p>
+</section>
+
+<!-- 9 · Fragmento 1 -->
+<section class="slide"
+  data-nota="Lee tú en voz alta, despacio, sin actuar. Cuatro láminas de fragmento = ~3 min. No preguntes nada entre lámina y lámina.">
+  <div class="kicker">Fragmento · 1 de 4</div>
+  <p class="frag">En la escuela les dieron una clase sobre <em>Las meninas</em>, cuando Shaun tenía quince años. Les contaron que el cuadro <strong>desorientaba al espectador</strong> y le dejaba con la sensación de no saber qué estaba <strong>mirando</strong>.</p>
+</section>
+
+<!-- 10 · Fragmento 2 -->
+<section class="slide"
+  data-nota="Si tienes internet y proyector libre, ten Las meninas abierta en otra pestaña para mostrarla 20 segundos justo al terminar esta lámina. Si no hay internet, descríbelo con la mano: el pintor aquí, el rey donde estamos nosotros.">
+  <div class="kicker">Fragmento · 2 de 4</div>
+  <p class="frag">—Es un cuadro dentro de otro cuadro —les dijo el profesor—. Velázquez está en el cuadro, junto al caballete, y lo que pinta es el rey y la reina, pero ellos están fuera del cuadro, <strong>justo donde nos encontramos nosotros</strong>. El único detalle que nos dice que están ahí es que podemos <strong>verlos reflejados</strong> en un <strong>espejo</strong> que tenemos justo delante.</p>
+</section>
+
+<!-- 11 · Fragmento 3 -->
+<section class="slide slide--oscura"
+  data-nota="Aquí sí haz la pausa. La pregunta del profesor del libro queda en el aire tres segundos antes de pasar.">
+  <div class="kicker">Fragmento · 3 de 4</div>
+  <p class="frag frag--corto">Así pues, ¿cuál es el tema del cuadro?</p>
+  <p class="frag frag--corto" style="color:var(--rosa-luz); font-size:4.6vmin">O bien —dijo el profesor— ¿se trata de un cuadro sobre la nada, tan solo una sala con gente y un espejo?</p>
+</section>
+
+<!-- 12 · Fragmento 4 -->
+<section class="slide"
+  data-nota="El chiste del fragmento: el que bosteza en la clase de arte es el mismo que hoy se pasa el día mirando la Tierra. No lo subrayes de más; suéltalo y pasa.">
+  <div class="kicker">Fragmento · 4 de 4</div>
+  <p class="frag">Para Shaun, que a los quince años no tenía ganas de ir a clase de Historia del Arte y ya sabía que quería ser piloto de combate, <strong>aquella lección fue el culmen de la frivolidad</strong>. El cuadro no le gustó especialmente y le daban igual los ingredientes de los que estuviera hecho.</p>
+  <p class="fuente">Samantha Harvey · <em>Orbital</em> · pp. 15–16</p>
+  <p class="mini">Seis astronautas dan dieciséis vueltas a la Tierra en un día, mirándola. Shaun es uno de ellos.</p>
+</section>
+
+<!-- 13 · Disruptora -->
+<section class="slide slide--oscura"
+  data-nota="La bisagra del día: aquí el ritual de lectura se convierte en clase de etimología. Di la primera línea, deja un segundo, di la segunda. Es la única lámina donde conviene el silencio largo.">
+  <h1 class="disp" style="font-size:6.4vmin">Un cuadro dentro de otro cuadro.</h1>
+  <h1 class="disp" style="font-size:6.4vmin; color:var(--rosa-luz)">Una palabra dentro de otra palabra.</h1>
+  <p class="mini">Llevamos toda la semana haciendo lo mismo que ese profesor: señalar lo que está dentro de algo que parecía simple.</p>
+  <p class="mini" style="color:var(--rosa-luz)">Y el libro entero es eso: gente mirando la Tierra desde arriba.</p>
+</section>
+
+<!-- 14 · La cacería -->
+<section class="slide"
+  data-nota="PRIMERO pídelas a mano alzada con las láminas del fragmento a la vista; recién entonces destapa la lista. Las cinco están textualmente en lo que acabas de leer: no aceptes palabras que no salieron en el fragmento (esas van al tribunal del jueves con su ?).">
+  <div class="kicker">Antes de guardar el libro · cacería</div>
+  <h1 class="disp chico">Toda palabra del fragmento que tenga que ver con mirar</h1>
+  <div class="dis">
+    <span class="pz pz--lat">espectador</span>
+    <span class="pz pz--lat">mirando</span>
+    <span class="pz pz--lat">verlos</span>
+    <span class="pz pz--lat">reflejados</span>
+    <span class="pz pz--lat">espejo</span>
+  </div>
+  <p class="sub">Cinco. Un fragmento sobre un cuadro y no habla de otra cosa.</p>
+</section>
+
+<!-- 15 · El tribunal -->
+<section class="slide slide--oscura"
+  data-nota="Que voten antes de que destapes: casi todos apuestan que espejo y espectador no son parientes, y que reflejo sí lo es del espejo. Aquí se cobra la regla de oro de la semana 3: significar parecido no prueba parentesco.">
+  <div class="kicker">Tribunal · regla de oro de la semana 3</div>
+  <h1 class="disp chico">De esas cinco, ¿cuántas son parientes?</h1>
+  <div class="dis">
+    <span class="pz pz--lat">espectador</span>
+    <span class="pz pz--lat">espejo</span>
+  </div>
+  <p class="sub">Dos. Solo dos vienen de <strong>spec-</strong>.</p>
+  <p class="mini">Las otras tres hablan de lo mismo y no se conocen entre ellas. Significar parecido no prueba parentesco.</p>
+</section>
+
+<!-- 16 · El mapa (OPCIONAL) -->
+<section class="slide" data-opcional
+  data-nota="Lámina opcional (2 min). De las cinco del fragmento, aquí solo se resuelve VERLOS; reflejados y mirando tienen lámina propia enseguida. Las otras tres son de pilón. Si vas apretado de tiempo, sáltala y quédate con contemplar como anécdota hablada.">
+  <div class="kicker">¿Y las otras de dónde salieron?</div>
+  <h1 class="disp chico">Seis maneras de mirar, seis gestos distintos</h1>
+  <div class="dis" style="flex-direction:column; gap:1.4vmin">
+    <span class="pz pz--lat" style="font-size:2.9vmin">ver &nbsp;←&nbsp; <em>videre</em><small>su propia raíz: visión, evidente, prever, revisar</small></span>
+    <span class="pz pz--lat" style="font-size:2.9vmin">observar &nbsp;←&nbsp; <em>servare</em>, guardar<small>como conservar, preservar, reservar</small></span>
+    <span class="pz pz--lat" style="font-size:2.9vmin">contemplar &nbsp;←&nbsp; <em>templum</em><small>el recinto que el augur trazaba en el cielo para leer los pájaros</small></span>
+    <span class="pz pz--lat" style="font-size:2.9vmin">percibir &nbsp;←&nbsp; <em>capere</em>, agarrar<small>como capturar, recibir, concepto</small></span>
+  </div>
+  <p class="mini">Del fragmento, esta lámina resuelve una: <em>verlos</em>. Las otras dos vienen ahora.</p>
+</section>
+
+<!-- 17 · El espejismo del día -->
+<section class="slide slide--tinta"
+  data-nota="Resuelve reflejados. El puente con reflexionar es la mejor frase del día para un grupo que va a defender su trabajo: pensar es doblar hacia atrás.">
+  <div class="kicker">El espejismo del día</div>
+  <h1 class="disp chico"><em>reflejo</em> parece del espejo</h1>
+  <div class="dis">
+    <span class="pz pz--lat">re-<small>otra vez</small></span>
+    <span class="flecha">+</span>
+    <span class="pz pz--raiz">flectere<small>doblar</small></span>
+  </div>
+  <p class="sub">Y no lo es. Reflejar es <strong>doblar hacia atrás</strong>: primo de flexible, inflexión y circunflejo.</p>
+  <p class="mini">Y de <em>reflexionar</em>, que es doblar el pensamiento hacia atrás. La misma palabra partida en dos.</p>
+</section>
+
+<!-- 18 · La sorpresa -->
+<section class="slide slide--oscura"
+  data-nota="Resuelve mirando, la quinta. Pregunta antes: ¿de dónde creen que viene MIRAR? Nadie dice asombrarse. Mirador y maravilla son las que hacen ruido.">
+  <div class="kicker">Y ahora la buena</div>
+  <h1 class="disp chico"><em>mirar</em> tampoco viene de mirar</h1>
+  <div class="dis">
+    <span class="pz pz--raiz" style="font-size:4.5vmin; padding:1.6vmin 3vmin">mirari<small style="font-size:2vmin">asombrarse</small></span>
+  </div>
+  <div class="dis">
+    <span class="pz pz--lat">milagro</span>
+    <span class="pz pz--lat">maravilla</span>
+    <span class="pz pz--lat">admirar</span>
+    <span class="pz pz--lat">mirador</span>
+  </div>
+  <p class="sub">En latín, mirar se dice <em>spec-</em>. Nuestro <strong>mirar</strong> salió de otro lado: de quedarse asombrado.</p>
+</section>
+
+<!-- 19 · La cosecha -->
+<section class="slide"
+  data-nota="Esta es la lámina de la llave maestra de hoy: una pieza, catorce puertas. Léelas en voz alta a buen ritmo, sin explicar cada una; el efecto es la cantidad. Si mañana juegan la cadena de raíces, spec- ya les mostró para qué sirve.">
+  <div class="kicker">La cosecha de la semana</div>
+  <div class="dis"><span class="pz pz--raiz" style="font-size:5vmin; padding:1.6vmin 3vmin">spec-<small style="font-size:2.2vmin">specere: mirar</small></span></div>
+  <div class="dis dis--apretada" style="margin-top:1.2vmin">
+    <span class="pz pz--lat">espejo<small>speculum</small></span>
+    <span class="pz pz--lat">espejismo</span>
+    <span class="pz pz--lat">espectador</span>
+    <span class="pz pz--lat">espectáculo</span>
+    <span class="pz pz--lat">espectro<small>lo que aparece</small></span>
+    <span class="pz pz--lat">perspectiva<small>mirar a través</small></span>
+    <span class="pz pz--lat">inspeccionar<small>mirar dentro</small></span>
+    <span class="pz pz--lat">sospechar<small>mirar por debajo</small></span>
+    <span class="pz pz--lat">especular<small>otear desde la torre</small></span>
+    <span class="pz pz--lat">expectativa</span>
+    <span class="pz pz--lat">aspecto</span>
+    <span class="pz pz--lat">espécimen</span>
+    <span class="pz pz--lat">especie<small>lo que se ve</small></span>
+    <span class="pz pz--lat">prospecto</span>
+  </div>
+  <div class="dis dis--apretada" style="margin-top:1.6vmin">
+    <span class="pz pz--gr">y su primo griego: skop- / skept-<small>telescopio · microscopio · escéptico · horóscopo (ὥρα + skopein: el que mira la hora)</small></span>
+  </div>
+</section>
+
+<!-- 20 · Respetar -->
+<section class="slide"
+  data-nota="El remate. Deja que compongan la suma ellos: re- más spec-, ¿qué palabra da? Suele salir respetar en voz baja y desde el fondo. No la digas tú si alguien la está pensando.">
+  <div class="kicker">La palabra sorpresa</div>
+  <div class="dis">
+    <span class="pz pz--lat">re-<small>otra vez</small></span>
+    <span class="flecha">+</span>
+    <span class="pz pz--raiz">spec-<small>mirar</small></span>
+    <span class="flecha">=</span>
+  </div>
+  <p class="resp disp">respetar</p>
+  <p class="explica">Respetar es <strong>volver a mirar</strong>: mirar por segunda vez a alguien a quien ya habías visto de reojo. Piensen dónde apareció: en un cuadro donde el rey mira a la infanta, la infanta nos mira a nosotros, Velázquez nos mira a todos y el espejo lo devuelve.</p>
+</section>
+
+<!-- 21 · El puente al gimnasio -->
+<section class="slide slide--oscura"
+  data-nota="La bisagra: aquí el ritual se convierte en el juego del día. Es la lámina que sustituye a la llave maestra de hemo-: spec- ya hizo ese trabajo con catorce puertas y con una palabra que les importa. Al terminar, el pizarrón y la cadena de raíces.">
+  <div class="kicker">Y esto es lo que vamos a hacer el resto de la hora</div>
+  <h1 class="disp chico">Una sola pieza les acaba de dar catorce palabras</h1>
+  <p class="sub">Aprender una raíz no suma una palabra: abre una fila entera de puertas. Eso es todo el negocio de la etimología, y es la razón por la que en este curso nadie memoriza listas.</p>
+  <p class="sub" style="color:var(--rosa-luz)">Diez piezas nuevas esta semana. Si cada una rinde ocho palabras, el viernes salen con <strong>ochenta</strong> que no tenían el lunes.</p>
+  <p class="mini">Ahora les toca: eligen una raíz y le sacan la familia completa, contra reloj.</p>
+</section>
+
+<!-- 22 · Cierre -->
+<section class="slide slide--tinta"
+  data-nota="ESTA LÁMINA ES PARA EL FINAL DE LA HORA, ya que jugaron la cadena de raíces: regresa a ella con la flecha izquierda. Todos escriben su palabra en el pizarrón al salir, hayan hablado o no. FOTOGRAFÍA EL PIZARRÓN: esas palabras se publican en Leemos y son candidatas al Museo. Y cierra fijando el calendario del ritual: cada martes, uno.">
+  <div class="kicker">Antes de salir</div>
+  <h1 class="disp">Tu palabra, al pizarrón</h1>
+  <p class="sub">Todos. Hayas hablado o no. Solo la palabra: no se explica, no se comenta.</p>
+  <p class="sub" style="color:var(--rosa-luz)">Y esto va a pasar cada martes. Ya saben la forma:<br><strong>título · página · una palabra.</strong></p>
+  <p class="mini" style="color:#E8D7EE">Pasa uno por semana, hasta que pase el grupo entero.</p>
+</section>
+
+<div id="nota"><b>Nota del conductor · N para ocultar</b><span id="nota-txt"></span></div>
+
+<div id="ayuda">
+  <table>
+    <tr><td><kbd>→</kbd> <kbd>espacio</kbd></td><td>siguiente lámina</td></tr>
+    <tr><td><kbd>←</kbd></td><td>lámina anterior</td></tr>
+    <tr><td><kbd>T</kbd></td><td>arranca o pausa el cronómetro (y suma un turno)</td></tr>
+    <tr><td><kbd>R</kbd></td><td>reinicia el cronómetro</td></tr>
+    <tr><td><kbd>4</kbd> / <kbd>6</kbd></td><td>cronómetro a 45 s / 60 s</td></tr>
+    <tr><td><kbd>N</kbd></td><td>nota del conductor de esta lámina</td></tr>
+    <tr><td><kbd>B</kbd></td><td>pantalla en negro (mientras escriben o leen)</td></tr>
+    <tr><td><kbd>F</kbd></td><td>pantalla completa</td></tr>
+    <tr><td><kbd>O</kbd></td><td>ruta corta: salta las láminas opcionales</td></tr>
+    <tr><td><kbd>H</kbd></td><td>cierra esta ayuda</td></tr>
+  </table>
+</div>
+
+<div id="apagon"></div>
+
+<div id="controles">
+  <button type="button" id="atras">← Atrás</button>
+  <button type="button" id="sigue">Siguiente →</button>
+</div>
+<div id="cuenta">1 / 22</div>
+<div class="marca">Etimologías · UAQ Campus Concá · sesión <em id="reloj-sesion">0:00</em></div>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var i = 0, cuenta = document.getElementById('cuenta'), barra = document.getElementById('barra');
+  var rutaCorta = false, avisoRuta = document.getElementById('avisoRuta');
+  var notaCaja = document.getElementById('nota'), notaTxt = document.getElementById('nota-txt');
+  var chip = document.getElementById('turnos'), chipNum = chip.querySelector('b'), turno = 0;
+
+  function visible(k){ return !(rutaCorta && slides[k].hasAttribute('data-opcional')); }
+
+  function muestra(n, dir){
+    n = Math.max(0, Math.min(slides.length - 1, n));
+    if(!visible(n)){
+      var j = n;
+      while(j > 0 && j < slides.length - 1 && !visible(j)){ j += (dir || 1); }
+      if(visible(j)){ n = j; }
+    }
+    i = n;
+    slides.forEach(function(s, k){ s.classList.toggle('activa', k === i); });
+    cuenta.textContent = (i + 1) + ' / ' + slides.length;
+    barra.style.width = ((i + 1) / slides.length * 100) + '%';
+    notaTxt.textContent = slides[i].getAttribute('data-nota') || 'Sin nota para esta lámina.';
+    chip.classList.toggle('on', slides[i].hasAttribute('data-turno'));
+    var c = slides[i].getAttribute('data-crono');
+    if(c && !timer){ fija(parseInt(c, 10), parseInt(c, 10) === 45 ? p45 : p60); }
+  }
+  document.getElementById('sigue').addEventListener('click', function(){ arrancaSesion(); muestra(i + 1, 1); });
+  document.getElementById('atras').addEventListener('click', function(){ muestra(i - 1, -1); });
+
+  /* cronómetro: 60 s por minuto, 45 s para la ficha */
+  var TOTAL = 60, resta = TOTAL, timer = null;
+  var num = document.getElementById('crono-num'),
+      play = document.getElementById('crono-play'),
+      caja = document.getElementById('crono'),
+      p60 = document.getElementById('p60'), p45 = document.getElementById('p45');
+  function pinta(){
+    var m = Math.floor(resta / 60), s = resta % 60;
+    num.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+    caja.classList.toggle('alerta', resta <= 10);
+  }
+  function para(){ clearInterval(timer); timer = null; play.textContent = '▶'; }
+  function tic(){ resta--; if(resta <= 0){ resta = 0; para(); } pinta(); }
+  function fija(t, btn){
+    TOTAL = t; resta = t; para();
+    p60.classList.toggle('on', btn === p60); p45.classList.toggle('on', btn === p45);
+    pinta();
+  }
+  function alterna(){
+    if(timer){ para(); return; }
+    if(resta === 0){ resta = TOTAL; }
+    if(resta === TOTAL && slides[i].hasAttribute('data-turno')){ turno++; chipNum.textContent = turno; }
+    timer = setInterval(tic, 1000); play.textContent = '⏸';
+  }
+  p60.addEventListener('click', function(){ fija(60, p60); });
+  p45.addEventListener('click', function(){ fija(45, p45); });
+  play.addEventListener('click', alterna);
+  document.getElementById('crono-reset').addEventListener('click', function(){ para(); resta = TOTAL; pinta(); });
+  chip.addEventListener('click', function(){ turno = 0; chipNum.textContent = turno; });
+  pinta();
+
+  /* reloj de la sesión: arranca al salir de la portada */
+  var seg = 0, relojSesion = document.getElementById('reloj-sesion'), corriendo = false;
+  function arrancaSesion(){
+    if(corriendo){ return; }
+    corriendo = true;
+    setInterval(function(){
+      seg++;
+      var m = Math.floor(seg / 60), s = seg % 60;
+      relojSesion.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+    }, 1000);
+  }
+
+  /* apagón, ayuda, pantalla completa */
+  var apagon = document.getElementById('apagon'), ayuda = document.getElementById('ayuda');
+  function pantallaCompleta(){
+    if(document.fullscreenElement){ document.exitFullscreen(); }
+    else if(document.documentElement.requestFullscreen){ document.documentElement.requestFullscreen(); }
+  }
+
+  document.addEventListener('keydown', function(e){
+    if(e.ctrlKey || e.altKey || e.metaKey){ return; }
+    var k = e.key, b = k.toLowerCase();
+    if(k === 'ArrowRight' || k === ' ' || k === 'PageDown'){ e.preventDefault(); arrancaSesion(); muestra(i + 1, 1); return; }
+    if(k === 'ArrowLeft' || k === 'PageUp'){ e.preventDefault(); muestra(i - 1, -1); return; }
+    if(b === 't'){ e.preventDefault(); alterna(); return; }
+    if(b === 'r'){ para(); resta = TOTAL; pinta(); return; }
+    if(k === '4'){ fija(45, p45); return; }
+    if(k === '6'){ fija(60, p60); return; }
+    if(b === 'n'){ notaCaja.classList.toggle('on'); return; }
+    if(b === 'b'){ apagon.classList.toggle('on'); return; }
+    if(b === 'f'){ pantallaCompleta(); return; }
+    if(b === 'h' || k === '?'){ ayuda.classList.toggle('on'); return; }
+    if(b === 'o'){
+      rutaCorta = !rutaCorta;
+      avisoRuta.classList.toggle('on', rutaCorta);
+      muestra(i, 1);
+      return;
+    }
+    if(k === 'Escape'){ apagon.classList.remove('on'); ayuda.classList.remove('on'); notaCaja.classList.remove('on'); }
+  });
+  apagon.addEventListener('click', function(){ apagon.classList.remove('on'); });
+  ayuda.addEventListener('click', function(){ ayuda.classList.remove('on'); });
+
+  muestra(0, 1);
+})();
+</script>
+</body>
+</html>

@@ -40,22 +40,23 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 </div>
 <button class="btn-presentar" type="button">Presentar ▸</button>
 </div>
-<section class="lam">
-<h4><span class="n">1</span> El minuto del lector <span class="reloj">3 min</span></h4>
-<span class="senal senal--aire">Al aire</span>
-<p class="di">Una persona, un minuto: qué estoy leyendo y por dónde voy.</p>
-<p class="apoyo">Sin resumen y sin recomendación forzada. Solo el título, por dónde vas y si te está gustando o no. Se vale decir que no.</p>
-<p class="nota-conductor">Lleva la lista y ve tachando: en el semestre pasa todo el grupo, uno por martes. Es la fuente de recomendaciones más eficaz que tiene el curso, y solo funciona si de verdad ocurre cada semana. Si el que toca faltó, pasa el siguiente y él queda para la próxima.</p>
+<section class="lam lam--actividad">
+<h4><span class="n">1</span> El minuto del lector · estreno <span class="reloj">30 min</span></h4>
+<span class="senal senal--aire">Al aire · todo el grupo</span>
+<p class="di">Un minuto, una persona: qué estoy leyendo y por dónde voy.</p>
+<p class="apoyo">Hoy se estrena el ritual y por eso es largo: todos escriben su ficha —título, página, una palabra— y pasan los que quieran. Sin resumen y sin recomendación forzada; se vale decir que no te está gustando. Después del ritual lee el profe un fragmento del libro que trae, y de ahí sale la raíz del día. Del próximo martes en adelante son tres minutos: pasa una persona por semana, hasta que pase el grupo entero.</p>
+<p class="apoyo">Todo el bloque corre en el <a href="../ejercicios/semana-05/minuto-del-lector-semana-05.html">mazo del minuto del lector</a>: el termómetro, la ficha, el cronómetro y la cosecha de la raíz.</p>
+<p class="nota-conductor">Veintidós láminas, con cronómetro que se pone solo en 45 s para la ficha y 60 s para cada minuto. Teclas: T arranca y pausa el reloj, R lo reinicia, N enseña la nota de cada lámina, B apaga la pantalla mientras escriben, O salta las dos opcionales. Reparte las fichas de papel ANTES de proyectar la lámina de la ficha, y repite dos veces que nadie las recoge. La lámina 21 es la bisagra hacia la cadena de raíces; la 22 se deja para el final de la hora, ya que jugaron. Fotografía el pizarrón al salir: esas palabras se publican en Leemos.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">2</span> Ritual: duelo de piezas <span class="reloj">7 min</span></h4>
+<h4><span class="n">2</span> Ritual: duelo de piezas <span class="reloj">5 min</span></h4>
 <span class="senal">Actividad · en parejas</span>
 <p class="di">El mazo a la cancha. Ya trae cuatro semanas encima.</p>
 <p class="apoyo">Se dice la pieza, el rival da el significado y una palabra donde viva. Quien usa Leitner juega con sus fichas. Esta semana no hay quiz el martes: cae el jueves, con las raíces nuevas ya puestas.</p>
 <p class="nota-conductor">Mete piezas griegas de la semana 4 (-itis, -algia, iatro-, hiper-, hipo-) junto con las latinas viejas. Guarda hipo- para el final del duelo, sin decir nada: mañana esa pieza les va a explotar en la cara.</p>
 </section>
 <section class="lam">
-<h4><span class="n">3</span> Una raíz es una llave maestra <span class="reloj">8 min</span></h4>
+<h4><span class="n">3</span> Una raíz es una llave maestra <span class="reloj">5 min</span></h4>
 <p class="di">Aprender una raíz no suma una palabra: abre una fila entera de puertas.</p>
 <div class="dis">
 <span class="pz pz--raiz">hemo<small>sangre</small></span>
@@ -72,14 +73,14 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <p class="apoyo">Diez piezas nuevas esta semana. Si cada una rinde ocho palabras, hoy sales con ochenta que no tenías el lunes. Esa multiplicación es todo el negocio de la etimología, y es la razón por la que este curso no te pide memorizar listas de palabras.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">4</span> Gimnasio: la cadena de raíces <span class="reloj">27 min</span></h4>
+<h4><span class="n">4</span> Gimnasio: la cadena de raíces <span class="reloj">17 min</span></h4>
 <span class="senal">Actividad · en equipos</span>
 <p class="di">Elige una raíz y escribe todas las palabras de su familia que puedas, contra reloj.</p>
 <p class="apoyo"><a href="../ejercicios/semana-05/ejercicio-5A-cadena-de-raices.html">La cadena de raíces</a>, con tres minutos por raíz. Cinco familias para escoger: hemo-, cosmo-, -polis, zoo- y -teca. Repetir te saca de la ronda, y las palabras dudosas no se borran: se marcan con "?" y se van al tribunal del jueves.</p>
 <p class="nota-conductor">Deja que jueguen por lo menos dos raíces distintas. La que casi siempre da más lejos es -teca, porque nadie espera que botica y bodega estén ahí. Anota los "?" del grupo en el pizarrón: son la pólvora del jueves.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">5</span> Antes del miércoles <span class="reloj">13 min</span></h4>
+<h4><span class="n">5</span> Antes del miércoles <span class="reloj">3 min</span></h4>
 <span class="senal senal--casa">Para llevar a casa</span>
 <p class="di">Trae la palabra más inesperada que te salió hoy.</p>
 <p class="apoyo">Una sola, con la raíz de la que salió y una línea de por qué te sorprendió. Y al mazo entran hoy las cinco raíces que jugaste: las tarjetas están abajo, con el estándar del curso —frente, solo la pieza; reverso, significado y palabra ancla—.</p>
@@ -274,7 +275,7 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 
 ## La lectura, esta semana
 
-El **minuto del lector** abre el martes (pasa una persona por semana, hasta que pasa todo el grupo), la voz alta cierra el viernes y tu bitácora suma líneas. ¿El libro que elegiste no te está gustando? Cambiarlo no es fracaso, es tu derecho número 3: está completo en [Leemos](../leemos.html).
+El **minuto del lector** se estrena este martes con el grupo entero —de la próxima semana en adelante pasa una persona por martes, hasta que pase todo el mundo—, la lectura en voz alta llega el mismo día y tu bitácora suma líneas. ¿El libro que elegiste no te está gustando? Cambiarlo no es fracaso, es tu derecho número 3: está completo en [Leemos](../leemos.html).
 
 ---
 
@@ -282,6 +283,7 @@ El **minuto del lector** abre el martes (pasa una persona por semana, hasta que 
 
 Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
 
+- [El minuto del lector, mazo del ritual](../ejercicios/semana-05/minuto-del-lector-semana-05.html) · martes, para proyectar: el termómetro, la ficha, la lectura compartida y la cosecha de la raíz spec-
 - [La cadena de raíces](../ejercicios/semana-05/ejercicio-5A-cadena-de-raices.html) · martes y miércoles
 - [El tribunal del reloj](../ejercicios/semana-05/ejercicio-5C-tribunal-del-reloj.html) · jueves, centro de cómputo
 - [La palabra de familia numerosa](../ejercicios/semana-05/ejercicio-5D-familia-numerosa.html) · viernes
