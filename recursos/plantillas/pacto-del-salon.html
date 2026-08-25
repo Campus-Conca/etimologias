@@ -75,6 +75,16 @@ td.reloj{white-space:nowrap;font-weight:bold;color:#c8127a;width:3.2cm}
 .objecion-caja h3{margin-top:.1cm}
 .objecion-caja p{font-size:10pt;color:#444;margin:.1cm 0 .2cm}
 #objecion-pacto{display:block;width:100%;font:inherit;font-size:10.5pt;padding:.6rem .7rem;border:1px solid #d9bfd2;border-radius:8px;min-height:4.5rem;resize:vertical;background:#fff}
+/* El muro en vivo: quiénes se van sumando */
+.muro{margin-top:.5cm;border:1.5px dashed #c8127a;border-radius:.25cm;padding:.4cm .5cm;background:#fff;font-family:'Segoe UI',system-ui,sans-serif}
+.muro .rot{display:block;font-size:8pt;letter-spacing:.11em;text-transform:uppercase;font-weight:bold;color:#6b1e5a;margin-bottom:.25cm}
+.muro .rot b{color:#c8127a}
+.muro-nombres{display:flex;flex-wrap:wrap;gap:.28rem .3rem}
+.muro-nombres span{background:#fbf4f9;border:1px solid #eadce6;border-radius:999px;padding:.22rem .7rem;font-size:10pt;color:#4a1540;animation:llega .45s ease-out}
+.muro-nombres .vacio{background:none;border:none;color:#8a6c80;font-style:italic;padding-left:0}
+@keyframes llega{from{opacity:0;transform:translateY(.4rem)}to{opacity:1;transform:none}}
+.muro .nota{color:#8a6c80;font-size:9pt;margin:.3cm 0 0}
+@media (prefers-reduced-motion:reduce){.muro-nombres span{animation:none}}
 </style>
 </head>
 <body>
@@ -119,6 +129,12 @@ td.reloj{white-space:nowrap;font-weight:bold;color:#c8127a;width:3.2cm}
   </div>
 
   <div class="acepta-pacto" data-pacto="salon" data-titulo="Pacto 4 · El pacto del salón"></div>
+
+  <div class="muro solo-pantalla" id="muro" hidden>
+    <span class="rot">Los que ya firmaron <b class="cuenta"></b></span>
+    <div class="muro-nombres"></div>
+    <p class="nota">Se actualiza solo cada quince segundos. Aparecen nombre y la inicial del apellido: la lista completa la tiene el profesor.</p>
+  </div>
 
   <p class="mini solo-pantalla" style="margin-top:.45cm">Firmar aquí no sustituye el cartel de la pared: el de la pared es el que se ve todos los días, y ese se firma con plumón. Este es tu registro.</p>
 
@@ -209,6 +225,109 @@ td.reloj{white-space:nowrap;font-weight:bold;color:#c8127a;width:3.2cm}
    está de acuerdo y puede descargar su constancia. El registro vive en su
    navegador (localStorage) y en la constancia; no viaja a ningún servidor.
    Mismo mecanismo que en pactos.html. */
+/* ------------------------------------------------------------------
+   EL MURO EN VIVO — cómo encenderlo (cinco pasos, una sola vez)
+
+   1. Crea un formulario en Google Forms con dos preguntas: "Nombre
+      completo" (texto corto, obligatoria) y "Lo que no te convence"
+      (párrafo, opcional). En Configuración, DESACTIVA "recopilar
+      correos" y "limitar a una respuesta": los alumnos no necesitan
+      cuenta.
+   2. Abre el formulario publicado, clic derecho → Ver código fuente, y
+      busca "entry." — vas a encontrar dos números como entry.1234567890.
+      El primero es el del nombre, el segundo el de la objeción.
+   3. Copia la URL del formulario y cámbiale /viewform por /formResponse.
+      Esa va en FORM_POST.
+   4. En la hoja de respuestas: Archivo → Compartir → Publicar en la web
+      → esa hoja, formato CSV. Esa URL va en MURO_CSV.
+   5. Pega los cuatro valores aquí abajo. Mientras estén vacíos, el muro
+      simplemente no aparece y todo lo demás funciona igual.
+
+   Nota de privacidad: la hoja publicada es pública para quien tenga su
+   URL, y este sitio también. Por eso el muro solo pinta nombre e
+   inicial del apellido. El nombre completo se queda en tu hoja.
+   ------------------------------------------------------------------ */
+var FORM_POST = '';
+var CAMPO_NOMBRE = '';
+var CAMPO_OBJECION = '';
+var MURO_CSV = '';
+
+/* Manda la firma al formulario. Va en modo no-cors: no podemos leer la
+   respuesta, así que la confirmación de verdad es ver tu nombre
+   aparecer en el muro. Si falla, la firma local no se pierde. */
+function mandaAlMuro(nombre, objecion) {
+  if (!FORM_POST || !CAMPO_NOMBRE) return;
+  var datos = new FormData();
+  datos.append(CAMPO_NOMBRE, nombre);
+  if (CAMPO_OBJECION && objecion) datos.append(CAMPO_OBJECION, objecion);
+  try {
+    fetch(FORM_POST, { method: 'POST', mode: 'no-cors', body: datos })
+      .then(function () { setTimeout(pintaMuro, 1200); })
+      .catch(function () {});
+  } catch (e) {}
+}
+
+/* Lee el CSV publicado y pinta los que ya firmaron. */
+function filasCSV(texto) {
+  var filas = [], campo = '', fila = [], comillas = false;
+  for (var i = 0; i < texto.length; i++) {
+    var c = texto[i];
+    if (comillas) {
+      if (c === '"' && texto[i + 1] === '"') { campo += '"'; i++; }
+      else if (c === '"') comillas = false;
+      else campo += c;
+    } else if (c === '"') comillas = true;
+    else if (c === ',') { fila.push(campo); campo = ''; }
+    else if (c === '\n') { fila.push(campo); filas.push(fila); fila = []; campo = ''; }
+    else if (c !== '\r') campo += c;
+  }
+  if (campo !== '' || fila.length) { fila.push(campo); filas.push(fila); }
+  return filas;
+}
+
+function acorta(nombre) {
+  var partes = nombre.replace(/\s+/g, ' ').trim().split(' ');
+  if (partes.length < 2) return partes[0] || '';
+  return partes[0] + ' ' + partes[1].charAt(0).toUpperCase() + '.';
+}
+
+function pintaMuro() {
+  var muro = document.getElementById('muro');
+  if (!muro || !MURO_CSV) return;
+  fetch(MURO_CSV + (MURO_CSV.indexOf('?') === -1 ? '?' : '&') + 'cb=' + Date.now())
+    .then(function (r) { return r.text(); })
+    .then(function (txt) {
+      var filas = filasCSV(txt);
+      if (!filas.length) return;
+      var cab = filas[0].map(function (h) { return h.toLowerCase(); });
+      var col = cab.findIndex(function (h) { return h.indexOf('nombre') !== -1; });
+      if (col === -1) col = 1;
+      var vistos = {}, nombres = [];
+      filas.slice(1).forEach(function (f) {
+        var n = (f[col] || '').replace(/\s+/g, ' ').trim();
+        if (!n) return;
+        var llave = n.toLowerCase();
+        if (vistos[llave]) return;
+        vistos[llave] = 1;
+        nombres.push(acorta(n));
+      });
+      muro.hidden = false;
+      muro.querySelector('.cuenta').textContent = nombres.length ? '· ' + nombres.length : '';
+      var caja = muro.querySelector('.muro-nombres');
+      var nuevo = nombres.length
+        ? nombres.map(function (n) { return '<span>' + n.replace(/[<>&]/g, '') + '</span>'; }).join('')
+        : '<span class="vacio">Todavía nadie. Sé el primero.</span>';
+      if (caja.innerHTML !== nuevo) caja.innerHTML = nuevo;
+    })
+    .catch(function () { /* sin muro, el resto de la página sigue igual */ });
+}
+
+if (MURO_CSV) {
+  pintaMuro();
+  setInterval(function () { if (!document.hidden) pintaMuro(); }, 15000);
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) pintaMuro(); });
+}
+
 (function () {
   var cajas = document.querySelectorAll('.acepta-pacto');
   if (!cajas.length) return;
@@ -288,6 +407,7 @@ td.reloj{white-space:nowrap;font-weight:bold;color:#c8127a;width:3.2cm}
         var objEl = pagina ? pagina.querySelector('#objecion-pacto') : null;
         reg = { n: n, f: new Date().toISOString(), o: objEl ? objEl.value.trim() : '' };
         try { localStorage.setItem(clave, JSON.stringify(reg)); } catch (e) {}
+        mandaAlMuro(reg.n, reg.o);
         pintaHecho();
       });
     }
