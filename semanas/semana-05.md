@@ -246,19 +246,19 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <div>
 <div class="cuando">Miércoles 26 de agosto · 1 hora</div>
 <h3>Las sorpresas del árbol</h3>
-<p class="foco">El pulpo tiene muchos pies y el cosmos se maquilla.</p>
+<p class="foco">El pulpo tiene muchos pies, el cosmos se maquilla y el mundo, en latín, quería decir limpio.</p>
 </div>
 <button class="btn-presentar" type="button">Presentar ▸</button>
 </div>
 <section class="lam">
-<h4><span class="n">1</span> Ritual: la palabra más inesperada <span class="reloj">7 min</span></h4>
+<h4><span class="n">1</span> Ritual: la palabra más inesperada <span class="reloj">6 min</span></h4>
 <span class="senal senal--aire">Al aire</span>
 <p class="di">¿Cuál te sorprendió más, y por qué?</p>
 <p class="apoyo">Ronda rápida. Las mejores se anotan: son candidatas al Museo y a la vitrina de la semana.</p>
 <p class="nota-conductor">Si alguien trae una que no es de la familia, no la corrijas: mándala al tribunal de mañana. Que la duda se resuelva con fuente y no con la autoridad del profesor.</p>
 </section>
 <section class="lam">
-<h4><span class="n">2</span> El pulpo no tiene tentáculos <span class="reloj">10 min</span></h4>
+<h4><span class="n">2</span> El pulpo no tiene tentáculos <span class="reloj">8 min</span></h4>
 <div class="dis">
 <span class="pz pz--pre">poly<small>muchos</small></span>
 <span class="pz pz--raiz">pous<small>pie</small></span>
@@ -281,7 +281,7 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <p class="apoyo">Para los griegos lo bello era lo ordenado, y por eso el universo y un labial comparten raíz. Cuando alguien te diga que la etimología es cosa de museo, cuéntale que su crema facial se llama como el cosmos.</p>
 </section>
 <section class="lam lam--oscura">
-<h4><span class="n">3</span> La trampa de la semana <span class="reloj">12 min</span></h4>
+<h4><span class="n">3</span> La trampa de la semana <span class="reloj">10 min</span></h4>
 <p class="di">hipotermia · hipódromo. ¿El <em>hipo-</em> es la misma pieza?</p>
 <p class="apoyo">Pídeles el veredicto a mano alzada antes de leer lo que sigue.</p>
 <p class="nota-conductor">Que se comprometan con una respuesta antes de la revelación: el golpe pedagógico está en haberse mojado. Casi todo el grupo va a decir que sí.</p>
@@ -301,17 +301,113 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <p class="apoyo">De pilón: un hipopótamo es un caballo de río (<em>potamós</em>), y el <em>hipocampo</em> —el caballo de mar— le da nombre a la parte de tu cerebro donde vive la memoria, porque tiene esa forma.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">4</span> Tu propio árbol <span class="reloj">18 min</span></h4>
+<h4><span class="n">4</span> Tu propio árbol <span class="reloj">10 min</span></h4>
 <span class="senal">Actividad · individual</span>
 <p class="di">Ahora una raíz que no jugamos ayer, y hasta donde aguantes.</p>
 <p class="apoyo">Vuelve a <a href="../ejercicios/semana-05/ejercicio-5A-cadena-de-raices.html">la cadena</a> con otra familia, o arma la tuya con una raíz de tu mazo viejo. La meta no es llegar a veinte: es llegar a una que nadie más tenga y poderla defender mañana.</p>
+<p class="nota-conductor">Hoy el árbol arranca en clase y se termina en casa: el bloque del pacto se lleva ocho minutos de este taller, y el viernes hay dos horas enteras de árboles. Si el grupo está enganchado y prefieres proteger el taller, lo que se recorta es la lámina de las tres palabras (basura, escoba, curador): se lee en treinta segundos o se guarda para el viernes.</p>
+</section>
+<section class="lam lam--oscura">
+<h4><span class="n">5</span> Una sorpresa más, y esta es latina <span class="reloj">10 min</span></h4>
+<p class="di">Los romanos tuvieron que traducir <em>kósmos</em>. ¿Con qué palabra creen que lo hicieron?</p>
+<p class="apoyo">Apuestas a mano alzada antes de pasar la lámina. Nadie la va a decir.</p>
+<p class="nota-conductor">Regla de oro para los próximos diez minutos: <strong>no menciones ni una sola vez cómo está el salón hoy</strong>. Ni una indirecta, ni una mirada al piso. Se habla de una palabra latina, de Japón y de un experimento holandés; la comparación la hacen ellos solos, y ahí está toda la fuerza. Si la haces tú, esto se convierte en regaño y el pacto nace muerto.</p>
 </section>
 <section class="lam">
-<h4><span class="n">5</span> Cierre <span class="reloj">8 min</span></h4>
+<h4>mundus, o por qué el mundo se llama así</h4>
+<div class="dis">
+<span class="pz pz--raiz">kósmos<small>orden, adorno</small></span>
+<span class="eq">se tradujo</span>
+<span class="pz pz--raiz">mundus<small>limpio, aseado</small></span>
+<span class="eq">= mundo</span>
+</div>
+<p class="apoyo">En latín <em>mundus</em> era un adjetivo y quería decir <strong>limpio</strong>. También se llamaba <em>mundus</em> al estuche donde una señora guardaba sus cosas de arreglarse: otra vez la cosmética. Cuando los romanos tuvieron que traducir el <em>kósmos</em> de los griegos —ese universo que funciona porque está ordenado— echaron mano de la palabra que ya tenían para "limpio y arreglado". Por eso vives en un <em>mundo</em>: alguien decidió, hace dos mil años, que al universo se le iba a decir "lo limpio".</p>
+<p class="aparte">🍨 Y la negación sigue ahí, intacta, y la usas todos los días: <strong>in-mundo</strong> es lo que no está limpio. <em>Inmundicia</em>, igual. Cuando dices que algo es inmundo estás diciendo, literal, que <em>no es mundo</em>.</p>
+</section>
+<section class="lam">
+<h4>Tres palabras que hoy vas a necesitar</h4>
+<table>
+<tr><th>La palabra</th><th>Viene de</th><th>Y entonces</th></tr>
+<tr><td>basura</td><td><em>versūra</em>, la acción de barrer, de <em>verrere</em>, barrer</td><td>basura no significa "lo sucio": significa <strong>lo que hay que barrer</strong>. La palabra ya trae la tarea adentro</td></tr>
+<tr><td>escoba</td><td><em>scōpa</em>, ramita</td><td>la primera escoba fue un manojo de ramas amarradas, y el nombre nunca se actualizó</td></tr>
+<tr><td>curador</td><td><em>cura</em>, cuidado</td><td>el que cuida. El del museo cuida las piezas; el de un salón cuida el lugar</td></tr>
+</table>
+<p class="aparte">🍨 Y la más rara de esa familia: <em>seguro</em> es <em>se-</em> (sin) + <em>cura</em> (cuidado). Estar seguro es estar sin preocupación. Misma raíz que <em>curar</em>, <em>procurar</em>, <em>curioso</em> y <em>curador</em>.</p>
+</section>
+<section class="lam">
+<h4>En Japón el salón lo limpian los que lo usan</h4>
+<p class="di">Se llama <em>o-sōji</em>, y está en el horario, como el recreo.</p>
+<p class="apoyo">De primaria a preparatoria, todos los días, entre quince y veinte minutos: los propios alumnos barren su salón, los pasillos, las escaleras y los baños de su escuela. No es castigo ni es servicio social; está en el plan de estudios, en la parte que llaman <em>tokkatsu</em>, las actividades donde se aprende lo que no se examina. Se reparte por equipos, rota cada semana, y el maestro limpia con ellos. La idea de fondo es sencilla: uno cuida de verdad lo que ha limpiado con sus propias manos.</p>
+<p class="aparte">🍨 De ahí viene algo que ya viste en la tele sin saber lo que estabas viendo: las aficiones japonesas que se quedan recogiendo la basura de las gradas cuando el partido ya acabó. En Rusia 2018 la selección perdió con Bélgica y quedó eliminada; antes de irse dejaron el vestidor impecable y una nota de agradecimiento, escrita en ruso, sobre la mesa.</p>
+<p class="nota-conductor">Matiz que conviene decir en voz alta, porque alguien lo va a pensar: no es que los japoneses nazcan ordenados. Es que la limpieza tiene <strong>hora fija, reparto y compañía</strong>, y no se discute cada día si toca o no toca. Eso es justo lo que se les va a proponer, y es también la única parte que se puede copiar.</p>
+</section>
+<section class="lam lam--oscura">
+<h4>El refrán</h4>
+<p class="cita">El ave que alza el vuelo no enturbia el agua.<cite>立つ鳥跡を濁さず · tatsu tori ato o nigosazu</cite></p>
+<p class="apoyo">Las garzas y los patos levantan el vuelo sin dejar revuelto el estanque. Se dice de quien se va de un lugar —de un trabajo, de una casa, de un salón— sin dejarle el tiradero a otro. Todo lo anterior cabe en ese renglón.</p>
+</section>
+<section class="lam">
+<h4>Y no es solo cultura: está medido</h4>
+<p class="di">Una pared con grafiti hace que la gente tire más basura. No es metáfora, son números.</p>
+<table>
+<tr><th>Groninga, Holanda · 2008</th><th>Lugar en orden</th><th>Lugar en desorden</th></tr>
+<tr><td>tiraron el volante al suelo (pared limpia / con grafiti)</td><td>33 %</td><td>69 %</td></tr>
+<tr><td>se metieron por el hueco de la reja</td><td>27 %</td><td>82 %</td></tr>
+<tr><td>se robaron un sobre con dinero a la vista</td><td>13 %</td><td>27 %</td></tr>
+</table>
+<p class="apoyo">Seis experimentos de campo, con gente real que no sabía que la estaban observando. Cuando el lugar enseña que ahí una regla se rompe, la gente rompe también otras que no tienen nada que ver. El desorden se contagia. <strong>Y la buena noticia es la misma frase al revés:</strong> el orden también. Un salón nunca es neutral: todo el día le está diciendo algo al que está adentro.</p>
+<p class="nota-conductor">Fuente: Keizer, Lindenberg y Steg, <em>The Spreading of Disorder</em>, revista <em>Science</em>, 2008. Si alguien pregunta si eso aplica aquí, la respuesta honesta es "no lo sé, eso fue en Holanda" — y de ahí sale sola la idea de averiguarlo nosotros.</p>
+</section>
+<section class="lam lam--actividad">
+<h4><span class="n">6</span> La propuesta <span class="reloj">5 min</span></h4>
+<span class="senal">Al aire · se decide hoy</span>
+<p class="di">Dos cosas: una chiquita que empieza hoy, y una grande que no depende de mí.</p>
+<p class="apoyo"><strong>La chiquita.</strong> De hoy en adelante, los últimos <strong>tres minutos</strong> de esta clase son de este salón. Suena una alarma —no lo decide nadie, lo decide el reloj—, se acaba lo que se esté haciendo y nos ponemos todos: piso, bancas, pizarrón. Cuatro días a la semana. <strong>No hay lista, no hay castigo y no cuenta para la calificación:</strong> el día que cuente para la calificación deja de ser un pacto y se convierte en tarea.</p>
+<p class="apoyo"><strong>La grande.</strong> Lo que acaban de ver de Japón no son tres minutos: son diez, al final del día, con el salón entero. Esa yo no se las puedo dar, porque mi clase no es la última del día. Si la quieren, la tienen que conseguir ustedes: hablar con su tutor y con los maestros que sí cierran el día, y pedirles esos diez minutos. El cartel de la pared ya está hecho para ese día.</p>
+<p class="apoyo">Y como todos los pactos de este curso, trae fecha de corte: <strong>viernes 18 de septiembre</strong>. Ese día lo revisamos con lo que haya pasado y se decide si sigue igual, si cambia o si se cae. Se firma en el cartel, y el que no quiera firmar no firma: un acuerdo que no se puede objetar no es un acuerdo, es un reglamento.</p>
+<p class="nota-conductor">El giro está en la segunda mitad, y conviene decirlo sin adornos: <strong>no prometas lo que no controlas</strong>. Si vendes hoy los diez minutos del final del día, mañana a esa hora el último maestro se pasa de la hora, nadie se para y el pacto se muere el primer día — y resucitar uno muerto sale mucho más caro que arrancarlo. Al pasarles a ellos la gestión de la versión grande dejas de ser el que impone, y salir a conseguir un sí es la mejor parte del ejercicio. Lo que no se negocia sigue igual: <strong>tú barres también</strong>, no supervisas, y nadie recoge la basura de otro mientras el otro mira. Si se cae dos días seguidos, no se regaña a nadie: se vuelve a poner sobre la mesa en clase.</p>
+</section>
+<section class="lam">
+<h4>La de tres minutos, la que empieza hoy</h4>
+<table>
+<tr><th>Reloj</th><th>Qué pasa</th></tr>
+<tr><td>0:00</td><td>suena la alarma en el celular del <strong>curador del día</strong>. Todos de pie. Se acabó la clase: nada de "acabo este renglón"</td></tr>
+<tr><td>0:00 – 0:20</td><td>el curador reparte tres frentes: <strong>piso, bancas, pizarrón</strong>. Nadie escoge; la lista rota</td></tr>
+<tr><td>0:20 – 2:20</td><td>manos. Cada quien en su frente, el profesor también</td></tr>
+<tr><td>2:20 – 2:40</td><td>la línea: las bancas se alinean con una referencia física —una raya de gis, el tercer mosaico— para que "ordenado" sea verificable y no opinable</td></tr>
+<tr><td>2:40 – 3:00</td><td>la vuelta del curador, la fórmula —<em>queda mundo</em>—, la foto del salón vacío y a la calle</td></tr>
+</table>
+<p class="apoyo">Un solo cargo, el curador, y rota por lista. Un solo registro, la foto. Los sistemas con muchos papeles y muchas bitácoras se mueren a los quince días.</p>
+<p class="nota-conductor">La alarma va en el celular de un alumno desde el primer día, nunca en el tuyo. Parece un detalle y es lo más importante de todo el diseño: es la única pieza capaz de viajar sola al final del día, cuando tú no estés ahí. Que tenga nombre —KÓSMOS— y que el curador se la pase al siguiente.</p>
+</section>
+<section class="lam">
+<h4>La de diez minutos, la que hay que ir a conseguir</h4>
+<table>
+<tr><th>Reloj</th><th>Qué pasa</th></tr>
+<tr><td>0:00</td><td>suena la alarma. Todos de pie. Se acabó el día: nada de "acabo este renglón"</td></tr>
+<tr><td>0:00 – 1:00</td><td>el <strong>curador del día</strong> reparte los cinco frentes: piso, bancas, pizarrón y escritorio, repisas y ventanas, puerta y pasillo</td></tr>
+<tr><td>1:00 – 7:00</td><td>manos. Cada quien en su frente, y el maestro que esté también</td></tr>
+<tr><td>7:00 – 8:00</td><td>la línea de las bancas</td></tr>
+<tr><td>8:00 – 9:00</td><td>la vuelta del curador: camina el salón y dice "listo" o señala lo que falta. Diez segundos por frente</td></tr>
+<tr><td>9:00 – 10:00</td><td>todos de pie junto a su banca. Se dice la fórmula —<em>queda mundo</em>—, se toma la foto del salón vacío y se sale</td></tr>
+</table>
+<p class="apoyo">Esta es la del cartel: el salón entero al final del día, cinco frentes en vez de tres y tiempo para hacerlo bien. Y es la que hay que ir a pedir. Lo que se pide, dicho en una sola frase para que no se enrede: <strong>que los últimos diez minutos del último periodo no se ocupen</strong>.</p>
+<p class="nota-conductor">Lleva el cartel impreso desde hoy: <a href="../recursos/plantillas/pacto-del-salon.html">el pacto del salón</a>, en tus plantillas. Se firma con plumón, en la pared, a la vista, y ahí mismo va la lista de curadores. Repártete la gestión con ellos: <strong>tú hablas con intendencia y con el tutor del grupo; a los demás maestros los convencen ellos</strong>. Con intendencia, ojo con el encuadre —el gesto se lee al revés con facilidad—: no la sustituimos, le devolvemos lo que nunca debió ser suyo. Y hay una pregunta que vale oro: qué le facilitaría más a ella que hiciéramos.</p>
+</section>
+<section class="lam">
+<h4><span class="n">7</span> Cierre <span class="reloj">3 min</span></h4>
 <span class="senal senal--casa">Para llevar a casa</span>
 <p class="di">Al mazo las cinco raíces que faltan. Y mañana se paga una deuda de tres semanas.</p>
-<p class="apoyo">Las diez tarjetas de la semana están abajo. Ojo con las dos que se parecen: <em>hipo-</em> lleva <strong>dos tarjetas distintas</strong>, y en el reverso de cada una escribe "no confundir con la otra".</p>
+<p class="apoyo">Las diez tarjetas de la semana están abajo. Ojo con las dos que se parecen: <em>hipo-</em> lleva <strong>dos tarjetas distintas</strong>, y en el reverso de cada una escribe "no confundir con la otra". Y agrega una de pilón, la de hoy: <em>mundus</em>, limpio.</p>
+<p class="apoyo">Y un encargo que no es de etimologías: el que hable con un maestro del último periodo, o con el tutor, que traiga el sí o el no. No hay fecha; hay cartel esperando.</p>
 <p class="nota-conductor">Cierra recordándoles el re-loj congelado desde la semana 3. Que lleguen mañana con hambre; y si alguien ya lo googleó, pídele por favor que se aguante y no lo suelte.</p>
+</section>
+<section class="lam lam--actividad">
+<h4><span class="n">8</span> Suena la alarma: la primera vez <span class="reloj">4 min</span></h4>
+<span class="senal">Actividad · todo el grupo</span>
+<p class="di">No lo vamos a discutir más: lo vamos a cronometrar.</p>
+<p class="apoyo">Esto no es un ensayo: es el pacto, empezando. Y estamos midiendo una sola cosa, <strong>cuánto tarda de verdad</strong>, porque de ahí sale el argumento para pedir los diez. Si en tres minutos este salón queda, ya saben qué contestarle a quien les diga que es mucho tiempo.</p>
+<p class="nota-conductor">Este es el remate del día y lo que convierte el discurso en dato: en un curso donde todo se verifica en la fuente y nada se cree por la autoridad del profesor, el pacto tampoco se cree — se mide. Hoy dale cuatro minutos porque incluye repartir los frentes por primera vez; de mañana en adelante son tres. Cronómetro a la vista, el número al pizarrón, y ese número se guarda para la revisión del 18 de septiembre. Y barre tú también, desde el primer día: es la lámina más importante de la semana y no tiene texto.</p>
 </section>
 </section>
 
