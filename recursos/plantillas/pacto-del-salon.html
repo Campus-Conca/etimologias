@@ -286,9 +286,10 @@ function filasCSV(texto) {
 }
 
 function acorta(nombre) {
+  function mayus(p) { return p ? p.charAt(0).toLocaleUpperCase('es') + p.slice(1) : p; }
   var partes = nombre.replace(/\s+/g, ' ').trim().split(' ');
-  if (partes.length < 2) return partes[0] || '';
-  return partes[0] + ' ' + partes[1].charAt(0).toUpperCase() + '.';
+  if (partes.length < 2) return mayus(partes[0] || '');
+  return mayus(partes[0]) + ' ' + partes[1].charAt(0).toLocaleUpperCase('es') + '.';
 }
 
 function pintaMuro() {
