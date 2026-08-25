@@ -402,12 +402,12 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <p class="apoyo">Y un encargo que no es de etimologías: el que hable con un maestro del último periodo, o con el tutor, que traiga el sí o el no. No hay fecha; hay cartel esperando.</p>
 <p class="nota-conductor">Cierra recordándoles el re-loj congelado desde la semana 3. Que lleguen mañana con hambre; y si alguien ya lo googleó, pídele por favor que se aguante y no lo suelte.</p>
 </section>
-<section class="lam lam--actividad">
+<section class="lam lam--actividad" data-crono="240">
 <h4><span class="n">8</span> Suena la alarma: la primera vez <span class="reloj">4 min</span></h4>
 <span class="senal">Actividad · todo el grupo</span>
 <p class="di">No lo vamos a discutir más: lo vamos a cronometrar.</p>
 <p class="apoyo">Esto no es un ensayo: es el pacto, empezando. Y estamos midiendo una sola cosa, <strong>cuánto tarda de verdad</strong>, porque de ahí sale el argumento para pedir los diez. Si en tres minutos este salón queda, ya saben qué contestarle a quien les diga que es mucho tiempo.</p>
-<p class="nota-conductor">Este es el remate del día y lo que convierte el discurso en dato: en un curso donde todo se verifica en la fuente y nada se cree por la autoridad del profesor, el pacto tampoco se cree — se mide. Hoy dale cuatro minutos porque incluye repartir los frentes por primera vez; de mañana en adelante son tres. Cronómetro a la vista, el número al pizarrón, y ese número se guarda para la revisión del 18 de septiembre. Y barre tú también, desde el primer día: es la lámina más importante de la semana y no tiene texto.</p>
+<p class="nota-conductor">Este es el remate del día y lo que convierte el discurso en dato: en un curso donde todo se verifica en la fuente y nada se cree por la autoridad del profesor, el pacto tampoco se cree — se mide. La lámina trae <code>data-crono="240"</code>: al llegar aquí el cronómetro del telón se pone solo en 4:00 y arranca con la tecla <strong>T</strong>, proyectado y a la vista de todos. Hoy son cuatro minutos porque incluye repartir los frentes por primera vez; de mañana en adelante son tres. El número final al pizarrón, y ese número se guarda para la revisión del 18 de septiembre. Y barre tú también, desde el primer día: es la lámina más importante de la semana y no tiene texto.</p>
 </section>
 </section>
 
