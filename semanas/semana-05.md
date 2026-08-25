@@ -301,7 +301,7 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <p class="apoyo">De pilón: un hipopótamo es un caballo de río (<em>potamós</em>), y el <em>hipocampo</em> —el caballo de mar— le da nombre a la parte de tu cerebro donde vive la memoria, porque tiene esa forma.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">4</span> Tu propio árbol <span class="reloj">10 min</span></h4>
+<h4><span class="n">4</span> Tu propio árbol <span class="reloj">8 min</span></h4>
 <span class="senal">Actividad · individual</span>
 <p class="di">Ahora una raíz que no jugamos ayer, y hasta donde aguantes.</p>
 <p class="apoyo">Vuelve a <a href="../ejercicios/semana-05/ejercicio-5A-cadena-de-raices.html">la cadena</a> con otra familia, o arma la tuya con una raíz de tu mazo viejo. La meta no es llegar a veinte: es llegar a una que nadie más tenga y poderla defender mañana.</p>
@@ -364,7 +364,7 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <p class="di">Dos cosas: una chiquita que empieza hoy, y una grande que no depende de mí.</p>
 <p class="apoyo"><strong>La chiquita.</strong> De hoy en adelante, los últimos <strong>tres minutos</strong> de esta clase son de este salón. Suena una alarma —no lo decide nadie, lo decide el reloj—, se acaba lo que se esté haciendo y nos ponemos todos: piso, bancas, pizarrón. Cuatro días a la semana. <strong>No hay lista, no hay castigo y no cuenta para la calificación:</strong> el día que cuente para la calificación deja de ser un pacto y se convierte en tarea.</p>
 <p class="apoyo"><strong>La grande.</strong> Lo que acaban de ver de Japón no son tres minutos: son diez, al final del día, con el salón entero. Esa yo no se las puedo dar, porque mi clase no es la última del día. Si la quieren, la tienen que conseguir ustedes: hablar con su tutor y con los maestros que sí cierran el día, y pedirles esos diez minutos. El cartel de la pared ya está hecho para ese día.</p>
-<p class="apoyo">Y como todos los pactos de este curso, trae fecha de corte: <strong>viernes 18 de septiembre</strong>. Ese día lo revisamos con lo que haya pasado y se decide si sigue igual, si cambia o si se cae. Se firma en el cartel, y el que no quiera firmar no firma: un acuerdo que no se puede objetar no es un acuerdo, es un reglamento.</p>
+<p class="apoyo">Y como todos los pactos de este curso, trae fecha de corte: <strong>viernes 18 de septiembre</strong>. Ese día lo revisamos con lo que haya pasado y se decide si sigue igual, si cambia o si se cae. Y el que no quiera firmar no firma: un acuerdo que no se puede objetar no es un acuerdo, es un reglamento.</p>
 <p class="nota-conductor">El giro está en la segunda mitad, y conviene decirlo sin adornos: <strong>no prometas lo que no controlas</strong>. Si vendes hoy los diez minutos del final del día, mañana a esa hora el último maestro se pasa de la hora, nadie se para y el pacto se muere el primer día — y resucitar uno muerto sale mucho más caro que arrancarlo. Al pasarles a ellos la gestión de la versión grande dejas de ser el que impone, y salir a conseguir un sí es la mejor parte del ejercicio. Lo que no se negocia sigue igual: <strong>tú barres también</strong>, no supervisas, y nadie recoge la basura de otro mientras el otro mira. Si se cae dos días seguidos, no se regaña a nadie: se vuelve a poner sobre la mesa en clase.</p>
 </section>
 <section class="lam">
@@ -392,18 +392,26 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <tr><td>9:00 – 10:00</td><td>todos de pie junto a su banca. Se dice la fórmula —<em>queda mundo</em>—, se toma la foto del salón vacío y se sale</td></tr>
 </table>
 <p class="apoyo">Esta es la del cartel: el salón entero al final del día, cinco frentes en vez de tres y tiempo para hacerlo bien. Y es la que hay que ir a pedir. Lo que se pide, dicho en una sola frase para que no se enrede: <strong>que los últimos diez minutos del último periodo no se ocupen</strong>.</p>
-<p class="nota-conductor">Lleva el cartel impreso desde hoy: <a href="../recursos/plantillas/pacto-del-salon.html">el pacto del salón</a>, en tus plantillas. Se firma con plumón, en la pared, a la vista, y ahí mismo va la lista de curadores. Repártete la gestión con ellos: <strong>tú hablas con intendencia y con el tutor del grupo; a los demás maestros los convencen ellos</strong>. Con intendencia, ojo con el encuadre —el gesto se lee al revés con facilidad—: no la sustituimos, le devolvemos lo que nunca debió ser suyo. Y hay una pregunta que vale oro: qué le facilitaría más a ella que hiciéramos.</p>
+<p class="nota-conductor">Lleva el cartel impreso desde hoy: <a href="../recursos/plantillas/pacto-del-salon.html">el pacto del salón</a>, en tus plantillas. Ese cartel <strong>no se firma</strong>: es la hoja que dice qué están firmando, y va a la pared con la lista de curadores. Repártete la gestión con ellos: <strong>tú hablas con intendencia y con el tutor del grupo; a los demás maestros los convencen ellos</strong>. Con intendencia, ojo con el encuadre —el gesto se lee al revés con facilidad—: no la sustituimos, le devolvemos lo que nunca debió ser suyo. Y hay una pregunta que vale oro: qué le facilitaría más a ella que hiciéramos.</p>
+</section>
+<section class="lam lam--actividad">
+<h4><span class="n">7</span> La firma: pasa al pizarrón <span class="reloj">3 min</span></h4>
+<span class="senal">Actividad · uno por uno</span>
+<p class="di">Esto no se firma en una hoja. El que entra, se para y escribe su nombre en el pizarrón.</p>
+<p class="apoyo">Ahí se quedan, en <strong>la esquina del pacto</strong>: el único pedazo del pizarrón que no se borra —ni en la limpieza de cada día— hasta que esto se revise el 18 de septiembre. Lo van a ver todos los días, que es justo de lo que hablamos hace rato: un salón siempre le está diciendo algo al que está adentro. El que no quiera firmar no firma y no pasa nada. Y el que se arrepienta, lo borra: para eso está a gis.</p>
+<p class="nota-conductor">Dos reglas para que este minuto no se eche a perder. <strong>Uno:</strong> no cuentes, no leas la lista en voz alta y no mires quién no pasó — en el segundo en que se vuelve control de asistencia, deja de ser un pacto. Deja el pizarrón disponible y sigue con lo tuyo; el que quiera pasa. <strong>Dos:</strong> firma tú primero y siéntate. Que el primer nombre del pizarrón sea el del que va a barrer con ellos.</p>
+<p class="nota-conductor">Antes de la clase: marca con cinta o con gis un recuadro en una esquina del pizarrón que no estorbe, y rotúlalo "el pacto". Sin recuadro, el frente 3 se lo lleva el jueves.</p>
 </section>
 <section class="lam">
-<h4><span class="n">7</span> Cierre <span class="reloj">3 min</span></h4>
+<h4><span class="n">8</span> Cierre <span class="reloj">2 min</span></h4>
 <span class="senal senal--casa">Para llevar a casa</span>
 <p class="di">Al mazo las cinco raíces que faltan. Y mañana se paga una deuda de tres semanas.</p>
 <p class="apoyo">Las diez tarjetas de la semana están abajo. Ojo con las dos que se parecen: <em>hipo-</em> lleva <strong>dos tarjetas distintas</strong>, y en el reverso de cada una escribe "no confundir con la otra". Y agrega una de pilón, la de hoy: <em>mundus</em>, limpio.</p>
-<p class="apoyo">Y un encargo que no es de etimologías: el que hable con un maestro del último periodo, o con el tutor, que traiga el sí o el no. No hay fecha; hay cartel esperando.</p>
+<p class="apoyo">Y un encargo que no es de etimologías: el que hable con un maestro del último periodo, o con el tutor, que traiga el sí o el no. No hay fecha; hay pizarrón esperando.</p>
 <p class="nota-conductor">Cierra recordándoles el re-loj congelado desde la semana 3. Que lleguen mañana con hambre; y si alguien ya lo googleó, pídele por favor que se aguante y no lo suelte.</p>
 </section>
 <section class="lam lam--actividad" data-crono="240">
-<h4><span class="n">8</span> Suena la alarma: la primera vez <span class="reloj">4 min</span></h4>
+<h4><span class="n">9</span> Suena la alarma: la primera vez <span class="reloj">4 min</span></h4>
 <span class="senal">Actividad · todo el grupo</span>
 <p class="di">No lo vamos a discutir más: lo vamos a cronometrar.</p>
 <p class="apoyo">Esto no es un ensayo: es el pacto, empezando. Y estamos midiendo una sola cosa, <strong>cuánto tarda de verdad</strong>, porque de ahí sale el argumento para pedir los diez. Si en tres minutos este salón queda, ya saben qué contestarle a quien les diga que es mucho tiempo.</p>

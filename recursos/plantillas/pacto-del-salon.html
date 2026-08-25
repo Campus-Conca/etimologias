@@ -29,10 +29,9 @@ th{background:#f6ebf3;color:#6b1e5a;font-size:9pt;text-transform:uppercase;lette
 td.reloj{white-space:nowrap;font-weight:bold;color:#c8127a;width:3.2cm}
 .corte{border:1.5px solid #6b1e5a;border-radius:.25cm;padding:.35cm .5cm;margin:.45cm 0;background:#fff;font-size:10.5pt}
 .corte b{color:#6b1e5a}
-.firmas{border:1.5px solid #6b1e5a;border-radius:.25cm;padding:.45cm .5cm;margin-top:.4cm}
-.firmas .rot{display:block;font-size:8.5pt;letter-spacing:.11em;text-transform:uppercase;font-weight:bold;color:#6b1e5a;margin-bottom:.25cm}
-.rejilla{display:grid;grid-template-columns:repeat(3,1fr);gap:.75cm .7cm;margin-top:.35cm}
-.rejilla span{border-bottom:1px solid #555;height:1.15cm}
+.donde{border:1.5px solid #6b1e5a;border-radius:.25cm;padding:.45cm .55cm;margin-top:.5cm;background:#fbf4f9}
+.donde .rot{display:block;font-size:8.5pt;letter-spacing:.11em;text-transform:uppercase;font-weight:bold;color:#6b1e5a;margin-bottom:.2cm}
+.donde .grande{font-family:Georgia,serif;font-size:14pt;color:#6b1e5a;margin:.15cm 0;line-height:1.35}
 .curadores{display:grid;grid-template-columns:repeat(2,1fr);gap:.15cm .7cm;margin-top:.25cm}
 .curadores span{border-bottom:1px dotted #999;font-size:10pt;padding-bottom:.12cm}
 .curadores span::before{content:attr(data-dia);color:#c8127a;font-weight:bold;font-size:8.5pt;text-transform:uppercase;letter-spacing:.05em;margin-right:.35cm}
@@ -40,51 +39,12 @@ td.reloj{white-space:nowrap;font-weight:bold;color:#c8127a;width:3.2cm}
 @media screen{
   body{background:#e8e8e8}
   .pagina{background:#fff;max-width:21.6cm;margin:1cm auto;padding:1.6cm;box-shadow:0 2px 8px rgba(0,0,0,.2)}
-  /* En pantalla se firma con el widget; la rejilla de la pared es de papel */
-  .firmas,.solo-papel{display:none}
 }
 @media screen and (max-width:700px){
   .pagina{margin:.4cm;padding:.9cm .7cm;min-height:auto}
   h1{font-size:19pt}
-  .rejilla{grid-template-columns:repeat(2,1fr)}
   .curadores{grid-template-columns:1fr}
 }
-@media print{
-  .acepta-pacto,.objecion-caja,.solo-pantalla{display:none!important}
-}
-/* Firma en pantalla (celular o compu) — mismo mecanismo que los tres pactos */
-.acepta-pacto{margin-top:.6cm;font-family:'Segoe UI',system-ui,sans-serif}
-.acepta-forma{border:1.5px solid #6b1e5a;border-radius:.25cm;padding:.45cm .55cm;background:#fbf4f9}
-.acepta-forma label{display:block;font-weight:bold;color:#6b1e5a;margin:.35cm 0 .1cm;font-size:10.5pt}
-.acepta-forma input[type=text]{display:block;width:100%;max-width:26rem;font:inherit;font-size:11pt;padding:.55rem .7rem;border:1.5px solid #d9bfd2;border-radius:8px;margin-top:.25rem;background:#fff}
-.acepta-forma input[type=text]:focus{outline:2px solid #c8127a;border-color:#c8127a}
-.acepta-forma label.check{display:flex;align-items:flex-start;gap:.5rem;font-weight:normal;margin:.4cm 0;color:#222}
-.acepta-forma label.check input{width:1.15rem;height:1.15rem;margin-top:.15rem;flex:none;accent-color:#c8127a}
-.btn-firmar{background:#c8127a;color:#fff;border:none;border-radius:999px;padding:.6rem 1.5rem;font:inherit;font-size:11pt;font-weight:bold;cursor:pointer}
-.btn-firmar:hover{filter:brightness(1.08)}
-.acepta-forma .aviso{color:#8a3b2b;font-weight:bold;margin:.2cm 0 0;min-height:1.2rem;font-size:10pt}
-.acepta-forma .nota,.acepta-hecho .nota{color:#8a6c80;font-size:9pt;margin:.25cm 0 0}
-.acepta-hecho{background:#f3ecf7;border:2px solid #d9bfd2;border-radius:.25cm;padding:.4cm .5cm}
-.acepta-hecho .rot{display:block;font-size:8pt;letter-spacing:.11em;text-transform:uppercase;font-weight:bold;color:#6b1e5a;margin-bottom:.15cm}
-.acepta-hecho p{margin:.15cm 0}
-.acepta-hecho .obj{font-size:9.5pt;color:#4a1540}
-.btn-constancia{background:#6b1e5a;color:#fff;border:none;border-radius:999px;padding:.5rem 1.2rem;font:inherit;font-size:10pt;font-weight:bold;cursor:pointer;margin:.2cm .3cm 0 0}
-.btn-constancia:hover{filter:brightness(1.15)}
-.btn-borrar{background:none;border:none;color:#8a6c80;font:inherit;font-size:9.5pt;text-decoration:underline;cursor:pointer;padding:.2cm 0 0}
-.objecion-caja{border-left:3px solid #c8127a;background:#fbf4f9;padding:.3cm .5cm;margin:.4cm 0;font-family:'Segoe UI',system-ui,sans-serif}
-.objecion-caja h3{margin-top:.1cm}
-.objecion-caja p{font-size:10pt;color:#444;margin:.1cm 0 .2cm}
-#objecion-pacto{display:block;width:100%;font:inherit;font-size:10.5pt;padding:.6rem .7rem;border:1px solid #d9bfd2;border-radius:8px;min-height:4.5rem;resize:vertical;background:#fff}
-/* El muro en vivo: quiénes se van sumando */
-.muro{margin-top:.5cm;border:1.5px dashed #c8127a;border-radius:.25cm;padding:.4cm .5cm;background:#fff;font-family:'Segoe UI',system-ui,sans-serif}
-.muro .rot{display:block;font-size:8pt;letter-spacing:.11em;text-transform:uppercase;font-weight:bold;color:#6b1e5a;margin-bottom:.25cm}
-.muro .rot b{color:#c8127a}
-.muro-nombres{display:flex;flex-wrap:wrap;gap:.28rem .3rem}
-.muro-nombres span{background:#fbf4f9;border:1px solid #eadce6;border-radius:999px;padding:.22rem .7rem;font-size:10pt;color:#4a1540;animation:llega .45s ease-out}
-.muro-nombres .vacio{background:none;border:none;color:#8a6c80;font-style:italic;padding-left:0}
-@keyframes llega{from{opacity:0;transform:translateY(.4rem)}to{opacity:1;transform:none}}
-.muro .nota{color:#8a6c80;font-size:9pt;margin:.3cm 0 0}
-@media (prefers-reduced-motion:reduce){.muro-nombres span{animation:none}}
 </style>
 </head>
 <body>
@@ -104,7 +64,6 @@ td.reloj{white-space:nowrap;font-weight:bold;color:#c8127a;width:3.2cm}
 
   <p><b>Empieza en chiquito y crece si lo conseguimos.</b> Desde el 26 de agosto de 2026 son <b>tres minutos</b> al final de la clase de Etimologías. La versión completa —<b>diez minutos al cierre del día escolar</b>, con el salón entero— depende de que este grupo la vaya a pedir al tutor y a los maestros del último periodo. Esa gestión es del grupo, no del profesor: lo que se pide cabe en una frase, <i>que los últimos diez minutos del último periodo no se ocupen</i>.</p>
 
-  <p class="mini solo-pantalla"><b>Se firma desde tu celular, aquí mismo:</b> hasta abajo escribes tu nombre completo, marcas la casilla y descargas tu constancia. Tu firma se queda guardada en tu navegador — no viaja a ningún servidor ni le llega a nadie. Si prefieres papel, imprime esta hoja (Ctrl + P) y fírmala a mano.</p>
 
   <h2>Lo que firmo</h2>
   <ol class="compromisos">
@@ -122,35 +81,11 @@ td.reloj{white-space:nowrap;font-weight:bold;color:#c8127a;width:3.2cm}
     <p><b>Esto es un experimento, no un reglamento.</b> No hay lista, no hay castigo y no cuenta para la calificación: el día que contara para la calificación dejaría de ser un pacto. Tiene fecha de corte —<b>viernes 18 de septiembre</b>— y ese día lo revisamos entre todos con lo que haya pasado: sigue igual, cambia o se cae. Si algo de lo que aquí se firma te parece injusto, dilo antes de firmar. Un acuerdo que no se puede objetar no es un acuerdo.</p>
   </div>
 
-  <div class="objecion-caja">
-    <h3>Lo que no te convence de este pacto</h3>
-    <p>Antes de firmar: si algo te parece de más, de menos o mal repartido, escríbelo aquí. Se guarda con tu firma y se lee el 18 de septiembre, cuando esto se revise.</p>
-    <textarea id="objecion-pacto" placeholder="Puede quedar vacío, pero si algo te rechina, este es su lugar."></textarea>
-  </div>
-
-  <div class="acepta-pacto" data-pacto="salon" data-titulo="Pacto 4 · El pacto del salón"></div>
-
-  <div class="muro solo-pantalla" id="muro" hidden>
-    <span class="rot">Los que ya firmaron <b class="cuenta"></b></span>
-    <div class="muro-nombres"></div>
-    <p class="nota">Se actualiza solo cada quince segundos. Aparecen nombre y la inicial del apellido: la lista completa la tiene el profesor.</p>
-  </div>
-
-  <p class="mini solo-pantalla" style="margin-top:.45cm">Firmar aquí no sustituye el cartel de la pared: el de la pared es el que se ve todos los días, y ese se firma con plumón. Este es tu registro.</p>
-
-  <div class="firmas">
-    <span class="rot">Lo leí, lo entendí y estoy de acuerdo</span>
-    <div class="rejilla">
-      <span></span><span></span><span></span>
-      <span></span><span></span><span></span>
-      <span></span><span></span><span></span>
-      <span></span><span></span><span></span>
-      <span></span><span></span><span></span>
-      <span></span><span></span><span></span>
-      <span></span><span></span><span></span>
-      <span></span><span></span><span></span>
-    </div>
-    <p class="mini" style="margin-top:.45cm">Tu nombre escrito aquí es tu firma. El que no quiera firmar, no firma: se queda en el salón igual, y el pacto lo sostienen los que sí.</p>
+  <div class="donde">
+    <span class="rot">Esta hoja no se firma</span>
+    <p class="grande">Se firma en el pizarrón: te paras, pasas al frente y escribes tu nombre.</p>
+    <p>Esta hoja está aquí para que sepas exactamente qué estás firmando allá. Los nombres se quedan en <b>la esquina del pacto</b>, la única parte del pizarrón que no se borra —ni en la limpieza de cada día— hasta la revisión del 18 de septiembre.</p>
+    <p class="mini">El que no quiera firmar no firma, y no pasa nada: se queda en el salón igual y el pacto lo sostienen los que sí. El que quiera quitar su nombre después, lo borra. Para eso está a gis.</p>
   </div>
 
 </div>
@@ -188,7 +123,7 @@ td.reloj{white-space:nowrap;font-weight:bold;color:#c8127a;width:3.2cm}
     <tr><th>Frente</th><th>Qué incluye</th></tr>
     <tr><td><b>1 · Piso</b></td><td>barrer de la ventana a la puerta, recoger y sacar la bolsa</td></tr>
     <tr><td><b>2 · Bancas</b></td><td>nada encima, nada debajo, todas en la línea</td></tr>
-    <tr><td><b>3 · Pizarrón y escritorio</b></td><td>borrado completo, plumones y borrador en su lugar</td></tr>
+    <tr><td><b>3 · Pizarrón y escritorio</b></td><td>borrado completo <b>menos la esquina del pacto</b>, que no se toca; plumones y borrador en su lugar</td></tr>
     <tr><td><b>4 · Repisas y ventanas</b></td><td>lo que está fuera de lugar vuelve a su lugar; los carteles derechos</td></tr>
     <tr><td><b>5 · Puerta y pasillo</b></td><td>el metro de afuera cuenta: la escuela también es el salón</td></tr>
   </table>
@@ -209,7 +144,7 @@ td.reloj{white-space:nowrap;font-weight:bold;color:#c8127a;width:3.2cm}
   </div>
 
   <h2>Lo que hace falta que viva en el salón</h2>
-  <p>Dos escobas · un recogedor · un rollo de bolsas · un franelita para el pizarrón · una raya de gis (o cinta) en el piso, que es la línea de las bancas.</p>
+  <p>Dos escobas · un recogedor · un rollo de bolsas · una franelita para el pizarrón · una raya de gis (o cinta) en el piso, que es la línea de las bancas · y una esquina del pizarrón marcada con un recuadro, que es donde viven las firmas y no se borra.</p>
   <p class="mini">Un pacto que depende de ir a pedir prestada la escoba se muere el martes.</p>
 
   <div class="corte">
@@ -219,204 +154,5 @@ td.reloj{white-space:nowrap;font-weight:bold;color:#c8127a;width:3.2cm}
   <p class="nota-pie">Nota para quien llegue nuevo a este salón: nadie está aquí castigado ni haciendo servicio. En Japón los alumnos limpian su escuela todos los días desde primaria, y no es porque nazcan ordenados: es porque la limpieza tiene hora fija, reparto y compañía. Eso es lo único que estamos copiando.</p>
 
 </div>
-
-<script>
-/* Firma digital del pacto del salón: el estudiante escribe su nombre, marca que
-   está de acuerdo y puede descargar su constancia. El registro vive en su
-   navegador (localStorage) y en la constancia; no viaja a ningún servidor.
-   Mismo mecanismo que en pactos.html. */
-/* ------------------------------------------------------------------
-   EL MURO EN VIVO — cómo encenderlo (cinco pasos, una sola vez)
-
-   1. Crea un formulario en Google Forms con dos preguntas: "Nombre
-      completo" (texto corto, obligatoria) y "Lo que no te convence"
-      (párrafo, opcional). En Configuración, DESACTIVA "recopilar
-      correos" y "limitar a una respuesta": los alumnos no necesitan
-      cuenta.
-   2. Abre el formulario publicado, clic derecho → Ver código fuente, y
-      busca "entry." — vas a encontrar dos números como entry.1234567890.
-      El primero es el del nombre, el segundo el de la objeción.
-   3. Copia la URL del formulario y cámbiale /viewform por /formResponse.
-      Esa va en FORM_POST.
-   4. En la hoja de respuestas: Archivo → Compartir → Publicar en la web
-      → esa hoja, formato CSV. Esa URL va en MURO_CSV.
-   5. Pega los cuatro valores aquí abajo. Mientras estén vacíos, el muro
-      simplemente no aparece y todo lo demás funciona igual.
-
-   Nota de privacidad: la hoja publicada es pública para quien tenga su
-   URL, y este sitio también. Por eso el muro solo pinta nombre e
-   inicial del apellido. El nombre completo se queda en tu hoja.
-   ------------------------------------------------------------------ */
-var FORM_POST = '';
-var CAMPO_NOMBRE = '';
-var CAMPO_OBJECION = '';
-var MURO_CSV = '';
-
-/* Manda la firma al formulario. Va en modo no-cors: no podemos leer la
-   respuesta, así que la confirmación de verdad es ver tu nombre
-   aparecer en el muro. Si falla, la firma local no se pierde. */
-function mandaAlMuro(nombre, objecion) {
-  if (!FORM_POST || !CAMPO_NOMBRE) return;
-  var datos = new FormData();
-  datos.append(CAMPO_NOMBRE, nombre);
-  if (CAMPO_OBJECION && objecion) datos.append(CAMPO_OBJECION, objecion);
-  try {
-    fetch(FORM_POST, { method: 'POST', mode: 'no-cors', body: datos })
-      .then(function () { setTimeout(pintaMuro, 1200); })
-      .catch(function () {});
-  } catch (e) {}
-}
-
-/* Lee el CSV publicado y pinta los que ya firmaron. */
-function filasCSV(texto) {
-  var filas = [], campo = '', fila = [], comillas = false;
-  for (var i = 0; i < texto.length; i++) {
-    var c = texto[i];
-    if (comillas) {
-      if (c === '"' && texto[i + 1] === '"') { campo += '"'; i++; }
-      else if (c === '"') comillas = false;
-      else campo += c;
-    } else if (c === '"') comillas = true;
-    else if (c === ',') { fila.push(campo); campo = ''; }
-    else if (c === '\n') { fila.push(campo); filas.push(fila); fila = []; campo = ''; }
-    else if (c !== '\r') campo += c;
-  }
-  if (campo !== '' || fila.length) { fila.push(campo); filas.push(fila); }
-  return filas;
-}
-
-function acorta(nombre) {
-  function mayus(p) { return p ? p.charAt(0).toLocaleUpperCase('es') + p.slice(1) : p; }
-  var partes = nombre.replace(/\s+/g, ' ').trim().split(' ');
-  if (partes.length < 2) return mayus(partes[0] || '');
-  return mayus(partes[0]) + ' ' + partes[1].charAt(0).toLocaleUpperCase('es') + '.';
-}
-
-function pintaMuro() {
-  var muro = document.getElementById('muro');
-  if (!muro || !MURO_CSV) return;
-  fetch(MURO_CSV + (MURO_CSV.indexOf('?') === -1 ? '?' : '&') + 'cb=' + Date.now())
-    .then(function (r) { return r.text(); })
-    .then(function (txt) {
-      var filas = filasCSV(txt);
-      if (!filas.length) return;
-      var cab = filas[0].map(function (h) { return h.toLowerCase(); });
-      var col = cab.findIndex(function (h) { return h.indexOf('nombre') !== -1; });
-      if (col === -1) col = 1;
-      var vistos = {}, nombres = [];
-      filas.slice(1).forEach(function (f) {
-        var n = (f[col] || '').replace(/\s+/g, ' ').trim();
-        if (!n) return;
-        var llave = n.toLowerCase();
-        if (vistos[llave]) return;
-        vistos[llave] = 1;
-        nombres.push(acorta(n));
-      });
-      muro.hidden = false;
-      muro.querySelector('.cuenta').textContent = nombres.length ? '· ' + nombres.length : '';
-      var caja = muro.querySelector('.muro-nombres');
-      var nuevo = nombres.length
-        ? nombres.map(function (n) { return '<span>' + n.replace(/[<>&]/g, '') + '</span>'; }).join('')
-        : '<span class="vacio">Todavía nadie. Sé el primero.</span>';
-      if (caja.innerHTML !== nuevo) caja.innerHTML = nuevo;
-    })
-    .catch(function () { /* sin muro, el resto de la página sigue igual */ });
-}
-
-if (MURO_CSV) {
-  pintaMuro();
-  setInterval(function () { if (!document.hidden) pintaMuro(); }, 15000);
-  document.addEventListener('visibilitychange', function () { if (!document.hidden) pintaMuro(); });
-}
-
-(function () {
-  var cajas = document.querySelectorAll('.acepta-pacto');
-  if (!cajas.length) return;
-
-  function esc(s) {
-    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  }
-  function fechaLegible(iso) {
-    return new Date(iso).toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
-  }
-
-  Array.prototype.forEach.call(cajas, function (caja) {
-    var id = caja.getAttribute('data-pacto');
-    var titulo = caja.getAttribute('data-titulo') || 'Pacto';
-    var clave = 'etimologias-pacto-' + id;
-    var reg = null;
-    try { reg = JSON.parse(localStorage.getItem(clave) || 'null'); } catch (e) {}
-
-    function constancia(r) {
-      return '<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">'
-        + '<title>Constancia · ' + esc(titulo) + '</title></head>'
-        + '<body style="font-family:Georgia,serif;max-width:640px;margin:2rem auto;padding:0 1rem;color:#222;line-height:1.6">'
-        + '<p style="font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:#c8127a;font-weight:bold">Etimologías Grecolatinas · UAQ Campus Concá</p>'
-        + '<h1 style="color:#6b1e5a">Constancia de firma</h1>'
-        + '<p style="font-size:1.15rem"><strong>' + esc(r.n) + '</strong> leyó y firmó el <strong>' + esc(titulo) + '</strong> el ' + fechaLegible(r.f) + '.</p>'
-        + '<p style="color:#4a1540">Queda mundo. <em>El ave que alza el vuelo no enturbia el agua.</em></p>'
-        + (r.o ? '<p><strong>Lo que dejó anotado que no le convence:</strong> ' + esc(r.o) + '</p>' : '')
-        + '<p>El texto completo del pacto vive en el sitio del curso:<br>'
-        + '<a href="' + location.href.split('?')[0] + '">' + location.href.split('?')[0] + '</a></p>'
-        + '<p style="color:#8a6c80;font-size:.9rem">Este pacto se revisa el 18 de septiembre. Guarda este archivo donde no se pierda.</p>'
-        + '</body></html>';
-    }
-
-    function descarga() {
-      var blob = new Blob([constancia(reg)], { type: 'text/html' });
-      var a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'constancia-pacto-' + id + '.html';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-    }
-
-    function pintaHecho() {
-      caja.innerHTML = '<div class="acepta-hecho">'
-        + '<span class="rot">Pacto firmado</span>'
-        + '<p><strong>' + esc(reg.n) + '</strong> firmó este pacto el ' + fechaLegible(reg.f) + '.</p>'
-        + (reg.o ? '<p class="obj">Quedó anotado lo que no te convence: "' + esc(reg.o) + '". Se retoma el 18 de septiembre.</p>' : '')
-        + '<button type="button" class="btn-constancia">Descargar mi constancia</button>'
-        + '<button type="button" class="btn-borrar">¿Te equivocaste? Borrar y firmar de nuevo</button>'
-        + '<p class="nota">La constancia es un archivo chiquito: descárgala y mándatela a tu propio WhatsApp, para tenerla aunque cambies de teléfono.</p>'
-        + '</div>';
-      caja.querySelector('.btn-constancia').addEventListener('click', descarga);
-      caja.querySelector('.btn-borrar').addEventListener('click', function () {
-        try { localStorage.removeItem(clave); } catch (e) {}
-        reg = null;
-        pintaForma();
-      });
-    }
-
-    function pintaForma() {
-      caja.innerHTML = '<div class="acepta-forma">'
-        + '<label>Tu nombre completo'
-        + '<input type="text" class="nombre" autocomplete="name" placeholder="Como apareces en la lista del grupo"></label>'
-        + '<label class="check"><input type="checkbox" class="deacuerdo"> Leí este pacto completo, lo discutí en clase y estoy de acuerdo.</label>'
-        + '<button type="button" class="btn-firmar">Firmar el pacto</button>'
-        + '<p class="aviso"></p>'
-        + '<p class="nota">Tu firma se guarda en este navegador y en la constancia que descargues. No viaja a ningún servidor ni le llega a nadie.</p>'
-        + '</div>';
-      caja.querySelector('.btn-firmar').addEventListener('click', function () {
-        var n = caja.querySelector('.nombre').value.replace(/\s+/g, ' ').trim();
-        var ok = caja.querySelector('.deacuerdo').checked;
-        var aviso = caja.querySelector('.aviso');
-        if (n.length < 5 || n.indexOf(' ') === -1) { aviso.textContent = 'Escribe tu nombre completo, con apellidos.'; return; }
-        if (!ok) { aviso.textContent = 'Marca la casilla si ya lo leíste y estás de acuerdo.'; return; }
-        var pagina = caja.closest('.pagina');
-        var objEl = pagina ? pagina.querySelector('#objecion-pacto') : null;
-        reg = { n: n, f: new Date().toISOString(), o: objEl ? objEl.value.trim() : '' };
-        try { localStorage.setItem(clave, JSON.stringify(reg)); } catch (e) {}
-        mandaAlMuro(reg.n, reg.o);
-        pintaHecho();
-      });
-    }
-
-    if (reg && reg.n) pintaHecho(); else pintaForma();
-  });
-})();
-</script>
-
 </body>
 </html>

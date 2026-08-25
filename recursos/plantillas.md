@@ -32,9 +32,9 @@ Todo lo que en este curso se llena a mano vive aquí. Se abren en el navegador, 
   </a>
 
   <a class="pl-card" href="plantillas/pacto-del-salon.html">
-    <span class="pl-tag">2 páginas · se firma en la pared · semana 5</span>
+    <span class="pl-tag">2 páginas · se firma en el pizarrón · semana 5</span>
     <b>El pacto del salón</b>
-    <span class="pl-desc">Los últimos minutos del día, el salón se ordena, y lo ordenamos nosotros. Trae el pacto con su rejilla de firmas, las dos versiones minuto a minuto —tres minutos al cierre de la clase, diez al cierre del día—, los frentes y la lista de curadores. Es un experimento con fecha de corte: se revisa el 18 de septiembre.</span>
+    <span class="pl-desc">Los últimos minutos del día, el salón se ordena, y lo ordenamos nosotros. Esta hoja no se firma —eso se hace pasando al pizarrón—: dice qué es lo que estás firmando allá, con las dos versiones minuto a minuto (tres al cierre de la clase, diez al cierre del día), los frentes y la lista de curadores. Es un experimento con fecha de corte: se revisa el 18 de septiembre.</span>
     <span class="pl-cta">Abrir e imprimir →</span>
   </a>
 
