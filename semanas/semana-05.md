@@ -44,9 +44,159 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <h4><span class="n">1</span> El minuto del lector · estreno <span class="reloj">30 min</span></h4>
 <span class="senal senal--aire">Al aire · todo el grupo</span>
 <p class="di">Un minuto, una persona: qué estoy leyendo y por dónde voy.</p>
-<p class="apoyo">Hoy se estrena el ritual y por eso es largo: todos escriben su ficha —título, página, una palabra— y pasan los que quieran. Sin resumen y sin recomendación forzada; se vale decir que no te está gustando. Después del ritual lee el profe un fragmento del libro que trae, y de ahí sale la raíz del día. Del próximo martes en adelante son tres minutos: pasa una persona por semana, hasta que pase el grupo entero.</p>
-<p class="apoyo">Todo el bloque corre en el <a href="../ejercicios/semana-05/minuto-del-lector-semana-05.html">mazo del minuto del lector</a>: el termómetro, la ficha, el cronómetro y la cosecha de la raíz.</p>
-<p class="nota-conductor">Veintidós láminas, con cronómetro que se pone solo en 45 s para la ficha y 60 s para cada minuto. Teclas: T arranca y pausa el reloj, R lo reinicia, N enseña la nota de cada lámina, B apaga la pantalla mientras escriben, O salta las dos opcionales. Reparte las fichas de papel ANTES de proyectar la lámina de la ficha, y repite dos veces que nadie las recoge. La lámina 21 es la bisagra hacia la cadena de raíces; la 22 se deja para el final de la hora, ya que jugaron. Fotografía el pizarrón al salir: esas palabras se publican en Leemos.</p>
+<p class="apoyo">Hoy se estrena el ritual y por eso es largo: todos escriben su ficha —título, página, una palabra— y pasan los que quieran. Sin resumen y sin recomendación forzada; se vale decir que no te está gustando. Después lee el profe un fragmento del libro que trae, y de ahí sale la raíz del día.</p>
+<p class="apoyo">Del próximo martes en adelante son tres minutos: pasa una persona por semana, hasta que pase el grupo entero.</p>
+<p class="nota-conductor">Reparte las fichas de papel ANTES de proyectar la lámina de la ficha, boca abajo, y repite dos veces que nadie las recoge. El cronómetro de la barra se pone solo: 45 s en la ficha, 60 s en cada minuto. Teclas: T arranca y pausa, R reinicia, N enseña estas notas, A oculta el apoyo.</p>
+</section>
+<section class="lam lam--actividad">
+<h4>Párense y ubíquense</h4>
+<span class="senal">Actividad · todo el grupo, sin hablar</span>
+<p class="di">Camina y párate donde estés de verdad.</p>
+<table>
+<tr><th>Me lo estoy devorando</th><th>Ahí la llevo</th><th>Lo estoy arrastrando</th></tr>
+<tr><td>voy volando, quiero seguir</td><td>avanzo, pero a mi ritmo</td><td>o lo abandoné, o no lo he abierto</td></tr>
+</table>
+<p class="apoyo">Nadie tiene que decir nada todavía. Solo caminar y pararse en la pared que le toca.</p>
+<p class="nota-conductor">Que se PAREN y caminen: si se quedan sentados señalando, se pierde el efecto. Tú no comentes dónde se paró nadie. Cuenta en silencio cuántos hay en la tercera pared: ese número te dice cómo va el programa lector, y no se dice en voz alta.</p>
+</section>
+<section class="lam lam--oscura">
+<h4>Miren alrededor</h4>
+<p class="di">Nadie explica por qué está donde está. Solo véanse.</p>
+<p class="aparte">Abandonar un libro es una decisión lectora, no un fracaso. Aquí no hay una pared correcta.</p>
+<p class="nota-conductor">Media lámina, treinta segundos. Vale oro si la tercera pared está llena: legitima el abandono antes de que nadie tenga que confesarlo. Si el grupo ya está cómodo, pásala de largo.</p>
+</section>
+<section class="lam lam--actividad" data-crono="45">
+<h4>Cuarenta y cinco segundos · nadie ve tu papel</h4>
+<span class="senal">Actividad · individual</span>
+<p class="di">Tres renglones y tres casillas.</p>
+<table>
+<tr><th>Título y autor</th><th>Voy en la página</th><th>Una palabra</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p class="aparte">☐ No lo he abierto. &nbsp;&nbsp; ☐ Lo abandoné. &nbsp;&nbsp; ☐ Prefiero no decir cuál.<br>Las tres casillas valen lo mismo que los tres renglones.</p>
+<p class="nota-conductor">Arranca el cronómetro con T; ya está en 45 s. Si alguien pregunta si cuenta para calificación: no, y dilo rápido.</p>
+</section>
+<section class="lam lam--oscura" data-crono="60">
+<h4>Un minuto cada quien</h4>
+<p class="di">Lees tu papel en voz alta. Nada más. Sin resumen.</p>
+<p class="apoyo">Después, el grupo puede hacer <strong>una</strong> pregunta. Dos están prohibidas: <em>¿de qué trata?</em> y <em>¿lo recomiendas?</em></p>
+<p class="apoyo">Hoy pasan los que quieran. Del próximo martes en adelante: uno por semana, hasta que pase el grupo entero.</p>
+<p class="nota-conductor">Las dos preguntas prohibidas son el corazón de la regla: sin ellas esto se vuelve reseña. Dilas despacio.</p>
+</section>
+<section class="lam">
+<h4>Empiezo yo</h4>
+<table>
+<tr><th>Título y autor</th><th>Voy en la página</th><th>Una palabra</th></tr>
+<tr><td><em>Orbital</em> · Samantha Harvey</td><td>16</td><td>lento</td></tr>
+</table>
+<p class="apoyo">Y no me pregunten de qué trata, ni si lo recomiendo. Ese no es el trato aquí.</p>
+<p class="nota-conductor">Modelas tú primero, con el cronómetro corriendo y dejando que te corte. Que te vean obedecer la regla del reloj: es lo único que hace creíble cortarles a ellos.</p>
+</section>
+<section class="lam lam--oscura" data-crono="60">
+<h4>Un minuto es un minuto</h4>
+<p class="di">Cuando el cronómetro llega a cero, se acaba tu turno. Aunque estés a media frase.</p>
+<p class="apoyo">No es rigor: es lo que impide que esto se vuelva una reseña.</p>
+<p class="nota-conductor">Esta es la lámina que se queda puesta mientras pasan los lectores: T arranca cada minuto nuevo. Corta a los 60 s la primera vez aunque duela; la segunda ya nadie se pasa.</p>
+</section>
+<section class="lam">
+<h4>Y ahora déjenme leerles algo</h4>
+<p class="di">Del libro que estoy leyendo.</p>
+<p class="apoyo">Tres párrafos: un salón de clases, un cuadro y un muchacho de quince años al que la clase le pareció una pérdida de tiempo.</p>
+<p class="nota-conductor">Cambio de aire: aquí guardan los papeles y se sientan a escuchar. No anuncies que hay etimología adelante; el remate se cae si lo ven venir.</p>
+</section>
+<section class="lam">
+<h4>El fragmento · <em>Las meninas</em></h4>
+<p class="cita">En la escuela les dieron una clase sobre <em>Las meninas</em>, cuando Shaun tenía quince años. Les contaron que el cuadro desorientaba al <strong>espectador</strong> y le dejaba con la sensación de no saber qué estaba <strong>mirando</strong>.</p>
+<p class="cita">—Es un cuadro dentro de otro cuadro —les dijo el profesor—. Velázquez está en el cuadro, junto al caballete, y lo que pinta es el rey y la reina, pero ellos están fuera del cuadro, justo donde nos encontramos nosotros. El único detalle que nos dice que están ahí es que podemos <strong>verlos reflejados</strong> en un <strong>espejo</strong> que tenemos justo delante.<cite>Samantha Harvey, <em>Orbital</em>, pp. 15–16</cite></p>
+<p class="nota-conductor">Lee tú en voz alta, despacio, sin actuar. Si hay internet, ten <em>Las meninas</em> abierta para mostrarla veinte segundos al terminar; si no, descríbelo con la mano: el pintor aquí, el rey donde estamos nosotros.</p>
+</section>
+<section class="lam lam--oscura">
+<h4>Y entonces el profesor pregunta</h4>
+<p class="di">Así pues, ¿cuál es el tema del cuadro?</p>
+<p class="cita">O bien —dijo el profesor— ¿se trata de un cuadro sobre la nada, tan solo una sala con gente y un espejo?</p>
+<p class="nota-conductor">Aquí sí haz la pausa. Deja la pregunta en el aire tres segundos antes de pasar.</p>
+</section>
+<section class="lam">
+<h4>Al muchacho le pareció una pérdida de tiempo</h4>
+<p class="cita">Para Shaun, que a los quince años no tenía ganas de ir a clase de Historia del Arte y ya sabía que quería ser piloto de combate, aquella lección fue el culmen de la frivolidad. El cuadro no le gustó especialmente y le daban igual los ingredientes de los que estuviera hecho.<cite>Samantha Harvey, <em>Orbital</em>, pp. 15–16</cite></p>
+<p class="aparte">Seis astronautas dan dieciséis vueltas a la Tierra en un día, mirándola. Shaun es uno de ellos.</p>
+<p class="nota-conductor">El chiste del fragmento: el que bosteza en la clase de arte es el mismo que hoy se pasa el día mirando la Tierra. Suéltalo y pasa, sin subrayarlo.</p>
+</section>
+<section class="lam lam--oscura">
+<h4>Un cuadro dentro de otro cuadro</h4>
+<p class="di">Una palabra dentro de otra palabra.</p>
+<p class="apoyo">Llevamos toda la semana haciendo lo mismo que ese profesor: señalar lo que está dentro de algo que parecía simple. Y el libro entero es eso: gente mirando la Tierra desde arriba.</p>
+<p class="nota-conductor">La bisagra del día: aquí el ritual de lectura se convierte en clase de etimología. Es la única lámina donde conviene el silencio largo.</p>
+</section>
+<section class="lam lam--actividad">
+<h4>Cacería · toda palabra del fragmento que tenga que ver con mirar</h4>
+<span class="senal">Actividad · a mano alzada</span>
+<div class="dis"><span class="eq">espectador · mirando · verlos · reflejados · espejo</span></div>
+<p class="apoyo">Cinco. Un fragmento sobre un cuadro y no habla de otra cosa.</p>
+<p class="nota-conductor">PRIMERO pídelas a mano alzada con el fragmento a la vista; recién entonces destapa la lista. Las cinco están textualmente en lo que acabas de leer. Palabra que no salga en el fragmento se marca con "?" y se va al tribunal del jueves.</p>
+</section>
+<section class="lam lam--oscura">
+<h4>Tribunal · de esas cinco, ¿cuántas son parientes?</h4>
+<div class="dis">
+<span class="pz pz--raiz">spec-<small>mirar</small></span>
+<span class="eq">= espectador · espejo</span>
+</div>
+<p class="apoyo">Dos. Solo dos. Las otras tres hablan de lo mismo y no se conocen entre ellas: <strong>significar parecido no prueba parentesco</strong>, la regla de oro de la semana 3.</p>
+<p class="nota-conductor">Que voten antes de que destapes: casi todos apuestan que espejo y espectador no son parientes, y que reflejo sí lo es del espejo.</p>
+</section>
+<section class="lam">
+<h4>¿Y las otras de dónde salieron?</h4>
+<table>
+<tr><th>La palabra</th><th>Viene de</th><th>Y entonces</th></tr>
+<tr><td>ver</td><td><em>videre</em></td><td>su propia raíz: visión, evidente, prever, revisar</td></tr>
+<tr><td>observar</td><td><em>servare</em>, guardar</td><td>como conservar, preservar, reservar</td></tr>
+<tr><td>contemplar</td><td><em>templum</em></td><td>el recinto que el augur trazaba en el cielo para leer los pájaros</td></tr>
+<tr><td>percibir</td><td><em>capere</em>, agarrar</td><td>como capturar, recibir, concepto</td></tr>
+</table>
+<p class="apoyo">Del fragmento, aquí se resuelve una: <em>verlos</em>. Las otras dos tienen lámina propia, y las dos son trampas.</p>
+</section>
+<section class="lam lam--oscura">
+<h4><em>reflejo</em> parece del espejo</h4>
+<div class="dis">
+<span class="pz pz--pre">re-<small>otra vez</small></span>
+<span class="pz pz--raiz">flectere<small>doblar</small></span>
+<span class="eq">= reflejo</span>
+</div>
+<p class="apoyo">Y no lo es. Reflejar es <strong>doblar hacia atrás</strong>: primo de flexible, inflexión y circunflejo.</p>
+<p class="aparte">Y de <em>reflexionar</em>, que es doblar el pensamiento hacia atrás. La misma palabra partida en dos.</p>
+</section>
+<section class="lam">
+<h4><em>mirar</em> tampoco viene de mirar</h4>
+<div class="dis">
+<span class="pz pz--raiz">mirari<small>asombrarse</small></span>
+<span class="eq">→ milagro · maravilla · admirar · mirador</span>
+</div>
+<p class="apoyo">En latín, mirar se dice <em>spec-</em>. Nuestro <strong>mirar</strong> salió de otro lado: de quedarse asombrado.</p>
+<p class="nota-conductor">Pregunta antes: ¿de dónde creen que viene MIRAR? Nadie dice asombrarse. Mirador y maravilla son las que hacen ruido.</p>
+</section>
+<section class="lam">
+<h4>La cosecha del día</h4>
+<div class="dis">
+<span class="pz pz--raiz">spec-<small>specere: mirar</small></span>
+<span class="eq">= catorce puertas</span>
+</div>
+<p class="apoyo">espejo (<em>speculum</em>) · espejismo · espectador · espectáculo · espectro (lo que aparece) · perspectiva (mirar a través) · inspeccionar (mirar dentro) · sospechar (mirar por debajo) · especular (otear desde la torre) · expectativa · aspecto · espécimen · especie (lo que se ve) · prospecto.</p>
+<div class="dis">
+<span class="pz pz--suf">skop- / skept-<small>su primo griego</small></span>
+<span class="eq">→ telescopio · microscopio · escéptico · horóscopo</span>
+</div>
+<p class="aparte">Horóscopo es <em>hōra</em> + <em>skopein</em>: el que mira la hora. Guarda esa <em>hōra</em>: el jueves cobra el enigma del reloj.</p>
+<p class="nota-conductor">Esta es la llave maestra de hoy: una pieza, catorce puertas. Léelas a buen ritmo, sin explicar cada una; el efecto es la cantidad.</p>
+</section>
+<section class="lam lam--oscura">
+<h4>Y la palabra sorpresa</h4>
+<div class="dis">
+<span class="pz pz--pre">re-<small>otra vez</small></span>
+<span class="pz pz--raiz">spec-<small>mirar</small></span>
+</div>
+<p class="palabra-grande">respetar</p>
+<p class="apoyo">Respetar es <strong>volver a mirar</strong>: mirar por segunda vez a alguien a quien ya habías visto de reojo. Piensen dónde apareció: en un cuadro donde el rey mira a la infanta, la infanta nos mira a nosotros, Velázquez nos mira a todos y el espejo lo devuelve.</p>
+<p class="nota-conductor">Deja que compongan la suma ellos: re- más spec-, ¿qué palabra da? Suele salir en voz baja y desde el fondo. No la digas tú si alguien la está pensando.</p>
 </section>
 <section class="lam lam--actividad">
 <h4><span class="n">2</span> Ritual: duelo de piezas <span class="reloj">5 min</span></h4>
@@ -58,6 +208,7 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <section class="lam">
 <h4><span class="n">3</span> Una raíz es una llave maestra <span class="reloj">5 min</span></h4>
 <p class="di">Aprender una raíz no suma una palabra: abre una fila entera de puertas.</p>
+<p class="apoyo"><em>spec-</em> acaba de darles catorce. Y no es la excepción: así funcionan todas.</p>
 <div class="dis">
 <span class="pz pz--raiz">hemo<small>sangre</small></span>
 <span class="pz pz--suf">-rragia<small>brotar</small></span>
@@ -84,7 +235,8 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <span class="senal senal--casa">Para llevar a casa</span>
 <p class="di">Trae la palabra más inesperada que te salió hoy.</p>
 <p class="apoyo">Una sola, con la raíz de la que salió y una línea de por qué te sorprendió. Y al mazo entran hoy las cinco raíces que jugaste: las tarjetas están abajo, con el estándar del curso —frente, solo la pieza; reverso, significado y palabra ancla—.</p>
-<p class="nota-conductor">Si el grupo va rápido, fabrican tarjetas antes de salir. Si no, quedan de tarea. Insiste en una cosa: la tarjeta la fija quien la hace, no quien la baja.</p>
+<p class="apoyo"><strong>Y antes de salir: tu palabra, al pizarrón.</strong> La que escribiste en la ficha, hayas pasado o no. Solo la palabra: no se explica, no se comenta.</p>
+<p class="nota-conductor">Si el grupo va rápido, fabrican tarjetas antes de salir. Si no, quedan de tarea. Insiste en una cosa: la tarjeta la fija quien la hace, no quien la baja. Y fotografía el pizarrón: esas palabras se publican en Leemos y son candidatas al Museo.</p>
 </section>
 </section>
 
@@ -283,7 +435,6 @@ El **minuto del lector** se estrena este martes con el grupo entero —de la pr�
 
 Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
 
-- [El minuto del lector, mazo del ritual](../ejercicios/semana-05/minuto-del-lector-semana-05.html) · martes, para proyectar: el termómetro, la ficha, la lectura compartida y la cosecha de la raíz spec-
 - [La cadena de raíces](../ejercicios/semana-05/ejercicio-5A-cadena-de-raices.html) · martes y miércoles
 - [El tribunal del reloj](../ejercicios/semana-05/ejercicio-5C-tribunal-del-reloj.html) · jueves, centro de cómputo
 - [La palabra de familia numerosa](../ejercicios/semana-05/ejercicio-5D-familia-numerosa.html) · viernes

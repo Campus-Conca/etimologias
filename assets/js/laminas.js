@@ -8,7 +8,13 @@
      flechas · espacio · clicker   avanzan
      A                             oculta el texto de apoyo
      N                             muestra las notas del conductor
+     T                             arranca o pausa el cronómetro
+     R                             reinicia el cronómetro
+     4 / 6                         cronómetro a 45 s o a 60 s
      Esc                           sale
+
+   Una lámina con data-crono="45" deja el cronómetro listo en ese número
+   de segundos al llegar a ella (si no está corriendo ya).
 
    Un mazo con el atributo data-ticket cierra con la lámina del QR del
    ticket de salida. Los estilos viven en _sass/custom/custom.scss.
@@ -35,7 +41,14 @@
       + '<button type="button" class="atras" aria-label="Lámina anterior">&#8592;</button>'
       + '<button type="button" class="sigue" aria-label="Lámina siguiente">&#8594;</button>'
       + '<span class="cont"></span>'
-      + '<span class="pista-teclas">flechas o espacio avanzan · A oculta el apoyo · N muestra notas · Esc sale</span>'
+      + '<span class="crono">'
+      + '<button type="button" class="c-pre on" data-t="60">60s</button>'
+      + '<button type="button" class="c-pre" data-t="45">45s</button>'
+      + '<b>1:00</b>'
+      + '<button type="button" class="c-go" aria-label="Arrancar o pausar">&#9654;</button>'
+      + '<button type="button" class="c-rst" aria-label="Reiniciar">&#8634;</button>'
+      + '</span>'
+      + '<span class="pista-teclas">flechas avanzan · A oculta el apoyo · N notas · T reloj · Esc sale</span>'
       + '<button type="button" class="salir">Salir</button>'
       + '</div>';
     document.body.appendChild(telon);
@@ -44,11 +57,53 @@
     var cont = telon.querySelector('.cont');
     var lams = [], idx = 0;
 
+    /* Cronómetro de la barra: 60 s por omisión, 45 s para las láminas
+       que lo pidan con data-crono. Nunca reprograma un reloj corriendo. */
+    var caja = telon.querySelector('.crono');
+    var pantalla = caja.querySelector('b');
+    var btnGo = caja.querySelector('.c-go');
+    var presets = caja.querySelectorAll('.c-pre');
+    var TOTAL = 60, resta = 60, latido = null;
+
+    function pintaCrono() {
+      var m = Math.floor(resta / 60), sg = resta % 60;
+      pantalla.textContent = m + ':' + (sg < 10 ? '0' : '') + sg;
+      caja.classList.toggle('urge', resta <= 10);
+    }
+    function paraCrono() {
+      clearInterval(latido); latido = null; btnGo.innerHTML = '&#9654;';
+    }
+    function fijaCrono(t) {
+      TOTAL = t; resta = t; paraCrono();
+      Array.prototype.forEach.call(presets, function (b) {
+        b.classList.toggle('on', +b.getAttribute('data-t') === t);
+      });
+      pintaCrono();
+    }
+    function alternaCrono() {
+      if (latido) { paraCrono(); return; }
+      if (resta === 0) resta = TOTAL;
+      latido = setInterval(function () {
+        resta--; if (resta <= 0) { resta = 0; paraCrono(); } pintaCrono();
+      }, 1000);
+      btnGo.innerHTML = '&#10074;&#10074;';
+    }
+    btnGo.addEventListener('click', alternaCrono);
+    caja.querySelector('.c-rst').addEventListener('click', function () {
+      paraCrono(); resta = TOTAL; pintaCrono();
+    });
+    Array.prototype.forEach.call(presets, function (b) {
+      b.addEventListener('click', function () { fijaCrono(+b.getAttribute('data-t')); });
+    });
+    pintaCrono();
+
     function pinta() {
       escenario.innerHTML = '';
       escenario.appendChild(lams[idx].cloneNode(true));
       cont.textContent = (idx + 1) + ' / ' + lams.length;
       escenario.scrollTop = 0;
+      var pide = lams[idx].getAttribute && lams[idx].getAttribute('data-crono');
+      if (pide && !latido) fijaCrono(parseInt(pide, 10));
     }
 
     function abrir(mazo) {
@@ -80,6 +135,7 @@
     }
 
     function cerrar() {
+      paraCrono();
       telon.classList.remove('abierto');
       document.documentElement.classList.remove('telon-abierto');
       if (document.fullscreenElement && document.exitFullscreen) {
@@ -102,6 +158,10 @@
       else if (e.key === 'Escape') { cerrar(); }
       else if (k === 'a') { telon.classList.toggle('sin-apoyo'); }
       else if (k === 'n') { telon.classList.toggle('con-notas'); }
+      else if (k === 't') { e.preventDefault(); alternaCrono(); }
+      else if (k === 'r') { paraCrono(); resta = TOTAL; pintaCrono(); }
+      else if (e.key === '4') { fijaCrono(45); }
+      else if (e.key === '6') { fijaCrono(60); }
     });
 
     Array.prototype.forEach.call(document.querySelectorAll('.btn-presentar'), function (b) {
