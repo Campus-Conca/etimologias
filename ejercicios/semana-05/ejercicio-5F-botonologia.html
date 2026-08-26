@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 5 · Ejercicio F · Botonología: los cuatro botones</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+    --otra:#b3261e; --bien:#2e7d32; --facil:#1565c0; --dificil:#8a6d00;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.8rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+  code,kbd{background:var(--fondo);border:1px solid var(--borde);border-radius:.35rem;padding:.05rem .35rem;font-size:.9em}
+  table{width:100%;border-collapse:collapse;margin:.8rem 0;font-size:.92rem}
+  th{background:var(--fondo);color:var(--ciruela);text-align:left;text-transform:uppercase;font-size:.68rem;letter-spacing:.05em;padding:.45rem .6rem;border:1px solid var(--borde)}
+  td{padding:.5rem .6rem;border:1px solid var(--borde);vertical-align:top}
+
+  /* ---- simulador ---- */
+  .anki{border:1px solid var(--borde);border-radius:.9rem;overflow:hidden;background:#fff;box-shadow:0 2px 10px rgba(107,30,90,.08)}
+  .anki .barra{background:#2b2440;color:#f4eff9;font-size:.75rem;padding:.4rem .8rem;display:flex;justify-content:space-between;letter-spacing:.03em}
+  .anki .pantalla{padding:1.6rem 1rem;text-align:center;min-height:9rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem}
+  .anki .frente{font-size:2rem;font-weight:800;color:var(--ciruela);letter-spacing:.01em}
+  .anki .linea{width:60%;border-top:1px dashed var(--borde);margin:.5rem 0}
+  .anki .reverso{font-size:1.15rem;color:#333}
+  .anki .reverso b{color:var(--rosa)}
+  .anki .reverso small{display:block;color:#777;font-size:.8rem;margin-top:.3rem}
+  .anki .pie{border-top:1px solid var(--borde);padding:.7rem;background:#fdfbfe}
+  .anki .mostrar{width:100%;padding:.75rem;border:none;border-radius:.6rem;background:var(--ciruela);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+  .cuatro{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem}
+  .cuatro button{padding:.5rem .2rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;cursor:pointer;line-height:1.2}
+  .cuatro button .ivl{display:block;font-size:.72rem;font-weight:700;color:#555;margin-bottom:.15rem;font-variant-numeric:tabular-nums}
+  .cuatro button .nom{display:block;font-size:.85rem;font-weight:700}
+  .cuatro button[data-b=otra] .nom{color:var(--otra)}
+  .cuatro button[data-b=dificil] .nom{color:var(--dificil)}
+  .cuatro button[data-b=bien] .nom{color:var(--bien)}
+  .cuatro button[data-b=facil] .nom{color:var(--facil)}
+  .cuatro button:hover{background:var(--fondo)}
+  .agenda{margin-top:.9rem;font-size:.9rem}
+  .agenda .fila{display:flex;justify-content:space-between;gap:.6rem;border-bottom:1px dashed var(--borde);padding:.28rem 0}
+  .agenda .fila b{color:var(--ciruela)}
+  .agenda .cuando{color:var(--rosa);font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .aviso-ivl{font-size:.85rem;color:#6f6570;margin-top:.5rem;font-style:italic}
+
+  /* ---- el mentiroso ---- */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-top:.8rem}
+  @media(max-width:560px){.duo{grid-template-columns:1fr}}
+  .col{border:1px solid var(--borde);border-radius:.8rem;padding:.7rem .8rem}
+  .col.honesto{background:var(--okbg);border-color:#bcdfc0}
+  .col.mentiroso{background:var(--nobg);border-color:#f0cdb0}
+  .col h4{margin:0 0 .3rem;font-size:1rem}
+  .col.honesto h4{color:var(--ok)}
+  .col.mentiroso h4{color:var(--no)}
+  .col ul{margin:.3rem 0 0;padding-left:1.1rem;font-size:.88rem}
+  .col li{margin:.22rem 0}
+  .col .total{margin-top:.6rem;font-weight:800;font-size:1.05rem}
+  .col.honesto .total{color:var(--ok)}
+  .col.mentiroso .total{color:var(--no)}
+
+  /* ---- el juez ---- */
+  .caso{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:.9rem 0;background:#fff}
+  .caso .escena{font-size:1.02rem;margin:.2rem 0 .1rem}
+  .caso .dijo{display:block;background:var(--fondo);border-left:3px solid var(--ciruela);border-radius:0 .5rem .5rem 0;padding:.5rem .7rem;margin:.5rem 0;font-style:italic}
+  .caso.hecho{opacity:.96}
+  .marcador{position:sticky;top:0;z-index:5;background:var(--ciruela);color:#fff;border-radius:.7rem;padding:.5rem .9rem;font-weight:700;font-size:.95rem;margin:1rem 0;display:flex;justify-content:space-between;align-items:center;gap:.6rem}
+  .marcador .puntos{font-size:1.2rem}
+  .lema{background:#2b2440;color:#fff;border-radius:.9rem;padding:1.3rem 1rem;text-align:center;margin:1.6rem 0}
+  .lema b{display:block;font-size:1.7rem;letter-spacing:.02em;color:#ffd6e9}
+  .lema span{display:block;font-size:.95rem;margin-top:.5rem;color:#d9cfe8}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 5 · Sesión F · jueves</div>
+    <h1>Botonología: los cuatro botones</h1>
+    <p>La mini-clase que nadie te dio. Llevas cinco semanas presionando botones que no te explicaron.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Qué vas a hacer aquí.</strong> Tres cosas: <strong>1)</strong> jugar con un Anki de mentiras para ver qué le hace cada botón a una tarjeta, <strong>2)</strong> correr la simulación del mentiroso y ver la factura completa, y <strong>3)</strong> entrenar el ojo de juez con diez casos. Nada de esto se guarda ni se califica.
+  </div>
+
+  <h2>1 · Los cuatro botones no son calificaciones: son citas</h2>
+  <div class="card">
+    <table>
+      <tr><th>Botón</th><th>Qué le hace a la tarjeta</th><th>Qué le estás diciendo</th></tr>
+      <tr><td><strong style="color:var(--otra)">Otra vez</strong></td><td>vuelve en este mismo repaso, a los pocos minutos</td><td>"todavía no es mía, tráemela pronto"</td></tr>
+      <tr><td><strong style="color:var(--dificil)">Difícil</strong></td><td>alarga poquito y ensucia el cálculo</td><td>la trampa de los perfeccionistas</td></tr>
+      <tr><td><strong style="color:var(--bien)">Bien</strong></td><td>el intervalo crece: de 1 día a 3, de 3 a una semana</td><td>"es mía, aléjala un poco"</td></tr>
+      <tr><td><strong style="color:var(--facil)">Fácil</strong></td><td>el intervalo pega un salto grande</td><td>"la respondí antes de terminar de leer"</td></tr>
+    </table>
+    <div class="regla">
+      <strong>La regla simplificada del curso: vivimos con dos botones, <em>Otra vez</em> y <em>Bien</em>.</strong><br>
+      <em>Fácil</em>, solo para lo obvio. <em>Difícil</em>, casi nunca: alarga tan poco que te deja la tarjeta encima y de paso le baja la "facilidad" al cálculo. Si dudaste, no es Difícil: es Otra vez.
+    </div>
+  </div>
+
+  <h2>2 · El Anki de mentiras</h2>
+  <div class="card">
+    <h3>Presiona y mira el numerito</h3>
+    <p style="margin:.2rem 0 .8rem;font-size:.93rem">Lo importante no es el botón: es el <strong>número que está encima del botón</strong>. Ese número es tu próxima cita con esa palabra. Juega unas cuantas tarjetas y ve llenándose la agenda de abajo.</p>
+
+    <div class="anki">
+      <div class="barra"><span id="sim-mazo">Etimologías UAQ · Semana 5</span><span id="sim-cont"></span></div>
+      <div class="pantalla">
+        <div class="frente" id="sim-frente">—</div>
+        <div class="linea" id="sim-linea" hidden></div>
+        <div class="reverso" id="sim-reverso" hidden></div>
+      </div>
+      <div class="pie">
+        <button class="mostrar" id="sim-mostrar">Mostrar respuesta</button>
+        <div class="cuatro" id="sim-botones" hidden>
+          <button data-b="otra"><span class="ivl"></span><span class="nom">Otra vez</span></button>
+          <button data-b="dificil"><span class="ivl"></span><span class="nom">Difícil</span></button>
+          <button data-b="bien"><span class="ivl"></span><span class="nom">Bien</span></button>
+          <button data-b="facil"><span class="ivl"></span><span class="nom">Fácil</span></button>
+        </div>
+      </div>
+    </div>
+    <p class="aviso-ivl" id="sim-aviso">Los cuatro numeritos aparecen al mostrar la respuesta. Son los mismos que verás en tu Anki de verdad.</p>
+
+    <h3 style="margin-top:1.2rem">Tu agenda</h3>
+    <div class="agenda" id="sim-agenda"><div class="vacio" style="color:#8a8a8a;font-size:.9rem">Todavía no has presionado nada.</div></div>
+    <div class="fila-botones">
+      <button class="btn gris" id="sim-reset">Empezar de nuevo</button>
+    </div>
+    <div class="fb" id="sim-fb"></div>
+  </div>
+
+  <h2>3 · La demostración del mentiroso</h2>
+  <div class="card">
+    <h3>Dos estudiantes, la misma tarjeta, el mismo lunes</h3>
+    <p style="margin:.2rem 0 .6rem;font-size:.93rem">Los dos dudaron tres segundos con <strong>-nomía</strong>. Los dos acabaron diciendo "ley, regla". Uno presionó <em>Otra vez</em>. El otro presionó <em>Bien</em> porque quería acabar rápido. Corre la simulación y mira dónde están el viernes.</p>
+    <div class="fila-botones">
+      <button class="btn rosa" id="men-correr">Correr los cinco días</button>
+      <button class="btn gris" id="men-reset">Reiniciar</button>
+    </div>
+    <div class="duo">
+      <div class="col honesto">
+        <h4>🟢 La honesta</h4>
+        <div style="font-size:.85rem;color:#3d6b40">Dudó y presionó <strong>Otra vez</strong>.</div>
+        <ul id="men-h"></ul>
+        <div class="total" id="men-h-tot"></div>
+      </div>
+      <div class="col mentiroso">
+        <h4>🟠 El mentiroso</h4>
+        <div style="font-size:.85rem;color:#8a4a1e">Dudó y presionó <strong>Bien</strong>.</div>
+        <ul id="men-m"></ul>
+        <div class="total" id="men-m-tot"></div>
+      </div>
+    </div>
+    <div class="fb" id="men-fb"></div>
+  </div>
+
+  <div class="lema">
+    <b>DUDASTE = OTRA VEZ</b>
+    <span>Presionar <em>Otra vez</em> no es reprobar: es pedir que la palabra vuelva pronto.<br>El mazo no te califica. Te administra.</span>
+  </div>
+
+  <h2>4 · Entrena el ojo de juez</h2>
+  <div class="card" style="margin-bottom:0">
+    <h3>La tabla del juez</h3>
+    <table>
+      <tr><th>Lo que oíste</th><th>Botón</th><th>En voz del juez</th></tr>
+      <tr><td>Respondió al instante: significado <strong>y</strong> palabra ancla</td><td><strong style="color:var(--bien)">Bien</strong></td><td>"Bien limpio."</td></tr>
+      <tr><td>Respondió antes de que terminaras de leer</td><td><strong style="color:var(--facil)">Fácil</strong></td><td>"Fácil, presume."</td></tr>
+      <tr><td>Titubeó, dio solo la mitad, o dijo "espérame…"</td><td><strong style="color:var(--otra)">Otra vez</strong></td><td>"Casi. Otra vez: te vuelve en un rato."</td></tr>
+      <tr><td>Silencio o respuesta equivocada</td><td><strong style="color:var(--otra)">Otra vez</strong></td><td>"Otra vez, sin drama."</td></tr>
+    </table>
+    <div class="regla" style="margin-bottom:0">
+      <strong>El estándar del curso: significado + una palabra ancla.</strong><br>
+      "<em>-podo</em>: pie, como trípode" es <strong>Bien</strong>. "<em>-podo</em>: este… ¿pie?" es <strong>Otra vez</strong>, aunque haya atinado. <strong>La duda es el dato.</strong>
+    </div>
+  </div>
+
+  <div class="marcador">
+    <span>Veredictos correctos</span>
+    <span class="puntos" id="juez-marcador">0 / 10</span>
+  </div>
+
+  <div id="juez"></div>
+  <div class="fb" id="juez-final"></div>
+
+  <footer>Semana 5 · Una raíz, veinte palabras · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que hagas aquí se guarda al cerrar la página. El simulador es una maqueta didáctica: Anki calcula con más finura, pero la lógica que ves es la suya.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+
+  /* =========================================================
+     1 · EL ANKI DE MENTIRAS
+     Maqueta del algoritmo de repetición espaciada: pasos de
+     aprendizaje (1 min, 10 min), graduación a 1 día y después
+     intervalo por facilidad. Los números son los que ve el
+     estudiante en su propia app.
+     ========================================================= */
+
+  var TARJETAS=[
+    {f:"hemo-, hemato-", r:"sangre", a:"hemorragia, hematoma"},
+    {f:"cosmo-",   r:"orden, mundo",     a:"cosmos, cosmético"},
+    {f:"-nauta",   r:"navegante",        a:"astronauta, náusea"},
+    {f:"-polis",   r:"ciudad",           a:"metrópoli, acrópolis"},
+    {f:"-podo, pod-", r:"pie",           a:"trípode, pulpo"},
+    {f:"zoo-",     r:"animal",           a:"zoológico, zodiaco"},
+    {f:"-teca",    r:"depósito, caja",   a:"biblioteca, hemeroteca"},
+    {f:"-nomía",   r:"ley, regla",       a:"astronomía, economía"},
+    {f:"hipo- (híppos)", r:"caballo",    a:"hipódromo, hipopótamo"},
+    {f:"pat-",     r:"sentir, sufrir",   a:"simpatía, patología"}
+  ];
+
+  var estado=[], i=0, visible=false;
+
+  function nueva(){
+    return {ivl:0, fac:2.5, paso:0, nueva:true, vistas:0};
+  }
+  function reset(){
+    estado=TARJETAS.map(nueva);
+    i=0; visible=false;
+    pintaTarjeta(); pintaAgenda();
+    document.getElementById('sim-fb').className='fb';
+  }
+
+  /* minutos -> texto corto, como los numeritos de Anki */
+  function texto(min){
+    if(min<60) return Math.round(min)+'m';
+    if(min<60*24) return Math.round(min/60)+'h';
+    var d=min/(60*24);
+    if(d<30) return (d<10?Math.round(d*10)/10:Math.round(d))+'d';
+    if(d<365) return Math.round(d/30.4)+' mes';
+    return Math.round(d/365*10)/10+' años';
+  }
+  var DIA=60*24;
+
+  /* Qué haría cada botón con la tarjeta actual */
+  function proyecta(c){
+    if(c.nueva||c.paso<2){
+      return {
+        otra:  {min:1,       paso:0, nueva:true,  fac:c.fac},
+        dificil:{min:6,      paso:c.paso, nueva:true, fac:c.fac},
+        bien:  c.paso===0 ? {min:10, paso:1, nueva:true, fac:c.fac}
+                          : {min:DIA, paso:2, nueva:false, fac:c.fac},
+        facil: {min:4*DIA,   paso:2, nueva:false, fac:c.fac+0.15}
+      };
+    }
+    var d=c.ivl;
+    return {
+      otra:   {min:10,                       paso:2, nueva:false, fac:Math.max(1.3,c.fac-0.2), lapso:true},
+      dificil:{min:Math.max(DIA,d*1.2),      paso:2, nueva:false, fac:Math.max(1.3,c.fac-0.15)},
+      bien:   {min:Math.max(DIA,d*c.fac),    paso:2, nueva:false, fac:c.fac},
+      facil:  {min:Math.max(DIA,d*c.fac*1.3),paso:2, nueva:false, fac:c.fac+0.15}
+    };
+  }
+
+  var elFrente=document.getElementById('sim-frente'),
+      elLinea=document.getElementById('sim-linea'),
+      elRev=document.getElementById('sim-reverso'),
+      elMostrar=document.getElementById('sim-mostrar'),
+      elBotones=document.getElementById('sim-botones'),
+      elCont=document.getElementById('sim-cont');
+
+  function pintaTarjeta(){
+    var c=TARJETAS[i];
+    elFrente.textContent=c.f;
+    elRev.innerHTML='<b>'+c.r+'</b><small>ancla: '+c.a+'</small>';
+    elLinea.hidden=!visible; elRev.hidden=!visible;
+    elMostrar.hidden=visible; elBotones.hidden=!visible;
+    elCont.textContent='tarjeta '+(i+1)+' de '+TARJETAS.length;
+    if(visible){
+      var p=proyecta(estado[i]);
+      ['otra','dificil','bien','facil'].forEach(function(b){
+        elBotones.querySelector('[data-b='+b+'] .ivl').textContent=texto(p[b].min);
+      });
+    }
+  }
+
+  function pintaAgenda(){
+    var ag=document.getElementById('sim-agenda');
+    var vistas=estado.map(function(c,k){return {c:c,k:k};})
+                     .filter(function(x){return x.c.vistas>0;});
+    if(!vistas.length){
+      ag.innerHTML='<div style="color:#8a8a8a;font-size:.9rem">Todavía no has presionado nada.</div>';
+      return;
+    }
+    vistas.sort(function(a,b){return a.c.prox-b.c.prox;});
+    ag.innerHTML=vistas.map(function(x){
+      return '<div class="fila"><b>'+TARJETAS[x.k].f+'</b>'
+        +'<span class="cuando">vuelve en '+texto(x.c.prox)+'</span></div>';
+    }).join('');
+  }
+
+  elMostrar.addEventListener('click',function(){ visible=true; pintaTarjeta(); });
+
+  elBotones.addEventListener('click',function(e){
+    var b=e.target.closest?e.target.closest('button'):null;
+    if(!b) return;
+    var cual=b.getAttribute('data-b');
+    var c=estado[i], p=proyecta(c)[cual];
+    c.ivl=p.min; c.prox=p.min; c.paso=p.paso; c.nueva=p.nueva; c.fac=p.fac; c.vistas++;
+
+    var fb=document.getElementById('sim-fb');
+    var nombre={otra:'Otra vez',dificil:'Difícil',bien:'Bien',facil:'Fácil'}[cual];
+    if(cual==='otra'){
+      fb.className='fb ok';
+      fb.innerHTML='<strong>'+nombre+'.</strong> La tarjeta vuelve en '+texto(p.min)+'. No es castigo: le dijiste "todavía no es mía, tráemela pronto". Este botón es el que construye mazos vivos.';
+    } else if(cual==='dificil'){
+      fb.className='fb no';
+      fb.innerHTML='<strong>'+nombre+'.</strong> Se va '+texto(p.min)+' —casi nada— y además le bajaste la facilidad a la tarjeta, así que de aquí en adelante crecerá más lento para siempre. Por eso en este curso casi nunca se usa: si dudaste, es <em>Otra vez</em>; si no dudaste, es <em>Bien</em>.';
+    } else if(cual==='bien'){
+      fb.className='fb ej';
+      fb.innerHTML='<strong>'+nombre+'.</strong> La tarjeta se va '+texto(p.min)+'. Perfecto si de verdad la contestaste sin titubear. Si dudaste y aun así presionaste esto, acabas de mandarle la factura a tu yo del viernes.';
+    } else {
+      fb.className='fb ej';
+      fb.innerHTML='<strong>'+nombre+'.</strong> Salto grande: '+texto(p.min)+'. Solo se justifica si respondiste antes de terminar de leer el frente. Si tuviste que pensarla, era <em>Bien</em>.';
+    }
+
+    i=(i+1)%TARJETAS.length; visible=false;
+    pintaTarjeta(); pintaAgenda();
+  });
+
+  document.getElementById('sim-reset').addEventListener('click',reset);
+  reset();
+
+  /* =========================================================
+     2 · LA DEMOSTRACIÓN DEL MENTIROSO
+     ========================================================= */
+  var HONESTA=[
+    ['Lunes','Dudó. Presionó <strong>Otra vez</strong>: la tarjeta regresa a los 10 minutos… y la contesta bien.'],
+    ['Lunes, 10 min después','Sale otra vez. "Ley, regla." Sin titubeo. <strong>Bien</strong>: vuelve mañana.'],
+    ['Martes','Sale. La contesta. <strong>Bien</strong>: vuelve en 3 días.'],
+    ['Viernes','Sale de nuevo, justo a tiempo para el duelo. Cuarta vez que la ve esta semana.'],
+    ['Viernes, en el duelo','Le preguntan <em>-nomía</em>. Contesta antes de que acaben la pregunta.']
+  ];
+  var MENTIROSO=[
+    ['Lunes','Dudó. Presionó <strong>Bien</strong> para acabar rápido: la tarjeta se va <strong>una semana</strong>.'],
+    ['Martes','No sale. La app no la trae: dijo que se la sabía.'],
+    ['Miércoles','No sale.'],
+    ['Jueves','No sale.'],
+    ['Viernes, en el duelo','Le preguntan <em>-nomía</em>. Silencio. La vio una sola vez, dudando, hace cinco días.']
+  ];
+
+  var paso=0, tmr=null;
+  function pintaMentiroso(hasta){
+    var h=document.getElementById('men-h'), m=document.getElementById('men-m');
+    h.innerHTML=HONESTA.slice(0,hasta).map(function(x){return '<li><b>'+x[0]+'.</b> '+x[1]+'</li>';}).join('');
+    m.innerHTML=MENTIROSO.slice(0,hasta).map(function(x){return '<li><b>'+x[0]+'.</b> '+x[1]+'</li>';}).join('');
+    document.getElementById('men-h-tot').innerHTML=hasta>=5?'4 encuentros con la palabra · la sabe':'';
+    document.getElementById('men-m-tot').innerHTML=hasta>=5?'1 encuentro con la palabra · no la sabe':'';
+    if(hasta>=5){
+      var fb=document.getElementById('men-fb');
+      fb.className='fb no';
+      fb.innerHTML='<strong>La misma duda, el mismo lunes, dos futuros distintos.</strong> El botón no cambia lo que sabes hoy: cambia cuántas veces vas a volver a verlo antes de que te lo pregunten. Mentirle al botón es mandarle la factura a tu yo del viernes.';
+    }
+  }
+  document.getElementById('men-correr').addEventListener('click',function(){
+    clearInterval(tmr); paso=0; pintaMentiroso(0);
+    document.getElementById('men-fb').className='fb';
+    tmr=setInterval(function(){
+      paso++; pintaMentiroso(paso);
+      if(paso>=5) clearInterval(tmr);
+    },900);
+  });
+  document.getElementById('men-reset').addEventListener('click',function(){
+    clearInterval(tmr); paso=0; pintaMentiroso(0);
+    document.getElementById('men-fb').className='fb';
+  });
+  pintaMentiroso(0);
+
+  /* =========================================================
+     3 · EL JUEZ · diez casos
+     ========================================================= */
+  var CASOS=[
+    { pieza:'-podo', dijo:'"Pie. Como trípode."', modo:'Al instante, sin respirar entre las dos partes.',
+      ok:'bien', why:'Significado y ancla, sin titubeo. Eso es un <strong>Bien limpio</strong>. No lo subas a Fácil solo porque estuvo bonito: Fácil es para lo que se contesta antes de terminar de leer.'},
+    { pieza:'-teca', dijo:'"Este… ¿libro? No, espérame… caja."', modo:'Tardó, se corrigió sola.',
+      ok:'otra', why:'Llegó a la respuesta correcta, y aun así es <strong>Otra vez</strong>. <em>La duda es el dato.</em> Si dudó hoy, el viernes no le sale.'},
+    { pieza:'zoo-', dijo:'"¡Animal, como zoológico!"', modo:'Lo dijo mientras tú todavía leías el frente.',
+      ok:'facil', why:'Respondió antes de que terminaras. Ese es el único caso de <strong>Fácil</strong>: presume y aléjala.'},
+    { pieza:'hemo-', dijo:'"Mitad."', modo:'Segura, rápida y equivocada.',
+      ok:'otra', why:'Confundió <em>hemo-</em> (sangre) con <em>hemi-</em> (mitad). Respuesta equivocada es <strong>Otra vez</strong>, sin drama y sin sermón. Y esta tarjeta es candidata a sanguijuela: pide mnemotecnia.'},
+    { pieza:'-nomía', dijo:'"Ley, regla."', modo:'Rápido, pero no dio ninguna palabra ancla.',
+      ok:'otra', why:'El estándar del curso es <strong>significado + ancla</strong>. Media respuesta es <strong>Otra vez</strong>. Se lo dices así: "me falta el ancla, te vuelve en un rato".'},
+    { pieza:'-polis', dijo:'"Ciudad. Metrópoli, acrópolis, necrópolis."', modo:'Al instante, y de pilón regaló dos.',
+      ok:'bien', why:'<strong>Bien</strong>. Regalar palabras extra no sube a Fácil: lo que sube a Fácil es la velocidad, no la cantidad.'},
+    { pieza:'pat-', dijo:'(silencio)', modo:'Se quedó callada cinco segundos y se rió.',
+      ok:'otra', why:'<strong>Otra vez</strong>, sin drama. Y como juez, dilo con esa cara: "otra vez, te vuelve en un rato". Nadie reprobó nada.'},
+    { pieza:'hipo- (híppos)', dijo:'"De menos. Como hipotermia."', modo:'Convencido.',
+      ok:'otra', why:'Cayó justo en la trampa de la semana: ese es el <em>hipo-</em> de la semana 4. Este es el de <strong>caballo</strong>. <strong>Otra vez</strong> — y las dos tarjetas necesitan la nota "no confundir con la otra".'},
+    { pieza:'-nauta', dijo:'"Navegante… como astronauta… ¿y náusea?"', modo:'Lo dijo dudando de la segunda.',
+      ok:'bien', why:'Significado y ancla, ambos firmes: el titubeo fue sobre un dato <em>extra</em>, no sobre la respuesta. <strong>Bien</strong>. Ojo, juez: no castigues la curiosidad.'},
+    { pieza:'cosmo-', dijo:'"Orden. Como cosmético, que es ponerse en orden la cara."', modo:'Sin pausa, con la explicación incluida.',
+      ok:'bien', why:'<strong>Bien limpio</strong>, y del bueno. Si además lo dijo antes de que terminaras de leer, sube a Fácil; si no, se queda en Bien.'}
+  ];
+
+  var NOMBRES={otra:'Otra vez',dificil:'Difícil',bien:'Bien',facil:'Fácil'};
+  var aciertos=0, contestados=0;
+  var cajaJuez=document.getElementById('juez'), marc=document.getElementById('juez-marcador');
+
+  CASOS.forEach(function(c,n){
+    var d=document.createElement('div');
+    d.className='caso';
+    d.innerHTML='<span style="display:inline-block;background:var(--ciruela);color:#fff;border-radius:2rem;padding:.1rem .7rem;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase">Caso '+(n+1)+'</span>'
+      +'<p class="escena">Sale la tarjeta <strong>'+c.pieza+'</strong>. Tu compañero responde:</p>'
+      +'<span class="dijo">'+c.dijo+'<br><small style="font-style:normal;color:#7a6f78">'+c.modo+'</small></span>'
+      +'<p style="font-size:.9rem;margin:.4rem 0 0;color:var(--ciruela);font-weight:700">¿Qué botón presionas?</p>'
+      +'<div class="cuatro" style="margin-top:.4rem">'
+      +'<button data-v="otra"><span class="nom">Otra vez</span></button>'
+      +'<button data-v="dificil"><span class="nom">Difícil</span></button>'
+      +'<button data-v="bien"><span class="nom">Bien</span></button>'
+      +'<button data-v="facil"><span class="nom">Fácil</span></button>'
+      +'</div><div class="fb"></div>';
+
+    var fb=d.querySelector('.fb'), ya=false;
+    d.addEventListener('click',function(e){
+      var b=e.target.closest?e.target.closest('button[data-v]'):null;
+      if(!b||ya) return;
+      ya=true; contestados++;
+      d.classList.add('hecho');
+      var v=b.getAttribute('data-v');
+      if(v===c.ok){
+        aciertos++;
+        fb.className='fb ok';
+        fb.innerHTML='<strong>Buen juez.</strong> '+c.why;
+      } else {
+        fb.className='fb no';
+        fb.innerHTML='<strong>Presionaste '+NOMBRES[v]+'. Era '+NOMBRES[c.ok]+'.</strong> '+c.why;
+      }
+      marc.textContent=aciertos+' / '+CASOS.length;
+      if(contestados===CASOS.length){
+        var f=document.getElementById('juez-final');
+        f.className='fb ej';
+        f.innerHTML=aciertos>=8
+          ? '<strong>'+aciertos+' de 10. Estás listo para juzgar el mazo de alguien más.</strong> Y fíjate en el patrón: casi todos los casos difíciles terminan en <em>Otra vez</em>. No es que el grupo sea malo: es que la duda cuenta, y contarla es lo que hace que el mazo funcione.'
+          : '<strong>'+aciertos+' de 10.</strong> Vuelve a leer la tabla del juez de arriba y date otra pasada. La regla que más se falla es siempre la misma: <em>atinar dudando sigue siendo Otra vez</em>.';
+      }
+    });
+    cajaJuez.appendChild(d);
+  });
+
+  /* ---------- modo proyector ---------- */
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+
+})();
+</script>
+</body>
+</html>

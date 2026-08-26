@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 5 · Ejercicio E · El safari del mazo</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
+  input[type=text],input[type=search]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+  code{background:var(--fondo);border:1px solid var(--borde);border-radius:.35rem;padding:.05rem .35rem;font-size:.9em}
+
+  /* pestañas de la lupa */
+  .tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.4rem}
+  .tabs button{flex:1 1 8rem;padding:.5rem .6rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
+  .tabs button.on{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .tabpane{display:none;margin-top:.8rem;background:var(--fondo);border:1px solid var(--borde);border-radius:.7rem;padding:.8rem 1rem}
+  .tabpane.on{display:block}
+  .tabpane ol{margin:.2rem 0 0;padding-left:1.2rem}
+  .tabpane li{margin:.35rem 0}
+
+  /* buscador de práctica */
+  .chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.6rem}
+  .chips button{background:#fff;border:1px solid var(--borde);border-radius:1rem;padding:.25rem .7rem;font:inherit;font-size:.85rem;color:var(--ciruela);cursor:pointer}
+  .chips button:hover{background:var(--fondo)}
+  .conteo{margin-top:.7rem;font-weight:700;color:var(--rosa);font-size:.9rem}
+  .res{max-height:22rem;overflow:auto;margin-top:.5rem}
+  .tarj{border:1px solid var(--borde);border-radius:.7rem;padding:.6rem .8rem;margin:.45rem 0;background:#fff}
+  .tarj .fr{font-weight:800;color:var(--ciruela);font-size:1.05rem}
+  .tarj .sem{float:right;font-size:.7rem;color:#9a8a95;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+  .tarj .rev{font-size:.92rem;margin-top:.15rem}
+  .tarj .nota{font-size:.85rem;color:#6f6570;margin-top:.25rem;font-style:italic}
+  .tarj mark{background:#ffe08a;color:inherit;border-radius:.2rem;padding:0 .1rem}
+  .vacio{color:#8a8a8a;font-size:.92rem;padding:.6rem 0}
+
+  /* pistas */
+  .pista{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .pista.resuelta{border-color:var(--ok);background:var(--okbg)}
+  .pista .num{display:inline-block;background:var(--ciruela);color:#fff;border-radius:2rem;padding:.1rem .7rem;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+  .pista .texto{font-size:1.1rem;font-weight:700;color:#221a3a;margin:.6rem 0 .2rem;line-height:1.35}
+  .marcador{position:sticky;top:0;z-index:5;background:var(--ciruela);color:#fff;border-radius:.7rem;padding:.5rem .9rem;font-weight:700;font-size:.95rem;margin:1rem 0;display:flex;justify-content:space-between;align-items:center;gap:.6rem}
+  .marcador span.piezas{font-size:1.2rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 5 · Sesión E · jueves</div>
+    <h1>El safari del mazo</h1>
+    <p>Tu mazo no es una lista de pendientes: es un archivo. Hoy aprendes a buscar dentro de él.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Cinco pistas. Cada una apunta a una tarjeta que ya está en tu mazo. Las cazas con el <strong>buscador</strong> de Anki —la lupa— y escribes aquí de qué pieza se trata. Si no traes el mazo instalado, más abajo hay un <strong>buscador de práctica</strong> con las tarjetas del curso: sirve igual para entrenar el dedo.
+  </div>
+
+  <div class="regla">
+    <strong>Lo que se aprende hoy, en una línea:</strong> el buscador recorre <em>todo</em> el mazo acumulado —semana 0 a semana 5— y entra también <em>dentro del reverso</em>. Por eso escribir <code>caballo</code> encuentra tarjetas que no tienen la palabra "caballo" al frente.
+  </div>
+
+  <h2>Primero: ¿dónde está la lupa?</h2>
+  <div class="card">
+    <h3>Tres aparatos, la misma función</h3>
+    <div class="tabs" id="tabs">
+      <button data-p="droid" class="on">📱 AnkiDroid</button>
+      <button data-p="pc">💻 Computadora</button>
+      <button data-p="web">🍎 AnkiWeb / iPhone</button>
+    </div>
+    <div class="tabpane on" data-p="droid">
+      <ol>
+        <li>Abre AnkiDroid en la pantalla de tus mazos.</li>
+        <li>Toca el ícono de <strong>lupa</strong> de la barra de arriba. Si no lo ves, entra por el menú <strong>⋮ › Explorar tarjetas</strong>.</li>
+        <li>Escribe lo que buscas y listo. Aparecen todas las tarjetas de todos tus mazos.</li>
+        <li>Toca cualquier resultado para verla completa, y el lápiz para editarla.</li>
+      </ol>
+    </div>
+    <div class="tabpane" data-p="pc">
+      <ol>
+        <li>Abre Anki y quédate en la ventana principal.</li>
+        <li>Botón <strong>Explorar</strong> en la barra de arriba (atajo: la tecla <strong>B</strong>).</li>
+        <li>Arriba a la izquierda hay una lista de mazos y etiquetas; el cuadro de búsqueda está arriba al centro.</li>
+        <li>Truco: haz clic en el encabezado de la columna <strong>Lapsos</strong> para ordenar por número de fallos. Ahí viven tus sanguijuelas.</li>
+      </ol>
+    </div>
+    <div class="tabpane" data-p="web">
+      <ol>
+        <li>Entra a <strong>ankiweb.net</strong> desde el navegador y firma tu cuenta.</li>
+        <li>Pestaña <strong>Search</strong> en el menú de arriba.</li>
+        <li>Escribe y busca. Es más lento que la app, pero encuentra exactamente lo mismo.</li>
+        <li>Sincroniza siempre antes de buscar: AnkiWeb solo ve lo que ya subiste.</li>
+      </ol>
+    </div>
+    <div class="cuaderno" style="margin-top:1rem">
+      <strong>¿Caja Leitner?</strong> Tu buscador son tus manos y no necesita batería. En el safari sueles ganar: el papel no tiene lupa, pero tiene dedos rápidos. Caza en tus tres apartados y anota en qué compartimento estaba cada tesoro; eso te dice cuáles ya son tuyas de verdad.
+    </div>
+  </div>
+
+  <h2>El buscador de práctica</h2>
+  <div class="card">
+    <h3>Las tarjetas del curso, semana 0 a semana 5</h3>
+    <p style="margin:.2rem 0 0;font-size:.93rem">Escribe aquí lo mismo que escribirías en Anki. Busca en el frente, en el significado, en el ancla <strong>y en la nota</strong>, igual que el buscador de verdad.</p>
+    <label for="q">Buscar en el mazo</label>
+    <input type="search" id="q" placeholder="prueba con: caballo, memoria, zodiaco, mareo…" autocomplete="off">
+    <div class="chips" id="chips"></div>
+    <div class="conteo" id="conteo"></div>
+    <div class="res" id="res"></div>
+  </div>
+
+  <div class="marcador">
+    <span>Tesoros cazados</span>
+    <span class="piezas" id="marcador">0 / 5</span>
+  </div>
+
+  <h2>Las cinco pistas</h2>
+  <div id="pistas"></div>
+
+  <h2>Si te sobra tiempo: la pista de reserva</h2>
+  <div id="reserva"></div>
+
+  <div class="regla" style="margin-top:1.6rem">
+    <strong>Lo que acabas de hacer se llama tener el mazo vivo.</strong> No es una lista de pendientes: es tu archivo personal de palabras. Se busca, se consulta, se presume. Un mazo que solo se abre cuando la app avisa está instalado, no habitado.
+  </div>
+
+  <footer>Semana 5 · Una raíz, veinte palabras · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+
+  /* ---------- El mazo del curso, semana 0 a 5 ---------- */
+  var MAZO = [
+    /* Semana 0 · el mazo cero */
+    {s:0,f:"hidro-",r:"agua",a:"hidratante, hidrógeno",n:"La griega. Su gemela latina es acu-."},
+    {s:0,f:"acu-",r:"agua",a:"acuario, acuático",n:"La latina. Su gemela griega es hidro-."},
+    {s:0,f:"geo-",r:"tierra",a:"geografía, geología",n:"Del griego gé, la tierra."},
+    {s:0,f:"terr-",r:"tierra",a:"terreno, territorio",n:"La latina de la pareja."},
+    {s:0,f:"bio-",r:"vida",a:"biología, antibiótico",n:"Del griego bíos."},
+    {s:0,f:"vit-",r:"vida",a:"vitamina, vital",n:"La latina de la pareja."},
+    {s:0,f:"graf-",r:"escribir",a:"fotografía, gráfica",n:"Del griego gráphein."},
+    {s:0,f:"escrib-",r:"escribir",a:"manuscrito, escritura",n:"La latina de la pareja."},
+    {s:0,f:"cardio-",r:"corazón",a:"cardiólogo, electrocardiograma",n:"Del griego kardía."},
+    {s:0,f:"cord-",r:"corazón",a:"cordial, recordar",n:"Recordar es volver a pasar por el corazón."},
+    {s:0,f:"-logía / -logo",r:"estudio de · el que estudia",a:"biología, bióloga",n:"La pieza más rentable del idioma."},
+    /* Semana 2 */
+    {s:2,f:"étimo",r:"la palabra de origen de la que nace otra",a:"el étimo de amnesia es mnéme",n:"La palabra que le da nombre a este curso."},
+    {s:2,f:"prefijo",r:"pieza que va al inicio y modifica",a:"a- en amnesia",n:""},
+    {s:2,f:"raíz",r:"pieza central, la que carga el significado",a:"mnem- en amnesia",n:""},
+    {s:2,f:"sufijo",r:"pieza que va al final y modifica",a:"-ia en amnesia",n:""},
+    {s:2,f:"a- / an-",r:"sin, negación",a:"amnesia, anónimo, abiótico",n:"An- delante de vocal, a- delante de consonante."},
+    {s:2,f:"mnem-",r:"memoria",a:"amnesia, amnistía",n:"La raíz de quien perdió la memoria. Mnemosine era la diosa de la memoria y madre de las musas; una amnistía es un olvido decretado por ley."},
+    {s:2,f:"-ia",r:"cualidad",a:"amnesia, alegría",n:""},
+    {s:2,f:"amor",r:"amor, en latín",a:"amigo, amoroso",n:""},
+    {s:2,f:"éros",r:"amor, en griego",a:"erótico, Erasmo",n:"Erasmo significa amable, deseable."},
+    {s:2,f:"oculus",r:"ojo",a:"oculista, binoculares, monóculo",n:""},
+    {s:2,f:"oriri",r:"nacer, surgir",a:"Oriente, origen, oriundo",n:"El Oriente es por donde nace el sol."},
+    {s:2,f:"tele-",r:"lejos",a:"teléfono, telescopio",n:""},
+    {s:2,f:"crono-",r:"tiempo",a:"cronómetro, cronología",n:"Cronos se comía a sus hijos: el tiempo devora."},
+    {s:2,f:"-metro / -metría",r:"medida",a:"termómetro, geometría",n:""},
+    /* Semana 3 */
+    {s:3,f:"port-",r:"llevar",a:"transporte, portátil, reportero",n:""},
+    {s:3,f:"des-",r:"deshacer, quitar",a:"desayuno, desarmar",n:""},
+    {s:3,f:"-grama",r:"escrito, registro",a:"telegrama, diagrama",n:""},
+    {s:3,f:"-scopio",r:"mirar",a:"telescopio, microscopio",n:"Su pariente skop- también está en horóscopo: el que mira la hora."},
+    {s:3,f:"psico-",r:"alma, mente",a:"psicología, psiquiatra",n:"Psique era el alma, y una mariposa."},
+    {s:3,f:"trans-",r:"de un lado a otro",a:"transporte, transformar",n:""},
+    {s:3,f:"cali-",r:"bello",a:"caligrafía",n:"Escritura bella."},
+    {s:3,f:"-dromo",r:"pista, carrera",a:"hipódromo, autódromo",n:"La pista donde corren los caballos."},
+    {s:3,f:"termo-",r:"calor",a:"termómetro, termo",n:""},
+    {s:3,f:"-ónimo / ónoma",r:"nombre",a:"anónimo, sinónimo",n:""},
+    {s:3,f:"desayuno",r:"des + ayuno: romper el ayuno",a:"biografía",n:"El corte que sí era real."},
+    {s:3,f:"deporte",r:"de deportare, llevarse lejos a distraerse",a:"biografía",n:"El corte que parecía falso y era real."},
+    {s:3,f:"portero",r:"de puerta (porta), no de portare",a:"biografía",n:"Las letras engañan, la fuente no."},
+    {s:3,f:"invierno",r:"de hibernum",a:"biografía",n:"Ese in- no es prefijo de nada."},
+    {s:3,f:"mango",r:"dos palabras disfrazadas de una",a:"biografía",n:"Manus para el de agarrar; del tamil, el fruto."},
+    /* Semana 4 */
+    {s:4,f:"-itis",r:"inflamación",a:"otitis, gastritis",n:""},
+    {s:4,f:"-algia",r:"dolor",a:"cefalalgia, nostalgia",n:"Nostalgia es el dolor del regreso."},
+    {s:4,f:"anti-",r:"contra",a:"antibiótico, antídoto",n:""},
+    {s:4,f:"hiper-",r:"de más, por encima",a:"hipertensión",n:""},
+    {s:4,f:"hipo- (hypó)",r:"de menos, debajo",a:"hipotermia, hipoglucemia",n:"NO confundir con el hipo- de caballo, de la semana 5."},
+    {s:4,f:"iatro-",r:"médico",a:"pediatra, psiquiatra",n:""},
+    {s:4,f:"biblio-",r:"libro",a:"biblioteca",n:"Biblos era el papiro, que venía de la ciudad de Biblos."},
+    {s:4,f:"demo-",r:"pueblo",a:"democracia, pandemia",n:""},
+    {s:4,f:"-cracia",r:"poder",a:"democracia",n:""},
+    {s:4,f:"-fobia",r:"miedo",a:"claustrofobia, aracnofobia",n:""},
+    /* Semana 5 */
+    {s:5,f:"hemo-, hemato-",r:"sangre",a:"hemorragia, hematoma",n:"HemO termina en O de gota que cae. No confundir con hemi-, mitad."},
+    {s:5,f:"cosmo-",r:"orden, mundo",a:"cosmos, cosmético",n:"Para los griegos lo bello era lo ordenado: por eso un labial y el universo comparten raíz."},
+    {s:5,f:"-nauta",r:"navegante",a:"astronauta, náusea",n:"De naus, la nave."},
+    {s:5,f:"-polis",r:"ciudad",a:"metrópoli, acrópolis",n:"Metrópoli es la ciudad madre."},
+    {s:5,f:"-podo, pod-",r:"pie",a:"trípode, pulpo",n:"El podio es donde se paran los pies."},
+    {s:5,f:"zoo-",r:"animal",a:"zoológico, zodiaco",n:"El zodiaco es el círculo de los animalitos: por eso casi todos los signos son bichos."},
+    {s:5,f:"-teca",r:"depósito, caja",a:"biblioteca, hemeroteca",n:"No es libro: es CAJA. Le metes discos y es discoteca."},
+    {s:5,f:"-nomía",r:"ley, regla",a:"astronomía, economía",n:"Economía es oikos + nomos: las reglas de la casa."},
+    {s:5,f:"hipo- (híppos)",r:"caballo",a:"hipódromo, hipopótamo",n:"Hay un caballo escondido en el nombre Felipe: Philippos, el amigo de los caballos. No confundir con el hipo- de menos, de la semana 4."},
+    {s:5,f:"pat-",r:"sentir, sufrir",a:"simpatía, patología",n:"La raíz que cambió de opinión tres veces."},
+    {s:5,f:"reloj",r:"del griego hōrológion: el que cuenta las horas",a:"biografía",n:"Ese re- no es prefijo: es horo- gastado por los siglos."},
+    {s:5,f:"cosmético",r:"de kósmos, el orden",a:"biografía",n:"Maquillarse es, literalmente, ponerse en orden. Un labial y el universo, la misma palabra."},
+    {s:5,f:"náusea",r:"de nausía, el mareo del barco",a:"biografía",n:"El mareo de los navegantes: antes del coche, marearse era cosa de barcos."},
+    {s:5,f:"pulpo",r:"de polýpous: muchos pies",a:"biografía",n:"Lo que tú llamas tentáculos, los griegos lo contaron como pies."},
+    {s:5,f:"hipopótamo",r:"híppos + potamós: caballo de río",a:"biografía",n:"Los griegos lo vieron salir del agua y le pusieron el nombre más honesto posible."}
+  ];
+
+  /* ---------- utilidades ---------- */
+  var COMBINANTES=new RegExp('[\\u0300-\\u036f]','g');
+  function limpia(t){
+    return (t||'').toLowerCase()
+      .normalize('NFD').replace(COMBINANTES,'')
+      .replace(/[^a-z0-9ñ ]/g,'');
+  }
+  function resalta(t,q){
+    if(!q) return t;
+    var re=new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
+    return t.replace(re,'<mark>$1</mark>');
+  }
+
+  /* ---------- buscador de práctica ---------- */
+  var q=document.getElementById('q'), res=document.getElementById('res'), conteo=document.getElementById('conteo');
+
+  function busca(){
+    var t=q.value.trim();
+    if(!t){
+      res.innerHTML='';
+      conteo.textContent='Tu mazo acumulado tiene '+MAZO.length+' tarjetas. Escribe algo para cazar.';
+      return;
+    }
+    var c=limpia(t);
+    var hits=MAZO.filter(function(x){
+      return limpia(x.f+' '+x.r+' '+x.a+' '+x.n).indexOf(c)>=0;
+    });
+    conteo.textContent=hits.length===0?'Sin resultados. Prueba con menos letras: el buscador no adivina, encuentra.'
+      :hits.length+(hits.length===1?' tarjeta encontrada':' tarjetas encontradas');
+    res.innerHTML=hits.length===0?'<div class="vacio">Nada aquí. Recuerda que puedes buscar por trozos: <code>cosm</code> encuentra cosmo- y cosmético.</div>'
+      :hits.map(function(x){
+        return '<div class="tarj"><span class="sem">semana '+x.s+'</span>'
+          +'<div class="fr">'+resalta(x.f,t)+'</div>'
+          +'<div class="rev">'+resalta(x.r,t)+' · <em>'+resalta(x.a,t)+'</em></div>'
+          +(x.n?'<div class="nota">'+resalta(x.n,t)+'</div>':'')
+          +'</div>';
+      }).join('');
+  }
+  q.addEventListener('input',busca);
+
+  var atajos=['caballo','memoria','zodiaco','mareo','labial','pies','cosm'];
+  var chips=document.getElementById('chips');
+  atajos.forEach(function(a){
+    var b=document.createElement('button');
+    b.type='button'; b.textContent=a;
+    b.addEventListener('click',function(){ q.value=a; busca(); q.focus(); });
+    chips.appendChild(b);
+  });
+  busca();
+
+  /* ---------- las pistas ---------- */
+  var PISTAS=[
+    { t:'Busca la tarjeta donde el universo y un labial comparten raíz.',
+      ok:['cosmo','cosmos','cosmetico','cosmetica','kosmos'],
+      buscar:'labial · cosm',
+      resp:'<strong>cosmo-</strong> (orden, mundo). Para los griegos, <em>kósmos</em> era el orden, y lo bello era lo ordenado. De ahí salieron el <em>cosmos</em> y lo <em>cosmético</em>: maquillarse es, literalmente, ponerse en orden.'},
+    { t:'Hay un caballo escondido dentro de un nombre propio. Encuéntralo.',
+      ok:['hipo','hippos','felipe','caballo','philippos'],
+      buscar:'Felipe · caballo',
+      resp:'<strong>hipo- (híppos, caballo)</strong>. Felipe es <em>Philippos</em>: "el amigo de los caballos". Y ojo con la trampa de la semana: este <em>hipo-</em> no tiene nada que ver con el <em>hipo-</em> de "de menos" (hipotermia). Se escriben igual y vienen de padres distintos.'},
+    { t:'La tarjeta del mareo de los navegantes.',
+      ok:['nausea','nauta','naus','nausia'],
+      buscar:'mareo · nau',
+      resp:'<strong>náusea</strong>, de <em>nausía</em>: el mareo del barco, de <em>naus</em>, nave. Antes de que existiera el coche, marearse era cosa de navegantes. Es pariente de <em>astronauta</em> y de <em>náutico</em>.'},
+    { t:'El animal cuyo nombre significa, literalmente, "muchos pies".',
+      ok:['pulpo','podo','pod','polypous','polipodo'],
+      buscar:'pies · pulpo',
+      resp:'<strong>pulpo</strong>, del griego <em>polýpous</em>: "muchos pies". Es pariente inesperado del <em>podio</em>, del <em>trípode</em> y del <em>podólogo</em>. Lo que tú llamas tentáculos, los griegos lo contaron como patas.'},
+    { t:'El círculo de los animalitos que, según algunos, decide tu destino el día que naces.',
+      ok:['zoo','zodiaco','zodiaco','animal','zoidion'],
+      buscar:'zodiaco · animal',
+      resp:'<strong>zoo-</strong> (animal). <em>Zóidion</em> es "animalito", y el zodiaco es su círculo: por eso casi todos los signos son bichos. La misma pieza está en <em>zoológico</em>, <em>protozoo</em> y <em>espermatozoide</em>.'}
+  ];
+
+  var RESERVA={
+    t:'La raíz de quien perdió la memoria.',
+    ok:['mnem','mnemo','memoria','amnesia','mneme','mnemosine'],
+    buscar:'memoria',
+    resp:'<strong>mnem-</strong> (memoria), de la <em>semana 2</em>. Y eso es justo lo que demuestra esta pista: el buscador no se queda en la semana en curso, <strong>recorre el mazo entero</strong>. Mnemosine era la diosa de la memoria y la madre de las musas; una <em>amnistía</em> es un olvido decretado por ley.'
+  };
+
+  var resueltas=0, total=PISTAS.length;
+  var marcador=document.getElementById('marcador');
+
+  function montaPista(p,i,destino,esReserva){
+    var caja=document.createElement('div');
+    caja.className='pista';
+    caja.innerHTML='<span class="num">'+(esReserva?'Reserva':'Pista '+(i+1))+'</span>'
+      +'<p class="texto">'+p.t+'</p>'
+      +'<label>¿Qué pieza o palabra es?</label>'
+      +'<input type="text" placeholder="escríbela aquí…" autocomplete="off">'
+      +'<div class="fila-botones">'
+      +'<button class="btn rosa" data-a="comprobar">Comprobar</button>'
+      +'<button class="btn gris" data-a="buscar">¿Con qué la busco?</button>'
+      +'<button class="btn gris" data-a="rendirse">Ver la respuesta</button>'
+      +'</div>'
+      +'<div class="fb"></div>';
+
+    var input=caja.querySelector('input'), fb=caja.querySelector('.fb'), hecha=false;
+
+    function acierta(){
+      if(!hecha && !esReserva){ hecha=true; resueltas++; marcador.textContent=resueltas+' / '+total; }
+      caja.classList.add('resuelta');
+      fb.className='fb ok';
+      fb.innerHTML='<strong>¡Cazada!</strong> '+p.resp;
+    }
+
+    caja.addEventListener('click',function(e){
+      var a=e.target.getAttribute&&e.target.getAttribute('data-a');
+      if(!a) return;
+      if(a==='comprobar'){
+        var v=limpia(input.value);
+        if(!v){ fb.className='fb no'; fb.textContent='Escribe algo primero, aunque sea una corazonada.'; return; }
+        var bien=p.ok.some(function(k){ return v.indexOf(limpia(k))>=0 || limpia(k).indexOf(v)===0 && v.length>=3; });
+        if(bien){ acierta(); }
+        else { fb.className='fb no'; fb.innerHTML='Todavía no. Usa la lupa: el botón de aquí abajo te dice qué escribir en el buscador.'; }
+      }
+      if(a==='buscar'){
+        fb.className='fb ej';
+        fb.innerHTML='<strong>Escribe en el buscador:</strong> <code>'+p.buscar.split(' · ').join('</code> o <code>')+'</code>. Recuerda que la búsqueda también entra en el reverso y en la nota de la tarjeta.';
+      }
+      if(a==='rendirse'){ acierta(); }
+    });
+
+    input.addEventListener('keydown',function(e){
+      if(e.key==='Enter'){ e.preventDefault(); caja.querySelector('[data-a=comprobar]').click(); }
+    });
+
+    destino.appendChild(caja);
+  }
+
+  var cont=document.getElementById('pistas');
+  PISTAS.forEach(function(p,i){ montaPista(p,i,cont,false); });
+  montaPista(RESERVA,0,document.getElementById('reserva'),true);
+
+  /* ---------- pestañas de la lupa ---------- */
+  var tabs=document.getElementById('tabs');
+  tabs.addEventListener('click',function(e){
+    var b=e.target.closest?e.target.closest('button'):null;
+    if(!b||!b.getAttribute('data-p')) return;
+    var cual=b.getAttribute('data-p');
+    Array.prototype.forEach.call(tabs.querySelectorAll('button'),function(x){
+      x.classList.toggle('on',x===b);
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('.tabpane'),function(p){
+      p.classList.toggle('on',p.getAttribute('data-p')===cual);
+    });
+  });
+
+  /* ---------- modo proyector ---------- */
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+
+})();
+</script>
+</body>
+</html>

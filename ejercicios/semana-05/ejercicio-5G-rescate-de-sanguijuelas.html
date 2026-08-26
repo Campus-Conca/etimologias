@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 5 · Ejercicio G · Rescate de sanguijuelas</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.8rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3rem;resize:vertical}
+  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+  code,kbd{background:var(--fondo);border:1px solid var(--borde);border-radius:.35rem;padding:.05rem .35rem;font-size:.9em}
+
+  .rutas{counter-reset:r;margin:.4rem 0 0;padding:0;list-style:none}
+  .rutas li{counter-increment:r;position:relative;padding:.6rem .8rem .6rem 2.6rem;border:1px solid var(--borde);border-radius:.7rem;margin:.5rem 0;background:#fff;font-size:.94rem}
+  .rutas li::before{content:counter(r);position:absolute;left:.7rem;top:.6rem;width:1.5rem;height:1.5rem;border-radius:50%;background:var(--ciruela);color:#fff;font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center}
+  .rutas li b{color:var(--ciruela)}
+
+  /* diagnóstico */
+  .diag{margin-top:.4rem}
+  .diag .preg{border:1px solid var(--borde);border-radius:.7rem;padding:.7rem .85rem;margin:.5rem 0}
+  .diag .preg p{margin:0 0 .5rem;font-size:.95rem;font-weight:600;color:#221a3a}
+  .diag .si-no{display:flex;gap:.4rem}
+  .diag .si-no button{flex:1;padding:.4rem;border:1px solid var(--borde);border-radius:.5rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
+  .diag .si-no button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+
+  /* museo de mnemotecnias */
+  .mn{border:1px solid var(--borde);border-radius:.8rem;margin:.5rem 0;overflow:hidden;background:#fff}
+  .mn>button{width:100%;text-align:left;background:#fff;border:none;padding:.7rem .9rem;font:inherit;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:.6rem}
+  .mn>button:hover{background:var(--fondo)}
+  .mn .pieza{font-weight:800;color:var(--ciruela);font-size:1.05rem}
+  .mn .sig{font-size:.85rem;color:#7a6f78}
+  .mn .cuerpo{display:none;padding:0 .9rem .9rem;font-size:.94rem;border-top:1px dashed var(--borde)}
+  .mn.abierta .cuerpo{display:block;padding-top:.7rem}
+  .mn .modelo{display:inline-block;background:#ffe08a;color:#6b4a00;border-radius:1rem;padding:.05rem .55rem;font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;margin-left:.4rem}
+
+  .checks label{display:flex;gap:.5rem;align-items:flex-start;text-transform:none;letter-spacing:0;font-weight:400;font-size:.94rem;color:#2a2a2a;margin-top:.5rem;cursor:pointer}
+  .checks input{margin-top:.35rem;flex:none;width:1rem;height:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 5 · Sesión G · jueves</div>
+    <h1>Rescate de sanguijuelas</h1>
+    <p>Cuando una tarjeta no entra, no siempre es culpa de tu memoria. A veces la tarjeta está mal hecha. Y las tarjetas se arreglan.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Qué es una sanguijuela.</strong> Es la tarjeta que sale y te da flojera: la fallas desde la semana 2, te chupa tiempo en cada repaso y nunca avanza. Anki tiene nombre para ellas —<em>leech</em>, sanguijuela— y las marca solas cuando las fallas ocho veces. Hoy la cazas, le haces el diagnóstico, le fabricas mnemotecnia y <strong>editas la tarjeta</strong>.
+  </div>
+
+  <h2>1 · La cacería</h2>
+  <div class="card">
+    <h3>Tres rutas, de la más técnica a la más honesta</h3>
+    <ol class="rutas">
+      <li><b>Por el buscador.</b> En AnkiDroid o en la computadora, entra a <strong>Explorar</strong> y ordena por la columna <strong>Lapsos</strong> (los fallos). La de hasta arriba es tu sanguijuela. También puedes buscar directamente <code>tag:leech</code>: son las que Anki ya marcó por ti.</li>
+      <li><b>Por las estadísticas.</b> En el menú del mazo, <strong>Estadísticas</strong>. Busca la sección de tarjetas con más lapsos.</li>
+      <li><b>Por el estómago.</b> La que te dio un vuelco nada más de leer la palabra "sanguijuela". Esa es. Esta ruta es tan legítima como las otras dos: <strong>la sanguijuela se conoce por el mal sabor, no por el reporte.</strong></li>
+    </ol>
+    <div class="cuaderno">
+      <strong>¿Caja Leitner?</strong> Tu sanguijuela es la ficha que lleva semanas atorada en el apartado 1 y que ya reconoces por lo maltratada que está. Sácala y ponla enfrente: es exactamente la misma información.
+    </div>
+  </div>
+
+  <h2>2 · El diagnóstico</h2>
+  <div class="card">
+    <h3>¿Eres tú o es la tarjeta?</h3>
+    <p style="margin:.2rem 0 .3rem;font-size:.93rem">Contesta pensando en <em>tu</em> sanguijuela. Al final te digo qué operación necesita.</p>
+    <div class="diag" id="diag"></div>
+    <div class="fila-botones">
+      <button class="btn rosa" id="btnDiag">Ver el diagnóstico</button>
+    </div>
+    <div class="fb" id="fbDiag"></div>
+  </div>
+
+  <h2>3 · La receta de la mnemotecnia</h2>
+  <div class="card">
+    <h3>Cuatro ingredientes, y ninguno es "esforzarse más"</h3>
+    <ol class="rutas">
+      <li><b>Exagera.</b> La memoria no guarda lo razonable: guarda lo ridículo. Una caja de zapatos <em>gigante</em> se acuerda; una caja normal, no.</li>
+      <li><b>Que se vea.</b> Si no puedes dibujarla en una servilleta, todavía no es mnemotecnia: es una definición con adornos.</li>
+      <li><b>Que se mueva.</b> Una imagen quieta se borra. Que algo caiga, se derrame, corra o se rompa.</li>
+      <li><b>Que sea tuya.</b> Métele tu casa, tu perro, alguien del salón, la canción que traes pegada. <strong>La mnemotecnia propia vale doble</strong>, y no es una frase bonita: es que tu cerebro ya tiene esos ganchos puestos.</li>
+    </ol>
+    <div class="regla">
+      Y una regla de higiene: si la tarjeta esconde <strong>dos ideas</strong> (como <em>hemo-</em> y <em>hemi-</em> juntas), la mnemotecnia no basta. <strong>Pártela en dos tarjetas</strong> y ponle a cada una la nota "no confundir con la otra". Una tarjeta, una idea.
+    </div>
+  </div>
+
+  <h2>4 · El museo de mnemotecnias</h2>
+  <div class="card">
+    <h3>Las diez de la semana, ya rescatadas</h3>
+    <p style="margin:.2rem 0 .6rem;font-size:.93rem">Toca cualquiera para ver la suya. Úsalas como modelo, o róbatelas sin culpa: lo importante es que a la tuya le pongas algo tuyo. Las tres marcadas son las que más se atoran en clase.</p>
+    <div id="museo"></div>
+  </div>
+
+  <h2>5 · El taller: fabrica la tuya</h2>
+  <div class="card">
+    <h3>La ficha del rescate</h3>
+    <label>La pieza o palabra que se te resiste</label>
+    <input type="text" data-campo="pieza" placeholder="ej. -teca">
+    <label>¿Con qué la confundes, o qué es lo que no se te queda?</label>
+    <input type="text" data-campo="lio" placeholder="ej. siempre pienso que significa 'libro'">
+    <label>Tu mnemotecnia (exagerada, visible, en movimiento y con algo tuyo dentro)</label>
+    <textarea data-campo="mn" style="min-height:5rem" placeholder="Imagínate…"></textarea>
+
+    <div class="checks" style="margin-top:.9rem">
+      <label><input type="checkbox" data-chk="exag"> Es exagerada: nadie la confundiría con una definición.</label>
+      <label><input type="checkbox" data-chk="ver"> Se puede dibujar en una servilleta.</label>
+      <label><input type="checkbox" data-chk="mov"> Algo se mueve, cae, se rompe o corre.</label>
+      <label><input type="checkbox" data-chk="mia"> Tiene algo mío adentro (mi casa, alguien que conozco, algo que me gusta).</label>
+    </div>
+
+    <div class="fila-botones">
+      <button class="btn gris" id="btnEjemplo">Compara con un ejemplo</button>
+      <button class="btn rosa" id="btnGenerar">Generar la línea para Anki</button>
+      <button class="btn gris" id="btnCopiar" style="display:none">Copiar al portapapeles</button>
+    </div>
+    <div class="fb" id="fbEjemplo"></div>
+    <pre class="captura" id="pre"></pre>
+    <div class="fb" id="fb"></div>
+  </div>
+
+  <h2>6 · La cirugía: edita la tarjeta</h2>
+  <div class="card">
+    <h3>Las tarjetas no son de piedra</h3>
+    <ol class="rutas">
+      <li><b>AnkiDroid.</b> Mientras ves la tarjeta, toca el <strong>lápiz</strong> de abajo (o el menú ⋮ › <em>Editar</em>). Ve al campo del reverso, baja al final y pega tu línea. Guardar con la palomita.</li>
+      <li><b>Computadora.</b> Con la tarjeta a la vista, presiona <kbd>E</kbd> o el botón <strong>Editar</strong> de abajo a la izquierda. Mismo movimiento: al final del reverso.</li>
+      <li><b>AnkiWeb (iPhone).</b> Entra por <strong>Search</strong>, abre la nota y edítala ahí. Después <strong>sincroniza</strong>, o el cambio se queda solo en el navegador.</li>
+      <li><b>Caja Leitner.</b> Escríbela a mano en el reverso de tu ficha. Es incluso mejor: escribir a mano ya es estudiar. Y de paso regrésala al apartado 1: la sanguijuela empieza otra vez, pero ahora con mnemotecnia.</li>
+    </ol>
+    <div class="regla" style="margin-bottom:0">
+      <strong>Antes de salir del centro de cómputo: sincroniza.</strong> Una tarjeta editada que no se sincronizó es una tarjeta que solo existe en un teléfono.
+    </div>
+  </div>
+
+  <footer>Semana 5 · Una raíz, veinte palabras · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página. La línea que generes solo existe si tú la copias y la pegas en tu tarjeta.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+
+  /* ============ 2 · DIAGNÓSTICO ============ */
+  var PREGUNTAS=[
+    {id:'dos',  t:'¿El reverso tiene dos cosas que podrías confundir entre sí (dos significados, dos piezas parecidas)?'},
+    {id:'largo',t:'¿El reverso es tan largo que no se entiende de un vistazo?'},
+    {id:'ancla',t:'¿La tarjeta no tiene palabra ancla, o el ancla es una palabra que tampoco conocías?'},
+    {id:'nada', t:'¿Cuando sale, tu cabeza se queda en blanco, sin siquiera una imagen a la que agarrarse?'}
+  ];
+  var resp={};
+  var diag=document.getElementById('diag');
+  PREGUNTAS.forEach(function(p){
+    var d=document.createElement('div');
+    d.className='preg';
+    d.innerHTML='<p>'+p.t+'</p><div class="si-no"><button data-v="si">Sí</button><button data-v="no">No</button></div>';
+    d.addEventListener('click',function(e){
+      var b=e.target.closest?e.target.closest('button[data-v]'):null;
+      if(!b) return;
+      resp[p.id]=b.getAttribute('data-v');
+      Array.prototype.forEach.call(d.querySelectorAll('button'),function(x){x.classList.toggle('sel',x===b);});
+    });
+    diag.appendChild(d);
+  });
+
+  document.getElementById('btnDiag').addEventListener('click',function(){
+    var fb=document.getElementById('fbDiag');
+    if(Object.keys(resp).length<PREGUNTAS.length){
+      fb.className='fb no'; fb.textContent='Contesta las cuatro y te digo qué operación necesita.'; return;
+    }
+    var partes=[];
+    if(resp.dos==='si') partes.push('<strong>Pártela en dos.</strong> Tu tarjeta tiene dos ideas amontonadas, y eso no lo arregla ninguna mnemotecnia: cada vez que sale, tu cabeza tiene que elegir. Haz dos tarjetas y ponle a cada una, en el reverso, la nota "no confundir con la otra".');
+    if(resp.largo==='si') partes.push('<strong>Adelgaza el reverso.</strong> Si no se entiende de un vistazo, no es reverso: es un párrafo. Déjale el significado, una palabra ancla y la fuente. Lo demás sobra.');
+    if(resp.ancla==='si') partes.push('<strong>Ponle ancla de verdad.</strong> El ancla tiene que ser una palabra que ya usabas <em>antes</em> de este curso. "<em>-teca</em>: caja, como <em>hemeroteca</em>" no ancla nada si nunca has pisado una hemeroteca; "como <em>discoteca</em>" sí.');
+    if(resp.nada==='si') partes.push('<strong>Es caso de mnemotecnia.</strong> La tarjeta está bien hecha, pero no tiene de dónde agarrarse: no hay imagen. Ahí entra el taller de aquí abajo.');
+
+    if(!partes.length){
+      fb.className='fb ok';
+      fb.innerHTML='<strong>La tarjeta está sana.</strong> Entonces lo que falla es el trato: probablemente le has presionado <em>Bien</em> dudando. Vuelve a <em>Botonología</em>, y de todos modos ponle una mnemotecnia: nunca sobra.';
+    } else {
+      fb.className='fb ej';
+      fb.innerHTML='<strong>Diagnóstico:</strong><ul style="margin:.5rem 0 0;padding-left:1.1rem">'+partes.map(function(x){return '<li style="margin:.35rem 0">'+x+'</li>';}).join('')+'</ul>';
+    }
+  });
+
+  /* ============ 4 · MUSEO DE MNEMOTECNIAS ============ */
+  var MUSEO=[
+    {p:'-teca', s:'depósito, caja', modelo:true,
+     m:'<strong>No es libro: es CAJA.</strong> Imagínate una caja de zapatos del tamaño de un salón. Le metes libros y es <em>biblioteca</em>; le metes películas y es <em>filmoteca</em>; le metes cuadros y es <em>pinacoteca</em>; le metes juguetes y es <em>ludoteca</em>; le metes discos y es <em>discoteca</em>. La caja es la misma; lo único que cambia es lo que guardas.',
+     e:'Y de pilón: <em>botica</em> y <em>bodega</em> son la misma caja griega, <em>apothḗkē</em>. Una se fue por la farmacia y la otra por el vino.'},
+    {p:'hemo- / hemi-', s:'sangre / mitad', modelo:true,
+     m:'<strong>Los gemelos falsos.</strong> hem<strong>O</strong> termina en <strong>O</strong>… de gota que cae, redonda, cayendo al piso. hem<strong>I</strong> termina en <strong>I</strong>… de m<strong>I</strong>tad, una rayita que parte algo por en medio. <em>La O sangra, la I parte.</em>',
+     e:'Si estas dos viven en la misma tarjeta, pártela: es el caso de manual.'},
+    {p:'-nomía', s:'ley, regla', modelo:true,
+     m:'<strong>Alguien poniendo reglas.</strong> <em>Economía</em> es <em>oikos</em> (casa) + <em>nomos</em> (regla): las reglas de la casa. Imagínate a quien administra el gasto en tu casa, con la calculadora en la mano y cara de pocos amigos: esa persona <strong>es</strong> la economía original. Toda <em>-nomía</em> es alguien poniendo reglas: la <em>gastronomía</em> pone las del comer, la <em>astronomía</em> las del cielo.',
+     e:'Truco de repuesto: -nomía y "nómina" se parecen, y las dos son reglas de dinero.'},
+    {p:'hemo-, hemato-', s:'sangre',
+     m:'Un <em>hematoma</em> es una mancha de sangre bajo la piel; una <em>hemorragia</em> es sangre rompiendo a salir. Imagina la misma gota redonda de arriba, cayendo desde un tomate reventado: <em>hemaTOMAte</em>.',
+     e:''},
+    {p:'cosmo-', s:'orden, mundo',
+     m:'Un labial gigante peinando las estrellas, poniéndolas en fila. Cuando el cielo queda ordenado, es <em>cosmos</em>; cuando es tu cara la que queda ordenada, es <em>cosmético</em>. La misma palabra: para los griegos, lo bello era lo ordenado.',
+     e:'Y el <em>cosmopolita</em> es el que tiene por ciudad al mundo entero.'},
+    {p:'-nauta', s:'navegante',
+     m:'Un astronauta mareado dentro del casco. Ahí tienes las dos: <em>-nauta</em> (navegante) y <em>náusea</em> (el mareo del barco), en la misma imagen y con el mismo pobre señor.',
+     e:'De <em>naus</em>, nave. Antes del coche, marearse era cosa de navegantes.'},
+    {p:'-polis', s:'ciudad',
+     m:'Una ciudad entera apilada en una colina: hasta arriba, la <em>acrópolis</em> (la ciudad alta); en las orillas, la <em>necrópolis</em> (la ciudad de los muertos); y abajo, la <em>metrópoli</em>, la ciudad-madre con delantal, cuidando a las otras.',
+     e:'Y sí: <em>política</em> y <em>policía</em> salieron de ahí. Las dos son cosas de la ciudad.'},
+    {p:'-podo, pod-', s:'pie',
+     m:'Un pulpo subido al <em>podio</em>, con ocho tenis puestos, recibiendo la medalla de oro en "muchos pies". Al lado, el <em>trípode</em> aplaudiendo con sus tres patas.',
+     e:'<em>Pulpo</em> es <em>polýpous</em>: muchos pies. Lo que tú llamas tentáculos, los griegos lo contaron como patas.'},
+    {p:'zoo-', s:'animal',
+     m:'El zodiaco como un zoológico giratorio de doce jaulas. Y en una de ellas, la balanza de Libra golpeando la reja porque ella no es un bicho y quiere que la dejen salir.',
+     e:'<em>Zóidion</em> es "animalito". Por eso casi todos los signos son animales… menos esa.'},
+    {p:'hipo- (híppos)', s:'caballo',
+     m:'Un <em>hipopótamo</em> con silla de montar, metido en un río, y encima Felipe agarrándose de las orejas. Regla para no confundirlo con el otro <em>hipo-</em>: <strong>el de caballo va con cosas de caballo</strong> (pótamo = río, dromo = pista); <strong>el de "de menos" va pegado a cosas médicas</strong> (hipotermia, hipoglucemia).',
+     e:'Felipe es <em>Philippos</em>: el amigo de los caballos.'},
+    {p:'pat-', s:'sentir, sufrir',
+     m:'Un corazón con termómetro en la boca. Cuando siente <em>contigo</em>, es <em>simpatía</em>; cuando se enferma, es <em>patología</em>. Misma raíz, dos temperaturas.',
+     e:'<em>Páthos</em> fue sentimiento, luego pasión, y al final enfermedad. Una raíz con tres épocas.'}
+  ];
+
+  var museo=document.getElementById('museo');
+  MUSEO.forEach(function(x){
+    var d=document.createElement('div');
+    d.className='mn';
+    d.innerHTML='<button type="button"><span><span class="pieza">'+x.p+'</span>'
+      +(x.modelo?'<span class="modelo">modelo de clase</span>':'')
+      +'<br><span class="sig">'+x.s+'</span></span><span style="color:var(--rosa);font-weight:800">+</span></button>'
+      +'<div class="cuerpo">'+x.m+(x.e?'<p style="margin:.6rem 0 0;font-size:.88rem;color:#6f6570">'+x.e+'</p>':'')+'</div>';
+    d.querySelector('button').addEventListener('click',function(){
+      d.classList.toggle('abierta');
+      this.lastElementChild.textContent=d.classList.contains('abierta')?'−':'+';
+    });
+    museo.appendChild(d);
+  });
+
+  /* ============ 5 · EL TALLER ============ */
+  function g(sel){var el=document.querySelector('[data-campo='+sel+']');return el?el.value.trim():'';}
+
+  document.getElementById('btnEjemplo').addEventListener('click',function(){
+    var fb=document.getElementById('fbEjemplo');
+    fb.className='fb ej';
+    fb.innerHTML='<strong>Una ficha modelo.</strong><br><em>Pieza:</em> -teca.<br><em>El lío:</em> siempre pienso que significa "libro", porque lo primero que aprendí fue biblioteca.<br><em>Mnemotecnia:</em> "La caja de zapatos de mi abuela, pero del tamaño de la cancha. Le echo mis libros y se vuelve biblioteca; le echo los discos de mi papá y se vuelve discoteca; le echo mis Legos y es ludoteca. La caja no cambia: cambia lo que le echo."<br><br>Fíjate en lo que tiene: <strong>exagera</strong> (del tamaño de la cancha), <strong>se ve</strong> (una caja de zapatos), <strong>algo se mueve</strong> (le echo cosas) y <strong>es suya</strong> (la abuela, los discos del papá, sus Legos). La tuya no tiene que sonar igual: tiene que traer esos cuatro ingredientes con tus cosas dentro.';
+  });
+
+  document.getElementById('btnGenerar').addEventListener('click',function(){
+    var pieza=g('pieza'), lio=g('lio'), mn=g('mn');
+    var fb=document.getElementById('fb'), pre=document.getElementById('pre');
+    if(!pieza||!mn){
+      fb.className='fb no';
+      fb.textContent='Faltan la pieza y la mnemotecnia. Con esas dos basta para operar.';
+      pre.style.display='none';
+      document.getElementById('btnCopiar').style.display='none';
+      return;
+    }
+    var marcados=Array.prototype.filter.call(document.querySelectorAll('[data-chk]'),function(c){return c.checked;}).length;
+    var linea='Mnemotecnia: '+mn;
+    pre.textContent=linea;
+    pre.style.display='block';
+    document.getElementById('btnCopiar').style.display='inline-block';
+
+    if(marcados===4){
+      fb.className='fb ok';
+      fb.innerHTML='<strong>Los cuatro ingredientes. Esta mnemotecnia aguanta.</strong> Copia la línea de arriba, abre tu tarjeta de <strong>'+pieza+'</strong> en Anki, edítala y pégala al final del reverso.'+(lio?' Si quieres, agrega también: <code>Ojo: '+lio+'</code>':'');
+    } else {
+      fb.className='fb ej';
+      fb.innerHTML='<strong>Ya la puedes pegar</strong>, pero te faltan '+(4-marcados)+' ingrediente'+(4-marcados===1?'':'s')+' de la receta. Las mnemotecnias a medias se olvidan casi igual de rápido que la tarjeta original: dale una vuelta más antes de operar.';
+    }
+  });
+
+  document.getElementById('btnCopiar').addEventListener('click',function(){
+    var t=document.getElementById('pre').textContent;
+    var btn=this;
+    function ok(){ btn.textContent='¡Copiada!'; setTimeout(function(){btn.textContent='Copiar al portapapeles';},1600); }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(ok,function(){ selecciona(); });
+    } else { selecciona(); }
+    function selecciona(){
+      var r=document.createRange(); r.selectNodeContents(document.getElementById('pre'));
+      var s=window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent='Selecciónala y copia';
+    }
+  });
+
+  /* ---------- modo proyector ---------- */
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+
+})();
+</script>
+</body>
+</html>

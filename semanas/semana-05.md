@@ -15,7 +15,7 @@ nav_order: 6
 - sacar en cadena la familia entera de una raíz, y contar cuántas palabras te regaló
 - reconocer una pieza vieja escondida en una palabra que jamás relacionarías con ella
 - desconfiar de dos piezas que se ven idénticas y no son parientes
-- resolver, por fin, el enigma del *reloj*
+- usar tu mazo como los que llevan años usándolo: buscar dentro de él, elegir bien el botón y rescatar tus tarjetas más falladas
 
 Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya lee hemorragia, hemofilia, hemoglobina, hematoma, hemodiálisis y cinco más, sin haberlas estudiado. Y de pilón entiende por qué *anemia* es sangre que falta.
 
@@ -25,7 +25,7 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 |---|---|---|
 | [Martes 25](#martes) · 1 h | La cadena de raíces | el mazo al día |
 | [Miércoles 26](#miercoles) · 1 h | Las sorpresas del árbol | tu palabra más inesperada |
-| [Jueves 27](#jueves) · 1 h, centro de cómputo | El tribunal del reloj | el mazo y ganas de cobrar la deuda |
+| [Jueves 27](#jueves) · 1 h, centro de cómputo | El gimnasio abierto | tu teléfono con Anki y el mazo al día |
 | [Viernes 28](#viernes) · 2 h | El campeonato de árboles | a tu equipo con las pilas puestas |
 
 <p class="pista-mazos">Cada día es un mazo de láminas. En clase se proyectan una por una con el botón <strong>Presentar</strong>; aquí se quedan apiladas, en orden, para volver a ellas cuando quieras. Debajo de los mazos: el árbol interactivo con las diez raíces, las sorpresas, la trampa de la semana y las tarjetas.</p>
@@ -185,7 +185,7 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <span class="pz pz--suf">skop- / skept-<small>su primo griego</small></span>
 <span class="eq">→ telescopio · microscopio · escéptico · horóscopo</span>
 </div>
-<p class="aparte">Horóscopo es <em>hōra</em> + <em>skopein</em>: el que mira la hora. Guarda esa <em>hōra</em>: el jueves cobra el enigma del reloj.</p>
+<p class="aparte">Horóscopo es <em>hōra</em> + <em>skopein</em>: el que mira la hora. Guarda esa <em>hōra</em>: es la pieza que resuelve el enigma del <em>reloj</em>. La respuesta está más abajo, en la hoja de consulta, pero intenta armarla tú antes de abrirla.</p>
 <p class="nota-conductor">Esta es la llave maestra de hoy: una pieza, catorce puertas. Léelas a buen ritmo, sin explicar cada una; el efecto es la cantidad.</p>
 </section>
 <section class="lam lam--oscura">
@@ -424,47 +424,171 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <div class="mazo-cabeza">
 <div>
 <div class="cuando">Jueves 27 de agosto · 1 hora · centro de cómputo</div>
-<h3>El tribunal del reloj</h3>
-<p class="foco">Hoy cae el re-loj. Tres semanas colgado.</p>
+<h3>El gimnasio abierto</h3>
+<p class="foco">Hoy no aprendes raíces nuevas: aprendes a usar el gimnasio.</p>
 </div>
 <button class="btn-presentar" type="button">Presentar ▸</button>
 </div>
-<section class="lam">
-<h4><span class="n">1</span> Ritual: quiz relámpago <span class="reloj">10 min</span></h4>
-<p class="di">Tres reactivos: las raíces nuevas y una pieza griega de la semana pasada.</p>
-<p class="apoyo">Tu apuesta primero, como siempre: escribe cuántas vas a tener bien antes de ver el primer reactivo. Al calificar comparas, y los dos números van al renglón del quiz #4 de tu expediente. La brecha es información, no culpa.</p>
-<p class="nota-conductor">El quiz proyectable, con respuestas y cronómetro de 3 minutos, está en tus recursos docentes (carpeta local, quiz-relampago-semana-05.html). El reactivo 2 es justo la trampa de ayer: sirve de termómetro de si cuajó.</p>
-</section>
-<section class="lam lam--oscura">
-<h4><span class="n">2</span> La deuda de tres semanas <span class="reloj">8 min</span></h4>
-<p class="di">re + loj</p>
-<p class="apoyo">En la semana 3 alguien propuso ese corte y lo congelamos. Hoy se descongela. Antes de abrir ninguna fuente: apuesten. ¿Es un corte real, un espejismo, u otra cosa?</p>
-<p class="nota-conductor">No lo resuelvas tú. Deja que lo busquen ellos en el DECEL, en vivo, y que el hallazgo sea suyo. Este es el momento que la semana 3 estuvo comprando.</p>
-</section>
-<section class="lam">
-<h4><span class="n">3</span> Lo que había adentro <span class="reloj">8 min</span></h4>
-<div class="dis">
-<span class="pz pz--raiz">hōra<small>hora</small></span>
-<span class="pz pz--raiz">lógos<small>contar</small></span>
-<span class="eq">= reloj</span>
-</div>
-<img class="ilustracion" src="../assets/img/semana-05/el-reloj-por-dentro.webp" alt="Un reloj abierto por atrás como una cajita: adentro, en lugar de engranes normales, dos ruedas dentadas rosas rotuladas hōra, hora, y lógos, contar, que mueven las manecillas; a la izquierda, la palabra RELOJ con el corte re + loj tachado, y una figura alumbra el interior con una linterna">
-<p class="apoyo">Del latín <em>horologium</em>, y este del griego <em>hōrológion</em>: "el que cuenta las horas". Ese <em>re-</em> no es prefijo de nada: es <em>horo-</em> gastado por los siglos hasta quedar irreconocible. Dos raíces griegas disfrazadas de palabra corta y cotidiana.</p>
-<p class="apoyo">¿Y te acuerdas de la ὥρα que decodificaste el viernes pasado, la que se leía "hora"? Era esta. La semana 4 te dejó la pieza en la mano sin decirte para qué.</p>
-<p class="nota-conductor">El callback a la ὥρα del viernes es el mejor momento del día: el curso cumple lo que promete. Si nadie lo conecta, pregúntales qué palabra griega decodificaron al cerrar la semana pasada.</p>
-</section>
+
 <section class="lam lam--actividad">
-<h4><span class="n">4</span> Gimnasio: el tribunal <span class="reloj">27 min</span></h4>
-<span class="senal">Actividad · individual</span>
-<p class="di">Los "?" del martes pasan por las fuentes, uno por uno.</p>
-<p class="apoyo"><a href="../ejercicios/semana-05/ejercicio-5C-tribunal-del-reloj.html">El tribunal del reloj</a>. Toma las palabras dudosas de tu árbol: verifica en el <a href="https://dle.rae.es">DLE</a> que existan, y en el <a href="http://etimologias.dechile.net">DECEL</a> que la raíz sea la que creías. Captura: palabra, raíz propuesta, veredicto, fuente. Las que se caen no son fracaso: son el dato del día.</p>
-<p class="nota-conductor">Recuérdales que la pregunta que gana torneos no es "¿esa palabra existe?" sino "¿la pieza significa eso ahí?". Es la misma del torneo de la semana 3.</p>
+<h4><span class="n">1</span> El safari del mazo <span class="reloj">10 min</span></h4>
+<span class="senal">Actividad · individual, con el mazo abierto</span>
+<p class="di">En tu mazo hay tesoros escondidos. Te voy a dar las pistas.</p>
+<p class="apoyo">Cinco pistas, una por una. La primera mano arriba lee la tarjeta completa en voz alta: frente, reverso y la nota. Se vale usar el <strong>buscador</strong>, que es justo lo que hoy vienes a aprender.</p>
+<p class="apoyo"><strong>Dónde está la lupa:</strong> en <em>AnkiDroid</em>, el ícono de lupa de arriba (o el menú ⋮ › <em>Explorar tarjetas</em>). En la <em>computadora</em>, el botón <strong>Explorar</strong> de la barra superior. En <em>AnkiWeb</em> (iPhone), la pestaña <strong>Search</strong>. El buscador recorre <strong>todo</strong> el mazo acumulado, no solo la semana en curso.</p>
+<p class="apoyo">Truco que casi nadie conoce: el buscador también busca <strong>dentro del reverso</strong>. Si escribes <code>caballo</code> salen todas las tarjetas donde aparezca esa palabra, aunque el frente no la tenga. ¿No traes el mazo instalado? El <a href="../ejercicios/semana-05/ejercicio-5E-safari-del-mazo.html">safari del mazo</a> trae un buscador de práctica con las setenta tarjetas del curso.</p>
+<p class="nota-conductor">Sin preámbulo, al entrar: "saquen el teléfono y abran Anki, hoy toda la clase ocurre ahí adentro". Proyecta tu propio Anki y enseña la lupa antes de la primera pista. Mientras cazan, CIRCULA: quien no encuentra nada casi siempre no ha importado los mazos recientes; se repara ahí mismo, en voz baja y sin drama. Anota quiénes fueron para tu bitácora, no para regaño público.</p>
 </section>
+
 <section class="lam">
-<h4><span class="n">5</span> El marcador <span class="reloj">7 min</span></h4>
-<span class="senal senal--aire">Al aire</span>
-<p class="di">¿Cuántos "?" del grupo sobrevivieron a las fuentes?</p>
-<p class="apoyo">Ese número entra al marcador del semestre. Y mañana, con los árboles ya limpios, viene el campeonato: la matriz grande no gana por grande, gana por defendible.</p>
+<h4>Pista 1</h4>
+<p class="di">Busquen la tarjeta donde el universo y un labial comparten raíz.</p>
+<p class="apoyo"><strong>Es <em>cosmo-</em>.</strong> Se encuentra escribiendo <code>labial</code> o <code>cosm</code>. Para los griegos, <em>kósmos</em> era el orden: lo bello era lo ordenado. Por eso el universo y el maquillaje son la misma palabra.</p>
+<p class="nota-conductor">En el telón, presiona A antes de proyectar la pista: eso oculta el apoyo, o sea la respuesta. Vuelve a presionar A cuando alguien la cante.</p>
+</section>
+
+<section class="lam">
+<h4>Pista 2</h4>
+<p class="di">Hay un caballo escondido dentro de un nombre propio. Encuéntrenlo.</p>
+<p class="apoyo"><strong>Es <em>hipo-</em> (híppos, caballo).</strong> Se encuentra con <code>Felipe</code> o <code>caballo</code>. Felipe es <em>Philippos</em>: "el amigo de los caballos". Alguien en el salón se llama así y no lo sabía.</p>
+</section>
+
+<section class="lam">
+<h4>Pista 3</h4>
+<p class="di">La tarjeta del mareo de los navegantes.</p>
+<p class="apoyo"><strong>Es <em>náusea</em>.</strong> Se encuentra con <code>mareo</code> o <code>nau</code>. De <em>nausía</em>, el mareo del barco: antes de que existiera el coche, marearse era cosa de navegantes.</p>
+</section>
+
+<section class="lam">
+<h4>Pista 4</h4>
+<p class="di">El animal cuyo nombre significa, literalmente, "muchos pies".</p>
+<p class="apoyo"><strong>Es <em>pulpo</em>.</strong> Se encuentra con <code>pies</code> o <code>pulpo</code>. <em>Polýpous</em>: pariente inesperado del podio y del trípode. Lo que tú llamas tentáculos, los griegos lo contaron como patas.</p>
+</section>
+
+<section class="lam">
+<h4>Pista 5</h4>
+<p class="di">El círculo de los animalitos que, según algunos, decide tu destino el día que naces.</p>
+<p class="apoyo"><strong>Es <em>zoo-</em>.</strong> Se encuentra con <code>zodiaco</code> o <code>animal</code>. <em>Zóidion</em> es "animalito": por eso casi todos los signos son bichos.</p>
+<p class="aparte"><strong>Pista de reserva</strong>, si el grupo va rápido o hay empate: "la raíz de quien perdió la memoria". Es <em>mnem-</em>, de la semana 2, y se encuentra con <code>memoria</code>. Sirve para demostrar que el buscador recorre el mazo entero y no solo lo de esta semana.</p>
+<p class="nota-conductor">Cierra el bloque en treinta segundos: "esto que acaban de hacer se llama tener el mazo vivo. No es una lista de pendientes: es su archivo personal de palabras. Se busca, se consulta, se presume". Usuarios de caja Leitner cazan en su caja física y suelen ganar: dilo en voz alta, "el papel no tiene lupa, pero tiene manos rápidas".</p>
+</section>
+
+<section class="lam lam--oscura">
+<h4><span class="n">2</span> Botonología: la pregunta trampa <span class="reloj">12 min</span></h4>
+<p class="di">¿Qué pasa exactamente cuando presionas "Bien"? ¿Y "Otra vez"?</p>
+<p class="apoyo">Llevas cinco semanas presionando botones que nadie te explicó. Hoy se explican, porque son la habilidad más importante del semestre y son contraintuitivos.</p>
+<p class="nota-conductor">Deja el silencio. Ese silencio es el gancho de todo el bloque: no lo rescates tú.</p>
+</section>
+
+<section class="lam">
+<h4>La mecánica al desnudo</h4>
+<p class="di">Los cuatro botones no son calificaciones: son citas.</p>
+<table>
+<tr><th>Botón</th><th>Qué le hace a la tarjeta</th><th>Qué le estás diciendo</th></tr>
+<tr><td><strong>Otra vez</strong></td><td>vuelve en este mismo repaso, a los pocos minutos</td><td>"todavía no es mía, tráemela pronto"</td></tr>
+<tr><td><strong>Bien</strong></td><td>el intervalo crece: de 1 día a 3, de 3 a una semana</td><td>"es mía, aléjala un poco"</td></tr>
+<tr><td><strong>Fácil</strong></td><td>el intervalo pega un salto grande</td><td>"la respondí antes de terminar de leer"</td></tr>
+<tr><td><strong>Difícil</strong></td><td>alarga poquito y ensucia el cálculo</td><td>la trampa de los perfeccionistas</td></tr>
+</table>
+<p class="apoyo"><strong>La regla simplificada del curso: vivimos con dos botones, <em>Otra vez</em> y <em>Bien</em>.</strong> <em>Fácil</em>, solo para lo obvio. <em>Difícil</em>, casi nunca.</p>
+<p class="apoyo">Mira los numeritos que están arriba de cada botón (1m, 3d, 7d): esa es tu próxima cita con esa palabra. Para mucha gente, hoy es la primera vez que los nota.</p>
+<p class="nota-conductor">Demuestra con la tarjeta de -nomía proyectada. Haz que TODOS ubiquen los numeritos en su propia pantalla antes de seguir; si no los ubican, el resto del bloque no aterriza.</p>
+</section>
+
+<section class="lam lam--actividad">
+<h4>La demostración del mentiroso</h4>
+<span class="senal senal--aire">Al aire · el profe se pone en evidencia</span>
+<p class="di">"Dudé tres segundos… pero le pongo Bien porque quiero acabar rápido."</p>
+<p class="apoyo">Sale <em>-nomía</em>. Mmm… ¿era "nombre"? No… ah sí, "ley, regla". Dudé. Y aun así presiono <strong>Bien</strong>: la tarjeta se va <strong>una semana</strong>. Yo no me la sé. ¿Dónde me va a explotar? Mañana, en el duelo relámpago del viernes, donde no hay botones que apretar: hay que decir la respuesta en voz alta.</p>
+<p class="apoyo"><strong>Mentirle al botón es mandarle la factura a tu yo del viernes.</strong></p>
+<p class="apoyo">La factura se puede ver completa, día por día: en <a href="../ejercicios/semana-05/ejercicio-5F-botonologia.html">Botonología</a> hay un simulador que corre dos semanas de un mazo honesto contra uno mentiroso.</p>
+<p class="nota-conductor">Actúa la escena entera, con la duda incluida. Observa las caras: quien se ría con culpa se acaba de reconocer. Esos son tus conversos del día. Si el proyector falla, la escena funciona narrada, con un estudiante sosteniendo tu teléfono y cantando los intervalos en voz alta.</p>
+</section>
+
+<section class="lam lam--oscura">
+<h4>La regla de la casa</h4>
+<p class="palabra-grande">DUDASTE = OTRA VEZ</p>
+<p class="apoyo">Y su corolario liberador: presionar <em>Otra vez</em> no es reprobar. Es pedir que la palabra vuelva pronto. <strong>El mazo no te califica: te administra.</strong></p>
+<p class="nota-conductor">Al pizarrón, con ceremonia, y que se quede escrito toda la sesión. Es la frase que quieres oír citada el viernes.</p>
+</section>
+
+<section class="lam lam--actividad">
+<h4><span class="n">3</span> El duelo de los botones <span class="reloj">18 min</span></h4>
+<span class="senal">Actividad · en parejas, teléfonos intercambiados</span>
+<p class="di">Tú no juzgas tu mazo. Lo juzga el de junto.</p>
+<p class="apoyo">Intercambien teléfonos. <strong>A</strong> tiene el de <strong>B</strong>: lee en voz alta el frente de la tarjeta que Anki muestre y <strong>B responde de viva voz, sin ver la pantalla</strong>. A decide qué botón presionar y lo anuncia: "eso fue un Otra vez", "eso fue un Bien limpio". Siete tarjetas y cambio de rol.</p>
+<p class="apoyo">Están presionando botones en el mazo del compañero: <strong>sean el juez que quisieran tener</strong>.</p>
+<p class="nota-conductor">Parejas con quien tengan al lado; separa solo para emparejar un mazo enfermo (detectado en el safari) con uno sano. Si alguien se incomoda prestando su teléfono, modo espejo: cada quien sostiene el suyo, lee el frente al otro y presiona lo que el juez dicte. Número impar: trío con juez rotatorio. Pareja Anki+Leitner: el juez mueve la ficha de compartimento en vez de presionar botón, y esa equivalencia vale un comentario.</p>
+</section>
+
+<section class="lam">
+<h4>La tabla del juez</h4>
+<p class="di">El estándar del curso: significado + una palabra ancla.</p>
+<table>
+<tr><th>Lo que oíste</th><th>Botón</th><th>En voz del juez</th></tr>
+<tr><td>Respondió al instante: significado <strong>y</strong> palabra ancla</td><td><strong>Bien</strong></td><td>"Bien limpio."</td></tr>
+<tr><td>Respondió antes de que terminaras de leer</td><td><strong>Fácil</strong></td><td>"Fácil, presume."</td></tr>
+<tr><td>Titubeó, dio solo la mitad, o dijo "espérame…"</td><td><strong>Otra vez</strong></td><td>"Casi. Otra vez: te vuelve en un rato."</td></tr>
+<tr><td>Silencio o respuesta equivocada</td><td><strong>Otra vez</strong></td><td>"Otra vez, sin drama."</td></tr>
+</table>
+<p class="apoyo">"<em>-podo</em>: pie, como trípode" es <strong>Bien</strong>. "<em>-podo</em>: este… ¿pie?" es <strong>Otra vez</strong>, aunque haya atinado. <strong>La duda es el dato.</strong></p>
+<p class="apoyo">¿Quieres entrenar el ojo de juez antes? En <a href="../ejercicios/semana-05/ejercicio-5F-botonologia.html">Botonología</a> hay diez casos para practicar el veredicto.</p>
+<p class="nota-conductor">Proyéctala durante todo el bloque. Circula escuchando duelos: si oyes a un juez blandito ("bueno, te lo cuento como Bien"), intervén con humor: "juez comprado, tarjeta anulada".</p>
+</section>
+
+<section class="lam lam--oscura">
+<h4>Cierre del duelo</h4>
+<p class="di">¿Cuál botón ganó en su duelo?</p>
+<p class="apoyo">Si ganó <em>Otra vez</em>, hay que celebrarlo: significa <strong>jueces honestos</strong>, no estudiantes malos. Y una segunda pregunta al aire: <strong>¿alguien vio en el mazo ajeno una tarjeta que le dio envidia? ¿Qué tenía?</strong></p>
+<p class="nota-conductor">Las respuestas (una imagen, un meme, una nota chistosa) son publicidad gratuita del buen diseño de tarjetas, dicha por pares y no por ti. Aquí está el dato del semestre: quién responde de memoria y quién adivina. Anota tres nombres de cada lado; los mazos muertos reciben conversación individual en la semana 6, sin drama.</p>
+</section>
+
+<section class="lam lam--actividad">
+<h4><span class="n">4</span> Rescate de sanguijuelas: la cacería <span class="reloj">20 min</span></h4>
+<span class="senal">Actividad · individual</span>
+<p class="di">Todos tenemos una: la tarjeta que sale y da flojera.</p>
+<p class="apoyo">Una <strong>sanguijuela</strong> es la tarjeta que te chupa tiempo en cada repaso y no avanza: la que fallas desde la semana 2. Encuéntrenla. Tres rutas, de la más técnica a la más honesta:</p>
+<ol>
+<li>En AnkiDroid o en la computadora: <strong>Explorar</strong> y ordenar por <em>lapsos</em> (fallos).</li>
+<li>En las <strong>estadísticas</strong> del mazo.</li>
+<li>La ruta que nunca falla: <strong>la que te dio un vuelco en el estómago nada más de que la mencioné.</strong> Esa es.</li>
+</ol>
+<p class="apoyo">La ruta 3 es legítima: la sanguijuela se conoce por el mal sabor, no por el reporte.</p>
+<p class="nota-conductor">Cuatro minutos, no más. Anki marca solo las tarjetas que se fallaron ocho veces y les pone la etiqueta "leech": si a alguien le aparece, proyéctala, es oro.</p>
+</section>
+
+<section class="lam">
+<h4>El muro de sanguijuelas</h4>
+<p class="di">Al pizarrón: cada quien anota la suya.</p>
+<p class="apoyo">Con marcas de conteo se ve al instante cuáles se repiten. Y ahí llega el alivio: <strong>descubrir que media clase falla la misma tarjeta desculpabiliza a todos.</strong> Cuando una tarjeta no entra, no siempre es culpa de tu memoria: a veces la tarjeta está mal hecha. Y las tarjetas se arreglan.</p>
+<p class="nota-conductor">Va más rápido si la dictan y tú anotas. FOTO DEL MURO antes de borrarlo: alimenta el quiz de la semana 6 y es el primer caso oficial de Camila la curadora. Si media clase falla la misma tarjeta, probablemente tiene dos ideas amontonadas o un frente ambiguo: es diagnóstico de diseño, no de estudiantes.</p>
+</section>
+
+<section class="lam lam--actividad">
+<h4>El rescate colectivo</h4>
+<span class="senal senal--aire">Al aire · todo el grupo</span>
+<p class="di">Las tres más repetidas. ¿Quién le inventa una imagen tan absurda que ya no se pueda olvidar?</p>
+<p class="apoyo">Mientras más ridícula, mejor: la memoria ama lo exagerado. Tres modelos, por si el grupo se traba:</p>
+<p class="apoyo"><strong>-teca</strong>, si la confunden con "libro": <em>-teca</em> no es libro, es <strong>CAJA</strong>. Imagínate una caja de zapatos gigante: le metes libros y es biblioteca, películas y es filmoteca, cuadros y es pinacoteca, juguetes y es ludoteca. La caja es la misma; cambia lo que guardas.</p>
+<p class="apoyo"><strong>hemo- contra hemi-</strong>, los gemelos falsos: <strong>hemO</strong> termina en O de… gota que cae. <strong>hemI</strong> termina en I de… mItad. <em>La O sangra, la I parte.</em></p>
+<p class="apoyo"><strong>-nomía</strong>: economía es <em>oikos</em> + <em>nomos</em>, las reglas de la casa. Imagínate a alguien administrando el gasto de tu casa: esa persona <strong>es</strong> la economía original. Toda <em>-nomía</em> es alguien poniendo reglas: la gastronomía las del comer, la astronomía las del cielo.</p>
+<p class="nota-conductor">La mnemotecnia ganadora de cada tarjeta se elige a mano alzada, rápido. Si el muro sale disperso y no se repite ninguna, rescata las 3 que más risa o más quejas provoquen: el criterio emocional funciona igual.</p>
+</section>
+
+<section class="lam lam--actividad">
+<h4>La cirugía</h4>
+<span class="senal">Actividad · individual, dentro de Anki</span>
+<p class="di">Abre tu sanguijuela y edítala. Las tarjetas no son de piedra.</p>
+<p class="apoyo">Agrega al reverso una línea nueva: <code>Mnemotecnia: …</code> con la del grupo o con una propia. <strong>La propia vale doble.</strong> El lápiz de edición está abajo mientras ves la tarjeta (en la computadora, la tecla <kbd>E</kbd>).</p>
+<p class="apoyo">¿Tu sanguijuela no salió en el top 3? Fabrícale mnemotecnia propia con la misma receta —exagerar, dibujar, conectar con algo que ya amas— en el taller de <a href="../ejercicios/semana-05/ejercicio-5G-rescate-de-sanguijuelas.html">Rescate de sanguijuelas</a>.</p>
+<p class="nota-conductor">Muestra proyectado dónde está el lápiz. Observa quién edita con soltura y quién se pierde en los menús: los perdidos necesitan 2 minutos individuales la próxima semana, no más. Usuarios de Leitner escriben la mnemotecnia a mano en su ficha, que es incluso mejor.</p>
+</section>
+
+<section class="lam lam--oscura">
+<h4>Cierre y sincronización</h4>
+<p class="di">Sincroniza con AnkiWeb antes de salir.</p>
+<p class="apoyo">Hoy no aprendiste raíces nuevas: <strong>aprendiste a usar el gimnasio.</strong> Mañana, el duelo relámpago dice si funcionó.</p>
+<p class="nota-conductor">Un minuto, con las mochilas medio cerradas. Checa de reojo a quien use AnkiWeb desde Safari: es el sync que más se atora. Si el centro de cómputo falla, toda la sesión corre en celulares; solo la cirugía de tarjetas con imagen se pospone.</p>
 </section>
 </section>
 
@@ -484,8 +608,16 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <p class="di">Las diez raíces de la semana, sin ver el mazo.</p>
 <p class="apoyo">Uno dice la pieza, el otro da significado y palabra ancla. Dos vueltas y a jugar. Las dos tarjetas de <em>hipo-</em> valen doble: quien las distinga, gana el duelo.</p>
 </section>
+<section class="lam lam--actividad">
+<h4><span class="n">2</span> Verificación exprés <span class="reloj">10 min</span></h4>
+<span class="senal">Actividad · por equipos, en celulares</span>
+<p class="di">Los "?" de su árbol pasan por la fuente antes de subir al pizarrón.</p>
+<p class="apoyo">Cada equipo toma sus palabras dudosas y las verifica: en el <a href="https://dle.rae.es">DLE</a> que existan, en el <a href="http://etimologias.dechile.net">DECEL</a> que la raíz sea la que creían. Lo que se cae aquí no llega al árbol. Si quieren la captura ordenada, la plantilla está en <a href="../ejercicios/semana-05/ejercicio-5C-tribunal-del-reloj.html">El tribunal del reloj</a>: palabra, raíz propuesta, veredicto, fuente.</p>
+<p class="apoyo">Las que se caen no son fracaso: <strong>son el dato del día.</strong> Y la pregunta que gana campeonatos no es "¿esa palabra existe?", sino "¿la pieza significa eso ahí?".</p>
+<p class="nota-conductor">Diez minutos duros, con reloj. Es lo que antes ocupaba la sesión del jueves; ahora entra aquí, comprimido y justo antes de que sirva. Anota cuántos "?" del grupo sobrevivieron: ese número entra al marcador del semestre y se anuncia al abrir el campeonato.</p>
+</section>
 <section class="lam">
-<h4><span class="n">2</span> Las reglas del campeonato <span class="reloj">15 min</span></h4>
+<h4><span class="n">3</span> Las reglas del campeonato <span class="reloj">10 min</span></h4>
 <p class="di">Por equipos: el árbol más grande que puedan defender.</p>
 <table>
 <tr><th>Jugada</th><th>Vale</th></tr>
@@ -499,14 +631,14 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <p class="nota-conductor">Equipos de tres o cuatro, una raíz por equipo, DECEL proyectado. Tú eres juez de última instancia. Reserva los "?" que se cayeron ayer para cuando el juego se enfríe.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">3</span> El campeonato <span class="reloj">35 min</span></h4>
+<h4><span class="n">4</span> El campeonato <span class="reloj">35 min</span></h4>
 <span class="senal">Por equipos</span>
 <p class="di">Árbol al pizarrón, retos por turnos, la fuente decide.</p>
 <p class="apoyo">Cada equipo presenta su árbol; los demás retan. Palabra defendida, punto para el dueño; reto certero, punto para quien retó. El árbol ganador se queda en la vitrina de la semana.</p>
 <p class="nota-conductor">Marcador visible y tiempo por ronda a la vista. Registra el árbol más grande y las tres palabras más inesperadas del grupo: van a "Lo que produjimos".</p>
 </section>
 <section class="lam">
-<h4><span class="n">4</span> La raíz que cambió de opinión <span class="reloj">15 min</span></h4>
+<h4><span class="n">5</span> La raíz que cambió de opinión <span class="reloj">15 min</span></h4>
 <div class="dis">
 <span class="pz pz--raiz">páthos<small>lo que se siente</small></span>
 <span class="eq">→ simpatía · patología</span>
@@ -516,16 +648,16 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <p class="nota-conductor">Esta lámina siembra la unidad 2: las palabras no solo viajan de lengua en lengua, también viajan de significado en significado. No lo anuncies; que quede la sensación.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">5</span> Gimnasio: la familia numerosa <span class="reloj">25 min</span></h4>
+<h4><span class="n">6</span> Gimnasio: la familia numerosa <span class="reloj">25 min</span></h4>
 <span class="senal">Actividad · individual</span>
 <p class="di">Tu pieza del Museo crece: ahora presenta también a su parentela.</p>
 <p class="apoyo"><a href="../ejercicios/semana-05/ejercicio-5D-familia-numerosa.html">La palabra de familia numerosa</a>. Una biografía de esta semana no basta con contar de dónde viene la palabra: incluye a las otras que nacieron de la misma raíz. Presenta al personaje y a su familia.</p>
 <p class="nota-conductor">Quien ya tenía su candidata del Museo desde la semana 2, la engorda hoy con la familia. Quien no, esta es su mejor oportunidad del semestre: los árboles del pizarrón están llenos de candidatas.</p>
 </section>
 <section class="lam">
-<h4><span class="n">6</span> Fábrica de tarjetas y lectura <span class="reloj">20 min</span></h4>
-<p class="di">Diez piezas al mazo, y diez minutos de algo hermoso.</p>
-<p class="apoyo">Revisa que las diez estén con el estándar del curso. Y cerramos como siempre: lectura en voz alta, sin análisis y sin tarea. Una pregunta al salir: ¿qué palabra usaste esta semana sin saber que traía una raíz adentro?</p>
+<h4><span class="n">7</span> Fábrica de tarjetas y lectura <span class="reloj">15 min</span></h4>
+<p class="di">Diez piezas al mazo, y unos minutos de algo hermoso.</p>
+<p class="apoyo">Revisa que las diez estén con el estándar del curso, y con los botones bien presionados: lo que aprendiste ayer se cobra aquí. Cerramos como siempre: lectura en voz alta, sin análisis y sin tarea. Una pregunta al salir: ¿qué palabra usaste esta semana sin saber que traía una raíz adentro?</p>
 </section>
 </section>
 
@@ -540,16 +672,22 @@ El **minuto del lector** se estrena este martes con el grupo entero —de la pr�
 Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
 
 - [La cadena de raíces](../ejercicios/semana-05/ejercicio-5A-cadena-de-raices.html) · martes y miércoles
-- [El tribunal del reloj](../ejercicios/semana-05/ejercicio-5C-tribunal-del-reloj.html) · jueves, centro de cómputo
+- [El safari del mazo](../ejercicios/semana-05/ejercicio-5E-safari-del-mazo.html) · jueves, centro de cómputo
+- [Botonología: los cuatro botones](../ejercicios/semana-05/ejercicio-5F-botonologia.html) · jueves, centro de cómputo
+- [Rescate de sanguijuelas](../ejercicios/semana-05/ejercicio-5G-rescate-de-sanguijuelas.html) · jueves, centro de cómputo
+- [El tribunal del reloj](../ejercicios/semana-05/ejercicio-5C-tribunal-del-reloj.html) · viernes, para la verificación exprés
 - [La palabra de familia numerosa](../ejercicios/semana-05/ejercicio-5D-familia-numerosa.html) · viernes
 - [Quiz de gimnasio](../ejercicios/semana-05/quiz-gimnasio-semana-05.html) · para ensayar cuando quieras
 
 ### En el centro de cómputo (jueves)
 
-1. Abre el [DECEL](http://etimologias.dechile.net) y busca **reloj**. Anota qué dos raíces griegas esconde (te va a sorprender).
-2. Toma 3 palabras dudosas del árbol de tu equipo. Verifica en el [DLE](https://dle.rae.es) que existan y en el DECEL que la raíz sea la que creías.
-3. Captura: palabra, raíz propuesta, veredicto, fuente.
-4. Sube el mejor árbol de tu equipo a la vitrina.
+El jueves no se abre el diccionario: se abre el mazo. Toda la hora ocurre dentro de Anki (o dentro de tu caja Leitner, que hace exactamente lo mismo).
+
+1. **Antes de entrar:** abre Anki y sincroniza. Si te faltan mazos, bájalos de [Anki y caja Leitner](../recursos/anki.html) y hazlo ahí mismo: el safari no se puede cazar con el mazo vacío.
+2. **Aprende la lupa.** Busca dentro de tu mazo —`caballo`, `memoria`, `zodiaco`— y comprueba que el buscador entra hasta el reverso de las tarjetas.
+3. **Los cuatro botones.** Antes de presionar, mira el numerito de arriba: es tu próxima cita con esa palabra. Regla de la casa: **dudaste = Otra vez.**
+4. **Tu sanguijuela.** Encuentra tu tarjeta más fallada, ponle una mnemotecnia y **edita la tarjeta** para dejarla escrita en el reverso.
+5. **Antes de salir:** sincroniza otra vez.
 
 ---
 
@@ -685,7 +823,7 @@ Los prefijos griegos también cuentan cuentos. Cinco para presumir:
 
 ## Lo que produjimos
 
-*El árbol de raíz más grande del grupo, las tres palabras más inesperadas del campeonato y la resolución del reloj. Se llena al cerrar la semana.*
+*El árbol de raíz más grande del grupo, las tres palabras más inesperadas del campeonato y el muro de sanguijuelas rescatadas del jueves. Se llena al cerrar la semana.*
 
 ## El postre 🍨
 
