@@ -499,7 +499,7 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <h4>La demostración del mentiroso</h4>
 <span class="senal senal--aire">Al aire · el profe se pone en evidencia</span>
 <p class="di">"Dudé tres segundos… pero le pongo Bien porque quiero acabar rápido."</p>
-<p class="apoyo">Sale <em>-nomía</em>. Mmm… ¿era "nombre"? No… ah sí, "ley, regla". Dudé. Y aun así presiono <strong>Bien</strong>: la tarjeta se va <strong>una semana</strong>. Yo no me la sé. ¿Dónde me va a explotar? Mañana, en el duelo relámpago del viernes, donde no hay botones que apretar: hay que decir la respuesta en voz alta.</p>
+<p class="apoyo">Sale <em>-nomía</em>. Mmm… ¿era "nombre"? No… ah sí, "ley, regla". Dudé. Y aun así presiono <strong>Bien</strong>: la tarjeta se va <strong>una semana</strong>. Yo no me la sé. ¿Dónde me va a explotar? Mañana, en el quiz relámpago del viernes, que trae diez reactivos y ningún botón que apretar.</p>
 <p class="apoyo"><strong>Mentirle al botón es mandarle la factura a tu yo del viernes.</strong></p>
 <p class="apoyo">La factura se puede ver completa, día por día: en <a href="../ejercicios/semana-05/ejercicio-5F-botonologia.html">Botonología</a> hay un simulador que corre dos semanas de un mazo honesto contra uno mentiroso.</p>
 <p class="nota-conductor">Actúa la escena entera, con la duda incluida. Observa las caras: quien se ría con culpa se acaba de reconocer. Esos son tus conversos del día. Si el proyector falla, la escena funciona narrada, con un estudiante sosteniendo tu teléfono y cantando los intervalos en voz alta.</p>
@@ -587,7 +587,7 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <section class="lam lam--oscura">
 <h4>Cierre y sincronización</h4>
 <p class="di">Sincroniza con AnkiWeb antes de salir.</p>
-<p class="apoyo">Hoy no aprendiste raíces nuevas: <strong>aprendiste a usar el gimnasio.</strong> Mañana, el duelo relámpago dice si funcionó.</p>
+<p class="apoyo">Hoy no aprendiste raíces nuevas: <strong>aprendiste a usar el gimnasio.</strong> Mañana, el quiz relámpago dice si funcionó: son diez reactivos, y es el más largo del semestre hasta ahora.</p>
 <p class="nota-conductor">Un minuto, con las mochilas medio cerradas. Checa de reojo a quien use AnkiWeb desde Safari: es el sync que más se atora. Si el centro de cómputo falla, toda la sesión corre en celulares; solo la cirugía de tarjetas con imagen se pospone.</p>
 </section>
 </section>
@@ -603,10 +603,12 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <button class="btn-presentar" type="button">Presentar ▸</button>
 </div>
 <section class="lam lam--actividad">
-<h4><span class="n">1</span> Ritual: duelo relámpago <span class="reloj">10 min</span></h4>
-<span class="senal">Actividad · en parejas</span>
-<p class="di">Las diez raíces de la semana, sin ver el mazo.</p>
-<p class="apoyo">Uno dice la pieza, el otro da significado y palabra ancla. Dos vueltas y a jugar. Las dos tarjetas de <em>hipo-</em> valen doble: quien las distinga, gana el duelo.</p>
+<h4><span class="n">1</span> Ritual: quiz relámpago <span class="reloj">15 min</span></h4>
+<span class="senal">Actividad · individual, sin ver el mazo</span>
+<p class="di">Diez reactivos. Hoy es largo a propósito.</p>
+<p class="apoyo">Los quizzes de este curso son de tres reactivos. Este trae <strong>diez</strong>, porque le toca cubrir la semana entera: las diez raíces nuevas, la trampa de los dos <em>hipo-</em> y una pieza griega de la semana pasada. Tu apuesta primero, como siempre —del 0 al 10, antes de ver el primer reactivo—. Al calificar comparas, y los dos números van al renglón del <strong>quiz #4</strong> de tu expediente. La brecha es información, no culpa.</p>
+<p class="apoyo">Y es el termómetro de lo de ayer: si le presionaste <em>Bien</em> a tarjetas que dudabas, aquí es donde llega la factura. Aquí no hay botones.</p>
+<p class="nota-conductor">El quiz proyectable, con los diez reactivos uno por lámina, respuesta con la tecla R y cronómetro de 5 minutos, está en tus recursos docentes (carpeta local, quiz-relampago-semana-05-viernes.html). Reparte: 2 min de apuesta y encuadre, 6 de resolución, 5 de calificación comentada, 2 de cierre. Los reactivos 8 y 9 son los caros: la trampa de los dos hipo- y la sorpresa de cosmos/cosmético. Antes de calificar, pregunta a mano alzada quién apostó bajo por miedo: quien apostó bajo y salió bien tiene el medidor descalibrado hacia abajo, y eso se dice en voz alta.</p>
 </section>
 <section class="lam lam--actividad">
 <h4><span class="n">2</span> Verificación exprés <span class="reloj">10 min</span></h4>
@@ -648,7 +650,7 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <p class="nota-conductor">Esta lámina siembra la unidad 2: las palabras no solo viajan de lengua en lengua, también viajan de significado en significado. No lo anuncies; que quede la sensación.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">6</span> Gimnasio: la familia numerosa <span class="reloj">25 min</span></h4>
+<h4><span class="n">6</span> Gimnasio: la familia numerosa <span class="reloj">20 min</span></h4>
 <span class="senal">Actividad · individual</span>
 <p class="di">Tu pieza del Museo crece: ahora presenta también a su parentela.</p>
 <p class="apoyo"><a href="../ejercicios/semana-05/ejercicio-5D-familia-numerosa.html">La palabra de familia numerosa</a>. Una biografía de esta semana no basta con contar de dónde viene la palabra: incluye a las otras que nacieron de la misma raíz. Presenta al personaje y a su familia.</p>
@@ -677,7 +679,7 @@ Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y
 - [Rescate de sanguijuelas](../ejercicios/semana-05/ejercicio-5G-rescate-de-sanguijuelas.html) · jueves, centro de cómputo
 - [El tribunal del reloj](../ejercicios/semana-05/ejercicio-5C-tribunal-del-reloj.html) · viernes, para la verificación exprés
 - [La palabra de familia numerosa](../ejercicios/semana-05/ejercicio-5D-familia-numerosa.html) · viernes
-- [Quiz de gimnasio](../ejercicios/semana-05/quiz-gimnasio-semana-05.html) · para ensayar cuando quieras
+- [Quiz de gimnasio](../ejercicios/semana-05/quiz-gimnasio-semana-05.html) · tres reactivos para calentar antes del quiz relámpago del viernes, que esta vez trae diez
 
 ### En el centro de cómputo (jueves)
 
