@@ -62,6 +62,7 @@ La regla de oro de la semana (apréndetela, se usa todo el semestre): un corte e
 <span class="senal">En parejas</span>
 <p class="di">Suma y desarma, con las piezas de tu mazo.</p>
 <p class="apoyo"><a href="../ejercicios/semana-03/ejercicio-3A-sumas-de-palabras.html">Sumas de palabras</a>, en parejas. Anota los cortes de los que dudaron: son materia prima del torneo del viernes.</p>
+<p class="recurso"><a href="../ejercicios/semana-03/ejercicio-3A-sumas-de-palabras.html" target="_blank" rel="noopener">Sumas de palabras</a><span class="pie">Ya sabes que las palabras se abren. Hoy aprendes dónde EXACTAMENTE se cortan.</span></p>
 </section>
 <section class="lam lam--actividad">
 <h4><span class="n">3</span> El banco de dudosos <span class="reloj">15 min</span></h4>
@@ -109,6 +110,7 @@ La regla de oro de la semana (apréndetela, se usa todo el semestre): un corte e
 <span class="senal">En equipos</span>
 <p class="di">Armen su matriz: lo respaldado como respaldado, lo dudoso como hipótesis.</p>
 <p class="apoyo"><a href="../ejercicios/semana-03/ejercicio-3B-fabrica-de-matrices.html">La fábrica de matrices</a>. Si terminas, arma una matriz propia con piezas de tu mazo: las mejores se leen en voz alta. Las hipótesis dudosas son retos listos para el torneo del viernes.</p>
+<p class="recurso"><a href="../ejercicios/semana-03/ejercicio-3B-fabrica-de-matrices.html" target="_blank" rel="noopener">La fábrica de matrices</a><span class="pie">Una raíz no es una palabra: es una fábrica. Hoy tu equipo la pone a producir.</span></p>
 </section>
 </section>
 
@@ -151,6 +153,7 @@ La regla de oro de la semana (apréndetela, se usa todo el semestre): un corte e
 <span class="senal">Actividad</span>
 <p class="di">Esta semana aprendiste que cada pieza multiplica. Hoy cobras la multiplicación.</p>
 <p class="apoyo"><a href="../ejercicios/semana-03/ejercicio-3C-veinte-palabras-gratis.html">Veinte palabras gratis</a>: veinte palabras que nadie te ha enseñado, armadas casi por completo con piezas de tu mazo. Haz el corte de cabeza, apuesta el significado, y cada respuesta te regala la suma completa. Las que falles son tus mejores candidatas a tarjeta: anótalas con su suma y métele al mazo.</p>
+<p class="recurso"><a href="../ejercicios/semana-03/ejercicio-3C-veinte-palabras-gratis.html" target="_blank" rel="noopener">Veinte palabras gratis</a><span class="pie">Todas están hechas con piezas que ya traes. Cóbralas.</span></p>
 </section>
 </section>
 
@@ -168,6 +171,7 @@ La regla de oro de la semana (apréndetela, se usa todo el semestre): un corte e
 <h4><span class="n">1</span> Las reglas del torneo <span class="reloj">20 min</span></h4>
 <p class="di">Por equipos: construyan la matriz más grande que puedan defender.</p>
 <p class="apoyo">Cada palabra propuesta debe sobrevivir la regla de oro si otro equipo la reta, y retar también da puntos. Los cortes dudosos del banco del martes entran como retos listos. El profesor es juez de última instancia, con el DECEL abierto. Las <a href="../ejercicios/semana-03/reglas-torneo-matrices.html">reglas completas, con ejemplos</a>, están publicadas: pásenlas por su matriz antes de salir a la cancha.</p>
+<p class="recurso"><a href="../ejercicios/semana-03/reglas-torneo-matrices.html" target="_blank" rel="noopener">El torneo de matrices · Reglas y ejemplos</a><span class="pie">La matriz grande no gana por grande: gana por defendible.</span></p>
 </section>
 <section class="lam">
 <h4>Así se ve una ronda</h4>

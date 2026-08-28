@@ -228,6 +228,7 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <span class="senal">Actividad · en equipos</span>
 <p class="di">Elige una raíz y escribe todas las palabras de su familia que puedas, contra reloj.</p>
 <p class="apoyo"><a href="../ejercicios/semana-05/ejercicio-5A-cadena-de-raices.html">La cadena de raíces</a>, con tres minutos por raíz. Cinco familias para escoger: hemo-, cosmo-, -polis, zoo- y -teca. Repetir te saca de la ronda, y las palabras dudosas no se borran: se marcan con "?" y se van al tribunal del jueves.</p>
+<p class="recurso"><a href="../ejercicios/semana-05/ejercicio-5A-cadena-de-raices.html" target="_blank" rel="noopener">La cadena de raíces</a><span class="pie">Una raíz, todas las palabras que te regala. El reto: pasar de diez en una sola familia.</span></p>
 <p class="nota-conductor">Deja que jueguen por lo menos dos raíces distintas. La que casi siempre da más lejos es -teca, porque nadie espera que botica y bodega estén ahí. Anota los "?" del grupo en el pizarrón: son la pólvora del jueves.</p>
 </section>
 <section class="lam lam--actividad">
@@ -305,6 +306,7 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <span class="senal">Actividad · individual</span>
 <p class="di">Ahora una raíz que no jugamos ayer, y hasta donde aguantes.</p>
 <p class="apoyo">Vuelve a <a href="../ejercicios/semana-05/ejercicio-5A-cadena-de-raices.html">la cadena</a> con otra familia, o arma la tuya con una raíz de tu mazo viejo. La meta no es llegar a veinte: es llegar a una que nadie más tenga y poderla defender mañana.</p>
+<p class="recurso"><a href="../ejercicios/semana-05/ejercicio-5A-cadena-de-raices.html" target="_blank" rel="noopener">La cadena de raíces</a><span class="pie">Una raíz, todas las palabras que te regala. El reto: pasar de diez en una sola familia.</span></p>
 <p class="nota-conductor">Hoy el árbol arranca en clase y se termina en casa: el bloque del pacto se lleva ocho minutos de este taller, y el viernes hay dos horas enteras de árboles. Si el grupo está enganchado y prefieres proteger el taller, lo que se recorta es la lámina de las tres palabras (basura, escoba, curador): se lee en treinta segundos o se guarda para el viernes.</p>
 </section>
 <section class="lam lam--oscura">
@@ -437,6 +439,7 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <p class="apoyo">Cinco pistas, una por una. La primera mano arriba lee la tarjeta completa en voz alta: frente, reverso y la nota. Se vale usar el <strong>buscador</strong>, que es justo lo que hoy vienes a aprender.</p>
 <p class="apoyo"><strong>Dónde está la lupa:</strong> en <em>AnkiDroid</em>, el ícono de lupa de arriba (o el menú ⋮ › <em>Explorar tarjetas</em>). En la <em>computadora</em>, el botón <strong>Explorar</strong> de la barra superior. En <em>AnkiWeb</em> (iPhone), la pestaña <strong>Search</strong>. El buscador recorre <strong>todo</strong> el mazo acumulado, no solo la semana en curso.</p>
 <p class="apoyo">Truco que casi nadie conoce: el buscador también busca <strong>dentro del reverso</strong>. Si escribes <code>caballo</code> salen todas las tarjetas donde aparezca esa palabra, aunque el frente no la tenga. ¿No traes el mazo instalado? El <a href="../ejercicios/semana-05/ejercicio-5E-safari-del-mazo.html">safari del mazo</a> trae un buscador de práctica con las setenta tarjetas del curso.</p>
+<p class="recurso"><a href="../ejercicios/semana-05/ejercicio-5E-safari-del-mazo.html" target="_blank" rel="noopener">El safari del mazo</a><span class="pie">Tu mazo no es una lista de pendientes: es un archivo. Hoy aprendes a buscar dentro de él.</span></p>
 <p class="nota-conductor">Sin preámbulo, al entrar: "saquen el teléfono y abran Anki, hoy toda la clase ocurre ahí adentro". Proyecta tu propio Anki y enseña la lupa antes de la primera pista. Mientras cazan, CIRCULA: quien no encuentra nada casi siempre no ha importado los mazos recientes; se repara ahí mismo, en voz baja y sin drama. Anota quiénes fueron para tu bitácora, no para regaño público.</p>
 </section>
 
@@ -502,6 +505,7 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <p class="apoyo">Sale <em>-nomía</em>. Mmm… ¿era "nombre"? No… ah sí, "ley, regla". Dudé. Y aun así presiono <strong>Bien</strong>: la tarjeta se va <strong>una semana</strong>. Yo no me la sé. ¿Dónde me va a explotar? Mañana, en el quiz relámpago del viernes, que trae diez reactivos y ningún botón que apretar.</p>
 <p class="apoyo"><strong>Mentirle al botón es mandarle la factura a tu yo del viernes.</strong></p>
 <p class="apoyo">La factura se puede ver completa, día por día: en <a href="../ejercicios/semana-05/ejercicio-5F-botonologia.html">Botonología</a> hay un simulador que corre dos semanas de un mazo honesto contra uno mentiroso.</p>
+<p class="recurso"><a href="../ejercicios/semana-05/ejercicio-5F-botonologia.html" target="_blank" rel="noopener">Botonología: los cuatro botones</a><span class="pie">La mini-clase que nadie te dio. Llevas cinco semanas presionando botones que no te explicaron.</span></p>
 <p class="nota-conductor">Actúa la escena entera, con la duda incluida. Observa las caras: quien se ría con culpa se acaba de reconocer. Esos son tus conversos del día. Si el proyector falla, la escena funciona narrada, con un estudiante sosteniendo tu teléfono y cantando los intervalos en voz alta.</p>
 </section>
 
@@ -533,6 +537,7 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 </table>
 <p class="apoyo">"<em>-podo</em>: pie, como trípode" es <strong>Bien</strong>. "<em>-podo</em>: este… ¿pie?" es <strong>Otra vez</strong>, aunque haya atinado. <strong>La duda es el dato.</strong></p>
 <p class="apoyo">¿Quieres entrenar el ojo de juez antes? En <a href="../ejercicios/semana-05/ejercicio-5F-botonologia.html">Botonología</a> hay diez casos para practicar el veredicto.</p>
+<p class="recurso"><a href="../ejercicios/semana-05/ejercicio-5F-botonologia.html" target="_blank" rel="noopener">Botonología: los cuatro botones</a><span class="pie">La mini-clase que nadie te dio. Llevas cinco semanas presionando botones que no te explicaron.</span></p>
 <p class="nota-conductor">Proyéctala durante todo el bloque. Circula escuchando duelos: si oyes a un juez blandito ("bueno, te lo cuento como Bien"), intervén con humor: "juez comprado, tarjeta anulada".</p>
 </section>
 
@@ -581,6 +586,7 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <p class="di">Abre tu sanguijuela y edítala. Las tarjetas no son de piedra.</p>
 <p class="apoyo">Agrega al reverso una línea nueva: <code>Mnemotecnia: …</code> con la del grupo o con una propia. <strong>La propia vale doble.</strong> El lápiz de edición está abajo mientras ves la tarjeta (en la computadora, la tecla <kbd>E</kbd>).</p>
 <p class="apoyo">¿Tu sanguijuela no salió en el top 3? Fabrícale mnemotecnia propia con la misma receta —exagerar, dibujar, conectar con algo que ya amas— en el taller de <a href="../ejercicios/semana-05/ejercicio-5G-rescate-de-sanguijuelas.html">Rescate de sanguijuelas</a>.</p>
+<p class="recurso"><a href="../ejercicios/semana-05/ejercicio-5G-rescate-de-sanguijuelas.html" target="_blank" rel="noopener">Rescate de sanguijuelas</a><span class="pie">Cuando una tarjeta no entra, no siempre es culpa de tu memoria. A veces la tarjeta está mal hecha. Y las tarjetas se…</span></p>
 <p class="nota-conductor">Muestra proyectado dónde está el lápiz. Observa quién edita con soltura y quién se pierde en los menús: los perdidos necesitan 2 minutos individuales la próxima semana, no más. Usuarios de Leitner escriben la mnemotecnia a mano en su ficha, que es incluso mejor.</p>
 </section>
 
@@ -617,6 +623,7 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <p class="di">Los "?" de su árbol pasan por la fuente antes de subir al pizarrón.</p>
 <p class="apoyo">Cada equipo toma sus palabras dudosas y las verifica: en el <a href="https://dle.rae.es">DLE</a> que existan, en el <a href="http://etimologias.dechile.net">DECEL</a> que la raíz sea la que creían. Lo que se cae aquí no llega al árbol. Si quieren la captura ordenada, la plantilla está en <a href="../ejercicios/semana-05/ejercicio-5C-tribunal-del-reloj.html">El tribunal del reloj</a>: palabra, raíz propuesta, veredicto, fuente.</p>
 <p class="apoyo">Las que se caen no son fracaso: <strong>son el dato del día.</strong> Y la pregunta que gana campeonatos no es "¿esa palabra existe?", sino "¿la pieza significa eso ahí?".</p>
+<p class="recurso"><a href="../ejercicios/semana-05/ejercicio-5C-tribunal-del-reloj.html" target="_blank" rel="noopener">El tribunal del reloj</a><span class="pie">Hoy se paga una deuda de dos semanas y tus árboles enfrentan a las fuentes.</span></p>
 <p class="nota-conductor">Diez minutos duros, con reloj. Es lo que antes ocupaba la sesión del jueves; ahora entra aquí, comprimido y justo antes de que sirva. Anota cuántos "?" del grupo sobrevivieron: ese número entra al marcador del semestre y se anuncia al abrir el campeonato.</p>
 </section>
 <section class="lam">
@@ -658,6 +665,7 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <span class="senal">Actividad · individual</span>
 <p class="di">Tu pieza del Museo crece: ahora presenta también a su parentela.</p>
 <p class="apoyo"><a href="../ejercicios/semana-05/ejercicio-5D-familia-numerosa.html">La palabra de familia numerosa</a>. Una biografía de esta semana no basta con contar de dónde viene la palabra: incluye a las otras que nacieron de la misma raíz. Presenta al personaje y a su familia.</p>
+<p class="recurso"><a href="../ejercicios/semana-05/ejercicio-5D-familia-numerosa.html" target="_blank" rel="noopener">La palabra de familia numerosa</a><span class="pie">Cuarta pieza del Museo: la biografía de una palabra que no vino sola al mundo.</span></p>
 <p class="nota-conductor">Quien ya tenía su candidata del Museo desde la semana 2, la engorda hoy con la familia. Quien no, esta es su mejor oportunidad del semestre: los árboles del pizarrón están llenos de candidatas.</p>
 </section>
 <section class="lam">

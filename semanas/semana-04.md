@@ -101,6 +101,7 @@ El español está lleno de griego. No en los libros viejos: en la farmacia, en e
 <span class="senal">Actividad · en parejas</span>
 <p class="di">Palabras de farmacia y consultorio: apuesta qué significan antes de que la pantalla lo revele.</p>
 <p class="apoyo"><a href="../ejercicios/semana-04/ejercicio-4A-botiquin-griego.html">El botiquín griego</a>, con tu celular. Cada palabra trae sus piezas; tú apuestas el significado y tu nivel de seguridad. Anota las que te sorprendan: son materia prima del jueves.</p>
+<p class="recurso"><a href="../ejercicios/semana-04/ejercicio-4A-botiquin-griego.html" target="_blank" rel="noopener">El botiquín griego</a><span class="pie">Doce palabras de farmacia y consultorio. Tú apuestas qué dicen; la pantalla revela después.</span></p>
 </section>
 <section class="lam">
 <h4>El juguete lleva 2,800 años en uso</h4>
@@ -128,6 +129,7 @@ El español está lleno de griego. No en los libros viejos: en la farmacia, en e
 <span class="senal senal--casa">Para llevar a casa</span>
 <p class="di">Caza una palabra griega en tu casa y tráela mañana.</p>
 <p class="apoyo">En el botiquín, en una etiqueta, en un empaque, en la tele. Pista: si suena a consultorio o a ciencia, probablemente es griega. Al mazo entran hoy las seis piezas del día: <em>-itis</em>, <em>-algia</em>, <em>a-/an-</em>, <em>anti-</em>, <em>hiper-</em>, <em>hipo-</em>. Y de una vez el juego de la semana: escribe tu nombre con el <a href="#el-alfabeto-para-jugar">alfabeto de aquí abajo</a> o con <a href="../ejercicios/semana-04/ejercicio-4A-tu-nombre-en-griego.html">Tu nombre en griego</a>. Las letras no se memorizan ni entran al quiz: son el juguete de la semana.</p>
+<p class="recurso"><a href="../ejercicios/semana-04/ejercicio-4A-tu-nombre-en-griego.html" target="_blank" rel="noopener">Tu nombre en griego</a><span class="pie">Como lo habría escrito un ateniense. Desde hoy, así pasas lista.</span></p>
 <p class="nota-conductor">Abre tú escribiendo tu nombre en griego en el pizarrón y aclara en voz alta que es juego, no gimnasio. Fabrican tarjetas de las seis piezas antes de salir si el tiempo alcanza; si no, quedan de tarea con el estándar del curso.</p>
 </section>
 </section>
@@ -204,6 +206,7 @@ El español está lleno de griego. No en los libros viejos: en la farmacia, en e
 <p class="di">Yo digo el malestar, ustedes dicen el especialista. Solo con piezas.</p>
 <p class="apoyo">Te arde el estómago: gastroenterólogo. Ves borroso: oftalmólogo. Te duele una muela: odontólogo. El corazón te brinca: cardiólogo. Un sarpullido: dermatólogo. En parejas, con el mapa del cuerpo enfrente: veredicto por escrito, malestar por malestar, y luego la puesta en común. Esto no es cultura general: es saber pedir la cita correcta.</p>
 <p class="apoyo">Para practicarlo por tu cuenta, con el cuerpo entero y no solo con estas cinco: <a href="../ejercicios/semana-04/ejercicio-4B-el-cuerpo-en-griego.html">El cuerpo en griego</a>.</p>
+<p class="recurso"><a href="../ejercicios/semana-04/ejercicio-4B-el-cuerpo-en-griego.html" target="_blank" rel="noopener">El cuerpo en griego</a><span class="pie">Lo traes puesto desde que naciste. Hoy aprendes cómo se llama.</span></p>
 <p class="nota-conductor">Incluye dos con trampa: ¿a quién vas si te truena la rodilla? (traumatólogo u ortopedista: ninguno se decodifica fácil con lo visto, y está bien decir "esta no se deja"). El método también enseña sus límites. Cierra preguntando quién ha acompañado a alguien a un especialista: la utilidad se vuelve personal.</p>
 </section>
 <section class="lam lam--actividad">
@@ -250,6 +253,7 @@ El español está lleno de griego. No en los libros viejos: en la farmacia, en e
 <span class="senal">Actividad · individual</span>
 <p class="di">Tus dos palabras apostadas más las del banco: cada apuesta pasa por las fuentes.</p>
 <p class="apoyo"><a href="../ejercicios/semana-04/ejercicio-4C-apuesta-y-verifica.html">Apuesta y verifica</a>. Empieza por tus dos palabras de ayer y sigue con el banco: materias de escuela, términos del consultorio y una que otra sorpresa. Ninguna etimología se acepta sin fuente: ni de un compañero, ni de una IA, ni tuya. Las apuestas que las fuentes tumben no son fracaso: son el dato más valioso del día.</p>
+<p class="recurso"><a href="../ejercicios/semana-04/ejercicio-4C-apuesta-y-verifica.html" target="_blank" rel="noopener">Apuesta y verifica</a><span class="pie">El tribunal de las apuestas. Primero apuestas, después preguntas a las fuentes. Ese orden es la ley.</span></p>
 </section>
 <section class="lam">
 <h4><span class="n">5</span> El marcador <span class="reloj">8 min</span></h4>
@@ -281,6 +285,7 @@ El español está lleno de griego. No en los libros viejos: en la farmacia, en e
 <span class="senal">Por equipos · 3 rondas</span>
 <p class="di">Ronda 1, diagnóstico exprés: el equipo elige su ficha de turno, el término aparece y lo traduce solo con piezas.</p>
 <p class="apoyo">Todo el juego vive en el <a href="../ejercicios/semana-04/consultorio-griego-tablero.html">tablero del consultorio</a>: doce pacientes en la sala de espera, del calentamiento (otitis) al jefe de nueve sílabas (otorrinolaringólogo); las fichas 11 y 12 valen doble. Con el mapa del cuerpo a la mano como vitrina. Vale razonar en voz alta; no vale el celular. Punto por traducción defendible.</p>
+<p class="recurso"><a href="../ejercicios/semana-04/consultorio-griego-tablero.html" target="_blank" rel="noopener">El consultorio griego</a></p>
 <p class="nota-conductor">El marcador de equipos y el cronómetro vienen en el mismo tablero (los nombres de equipo se editan tocándolos; el marcador sobrevive si se recarga la página). Cada palabra trae sus piezas y su veredicto con botón de revelar: apuesta del equipo primero, revelación después, como toda la semana. Hipoglucemia es la ficha 12: glykys, dulce, se deduce por eliminación.</p>
 </section>
 <section class="lam lam--actividad">
@@ -288,6 +293,7 @@ El español está lleno de griego. No en los libros viejos: en la farmacia, en e
 <span class="senal">Por equipos</span>
 <p class="di">Yo digo el malestar, ustedes arman la palabra.</p>
 <p class="apoyo">Ocho recetas esperan en el recetario del <a href="../ejercicios/semana-04/consultorio-griego-tablero.html">tablero</a>: de "inflamación de la piel" (dermatitis) a "médico de la vejez" (geriatra), pasando por una joya escondida: "dolor de oído", otalgia, que existe y casi nadie conoce. Cada equipo escribe su candidata en grande en una hoja y a la cuenta de tres todos la muestran. Vale aproximar: se premia la lógica de las piezas, no la ortografía perfecta.</p>
+<p class="recurso"><a href="../ejercicios/semana-04/consultorio-griego-tablero.html" target="_blank" rel="noopener">El consultorio griego</a></p>
 <p class="nota-conductor">Aquí se ve si la semana cuajó: armar palabra es un nivel arriba de leerla. Cada receta revela la palabra con sus piezas y una nota de si existe en las fuentes. Si un equipo inventa una palabra que no venía pero está bien construida, celebra la lógica y mándala al DECEL en vivo: si existe, punto doble.</p>
 </section>
 <section class="lam lam--actividad">
@@ -295,6 +301,7 @@ El español está lleno de griego. No en los libros viejos: en la farmacia, en e
 <span class="senal">Por equipos</span>
 <p class="di">En cada expediente hay un doctor que solo trae la bata puesta: su palabra no es griega. Cácenlo.</p>
 <p class="apoyo">Cinco expedientes de personal del consultorio en el <a href="../ejercicios/semana-04/consultorio-griego-tablero.html">tablero</a>: en cada uno, tres palabras griegas certificadas y un impostor con credencial falsa (virus es latín puro; jarabe, almohada y azúcar llegaron del árabe; vitamina viene de <em>vita</em>, latín). El reflejo de la semana 3 vuelve: las letras engañan, la fuente no.</p>
+<p class="recurso"><a href="../ejercicios/semana-04/consultorio-griego-tablero.html" target="_blank" rel="noopener">El consultorio griego</a></p>
 <p class="nota-conductor">Cada equipo escribe su sospechoso y su argumento de piezas antes de revelar: punto por atinarle, doble si el argumento venía antes del veredicto. Al revelar, el impostor se delata solo con su origen verdadero. Azúcar trae regalo: viajó del sánscrito al árabe al español, y esa ruta se retoma en la unidad 2.</p>
 </section>
 <section class="lam">

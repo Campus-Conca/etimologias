@@ -86,6 +86,7 @@ nav_order: 7
 <span class="senal">Actividad · en parejas</span>
 <p class="di">Cinco palabras que nunca has visto. Una por una.</p>
 <p class="apoyo"><a href="../ejercicios/semana-06/ejercicio-6A-la-prueba-de-fuego.html">La prueba de fuego</a>. Cada palabra trae cuatro piezas en el banco y solo dos son las suyas: primero cortas, luego apuestas. Al final del ejercicio hay un banco libre para armar tu propio monstruo. Anótalo bien, porque el jueves lo llevamos a juicio.</p>
+<p class="recurso"><a href="../ejercicios/semana-06/ejercicio-6A-la-prueba-de-fuego.html" target="_blank" rel="noopener">La prueba de fuego</a><span class="pie">Cinco palabras que nunca has visto. Si las lees solo con tus piezas, el sistema funciona.</span></p>
 <p class="nota-conductor">Las cinco son reales y están documentadas: hemeralopía, nictalopía, batracofagia, heliolatría y glosolalia. Si alguien duda de que existan, perfecto: eso es el jueves.</p>
 </section>
 <section class="lam lam--actividad">
@@ -147,6 +148,7 @@ nav_order: 7
 <span class="senal">Actividad · individual</span>
 <p class="di">Las dos direcciones, en el mismo ejercicio.</p>
 <p class="apoyo"><a href="../ejercicios/semana-06/ejercicio-6B-taller-de-descifrado.html">Taller de descifrado</a>: primero descifras palabras que no conoces, después te dan el encargo y tú armas la palabra. Guarda las que inventes: mañana se van al juicio, y la sorpresa frecuente es que ya existían.</p>
+<p class="recurso"><a href="../ejercicios/semana-06/ejercicio-6B-taller-de-descifrado.html" target="_blank" rel="noopener">Taller de descifrado</a><span class="pie">Las dos operaciones en serie: descompón lo desconocido, compón lo que falta.</span></p>
 </section>
 <section class="lam">
 <h4><span class="n">5</span> Cierre <span class="reloj">6 min</span></h4>
@@ -184,6 +186,7 @@ nav_order: 7
 <span class="senal">Actividad · individual</span>
 <p class="di">Tus inventos y tus descifrados, a las fuentes.</p>
 <p class="apoyo"><a href="../ejercicios/semana-06/ejercicio-6C-existian-de-verdad.html">¿Existían de verdad?</a>. Primero las palabras del martes: ¿existían? ¿acertaste el significado? Después tus dos monstruos: búscalos en el <a href="https://dle.rae.es">DLE</a> y en el <a href="http://etimologias.dechile.net">DECEL</a>. Captura: palabra, significado que dedujiste, veredicto, fuente.</p>
+<p class="recurso"><a href="../ejercicios/semana-06/ejercicio-6C-existian-de-verdad.html" target="_blank" rel="noopener">¿Existían de verdad?</a><span class="pie">El martes descifraste a ciegas. Hoy el diccionario dicta sentencia.</span></p>
 <p class="nota-conductor">Ten a la mano el buscador con comillas: muchos monstruos "inventados" aparecen en textos médicos o en griego antiguo. Cuando le pase a alguien, proyéctalo: es el mejor momento de la semana.</p>
 </section>
 <section class="lam">

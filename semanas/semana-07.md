@@ -78,6 +78,7 @@ No hay tema nuevo. Esta semana se ve lo que ya sabes. Y pasa algo que no había 
 <span class="senal">Actividad · en equipos</span>
 <p class="di">Cada equipo escribe pistas; el equipo de junto las resuelve.</p>
 <p class="apoyo"><a href="../ejercicios/semana-07/ejercicio-7A-el-taller-de-pistas.html">El taller de pistas</a>. Escribir la pista es más difícil que resolverla: obliga a saber exactamente qué hace cada pieza. Antes de intercambiar, revisen las suyas con la lista del ejercicio.</p>
+<p class="recurso"><a href="../ejercicios/semana-07/ejercicio-7A-el-taller-de-pistas.html" target="_blank" rel="noopener">El taller de pistas</a><span class="pie">Diseñar un crucigrama exige dominar la definición mejor que resolverla.</span></p>
 <p class="nota-conductor">Los crucigramas mejores se guardan para "Lo que produjimos". Y fíjate en qué piezas eligen para las pistas: es un termómetro honesto de qué se quedó de la unidad.</p>
 </section>
 <section class="lam lam--actividad">
@@ -128,6 +129,7 @@ No hay tema nuevo. Esta semana se ve lo que ya sabes. Y pasa algo que no había 
 <span class="senal">Actividad · en parejas</span>
 <p class="di">Una pasada completa, cronometrada, con tu pareja de mañana.</p>
 <p class="apoyo"><a href="../ejercicios/semana-07/ejercicio-7B-arma-tu-defensa.html">Arma tu defensa</a>: llena la ficha de apoyo, ensaya una vez con reloj, márquense con la rúbrica y termínense con la pregunta amable. Si en el ensayo se cae la fuente, se arregla hoy: para eso es el ensayo.</p>
+<p class="recurso"><a href="../ejercicios/semana-07/ejercicio-7B-arma-tu-defensa.html" target="_blank" rel="noopener">Arma tu defensa</a><span class="pie">Peldaño 1 de la escalera: en parejas, nadie se estrena solo. 3 a 4 minutos, los dos hablan.</span></p>
 <p class="nota-conductor">Circula y escucha pedazos. Corrige una sola cosa por pareja, la más importante. Si alguien no tiene fuente anotada, esa es la única corrección que hace falta.</p>
 </section>
 <section class="lam">
@@ -152,6 +154,7 @@ No hay tema nuevo. Esta semana se ve lo que ya sabes. Y pasa algo que no había 
 <h4><span class="n">1</span> Cómo va a estar <span class="reloj">5 min</span></h4>
 <p class="di">Pasan de dos en dos. Tres a cuatro minutos. Nadie mira desde la butaca.</p>
 <p class="apoyo">Mientras una pareja defiende, el resto trabaja en lo suyo: el <a href="../ejercicios/semana-07/quiz-gimnasio-semana-07.html">quiz de gimnasio integrador</a> para calentar de cara al viernes, o el mazo en modo aleatorio. Nadie se queda viendo a nadie: eso también baja los nervios.</p>
+<p class="recurso"><a href="../ejercicios/semana-07/quiz-gimnasio-semana-07.html" target="_blank" rel="noopener">Quiz de gimnasio · Integrador</a><span class="pie">Práctica libre para el quiz integrador de la unidad. Mismos músculos, otros reactivos: aquí se entrena, no se compite.</span></p>
 <p class="nota-conductor">Ten a la mano las hojas de retroalimentación de la rúbrica. Una por estudiante, entregada en el momento: el papel en la mano vale más que el comentario al aire.</p>
 </section>
 <section class="lam lam--actividad">
@@ -217,6 +220,7 @@ No hay tema nuevo. Esta semana se ve lo que ya sabes. Y pasa algo que no había 
 <span class="senal">Actividad · individual</span>
 <p class="di">Del libro a tu Museo: una palabra que te encontraste leyendo.</p>
 <p class="apoyo"><a href="../ejercicios/semana-07/ejercicio-7D-cosecha-de-palabras.html">Cosecha de palabras</a>. Las palabras que llegan de un libro suelen ser mejores candidatas al Museo que las que llegan de una lista: traen la historia de dónde te las encontraste. En el mismo ejercicio, al final, generas tu ficha del tendedero.</p>
+<p class="recurso"><a href="../ejercicios/semana-07/ejercicio-7D-cosecha-de-palabras.html" target="_blank" rel="noopener">Cosecha de palabras</a><span class="pie">De tu libro traes una palabra: nueva, hermosa o rara. Hoy se cosechan todas.</span></p>
 </section>
 <section class="lam lam--actividad">
 <h4><span class="n">5</span> El ensayo de la conversación <span class="reloj">15 min</span></h4>

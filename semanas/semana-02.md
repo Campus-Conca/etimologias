@@ -69,6 +69,7 @@ Toda palabra se puede abrir. La IA define cualquier palabra en un segundo; lo qu
 <span class="senal">Actividad</span>
 <p class="di">No vas a abrir palabras que conoces: vas a adivinar palabras que nunca has visto.</p>
 <p class="apoyo"><a href="../ejercicios/semana-02/ejercicio-2A-primeras-disecciones.html">Primeras disecciones</a>: con las piezas que ya traes en el mazo, sin diccionario y sin teléfono. Si faltaste hoy, hazlo en casa y llega el jueves con tu hipótesis anotada.</p>
+<p class="recurso"><a href="../ejercicios/semana-02/ejercicio-2A-primeras-disecciones.html" target="_blank" rel="noopener">Primeras disecciones</a><span class="pie">Hoy no vas a memorizar palabras nuevas. Vas a adivinarlas, y vas a acertar.</span></p>
 </section>
 <section class="lam lam--actividad">
 <h4><span class="n">4</span> Tu hipótesis <span class="reloj">5 min</span></h4>
@@ -143,6 +144,7 @@ Toda palabra se puede abrir. La IA define cualquier palabra en un segundo; lo qu
 <span class="senal">Actividad</span>
 <p class="di">Ahora enciende las dos linternas tú, sobre palabras de verdad.</p>
 <p class="apoyo"><a href="../ejercicios/semana-02/ejercicio-2B-las-dos-linternas.html">El taller de las dos linternas</a>: dos palabras bajo ambas luces, diez palabras del español emparejadas con su étimo, y el descubrimiento de que el corazón y el amor están dos veces en nuestro idioma, uno por cada padre.</p>
+<p class="recurso"><a href="../ejercicios/semana-02/ejercicio-2B-las-dos-linternas.html" target="_blank" rel="noopener">El taller de las dos linternas</a><span class="pie">Dos linternas sobre la misma palabra: cómo se usa hoy y de dónde vienen sus piezas.</span></p>
 </section>
 </section>
 
@@ -183,6 +185,7 @@ Toda palabra se puede abrir. La IA define cualquier palabra en un segundo; lo qu
 <span class="senal">Actividad</span>
 <p class="di">Las diez definiciones te esperan, con tu cosecha al final.</p>
 <p class="apoyo"><a href="../ejercicios/semana-02/ejercicio-2C-con-que-linterna.html">¿Con qué linterna está escrita?</a> Retroalimentación al instante, y el remate donde volteas la herramienta: eliges una palabra de tu mazo y le escribes tú las dos definiciones, una por linterna.</p>
+<p class="recurso"><a href="../ejercicios/semana-02/ejercicio-2C-con-que-linterna.html" target="_blank" rel="noopener">¿Con qué linterna está escrita?</a><span class="pie">Diez definiciones de diccionario. Tu trabajo: decir cuál linterna las escribió.</span></p>
 </section>
 <section class="lam lam--actividad">
 <h4><span class="n">3</span> El cierre con las fuentes <span class="reloj">15 min</span></h4>
@@ -243,6 +246,7 @@ Toda palabra se puede abrir. La IA define cualquier palabra en un segundo; lo qu
 <span class="senal">Actividad</span>
 <p class="di">Redacta la biografía de tu candidata a pieza. Hoy se siembra tu Museo.</p>
 <p class="apoyo"><a href="../ejercicios/semana-02/ejercicio-2D-biografia-de-una-palabra.html">Biografía de una palabra</a>, con los cuatro apartados. La plantilla y dos biografías de muestra viven en <a href="../museo/plantilla-biografia.html">el Museo</a>.</p>
+<p class="recurso"><a href="../ejercicios/semana-02/ejercicio-2D-biografia-de-una-palabra.html" target="_blank" rel="noopener">Biografía de una palabra</a><span class="pie">La primera pieza de tu Museo. Las palabras también tienen vida: nacen, viajan, llegan a alguien. Hoy escribes la de…</span></p>
 </section>
 <section class="lam">
 <h4><span class="n">5</span> Lectura en voz alta <span class="reloj">10 min</span></h4>
