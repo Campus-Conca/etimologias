@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz integrador · Unidad 1 · Semana 7</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ciruela:#2B2440; --morado:#6B1E5A; --rosa:#C4006A; --rosa-suave:#FFD6E9; --rosa-luz:#F4A8CE;
+    --jade:#0B5F52; --jade-suave:#DFF5EE; --dorado:#B07B12; --tinta:#221A3A; --gris:#4A3F5C;
+    --borde:#E6DFF0; --fondo:#F4EFF9; --rojo:#A3312B; --rojo-suave:#FDECEC;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  html,body{height:100%}
+  body{font-family:"Inter",system-ui,sans-serif; background:var(--fondo); color:var(--tinta); overflow:hidden}
+  .disp{font-family:"Bricolage Grotesque","Inter",sans-serif; font-weight:800; letter-spacing:-.015em}
+
+  .slide{position:absolute; inset:0; display:none; flex-direction:column; justify-content:center;
+    align-items:center; text-align:center; padding:4vmin 7vmin 12vmin; gap:2.2vmin}
+  .slide.activa{display:flex}
+  .slide--oscura{background:var(--ciruela); color:#F4EFF9}
+
+  .kicker{font-size:2vmin; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--rosa)}
+  .slide--oscura .kicker{color:var(--rosa-luz)}
+  h1{font-size:7.5vmin; line-height:1.1; max-width:80vw}
+  .sub{font-size:3vmin; color:var(--gris); max-width:70vw; line-height:1.5}
+  .slide--oscura .sub{color:#D9CFE8}
+
+  .n-reactivo{font-size:9vmin; line-height:.9; color:var(--dorado)}
+  .pregunta{font-size:6.5vmin; line-height:1.25; max-width:85vw}
+  .renglon{display:inline-block; min-width:22vmin; border-bottom:.6vmin solid var(--rosa); vertical-align:baseline}
+  .pista{font-size:2.6vmin; color:var(--gris); font-style:italic}
+
+  .dis{display:flex; gap:1.2vmin; align-items:center; justify-content:center; flex-wrap:wrap; margin-top:1vmin}
+  .pz{display:inline-block; border-radius:1.2vmin; padding:1.2vmin 2vmin; font-weight:700; font-size:4vmin; line-height:1.1}
+  .pz small{display:block; font-weight:400; font-size:2vmin; opacity:.85}
+  .pz--pre{background:#FFE3F0; color:#A30058}
+  .pz--raiz{background:#2B2440; color:#FFD6E9}
+  .pz--suf{background:#DFF5EE; color:#0B5F52}
+  .eq{font-size:4.5vmin; font-weight:800; color:var(--tinta)}
+
+  .resp{font-size:6vmin; color:var(--jade)}
+  .explica{font-size:2.9vmin; color:var(--gris); max-width:72vw; line-height:1.55}
+  .slide--oscura .explica{color:#D9CFE8}
+
+  /* cronómetro */
+  #crono{position:fixed; top:2.5vmin; right:2.5vmin; z-index:10; display:flex; align-items:center; gap:1vmin;
+    background:var(--jade-suave); border:1px solid #BFE7DC; border-radius:3vmin; padding:.8vmin 1.8vmin}
+  #crono b{font-family:"Inter",sans-serif; font-variant-numeric:tabular-nums; font-size:3.2vmin; color:var(--jade)}
+  #crono button{border:none; background:none; cursor:pointer; font-size:2.6vmin; color:var(--jade)}
+  #crono.alerta{background:var(--rojo-suave); border-color:#F2C4C1}
+  #crono.alerta b, #crono.alerta button{color:var(--rojo)}
+
+  /* controles */
+  #controles{position:fixed; bottom:2.5vmin; left:0; right:0; display:flex; justify-content:center; gap:2vmin; z-index:10}
+  #controles button{font-family:inherit; font-weight:700; font-size:2.4vmin; border:none; cursor:pointer;
+    border-radius:3vmin; padding:1.2vmin 3vmin; background:var(--rosa-suave); color:var(--morado)}
+  #controles button:hover{background:#fff}
+  #cuenta{position:fixed; bottom:3vmin; right:3vmin; font-size:2vmin; color:var(--gris); z-index:10}
+  .tecla{font-size:1.9vmin; color:var(--gris); opacity:.75}
+  .slide--oscura .tecla{color:#D9CFE8}
+</style>
+</head>
+<body>
+
+<div id="crono" title="clic en ▶ para arrancar">
+  <b id="crono-num">10:00</b>
+  <button id="crono-play" type="button">▶</button>
+  <button id="crono-reset" type="button">↺</button>
+</div>
+
+<!-- 1 · Portada -->
+<section class="slide slide--oscura activa">
+  <div class="kicker">Semana 7 · Cierre de la Unidad 1</div>
+  <h1 class="disp">Quiz integrador</h1>
+  <p class="sub">Ocho reactivos con todo lo de la unidad: anatomía, cortes, griego, familias y palabras nunca vistas.</p>
+  <p class="sub"><strong>No lleva nota. Lleva algo mejor: se vuelve evidencia en tu cuadernillo.</strong></p>
+  <p class="tecla">Avanza con → o espacio · regresa con ←</p>
+</section>
+
+<!-- 2 · Cómo funciona -->
+<section class="slide">
+  <div class="kicker">Antes de empezar</div>
+  <h1 class="disp">Esto no es un examen</h1>
+  <p class="sub">Regresa revisado reactivo por reactivo, en clave <strong>bien</strong> o <strong>aún no</strong>. Lo que quede en "aún no" se reintenta, y cuenta tu versión más reciente, no el promedio.</p>
+  <p class="sub">Lo único que se te pide hoy: que esté intentado. Eso es una línea de tu suelo de unidad.</p>
+</section>
+
+<!-- 3 · La apuesta -->
+<section class="slide">
+  <div class="kicker">Tu apuesta primero</div>
+  <h1 class="disp">¿Cuántas de las 8?</h1>
+  <p class="pregunta">Escribe tu número del <strong>0 al 8</strong> antes de ver el primer reactivo.</p>
+  <p class="sub">Es la sexta vez que apuestas este semestre. En tu cuadernillo tienes las cinco anteriores: mírate la serie antes de decidir. Eso es calibración.</p>
+</section>
+
+<!-- 4 -->
+<section class="slide">
+  <div class="n-reactivo disp">1</div>
+  <div class="kicker">Anatomía · semana 2</div>
+  <p class="pregunta disp">amnesia</p>
+  <p class="pista">Sus tres piezas, cada una con su nombre (prefijo, raíz, sufijo) y su significado.</p>
+</section>
+
+<!-- 5 -->
+<section class="slide">
+  <div class="n-reactivo disp">2</div>
+  <div class="kicker">¿Corte real o espejismo? · semana 3</div>
+  <p class="pregunta disp">anti <span style="color:var(--rosa)">+</span> guo</p>
+  <p class="pista">Escribe REAL o ESPEJISMO y una frase que defienda tu veredicto.</p>
+</section>
+
+<!-- 6 -->
+<section class="slide">
+  <div class="n-reactivo disp">3</div>
+  <div class="kicker">El griego que ya hablas · semana 4</div>
+  <p class="pregunta disp">Ves borroso desde hace días.</p>
+  <p class="pista">¿A qué especialista pides cita, y qué pieza de su nombre te lo dice?</p>
+</section>
+
+<!-- 7 -->
+<section class="slide">
+  <div class="n-reactivo disp">4</div>
+  <div class="kicker">Una raíz, muchas palabras · semana 5</div>
+  <p class="pregunta disp">Tres palabras de la familia de <strong>-teca</strong></p>
+  <p class="pista">Que no sea biblioteca. Y de pilón, sin puntos: ¿qué significa la pieza?</p>
+</section>
+
+<!-- 8 -->
+<section class="slide">
+  <div class="n-reactivo disp">5</div>
+  <div class="kicker">La trampa · semana 5</div>
+  <p class="pregunta disp">hipotermia · hipódromo</p>
+  <p class="pista">¿El <em>hipo-</em> es la misma pieza en las dos? SÍ o NO, y por qué.</p>
+</section>
+
+<!-- 9 -->
+<section class="slide">
+  <div class="n-reactivo disp">6</div>
+  <div class="kicker">Descifrar a ciegas · semana 6</div>
+  <p class="pregunta disp">bibliofobia</p>
+  <p class="pista">Nunca la has visto. Sus piezas y tu apuesta de significado.</p>
+</section>
+
+<!-- 10 -->
+<section class="slide">
+  <div class="n-reactivo disp">7</div>
+  <div class="kicker">La regla de oro · toda la unidad</div>
+  <p class="pregunta disp" style="font-size:5.2vmin">"El mango que te comes viene de <em>manus</em>, mano."</p>
+  <p class="pista">Un compañero lo afirma. ¿Qué le contestas, y qué necesitas para sostener tu respuesta?</p>
+</section>
+
+<!-- 11 -->
+<section class="slide">
+  <div class="n-reactivo disp">8</div>
+  <div class="kicker">Esta es tuya y no tiene respuesta correcta</div>
+  <p class="pregunta disp">Una palabra que descifraste tú solo</p>
+  <p class="pista">Cualquiera de estas seis semanas: en la calle, en una caja de medicina, en un libro. Escríbela con sus piezas y dónde la encontraste. Va derechito a tu cuadernillo.</p>
+</section>
+
+<!-- 12 · La hoja completa -->
+<section class="slide">
+  <div class="kicker">Los ocho, a la vista · 10 minutos</div>
+  <p class="pregunta disp" style="font-size:3.4vmin">1 · amnesia: sus tres piezas &nbsp;·&nbsp; 2 · anti + guo: ¿real o espejismo?</p>
+  <p class="pregunta disp" style="font-size:3.4vmin">3 · ves borroso: ¿con quién? &nbsp;·&nbsp; 4 · tres de la familia de -teca</p>
+  <p class="pregunta disp" style="font-size:3.4vmin">5 · hipotermia / hipódromo: ¿misma pieza? &nbsp;·&nbsp; 6 · bibliofobia</p>
+  <p class="pregunta disp" style="font-size:3.4vmin">7 · el mango de manus: ¿qué contestas? &nbsp;·&nbsp; 8 · tu palabra</p>
+  <p class="pista">Arranca el cronómetro. Lápices abajo cuando llegue a cero.</p>
+</section>
+
+<!-- 13 · Frontera -->
+<section class="slide slide--oscura">
+  <h1 class="disp">Lápices abajo</h1>
+  <p class="sub">Vienen las respuestas. Márcate tú, reactivo por reactivo, en bien o aún no. Nadie te va a quitar la pluma: el registro es tuyo y lo vas a usar el fin de semana.</p>
+</section>
+
+<!-- 14 -->
+<section class="slide">
+  <div class="n-reactivo disp">1</div>
+  <div class="dis">
+    <span class="pz pz--pre">a-<small>prefijo · sin</small></span>
+    <span class="pz pz--raiz">mnem<small>raíz · memoria</small></span>
+    <span class="pz pz--suf">-ia<small>sufijo · cualidad</small></span>
+    <span class="eq">= amnesia</span>
+  </div>
+  <p class="explica">"La condición de estar sin memoria". Cuenta como bien si nombraste las tres piezas <strong>y</strong> dijiste cuál es cuál: esa distinción es la anatomía de la semana 2. Pilón: la misma <em>mnem-</em> vive en amnistía, un olvido que se firma.</p>
+</section>
+
+<!-- 15 -->
+<section class="slide">
+  <div class="n-reactivo disp">2</div>
+  <p class="pregunta disp" style="font-size:5vmin">anti + guo</p>
+  <span class="veredicto veredicto--esp">ESPEJISMO</span>
+  <p class="explica"><em>Antiguo</em> viene del latín <em>antiquus</em>, de <em>ante</em> (antes). No trae el <em>anti-</em> griego de "contra": un antiguo no está en contra de nada. El ojo vio una pieza donde no la hay, otra vez. La regla de oro lo delata: esa pieza no reaparece con ese significado en ninguna familia, y la fuente lo confirma.</p>
+</section>
+
+<!-- 16 -->
+<section class="slide">
+  <div class="n-reactivo disp">3</div>
+  <div class="dis">
+    <span class="pz pz--raiz">oftalmo<small>ojo</small></span>
+    <span class="pz pz--suf">-logo<small>especialista</small></span>
+    <span class="eq">= oftalmólogo</span>
+  </div>
+  <p class="explica">Cuenta como bien si nombraste al especialista <strong>y</strong> dijiste qué pieza te lo dijo. Saber pedir la cita correcta no es cultura general: es lo que hace la etimología cuando sirve.</p>
+</section>
+
+<!-- 17 -->
+<section class="slide">
+  <div class="n-reactivo disp">4</div>
+  <p class="resp disp">-teca = depósito, caja</p>
+  <div class="dis">
+    <span class="eq" style="font-size:3.6vmin">discoteca · hemeroteca · pinacoteca · filmoteca · videoteca · ludoteca · fototeca</span>
+  </div>
+  <p class="explica">Tres cualesquiera, bien. Y si escribiste <em>botica</em> o <em>bodega</em>, cuéntate dos: son la misma palabra griega, gastada por los siglos.</p>
+</section>
+
+<!-- 18 -->
+<section class="slide">
+  <div class="n-reactivo disp">5</div>
+  <span class="veredicto veredicto--esp">NO son la misma pieza</span>
+  <p class="explica"><em>Hipotermia</em>: de <em>hypó</em>, debajo, de menos. <em>Hipódromo</em>: de <em>híppos</em>, caballo. Idénticas a la vista, sin parentesco. Si contestaste que sí, márcate "aún no" sin culpa y anótalo: este reactivo separa a quien memorizó piezas de quien aprendió a desconfiar de ellas.</p>
+</section>
+
+<!-- 19 -->
+<section class="slide">
+  <div class="n-reactivo disp">6</div>
+  <div class="dis">
+    <span class="pz pz--raiz">biblio<small>libro</small></span>
+    <span class="pz pz--suf">-fobia<small>miedo, rechazo</small></span>
+    <span class="eq">= bibliofobia</span>
+  </div>
+  <p class="resp disp">rechazo a los libros</p>
+  <p class="explica">Existe, y es la hermana malvada de la bibliofilia. Nadie te la enseñó: la leíste con piezas que traías desde la semana 4. Esa es, en una palabra, toda la Unidad 1.</p>
+</section>
+
+<!-- 20 -->
+<section class="slide">
+  <div class="n-reactivo disp">7</div>
+  <h1 class="disp" style="font-size:5.5vmin">"Depende: hay dos mangos"</h1>
+  <p class="explica">El mango de la sartén sí viene de <em>manus</em>. El fruto llegó del tamil, por el portugués, y no tiene una gota de latín. Son dos palabras distintas disfrazadas de una. Pero el reactivo no premia el dato: premia la segunda mitad de tu respuesta. <strong>Lo que necesitas para sostenerlo es una fuente</strong> —el DECEL, el DLE—, no una corazonada y no una IA. Si dijiste eso, es bien aunque hayas fallado el dato.</p>
+</section>
+
+<!-- 21 -->
+<section class="slide">
+  <div class="n-reactivo disp">8</div>
+  <h1 class="disp">Esta no la califico yo</h1>
+  <p class="sub">Tu palabra es tuya. Guárdala completa —palabra, piezas, dónde la encontraste—, porque el fin de semana la vas a necesitar: es una de las evidencias con las que vas a defender tu calificación.</p>
+</section>
+
+<!-- 22 · Calibración y puente -->
+<section class="slide slide--oscura">
+  <div class="kicker">El número que importa</div>
+  <h1 class="disp">Apuesta contra resultado</h1>
+  <p class="sub">Los dos números al cuadernillo, en el renglón del integrador. Y luego mira tu tabla completa: seis renglones desde agosto. ¿Se fueron acercando las dos columnas?</p>
+  <p class="sub" style="color:var(--rosa-luz)">Eso que ves ahí es lo primero que vas a poder decir el fin de semana, cuando escribas por qué mereces la calificación que vas a proponer.</p>
+</section>
+
+<div id="controles">
+  <button type="button" id="atras">← Atrás</button>
+  <button type="button" id="sigue">Siguiente →</button>
+</div>
+<div id="cuenta">1 / 1</div>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var i = 0, cuenta = document.getElementById('cuenta');
+  function muestra(n){
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach(function(s, k){ s.classList.toggle('activa', k === i); });
+    cuenta.textContent = (i + 1) + ' / ' + slides.length;
+  }
+  muestra(0);
+  document.getElementById('sigue').addEventListener('click', function(){ muestra(i + 1); });
+  document.getElementById('atras').addEventListener('click', function(){ muestra(i - 1); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown'){ e.preventDefault(); muestra(i + 1); }
+    if(e.key === 'ArrowLeft' || e.key === 'PageUp'){ e.preventDefault(); muestra(i - 1); }
+  });
+
+  /* cronometro */
+  var TOTAL = 600, resta = TOTAL, timer = null;
+  var num = document.getElementById('crono-num'),
+      play = document.getElementById('crono-play'),
+      caja = document.getElementById('crono');
+  function pinta(){
+    var m = Math.floor(resta / 60), s = resta % 60;
+    num.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+    caja.classList.toggle('alerta', resta <= 30);
+  }
+  function tic(){
+    resta--;
+    if(resta <= 0){ resta = 0; clearInterval(timer); timer = null; play.textContent = '▶'; }
+    pinta();
+  }
+  play.addEventListener('click', function(){
+    if(timer){ clearInterval(timer); timer = null; play.textContent = '▶'; }
+    else if(resta > 0){ timer = setInterval(tic, 1000); play.textContent = '⏸'; }
+  });
+  document.getElementById('crono-reset').addEventListener('click', function(){
+    clearInterval(timer); timer = null; resta = TOTAL; play.textContent = '▶'; pinta();
+  });
+  pinta();
+})();
+</script>
+</body>
+</html>

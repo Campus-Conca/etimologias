@@ -51,7 +51,7 @@ El español está lleno de griego. No en los libros viejos: en la farmacia, en e
 <h4><span class="n">2</span> Ritual: quiz relámpago <span class="reloj">7 min</span></h4>
 <p class="di">Tres reactivos de las semanas 2 y 3. Primero tu apuesta, luego la hoja.</p>
 <p class="apoyo">Como siempre: antes de voltear la hoja, predice cuántas tendrás bien. Las piezas griegas de esta semana entran al quiz el viernes.</p>
-<p class="nota-conductor">Reactivos sugeridos: una suma directa, un corte real o espejismo, una pieza de la semana 2. Rápido: la sesión trae gancho fuerte y no hay que gastarlo.</p>
+<p class="nota-conductor">Los tres reactivos ya vienen listos y proyectables: <a href="../ejercicios/semana-04/quiz-relampago-semana-04-martes.html">quiz relámpago del martes</a> —una suma directa, un corte real o espejismo, una pieza de la semana 2—. Rápido: la sesión trae gancho fuerte y no hay que gastarlo.</p>
 </section>
 <section class="lam">
 <h4><span class="n">3</span> La caja de medicina <span class="reloj">18 min</span></h4>
@@ -272,7 +272,7 @@ El español está lleno de griego. No en los libros viejos: en la farmacia, en e
 <h4><span class="n">1</span> Ritual: quiz relámpago <span class="reloj">10 min</span></h4>
 <p class="di">Tres reactivos con las piezas de la semana. Tu apuesta primero, como siempre.</p>
 <p class="apoyo">El griego ya compite: una pieza al significado, un significado a la pieza, una palabra a decodificar. Es el termómetro real de la semana.</p>
-<p class="nota-conductor">Los tres reactivos ya vienen listos en la pestaña <em>Triage</em> del <a href="../ejercicios/semana-04/consultorio-griego-tablero.html">tablero del consultorio</a>: -algia, hipo- y cardiopatía (pieza vieja + pieza nueva). Abre el tablero desde aquí y ya no lo cierres: toda la sesión corre en esa pantalla.</p>
+<p class="nota-conductor">Los tres reactivos ya vienen listos en la pestaña <em>Triage</em> del <a href="../ejercicios/semana-04/consultorio-griego-tablero.html">tablero del consultorio</a>: -algia, hipo- y cardiopatía (pieza vieja + pieza nueva). Abre el tablero desde aquí y ya no lo cierres: toda la sesión corre en esa pantalla. Si prefieres proyectar el quiz a pantalla completa, con cronómetro y una lámina por reactivo, está aparte: <a href="../ejercicios/semana-04/quiz-relampago-semana-04-viernes.html">quiz relámpago del viernes</a>.</p>
 </section>
 <section class="lam lam--actividad">
 <h4><span class="n">2</span> El consultorio griego <span class="reloj">50 min</span></h4>

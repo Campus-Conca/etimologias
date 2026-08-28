@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz relámpago · Semana 5 · Viernes · diez reactivos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ciruela:#2B2440; --morado:#6B1E5A; --rosa:#C4006A; --rosa-suave:#FFD6E9; --rosa-luz:#F4A8CE;
+    --jade:#0B5F52; --jade-suave:#DFF5EE; --dorado:#B07B12; --tinta:#221A3A; --gris:#4A3F5C;
+    --borde:#E6DFF0; --fondo:#F4EFF9; --rojo:#A3312B; --rojo-suave:#FDECEC;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  html,body{height:100%}
+  body{font-family:"Inter",system-ui,sans-serif; background:var(--fondo); color:var(--tinta); overflow:hidden}
+  .disp{font-family:"Bricolage Grotesque","Inter",sans-serif; font-weight:800; letter-spacing:-.015em}
+
+  .slide{position:absolute; inset:0; display:none; flex-direction:column; justify-content:center;
+    align-items:center; text-align:center; padding:4vmin 7vmin 12vmin; gap:2.2vmin}
+  .slide.activa{display:flex}
+  .slide--oscura{background:var(--ciruela); color:#F4EFF9}
+
+  .kicker{font-size:2vmin; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--rosa)}
+  .slide--oscura .kicker{color:var(--rosa-luz)}
+  h1{font-size:7.5vmin; line-height:1.1; max-width:80vw}
+  .sub{font-size:3vmin; color:var(--gris); max-width:70vw; line-height:1.5}
+  .slide--oscura .sub{color:#D9CFE8}
+
+  .n-reactivo{font-size:9vmin; line-height:.9; color:var(--dorado)}
+  .pregunta{font-size:6.5vmin; line-height:1.25; max-width:85vw}
+  .renglon{display:inline-block; min-width:22vmin; border-bottom:.6vmin solid var(--rosa); vertical-align:baseline}
+  .pista{font-size:2.6vmin; color:var(--gris); font-style:italic}
+
+  .dis{display:flex; gap:1.2vmin; align-items:center; justify-content:center; flex-wrap:wrap; margin-top:1vmin}
+  .pz{display:inline-block; border-radius:1.2vmin; padding:1.2vmin 2vmin; font-weight:700; font-size:4vmin; line-height:1.1}
+  .pz small{display:block; font-weight:400; font-size:2vmin; opacity:.85}
+  .pz--pre{background:#FFE3F0; color:#A30058}
+  .pz--raiz{background:#2B2440; color:#FFD6E9}
+  .pz--suf{background:#DFF5EE; color:#0B5F52}
+  .eq{font-size:4.5vmin; font-weight:800; color:var(--tinta)}
+
+  .resp{font-size:6vmin; color:var(--jade)}
+  .explica{font-size:2.9vmin; color:var(--gris); max-width:72vw; line-height:1.55}
+  .slide--oscura .explica{color:#D9CFE8}
+
+  /* cronómetro */
+  #crono{position:fixed; top:2.5vmin; right:2.5vmin; z-index:10; display:flex; align-items:center; gap:1vmin;
+    background:var(--jade-suave); border:1px solid #BFE7DC; border-radius:3vmin; padding:.8vmin 1.8vmin}
+  #crono b{font-family:"Inter",sans-serif; font-variant-numeric:tabular-nums; font-size:3.2vmin; color:var(--jade)}
+  #crono button{border:none; background:none; cursor:pointer; font-size:2.6vmin; color:var(--jade)}
+  #crono.alerta{background:var(--rojo-suave); border-color:#F2C4C1}
+  #crono.alerta b, #crono.alerta button{color:var(--rojo)}
+
+  /* controles */
+  #controles{position:fixed; bottom:2.5vmin; left:0; right:0; display:flex; justify-content:center; gap:2vmin; z-index:10}
+  #controles button{font-family:inherit; font-weight:700; font-size:2.4vmin; border:none; cursor:pointer;
+    border-radius:3vmin; padding:1.2vmin 3vmin; background:var(--rosa-suave); color:var(--morado)}
+  #controles button:hover{background:#fff}
+  #cuenta{position:fixed; bottom:3vmin; right:3vmin; font-size:2vmin; color:var(--gris); z-index:10}
+  .tecla{font-size:1.9vmin; color:var(--gris); opacity:.75}
+  .slide--oscura .tecla{color:#D9CFE8}
+
+  /* respuesta oculta: se revela con la tecla R */
+  .resp-oculta{display:none; flex-direction:column; align-items:center; gap:1.6vmin}
+  .slide.revelada .resp-oculta{display:flex; animation:sube .25s ease}
+  .slide.revelada .pista-r{visibility:hidden}
+  @keyframes sube{from{opacity:0; transform:translateY(1.5vmin)}to{opacity:1; transform:none}}
+  .pista-r{font-size:1.9vmin; color:var(--gris); opacity:.7; letter-spacing:.06em; text-transform:uppercase}
+  .veredicto{display:inline-block; font-family:"Bricolage Grotesque","Inter",sans-serif; font-weight:800;
+    font-size:5vmin; border-radius:2vmin; padding:1vmin 3vmin; background:var(--jade-suave); color:var(--jade)}
+  .veredicto--no{background:var(--rojo-suave); color:var(--rojo)}
+  .lista-diez{display:grid; grid-template-columns:1fr 1fr; gap:.9vmin 3vmin; max-width:88vw; text-align:left}
+  .lista-diez div{font-size:2.5vmin; line-height:1.35}
+  .lista-diez b{color:var(--rosa)}
+  .caro{position:absolute; top:3vmin; left:3vmin; font-size:1.9vmin; font-weight:700; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--dorado)}
+</style>
+</head>
+<body>
+
+<div id="crono" title="clic en ▶ para arrancar">
+  <b id="crono-num">5:00</b>
+  <button id="crono-play" type="button">▶</button>
+  <button id="crono-reset" type="button">↺</button>
+</div>
+
+<!-- 1 · Portada -->
+<section class="slide slide--oscura activa">
+  <div class="kicker">Semana 5 · Viernes · Ritual de apertura</div>
+  <h1 class="disp">Diez reactivos</h1>
+  <p class="sub">Hoy es largo a propósito: le toca cubrir la semana entera. Las diez raíces nuevas, la trampa de los dos <em>hipo-</em> y una pieza griega de la semana pasada. Es el <strong>quiz #4</strong> de tu registro.</p>
+  <p class="sub"><strong>Se responde en el cuadernillo, a solas, sin mazo y sin celular.</strong></p>
+  <p class="tecla">Avanza con → o espacio · regresa con ← · revela la respuesta con R</p>
+</section>
+
+<!-- 2 · La apuesta -->
+<section class="slide">
+  <div class="kicker">Antes de ver nada</div>
+  <h1 class="disp">Tu apuesta primero</h1>
+  <p class="pregunta">¿Cuántas vas a tener bien, del <strong>0 al 10</strong>?</p>
+  <p class="sub">Escríbelo en tu cuadernillo antes de que aparezca el primer reactivo. La apuesta no se cambia después: de eso se trata. Ayer le presionaste botones a tus tarjetas; hoy no hay botones, y aquí es donde llega la factura.</p>
+</section>
+
+<!-- 3 · Reactivo 1 -->
+<section class="slide">
+  <div class="n-reactivo disp">1</div>
+  <div class="kicker">La pieza y su familia</div>
+  <p class="pregunta disp">-teca significa <span class="renglon"></span></p>
+  <p class="pista">Y dos palabras de su familia que <strong>no</strong> sean biblioteca.</p>
+  <p class="pista-r">R para la respuesta</p>
+  <div class="resp-oculta">
+    <p class="resp disp">depósito, caja</p>
+    <p class="explica">Cuidado con la trampa fácil: <em>-teca</em> no significa "libro" (esa pieza es <em>biblio-</em>). Discoteca, hemeroteca, pinacoteca, filmoteca, videoteca, ludoteca. Y una que casi nadie ve: <em>botica</em>, la caja de los remedios.</p>
+  </div>
+</section>
+
+<!-- 4 · Reactivo 2 -->
+<section class="slide">
+  <div class="n-reactivo disp">2</div>
+  <div class="kicker">La pieza y su ancla</div>
+  <p class="pregunta disp">hemo-, hemato- significa <span class="renglon"></span></p>
+  <p class="pista">Y una palabra que la traiga adentro.</p>
+  <p class="pista-r">R para la respuesta</p>
+  <div class="resp-oculta">
+    <p class="resp disp">sangre</p>
+    <p class="explica">Hemorragia es la sangre que se rompe hacia afuera; hematoma, hemoglobina, hemofilia, hemodiálisis. Y una de regalo: <em>anemia</em> es <em>a-</em> (sin) + <em>hemo</em> (sangre), una pieza de la semana 2 pegada a una de esta semana.</p>
+  </div>
+</section>
+
+<!-- 5 · Reactivo 3 -->
+<section class="slide">
+  <div class="n-reactivo disp">3</div>
+  <div class="kicker">La pieza escondida</div>
+  <p class="pregunta disp">-nauta significa <span class="renglon"></span></p>
+  <p class="pista">Pilón: ¿qué anda haciendo la <em>náusea</em> en esta familia?</p>
+  <p class="pista-r">R para la respuesta</p>
+  <div class="resp-oculta">
+    <p class="resp disp">navegante</p>
+    <p class="explica">Astronauta es el navegante de los astros; también cosmonauta, argonauta, internauta. Y la <em>náusea</em> viene de <em>naus</em>, la nave: es, literal, el mareo del que va embarcado. Te mareas en el camión con una palabra de marinero.</p>
+  </div>
+</section>
+
+<!-- 6 · Reactivo 4 -->
+<section class="slide">
+  <div class="n-reactivo disp">4</div>
+  <div class="kicker">La familia numerosa</div>
+  <p class="pregunta disp">Tres palabras de la familia de <strong>-polis</strong></p>
+  <p class="pista">Y qué significa la pieza.</p>
+  <p class="pista-r">R para la respuesta</p>
+  <div class="resp-oculta">
+    <p class="resp disp">ciudad</p>
+    <p class="explica">Metrópoli (la ciudad madre), acrópolis (la ciudad alta), necrópolis (la ciudad de los muertos), megalópolis. Y las dos que nadie ve: <em>política</em>, los asuntos de la ciudad, y <em>policía</em>, el orden de la ciudad. Si escribiste alguna de esas dos, vale doble en tu conciencia.</p>
+  </div>
+</section>
+
+<!-- 7 · Reactivo 5 -->
+<section class="slide">
+  <div class="n-reactivo disp">5</div>
+  <div class="kicker">La pieza y su sorpresa</div>
+  <p class="pregunta disp">zoo- significa <span class="renglon"></span></p>
+  <p class="pista">¿Y por qué el <em>zodiaco</em> es de esta familia?</p>
+  <p class="pista-r">R para la respuesta</p>
+  <div class="resp-oculta">
+    <p class="resp disp">animal</p>
+    <p class="explica">El <em>zodiaco</em> es el círculo de los animalitos: casi todos los signos son bichos —toro, cangrejo, león, escorpión, pez—. Miras el horóscopo y estás leyendo un zoológico en el cielo. También zoología, protozoo, espermatozoide.</p>
+  </div>
+</section>
+
+<!-- 8 · Reactivo 6 -->
+<section class="slide">
+  <div class="n-reactivo disp">6</div>
+  <div class="kicker">Del significado a la pieza</div>
+  <p class="pregunta disp">"Pie" se dice <span class="renglon"></span></p>
+  <p class="pista">Y explica qué esconde el <em>pulpo</em>.</p>
+  <p class="pista-r">R para la respuesta</p>
+  <div class="resp-oculta">
+    <p class="resp disp">-podo, pod-</p>
+    <p class="explica">Trípode (tres pies), podólogo, artrópodo, antípoda (el que tiene los pies del otro lado del mundo). Y el <em>pulpo</em>: de <em>polýpous</em>, el de muchos pies. La palabra se gastó en la boca hasta quedar en pulpo, pero los ocho pies siguen ahí.</p>
+  </div>
+</section>
+
+<!-- 9 · Reactivo 7 -->
+<section class="slide">
+  <div class="n-reactivo disp">7</div>
+  <div class="kicker">Dos piezas parecidas</div>
+  <p class="pregunta disp">astronomía · astrología</p>
+  <p class="pista">Las dos traen <em>astro</em>. ¿Qué hace distinta a cada una?</p>
+  <p class="pista-r">R para la respuesta</p>
+  <div class="resp-oculta">
+    <div class="dis">
+      <span class="pz pz--suf">-nomía<small>ley, regla</small></span>
+      <span class="pz pz--suf">-logía<small>estudio, discurso</small></span>
+    </div>
+    <p class="explica">Astronomía: las leyes de los astros. Astrología: el discurso sobre los astros. Y <em>economía</em> es la ley de la casa (<em>oikos</em>): quien administra su casa hace economía sin saber griego. También gastronomía y agronomía.</p>
+  </div>
+</section>
+
+<!-- 10 · Reactivo 8 · caro -->
+<section class="slide">
+  <div class="caro">Reactivo caro</div>
+  <div class="n-reactivo disp">8</div>
+  <div class="kicker">La trampa de la semana</div>
+  <p class="pregunta disp">hipotermia · hipódromo</p>
+  <p class="pista">¿El <em>hipo-</em> de las dos es la misma pieza? Escribe SÍ o NO, y una frase que lo defienda.</p>
+  <p class="pista-r">R para la respuesta</p>
+  <div class="resp-oculta">
+    <span class="veredicto veredicto--no">NO son la misma pieza</span>
+    <p class="explica">El de <em>hipotermia</em> viene de <em>hypó</em> (debajo, de menos), la pieza de la semana pasada: calor de menos. El de <em>hipódromo</em> viene de <em>híppos</em> (caballo): la pista de los caballos. Se escriben igual en español y no son parientes. Es la misma trampa que <em>mango</em> en la semana 3: dos piezas idénticas a la vista, con padres distintos. Solo la fuente distingue. Por eso van dos tarjetas separadas al mazo.</p>
+  </div>
+</section>
+
+<!-- 11 · Reactivo 9 · caro -->
+<section class="slide">
+  <div class="caro">Reactivo caro</div>
+  <div class="n-reactivo disp">9</div>
+  <div class="kicker">La sorpresa</div>
+  <p class="pregunta disp">cosmos · cosmético</p>
+  <p class="pista">¿Qué tienen en común? Una frase basta.</p>
+  <p class="pista-r">R para la respuesta</p>
+  <div class="resp-oculta">
+    <div class="dis">
+      <span class="pz pz--raiz">cosmo<small>orden</small></span>
+      <span class="eq">→ el universo ordenado · poner la cara en orden</span>
+    </div>
+    <p class="explica">Para los griegos, <em>kósmos</em> era el orden; lo contrario era el <em>caos</em>. El universo se llama cosmos porque está ordenado, y maquillarse es <em>cosmética</em> porque es poner en orden. La misma pieza en la NASA y en la farmacia. Y con <em>-polis</em> hace <em>cosmopolita</em>: el que tiene por ciudad al mundo entero.</p>
+  </div>
+</section>
+
+<!-- 12 · Reactivo 10 -->
+<section class="slide">
+  <div class="n-reactivo disp">10</div>
+  <div class="kicker">Descompón · pieza vieja + pieza nueva</div>
+  <p class="pregunta disp">cardiopatía = <span class="renglon"></span> + <span class="renglon"></span></p>
+  <p class="pista">Las dos piezas con su significado, y qué dice la palabra al pie de la letra.</p>
+  <p class="pista-r">R para la respuesta</p>
+  <div class="resp-oculta">
+    <div class="dis">
+      <span class="pz pz--raiz">cardio<small>corazón</small></span>
+      <span class="pz pz--suf">-patía<small>padecimiento, lo que se siente</small></span>
+    </div>
+    <p class="explica">Una enfermedad del corazón. <em>Cardio</em> es de la semana pasada; <em>pat-</em> es de esta. Y es la misma pieza de <em>simpatía</em> y <em>apatía</em>: primero fue el sentimiento, después la pasión, y al final la enfermedad. Nadie te enseñó esta palabra: la cortaste tú.</p>
+  </div>
+</section>
+
+<!-- 13 · Los diez a la vista -->
+<section class="slide">
+  <div class="kicker">Los diez, a la vista · 5 minutos</div>
+  <div class="lista-diez">
+    <div><b>1</b> · -teca significa ______ (y dos de su familia)</div>
+    <div><b>6</b> · "pie" se dice ______ (y el pulpo)</div>
+    <div><b>2</b> · hemo-, hemato- significa ______</div>
+    <div><b>7</b> · astronomía / astrología: ¿qué las distingue?</div>
+    <div><b>3</b> · -nauta significa ______ (y la náusea)</div>
+    <div><b>8</b> · hipotermia / hipódromo: ¿la misma pieza?</div>
+    <div><b>4</b> · tres palabras de -polis (y qué significa)</div>
+    <div><b>9</b> · cosmos / cosmético: ¿qué tienen en común?</div>
+    <div><b>5</b> · zoo- significa ______ (y el zodiaco)</div>
+    <div><b>10</b> · cardiopatía = ______ + ______</div>
+  </div>
+  <p class="pista">Arranca el cronómetro de arriba. Lápices abajo cuando llegue a cero.</p>
+</section>
+
+<!-- 14 · Frontera -->
+<section class="slide slide--oscura">
+  <h1 class="disp">Lápices abajo</h1>
+  <p class="sub">Ahora regresamos al reactivo 1 y vamos revelando cada respuesta. Cada quien califica lo suyo: aquí nadie persigue puntos, se persigue la brecha.</p>
+  <p class="tecla">Conductor: tecla <strong>I</strong> para saltar al reactivo 1 · <strong>R</strong> revela la respuesta de cada lámina</p>
+</section>
+
+<!-- 15 · Calibración -->
+<section class="slide slide--oscura">
+  <div class="kicker">El número que importa</div>
+  <h1 class="disp">¿Tu apuesta le atinó a tu resultado?</h1>
+  <p class="sub">Los dos números al cuadernillo: lo que apostaste y lo que sacaste. Van al renglón del <strong>quiz #4</strong> de tu expediente.</p>
+  <p class="sub" style="color:var(--rosa-luz)">Quien apostó bajo por miedo y salió bien tiene el medidor descalibrado hacia abajo. Eso también es un dato, y se dice en voz alta.</p>
+</section>
+
+<div id="controles">
+  <button type="button" id="atras">← Atrás</button>
+  <button type="button" id="revela">Revelar (R)</button>
+  <button type="button" id="sigue">Siguiente →</button>
+</div>
+<div id="cuenta">1 / 1</div>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var PRIMER_REACTIVO = 2;   /* índice de la lámina del reactivo 1 */
+  var i = 0, cuenta = document.getElementById('cuenta');
+  function muestra(n){
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach(function(s, k){ s.classList.toggle('activa', k === i); });
+    cuenta.textContent = (i + 1) + ' / ' + slides.length;
+  }
+  function revela(){
+    if(slides[i].querySelector('.resp-oculta')){ slides[i].classList.add('revelada'); }
+  }
+  muestra(0);
+  document.getElementById('sigue').addEventListener('click', function(){ muestra(i + 1); });
+  document.getElementById('atras').addEventListener('click', function(){ muestra(i - 1); });
+  document.getElementById('revela').addEventListener('click', revela);
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown'){ e.preventDefault(); muestra(i + 1); }
+    if(e.key === 'ArrowLeft' || e.key === 'PageUp'){ e.preventDefault(); muestra(i - 1); }
+    if(e.key === 'r' || e.key === 'R'){ e.preventDefault(); revela(); }
+    if(e.key === 'i' || e.key === 'I'){ e.preventDefault(); muestra(PRIMER_REACTIVO); }
+  });
+
+  /* cronometro: cinco minutos */
+  var TOTAL = 300, resta = TOTAL, timer = null;
+  var num = document.getElementById('crono-num'),
+      play = document.getElementById('crono-play'),
+      caja = document.getElementById('crono');
+  function pinta(){
+    var m = Math.floor(resta / 60), s = resta % 60;
+    num.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+    caja.classList.toggle('alerta', resta <= 30);
+  }
+  function tic(){
+    resta--;
+    if(resta <= 0){ resta = 0; clearInterval(timer); timer = null; play.textContent = '▶'; }
+    pinta();
+  }
+  play.addEventListener('click', function(){
+    if(timer){ clearInterval(timer); timer = null; play.textContent = '▶'; }
+    else if(resta > 0){ timer = setInterval(tic, 1000); play.textContent = '⏸'; }
+  });
+  document.getElementById('crono-reset').addEventListener('click', function(){
+    clearInterval(timer); timer = null; resta = TOTAL; play.textContent = '▶'; pinta();
+  });
+  pinta();
+})();
+</script>
+</body>
+</html>

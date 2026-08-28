@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz relámpago · Semana 3 · para proyectar</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,sans-serif;background:#2B2440;color:#F4EFF9;overflow:hidden}
+  .lamina{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:4vh 6vw;gap:2vh}
+  .lamina.activa{display:flex}
+  .rotulo{font-size:2.2vh;letter-spacing:.14em;text-transform:uppercase;color:#F4A8CE;font-weight:700}
+  h1{font-size:7vh;margin:0;line-height:1.15;letter-spacing:-.01em}
+  h2{font-size:5.5vh;margin:0;color:#fff}
+  p{font-size:3.2vh;margin:0;line-height:1.5;color:#D9CFE8;max-width:36ch}
+  .palabras{display:flex;flex-direction:column;gap:2.5vh;margin:2vh 0}
+  .palabra{font-size:5.5vh;font-weight:800;color:#fff;letter-spacing:-.01em}
+  .palabra small{display:block;font-size:2.3vh;font-weight:400;color:#D9CFE8}
+  .resp{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:1.2vh;padding:2.5vh 3vw;max-width:85vw}
+  .resp h3{margin:0 0 .5vh;font-size:4.5vh;color:#FFD6E9}
+  .suma{display:flex;flex-wrap:wrap;gap:1vh;justify-content:center;align-items:center;margin:1vh 0}
+  .pz{padding:.8vh 1.6vh;border-radius:1vh;font-size:3.6vh;font-weight:800}
+  .pz small{display:block;font-size:1.7vh;font-weight:400;opacity:.85}
+  .pz.a{background:#F4A8CE;color:#4A1540}
+  .pz.b{background:#DFF5EE;color:#0B5F52}
+  .pz.c{background:#FBF0D9;color:#7A5A0B}
+  .eq{font-size:3.2vh;color:#F4EFF9;font-style:italic}
+  .crit{font-size:2.4vh;color:#D9CFE8;max-width:60ch}
+  #reloj{font-size:12vh;font-weight:800;color:#FFD6E9;font-variant-numeric:tabular-nums}
+  #reloj.rojo{color:#FF8FA3}
+  button{background:#C4006A;color:#fff;border:none;border-radius:99px;padding:1.4vh 3.5vh;font:inherit;font-size:2.6vh;font-weight:700;cursor:pointer}
+  .pie{position:fixed;bottom:1.5vh;left:0;right:0;display:flex;justify-content:center;gap:2vw;font-size:1.9vh;color:#8A7F93}
+  .apuesta{background:rgba(255,255,255,.08);border-radius:1.2vh;padding:2vh 3vw;font-size:3vh;color:#FFD6E9}
+  .veredicto{font-size:5vh;font-weight:800;color:#DFF5EE}
+</style>
+</head>
+<body>
+
+<section class="lamina activa">
+  <div class="rotulo">Etimologías · Semana 3 · Jueves · Quiz relámpago 2</div>
+  <h1>Papel y pluma.<br>Tres reactivos, tres minutos.</h1>
+  <p>Una suma directa, una suma inversa y un corte a juicio.</p>
+  <div class="apuesta">Antes de empezar, tu apuesta en la esquina de la hoja:<br><strong>¿cuántos de los 3 vas a tener bien?</strong></div>
+</section>
+
+<section class="lamina">
+  <div class="rotulo">Los tres reactivos · sin mazo y sin teléfono</div>
+  <div class="palabras">
+    <div class="palabra">1 · Escribe la palabra: des + arma + r<small>suma directa: la suma te da la palabra</small></div>
+    <div class="palabra">2 · Escribe la suma: portátil<small>suma inversa: la palabra te da la suma, con el significado de cada pieza</small></div>
+    <div class="palabra">3 · in + útil: ¿corte real o espejismo?<small>defiende tu veredicto con una línea</small></div>
+  </div>
+  <div id="reloj">3:00</div>
+  <button id="btnReloj">Arrancar los 3 minutos</button>
+</section>
+
+<section class="lamina">
+  <div class="rotulo">Plumas abajo · se califica en vivo</div>
+  <h2>Respuesta 1 · des + arma + r</h2>
+  <div class="resp">
+    <div class="suma">
+      <span class="pz a">des<small>deshacer, quitar</small></span><span>+</span>
+      <span class="pz b">arma</span><span>+</span>
+      <span class="pz c">r</span>
+      <span class="eq">= desarmar</span>
+    </div>
+    <p class="crit">Es la tarjeta de tu mazo de esta semana, tal cual. Bien si la palabra está completa y bien escrita.</p>
+  </div>
+</section>
+
+<section class="lamina">
+  <div class="rotulo">Plumas abajo · se califica en vivo</div>
+  <h2>Respuesta 2 · portátil</h2>
+  <div class="resp">
+    <div class="suma">
+      <span class="pz a">port<small>llevar</small></span><span>+</span>
+      <span class="pz c">átil<small>que puede</small></span>
+      <span class="eq">= que se puede llevar</span>
+    </div>
+    <p class="crit">Bien si el corte separa <strong>port-</strong> y dice que significa <strong>llevar</strong>. La fábrica port- de esta semana: transporte, exportar, reportero, portátil.</p>
+  </div>
+</section>
+
+<section class="lamina">
+  <div class="rotulo">Plumas abajo · se califica en vivo</div>
+  <h2>Respuesta 3 · in + útil</h2>
+  <div class="veredicto">Corte REAL</div>
+  <div class="resp">
+    <div class="suma">
+      <span class="pz a">in<small>negación</small></span><span>+</span>
+      <span class="pz b">útil</span>
+      <span class="eq">= que no sirve</span>
+    </div>
+    <p class="crit">La regla de oro lo confirma: la pieza <strong>in-</strong> reaparece con el mismo significado en <em>invisible</em>, <em>incapaz</em>, <em>incompleto</em>, y la fuente lo respalda. Guarden esta: dentro de un rato van a conocer un "in" que sí es fantasma, y la diferencia entre los dos es todo el chiste.</p>
+  </div>
+</section>
+
+<section class="lamina">
+  <div class="rotulo">El paso que importa</div>
+  <h2>Compara tu apuesta con tu resultado</h2>
+  <p>Anota los dos números en tu expediente: <strong>aposté ___ · tuve ___</strong>.</p>
+  <p><strong>La brecha es información, no culpa.</strong> Segunda medición del semestre: ¿se movió respecto a la semana pasada?</p>
+</section>
+
+<div class="pie"><span>flechas o clic para avanzar</span><span>F11 pantalla completa</span></div>
+
+<script>
+(function(){
+  var lams=document.querySelectorAll('.lamina'),i=0;
+  function pinta(n){lams[i].classList.remove('activa');i=Math.max(0,Math.min(lams.length-1,n));lams[i].classList.add('activa');}
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();pinta(i+1);}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();pinta(i-1);}
+  });
+  document.addEventListener('click',function(e){if(e.target.tagName!=='BUTTON')pinta(i+1);});
+  var t=180,corriendo=false,reloj=document.getElementById('reloj');
+  document.getElementById('btnReloj').addEventListener('click',function(){
+    if(corriendo)return;corriendo=true;this.style.display='none';
+    var iv=setInterval(function(){
+      t--;var m=Math.floor(t/60),s=t%60;
+      reloj.textContent=m+':'+(s<10?'0':'')+s;
+      if(t<=30)reloj.classList.add('rojo');
+      if(t<=0){clearInterval(iv);reloj.textContent='¡Plumas abajo!';}
+    },1000);
+  });
+})();
+</script>
+</body>
+</html>

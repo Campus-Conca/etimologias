@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz relámpago · Semana 6 · Jueves</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ciruela:#2B2440; --morado:#6B1E5A; --rosa:#C4006A; --rosa-suave:#FFD6E9; --rosa-luz:#F4A8CE;
+    --jade:#0B5F52; --jade-suave:#DFF5EE; --dorado:#B07B12; --tinta:#221A3A; --gris:#4A3F5C;
+    --borde:#E6DFF0; --fondo:#F4EFF9; --rojo:#A3312B; --rojo-suave:#FDECEC;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  html,body{height:100%}
+  body{font-family:"Inter",system-ui,sans-serif; background:var(--fondo); color:var(--tinta); overflow:hidden}
+  .disp{font-family:"Bricolage Grotesque","Inter",sans-serif; font-weight:800; letter-spacing:-.015em}
+
+  .slide{position:absolute; inset:0; display:none; flex-direction:column; justify-content:center;
+    align-items:center; text-align:center; padding:4vmin 7vmin 12vmin; gap:2.2vmin}
+  .slide.activa{display:flex}
+  .slide--oscura{background:var(--ciruela); color:#F4EFF9}
+
+  .kicker{font-size:2vmin; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--rosa)}
+  .slide--oscura .kicker{color:var(--rosa-luz)}
+  h1{font-size:7.5vmin; line-height:1.1; max-width:80vw}
+  .sub{font-size:3vmin; color:var(--gris); max-width:70vw; line-height:1.5}
+  .slide--oscura .sub{color:#D9CFE8}
+
+  .n-reactivo{font-size:9vmin; line-height:.9; color:var(--dorado)}
+  .pregunta{font-size:6.5vmin; line-height:1.25; max-width:85vw}
+  .renglon{display:inline-block; min-width:22vmin; border-bottom:.6vmin solid var(--rosa); vertical-align:baseline}
+  .pista{font-size:2.6vmin; color:var(--gris); font-style:italic}
+
+  .dis{display:flex; gap:1.2vmin; align-items:center; justify-content:center; flex-wrap:wrap; margin-top:1vmin}
+  .pz{display:inline-block; border-radius:1.2vmin; padding:1.2vmin 2vmin; font-weight:700; font-size:4vmin; line-height:1.1}
+  .pz small{display:block; font-weight:400; font-size:2vmin; opacity:.85}
+  .pz--pre{background:#FFE3F0; color:#A30058}
+  .pz--raiz{background:#2B2440; color:#FFD6E9}
+  .pz--suf{background:#DFF5EE; color:#0B5F52}
+  .eq{font-size:4.5vmin; font-weight:800; color:var(--tinta)}
+
+  .resp{font-size:6vmin; color:var(--jade)}
+  .explica{font-size:2.9vmin; color:var(--gris); max-width:72vw; line-height:1.55}
+  .slide--oscura .explica{color:#D9CFE8}
+
+  /* cronómetro */
+  #crono{position:fixed; top:2.5vmin; right:2.5vmin; z-index:10; display:flex; align-items:center; gap:1vmin;
+    background:var(--jade-suave); border:1px solid #BFE7DC; border-radius:3vmin; padding:.8vmin 1.8vmin}
+  #crono b{font-family:"Inter",sans-serif; font-variant-numeric:tabular-nums; font-size:3.2vmin; color:var(--jade)}
+  #crono button{border:none; background:none; cursor:pointer; font-size:2.6vmin; color:var(--jade)}
+  #crono.alerta{background:var(--rojo-suave); border-color:#F2C4C1}
+  #crono.alerta b, #crono.alerta button{color:var(--rojo)}
+
+  /* controles */
+  #controles{position:fixed; bottom:2.5vmin; left:0; right:0; display:flex; justify-content:center; gap:2vmin; z-index:10}
+  #controles button{font-family:inherit; font-weight:700; font-size:2.4vmin; border:none; cursor:pointer;
+    border-radius:3vmin; padding:1.2vmin 3vmin; background:var(--rosa-suave); color:var(--morado)}
+  #controles button:hover{background:#fff}
+  #cuenta{position:fixed; bottom:3vmin; right:3vmin; font-size:2vmin; color:var(--gris); z-index:10}
+  .tecla{font-size:1.9vmin; color:var(--gris); opacity:.75}
+  .slide--oscura .tecla{color:#D9CFE8}
+</style>
+</head>
+<body>
+
+<div id="crono" title="clic en ▶ para arrancar">
+  <b id="crono-num">3:00</b>
+  <button id="crono-play" type="button">▶</button>
+  <button id="crono-reset" type="button">↺</button>
+</div>
+
+<!-- 1 · Portada -->
+<section class="slide slide--oscura activa">
+  <div class="kicker">Semana 6 · Jueves · Ritual de apertura</div>
+  <h1 class="disp">Quiz relámpago</h1>
+  <p class="sub">Tres reactivos. Uno de ellos es una palabra que nunca has visto: es a propósito, y de eso se trató la semana.</p>
+  <p class="sub"><strong>Se responde en el cuadernillo, a solas, sin mazo y sin celular.</strong></p>
+  <p class="tecla">Avanza con → o espacio · regresa con ←</p>
+</section>
+
+<!-- 2 · La apuesta -->
+<section class="slide">
+  <div class="kicker">Antes de ver nada</div>
+  <h1 class="disp">Tu apuesta primero</h1>
+  <p class="pregunta">¿Cuántas vas a tener bien: <strong>0, 1, 2 o 3</strong>?</p>
+  <p class="sub">Escríbelo antes del primer reactivo. Y esta vez atiende algo: sabiendo que hay una palabra nunca vista, ¿tu apuesta bajó? Anota también eso.</p>
+</section>
+
+<!-- 3 · Reactivo 1 -->
+<section class="slide">
+  <div class="n-reactivo disp">1</div>
+  <div class="kicker">Nunca la has visto</div>
+  <p class="pregunta disp">necrofagia</p>
+  <p class="pista">¿Qué significa? Escribe sus dos piezas y tu apuesta de significado.</p>
+</section>
+
+<!-- 4 · Reactivo 2 -->
+<section class="slide">
+  <div class="n-reactivo disp">2</div>
+  <div class="kicker">Ahora al revés: arma la palabra</div>
+  <p class="pregunta disp">adivinación por medio del fuego</p>
+  <p class="pista">Una sola palabra, con piezas griegas. Vale aproximar la ortografía: se premia la lógica de las piezas.</p>
+</section>
+
+<!-- 5 · Reactivo 3 -->
+<section class="slide">
+  <div class="n-reactivo disp">3</div>
+  <div class="kicker">La pieza suelta</div>
+  <p class="pregunta disp">cripto- significa <span class="renglon"></span></p>
+  <p class="pista">Y una palabra donde viva. Si te acordaste de la de las monedas, vas bien encaminado.</p>
+</section>
+
+<!-- 6 · Los tres juntos -->
+<section class="slide">
+  <div class="kicker">Los tres, a la vista · 3 minutos</div>
+  <p class="pregunta disp" style="font-size:4.4vmin">1 · necrofagia · piezas + significado</p>
+  <p class="pregunta disp" style="font-size:4.4vmin">2 · "adivinación por el fuego" = ______</p>
+  <p class="pregunta disp" style="font-size:4.4vmin">3 · cripto- significa ______</p>
+  <p class="pista">Arranca el cronómetro de arriba. Lápices abajo cuando llegue a cero.</p>
+</section>
+
+<!-- 7 · Frontera -->
+<section class="slide slide--oscura">
+  <h1 class="disp">Lápices abajo</h1>
+  <p class="sub">Lo que sigue son las respuestas. Cada quien califica lo suyo: aquí nadie persigue puntos, se persigue la brecha.</p>
+</section>
+
+<!-- 8 · Respuesta 1 -->
+<section class="slide">
+  <div class="n-reactivo disp">1</div>
+  <div class="dis">
+    <span class="pz pz--raiz">necro<small>muerto</small></span>
+    <span class="pz pz--suf">-fagia<small>comer</small></span>
+    <span class="eq">= necrofagia</span>
+  </div>
+  <p class="resp disp">comer carroña</p>
+  <p class="explica">La costumbre de comer animales muertos: lo que hacen los buitres y las hienas. Nadie te enseñó esta palabra y la leíste completa. Eso es exactamente lo que prometía la semana.</p>
+</section>
+
+<!-- 9 · Respuesta 2 -->
+<section class="slide">
+  <div class="n-reactivo disp">2</div>
+  <div class="dis">
+    <span class="pz pz--raiz">piro<small>fuego</small></span>
+    <span class="pz pz--suf">-mancia<small>adivinación</small></span>
+    <span class="eq">=</span>
+  </div>
+  <p class="resp disp">piromancia</p>
+  <p class="explica">Existe, y está registrada: leer el futuro en las llamas. Su familia es enorme —quiromancia (en las manos), cartomancia (en las cartas), nigromancia (en los muertos)— y todas comparten el mismo apellido griego. Si escribiste "pirimancia" o "piromancía", cuéntatela: la lógica de las piezas estaba bien.</p>
+</section>
+
+<!-- 10 · Respuesta 3 -->
+<section class="slide">
+  <div class="n-reactivo disp">3</div>
+  <p class="pregunta disp" style="font-size:5vmin">cripto- significa</p>
+  <p class="resp disp">oculto, escondido</p>
+  <p class="explica">Vive en <em>criptografía</em> (escritura oculta: el arte de mandar mensajes que nadie más lee), en <em>cripta</em> (la cámara escondida bajo una iglesia) y, de ahí, en <em>criptomoneda</em>. Y en la mejor de todas: <em>criptozoología</em>, el estudio de los animales ocultos. El chupacabras tiene su disciplina, y tiene nombre griego.</p>
+</section>
+
+<!-- 11 · Calibración -->
+<section class="slide slide--oscura">
+  <div class="kicker">El número que importa</div>
+  <h1 class="disp">¿Tu apuesta le atinó a tu resultado?</h1>
+  <p class="sub">Los dos números al cuadernillo: es el renglón del quiz #5, el último antes del integrador.</p>
+  <p class="sub" style="color:var(--rosa-luz)">Y fíjate en algo: si bajaste tu apuesta por miedo a la palabra desconocida, y aun así la sacaste, tu medidor interno está mal calibrado hacia abajo. Sabes más de lo que crees.</p>
+</section>
+
+<div id="controles">
+  <button type="button" id="atras">← Atrás</button>
+  <button type="button" id="sigue">Siguiente →</button>
+</div>
+<div id="cuenta">1 / 1</div>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var i = 0, cuenta = document.getElementById('cuenta');
+  function muestra(n){
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach(function(s, k){ s.classList.toggle('activa', k === i); });
+    cuenta.textContent = (i + 1) + ' / ' + slides.length;
+  }
+  muestra(0);
+  document.getElementById('sigue').addEventListener('click', function(){ muestra(i + 1); });
+  document.getElementById('atras').addEventListener('click', function(){ muestra(i - 1); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown'){ e.preventDefault(); muestra(i + 1); }
+    if(e.key === 'ArrowLeft' || e.key === 'PageUp'){ e.preventDefault(); muestra(i - 1); }
+  });
+
+  /* cronometro */
+  var TOTAL = 180, resta = TOTAL, timer = null;
+  var num = document.getElementById('crono-num'),
+      play = document.getElementById('crono-play'),
+      caja = document.getElementById('crono');
+  function pinta(){
+    var m = Math.floor(resta / 60), s = resta % 60;
+    num.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+    caja.classList.toggle('alerta', resta <= 30);
+  }
+  function tic(){
+    resta--;
+    if(resta <= 0){ resta = 0; clearInterval(timer); timer = null; play.textContent = '▶'; }
+    pinta();
+  }
+  play.addEventListener('click', function(){
+    if(timer){ clearInterval(timer); timer = null; play.textContent = '▶'; }
+    else if(resta > 0){ timer = setInterval(tic, 1000); play.textContent = '⏸'; }
+  });
+  document.getElementById('crono-reset').addEventListener('click', function(){
+    clearInterval(timer); timer = null; resta = TOTAL; play.textContent = '▶'; pinta();
+  });
+  pinta();
+})();
+</script>
+</body>
+</html>
