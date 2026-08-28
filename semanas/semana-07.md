@@ -283,6 +283,7 @@ Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y
 - [Arma tu defensa](../ejercicios/semana-07/ejercicio-7B-arma-tu-defensa.html) · miércoles
 - [Cosecha de palabras](../ejercicios/semana-07/ejercicio-7D-cosecha-de-palabras.html) · viernes
 - [Quiz de gimnasio · Integrador](../ejercicios/semana-07/quiz-gimnasio-semana-07.html) · para ensayar cuando quieras
+- [El quiz integrador de la unidad 1, tal como se proyecta](../ejercicios/semana-07/quiz-integrador-u1-semana-07.html) · con cronómetro de 10 minutos y respuestas
 
 ## Hoja de consulta
 

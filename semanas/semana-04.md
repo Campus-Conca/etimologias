@@ -394,6 +394,8 @@ Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y
 - [Apuesta y verifica](../ejercicios/semana-04/ejercicio-4C-apuesta-y-verifica.html) · jueves, centro de cómputo
 - [El consultorio griego, tablero del juego](../ejercicios/semana-04/consultorio-griego-tablero.html) · viernes, para proyectar: triage, sala de espera, recetario, impostores y urgencias, con marcador de equipos
 - [Quiz de gimnasio](../ejercicios/semana-04/quiz-gimnasio-semana-04.html) · para ensayar cuando quieras
+- [El quiz relámpago del martes, tal como se proyecta](../ejercicios/semana-04/quiz-relampago-semana-04-martes.html) · con cronómetro y respuestas
+- [El quiz relámpago del viernes, tal como se proyecta](../ejercicios/semana-04/quiz-relampago-semana-04-viernes.html) · el mismo del Triage, a pantalla completa
 
 **Los juegos del alfabeto** (sin mazo, sin quiz, puro juego):
 

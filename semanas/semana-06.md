@@ -265,6 +265,7 @@ Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y
 - [Taller de descifrado](../ejercicios/semana-06/ejercicio-6B-taller-de-descifrado.html) · miércoles
 - [¿Existían de verdad?](../ejercicios/semana-06/ejercicio-6C-existian-de-verdad.html) · jueves, centro de cómputo
 - [Quiz de gimnasio](../ejercicios/semana-06/quiz-gimnasio-semana-06.html) · para ensayar cuando quieras
+- [El quiz relámpago, tal como se proyecta](../ejercicios/semana-06/quiz-relampago-semana-06.html) · jueves, con cronómetro y respuestas
 
 ### En el centro de cómputo (jueves)
 

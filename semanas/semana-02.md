@@ -303,6 +303,7 @@ Todos los ejercicios de la semana, para tu celular o el centro de cómputo. Sin 
 - [¿Con qué linterna está escrita?](../ejercicios/semana-02/ejercicio-2C-con-que-linterna.html) · jueves, centro de cómputo
 - [Biografía de una palabra](../ejercicios/semana-02/ejercicio-2D-biografia-de-una-palabra.html) · viernes
 - [Quiz de gimnasio](../ejercicios/semana-02/quiz-gimnasio-semana-02.html) · para ensayar cuando quieras
+- [El quiz relámpago, tal como se proyecta](../ejercicios/semana-02/quiz-relampago-semana-02.html) · jueves, con cronómetro y respuestas
 
 ## Hoja de consulta
 

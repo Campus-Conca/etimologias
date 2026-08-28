@@ -683,6 +683,7 @@ Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y
 - [La palabra de familia numerosa](../ejercicios/semana-05/ejercicio-5D-familia-numerosa.html) · viernes
 - [El campeonato de árboles](../ejercicios/semana-05/campeonato-de-arboles-tablero.html) · viernes, tablero para proyectar
 - [Quiz de gimnasio](../ejercicios/semana-05/quiz-gimnasio-semana-05.html) · tres reactivos para calentar antes del quiz relámpago del viernes, que esta vez trae diez
+- [El quiz relámpago del viernes, tal como se proyecta](../ejercicios/semana-05/quiz-relampago-semana-05-viernes.html) · los diez reactivos, con cronómetro y respuestas
 
 ### En el centro de cómputo (jueves)
 

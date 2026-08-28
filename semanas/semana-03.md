@@ -217,6 +217,7 @@ Todos los ejercicios de la semana, para tu celular o el centro de cómputo. Sin 
 - [Veinte palabras gratis](../ejercicios/semana-03/ejercicio-3C-veinte-palabras-gratis.html) · jueves, centro de cómputo
 - [Reglas del torneo de matrices](../ejercicios/semana-03/reglas-torneo-matrices.html) · viernes, con ejemplos de qué cuenta y qué no
 - [Quiz de gimnasio](../ejercicios/semana-03/quiz-gimnasio-semana-03.html) · para ensayar cuando quieras
+- [El quiz relámpago, tal como se proyecta](../ejercicios/semana-03/quiz-relampago-semana-03.html) · jueves, con cronómetro y respuestas
 - [El quiz destapable](../ejercicios/semana-03/quiz-abierto-todo-lo-visto.html) · repaso general de las semanas 0 a 3, con puntaje
 
 ## Hoja de consulta
