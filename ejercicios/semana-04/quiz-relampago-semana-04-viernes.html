@@ -181,9 +181,20 @@
   document.getElementById('sigue').addEventListener('click', function(){ muestra(i + 1); });
   document.getElementById('atras').addEventListener('click', function(){ muestra(i - 1); });
   document.addEventListener('keydown', function(e){
+    /* el conductor manda una lamina por pulsacion: nada de teclas repetidas
+       ni de botones con el foco que se activan solos con espacio o Enter */
+    if(e.repeat) return;
+    if(e.target && e.target.tagName === 'BUTTON' && (e.key === ' ' || e.key === 'Enter')) return;
     if(e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown'){ e.preventDefault(); muestra(i + 1); }
     if(e.key === 'ArrowLeft' || e.key === 'PageUp'){ e.preventDefault(); muestra(i - 1); }
   });
+  /* al soltar un boton de control le quitamos el foco: si se queda con el,
+     la barra espaciadora lo vuelve a presionar y la lamina se pasa doble */
+  document.addEventListener('click', function(e){
+    var b = e.target && e.target.closest ? e.target.closest('button') : null;
+    if(b) b.blur();
+  });
+
 
   /* cronómetro: 4 minutos */
   var TOTAL = 240, resta = TOTAL, timer = null;

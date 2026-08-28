@@ -127,6 +127,7 @@ La regla de oro de la semana (apréndetela, se usa todo el semestre): un corte e
 <span class="senal">A solas · papel</span>
 <p class="di">Una suma directa, una inversa, un corte a juicio. Tres minutos.</p>
 <p class="apoyo">Con tu predicción antes de voltear la hoja, como siempre. Al calificar comparas: la brecha es información, no culpa.</p>
+<p class="apoyo"><a href="../ejercicios/semana-03/quiz-relampago-semana-03.html">El quiz, lámina por lámina</a>: el mismo que se proyecta, con cronómetro y con las respuestas al final.</p>
 <p class="nota-conductor">El quiz proyectable, con respuestas y cronómetro, está aquí: <a href="../ejercicios/semana-03/quiz-relampago-semana-03.html">quiz relámpago de la semana 3</a>.</p>
 </section>
 <section class="lam">

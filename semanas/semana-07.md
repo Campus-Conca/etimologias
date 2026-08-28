@@ -185,6 +185,7 @@ No hay tema nuevo. Esta semana se ve lo que ya sabes. Y pasa algo que no había 
 <span class="senal">A solas · papel</span>
 <p class="di">Ocho reactivos con toda la unidad. Tu apuesta primero, del 0 al 8.</p>
 <p class="apoyo">Anatomía de la semana 2, cortes y espejismos de la 3, el griego de la 4, familias de la 5 y una palabra nunca vista de la 6. El octavo no lo califica nadie: es una palabra que hayas descifrado tú solo, fuera de clase. Se revisa en el momento, reactivo por reactivo, en bien o aún no.</p>
+<p class="apoyo"><a href="../ejercicios/semana-07/quiz-integrador-u1-semana-07.html">El integrador, lámina por lámina</a>: el mismo que se proyecta, con cronómetro de diez minutos y con las respuestas.</p>
 <p class="nota-conductor">El integrador proyectable, con respuestas y cronómetro de 10 minutos, está aquí: <a href="../ejercicios/semana-07/quiz-integrador-u1-semana-07.html">quiz integrador de la unidad 1</a>. El reactivo 7 no premia el dato sino el método: si dijeron "necesito una fuente", es bien aunque fallen el dato.</p>
 </section>
 <section class="lam lam--oscura">

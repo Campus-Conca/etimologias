@@ -608,6 +608,7 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <p class="di">Diez reactivos. Hoy es largo a propósito.</p>
 <p class="apoyo">Los quizzes de este curso son de tres reactivos. Este trae <strong>diez</strong>, porque le toca cubrir la semana entera: las diez raíces nuevas, la trampa de los dos <em>hipo-</em> y una pieza griega de la semana pasada. Tu apuesta primero, como siempre —del 0 al 10, antes de ver el primer reactivo—. Al calificar comparas, y los dos números van al renglón del <strong>quiz #4</strong> de tu expediente. La brecha es información, no culpa.</p>
 <p class="apoyo">Y es el termómetro de lo de ayer: si le presionaste <em>Bien</em> a tarjetas que dudabas, aquí es donde llega la factura. Aquí no hay botones.</p>
+<p class="apoyo"><a href="../ejercicios/semana-05/quiz-relampago-semana-05-viernes.html">El quiz, lámina por lámina</a>: los diez reactivos como se proyectan, con cronómetro de cinco minutos y con las respuestas.</p>
 <p class="nota-conductor">El quiz proyectable, con los diez reactivos uno por lámina, respuesta con la tecla R y cronómetro de 5 minutos, está aquí: <a href="../ejercicios/semana-05/quiz-relampago-semana-05-viernes.html">quiz relámpago del viernes, diez reactivos</a>. Reparte: 2 min de apuesta y encuadre, 6 de resolución, 5 de calificación comentada, 2 de cierre. Los reactivos 8 y 9 son los caros: la trampa de los dos hipo- y la sorpresa de cosmos/cosmético. Antes de calificar, pregunta a mano alzada quién apostó bajo por miedo: quien apostó bajo y salió bien tiene el medidor descalibrado hacia abajo, y eso se dice en voz alta.</p>
 </section>
 <section class="lam lam--actividad">
@@ -632,6 +633,7 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <tr><td>El equipo con más palabras válidas de la ronda</td><td>dos puntos de bono</td></tr>
 </table>
 <p class="apoyo">La regla del medio punto lo cambia todo: no conviene apuntarle a lo obvio. Si <em>cronómetro</em> la tienen los cinco equipos, vale la mitad para todos. Conviene irse a la orilla del árbol, ahí donde estaban botica, náusea y pulpo.</p>
+<p class="apoyo">El campeonato corre en <a href="../ejercicios/semana-05/campeonato-de-arboles-tablero.html">su tablero</a>: ahí se destapan las tres raíces, corre el reloj de dos minutos y se lleva el marcador.</p>
 <p class="nota-conductor">Equipos de tres o cuatro, <a href="../ejercicios/semana-05/campeonato-de-arboles-tablero.html">el tablero del campeonato</a> proyectado y el DECEL en otra pestaña. Tú eres juez de última instancia. El tablero trae marcador con nombres, reloj de dos minutos que arranca solo al destapar la raíz y, al cerrar cada ronda, el banco de palabras: las obvias, las de la orilla y las trampas que parecen de la familia y no lo son.</p>
 </section>
 <section class="lam lam--actividad">
