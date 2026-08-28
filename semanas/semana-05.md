@@ -620,24 +620,26 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 </section>
 <section class="lam">
 <h4><span class="n">3</span> Las reglas del campeonato <span class="reloj">10 min</span></h4>
-<p class="di">Por equipos: el árbol más grande que puedan defender.</p>
+<p class="di">Tres raíces, dos minutos cada una. Gana quien haga más.</p>
+<p class="apoyo">Hoy las raíces no las eligen: se revelan en pantalla, una por una, y nadie las ha visto antes. Al destaparse arranca el reloj y son <strong>dos minutos</strong> para escribir todas las palabras de esa familia que el equipo pueda defender. Cuando suena, lápices arriba: se cuenta, se reta, se suma y va la siguiente.</p>
 <table>
 <tr><th>Jugada</th><th>Vale</th></tr>
 <tr><td>Una palabra de la familia, defendida con la regla de oro</td><td>un punto</td></tr>
-<tr><td>Una palabra que ya tenía otro equipo</td><td>medio punto</td></tr>
-<tr><td>Una palabra rara que sobrevive al reto, con fuente</td><td>dos puntos</td></tr>
+<tr><td>Una palabra que también tiene otro equipo</td><td>medio punto</td></tr>
+<tr><td>Una palabra de la orilla que sobrevive al reto, con fuente</td><td>dos puntos</td></tr>
 <tr><td>Retar a otro equipo y tumbarle una palabra</td><td>un punto, y la palabra cae</td></tr>
 <tr><td>Proponer o retar sin fuente</td><td>pierdes el turno</td></tr>
+<tr><td>El equipo con más palabras válidas de la ronda</td><td>dos puntos de bono</td></tr>
 </table>
-<p class="apoyo">La regla del medio punto lo cambia todo: no conviene apuntarle a lo obvio. Conviene irse a la orilla del árbol, donde están botica, náusea y pulpo.</p>
-<p class="nota-conductor">Equipos de tres o cuatro, una raíz por equipo, DECEL proyectado. Tú eres juez de última instancia. Reserva los "?" que se cayeron ayer para cuando el juego se enfríe.</p>
+<p class="apoyo">La regla del medio punto lo cambia todo: no conviene apuntarle a lo obvio. Si <em>cronómetro</em> la tienen los cinco equipos, vale la mitad para todos. Conviene irse a la orilla del árbol, ahí donde estaban botica, náusea y pulpo.</p>
+<p class="nota-conductor">Equipos de tres o cuatro, <a href="../ejercicios/semana-05/campeonato-de-arboles-tablero.html">el tablero del campeonato</a> proyectado y el DECEL en otra pestaña. Tú eres juez de última instancia. El tablero trae marcador con nombres, reloj de dos minutos que arranca solo al destapar la raíz y, al cerrar cada ronda, el banco de palabras: las obvias, las de la orilla y las trampas que parecen de la familia y no lo son.</p>
 </section>
 <section class="lam lam--actividad">
 <h4><span class="n">4</span> El campeonato <span class="reloj">35 min</span></h4>
 <span class="senal">Por equipos</span>
-<p class="di">Árbol al pizarrón, retos por turnos, la fuente decide.</p>
-<p class="apoyo">Cada equipo presenta su árbol; los demás retan. Palabra defendida, punto para el dueño; reto certero, punto para quien retó. El árbol ganador se queda en la vitrina de la semana.</p>
-<p class="nota-conductor">Marcador visible y tiempo por ronda a la vista. Registra el árbol más grande y las tres palabras más inesperadas del grupo: van a "Lo que produjimos".</p>
+<p class="di">Se destapa la raíz, corre el reloj, y a los dos minutos se cuenta.</p>
+<p class="apoyo">Primero los puntos de salida: cada equipo dice cuántas palabras de su árbol sobrevivieron a la verificación de hace un rato, y ese número entra al marcador. Luego, tres rondas iguales: se destapa la raíz, dos minutos de escritura, cada equipo lee su lista en voz alta, los demás retan con fuente, y al final se abre el banco de palabras para cobrar la orilla. El árbol ganador se queda en la vitrina de la semana.</p>
+<p class="nota-conductor">Ronda por ronda, unos diez minutos: destapar, dos de escritura, uno de conteo, retos con el DECEL y banco de palabras. Las tres raíces van de menor a mayor dificultad —<em>crono-</em>, <em>gen-</em>, <em>arqui-</em>— y ninguna está en el mazo de la semana: hoy ya no se examina el mazo (para eso fue el quiz de la primera lámina), se examina el músculo. Si hay empate, el tablero trae tres palabras de muerte súbita. Registra el árbol más grande y las tres palabras más inesperadas del grupo: van a "Lo que produjimos".</p>
 </section>
 <section class="lam">
 <h4><span class="n">5</span> La raíz que cambió de opinión <span class="reloj">15 min</span></h4>
@@ -679,6 +681,7 @@ Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y
 - [Rescate de sanguijuelas](../ejercicios/semana-05/ejercicio-5G-rescate-de-sanguijuelas.html) · jueves, centro de cómputo
 - [El tribunal del reloj](../ejercicios/semana-05/ejercicio-5C-tribunal-del-reloj.html) · viernes, para la verificación exprés
 - [La palabra de familia numerosa](../ejercicios/semana-05/ejercicio-5D-familia-numerosa.html) · viernes
+- [El campeonato de árboles](../ejercicios/semana-05/campeonato-de-arboles-tablero.html) · viernes, tablero para proyectar
 - [Quiz de gimnasio](../ejercicios/semana-05/quiz-gimnasio-semana-05.html) · tres reactivos para calentar antes del quiz relámpago del viernes, que esta vez trae diez
 
 ### En el centro de cómputo (jueves)

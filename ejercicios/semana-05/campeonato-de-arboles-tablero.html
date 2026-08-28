@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 5 · El campeonato de árboles · Tablero para proyectar</title>
+<style>
+  :root{
+    --fondo:#221126; --panel:#2e1a34; --panel2:#3a2340; --borde:#553057;
+    --rosa:#ff7ab8; --rosaf:#c8127a; --crema:#f6e9f2; --tinta:#efe3ec;
+    --ok:#7ee2a0; --okd:#1f8a4c; --no:#ff9d6b; --nod:#b3541e;
+    --oro:#ffd479; --orod:#8a6a1f;
+  }
+  *{box-sizing:border-box}
+  html{font-size:clamp(14px,1.35vw,22px)}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--fondo);color:var(--tinta);line-height:1.5}
+  .wrap{max-width:1200px;margin:0 auto;padding:1rem 1.2rem 4rem}
+
+  header{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-bottom:2px solid var(--borde);padding:.8rem 0 .7rem}
+  header .tit .mini{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--rosa)}
+  header h1{margin:.05rem 0 0;font-size:1.7rem;color:#fff}
+  header h1 .copa{color:var(--oro)}
+  .reloj-caja{display:flex;align-items:center;gap:.5rem}
+  .reloj-num{font-variant-numeric:tabular-nums;font-size:1.9rem;font-weight:800;color:#fff;background:var(--panel);border:1px solid var(--borde);border-radius:.6rem;padding:.15rem .7rem;min-width:5.2rem;text-align:center}
+  .reloj-num.rojo{color:var(--no);animation:parp .6s steps(2) infinite}
+  @keyframes parp{50%{opacity:.35}}
+  .reloj-caja button{border:1px solid var(--borde);background:var(--panel);color:var(--tinta);border-radius:.6rem;padding:.45rem .7rem;font:inherit;font-weight:700;cursor:pointer}
+  .reloj-caja button:hover{border-color:var(--rosa)}
+
+  #marcador{display:flex;gap:.7rem;flex-wrap:wrap;align-items:stretch;margin:.9rem 0 .4rem}
+  .equipo{background:var(--panel);border:1px solid var(--borde);border-radius:.8rem;padding:.5rem .8rem .6rem;min-width:9.5rem;flex:1;max-width:14rem;position:relative}
+  .equipo .nom{font-size:.85rem;font-weight:700;color:var(--rosa);outline:none;border-bottom:1px dashed transparent;min-height:1.2em}
+  .equipo .nom:focus{border-bottom-color:var(--rosa)}
+  .equipo .pts{font-size:2.4rem;font-weight:800;color:#fff;line-height:1.1;font-variant-numeric:tabular-nums}
+  .equipo .botones{display:flex;gap:.35rem;margin-top:.25rem}
+  .equipo .botones button{flex:1;border:1px solid var(--borde);background:var(--panel2);color:var(--tinta);border-radius:.5rem;padding:.25rem 0;font:inherit;font-weight:800;cursor:pointer;font-size:.85rem}
+  .equipo .botones button:hover{border-color:var(--rosa)}
+  .equipo .botones .mas2{color:var(--ok)}
+  .equipo.lider{border-color:var(--oro);box-shadow:0 0 0 1px var(--oro)}
+  .equipo.lider::after{content:"★";position:absolute;top:.35rem;right:.55rem;color:var(--oro)}
+  #eqCtrl{display:flex;gap:.5rem;flex-wrap:wrap}
+  #eqCtrl button{border:1px dashed var(--borde);background:none;color:var(--tinta);border-radius:.6rem;padding:.35rem .7rem;font:inherit;cursor:pointer;font-size:.8rem}
+  #eqCtrl button:hover{border-color:var(--rosa);color:var(--rosa)}
+
+  nav{display:flex;gap:.5rem;flex-wrap:wrap;margin:1rem 0 1.2rem}
+  nav button{border:1px solid var(--borde);background:var(--panel);color:var(--tinta);border-radius:2rem;padding:.5rem 1.1rem;font:inherit;font-weight:700;cursor:pointer;font-size:.9rem}
+  nav button.on{background:var(--rosaf);border-color:var(--rosaf);color:#fff}
+  nav button:hover{border-color:var(--rosa)}
+
+  section.ronda{display:none}
+  section.ronda.on{display:block;animation:entra .25s ease}
+  @keyframes entra{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .como{background:var(--panel);border-left:4px solid var(--rosaf);border-radius:0 .7rem .7rem 0;padding:.7rem 1rem;margin:0 0 1rem;font-size:.95rem;color:var(--crema)}
+  .como strong{color:var(--rosa)}
+
+  table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.95rem}
+  th,td{text-align:left;padding:.55rem .7rem;border-bottom:1px solid var(--borde)}
+  th{color:var(--rosa);font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
+  td.vale{font-weight:800;color:#fff;white-space:nowrap}
+
+  .sobre{background:var(--panel);border:1px solid var(--borde);border-radius:1rem;padding:2.2rem 1.5rem;text-align:center;cursor:pointer;transition:border-color .2s}
+  .sobre:hover{border-color:var(--rosa)}
+  .sobre .eti{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--rosa)}
+  .sobre .cerrada{font-size:clamp(1.6rem,4vw,2.6rem);font-weight:800;color:#fff;margin:.4rem 0 .2rem}
+  .sobre .pie{font-size:.9rem;color:#c9a9c4}
+
+  .revelada{display:none}
+  .revelada.ver{display:block;animation:entra .3s ease}
+  .raizgrande{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--rosaf);border-radius:1rem;padding:1.4rem 1.5rem;text-align:center}
+  .raizgrande .pieza{font-size:clamp(2.4rem,8vw,5.5rem);font-weight:800;color:#fff;line-height:1.05;word-break:break-word}
+  .raizgrande .sig{font-size:clamp(1rem,2.4vw,1.7rem);color:var(--rosa);font-weight:700;margin-top:.3rem}
+  .raizgrande .lengua{font-size:.9rem;color:#c9a9c4;margin-top:.4rem;font-style:italic}
+  .raizgrande .arranque{margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+  .raizgrande button{border:none;border-radius:.7rem;padding:.7rem 1.3rem;font:inherit;font-weight:700;cursor:pointer;font-size:1rem}
+  .b-rosa{background:var(--rosaf);color:#fff}
+  .b-oro{background:var(--orod);color:#fff}
+  .b-gris{background:var(--panel);color:var(--tinta);border:1px solid var(--borde)}
+
+  .banco{display:none;margin-top:1.2rem}
+  .banco.ver{display:block;animation:entra .3s ease}
+  .banda{background:var(--panel);border:1px solid var(--borde);border-radius:.9rem;padding:.8rem 1rem 1rem;margin-bottom:.9rem}
+  .banda h4{margin:0 0 .2rem;font-size:1rem;color:var(--rosa)}
+  .banda .val{font-size:.8rem;color:#c9a9c4;margin:0 0 .6rem}
+  .banda.orilla{border-color:var(--orod)}
+  .banda.orilla h4{color:var(--oro)}
+  .banda.trampa{border-color:var(--nod)}
+  .banda.trampa h4{color:var(--no)}
+  .pals{display:flex;flex-wrap:wrap;gap:.4rem}
+  .pal{background:var(--panel2);border:1px solid var(--borde);border-radius:1.2rem;padding:.3rem .8rem;font-size:.95rem}
+  .banda.orilla .pal{border-color:var(--orod);color:var(--oro)}
+  .banda.trampa .pal{border-color:var(--nod);color:var(--no);text-decoration:line-through}
+  .sorpresa{background:var(--panel2);border-left:4px solid var(--oro);border-radius:0 .7rem .7rem 0;padding:.8rem 1rem;margin-top:.9rem;font-size:1rem;color:var(--crema)}
+  .sorpresa strong{color:var(--oro)}
+  .conteo{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+  .conteo button{border:1px solid var(--borde);background:var(--panel);color:var(--tinta);border-radius:.7rem;padding:.5rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .conteo button:hover{border-color:var(--rosa)}
+
+  .muerte{background:var(--panel);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.2rem;margin-bottom:.8rem}
+  .muerte .pal-b{font-size:clamp(1.5rem,4vw,2.6rem);font-weight:800;color:#fff}
+  .muerte .dec{display:none;margin-top:.6rem;color:var(--ok);font-size:1rem}
+  .muerte .dec.ver{display:block}
+  .muerte button{margin-top:.6rem;border:none;border-radius:.6rem;padding:.5rem 1rem;font:inherit;font-weight:700;cursor:pointer;background:var(--rosaf);color:#fff}
+
+  footer{margin-top:2.5rem;font-size:.8rem;color:#9c7d95;border-top:1px solid var(--borde);padding-top:.9rem}
+  footer a{color:var(--rosa)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="tit">
+    <div class="mini">Etimologías grecolatinas · Semana 5 · Viernes · tablero para proyectar</div>
+    <h1><span class="copa">🏆</span> El campeonato de árboles</h1>
+  </div>
+  <div class="reloj-caja">
+    <div class="reloj-num" id="relojNum">--:--</div>
+    <button id="r120">2 min</button>
+    <button id="r60">1 min</button>
+    <button id="r30">30 s</button>
+    <button id="rStop">✕</button>
+  </div>
+</header>
+
+<div id="marcador"></div>
+<div id="eqCtrl">
+  <button id="btnMasEq">+ equipo</button>
+  <button id="btnMenosEq">− equipo</button>
+  <button id="btnCeros">marcador en ceros</button>
+</div>
+
+<nav id="navRondas">
+  <button data-r="reglas" class="on">Las reglas</button>
+  <button data-r="salida">Puntos de salida</button>
+  <button data-r="r1">Raíz 1</button>
+  <button data-r="r2">Raíz 2</button>
+  <button data-r="r3">Raíz 3</button>
+  <button data-r="muerte">Muerte súbita</button>
+</nav>
+
+<!-- ================= REGLAS ================= -->
+<section class="ronda on" id="reglas">
+  <div class="como"><strong>Tres raíces, dos minutos cada una.</strong> Las raíces no las eligen: se revelan aquí, una por una, y nadie las ha visto antes. Al revelarse arranca el reloj: dos minutos para escribir todas las palabras de esa familia que el equipo pueda defender. Cuando suena, lápices arriba. Se cuenta, se reta, se suma, y pasamos a la siguiente. Gana quien haga más en el tiempo que hay: por eso conviene escribir rápido y pensar en la orilla del árbol.</div>
+  <table>
+    <tr><th>Jugada</th><th>Vale</th></tr>
+    <tr><td>Una palabra de la familia, defendida con la regla de oro</td><td class="vale">un punto</td></tr>
+    <tr><td>Una palabra que también tiene otro equipo</td><td class="vale">medio punto</td></tr>
+    <tr><td>Una palabra de la orilla que sobrevive al reto, con fuente</td><td class="vale">dos puntos</td></tr>
+    <tr><td>Retar a otro equipo y tumbarle una palabra</td><td class="vale">un punto, y la palabra cae</td></tr>
+    <tr><td>Proponer o retar sin fuente</td><td class="vale">pierdes el turno</td></tr>
+    <tr><td>El equipo con más palabras válidas de la ronda</td><td class="vale">dos puntos de bono</td></tr>
+  </table>
+  <div class="como"><strong>La regla del medio punto lo cambia todo.</strong> No conviene apuntarle a lo obvio: si <em>cronómetro</em> la tienen los cinco equipos, vale la mitad para todos. Conviene irse a la orilla, donde están archivo, indígena y crónica. Ahí es donde se gana el campeonato.</div>
+  <div class="como"><strong>Orden de cada ronda (unos 11 minutos).</strong> Revelar la raíz · dos minutos de escritura · un minuto para contar en voz alta, equipo por equipo · retos con el DECEL proyectado · abrir el banco de palabras y sumar la orilla · anotar el bono.</div>
+</section>
+
+<!-- ================= PUNTOS DE SALIDA ================= -->
+<section class="ronda" id="salida">
+  <div class="como"><strong>El árbol que traes no se tira.</strong> Antes de la primera raíz, cada equipo dice cuántas palabras de su árbol sobrevivieron a la verificación exprés de hace un rato —las que traen fuente—. Ese número entra como puntaje de salida: se captura con los botones del marcador. El trabajo del martes y el miércoles arranca el campeonato; los dos minutos lo deciden.</div>
+  <table>
+    <tr><th>Raíz del árbol</th><th>Lo que se pregunta</th></tr>
+    <tr><td>hemo-, hemato-</td><td>¿Cuántas sobrevivieron con fuente? ¿Cuál fue la más inesperada?</td></tr>
+    <tr><td>cosmo-</td><td>¿Alguien llegó a cosmético? ¿Y a cosmopolita?</td></tr>
+    <tr><td>-polis</td><td>¿Cayó policía? Es la que más se pelea y la que más paga.</td></tr>
+    <tr><td>zoo-</td><td>¿Alguien se atrevió con zodiaco?</td></tr>
+    <tr><td>-teca</td><td>¿Llegó botica? Ahí es donde se ve quién buscó lejos.</td></tr>
+  </table>
+  <div class="como">Anota en el pizarrón las tres palabras más inesperadas de esta ronda: van a «Lo que produjimos» de la semana.</div>
+</section>
+
+<!-- ================= RAÍZ 1 ================= -->
+<section class="ronda" id="r1">
+  <div class="como"><strong>Raíz 1 · el calentamiento.</strong> Todos van a llegar a tres o cuatro. La pregunta es quién llega a diez, y por dónde.</div>
+  <div class="sobre" data-abre="c1">
+    <div class="eti">Primera raíz · nadie la ha visto</div>
+    <div class="cerrada">Toca para revelar</div>
+    <div class="pie">Al revelarla arranca el reloj de dos minutos</div>
+  </div>
+  <div class="revelada" id="c1">
+    <div class="raizgrande">
+      <div class="pieza">crono-</div>
+      <div class="sig">tiempo</div>
+      <div class="lengua">del griego <em>khrónos</em> · Cronos era el dios que se comía a sus hijos: el tiempo devorándolo todo</div>
+      <div class="arranque">
+        <button class="b-rosa" data-t="120">▶ Dos minutos</button>
+        <button class="b-oro" data-banco="b1">Abrir el banco de palabras</button>
+      </div>
+    </div>
+    <div class="banco" id="b1"></div>
+  </div>
+</section>
+
+<!-- ================= RAÍZ 2 ================= -->
+<section class="ronda" id="r2">
+  <div class="como"><strong>Raíz 2 · la que explota.</strong> Esta familia es de las más numerosas del idioma. Aquí no gana el que recuerde: gana el que se atreva a proponer.</div>
+  <div class="sobre" data-abre="c2">
+    <div class="eti">Segunda raíz · nadie la ha visto</div>
+    <div class="cerrada">Toca para revelar</div>
+    <div class="pie">Al revelarla arranca el reloj de dos minutos</div>
+  </div>
+  <div class="revelada" id="c2">
+    <div class="raizgrande">
+      <div class="pieza">gen-, -geno</div>
+      <div class="sig">origen, nacimiento, estirpe</div>
+      <div class="lengua">del griego <em>génos</em> y de <em>gígnomai</em>, nacer · la misma pieza que el latín puso en <em>gens</em>, la parentela</div>
+      <div class="arranque">
+        <button class="b-rosa" data-t="120">▶ Dos minutos</button>
+        <button class="b-oro" data-banco="b2">Abrir el banco de palabras</button>
+      </div>
+    </div>
+    <div class="banco" id="b2"></div>
+  </div>
+</section>
+
+<!-- ================= RAÍZ 3 ================= -->
+<section class="ronda" id="r3">
+  <div class="como"><strong>Raíz 3 · la de los disfraces.</strong> Aquí casi todo está en la orilla: las palabras obvias son pocas y las escondidas son muchas. La ronda que decide el campeonato.</div>
+  <div class="sobre" data-abre="c3">
+    <div class="eti">Tercera raíz · nadie la ha visto</div>
+    <div class="cerrada">Toca para revelar</div>
+    <div class="pie">Al revelarla arranca el reloj de dos minutos</div>
+  </div>
+  <div class="revelada" id="c3">
+    <div class="raizgrande">
+      <div class="pieza">arqui-, arc-, -arquía</div>
+      <div class="sig">mando, principio</div>
+      <div class="lengua">del griego <em>arkhḗ</em> · significaba las dos cosas a la vez: el que manda y lo que va primero</div>
+      <div class="arranque">
+        <button class="b-rosa" data-t="120">▶ Dos minutos</button>
+        <button class="b-oro" data-banco="b3">Abrir el banco de palabras</button>
+      </div>
+    </div>
+    <div class="banco" id="b3"></div>
+  </div>
+</section>
+
+<!-- ================= MUERTE SÚBITA ================= -->
+<section class="ronda" id="muerte">
+  <div class="como"><strong>Muerte súbita: solo si hay empate.</strong> Palabra en pantalla, a mano alzada. El primer equipo que la corte completa y la defienda con piezas, gana el campeonato. Cada una mezcla una raíz de hoy con una del mazo de la semana.</div>
+  <div class="muerte">
+    <div class="pal-b">cosmogonía</div>
+    <div class="dec">cosmo (mundo, orden) + gonía, de la familia de gen- (nacimiento): el relato del nacimiento del mundo. Toda cultura tiene la suya.</div>
+    <button>Veredicto</button>
+  </div>
+  <div class="muerte">
+    <div class="pal-b">arqueozoico</div>
+    <div class="dec">arqueo, de arkhḗ (el principio) + zoo (animal) + -ico: la era de la vida primitiva. Dos piezas de hoy y una del mazo de la semana, en una palabra de libro de geología.</div>
+    <button>Veredicto</button>
+  </div>
+  <div class="muerte">
+    <div class="pal-b">anacronismo</div>
+    <div class="dec">ana- (hacia atrás, contra) + crono (tiempo) + -ismo: algo que está fuera de su tiempo. Un celular en una película de romanos es un anacronismo.</div>
+    <button>Veredicto</button>
+  </div>
+</section>
+
+<footer>
+  Semana 5 · El campeonato de árboles · Tablero del viernes. El marcador se guarda solo en esta computadora; el botón «marcador en ceros» lo reinicia. Los bancos de palabras no son la lista completa: si un equipo propone una que no está y la defiende con fuente, cuenta. Fuentes de los veredictos: <a href="https://dle.rae.es" target="_blank" rel="noopener">DLE</a> y <a href="http://etimologias.dechile.net" target="_blank" rel="noopener">DECEL</a>.
+</footer>
+</div>
+
+<script>
+(function(){
+  /* ============ bancos de palabras ============ */
+  var BANCOS={
+    b1:{
+      solas:["cronómetro","cronología","cronológico","cronograma","crónica","cronista","crónico","sincronizar","sincronizado","crono"],
+      orilla:["anacronismo","anacrónico","sincronía","sincrónico","asincrónico","diacrónico","isócrono","cronoescalada","asíncrono","sincronización"],
+      trampas:["corona","coronario","coronilla","cronopio"],
+      nota:"<strong>La sorpresa de la ronda: crónica y crónico son la misma pieza.</strong> Una enfermedad crónica es la que dura en el tiempo; una crónica periodística cuenta los hechos en el orden del tiempo; un cronista es el que ordena el tiempo con palabras. Tres oficios distintos, un solo Cronos adentro. Las trampas: corona y sus parientes vienen del latín <em>corona</em> y no tienen nada que ver; cronopio se lo inventó Cortázar y no está en el diccionario."
+    },
+    b2:{
+      solas:["gen","genética","genético","génesis","generar","generación","género","genital","genealogía","genoma","genocidio","transgénico","engendrar","progenitor","congénito","primogénito","homogéneo","heterogéneo","degenerar","regenerar","hidrógeno","oxígeno","patógeno"],
+      orilla:["indígena","ingenio","ingeniero","ingenuo","gente","gentil","gentilicio","genio","genuino","alérgeno","carcinógeno","endógeno","exógeno","fotogénico","criogenia"],
+      trampas:["genuflexión","genciana","jengibre"],
+      nota:"<strong>La sorpresa de la ronda: oxígeno e indígena.</strong> Oxígeno es «el que engendra ácido» (Lavoisier lo bautizó mal y así se quedó) e indígena es «el engendrado aquí». La misma pieza está en gen, en gente, en ingeniero —el que nace con ingenio adentro— y en genio. Las trampas: genuflexión viene de <em>genu</em>, rodilla en latín; la genciana la bautizaron por el rey Gentio; el jengibre llegó del sánscrito por otro camino."
+    },
+    b3:{
+      solas:["monarquía","monarca","anarquía","anarquista","anárquico","jerarquía","jerárquico","oligarquía","patriarca","patriarcado","matriarcado","arquitecto","arquitectura","arquetipo"],
+      orilla:["archivo","arcángel","arzobispo","archipiélago","arcaico","arcaísmo","arqueología","arqueólogo","autarquía","archiduque","archienemigo","arconte","tetrarquía","monárquico"],
+      trampas:["arco","arquero","arcada","arca","arcón"],
+      nota:"<strong>La sorpresa de la ronda: archivo no es un mueble.</strong> Es la casa del <em>arconte</em>, el que mandaba en Atenas: ahí se guardaban los papeles del poder. Y archipiélago era «el mar principal», el Egeo. Todos los archi- del español mandan: archiduque, arzobispo, arcángel, archienemigo. Y arqueología es lo del principio, del <em>arkhaîos</em> que sale de la misma raíz. Las trampas: arco, arquero y arca vienen del latín <em>arcus</em> y <em>arca</em>: no mandan a nadie."
+    }
+  };
+
+  function el(t,c,h){var d=document.createElement(t);if(c)d.className=c;if(h!==undefined)d.innerHTML=h;return d;}
+
+  function pintaBanco(id){
+    var b=BANCOS[id], cont=document.getElementById(id);
+    if(cont.dataset.listo)return;
+    var bandas=[
+      ["solas","Las que salen solas","un punto cada una · si otro equipo la tiene, medio",b.solas],
+      ["orilla","La orilla del árbol","dos puntos con fuente · aquí se gana",b.orilla],
+      ["trampa","Las que parecen y no son","si se te coló, se cae: no es de esta raíz",b.trampas]
+    ];
+    bandas.forEach(function(x){
+      var d=el('div','banda '+x[0],'<h4>'+x[1]+'</h4><p class="val">'+x[2]+'</p>');
+      var p=el('div','pals');
+      x[3].forEach(function(w){p.appendChild(el('span','pal',w));});
+      d.appendChild(p);
+      cont.appendChild(d);
+    });
+    cont.appendChild(el('div','sorpresa',b.nota));
+    var c=el('div','conteo');
+    var b1=el('button',null,'Bono de la ronda: +2 al que hizo más');
+    b1.addEventListener('click',function(){b1.textContent='Bono anotado ✓';b1.disabled=true;});
+    c.appendChild(b1);
+    cont.appendChild(c);
+    cont.dataset.listo='1';
+  }
+
+  /* ============ marcador ============ */
+  var LS='etim-camp-s5';
+  var equipos;
+  try{ equipos=JSON.parse(localStorage.getItem(LS)); }catch(e){ equipos=null; }
+  if(!equipos||!equipos.length){ equipos=[{n:"Equipo 1",p:0},{n:"Equipo 2",p:0},{n:"Equipo 3",p:0},{n:"Equipo 4",p:0}]; }
+  function guarda(){ try{ localStorage.setItem(LS,JSON.stringify(equipos)); }catch(e){} }
+  var marc=document.getElementById('marcador');
+
+  function pintaMarcador(){
+    marc.innerHTML='';
+    var max=Math.max.apply(null,equipos.map(function(e){return e.p;}));
+    equipos.forEach(function(eq,i){
+      var d=el('div','equipo'+(eq.p===max&&eq.p>0?' lider':''));
+      var nom=el('div','nom',eq.n);
+      nom.contentEditable=true;nom.spellcheck=false;
+      nom.addEventListener('blur',function(){eq.n=nom.textContent.trim()||('Equipo '+(i+1));guarda();});
+      var pts=el('div','pts',eq.p);
+      var bts=el('div','botones');
+      [['−1',-1,''],['+1',1,''],['+2',2,'mas2']].forEach(function(b){
+        var x=el('button',b[2],b[0]);
+        x.addEventListener('click',function(){eq.p=Math.max(0,eq.p+b[1]);guarda();pintaMarcador();});
+        bts.appendChild(x);
+      });
+      d.appendChild(nom);d.appendChild(pts);d.appendChild(bts);
+      marc.appendChild(d);
+    });
+  }
+  pintaMarcador();
+  document.getElementById('btnMasEq').addEventListener('click',function(){
+    if(equipos.length<6){equipos.push({n:"Equipo "+(equipos.length+1),p:0});guarda();pintaMarcador();}
+  });
+  document.getElementById('btnMenosEq').addEventListener('click',function(){
+    if(equipos.length>2){equipos.pop();guarda();pintaMarcador();}
+  });
+  document.getElementById('btnCeros').addEventListener('click',function(){
+    equipos.forEach(function(e){e.p=0;});guarda();pintaMarcador();
+  });
+
+  /* ============ reloj ============ */
+  var rNum=document.getElementById('relojNum'),rInt=null,rFin=0;
+  function rTic(){
+    var s=Math.max(0,Math.round((rFin-Date.now())/1000));
+    rNum.textContent=Math.floor(s/60)+':'+('0'+s%60).slice(-2);
+    rNum.classList.toggle('rojo',s<=10&&s>0);
+    if(s<=0){clearInterval(rInt);rInt=null;rNum.textContent='¡0:00!';rNum.classList.add('rojo');}
+  }
+  function rArranca(seg){rFin=Date.now()+seg*1000;if(rInt)clearInterval(rInt);rNum.classList.remove('rojo');rTic();rInt=setInterval(rTic,250);}
+  document.getElementById('r120').addEventListener('click',function(){rArranca(120);});
+  document.getElementById('r60').addEventListener('click',function(){rArranca(60);});
+  document.getElementById('r30').addEventListener('click',function(){rArranca(30);});
+  document.getElementById('rStop').addEventListener('click',function(){if(rInt)clearInterval(rInt);rInt=null;rNum.textContent='--:--';rNum.classList.remove('rojo');});
+
+  /* ============ navegación ============ */
+  var nav=document.getElementById('navRondas');
+  nav.addEventListener('click',function(ev){
+    var b=ev.target.closest('button');if(!b)return;
+    nav.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});
+    b.classList.add('on');
+    document.querySelectorAll('section.ronda').forEach(function(s){s.classList.toggle('on',s.id===b.getAttribute('data-r'));});
+  });
+
+  /* ============ sobres: revelar raíz y arrancar el reloj ============ */
+  document.querySelectorAll('.sobre').forEach(function(s){
+    s.addEventListener('click',function(){
+      document.getElementById(s.getAttribute('data-abre')).classList.add('ver');
+      s.style.display='none';
+      rArranca(120);
+    });
+  });
+  document.querySelectorAll('[data-t]').forEach(function(b){
+    b.addEventListener('click',function(){rArranca(parseInt(b.getAttribute('data-t'),10));});
+  });
+  document.querySelectorAll('[data-banco]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var id=b.getAttribute('data-banco');
+      pintaBanco(id);
+      document.getElementById(id).classList.add('ver');
+      b.style.display='none';
+    });
+  });
+
+  /* ============ muerte súbita ============ */
+  document.querySelectorAll('.muerte button').forEach(function(b){
+    b.addEventListener('click',function(){
+      b.parentElement.querySelector('.dec').classList.add('ver');
+      b.style.display='none';
+    });
+  });
+})();
+</script>
+</body>
+</html>
