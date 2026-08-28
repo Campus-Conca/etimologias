@@ -170,7 +170,7 @@ nav_order: 7
 <h4><span class="n">1</span> Ritual: quiz relámpago <span class="reloj">10 min</span></h4>
 <p class="di">Tres reactivos, y uno es una palabra que nunca has visto.</p>
 <p class="apoyo">Es a propósito. Tu apuesta primero, del 0 al 3, y fíjate en algo mientras la escribes: ¿le bajaste por saber que venía una desconocida? Anota también eso. Los dos números van al renglón del quiz #5 de tu expediente, el último antes del integrador.</p>
-<p class="apoyo"><a href="../ejercicios/semana-06/quiz-relampago-semana-06.html">El quiz, lámina por lámina</a>: el mismo que se proyecta, con cronómetro y con las respuestas al final.</p>
+<p class="recurso"><a href="../ejercicios/semana-06/quiz-relampago-semana-06.html" target="_blank" rel="noopener">El quiz, lámina por lámina</a><span class="pie">El mismo que se proyecta, con cronómetro y con las respuestas al final.</span></p>
 <p class="nota-conductor">El quiz proyectable está aquí: <a href="../ejercicios/semana-06/quiz-relampago-semana-06.html">quiz relámpago de la semana 6</a>. La lámina de cierre del quiz les dice algo importante: si bajaron la apuesta por miedo y aun así salieron, su medidor está mal calibrado hacia abajo.</p>
 </section>
 <section class="lam lam--oscura">

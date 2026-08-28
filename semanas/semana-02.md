@@ -161,7 +161,7 @@ Toda palabra se puede abrir. La IA define cualquier palabra en un segundo; lo qu
 <span class="senal">A solas · papel</span>
 <p class="di">Tres palabras, papel, tres minutos. Antes de voltear la hoja: ¿cuántas crees que tendrás bien?</p>
 <p class="apoyo">El primero del semestre. Al calificar comparas tu apuesta con tu resultado. La brecha es información, no culpa.</p>
-<p class="apoyo"><a href="../ejercicios/semana-02/quiz-relampago-semana-02.html">El quiz, lámina por lámina</a>: el mismo que se proyecta, con cronómetro y con las respuestas al final.</p>
+<p class="recurso"><a href="../ejercicios/semana-02/quiz-relampago-semana-02.html" target="_blank" rel="noopener">El quiz, lámina por lámina</a><span class="pie">El mismo que se proyecta, con cronómetro y con las respuestas al final.</span></p>
 <p class="nota-conductor">Se califica en vivo y la brecha se anota en el expediente: la serie de calibración empieza hoy. El quiz completo, proyectable y con respuestas, está aquí: <a href="../ejercicios/semana-02/quiz-relampago-semana-02.html">quiz relámpago de la semana 2</a>.</p>
 </section>
 <section class="lam">

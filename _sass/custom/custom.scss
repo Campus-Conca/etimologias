@@ -204,6 +204,19 @@ th { background: #F7F3FB !important; color: #221A3A !important;
 .lam li { margin: .3rem 0; }
 .lam a { color: #C4006A; font-weight: 600; }
 
+// La puerta de un recurso: el proyectable o el ejercicio que esa lamina pide.
+// No es apoyo -por eso no se esconde con la tecla A- ni nota de conductor.
+// Se ve igual en la pagina y en el telon, y abre en otra pestana para no
+// tumbar la presentacion.
+.lam .recurso { margin: .9rem 0 0; }
+.lam .recurso a { display: inline-flex; align-items: baseline; gap: .5rem;
+  background: #FDF2F8; border: 1px solid #F0C2DC; border-radius: 2rem;
+  padding: .45rem 1.1rem; color: #C4006A; font-weight: 700; font-size: .92rem;
+  text-decoration: none; }
+.lam .recurso a::before { content: "\25B8"; font-size: .9em; }
+.lam .recurso a:hover, .lam .recurso a:focus-visible { background: #FBE3F0; border-color: #C4006A; }
+.lam .recurso .pie { display: block; color: #4A3F5C; font-size: .85rem; margin-top: .35rem; }
+
 .lam--oscura { background: #2B2440; border-color: #2B2440; color: #F4EFF9; }
 .lam--oscura > h4, .lam--oscura .di { color: #fff; }
 .lam--oscura .apoyo, .lam--oscura ul, .lam--oscura ol { color: #D9CFE8; }
@@ -312,6 +325,9 @@ html.telon-abierto, html.telon-abierto body { overflow: hidden; }
 #telon .escenario > .lam .ilustracion { max-height: 62vh; width: auto; margin: .8rem auto 0; }
 #telon .escenario > .lam.lam--portada { text-align: center; background: #2B2440; color: #F4EFF9; }
 #telon.sin-apoyo .escenario > .lam .apoyo { display: none; }
+#telon .escenario > .lam .recurso { margin: 1.4rem 0 0; }
+#telon .escenario > .lam .recurso a { font-size: 1.25rem; padding: .7rem 1.6rem; }
+#telon .escenario > .lam .recurso .pie { font-size: 1rem; }
 #telon.con-notas .escenario > .lam .nota-conductor { display: block; background: #FBF0D9;
   border: 1px dashed #C79A2E; border-radius: .6rem; padding: .6rem .9rem; margin: .9rem 0 0;
   font-size: 1.05rem; line-height: 1.5; color: #5C4A1C; text-align: left; }
