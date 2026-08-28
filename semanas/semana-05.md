@@ -26,7 +26,7 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 | [Martes 25](#martes) · 1 h | La cadena de raíces | el mazo al día |
 | [Miércoles 26](#miercoles) · 1 h | Las sorpresas del árbol | tu palabra más inesperada |
 | [Jueves 27](#jueves) · 1 h, centro de cómputo | El gimnasio abierto | tu teléfono con Anki y el mazo al día |
-| [Viernes 28](#viernes) · 2 h | El campeonato de árboles | a tu equipo con las pilas puestas |
+| [Viernes 28](#viernes) · 2 h | El campeonato de árboles | tu hoja, tu mazo y ganas de escribir rápido |
 
 <p class="pista-mazos">Cada día es un mazo de láminas. En clase se proyectan una por una con el botón <strong>Presentar</strong>; aquí se quedan apiladas, en orden, para volver a ellas cuando quieras. Debajo de los mazos: el árbol interactivo con las diez raíces, las sorpresas, la trampa de la semana y las tarjetas.</p>
 
@@ -628,27 +628,27 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 </section>
 <section class="lam">
 <h4><span class="n">3</span> Las reglas del campeonato <span class="reloj">10 min</span></h4>
-<p class="di">Tres raíces, dos minutos cada una. Gana quien haga más.</p>
-<p class="apoyo">Hoy las raíces no las eligen: se revelan en pantalla, una por una, y nadie las ha visto antes. Al destaparse arranca el reloj y son <strong>dos minutos</strong> para escribir todas las palabras de esa familia que el equipo pueda defender. Cuando suena, lápices arriba: se cuenta, se reta, se suma y va la siguiente.</p>
+<p class="di">Tres raíces, dos minutos cada una. Cada quien su hoja.</p>
+<p class="apoyo">Hoy juegas solo, contra el reloj y contra ti. Las raíces no se eligen: se destapan en pantalla, una por una, y nadie las ha visto antes. Al destaparse arrancan <strong>dos minutos</strong> para escribir todas las palabras de esa familia que se te ocurran. Cuando el reloj llega a cero se abre sola la familia completa, con la definición de cada palabra, y ahí te cuentas.</p>
 <table>
-<tr><th>Jugada</th><th>Vale</th></tr>
-<tr><td>Una palabra de la familia, defendida con la regla de oro</td><td>un punto</td></tr>
-<tr><td>Una palabra que también tiene otro equipo</td><td>medio punto</td></tr>
-<tr><td>Una palabra de la orilla que sobrevive al reto, con fuente</td><td>dos puntos</td></tr>
-<tr><td>Retar a otro equipo y tumbarle una palabra</td><td>un punto, y la palabra cae</td></tr>
-<tr><td>Proponer o retar sin fuente</td><td>pierdes el turno</td></tr>
-<tr><td>El equipo con más palabras válidas de la ronda</td><td>dos puntos de bono</td></tr>
+<tr><th>Lo que escribiste</th><th>Vale</th></tr>
+<tr><td>Una palabra de las que salen solas</td><td>un punto</td></tr>
+<tr><td>Una palabra de la orilla del árbol</td><td>dos puntos</td></tr>
+<tr><td>Una que no está en la lista, existe en el DLE y trae la raíz de verdad</td><td>dos puntos</td></tr>
+<tr><td>Una de las que parecen y no son</td><td>cero, y se tacha</td></tr>
+<tr><td>Una repetida o inventada</td><td>cero</td></tr>
 </table>
-<p class="apoyo">La regla del medio punto lo cambia todo: no conviene apuntarle a lo obvio. Si <em>cronómetro</em> la tienen los cinco equipos, vale la mitad para todos. Conviene irse a la orilla del árbol, ahí donde estaban botica, náusea y pulpo.</p>
-<p class="recurso"><a href="../ejercicios/semana-05/campeonato-de-arboles-tablero.html" target="_blank" rel="noopener">El tablero del campeonato</a><span class="pie">Ahí se destapan las tres raíces, corre el reloj de dos minutos y se lleva el marcador.</span></p>
-<p class="nota-conductor">Equipos de tres o cuatro, <a href="../ejercicios/semana-05/campeonato-de-arboles-tablero.html">el tablero del campeonato</a> proyectado y el DECEL en otra pestaña. Tú eres juez de última instancia. El tablero trae marcador con nombres, reloj de dos minutos que arranca solo al destapar la raíz y, al cerrar cada ronda, el banco de palabras: las obvias, las de la orilla y las trampas que parecen de la familia y no lo son.</p>
+<p class="apoyo">Dónde se gana: no en las obvias. <em>Cronómetro</em> y <em>monarquía</em> las escribe cualquiera. Se gana en la orilla, ahí donde están archivo, indígena y crónica —y donde también están las trampas—. Por eso la orilla paga doble y equivocarse ahí no cuesta puntos: el juego premia que te atrevas.</p>
+<p class="recurso"><a href="../ejercicios/semana-05/campeonato-de-arboles-tablero.html" target="_blank" rel="noopener">El tablero del campeonato</a><span class="pie">Ahí se destapan las tres raíces, corre el reloj de dos minutos y al llegar a cero se abre la familia completa con definiciones.</span></p>
+<p class="nota-conductor">Se juega individual: cada quien su hoja, sin equipos. Proyecta el tablero y deja el DECEL en otra pestaña para las palabras que alguien quiera pelear. Las palabras del árbol que sobrevivieron a la verificación de la lámina 2 entran como puntos de salida en el primer renglón del marcador: tres días de trabajo arrancan el juego. Las tres marcas para medirse están en el tablero: menos de 8 en una ronda es quedarse en lo obvio, de 8 a 14 es buen árbol, más de 15 es estar jugando en la orilla.</p>
 </section>
 <section class="lam lam--actividad">
 <h4><span class="n">4</span> El campeonato <span class="reloj">35 min</span></h4>
-<span class="senal">Por equipos</span>
-<p class="di">Se destapa la raíz, corre el reloj, y a los dos minutos se cuenta.</p>
-<p class="apoyo">Primero los puntos de salida: cada equipo dice cuántas palabras de su árbol sobrevivieron a la verificación de hace un rato, y ese número entra al marcador. Luego, tres rondas iguales: se destapa la raíz, dos minutos de escritura, cada equipo lee su lista en voz alta, los demás retan con fuente, y al final se abre el banco de palabras para cobrar la orilla. El árbol ganador se queda en la vitrina de la semana.</p>
-<p class="nota-conductor">Ronda por ronda, unos diez minutos: destapar, dos de escritura, uno de conteo, retos con el DECEL y banco de palabras. Las tres raíces van de menor a mayor dificultad —<em>crono-</em>, <em>gen-</em>, <em>arqui-</em>— y ninguna está en el mazo de la semana: hoy ya no se examina el mazo (para eso fue el quiz de la primera lámina), se examina el músculo. Si hay empate, el tablero trae tres palabras de muerte súbita. Registra el árbol más grande y las tres palabras más inesperadas del grupo: van a "Lo que produjimos".</p>
+<span class="senal">Actividad · individual</span>
+<p class="di">Se destapa la raíz, corre el reloj, y a los dos minutos se abre la familia.</p>
+<p class="apoyo">Tres rondas iguales. Escribes dos minutos, se abre la lista con todas las definiciones, te cuentas y anotas. Entre ronda y ronda, dos preguntas al aire: cuál fue la palabra más rara que alguien escribió y le sobrevivió a la lista, y cuál trampa se le coló a más gente. Las tres raíces suben de dificultad, y la última es la que decide.</p>
+<p class="apoyo">La lista no es la última palabra. Si escribiste algo que no aparece, existe en el <a href="https://dle.rae.es">DLE</a> y trae la raíz de verdad, vale dos puntos: el <a href="http://etimologias.dechile.net">DECEL</a> decide en vivo. Esas son las que se anotan en la vitrina de la semana.</p>
+<p class="nota-conductor">Ronda por ronda, unos diez minutos: destapar, dos de escritura, la familia abriéndose sola, tres o cuatro minutos de comentar la orilla y las trampas, y a la siguiente. Las raíces van de menor a mayor —<em>crono-</em>, <em>gen-</em>, <em>arqui-</em>— y ninguna está en el mazo de la semana: hoy no se examina el mazo, para eso fue el quiz de la primera lámina; se examina el músculo. Al final, el jefe final del tablero: tres palabras que mezclan una raíz de hoy con una del mazo. Registra el árbol más grande y las tres palabras más inesperadas del grupo: van a "Lo que produjimos".</p>
 </section>
 <section class="lam">
 <h4><span class="n">5</span> La raíz que cambió de opinión <span class="reloj">15 min</span></h4>
