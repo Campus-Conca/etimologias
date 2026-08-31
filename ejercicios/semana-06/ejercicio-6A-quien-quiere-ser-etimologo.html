@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 6 · ¿Quién quiere ser etimólogo?</title>
+<style>
+  :root{
+    --fondo:#221126; --panel:#2e1a34; --panel2:#3a2340; --borde:#553057;
+    --rosa:#ff7ab8; --rosaf:#c8127a; --crema:#f6e9f2; --tinta:#efe3ec;
+    --ok:#7ee2a0; --okd:#1f8a4c; --no:#ff9d6b; --nod:#b3541e;
+    --oro:#ffd479; --orod:#8a6a1f;
+    --pre-bg:#1c3a5c; --pre-tx:#a8d4ff;
+    --raiz-bg:#5c2038; --raiz-tx:#ffc2d6;
+    --suf-bg:#2c4a1c; --suf-tx:#c8f0a8;
+  }
+  *{box-sizing:border-box}
+  html{font-size:clamp(15px,1.15vw,20px)}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+       background:var(--fondo);color:var(--tinta);line-height:1.5;
+       -webkit-text-size-adjust:100%}
+  .wrap{max-width:760px;margin:0 auto;padding:.8rem 1rem 5rem}
+  h1,h2,h3{line-height:1.2}
+  a{color:var(--rosa)}
+
+  /* ---------- barra de arriba ---------- */
+  #barra{position:sticky;top:0;z-index:20;background:var(--fondo);
+         border-bottom:1px solid var(--borde);padding:.5rem 0 .45rem;display:none}
+  #barra.ver{display:block}
+  .barra-in{max-width:760px;margin:0 auto;padding:0 1rem;
+            display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+  .chip{background:var(--panel);border:1px solid var(--borde);border-radius:.6rem;
+        padding:.2rem .6rem;font-size:.8rem;font-weight:700;white-space:nowrap}
+  .chip b{color:#fff}
+  #reloj{font-variant-numeric:tabular-nums;min-width:3.4rem;text-align:center;
+         font-size:1rem;color:#fff}
+  #reloj.rojo{color:var(--no);animation:parp .6s steps(2) infinite}
+  @keyframes parp{50%{opacity:.35}}
+  #vidas{letter-spacing:.1em;font-size:1rem;color:var(--rosa)}
+  #vidas .ida{opacity:.22}
+  #palabras{margin-left:auto;color:var(--oro);font-weight:800;font-size:.95rem;
+            font-variant-numeric:tabular-nums}
+
+  /* ---------- pantallas ---------- */
+  .pantalla{display:none}
+  .pantalla.activa{display:block;animation:entra .25s ease}
+  @keyframes entra{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  .kicker{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;
+          color:var(--rosa);font-weight:700}
+  .disp{font-weight:800;color:#fff}
+  h1.disp{font-size:2rem;margin:.3rem 0 .6rem}
+  .sub{color:var(--crema);opacity:.9}
+
+  .caja{background:var(--panel);border:1px solid var(--borde);border-radius:.9rem;
+        padding:1rem 1.1rem;margin:1rem 0}
+  .caja h3{margin:0 0 .5rem;color:var(--rosa);font-size:1.05rem}
+  ol.reglas{margin:.4rem 0 0;padding-left:1.2rem}
+  ol.reglas li{margin:.45rem 0}
+  ol.reglas b{color:#fff}
+
+  input[type=text],textarea,select{width:100%;background:var(--panel2);
+    border:1px solid var(--borde);border-radius:.6rem;padding:.6rem .7rem;
+    font:inherit;color:var(--tinta);margin-top:.35rem}
+  textarea{min-height:3.4rem;resize:vertical}
+  label{font-size:.85rem;color:var(--crema);opacity:.85;display:block;margin-top:.7rem}
+
+  .btn{border:none;border-radius:.7rem;padding:.7rem 1.2rem;font:inherit;
+       font-weight:800;cursor:pointer;background:var(--rosaf);color:#fff}
+  .btn:hover{background:var(--rosa);color:#2a0f22}
+  .btn.gris{background:var(--panel2);color:var(--tinta);border:1px solid var(--borde)}
+  .btn.gris:hover{background:var(--panel2);border-color:var(--rosa);color:var(--rosa)}
+  .btn:disabled{opacity:.4;cursor:not-allowed}
+  .btn-fila{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+
+  /* ---------- pregunta ---------- */
+  .tramo-tit{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;margin:.2rem 0 .8rem}
+  .tramo-tit .n{font-size:2.4rem;font-weight:800;color:var(--rosa);line-height:1}
+  .tramo-tit .de{font-size:.8rem;color:var(--crema);opacity:.7}
+  .premio{color:var(--oro);font-weight:800;font-size:.95rem}
+
+  #enunciado{font-size:1.3rem;font-weight:700;color:#fff;margin:.4rem 0 1rem}
+  #enunciado em{color:var(--rosa);font-style:normal}
+
+  .opciones{display:grid;gap:.55rem}
+  .op{display:flex;align-items:flex-start;gap:.7rem;text-align:left;width:100%;
+      background:var(--panel);border:1px solid var(--borde);border-radius:.7rem;
+      padding:.75rem .85rem;font:inherit;color:var(--tinta);cursor:pointer;line-height:1.35}
+  .op:hover:not(:disabled){border-color:var(--rosa)}
+  .op .letra{font-weight:800;color:var(--rosa);flex:0 0 1.2rem}
+  .op:disabled{cursor:default}
+  .op.buena{background:#1d3d2a;border-color:var(--ok);color:#dff7e6}
+  .op.buena .letra{color:var(--ok)}
+  .op.mala{background:#4a2418;border-color:var(--no);color:#ffe3d3}
+  .op.mala .letra{color:var(--no)}
+  .op.fuera{opacity:.28}
+
+  /* ---------- corte previo ---------- */
+  #corte{display:none}
+  #corte.ver{display:block}
+  .pistas-piezas{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem}
+  .pz{border-radius:.5rem;padding:.25rem .55rem;font-size:.85rem;font-weight:700}
+  .pz--pre{background:var(--pre-bg);color:var(--pre-tx)}
+  .pz--raiz{background:var(--raiz-bg);color:var(--raiz-tx)}
+  .pz--suf{background:var(--suf-bg);color:var(--suf-tx)}
+
+  /* ---------- comodines ---------- */
+  #comodines{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-top:1rem}
+  .com{background:var(--panel2);border:1px solid var(--borde);border-radius:.7rem;
+       padding:.5rem .3rem;font:inherit;font-weight:700;font-size:.82rem;
+       color:var(--tinta);cursor:pointer;text-align:center;line-height:1.25}
+  .com small{display:block;font-weight:400;font-size:.7rem;opacity:.7;margin-top:.15rem}
+  .com:hover:not(:disabled){border-color:var(--oro);color:var(--oro)}
+  .com:disabled{opacity:.3;cursor:not-allowed;text-decoration:line-through}
+  #ayuda{display:none;margin-top:.7rem;background:#3a2f18;border:1px solid var(--orod);
+         border-radius:.7rem;padding:.7rem .9rem;font-size:.92rem;color:var(--oro)}
+  #ayuda.ver{display:block}
+
+  /* ---------- retro ---------- */
+  #retro{display:none;margin-top:1rem;border-radius:.8rem;padding:.9rem 1rem;
+         border:1px solid var(--borde);background:var(--panel)}
+  #retro.ver{display:block}
+  #retro.bien{border-color:var(--okd);background:#1b3325}
+  #retro.mal{border-color:var(--nod);background:#3d2317}
+  #retro .veredicto{font-weight:800;font-size:1.05rem;margin:0 0 .35rem}
+  #retro.bien .veredicto{color:var(--ok)}
+  #retro.mal .veredicto{color:var(--no)}
+  #retro .txt{font-size:.95rem;color:var(--crema)}
+  #retro .semana{display:inline-block;margin-top:.5rem;font-size:.75rem;font-weight:700;
+                 text-transform:uppercase;letter-spacing:.08em;color:var(--rosa)}
+
+  /* ---------- escalera ---------- */
+  #escalera{margin-top:1.4rem;border-top:1px solid var(--borde);padding-top:.8rem}
+  #escalera h3{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;
+               color:var(--crema);opacity:.6;margin:0 0 .5rem}
+  .peldanos{display:flex;flex-direction:column-reverse;gap:.15rem}
+  .pel{display:flex;justify-content:space-between;gap:.6rem;font-size:.82rem;
+       padding:.2rem .55rem;border-radius:.4rem;color:var(--crema);opacity:.5}
+  .pel .val{font-variant-numeric:tabular-nums}
+  .pel.sellado{opacity:.85;color:var(--oro);font-weight:700}
+  .pel.hecho{opacity:.75}
+  .pel.aqui{opacity:1;background:var(--rosaf);color:#fff;font-weight:800}
+
+  /* ---------- final ---------- */
+  .acta{background:var(--panel2);border:1px solid var(--borde);border-radius:.8rem;
+        padding:.9rem 1rem;white-space:pre-wrap;font-size:.85rem;line-height:1.5;
+        max-height:19rem;overflow:auto;margin-top:.8rem}
+  .grande{font-size:2.6rem;font-weight:800;color:var(--oro);
+          font-variant-numeric:tabular-nums;line-height:1.1;margin:.3rem 0}
+
+  #modo{position:fixed;bottom:.8rem;right:.8rem;z-index:30;background:var(--panel2);
+        color:var(--tinta);border:1px solid var(--borde);border-radius:2rem;
+        padding:.4rem .8rem;font-size:.78rem;font-weight:700;cursor:pointer}
+  body.proyector{font-size:1.25rem}
+  body.proyector .wrap{max-width:1050px}
+  body.proyector #enunciado{font-size:2rem}
+  body.proyector .op{font-size:1.15rem}
+
+  footer{margin-top:2.5rem;border-top:1px solid var(--borde);padding-top:.9rem;
+         font-size:.8rem;color:var(--crema);opacity:.55}
+</style>
+</head>
+<body>
+
+<div id="barra">
+  <div class="barra-in">
+    <span class="chip" id="chip-tramo">Tramo 1</span>
+    <span class="chip">Reloj <b id="reloj">1:00</b></span>
+    <span class="chip" id="vidas">♥♥♥</span>
+    <span class="chip" id="palabras">0 palabras</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ============ 1 · PORTADA ============ -->
+<section class="pantalla activa" id="p-portada">
+  <div class="kicker">Etimologías · Semana 6 · Martes 1 · Ejercicio A</div>
+  <h1 class="disp">¿Quién quiere ser etimólogo?</h1>
+  <p class="sub">Veintiocho preguntas de todo lo que llevamos: mazo cero, anatomía de las palabras, sumas, el griego que ya hablan y las familias de la semana pasada. Arriba del todo hay un millón de palabras esperando.</p>
+
+  <div class="caja">
+    <h3>Hoy no estoy, así que léanlo bien</h3>
+    <p style="margin:.2rem 0 0">Falté. Ustedes no. Este juego es la clase de hoy y se conduce solo: no necesitan que nadie pase al frente ni que nadie dé permiso. Solo necesitan una pareja, un teléfono y ganas de discutir. Al final me mandan su acta al grupo y el miércoles abrimos con eso.</p>
+    <p style="margin:.6rem 0 0"><em>La prueba de fuego se recorre al miércoles. Hoy toca ver qué tanto traen puesto.</em></p>
+  </div>
+
+  <div class="caja">
+    <h3>Cómo se juega</h3>
+    <ol class="reglas">
+      <li><b>En parejas, un solo teléfono.</b> Si juegan solos, la mitad del juego se pierde: lo bueno es discutir la respuesta antes de picarle.</li>
+      <li><b>Suben peldaño por peldaño.</b> Cada acierto vale más palabras que el anterior. Empiezan en 100 y arriba hay 1,000,000.</li>
+      <li><b>Pero el número que cuenta es otro:</b> cuántas de las 28 les salen <b>a la primera</b>. Tarde o temprano todos llegan al millón, porque las falladas vuelven hasta que las sacan. A la primera, no.</li>
+      <li><b>Tres corazones.</b> Cada error cuesta uno. Si se quedan sin corazones caen al último piso sellado, recuperan los tres y repiten el tramo.</li>
+      <li><b>Pisos sellados.</b> Al terminar cada tramo su marcador se congela: de ahí para abajo ya no pueden caer.</li>
+      <li><b>Tres comodines para todo el juego.</b> Uno de ellos los obliga a levantarse a preguntarle a otra pareja. Úsenlos tarde: arriba pesan más.</li>
+      <li><b>Reloj por pregunta.</b> No es para apurarlos: es para que buscar en el teléfono no salga a cuenta. Si se acaba, cuesta un corazón.</li>
+      <li><b>Las que fallen vuelven.</b> Al final de cada tramo regresan las preguntas que se les cayeron. Hay que sacarlas para sellar el piso.</li>
+    </ol>
+  </div>
+
+  <div class="caja">
+    <h3>¿Quiénes están jugando?</h3>
+    <label for="nombres">Sus dos nombres (así aparecen en el acta)</label>
+    <input type="text" id="nombres" placeholder="Ana y Beto" autocomplete="off">
+  </div>
+
+  <div class="btn-fila">
+    <button class="btn" type="button" id="ir-apuesta">Empezar ▸</button>
+  </div>
+</section>
+
+<!-- ============ 2 · APUESTA ============ -->
+<section class="pantalla" id="p-apuesta">
+  <div class="kicker">Antes de ver la primera</div>
+  <h1 class="disp">Su apuesta</h1>
+  <p class="sub">Como en el quiz relámpago: primero se apuesta, luego se juega. Al final comparamos. Aquí nadie persigue puntos, se persigue la brecha.</p>
+
+  <div class="caja">
+    <p style="margin:0 0 .2rem">Tarde o temprano todo el mundo llega al millón: las que fallan vuelven a salir hasta que las sacan. Así que la apuesta no es hasta dónde llegan.</p>
+    <label for="apuesta">De las 28, ¿cuántas creen que les van a salir <b>a la primera</b>?</label>
+    <select id="apuesta">
+      <option value="0-9">Menos de 10</option>
+      <option value="10-16">Entre 10 y 16</option>
+      <option value="17-22" selected>Entre 17 y 22</option>
+      <option value="23-28">Entre 23 y 28</option>
+    </select>
+    <p class="sub" style="font-size:.85rem;margin-top:.8rem">Ese es el número que va en el acta y el que se compara con el de las demás parejas. No se puede cambiar después: de eso se trata.</p>
+  </div>
+
+  <div class="btn-fila">
+    <button class="btn" type="button" id="arranca">Que empiece ▸</button>
+  </div>
+</section>
+
+<!-- ============ 3 · JUEGO ============ -->
+<section class="pantalla" id="p-juego">
+  <div class="tramo-tit">
+    <span class="n" id="q-num">1</span>
+    <div>
+      <div class="kicker" id="q-tramo">Tramo 1 · De a peso</div>
+      <div class="premio" id="q-premio">100 palabras</div>
+    </div>
+  </div>
+
+  <div id="corte">
+    <div class="caja" style="margin-top:0">
+      <h3>Primero el corte, luego las opciones</h3>
+      <p style="margin:0;font-size:.95rem" id="corte-palabra"></p>
+      <label for="corte-txt">¿En qué piezas la parten y qué dice cada una?</label>
+      <textarea id="corte-txt" placeholder="hemo (sangre) + logía (estudio)"></textarea>
+      <div class="btn-fila">
+        <button class="btn" type="button" id="corte-listo">Ya está, muéstrenme las opciones ▸</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="cuerpo">
+    <p id="enunciado"></p>
+    <div class="opciones" id="opciones"></div>
+
+    <div id="comodines">
+      <button class="com" type="button" data-com="familia">La familia<small>tres palabras hermanas</small></button>
+      <button class="com" type="button" data-com="mazo">El mazo<small>idioma y ancla</small></button>
+      <button class="com" type="button" data-com="pareja">La otra pareja<small>vayan y pregunten</small></button>
+    </div>
+    <div id="ayuda"></div>
+
+    <div id="retro">
+      <p class="veredicto" id="retro-vered"></p>
+      <p class="txt" id="retro-txt"></p>
+      <span class="semana" id="retro-semana"></span>
+      <div class="btn-fila">
+        <button class="btn" type="button" id="sigue" disabled>Siguiente ▸</button>
+        <button class="btn gris" type="button" id="plantarse">Me planto aquí</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="escalera">
+    <h3 id="escalera-tit">La escalera</h3>
+    <div class="peldanos" id="peldanos"></div>
+  </div>
+</section>
+
+<!-- ============ 4 · FINAL ============ -->
+<section class="pantalla" id="p-final">
+  <div class="kicker" id="fin-kicker">Se acabó</div>
+  <h1 class="disp" id="fin-tit">Hasta aquí llegaron</h1>
+  <div class="grande" id="fin-palabras">0</div>
+  <p class="sub" id="fin-marcador" style="margin-top:-.3rem;font-size:1.05rem"></p>
+  <p class="sub" id="fin-sub"></p>
+
+  <div class="caja">
+    <h3>El número que importa</h3>
+    <p style="margin:0" id="fin-brecha"></p>
+    <p class="sub" style="font-size:.88rem;margin:.5rem 0 0">La brecha entre lo que apostaron y lo que sacaron es información, no culpa. Es su calibración entrenándose.</p>
+  </div>
+
+  <div class="caja">
+    <h3>Lo último, y es lo que sí me sirve</h3>
+    <p style="margin:0">Copien el acta y péguenla en el grupo. Con eso abrimos el miércoles.</p>
+    <div class="acta" id="acta"></div>
+    <div class="btn-fila">
+      <button class="btn" type="button" id="copiar">Copiar el acta</button>
+      <button class="btn gris" type="button" id="otra">Jugar otra vez</button>
+    </div>
+  </div>
+
+  <footer>
+    Etimologías Grecolatinas del Español · Escuela de Bachilleres · UAQ Campus Concá<br>
+    Todo lo que se preguntó aquí sale de las semanas 0 a la 5. Nada que no hayamos abierto juntos.
+  </footer>
+</section>
+
+</div>
+
+<button id="modo" type="button">Aa proyector</button>
+
+<script>
+(function(){
+"use strict";
+
+/* ==========================================================================
+   EL BANCO. Un objeto por pregunta. Solo semanas 0 a 5: las piezas de la
+   semana 6 se ensenan el miercoles y aqui no entran.
+     tramo         1 a 4
+     opciones      exactamente cuatro
+     correcta      indice 0-3
+     retro         lo que se aprende al fallar; siempre ensena algo
+     familia       comodin: tres palabras hermanas
+     mazo          comodin: idioma y ancla de la pieza
+     escribe_corte si es true, primero teclean el corte y luego ven opciones
+   Los comentarios de este archivo van entre barra-asterisco a proposito.
+   ========================================================================== */
+var BANCO = [
+ {
+  "n": 1,
+  "tramo": 1,
+  "tipo": "pieza",
+  "semana": "0",
+  "enunciado": "Empezamos con una de regalo, para que nadie se enfríe. graf- vive en fotografía y en ortografía. ¿Qué significa?",
+  "opciones": [
+   "libro",
+   "estudio",
+   "escribir",
+   "lectura"
+  ],
+  "correcta": 2,
+  "retro": "Fotografía es escribir con luz; ortografía, escribir derecho. Lo de escribir lo pone graf- en las dos.<br>graf- es del mazo cero, semana 0, y su gemelo latino es escrib-, el de manuscrito.<br>Hermana que ya usas sin pensarlo: biografía, la escritura de una vida. El estudio lo pone -logía; el libro, biblio-.",
+  "familia": "biografía, ortografía, demografía",
+  "mazo": "griego · ancla: fotografía",
+  "escribe_corte": false
+ },
+ {
+  "n": 2,
+  "tramo": 1,
+  "tipo": "pieza",
+  "semana": "0",
+  "enunciado": "El español heredó la misma idea de sus dos padres. ¿Cuál de estos pares dice lo mismo, uno en griego y otro en latín?",
+  "opciones": [
+   "bio- y vit-, la vida",
+   "geo- y cardio-, tierra",
+   "hidro- y terr-, agua",
+   "graf- y cord-, escribir"
+  ],
+  "correcta": 0,
+  "retro": "bio- es la vida en griego y vit- es la vida en latín: biología y vitamina dicen la misma idea con distinta ropa.<br>Los pares del mazo cero, semana 0, van hidro/acu, geo/terr, bio/vit, graf/escrib, cardio/cord.<br>Hermana de vit-: revitalizar, que es devolverle la vida a algo.",
+  "familia": "biología, biografía, microbio",
+  "mazo": "griego (bio-) y latín (vit-) · anclas: biología y vitamina",
+  "escribe_corte": false
+ },
+ {
+  "n": 3,
+  "tramo": 1,
+  "tipo": "pieza",
+  "semana": "0",
+  "enunciado": "Recordar trae adentro una pieza latina. ¿Qué idea guarda?",
+  "opciones": [
+   "la cabeza",
+   "la memoria",
+   "la cuerda",
+   "el corazón"
+  ],
+  "correcta": 3,
+  "retro": "re- (otra vez) + cord- (corazón): recordar es volver a pasar algo por el corazón, no por la cabeza.<br>cord- es del mazo cero, semana 0, y es el gemelo latino de cardio-.<br>Sus hermanas: cordial, concordia y discordia, que es cuando los corazones no se ponen de acuerdo.",
+  "familia": "cordial, concordia, discordia",
+  "mazo": "latín · ancla: cordial",
+  "escribe_corte": false
+ },
+ {
+  "n": 4,
+  "tramo": 1,
+  "tipo": "pieza",
+  "semana": "2",
+  "enunciado": "Buscas la pieza griega que significa «medida». ¿Cuál de estas cuatro es?",
+  "opciones": [
+   "-grama",
+   "-metro",
+   "-logía",
+   "-scopio"
+  ],
+  "correcta": 1,
+  "retro": "Termómetro mide calor, cronómetro mide tiempo, geometría mide la tierra. Siempre alguien midiendo.<br>-metro / -metría es de la semana 2; -grama es lo ya escrito y -logía es el estudio: parecidas, distinto oficio.<br>Hermana lejana: telemetría, medir desde lejos sin moverte del lugar.",
+  "familia": "termómetro, geometría, telemetría",
+  "mazo": "griego · ancla: termómetro",
+  "escribe_corte": false
+ },
+ {
+  "n": 5,
+  "tramo": 1,
+  "tipo": "pieza",
+  "semana": "2",
+  "enunciado": "Tres de estas palabras vienen de oculus, el ojo del latín. ¿Cuál se coló?",
+  "opciones": [
+   "ocular",
+   "monóculo",
+   "binoculares",
+   "ocultar"
+  ],
+  "correcta": 3,
+  "retro": "Ocultar viene de occulere, esconder. Trae las letras, pero no la familia: es una trampa de la vista.<br>oculus es de la semana 2 y te regala ocular, monóculo, binoculares y oculista.<br>La regla de siempre: si la fuente no lo confirma, no es familia por más que se parezcan.",
+  "familia": "oculista, ojo, anteojos",
+  "mazo": "latín · ancla: oculista",
+  "escribe_corte": false
+ },
+ {
+  "n": 6,
+  "tramo": 1,
+  "tipo": "pieza",
+  "semana": "2",
+  "enunciado": "Abiótico y antibiótico solo se distinguen por su primera pieza. ¿Qué significa cada una?",
+  "opciones": [
+   "a- es «contra» y anti- es «sin»",
+   "las dos significan «sin», nada más",
+   "a- es «sin» y anti- es «contra»",
+   "las dos significan «contra», nada más"
+  ],
+  "correcta": 2,
+  "retro": "Abiótico es «sin vida» y antibiótico es «contra la vida»: cambia una pieza y cambia todo.<br>a- / an- es de la semana 2 y anti- entró en la semana 4. Las dos son griegas y las dos se pegan a bio-.<br>Hermanas del a-: anónimo, anemia y apolítico. Del anti-: antídoto y antipatía.",
+  "familia": "anónimo, anemia, abiótico",
+  "mazo": "griego · anclas: amnesia (a-) y antibiótico (anti-)",
+  "escribe_corte": false
+ },
+ {
+  "n": 7,
+  "tramo": 1,
+  "tipo": "pieza",
+  "semana": "2",
+  "enunciado": "Tres de estas palabras traen el tele- de «lejos». ¿Cuál solo lo aparenta?",
+  "opciones": [
+   "telaraña",
+   "telescopio",
+   "teléfono",
+   "telegrafía"
+  ],
+  "correcta": 0,
+  "retro": "Telaraña es tela + araña, del latín tela: la tela de la araña. Ese tele- se lo pone el ojo, no el griego.<br>tele- (lejos) es de la semana 2, y la regla de oro decide: la pieza tiene que reaparecer con el mismo significado, y aquí no reaparece.<br>En telescopio miras lejos, en teléfono oyes lejos, en telegrafía escribes lejos. En la telaraña no hay nada lejos: está en el rincón.",
+  "familia": "televisión, telemetría, telepatía",
+  "mazo": "griego · ancla: teléfono",
+  "escribe_corte": false
+ },
+ {
+  "n": 8,
+  "tramo": 1,
+  "tipo": "pieza",
+  "semana": "0",
+  "enunciado": "Tres de estas palabras traen aqua, el agua del latín. ¿Cuál no?",
+  "opciones": [
+   "acuario",
+   "acuerdo",
+   "acuarela",
+   "acueducto"
+  ],
+  "correcta": 1,
+  "retro": "Acuerdo viene de cor, cordis: acordar es ponerse de corazón, y ahí no hay una gota de agua.<br>aqua es del mazo cero, semana 0, y es el gemelo latino de hidro-, el de hidratante.<br>Hermana transparente: acueducto, literal, el que conduce el agua.",
+  "familia": "acuático, acuífero, agua",
+  "mazo": "latín · ancla: acuario",
+  "escribe_corte": false
+ },
+ {
+  "n": 9,
+  "tramo": 2,
+  "tipo": "desarmar",
+  "semana": "varias",
+  "enunciado": "Te doy dos piezas del mazo: crono- (tiempo) y -grama (escrito, registro). Pegadas arman la palabra que usas cada vez que reparten fechas en un trabajo por equipos. ¿Cuál es y qué dice?",
+  "opciones": [
+   "Cronómetro: el aparato que mide el tiempo",
+   "Crónica: el relato de lo que fue pasando",
+   "Cronología: el estudio del orden del tiempo",
+   "Cronograma: el registro escrito del tiempo"
+  ],
+  "correcta": 3,
+  "retro": "crono (tiempo) + grama (lo escrito): el tiempo puesto por escrito, que es exactamente lo que haces cuando repartes las fechas del equipo.<br>crono- es de la semana 2 y -grama de la 3. Las otras tres opciones también son reales: lo que cambia en cada una es el final, no la raíz.<br>-grama es primo de graf-, del mazo cero: graf- es el acto de escribir, -grama es lo ya escrito.",
+  "familia": "telegrama, crucigrama, electrocardiograma",
+  "mazo": "griego · ancla: telegrama",
+  "escribe_corte": false
+ },
+ {
+  "n": 10,
+  "tramo": 2,
+  "tipo": "desarmar",
+  "semana": "varias",
+  "enunciado": "Gastritis, gastralgia y gastroscopio traen la misma raíz: gastro-, el estómago. Lo que cambia es el final, y con él cambia el oficio. ¿Cuál de estos finales dice dolor?",
+  "opciones": [
+   "-itis, la que también arma otitis y dermatitis",
+   "-algia, la que también arma neuralgia y cefalalgia",
+   "-scopio, el que también arma telescopio y periscopio",
+   "-grama, el que también arma telegrama y crucigrama"
+  ],
+  "correcta": 1,
+  "retro": "gastro (estómago) + algia (dolor): el estómago que duele, y nada más. Con -itis sería inflamación y con -scopio sería el aparato para asomarse: tres finales, tres consultas distintas.<br>-algia y -itis viven en la semana 4; -scopio y -grama, en la 3.<br>Hermana de gastralgia: nostalgia, que también es un dolor y ni siquiera es del cuerpo.",
+  "familia": "neuralgia, cefalalgia, nostalgia",
+  "mazo": "griego · ancla: cefalalgia",
+  "escribe_corte": false
+ },
+ {
+  "n": 11,
+  "tramo": 2,
+  "tipo": "desarmar",
+  "semana": "varias",
+  "enunciado": "Psicólogo y psiquiatra arrancan con la misma pieza: psico-, el alma. Lo que los separa es la segunda. ¿Qué dice -iatra que no dice -logo?",
+  "opciones": [
+   "Que es médico de verdad: receta y cura",
+   "Que es el que estudia y explica el tema",
+   "Que es el aparato con el que se examina",
+   "Que es el dolor que no te deja dormir"
+  ],
+  "correcta": 0,
+  "retro": "psico (alma) + iatra (médico): el médico del alma. Psico + logo es el que la estudia. La raíz es la misma; el final reparte el oficio.<br>psico- es de la semana 3 e iatro-/-iatra de la 4; -logo te acompaña desde el mazo cero.<br>Hermanas de -iatra: pediatra, el médico de niños, y geriatra, el de los viejos.",
+  "familia": "pediatra, geriatra, psiquiatra",
+  "mazo": "griego · ancla: pediatra",
+  "escribe_corte": false
+ },
+ {
+  "n": 12,
+  "tramo": 2,
+  "tipo": "desarmar",
+  "semana": "3",
+  "enunciado": "Transporte, portátil y reportero traen port- (llevar). Teclea cómo cortas transporte y luego escoge qué dice, pieza por pieza.",
+  "opciones": [
+   "El que se queda cuidando la puerta",
+   "Llevar algo adentro para venderlo",
+   "Llevar una cosa de un lado a otro",
+   "Llevarse lejos, a distraerse un rato"
+  ],
+  "correcta": 2,
+  "retro": "trans (de un lado a otro) + port (llevar): llevar de un lado a otro, sin misterio. Las dos piezas son latinas y las dos son de la semana 3.<br>port- no es una palabra, es una fábrica: de ahí salen exportar, importar, portátil y reportero sin pagar nada extra.<br>Y trans- trabaja igual de duro por su cuenta: transformar, transmitir, transatlántico.",
+  "familia": "importar, exportar, portátil",
+  "mazo": "latín · ancla: transporte",
+  "escribe_corte": true
+ },
+ {
+  "n": 13,
+  "tramo": 2,
+  "tipo": "desarmar",
+  "semana": "varias",
+  "enunciado": "Alguien sale del río temblando, con el cuerpo helado y los labios morados. Teclea el corte de la palabra que escribiría el médico y luego escoge cuál es.",
+  "opciones": [
+   "Hipertermia: el calor de más",
+   "Hipotensión: la presión de menos",
+   "Hipoglucemia: el azúcar de menos",
+   "Hipotermia: el calor de menos"
+  ],
+  "correcta": 3,
+  "retro": "hipo (de menos) + termo (calor) + ia (cualidad). Hiper- e hipo- son de la semana 4; termo- es de la 3, la misma de termómetro y del termo del café.<br>El error clásico es agarrar hiper-: eso sería fiebre, lo contrario del río.<br>Y ojo con la trampa: este hipo- no es el de hipódromo, que es híppos, caballo. Se ven idénticos y no son parientes.",
+  "familia": "hipotensión, hipoglucemia, hipótesis",
+  "mazo": "griego · ancla: hipotermia",
+  "escribe_corte": true
+ },
+ {
+  "n": 14,
+  "tramo": 2,
+  "tipo": "desarmar",
+  "semana": "varias",
+  "enunciado": "Al final de un trabajo escolar va la lista de los libros que consultaste. Teclea cómo cortas esa palabra y luego escoge cuál es y qué dice literalmente.",
+  "opciones": [
+   "Bibliografía: la escritura de los libros",
+   "Biografía: la escritura de una vida",
+   "Biblioteca: el depósito de los libros",
+   "Bibliología: el estudio de los libros"
+  ],
+  "correcta": 0,
+  "retro": "biblio (libro) + graf (escribir) + ia (cualidad): lo escrito sobre los libros.<br>Biografía se le parece y le falta justo el libro: ahí la raíz es bio-, la vida, del mazo cero. Tres letras de diferencia, otra familia entera.<br>biblio- es de la semana 4 y graf- del mazo cero. Hermana: la Biblia, que significa, sin adornos, los libros.",
+  "familia": "biblioteca, Biblia, bibliotecario",
+  "mazo": "griego · ancla: biblioteca",
+  "escribe_corte": true
+ },
+ {
+  "n": 15,
+  "tramo": 2,
+  "tipo": "desarmar",
+  "semana": "varias",
+  "enunciado": "Demografía y democracia empiezan igual y terminan en dos oficios distintos. Teclea el corte de demografía y luego di qué significa literalmente, pieza por pieza.",
+  "opciones": [
+   "El gobierno que ejerce el pueblo",
+   "El estudio de las leyes del pueblo",
+   "La descripción escrita del pueblo",
+   "La medida del tamaño de un pueblo"
+  ],
+  "correcta": 2,
+  "retro": "demo (pueblo) + graf (escribir) + ia (cualidad): el pueblo puesto por escrito. Cámbiale el final y cambia el oficio: demo + cracia es el poder del pueblo.<br>demo- y -cracia son de la semana 4; graf- viene del mazo cero y ya lleva medio semestre trabajando.<br>Hermana: pandemia, la enfermedad que agarra a todo el pueblo.",
+  "familia": "democracia, pandemia, demagogo",
+  "mazo": "griego · ancla: democracia",
+  "escribe_corte": true
+ },
+ {
+  "n": 16,
+  "tramo": 2,
+  "tipo": "desarmar",
+  "semana": "4",
+  "enunciado": "La palabra estrella de la semana 4: otorrinolaringólogo. Teclea dónde cortas y luego di cuántas partes del cuerpo trae adentro y cuáles son.",
+  "opciones": [
+   "Dos: oído y garganta, más el que estudia y cura",
+   "Tres: oído, nariz y garganta, más el que estudia",
+   "Tres: ojo, nariz y garganta, más el que estudia",
+   "Cuatro: ojo, oído, nariz y garganta, y el estudio"
+  ],
+  "correcta": 1,
+  "retro": "oto (oído) + rino (nariz) + laringo (garganta) + logo (el que estudia). Cuatro piezas y ni una nueva: oto ya la traías de otitis, rino de rinoceronte, y -logo te acompaña desde la semana 0.<br>Vive en la semana 4, el día que quedó claro que ninguna palabra es larga: solo es una suma que nadie te había enseñado a leer.<br>Hermana: laringitis, la garganta inflamada.",
+  "familia": "otitis, rinoceronte, laringitis",
+  "mazo": "griego · ancla: otorrinolaringólogo",
+  "escribe_corte": true
+ },
+ {
+  "n": 17,
+  "tramo": 3,
+  "tipo": "pieza",
+  "semana": "5",
+  "enunciado": "Tres de estas vienen de naus, la nave. ¿Cuál se subió al barco equivocado?",
+  "opciones": [
+   "náutico",
+   "náusea",
+   "naturaleza",
+   "internauta"
+  ],
+  "correcta": 2,
+  "retro": "Naturaleza viene del latín natura, de nacer: no navega, nace.<br>Las otras tres llevan naus (nave), de la semana 5, y náusea es, literal, el mareo del barco: antes del coche, marearse era cosa de navegantes.<br>Hermana: astronauta, el navegante de los astros.",
+  "familia": "astronauta, argonauta, cosmonauta",
+  "mazo": "griego · ancla: astronauta",
+  "escribe_corte": false
+ },
+ {
+  "n": 18,
+  "tramo": 3,
+  "tipo": "desarmar",
+  "semana": "5",
+  "enunciado": "Economía no nació en un banco: nació en una casa. Escribe el corte y luego di qué dos piezas la forman.",
+  "opciones": [
+   "eco (medio ambiente) + nomos (regla)",
+   "eco (sonido) + nomos (nombre)",
+   "oikos (casa) + metron (medida)",
+   "oikos (casa) + nomos (ley, regla)"
+  ],
+  "correcta": 3,
+  "retro": "Las reglas de la casa: oikos (casa) + nomos (ley), la pieza -nomía de la semana 5.<br>Por eso gastronomía son las reglas del estómago y autonomía las reglas que te pones tú.<br>Y de pilón: el eco- de ecología también es oikos, solo que ahí la casa es el planeta entero.",
+  "familia": "gastronomía, autonomía, agronomía",
+  "mazo": "griego · ancla: astronomía",
+  "escribe_corte": true
+ },
+ {
+  "n": 19,
+  "tramo": 3,
+  "tipo": "pieza",
+  "semana": "5",
+  "enunciado": "Tres de estas cuatro llevan zoo-, animal. ¿Cuál nada más lo aparenta?",
+  "opciones": [
+   "protozoo (el ser microscópico)",
+   "zoom (el que acerca la imagen)",
+   "zodiaco (los doce signos)",
+   "espermatozoide (la célula)"
+  ],
+  "correcta": 1,
+  "retro": "Zoom es inglés y es puro ruido: nació imitando lo que pasa rápido y no trae ni un animal dentro.<br>Las otras tres llevan zoo- (animal), de la semana 5. El zodiaco es el círculo de los animalitos, y por eso casi todos los signos son bichos: el cangrejo, el león, el toro, los peces.<br>Hermana: zoología, el estudio de esos mismos bichos.",
+  "familia": "zoológico, zoología, zoofobia",
+  "mazo": "griego · ancla: zoológico",
+  "escribe_corte": false
+ },
+ {
+  "n": 20,
+  "tramo": 3,
+  "tipo": "desarmar",
+  "semana": "5",
+  "enunciado": "Alguien te dice cosmopolita. Escribe el corte y luego di de qué dos piezas está hecha.",
+  "opciones": [
+   "cosmo (mundo, orden) + polis (ciudad)",
+   "cosmo (belleza) + polit (pulido, fino)",
+   "cosmo (mundo) + poly (muchos, varios)",
+   "cosmo (orden) + política (gobierno)"
+  ],
+  "correcta": 0,
+  "retro": "Ciudadano del mundo: cosmo- (orden, mundo) + polis (ciudad), las dos de la semana 5.<br>Para los griegos lo bello era lo ordenado, y por eso cosmos y cosmético comparten raíz: maquillarse es, literal, ordenarse la cara.<br>De polis salen también política y policía, las dos asuntos de la ciudad. Hermana: metrópoli.",
+  "familia": "metrópoli, acrópolis, megalópolis",
+  "mazo": "griego · ancla: metrópoli",
+  "escribe_corte": true
+ },
+ {
+  "n": 21,
+  "tramo": 3,
+  "tipo": "pieza",
+  "semana": "varias",
+  "enunciado": "Tres de estas cuatro son de la familia del pie griego. ¿Cuál se coló?",
+  "opciones": [
+   "pulpo",
+   "antípoda",
+   "artrópodo",
+   "pediatra"
+  ],
+  "correcta": 3,
+  "retro": "Pediatra es la intrusa: pedi- (niño) + -iatra (médico), la raíz de la semana 4 que desbloqueó cincuenta palabras.<br>Las otras tres llevan pod- (pie), de la semana 5: el pulpo es literal «muchos pies», y lo que tú llamas tentáculos los griegos los contaron como patas.<br>Hermana: podólogo, el que sí te ve los pies.",
+  "familia": "trípode, podólogo, podio",
+  "mazo": "griego · ancla: trípode",
+  "escribe_corte": false
+ },
+ {
+  "n": 22,
+  "tramo": 3,
+  "tipo": "desarmar",
+  "semana": "5",
+  "enunciado": "Reloj parece una palabra corta y sin piezas. Escribe tu veredicto: ¿se corta o no se corta?",
+  "opciones": [
+   "re (otra vez) + lógos (palabra)",
+   "re (otra vez) + hōra (hora)",
+   "hōra (hora) + lógos (contar)",
+   "ninguna: es palabra simple, sin piezas"
+  ],
+  "correcta": 2,
+  "retro": "Sí se corta, y en dos: del latín horologium, y ese del griego hōra (hora) + lógos (contar), semana 5.<br>El re- no es prefijo: es horo- gastado por los siglos, igual que el in- de invierno, que tampoco es prefijo (semana 3).<br>Hermanas: horario, horóscopo (el que mira la hora en que naciste) y ahora, que es literal «a esta hora».",
+  "familia": "horario, horóscopo, ahora",
+  "mazo": "griego, por el latín horologium · ancla: hōra, hora",
+  "escribe_corte": true
+ },
+ {
+  "n": 23,
+  "tramo": 4,
+  "tipo": "espejismo",
+  "semana": "3",
+  "enunciado": "La raíz port- (llevar) fabricó media clase de palabras. Una de estas cuatro nada más trae las letras. ¿Cuál?",
+  "opciones": [
+   "portero",
+   "portátil",
+   "reportero",
+   "transporte"
+  ],
+  "correcta": 0,
+  "retro": "Portero viene de puerta (porta): cuida la puerta, no lleva nada. Trae las letras de port-, pero no la familia; sus hermanas son portal y portón.<br>Las otras tres sí llevan algo: el reportero lleva la noticia, el portátil se deja llevar, el transporte lleva de un lado a otro. Semana 3, la fábrica de matrices.<br>Regla de oro: la pieza tiene que reaparecer con el mismo significado en otras palabras de su familia, y la fuente lo confirma.",
+  "familia": "puerta, portal, portón",
+  "mazo": "latín · ancla: porta, la puerta",
+  "escribe_corte": false
+ },
+ {
+  "n": 24,
+  "tramo": 4,
+  "tipo": "ciegas",
+  "semana": "varias",
+  "enunciado": "ACRACIA. Dos piezas nada más, y las dos llevan semanas viviendo en tu mazo. Escribe el corte antes de mirar las opciones.",
+  "opciones": [
+   "El gobierno que queda en manos de unos pocos",
+   "La ausencia de gobierno y de toda autoridad",
+   "El poder que se hereda dentro de una familia",
+   "El rechazo que un pueblo siente por su gobierno"
+  ],
+  "correcta": 1,
+  "retro": "a- (sin) + -cracia (poder, gobierno) = sin gobierno, sin autoridad ninguna.<br>Es el mismo a- de amnesia, de la semana 2, pegado a la pieza de democracia, de la semana 4. El que la practica es un ácrata, y acracia es el otro nombre del anarquismo.<br>Hermana lejana: aristocracia, el poder de los mejores. Nunca la habías visto y la acabas de leer.",
+  "familia": "anónimo, abiótico, apolítico",
+  "mazo": "griego · ancla: amnesia",
+  "escribe_corte": true
+ },
+ {
+  "n": 25,
+  "tramo": 4,
+  "tipo": "espejismo",
+  "semana": "5",
+  "enunciado": "Hemorragia y hemisferio arrancan casi igual. ¿Comparten pieza?",
+  "opciones": [
+   "Sí: las dos vienen de haîma, la sangre, en griego",
+   "Sí: hemi- es la forma corta de hemo- ante consonante",
+   "No: al revés, hemorragia lleva hemi- y hemisferio hemo-",
+   "No: hemo- es sangre y hemi- es mitad, son dos piezas"
+  ],
+  "correcta": 3,
+  "retro": "Hemorragia es haîma (sangre) + romper: la sangre que se sale. Hemisferio es hemi- (mitad) + esfera: media bola. Dos piezas, no una.<br>El truco para no volver a caer: la O sangra, la I parte. hemo- es de la semana 5 y su familia lo confirma: hematoma, hemoglobina, hematología.<br>Regla de oro: la pieza tiene que reaparecer con el mismo significado en otras palabras de su familia, y la fuente lo confirma.",
+  "familia": "hematoma, hemoglobina, hematología",
+  "mazo": "griego · ancla: hemorragia",
+  "escribe_corte": false
+ },
+ {
+  "n": 26,
+  "tramo": 4,
+  "tipo": "ciegas",
+  "semana": "varias",
+  "enunciado": "PSICOMETRÍA. Aparece en los exámenes de admisión de medio México y nadie te explicó nunca qué dice. Escribe el corte y ármala.",
+  "opciones": [
+   "La medición de lo que pasa dentro de la mente",
+   "El estudio de las enfermedades de la mente",
+   "El tratamiento del alma por medio de la palabra",
+   "El registro escrito de una consulta psicológica"
+  ],
+  "correcta": 0,
+  "retro": "psico- (alma, mente) + -metría (medida) = medir la mente. Por eso el examen psicométrico no te cura nada: te mide.<br>psico- es de la semana 3 y -metría de la semana 2, la del cronómetro.<br>Hermana: geometría, que con la misma pieza mide la tierra. La habías oído mil veces y hoy la leíste completa.",
+  "familia": "cronómetro, geometría, kilómetro",
+  "mazo": "griego · ancla: termómetro",
+  "escribe_corte": true
+ },
+ {
+  "n": 27,
+  "tramo": 4,
+  "tipo": "ciegas",
+  "semana": "varias",
+  "enunciado": "HIPOGEO. Cuidado con la primera pieza, que en este curso hay dos que se escriben igualito. Escribe el corte y luego di qué es un hipogeo.",
+  "opciones": [
+   "Una pista de carreras hecha para los caballos",
+   "El estudio de las rocas y las capas de la tierra",
+   "Una construcción excavada por debajo del suelo",
+   "Un mapa que dibuja el interior de la tierra"
+  ],
+  "correcta": 2,
+  "retro": "hipo- (debajo, de menos) + geo- (tierra) = lo que está bajo tierra. Un hipogeo es una bóveda o una tumba excavada en el subsuelo.<br>Es el hipo- de hipotermia, de la semana 4, no el de hipódromo: ese es híppos, caballo, de la semana 5. Y geo- lo traes desde la semana 0.<br>Hermana: hipotensión. Nunca la habías visto y la acabas de leer.",
+  "familia": "hipotermia, hipotensión, hipoglucemia",
+  "mazo": "griego · ancla: hipotermia",
+  "escribe_corte": true
+ },
+ {
+  "n": 28,
+  "tramo": 4,
+  "tipo": "ciegas",
+  "semana": "varias",
+  "enunciado": "La última, y la más grande: BIBLIOTECONOMÍA. Tres piezas en una sola palabra. Existe, se estudia como carrera y tú la puedes leer sin diccionario. Escribe las tres piezas antes de elegir.",
+  "opciones": [
+   "El estudio de los libros antiguos y sus autores",
+   "Las reglas para ordenar y cuidar una biblioteca",
+   "El manejo del dinero que gasta una biblioteca",
+   "La lista escrita de los libros de un depósito"
+  ],
+  "correcta": 1,
+  "retro": "biblio- (libro) + -teca (depósito) + -nomía (ley, regla) = las reglas del depósito de libros.<br>Ojo con la trampa vieja: -teca no significa libro, significa caja donde se guarda. biblio- es de la semana 4; -teca y -nomía son de la semana 5.<br>Hermana: economía, las reglas de la casa. Por eso no es el dinero de la biblioteca: son sus reglas. Quince letras, ni una pieza nueva, y la acabas de leer completa.",
+  "familia": "discoteca, filmoteca, pinacoteca",
+  "mazo": "griego · ancla: biblioteca",
+  "escribe_corte": true
+ }
+];
+
+/* La ronda del millon: solo se abre si llegan hasta arriba y sobra reloj. */
+var BONUS = [
+ {
+  "n": 29,
+  "tramo": 5,
+  "tipo": "ciegas",
+  "semana": "varias",
+  "enunciado": "Nadie en este salón ha visto esta palabra, y aun así la puedes leer: DEMOSCOPIA. Dos piezas, las dos ya están en tu mazo. Córtala y di qué significa.",
+  "opciones": [
+   "El gobierno que el pueblo elige por votación",
+   "El escrito que describe a la gente de un país",
+   "La enfermedad que le cae a un pueblo entero",
+   "El estudio de lo que piensa y opina el pueblo"
+  ],
+  "correcta": 3,
+  "retro": "demo- (pueblo) + -scopio (mirar) = mirar al pueblo. Eso hacen las encuestas de opinión: por eso en los periódicos les dicen estudios demoscópicos.<br>demo- vive en la semana 4, la del griego que ya hablas, y -scopio en la semana 3, la del telescopio.<br>Hermana: demografía, que no mira al pueblo, lo escribe. Nunca la habías visto y la acabas de leer.",
+  "familia": "telescopio, microscopio, periscopio",
+  "mazo": "griego · ancla: telescopio",
+  "escribe_corte": true
+ },
+ {
+  "n": 30,
+  "tramo": 5,
+  "tipo": "ciegas",
+  "semana": "varias",
+  "enunciado": "HIDRÓNIMO. Sale en los mapas y en los libros de lingüística, y jamás la habías leído. Escribe el corte y luego elige.",
+  "opciones": [
+   "El nombre propio de un río, un lago o un mar",
+   "El aparato que mide el agua que lleva un río",
+   "El estudio de los ríos y las aguas de un país",
+   "El registro escrito del nivel que lleva un río"
+  ],
+  "correcta": 0,
+  "retro": "hidro- (agua) + -ónimo (nombre) = el nombre del agua. El Santa María y el Moctezuma son hidrónimos: los ríos de la sierra también tienen nombre propio.<br>hidro- es del mazo cero, semana 0, y -ónimo de la semana 3, la de anónimo: sin nombre.<br>Hermano: seudónimo, el nombre falso. Nunca la habías visto y la acabas de leer.",
+  "familia": "anónimo, seudónimo, sinónimo",
+  "mazo": "griego · ancla: anónimo",
+  "escribe_corte": true
+ },
+ {
+  "n": 31,
+  "tramo": 5,
+  "tipo": "desarmar",
+  "semana": "varias",
+  "enunciado": "Anemia la oyes en el doctor y en las noticias. ¿Qué dos piezas la forman?",
+  "opciones": [
+   "a/an (sin) + hemi (mitad)",
+   "anti (contra) + hemo (sangre)",
+   "a/an (sin) + hemo (sangre)",
+   "a/an (sin) + ánemos (aire)"
+  ],
+  "correcta": 2,
+  "retro": "Sangre que falta: el a-/an- de amnesia, semana 2, pegado a hemo- (sangre), semana 5.<br>En el consultorio la cortaste como an- + -emia: es el mismo corte, con la sangre en una sola pieza.<br>Ojo con hemi-, que es mitad: hemisferio es media esfera, no media sangre. Hermanas: hemorragia, hematoma, hematología.",
+  "familia": "hemorragia, hematoma, hematología",
+  "mazo": "griego · ancla: hemorragia",
+  "escribe_corte": false
+ },
+ {
+  "n": 32,
+  "tramo": 5,
+  "tipo": "espejismo",
+  "semana": "4 y 5",
+  "enunciado": "Cuatro palabras arrancan igual. Tres traen el caballo griego. ¿Cuál trae la otra pieza, la del «de menos»?",
+  "opciones": [
+   "hipopótamo",
+   "hipoglucemia",
+   "hipódromo",
+   "hipocampo"
+  ],
+  "correcta": 1,
+  "retro": "Hipoglucemia es hypó (de menos) + gluco (azúcar) + -emia (sangre, la misma de hemorragia): el azúcar por debajo de lo normal. Vive en la semana 4, junto a hipotermia y a hipotensión.<br>Las otras tres son híppos, caballo, de la semana 5: el hipopótamo es, literal, el caballo del río.<br>Se escriben igual y no son parientes. Regla de oro: la pieza tiene que reaparecer con el mismo significado en otras palabras de su familia, y la fuente lo confirma.",
+  "familia": "hipotermia, hipotensión, hipótesis",
+  "mazo": "griego · ancla: hipotermia (hypó, de menos)",
+  "escribe_corte": false
+ },
+ {
+  "n": 33,
+  "tramo": 5,
+  "tipo": "espejismo",
+  "semana": "4 y 5",
+  "enunciado": "Alguien afirma: «biblioteca lleva -teca, y -teca significa libro». ¿Dónde está el error?",
+  "opciones": [
+   "En nada: biblioteca guarda libros, así que -teca es libro",
+   "El error es el corte: biblioteca no se parte en dos piezas",
+   "-teca sí es libro, pero solo cuando va pegada a biblio-",
+   "El libro es biblio-; -teca es el depósito donde se guarda"
+  ],
+  "correcta": 3,
+  "retro": "Biblioteca es biblio- (libro, semana 4) + -teca (depósito, semana 5): la caja donde se guardan libros. El libro lo pone biblio-, no -teca.<br>Cambia lo que metes en la caja y cambia la palabra: discoteca guarda discos, pinacoteca cuadros, ludoteca juguetes. La caja es siempre la misma.<br>Regla de oro: la pieza tiene que reaparecer con el mismo significado en otras palabras de su familia, y la fuente lo confirma.",
+  "familia": "discoteca, pinacoteca, ludoteca",
+  "mazo": "griego · ancla: biblioteca (thēkē, depósito)",
+  "escribe_corte": false
+ },
+ {
+  "n": 34,
+  "tramo": 5,
+  "tipo": "espejismo",
+  "semana": "3",
+  "enunciado": "En el torneo un equipo reta deporte: «ahí no hay ningún port- de llevar». ¿Qué contesta la fuente?",
+  "opciones": [
+   "El reto gana: deporte viene de puerta, igual que portero",
+   "El reto falla: deporte no se corta, llegó entero del inglés",
+   "El reto falla: es deportare, llevarse lejos a distraerse",
+   "El reto gana: ninguna familia confirma ese port- de llevar"
+  ],
+  "correcta": 2,
+  "retro": "Deportare era llevarse lejos, a distraerse: de- (lejos) + portare (llevar). El corte que parecía falso y era real.<br>En el torneo del viernes de la semana 3 el reto se cae solo, porque la hermana está a la vista: transporte, que lleva de un lado a otro.<br>Regla de oro: la pieza tiene que reaparecer con el mismo significado en otras palabras de su familia, y la fuente lo confirma.",
+  "familia": "transporte, portátil, exportar",
+  "mazo": "latín · ancla: deportare, llevarse lejos",
+  "escribe_corte": false
+ },
+ {
+  "n": 36,
+  "tramo": 5,
+  "tipo": "espejismo",
+  "semana": "3 y 5",
+  "enunciado": "Dos cortes que se ven igual de sospechosos: des + ayuno y re + loj. ¿Cuál de los dos sobrevive?",
+  "opciones": [
+   "Real des + ayuno; espejismo re + loj, que sale de horologium",
+   "Real re + loj; espejismo des + ayuno, que no trae prefijo",
+   "Los dos son reales: des- y re- sí funcionan de prefijo",
+   "Los dos son espejismos: ni des- ni re- funcionan de prefijo"
+  ],
+  "correcta": 0,
+  "retro": "Desayunar es romper el ayuno: des- (quitar) + ayuno, y ese des- reaparece igualito en desarmar, deshacer y desorden. Es de la semana 3.<br>Reloj no trae prefijo: viene de horologium, hōra (hora) + lógos (contar), el que cuenta las horas. Ese re- es horo- gastado por los siglos, y ya lo juzgaste en el tribunal del reloj de la semana 5.<br>Regla de oro: la pieza tiene que reaparecer con el mismo significado en otras palabras de su familia, y la fuente lo confirma.",
+  "familia": "desarmar, deshacer, desorden",
+  "mazo": "latín · ancla: desayuno (des + ayuno); reloj, de horologium",
+  "escribe_corte": false
+ }
+];
+
+var PREMIOS = [100,200,400,700,1000,1500,2500,5000,
+               8000,12000,18000,25000,32000,40000,50000,65000,
+               90000,120000,160000,220000,300000,400000,
+               500000,620000,750000,850000,930000,1000000];
+var TRAMOS = [
+  {nombre:"De a peso",  desde:1,  hasta:8,  seg:60},
+  {nombre:"De a dos",   desde:9,  hasta:16, seg:60},
+  {nombre:"De a tres",  desde:17, hasta:22, seg:90},
+  {nombre:"La prueba",  desde:23, hasta:28, seg:90}
+];
+var LLAVE = "etim-millonario-s06";
+
+var S = null, cronoId = null, restan = 0, bloqueado = false;
+
+function $(id){ return document.getElementById(id); }
+function num(n){ return n.toLocaleString("es-MX"); }
+function pantalla(id){
+  var ps = document.querySelectorAll(".pantalla");
+  for(var i=0;i<ps.length;i++){ ps[i].classList.toggle("activa", ps[i].id === id); }
+  $("barra").classList.toggle("ver", id === "p-juego");
+  window.scrollTo(0,0);
+}
+
+/* ---------- estado ---------- */
+function nuevoEstado(){
+  return {
+    nombres:"", apuesta:"", apMin:0, apMax:0, primeras:{}, tramo:0, cola:[], idx:0, repechaje:false,
+    peldano:0, vidas:3, sellado:0, caidas:0, caidasTramo:0, bonus:false, coronas:0,
+    intentos:{}, regaladas:[], puertaAtras:[],
+    com:{familia:true, mazo:true, pareja:true},
+    fallidas:[], historial:[], cortes:[], consultas:[], terminado:false
+  };
+}
+function guarda(){
+  try{ localStorage.setItem(LLAVE, JSON.stringify(S)); }catch(e){}
+}
+function borra(){
+  try{ localStorage.removeItem(LLAVE); }catch(e){}
+}
+
+/* ---------- escalera ---------- */
+/* En el telefono no caben 28 peldanos: se pinta solo el tramo en curso, que
+   es donde de verdad estan parados, con la cima arriba de todo como recordatorio. */
+function pintaEscalera(){
+  var h = "", i, cl, T = TRAMOS[Math.min(S.tramo, TRAMOS.length-1)], sellados = [8,16,22,28];
+  for(i=T.desde;i<=T.hasta;i++){
+    cl = "pel";
+    if(sellados.indexOf(i) >= 0) cl += " sellado";
+    if(i < S.peldano + 1) cl += " hecho";
+    if(i === S.peldano + 1 && !S.bonus) cl += " aqui";
+    h += '<div class="'+cl+'"><span>'+i+'</span><span class="val">'+num(PREMIOS[i-1])+'</span></div>';
+  }
+  $("peldanos").innerHTML = h;
+  $("escalera-tit").textContent = S.bonus
+    ? "Ronda del millón · fuera de la escalera"
+    : "La escalera · tramo " + (S.tramo+1) + " de 4 · la cima está en 1,000,000";
+}
+
+/* ---------- reloj ---------- */
+function paraReloj(){
+  if(cronoId){ clearInterval(cronoId); cronoId = null; }
+  $("reloj").classList.remove("rojo");
+}
+function arrancaReloj(seg){
+  paraReloj();
+  restan = seg;
+  pintaReloj();
+  cronoId = setInterval(function(){
+    restan--;
+    pintaReloj();
+    if(restan <= 0){ paraReloj(); seAcaboElTiempo(); }
+  }, 1000);
+}
+function pintaReloj(){
+  var m = Math.floor(restan/60), s = restan % 60;
+  $("reloj").textContent = m + ":" + (s < 10 ? "0" : "") + s;
+  $("reloj").classList.toggle("rojo", restan <= 10);
+}
+
+/* ---------- armar el tramo ---------- */
+function preguntasDeTramo(t){
+  var r = [], i, T = TRAMOS[t];
+  for(i=0;i<BANCO.length;i++){
+    if(BANCO[i].tramo === t+1) r.push(BANCO[i]);
+  }
+  return r;
+}
+function arrancaTramo(t, mismoTramo){
+  if(!mismoTramo) S.caidasTramo = 0;
+  S.tramo = t;
+  S.cola = preguntasDeTramo(t);
+  S.idx = 0;
+  S.repechaje = false;
+  S.fallidas = [];
+  S.intentos = {};
+  S.vidas = 3;
+  S.peldano = TRAMOS[t].desde - 1;
+  muestra();
+}
+
+/* ---------- pintar la pregunta ---------- */
+function actual(){ return S.cola[S.idx]; }
+
+function muestra(){
+  var q = actual(), T = TRAMOS[S.tramo], i;
+  if(!q){ cierraTramo(); return; }
+  bloqueado = false;
+
+  if(S.bonus){
+    $("chip-tramo").textContent = "Ronda del millón";
+    $("q-num").textContent = "\u2605";
+    $("q-tramo").textContent = "Ronda del millón · fuera de la escalera";
+    $("q-premio").textContent = (S.idx+1) + " de " + S.cola.length + " · coronas: " + S.coronas;
+  }else{
+    $("chip-tramo").textContent = "Tramo " + (S.tramo+1) + (S.repechaje ? " · repechaje" : "");
+    $("q-num").textContent = S.peldano + 1;
+    $("q-tramo").textContent = "Tramo " + (S.tramo+1) + " · " + T.nombre + (S.repechaje ? " · las que se les cayeron" : "");
+    $("q-premio").textContent = num(PREMIOS[Math.min(S.peldano, PREMIOS.length-1)]) + " palabras";
+  }
+  $("palabras").textContent = num(S.peldano > 0 ? PREMIOS[S.peldano-1] : 0) + " palabras";
+  pintaVidas();
+  pintaComodines();
+  pintaEscalera();
+
+  $("ayuda").classList.remove("ver");
+  $("ayuda").innerHTML = "";
+  $("retro").className = "";
+  $("sigue").disabled = true;
+
+  $("enunciado").innerHTML = q.enunciado;
+  var h = "", letras = ["A","B","C","D"];
+  for(i=0;i<q.opciones.length;i++){
+    h += '<button class="op" type="button" data-i="'+i+'"><span class="letra">'+letras[i]+'</span><span>'+q.opciones[i]+'</span></button>';
+  }
+  $("opciones").innerHTML = h;
+
+  if(q.escribe_corte){
+    $("corte").classList.add("ver");
+    $("cuerpo").style.display = "none";
+    $("corte-palabra").innerHTML = q.enunciado;
+    $("corte-txt").value = "";
+    paraReloj();
+    $("reloj").textContent = "—:—";
+  }else{
+    $("corte").classList.remove("ver");
+    $("cuerpo").style.display = "";
+    arrancaReloj(T.seg);
+  }
+  guarda();
+}
+
+function pintaVidas(){
+  var h = "", i;
+  for(i=0;i<3;i++){ h += '<span class="'+(i < S.vidas ? "" : "ida")+'">&#9829;</span>'; }
+  $("vidas").innerHTML = h;
+}
+function pintaComodines(){
+  var b = document.querySelectorAll(".com"), i, k;
+  for(i=0;i<b.length;i++){
+    k = b[i].getAttribute("data-com");
+    b[i].disabled = !S.com[k];
+  }
+}
+
+/* ---------- responder ---------- */
+function seAcaboElTiempo(){
+  if(bloqueado) return;
+  califica(-1);
+}
+
+function califica(elegida){
+  if(bloqueado) return;
+  bloqueado = true;
+  paraReloj();
+
+  var q = actual(), ops = document.querySelectorAll(".op"), i, bien = (elegida === q.correcta);
+  for(i=0;i<ops.length;i++){
+    ops[i].disabled = true;
+    if(i === q.correcta) ops[i].classList.add("buena");
+    else if(i === elegida) ops[i].classList.add("mala");
+  }
+
+  S.historial.push({n:q.n, enunciado:resumen(q), ok:bien, tiempo:(elegida === -1)});
+  if(!S.bonus && !(q.n in S.primeras)) S.primeras[q.n] = bien;
+
+  if(S.bonus){
+    if(bien) S.coronas++;
+  }else if(bien){
+    S.peldano++;
+  }else if(S.repechaje){
+    S.intentos[q.n] = (S.intentos[q.n] || 0) + 1;
+    if(S.intentos[q.n] >= 2){
+      /* dos veces en el repechaje: se la regalamos y sigue. Nadie se atora. */
+      S.regaladas.push(q.n);
+      S.peldano++;
+    }else{
+      S.fallidas.push(q);
+    }
+  }else{
+    S.vidas--;
+    if(!estaEn(S.fallidas, q)) S.fallidas.push(q);
+  }
+  pintaVidas();
+  pintaEscalera();
+  $("palabras").textContent = num(S.peldano > 0 ? PREMIOS[S.peldano-1] : 0) + " palabras";
+
+  $("retro").className = "ver " + (bien ? "bien" : "mal");
+  $("retro-vered").textContent = bien
+    ? (S.bonus ? "Corona número " + S.coronas + "." : "Bien. " + num(PREMIOS[S.peldano-1]) + " palabras.")
+    : (S.repechaje && S.intentos[q.n] >= 2 ? "No era, y ya van dos. Esta se la regalamos: léanla bien y sigan."
+       : (elegida === -1 ? "Se acabó el reloj." : "No era."));
+  $("retro-txt").innerHTML = q.retro;
+  $("retro-semana").textContent = /^\d+$/.test(q.semana) ? ("Semana " + q.semana) : ("Semanas " + q.semana);
+
+  setTimeout(function(){ $("sigue").disabled = false; }, 3000);
+  guarda();
+}
+
+function aLaPrimera(){
+  var c = 0, k;
+  for(k in S.primeras){ if(S.primeras[k]) c++; }
+  return c;
+}
+function estaEn(arr, q){
+  for(var i=0;i<arr.length;i++){ if(arr[i].n === q.n) return true; }
+  return false;
+}
+/* etiqueta corta de una pregunta para el acta: numero y las primeras palabras */
+function resumen(q){
+  var t = textoPlano(q.enunciado).replace(/\s+/g," ").trim();
+  if(t.length > 70) t = t.slice(0,70) + "...";
+  return "(" + q.n + ") " + t;
+}
+function textoPlano(h){
+  var d = document.createElement("div"); d.innerHTML = h; return d.textContent || "";
+}
+
+/* ---------- avanzar ---------- */
+function siguiente(){
+  if(S.bonus){
+    S.idx++;
+    if(S.idx >= S.cola.length){ termina("cumbre"); return; }
+    muestra(); return;
+  }
+  if(S.vidas <= 0){ caida(); return; }
+  S.idx++;
+  if(S.idx >= S.cola.length){
+    if(S.fallidas.length > 0){
+      S.cola = S.fallidas.slice();
+      S.fallidas = [];
+      S.idx = 0;
+      S.repechaje = true;
+      /* el repechaje no vuelve a dar peldanos: ya se contaron al acertarlas */
+      muestra();
+      return;
+    }
+    cierraTramo();
+    return;
+  }
+  muestra();
+}
+
+function caida(){
+  S.caidas++;
+  S.caidasTramo++;
+  var t = S.tramo;
+  if(S.caidasTramo >= 3){
+    /* tres caidas en el mismo tramo: se pasa de todos modos. Quedarse atorado
+       cuarenta minutos en el tramo 1, sin profesor que rescate, mata el juego. */
+    S.puertaAtras.push(t + 1);
+    alert("Tercera caida en este tramo.\n\nYa estuvo: los pasamos por la puerta de atras. El tramo queda\n" +
+          "sellado igual y siguen adelante, pero eso se anota en el acta.\n\n" +
+          "Estas son justo las que hay que repasar en el mazo.");
+    S.peldano = TRAMOS[t].hasta;
+    cierraTramo();
+    return;
+  }
+  S.sellado = t > 0 ? PREMIOS[TRAMOS[t-1].hasta - 1] : 0;
+  alert("Se quedaron sin corazones.\n\nCaen al piso sellado: " + num(S.sellado) +
+        " palabras. Recuperan los tres corazones y vuelven a empezar el tramo.\n\n" +
+        "Las respuestas ya se las sabemos: ahora es cuestion de acordarse.");
+  arrancaTramo(t, true);
+}
+
+function cierraTramo(){
+  var t = S.tramo;
+  S.sellado = PREMIOS[TRAMOS[t].hasta - 1];
+  S.peldano = TRAMOS[t].hasta;
+  if(t >= TRAMOS.length - 1){
+    if(BONUS.length && confirm("UN MILLON DE PALABRAS.\n\nY todavia queda reloj. Hay una ronda extra de " + BONUS.length +
+        " palabras que nadie en el salon ha visto nunca. No dan palabras: dan coronas, y las coronas salen en el acta.\n\nLe entran?")){
+      S.bonus = true; S.cola = BONUS.slice(); S.idx = 0; S.repechaje = false; S.fallidas = [];
+      muestra(); return;
+    }
+    termina("cumbre"); return;
+  }
+  alert("Piso sellado: " + num(S.sellado) + " palabras.\n\n" +
+        "De aqui para abajo ya no pueden caer. Arranca el tramo " + (t+2) +
+        ": " + TRAMOS[t+1].nombre + ".");
+  arrancaTramo(t+1);
+}
+
+/* ---------- final ---------- */
+function termina(motivo){
+  paraReloj();
+  S.terminado = true;
+  var ganadas = S.peldano > 0 ? PREMIOS[S.peldano-1] : 0;
+  if(motivo === "planta") ganadas = S.peldano > 0 ? PREMIOS[S.peldano-1] : 0;
+
+  $("fin-palabras").textContent = num(ganadas);
+  $("fin-marcador").innerHTML = "y <b>" + aLaPrimera() + " de 28</b> a la primera";
+  if(motivo === "cumbre" && S.puertaAtras.length){
+    /* llegaron arriba, pero empujados. El acta ya lo dice; la pantalla tambien. */
+    $("fin-kicker").textContent = "Llegaron arriba";
+    $("fin-tit").textContent = "Pero por la puerta de atrás";
+    $("fin-sub").textContent = "El tramo " + S.puertaAtras.join(" y el ") + " los pasamos de mano, después de tres caídas. " +
+      "La escalera está completa y el millón cuenta, pero ustedes y yo sabemos cuáles piezas hay que volver a poner en el mazo. " +
+      "Están en el acta, y ahí es donde empieza el miércoles.";
+  }else if(motivo === "cumbre"){
+    $("fin-kicker").textContent = "Hasta arriba";
+    $("fin-tit").textContent = "Un millon de palabras";
+    $("fin-sub").textContent = "Se llevaron la escalera completa. Veintiocho preguntas de cinco semanas, sin diccionario. Eso no es suerte: es que el sistema funciona." +
+      (S.coronas ? " Y encima " + S.coronas + " corona" + (S.coronas===1?"":"s") + " de la ronda extra." : "");
+  }else{
+    $("fin-kicker").textContent = "Se plantaron";
+    $("fin-tit").textContent = "Hasta aqui llegaron";
+    $("fin-sub").textContent = "Plantarse a tiempo tambien es saber. Lo que se llevan, se lo llevan.";
+  }
+
+  var aciertos = 0, i;
+  for(i=0;i<S.historial.length;i++){ if(S.historial[i].ok) aciertos++; }
+  var prim = aLaPrimera();
+  $("fin-brecha").innerHTML = "A la primera les salieron <b>" + prim + " de 28</b>. Habian apostado <b>" +
+    S.apuesta.toLowerCase() + "</b>. " +
+    (prim >= S.apMin && prim <= S.apMax ? "Le atinaron. Eso es calibracion, y es mas dificil de lo que parece." :
+     prim > S.apMax ? "Se quedaron cortos con ustedes mismos: saben mas de lo que creian." :
+                      "Se sobreestimaron. Pasa, y es dato: son justo las piezas que hay que volver a poner en el mazo.");
+
+  $("acta").textContent = armaActa(ganadas, aciertos);
+  pantalla("p-final");
+  borra();
+}
+
+function armaActa(ganadas, aciertos){
+  var L = [], i;
+  L.push("ACTA · Quien quiere ser etimologo · Semana 6, martes 1");
+  L.push("Pareja: " + (S.nombres || "sin nombre"));
+  L.push("");
+  L.push("A LA PRIMERA: " + aLaPrimera() + " de 28   <-- este es el numero");
+  L.push("Apostaron: " + S.apuesta);
+  L.push("Palabras ganadas: " + num(ganadas));
+  L.push("Intentos totales: " + S.historial.length + "  ·  Caidas: " + S.caidas);
+  if(S.bonus) L.push("Ronda del millon: " + S.coronas + " coronas de " + BONUS.length);
+  if(S.regaladas.length) L.push("Se les regalaron (fallaron dos veces en el repechaje): preguntas " + S.regaladas.join(", "));
+  if(S.puertaAtras.length) L.push("Pasaron por la puerta de atras el tramo: " + S.puertaAtras.join(", "));
+  L.push("Comodines que NO usaron: " +
+    ([S.com.familia ? "La familia" : null, S.com.mazo ? "El mazo" : null, S.com.pareja ? "La otra pareja" : null]
+      .filter(Boolean).join(", ") || "ninguno, los quemaron todos"));
+  if(S.consultas.length){ L.push("Le preguntaron a: " + S.consultas.join(", ")); }
+  L.push("");
+  if(S.cortes.length){
+    L.push("SUS CORTES (lo que escribieron antes de ver las opciones):");
+    for(i=0;i<S.cortes.length;i++){
+      L.push("  " + S.cortes[i].palabra + " -> " + S.cortes[i].corte);
+    }
+    L.push("");
+  }
+  var fallos = [], vistos = {};
+  for(i=0;i<S.historial.length;i++){
+    if(!S.historial[i].ok && !vistos[S.historial[i].n]){
+      vistos[S.historial[i].n] = true;
+      fallos.push(S.historial[i].enunciado);
+    }
+  }
+  if(fallos.length){
+    L.push("LAS QUE SE LES CAYERON (para el miercoles):");
+    for(i=0;i<fallos.length && i<12;i++){ L.push("  - " + fallos[i]); }
+  }else{
+    L.push("No se les cayo ninguna. Que alguien lo verifique.");
+  }
+  return L.join("\n");
+}
+
+/* ---------- comodines ---------- */
+function usaComodin(k){
+  var q = actual();
+  if(!S.com[k] || bloqueado) return;
+  if(k === "pareja"){
+    var quien = prompt("Este comodin se gasta con las piernas.\n\nLevantense, vayan con otra pareja y preguntenles.\nEscriban aqui con quienes fueron:");
+    if(!quien) return;
+    S.consultas.push(quien);
+    $("ayuda").innerHTML = "<b>La otra pareja.</b> Fueron con " + quien + ". Lo que digan, bajo su propio riesgo.";
+  }else if(k === "familia"){
+    $("ayuda").innerHTML = "<b>La familia.</b> " + q.familia;
+  }else if(k === "mazo"){
+    $("ayuda").innerHTML = "<b>El mazo.</b> " + q.mazo;
+  }
+  S.com[k] = false;
+  $("ayuda").classList.add("ver");
+  pintaComodines();
+  guarda();
+}
+
+/* ---------- eventos ---------- */
+$("ir-apuesta").addEventListener("click", function(){
+  var n = $("nombres").value.trim();
+  if(!n){ alert("Escriban sus nombres. El acta lleva firma."); $("nombres").focus(); return; }
+  if(!S || S.terminado) S = nuevoEstado();
+  S.nombres = n;
+  pantalla("p-apuesta");
+});
+
+$("arranca").addEventListener("click", function(){
+  var a = $("apuesta").value.split("-");
+  S.apuesta = $("apuesta").options[$("apuesta").selectedIndex].text;
+  S.apMin = parseInt(a[0], 10);
+  S.apMax = parseInt(a[1], 10);
+  pantalla("p-juego");
+  arrancaTramo(0);
+});
+
+$("corte-listo").addEventListener("click", function(){
+  var q = actual(), t = $("corte-txt").value.trim();
+  /* si vuelven a cortar la misma en el repechaje, se queda la ultima version */
+  for(var c=S.cortes.length-1;c>=0;c--){ if(S.cortes[c].n === q.n){ S.cortes.splice(c,1); } }
+  S.cortes.push({n:q.n, palabra:"Pregunta " + q.n, corte:(t || "(no escribieron nada)")});
+  $("corte").classList.remove("ver");
+  $("cuerpo").style.display = "";
+  arrancaReloj(TRAMOS[S.tramo].seg);
+  guarda();
+});
+
+$("opciones").addEventListener("click", function(e){
+  var b = e.target.closest ? e.target.closest(".op") : null;
+  if(!b || b.disabled) return;
+  califica(parseInt(b.getAttribute("data-i"), 10));
+});
+
+$("comodines").addEventListener("click", function(e){
+  var b = e.target.closest ? e.target.closest(".com") : null;
+  if(!b || b.disabled) return;
+  usaComodin(b.getAttribute("data-com"));
+});
+
+$("sigue").addEventListener("click", siguiente);
+$("plantarse").addEventListener("click", function(){
+  if(confirm("Se plantan con " + num(S.peldano > 0 ? PREMIOS[S.peldano-1] : 0) + " palabras.\n\nYa no se puede volver. Seguros?")){
+    termina("planta");
+  }
+});
+$("otra").addEventListener("click", function(){ borra(); location.reload(); });
+
+$("copiar").addEventListener("click", function(){
+  var t = $("acta").textContent, b = this;
+  function listo(){ b.textContent = "Copiada. Ahora peguenla en el grupo."; }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(t).then(listo, seleccion);
+  }else{ seleccion(); }
+  function seleccion(){
+    var r = document.createRange(); r.selectNodeContents($("acta"));
+    var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+    try{ document.execCommand("copy"); listo(); }
+    catch(e){ b.textContent = "Seleccionenla y copienla a mano."; }
+  }
+});
+
+$("modo").addEventListener("click", function(){
+  document.body.classList.toggle("proyector");
+  this.textContent = document.body.classList.contains("proyector") ? "Aa normal" : "Aa proyector";
+});
+
+/* ---------- retomar una partida a medias ---------- */
+(function(){
+  var crudo = null;
+  try{ crudo = localStorage.getItem(LLAVE); }catch(e){}
+  if(!crudo) return;
+  var g;
+  try{ g = JSON.parse(crudo); }catch(e){ return; }
+  if(!g || g.terminado) return;
+  var caja = document.createElement("div");
+  caja.className = "caja";
+  caja.innerHTML = '<h3>Habia una partida a medias</h3>' +
+    '<p style="margin:0">De ' + (g.nombres || "alguien") + ', en el tramo ' + (g.tramo+1) + '.</p>' +
+    '<div class="btn-fila"><button class="btn" type="button" id="retomar">Seguir donde iban</button>' +
+    '<button class="btn gris" type="button" id="tirar">Empezar de cero</button></div>';
+  var p = $("p-portada");
+  p.insertBefore(caja, p.querySelector(".caja"));
+  $("retomar").addEventListener("click", function(){
+    S = g;
+    /* las preguntas guardadas son copias: se reenganchan con el banco vivo */
+    S.cola = reengancha(S.cola);
+    S.fallidas = reengancha(S.fallidas);
+    if(!S.cola.length){ S.cola = preguntasDeTramo(S.tramo); S.idx = 0; }
+    pantalla("p-juego");
+    muestra();
+  });
+  $("tirar").addEventListener("click", function(){ borra(); caja.remove(); });
+  function reengancha(lista){
+    var r = [], i, j;
+    for(i=0;i<(lista||[]).length;i++){
+      var todo = BANCO.concat(BONUS);
+      for(j=0;j<todo.length;j++){ if(todo[j].n === lista[i].n){ r.push(todo[j]); break; } }
+    }
+    return r;
+  }
+})();
+
+S = nuevoEstado();
+})();
+</script>
+</body>
+</html>

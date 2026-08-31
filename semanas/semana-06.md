@@ -23,7 +23,7 @@ nav_order: 7
 
 | Día | Sesión | Trae |
 |---|---|---|
-| [Martes 1](#martes) · 1 h | La prueba de fuego | el mazo al día |
+| [Martes 1](#martes) · 1 h | ¿Quién quiere ser etimólogo? | el mazo al día y con quién hacer pareja |
 | [Miércoles 2](#miercoles) · 1 h | Ahora al revés | tu palabra descifrada en casa |
 | [Jueves 3](#jueves) · 1 h, centro de cómputo | ¿Existían de verdad? | tus monstruos inventados |
 | [Viernes 4](#viernes) · 2 h | La fábrica de monstruos | a tu equipo con las pilas puestas |
@@ -82,12 +82,12 @@ nav_order: 7
 <p class="apoyo">Es el mismo protocolo del tribunal de la semana 4, pero con la dificultad subida: allá apostabas sobre palabras que habías oído; aquí, sobre palabras que no existen para ti hasta este momento.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">5</span> Gimnasio: la prueba de fuego <span class="reloj">25 min</span></h4>
+<h4><span class="n">5</span> ¿Quién quiere ser etimólogo? <span class="reloj">45 min</span></h4>
 <span class="senal">Actividad · en parejas</span>
-<p class="di">Cinco palabras que nunca has visto. Una por una.</p>
-<p class="apoyo"><a href="../ejercicios/semana-06/ejercicio-6A-la-prueba-de-fuego.html">La prueba de fuego</a>. Cada palabra trae cuatro piezas en el banco y solo dos son las suyas: primero cortas, luego apuestas. Al final del ejercicio hay un banco libre para armar tu propio monstruo. Anótalo bien, porque el jueves lo llevamos a juicio.</p>
-<p class="recurso"><a href="../ejercicios/semana-06/ejercicio-6A-la-prueba-de-fuego.html" target="_blank" rel="noopener">La prueba de fuego</a><span class="pie">Cinco palabras que nunca has visto. Si las lees solo con tus piezas, el sistema funciona.</span></p>
-<p class="nota-conductor">Las cinco son reales y están documentadas: hemeralopía, nictalopía, batracofagia, heliolatría y glosolalia. Si alguien duda de que existan, perfecto: eso es el jueves.</p>
+<p class="di">Veintiocho preguntas de todo lo que llevamos. Arriba hay un millón de palabras.</p>
+<p class="apoyo">Un teléfono por pareja y a subir la escalera. Cada acierto vale más palabras que el anterior; cada error cuesta un corazón; las que se caen vuelven a salir hasta que las saquen. Tres comodines para todo el juego, y uno de ellos obliga a levantarse a preguntarle a otra pareja. Al final se copia el acta y se pega en el grupo.</p>
+<p class="recurso"><a href="../ejercicios/semana-06/ejercicio-6A-quien-quiere-ser-etimologo.html" target="_blank" rel="noopener">¿Quién quiere ser etimólogo?</a><span class="pie">Cinco semanas de piezas, una escalera y un millón de palabras hasta arriba.</span></p>
+<p class="nota-conductor">Este es el día que se jugó solo, sin mí. Solo entran piezas de las semanas 0 a 5: las de esta semana se dictan el miércoles y el juego no las quema. La prueba de fuego se recorrió al miércoles; su ejercicio sigue abajo, en el gimnasio completo. Al volver, abrir con las actas que hayan pegado en el grupo: ahí están las preguntas que se les cayeron.</p>
 </section>
 <section class="lam lam--actividad">
 <h4><span class="n">6</span> Antes del miércoles <span class="reloj">7 min</span></h4>
@@ -265,7 +265,8 @@ El **minuto del lector** abre el martes (pasa una persona por semana, hasta que 
 
 Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
 
-- [La prueba de fuego](../ejercicios/semana-06/ejercicio-6A-la-prueba-de-fuego.html) · martes
+- [¿Quién quiere ser etimólogo?](../ejercicios/semana-06/ejercicio-6A-quien-quiere-ser-etimologo.html) · martes, el repaso de las semanas 0 a 5
+- [La prueba de fuego](../ejercicios/semana-06/ejercicio-6A-la-prueba-de-fuego.html) · miércoles
 - [Taller de descifrado](../ejercicios/semana-06/ejercicio-6B-taller-de-descifrado.html) · miércoles
 - [¿Existían de verdad?](../ejercicios/semana-06/ejercicio-6C-existian-de-verdad.html) · jueves, centro de cómputo
 - [Quiz de gimnasio](../ejercicios/semana-06/quiz-gimnasio-semana-06.html) · para ensayar cuando quieras
