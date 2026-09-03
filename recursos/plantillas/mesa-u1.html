@@ -130,6 +130,57 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--rosa);outline-of
 .grafica{background:var(--fondo);border:1px solid var(--borde);border-radius:.8rem;padding:.6rem .5rem .3rem;margin:.5rem 0}
 .grafica svg{display:block;width:100%;height:auto}
 
+/* ---------- la vista de lectura ---------- */
+.sintesis{font-size:1.02rem;line-height:1.5;color:var(--ciruela);background:var(--fondo);
+  border-radius:.8rem;padding:.7rem .9rem;margin:0 0 .8rem}
+.sintesis b{color:var(--rosa)}
+
+.senales{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-bottom:1rem}
+.senal-t{border:1px solid var(--borde);border-radius:.8rem;background:var(--papel);padding:.6rem .7rem}
+.senal-t .v{font-size:1.5rem;font-weight:800;line-height:1.1;color:var(--ciruela)}
+.senal-t .v small{font-size:.9rem;font-weight:600;color:var(--gris)}
+.senal-t .e{font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gris);
+  font-weight:800;margin-top:.15rem}
+.senal-t.bien .v{color:var(--jade)}
+.senal-t.ojo .v{color:var(--ambar)}
+
+.cita-alumno{position:relative;background:var(--fondo);border-left:5px solid var(--rosa);
+  border-radius:0 1rem 1rem 0;padding:1rem 1.1rem 1rem 2.4rem;margin:1rem 0}
+.cita-alumno::before{content:"\201C";position:absolute;left:.55rem;top:.1rem;
+  font-family:Georgia,serif;font-size:3.4rem;color:var(--rosa);opacity:.35;line-height:1}
+.cita-alumno p{margin:0;font-size:1.06rem;line-height:1.62;color:#39323c;white-space:pre-wrap}
+.cita-alumno .pie{display:block;margin-top:.5rem;font-size:.78rem;color:var(--gris);font-style:italic}
+.cita-tapada{border:1px dashed #cdbcc8;border-radius:.9rem;padding:.9rem 1rem;margin:1rem 0;
+  color:var(--gris);font-size:.92rem;text-align:center;background:var(--fondo)}
+
+.bloque{margin:1rem 0}
+.bloque > h4{font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:var(--rosa);
+  font-weight:800;margin:0 0 .3rem}
+.bloque .grande{font-size:1.2rem;font-weight:700;color:var(--ciruela);line-height:1.3}
+.bloque p{margin:.2rem 0 0;font-size:.97rem;line-height:1.55;color:#39323c;white-space:pre-wrap}
+.bloque p.antes{color:var(--gris);font-style:italic;font-size:.92rem;margin-top:.4rem}
+.bloque .nada{color:#b3a8b0;font-style:italic;font-size:.92rem}
+.bloque.hueco{background:var(--ambar-bg);border-radius:.8rem;padding:.7rem .9rem}
+.bloque.hueco > h4{color:var(--ambar)}
+.bloque.hueco p{color:#7d3d16}
+
+.ev-cols{display:grid;grid-template-columns:1fr;gap:.9rem}
+@media (min-width:640px){.ev-cols{grid-template-columns:1fr 1fr}}
+.ev-caja{border:1px solid var(--borde);border-radius:.8rem;padding:.7rem .8rem;background:var(--papel)}
+.ev-caja.si{border-color:#bfe0c9;background:var(--jade-bg)}
+.ev-caja.no{border-color:#eec6dc;background:var(--ambar-bg)}
+.ev-caja h4{margin:0 0 .4rem;font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;font-weight:800}
+.ev-caja.si h4{color:var(--jade)}
+.ev-caja.no h4{color:var(--ambar)}
+.ev-caja ul{margin:0;padding:0;list-style:none}
+.ev-caja li{font-size:.88rem;line-height:1.4;padding:.28rem 0;border-bottom:1px solid rgba(0,0,0,.06)}
+.ev-caja li:last-child{border-bottom:none}
+.ev-caja.si li b{display:block;color:#245c3c;font-weight:700}
+.ev-caja.si li span{color:#3d6b52}
+.ev-caja.si li span.falta{font-style:italic;opacity:.75}
+.ev-caja.no li{color:#7d3d16}
+.ev-caja.no li em{font-style:normal;opacity:.6;font-size:.78rem}
+
 dl.datos{margin:0}
 dl.datos dt{font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;color:var(--rosa);font-weight:800;margin-top:.75rem}
 dl.datos dd{margin:.12rem 0 0;font-size:.93rem;color:#39323c;white-space:pre-wrap}
@@ -770,6 +821,31 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
     }
   }
 
+  /* ---------- cómo se lee su calibración ---------- */
+  function lecturaDe(d){
+    if (!d || !d.serie) return null;
+    var br = [];
+    QUIZZES.forEach(function(q){
+      var r = d.serie[q[0]] || {};
+      if (r.a === '' || r.a == null || r.s === '' || r.s == null) return;
+      br.push((Math.min(q[2], +r.s) - Math.min(q[2], +r.a)) / q[2] * 100);
+    });
+    if (br.length < 2) return null;
+    var prom = br.reduce(function(x, y){ return x + y; }, 0) / br.length;
+    if (prom > 12) return {
+      corto: 'se subestima por ' + Math.round(prom) + ' puntos',
+      largo: 'Se subestima: sale ' + Math.round(prom) + ' puntos por encima de lo que apuesta.'
+    };
+    if (prom < -12) return {
+      corto: 'se sobreestima por ' + Math.round(-prom) + ' puntos',
+      largo: 'Se sobreestima: sale ' + Math.round(-prom) + ' puntos por debajo de lo que apuesta.'
+    };
+    return {
+      corto: 'se predice bien',
+      largo: 'Se predice bien: brecha promedio de ' + Math.round(Math.abs(prom)) + ' puntos.'
+    };
+  }
+
   /* ---------- gráfica de calibración ---------- */
   function grafica(d){
     if (!d || !d.serie) return '';
@@ -800,14 +876,8 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
       g += '<text x="'+x+'" y="119" text-anchor="middle" font-size="8" fill="#6b1e5a" font-weight="bold">'+p.et+'</text>';
       if (p.a != null && p.s != null) g += '<text x="'+x+'" y="129" text-anchor="middle" font-size="7" fill="#9d8f9a">'+p.a+'→'+p.s+'</text>';
     });
-    var br = P.filter(function(p){ return p.pa != null && p.ps != null; });
-    var lectura = '';
-    if (br.length >= 2){
-      var prom = br.reduce(function(x, p){ return x + (p.ps - p.pa)*100; }, 0) / br.length;
-      lectura = prom > 12 ? 'Se subestima: sale ' + Math.round(prom) + ' puntos por encima de lo que apuesta.'
-        : prom < -12 ? 'Se sobreestima: sale ' + Math.round(-prom) + ' puntos por debajo de lo que apuesta.'
-        : 'Se predice bien: brecha promedio de ' + Math.round(Math.abs(prom)) + ' puntos.';
-    }
+    var L = lecturaDe(d);
+    var lectura = L ? L.largo : '';
     return '<div class="grafica"><svg viewBox="0 0 310 134" role="img" aria-label="Calibración del estudiante"></svg>'
       .replace('></svg>', '>' + g + '</svg>') +
       (lectura ? '<p class="mini" style="text-align:center;margin:.1rem 0 .2rem">' + esc(lectura) + '</p>' : '') + '</div>';
@@ -839,35 +909,99 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
       return v && String(v).trim() ? '<dd>' + esc(v) + '</dd>' : '<dd class="vacio">' + (vacio || 'sin llenar') + '</dd>';
     }
 
+    /* ---------- la columna de lectura ----------
+       Ordenada por lo que sirve en la conversacion: primero la sintesis de
+       tres lineas, luego sus propias palabras, y hasta el final el detalle. */
     var izq = '';
     if (d){
-      izq =
-        '<h3 style="margin-top:0">Su suelo · ' + puestas + ' de ' + TABLAS.length + '</h3>' +
-        '<div class="duelas">' + duelas + '</div>' +
-        '<p class="mini">' + (faltan.length ? 'Le falta: ' + esc(faltan.join(' · ')) : 'Completo. No reprueba.') + '</p>' +
-        (d.sueloFalta ? '<p class="mini"><em>' + esc(d.sueloFalta) + '</em></p>' : '') +
-        '<h3>Su calibración</h3>' + (grafica(d) || '<p class="mini">Sin llenar.</p>') +
-        (d.serieTexto ? '<p class="mini">Lo dice así: “' + esc(d.serieTexto) + '”</p>' : '') +
-        '<h3>Lo que dice tener · ' + evSi.length + ' con pieza</h3>' +
-        (evSi.length ? '<ul class="evlista">' + evSi.join('') + '</ul>' : '<p class="mini">Nada marcado.</p>') +
-        (evNo.length ? '<h3>Lo que dejó en aún no · ' + evNo.length + '</h3><ul class="evlista">' + evNo.join('') + '</ul>' : '') +
-        '<dl class="datos">' +
-          '<dt>Su palabra</dt>' + dd((d.piezaCual || '') + (d.piezaPorque ? '\n' + d.piezaPorque : '')) +
-          '<dt>Qué habría hecho hace seis semanas</dt>' + dd(d.piezaAntes) +
-          '<dt>Lo que le falta</dt>' + dd(d.aunNo) +
-          '<dt>Lo que no supo contestar en el ensayo</dt>' + dd(d.ensayoHueco) +
-        '</dl>';
+      var L = lecturaDe(d);
+      var evSi2 = [], evNo2 = [];
+      if (d.ev) EVID.forEach(function(e){
+        var r = d.ev[e[0]];
+        if (!r || !r.e) return;
+        if (r.e === 'si') evSi2.push('<li><b>' + esc(e[1]) + '</b>' +
+          (r.t ? '<span>' + esc(r.t) + '</span>' : '<span class="falta">no dijo con qué</span>') + '</li>');
+        else evNo2.push('<li>' + esc(e[1]) + ' <em>· ' + e[2] + '</em></li>');
+      });
+
+      /* Los tres numeros de un vistazo */
+      izq += '<p class="sintesis">' +
+        (puestas === TABLAS.length
+          ? 'Suelo <b>completo</b>. '
+          : 'Le faltan <b>' + (TABLAS.length - puestas) + '</b> del suelo: ' + esc(faltan.join(', ')) + '. ') +
+        (L ? esc(L.corto.charAt(0).toUpperCase() + L.corto.slice(1)) + '. ' : '') +
+        'Dice tener <b>' + evSi2.length + '</b> con pieza y deja <b>' + evNo2.length + '</b> en aún no.' +
+        '</p>';
+
+      izq += '<div class="senales">' +
+        '<div class="senal-t ' + (puestas === TABLAS.length ? 'bien' : 'ojo') + '">' +
+          '<div class="v">' + puestas + '<small>/' + TABLAS.length + '</small></div>' +
+          '<div class="e">del suelo</div></div>' +
+        '<div class="senal-t"><div class="v">' + evSi2.length + '</div>' +
+          '<div class="e">con pieza</div></div>' +
+        '<div class="senal-t ' + (evNo2.length ? 'ojo' : '') + '"><div class="v">' + evNo2.length + '</div>' +
+          '<div class="e">en aún no</div></div>' +
+        '</div>';
+
+      /* Su porque, que es el centro de la conversacion */
+      if (tapado){
+        izq += '<div class="cita-tapada">Su porqué se destapa junto con su número, ahí al lado. ' +
+               'Primero apuesta tú.</div>';
+      } else if (a.porque){
+        izq += '<div class="cita-alumno"><p>' + esc(a.porque) + '</p>' +
+               '<span class="pie">' + esc(a.nombre) + ', sobre por qué propone ' + esc(a.propuesta || 'ese número') + '</span></div>';
+      } else {
+        izq += '<div class="cita-tapada">No escribió su porqué, o no te ha llegado. Pídeselo en voz alta: es la parte que importa.</div>';
+      }
+
+      /* Sus palabras */
+      izq += '<div class="bloque"><h4>Su palabra</h4>' +
+        (d.piezaCual
+          ? '<div class="grande">' + esc(d.piezaCual) + '</div>' +
+            (d.piezaPorque ? '<p>' + esc(d.piezaPorque) + '</p>' : '') +
+            (d.piezaAntes ? '<p class="antes">Hace seis semanas: ' + esc(d.piezaAntes) + '</p>' : '')
+          : '<span class="nada">sin llenar</span>') +
+        '</div>';
+
+      var falta = d.aunNo || d.ensayoHueco || '';
+      izq += '<div class="bloque hueco"><h4>Lo que dice que le falta</h4>' +
+        (falta ? '<p>' + esc(falta) + '</p>' : '<span class="nada">no nombró nada — vale la pena preguntarle</span>') +
+        '</div>';
+
+      if (d.defensaProfe){
+        izq += '<div class="bloque"><h4>Lo que le dijiste en su defensa</h4><p>' + esc(d.defensaProfe) + '</p></div>';
+      }
+
+      /* El detalle, al final */
+      izq += '<div class="bloque"><h4>Su suelo</h4><div class="duelas">' + duelas + '</div>' +
+        '<p class="antes" style="margin-top:.3rem">' +
+        (faltan.length ? 'Le falta: ' + esc(faltan.join(' · ')) : 'Las cinco tablas puestas.') +
+        (d.sueloFalta ? ' — dice: ' + esc(d.sueloFalta) : '') + '</p></div>';
+
+      izq += '<div class="bloque"><h4>Su calibración</h4>' + (grafica(d) || '<span class="nada">sin llenar</span>') +
+        (d.serieTexto ? '<p class="antes">Lo dice así: “' + esc(d.serieTexto) + '”</p>' : '') + '</div>';
+
+      izq += '<div class="ev-cols">' +
+        '<div class="ev-caja si"><h4>Dice tener · ' + evSi2.length + '</h4>' +
+          (evSi2.length ? '<ul>' + evSi2.join('') + '</ul>' : '<span class="nada">nada marcado</span>') + '</div>' +
+        '<div class="ev-caja no"><h4>Aún no · ' + evNo2.length + '</h4>' +
+          (evNo2.length ? '<ul>' + evNo2.join('') + '</ul>' : '<span class="nada">no marcó ninguno</span>') + '</div>' +
+        '</div>';
     } else {
       izq = mando(a)
-        ? '<p class="mini">De esta persona tienes su número' + (a.porque ? ' y su porqué' : '') +
-          ', pero no su análisis. Está en su teléfono: pídele que abra su autoevaluación en el paso 9 y lean juntos. ' +
-          'Si te manda su código <code>ETIM1·</code>, o si tu hoja trae la columna del código, aparece aquí completo.</p>'
-        : '<div class="tapa" style="border-color:#e6b8ab;background:var(--rojo-bg)">' +
-          '<div class="rot" style="color:var(--rojo)">Todavía no manda nada</div>' +
-          '<p style="color:#7d3d3a">No hay propuesta suya en la mesa. Puede ser que no la haya llenado, que no le haya llegado el envío, o que la traiga en papel. ' +
-          'Pregúntale primero cuál de las tres es: la respuesta cambia lo que sigue. Si la trae hecha, la anotas aquí y siguen igual.</p></div>';
+        ? '<p class="sintesis">De <b>' + esc(a.nombre) + '</b> tienes su número' +
+          (a.porque ? ' y su porqué' : '') + ', pero no su análisis. Está en su teléfono: pídele que ' +
+          'abra su autoevaluación en el paso 9 y lean juntos. Si la mandó desde la página, tráela con ' +
+          '<em>Traer del recolector</em> y aparece aquí completa.</p>' +
+          (a.porque && !tapado
+            ? '<div class="cita-alumno"><p>' + esc(a.porque) + '</p><span class="pie">' +
+              esc(a.nombre) + ', sobre por qué propone ' + esc(a.propuesta || 'ese número') + '</span></div>'
+            : '')
+        : '<div class="bloque hueco"><h4>Todavía no manda nada</h4>' +
+          '<p>No hay propuesta suya en la mesa. Puede ser que no la haya llenado, que no le haya ' +
+          'llegado el envío, o que la traiga en papel. Pregúntale primero cuál de las tres es: la ' +
+          'respuesta cambia lo que sigue. Si la trae hecha, la anotas aquí al lado y siguen igual.</p></div>';
     }
-
     var der = '';
     if (tapado){
       der = '<div class="tapa">' +
@@ -897,7 +1031,7 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
         (a.propuesta ? '' :
           '<label class="campo"><span>Su número, tal como te lo diga</span>' +
           '<input type="text" id="fPropuesta" inputmode="decimal" placeholder="Lo que propone" value=""></label>') +
-        (a.porque ? '<div class="panel suave" style="margin:.5rem 0"><div class="rot">Su porqué</div><p style="white-space:pre-wrap;font-size:.93rem;margin:.25rem 0 0">' + esc(a.porque) + '</p></div>' : '<p class="mini">No escribió su porqué, o no lo tienes todavía. Pídeselo en voz alta: es la parte que importa.</p>');
+        '<p class="mini">Su porqué está a la izquierda, en grande.</p>';
     }
 
     der += '<div class="preguntas">' +
