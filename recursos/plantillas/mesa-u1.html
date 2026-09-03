@@ -83,6 +83,14 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--rosa);outline-of
 .alumno .luz{flex:none;width:12px;height:12px;border-radius:50%;background:#d8c8d4}
 .alumno.hecho .luz{background:var(--jade)}
 .alumno.hablar .luz{background:var(--ambar)}
+.alumno.falta{border-style:dashed;background:var(--fondo)}
+.alumno.falta .quien b{color:var(--gris)}
+.alumno.falta .nums b{color:#c3b6c0}
+.filtros{display:flex;gap:.35rem;flex-wrap:wrap;margin:.6rem 0 0}
+.filtros button{border:1px solid var(--borde);background:var(--papel);color:var(--ciruela);border-radius:2rem;
+  padding:.3rem .75rem;font:inherit;font-size:.82rem;font-weight:700;cursor:pointer}
+.filtros button.on{background:var(--ciruela);color:#fff;border-color:var(--ciruela)}
+.cont.alerta b{color:var(--ambar)}
 .alumno .quien{flex:1;min-width:0}
 .alumno .quien b{display:block;font-size:.95rem;color:var(--ciruela);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .alumno .quien span{display:block;font-size:.75rem;color:var(--gris)}
@@ -199,6 +207,7 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
     <button type="button" data-h="codigo">Pegar un código</button>
     <button type="button" data-h="archivo">Abrir un archivo</button>
     <button type="button" data-h="mano">Capturar a mano</button>
+    <button type="button" data-h="lista">Pegar la lista del grupo</button>
   </div>
 
   <div class="hoja-carga on" data-h="tsv">
@@ -230,6 +239,13 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
     <input type="file" id="archivo" accept=".html,.htm,.txt" multiple style="display:none">
   </div>
 
+  <div class="hoja-carga" data-h="lista">
+    <p class="mini">La lista de tu grupo, un nombre por renglón — o pegada de una columna de tu hoja. Sirve para lo que ninguna otra carga te dice: <strong>quiénes no han mandado nada</strong>. A quien ya esté en la mesa no le pasa nada; solo se agregan los que faltaban.</p>
+    <textarea id="listaGrupo" placeholder="Camila Reséndiz&#10;Diego Malpica&#10;Ana Sofía Trejo&#10;…" style="min-height:8rem"></textarea>
+    <label class="campo"><span>Grupo (opcional, se le pone a todos)</span><input type="text" id="listaGrupoNom" placeholder="1º B"></label>
+    <div class="fila"><button class="btn rosa" type="button" id="btnLista">Pasar lista</button></div>
+  </div>
+
   <div class="hoja-carga" data-h="mano">
     <p class="mini">Para quien llega sin nada digital: lo capturas mientras conversan.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.5rem">
@@ -247,6 +263,13 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
 <section class="panel" id="panelLista" style="display:none">
   <h2 style="margin-top:.2rem">2 · La lista</h2>
   <div class="contadores" id="contadores"></div>
+  <div class="filtros" id="filtros">
+    <button type="button" data-f="" class="on">Todos</button>
+    <button type="button" data-f="falta">No han mandado</button>
+    <button type="button" data-f="pendiente">Por conversar</button>
+    <button type="button" data-f="hecho">Conversados</button>
+  </div>
+  <p class="mini" id="avisoFiltro" style="margin:.5rem 0 0"></p>
   <label class="campo" style="margin-top:.3rem"><span>Buscar</span><input type="text" id="buscar" placeholder="Escribe un nombre"></label>
   <div class="lista" id="lista"></div>
 </section>
@@ -534,6 +557,26 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
     nota(ok + ' fila(s) leída(s)' + (completos ? ', ' + completos + ' con su análisis completo' : '') + '.');
   });
 
+  /* ---------- carga: la lista del grupo ---------- */
+  document.getElementById('btnLista').addEventListener('click', function(){
+    var g = document.getElementById('listaGrupoNom').value.trim();
+    var nombres = document.getElementById('listaGrupo').value
+      .split(/\r?\n/)
+      .map(function(l){ return l.split('\t')[0].replace(/^\s*\d+[.)\-\s]+/, '').trim(); })
+      .filter(function(n){ return n.length > 2; });
+    if (!nombres.length){ nota('No leí ningún nombre. Uno por renglón.'); return; }
+    var nuevos = 0, ya = 0;
+    nombres.forEach(function(n){
+      var existia = !!R.al[slug(n)];
+      var id = alta(n, existia ? (g ? { grupo: g } : {}) : { grupo: g, fuente: 'lista' });
+      if (!id) return;
+      if (existia) ya++; else nuevos++;
+    });
+    document.getElementById('listaGrupo').value = '';
+    guardar(); pinta();
+    nota('Lista pasada: ' + nuevos + ' nuevo(s), ' + ya + ' que ya estaba(n).');
+  });
+
   /* ---------- carga: a mano ---------- */
   document.getElementById('btnMano').addEventListener('click', function(){
     var n = document.getElementById('mNombre').value;
@@ -554,9 +597,26 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
   var buscarEl = document.getElementById('buscar');
   buscarEl.addEventListener('input', pintaLista);
 
+  var filtro = '';
+  Array.prototype.forEach.call(document.querySelectorAll('#filtros button'), function(b){
+    b.addEventListener('click', function(){
+      filtro = b.getAttribute('data-f');
+      Array.prototype.forEach.call(document.querySelectorAll('#filtros button'), function(x){
+        x.classList.toggle('on', x === b);
+      });
+      pintaLista();
+    });
+  });
+
+  /* Mando algo el estudiante? Basta con que tengamos su numero, su porque
+     o su analisis: da igual por que camino haya llegado. */
+  function mando(a){
+    return !!((a.propuesta && String(a.propuesta).trim()) || a.datos || (a.porque && a.porque.trim()));
+  }
   function estado(a){
     if (a.resultado) return 'hecho';
-    if (a.apuesta && !a.resultado) return 'hablar';
+    if (!mando(a)) return 'falta';
+    if (a.apuesta) return 'hablar';
     return '';
   }
   function pintaLista(){
@@ -567,25 +627,53 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
       var a = R.al[id];
       if (!a) return;
       if (q && norm(a.nombre).indexOf(q) === -1) return;
+      var e = estado(a);
+      if (filtro === 'falta' && e !== 'falta') return;
+      if (filtro === 'hecho' && e !== 'hecho') return;
+      if (filtro === 'pendiente' && (e === 'hecho' || e === 'falta')) return;
       var b = document.createElement('button');
       b.type = 'button';
-      b.className = 'alumno ' + estado(a) + (R.sel === id ? ' sel' : '');
+      b.className = 'alumno ' + e + (R.sel === id ? ' sel' : '');
       var tapado = R.ciegas && !a.destapado && !a.resultado;
+      var pie = e === 'falta' ? 'no ha mandado nada'
+        : (a.datos ? 'análisis completo' : esc(a.fuente || ''));
       b.innerHTML = '<span class="luz"></span><span class="quien"><b>' + esc(a.nombre) + '</b>' +
-        '<span>' + esc(a.grupo || '') + (a.datos ? ' · análisis completo' : ' · ' + esc(a.fuente || '')) + '</span></span>' +
-        '<span class="nums"><b>' + (a.resultado ? esc(a.acordado || '—') : (tapado ? '·' : esc(a.propuesta || '—'))) + '</b>' +
-        (a.resultado ? 'acordado' : (tapado ? 'tapado' : 'propone')) + '</span>';
+        '<span>' + esc(a.grupo || '') + (a.grupo ? ' · ' : '') + pie + '</span></span>' +
+        '<span class="nums"><b>' + (a.resultado ? esc(a.acordado || '—') : (e === 'falta' ? '—' : (tapado ? '·' : esc(a.propuesta || '—')))) + '</b>' +
+        (a.resultado ? 'acordado' : (e === 'falta' ? 'sin propuesta' : (tapado ? 'tapado' : 'propone'))) + '</span>';
       b.addEventListener('click', function(){ R.sel = id; guardar(); pinta(); });
       cont.appendChild(b);
     });
-    var total = R.orden.length;
-    var hechos = R.orden.filter(function(id){ return R.al[id] && R.al[id].resultado; }).length;
-    var completos = R.orden.filter(function(id){ return R.al[id] && R.al[id].datos; }).length;
+    var todos = R.orden.map(function(id){ return R.al[id]; }).filter(Boolean);
+    var total = todos.length;
+    var hechos = todos.filter(function(a){ return a.resultado; }).length;
+    var faltan = todos.filter(function(a){ return estado(a) === 'falta'; });
+    var completos = todos.filter(function(a){ return a.datos; }).length;
     document.getElementById('contadores').innerHTML =
       '<div class="cont"><b>' + total + '</b><span>en la mesa</span></div>' +
+      '<div class="cont' + (faltan.length ? ' alerta' : '') + '"><b>' + faltan.length + '</b><span>no han mandado</span></div>' +
+      '<div class="cont"><b>' + (total - hechos - faltan.length) + '</b><span>por conversar</span></div>' +
       '<div class="cont"><b>' + hechos + '</b><span>conversados</span></div>' +
-      '<div class="cont"><b>' + (total - hechos) + '</b><span>por conversar</span></div>' +
       '<div class="cont"><b>' + completos + '</b><span>con análisis completo</span></div>';
+
+    var av = document.getElementById('avisoFiltro');
+    if (!faltan.length){
+      av.innerHTML = total
+        ? 'Todos los que están en la mesa mandaron algo. Si tu grupo es más grande que esta lista, pega la lista completa en <em>Pegar la lista del grupo</em> y aparecerán los que faltan.'
+        : '';
+    } else {
+      av.innerHTML = '<strong>' + faltan.length + ' sin mandar nada:</strong> ' +
+        faltan.map(function(a){ return esc(a.nombre); }).join(' · ') +
+        ' <button type="button" class="btn linea" id="btnCopiarFaltan" style="padding:.25rem .7rem;font-size:.8rem;margin-left:.3rem">Copiar los nombres</button>';
+      var bc = document.getElementById('btnCopiarFaltan');
+      if (bc) bc.addEventListener('click', function(){
+        var t = faltan.map(function(a){ return a.nombre; }).join('\n');
+        copiar(t, function(ok){
+          if (ok === false) window.prompt('Los que faltan:', t);
+          else nota('Copiados los ' + faltan.length + ' nombres que faltan.');
+        });
+      });
+    }
   }
 
   /* ---------- gráfica de calibración ---------- */
@@ -677,9 +765,14 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
           '<dt>Lo que no supo contestar en el ensayo</dt>' + dd(d.ensayoHueco) +
         '</dl>';
     } else {
-      izq = '<p class="mini">De esta persona solo tienes el nombre' + (a.propuesta ? ' y su número' : '') +
-        '. Su análisis completo está en su teléfono: pídele que abra su autoevaluación en el paso 9 y lean juntos. ' +
-        'Si te manda su código <code>ETIM1·</code>, aparece aquí.</p>';
+      izq = mando(a)
+        ? '<p class="mini">De esta persona tienes su número' + (a.porque ? ' y su porqué' : '') +
+          ', pero no su análisis. Está en su teléfono: pídele que abra su autoevaluación en el paso 9 y lean juntos. ' +
+          'Si te manda su código <code>ETIM1·</code>, o si tu hoja trae la columna del código, aparece aquí completo.</p>'
+        : '<div class="tapa" style="border-color:#e6b8ab;background:var(--rojo-bg)">' +
+          '<div class="rot" style="color:var(--rojo)">Todavía no manda nada</div>' +
+          '<p style="color:#7d3d3a">No hay propuesta suya en la mesa. Puede ser que no la haya llenado, que no le haya llegado el envío, o que la traiga en papel. ' +
+          'Pregúntale primero cuál de las tres es: la respuesta cambia lo que sigue. Si la trae hecha, la anotas aquí y siguen igual.</p></div>';
     }
 
     var der = '';
@@ -688,7 +781,8 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
         '<div class="rot">Antes de destapar</div>' +
         '<p><strong>¿Qué le pondrías tú?</strong> Escríbelo antes de ver su número. Es la misma apuesta que les pides a ellos en cada quiz, y al final del día te va a decir si tu ojo y el de tu grupo coinciden.</p>' +
         '<div class="apuestas" id="apuestas"></div>' +
-        '<div class="fila"><button class="btn ciruela" type="button" id="btnDestapar">Destapar su propuesta</button>' +
+        '<div class="fila"><button class="btn ciruela" type="button" id="btnDestapar">' +
+        (mando(a) ? 'Destapar su propuesta' : 'Ya aposté · anotar lo que me diga') + '</button>' +
         '<button class="btn linea" type="button" id="btnSaltar">Saltarme la apuesta</button></div>' +
         '</div>';
     } else {
@@ -707,7 +801,10 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
         (mia != null ? '<div class="par mia"><b>' + esc(a.apuesta) + '</b><span>tu apuesta</span></div>' : '') +
         '<div class="par suya"><b>' + esc(a.propuesta || '—') + '</b><span>lo que propone</span></div>' +
         brecha + '</div>' +
-        (a.porque ? '<div class="panel suave" style="margin:.5rem 0"><div class="rot">Su porqué</div><p style="white-space:pre-wrap;font-size:.93rem;margin:.25rem 0 0">' + esc(a.porque) + '</p></div>' : '<p class="mini">No escribió su porqué, o no lo tienes todavía.</p>');
+        (a.propuesta ? '' :
+          '<label class="campo"><span>Su número, tal como te lo diga</span>' +
+          '<input type="text" id="fPropuesta" inputmode="decimal" placeholder="Lo que propone" value=""></label>') +
+        (a.porque ? '<div class="panel suave" style="margin:.5rem 0"><div class="rot">Su porqué</div><p style="white-space:pre-wrap;font-size:.93rem;margin:.25rem 0 0">' + esc(a.porque) + '</p></div>' : '<p class="mini">No escribió su porqué, o no lo tienes todavía. Pídeselo en voz alta: es la parte que importa.</p>');
     }
 
     der += '<div class="preguntas">' +
@@ -765,8 +862,15 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
       res.appendChild(b);
     });
 
+    var fProp = document.getElementById('fPropuesta');
+    if (fProp) fProp.addEventListener('change', function(){
+      a.propuesta = fProp.value.replace(',', '.').trim();
+      guardar(); pintaFicha(); pintaLista(); pintaRegistro(); pintaTablero();
+    });
+
     ['fAcordado','fAcuerdos','fNotas'].forEach(function(elId){
       var el = document.getElementById(elId);
+      if (!el) return;
       var k = { fAcordado:'acordado', fAcuerdos:'acuerdos', fNotas:'notas' }[elId];
       el.addEventListener('input', function(){
         a[k] = el.value;
@@ -780,7 +884,11 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
       var sig = null;
       for (var k = 1; k <= R.orden.length; k++){
         var cand = R.orden[(i + k) % R.orden.length];
-        if (R.al[cand] && !R.al[cand].resultado){ sig = cand; break; }
+        if (R.al[cand] && !R.al[cand].resultado && estado(R.al[cand]) !== 'falta'){ sig = cand; break; }
+      }
+      if (!sig) for (var k2 = 1; k2 <= R.orden.length; k2++){
+        var c2 = R.orden[(i + k2) % R.orden.length];
+        if (R.al[c2] && !R.al[c2].resultado){ sig = c2; break; }
       }
       R.sel = sig; guardar(); pinta();
       window.scrollTo(0, 0);

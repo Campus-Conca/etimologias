@@ -229,6 +229,30 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--rosa);outline-of
 .pie .donde{flex:none;font-size:.76rem;color:var(--gris);text-align:center;min-width:3.4rem}
 .pie button:disabled{opacity:.35;cursor:default}
 
+/* ---------- qué cuenta como argumento ---------- */
+.clases{margin:.6rem 0}
+.clase{display:flex;gap:.7rem;align-items:flex-start;border:1px solid var(--borde);background:var(--papel);
+  border-radius:.8rem;padding:.6rem .75rem;margin-bottom:.45rem}
+.clase .n{flex:none;width:26px;height:26px;border-radius:50%;background:var(--rosa);color:#fff;
+  font-weight:800;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+.clase b{display:block;color:var(--ciruela);font-size:.95rem;line-height:1.3}
+.clase span{display:block;font-size:.85rem;color:var(--gris);line-height:1.45;margin-top:.1rem}
+
+.par{border:1px solid var(--borde);border-radius:.85rem;background:var(--papel);margin-bottom:.55rem;overflow:hidden}
+.par .flojo{padding:.7rem .85rem;background:var(--ambar-bg);border-bottom:1px solid #f0dbc9}
+.par .flojo .et{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ambar);font-weight:800}
+.par .flojo p{margin:.15rem 0 0;color:#7d3d16;font-size:.96rem;font-style:italic}
+.par .voltea{display:block;width:100%;border:none;background:var(--papel);color:var(--rosa);
+  font:inherit;font-size:.85rem;font-weight:800;padding:.55rem .85rem;cursor:pointer;text-align:left}
+.par .voltea:hover{background:#fdeef6}
+.par .fuerte{display:none;padding:.7rem .85rem;background:var(--jade-bg);border-top:1px solid #cfe8da}
+.par.abierto .fuerte{display:block}
+.par.abierto .voltea{display:none}
+.par .fuerte .et{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--jade);font-weight:800}
+.par .fuerte p{margin:.15rem 0 0;color:#245c3c;font-size:.96rem}
+.par .fuerte .porque{display:block;margin-top:.45rem;font-size:.85rem;color:#3d6b52;border-top:1px dashed #b8dcc7;padding-top:.4rem}
+.par .fuerte .porque b{color:#1f6b43}
+
 /* ---------- el envío ---------- */
 .enviado{border:2px solid var(--jade);background:var(--jade-bg);border-radius:1rem;padding:.9rem 1rem;margin:.8rem 0;display:none}
 .enviado.ver{display:block}
@@ -271,6 +295,8 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--rosa);outline-of
   font:inherit;font-weight:800;cursor:pointer;margin-top:.3rem}
 
 /* ---------- modo papel / impresión ---------- */
+body.papel .par .fuerte,body.papel .par .voltea{display:block}
+body.papel .par .voltea{display:none}
 body.papel .pantalla{display:block!important;border-bottom:2px dashed var(--borde);padding-bottom:1rem;margin-bottom:1rem;animation:none}
 body.papel .pie,body.papel .rail{display:none}
 body.papel .medidor{position:static}
@@ -278,6 +304,8 @@ body.papel .medidor{position:static}
   body{background:#fff;font-size:11pt}
   .barra,.pie,.rail,.acciones,.guardado,.medidor,.btn-ejemplo,.velo,.hoja{display:none!important}
   .ejemplo{display:none!important}
+  .par .fuerte{display:block!important}
+  .par .voltea{display:none!important}
   .pantalla{display:block!important;page-break-inside:avoid;border:none;margin:0 0 .6cm}
   main{padding:0}
   .tarjeta,.ev,.crit,.preg,.propuesta,.resumen,.grafica{break-inside:avoid}
@@ -370,13 +398,31 @@ body.papel .medidor{position:static}
   </div>
 
   <h3>Qué cuenta como argumento</h3>
-  <div class="tarjeta" style="border-color:var(--jade);background:var(--jade-bg)">
-    <p style="margin:.1rem 0;color:var(--jade)"><strong>Sí cuenta</strong></p>
-    <p class="mini" style="margin:.2rem 0 0;color:#2a5c3e">Una pieza concreta que se puede ver · tu serie de calibración completa · “esto quedó en aún no, y esto hice” · una palabra que descifraste tú solo, con su fuente.</p>
+  <p class="entrada">Esta es la parte que nadie te ha enseñado, así que va despacio. Un argumento no es una frase bonita ni una promesa: es <strong>algo que se puede señalar</strong>. En este curso hay cuatro clases, y todas salieron de estas seis semanas.</p>
+
+  <div class="clases">
+    <div class="clase"><span class="n">1</span><span><b>Una pieza que se puede ver</b>
+      <span>Tu ficha del Museo, un árbol del campeonato, una matriz del torneo, un crucigrama del taller de pistas, un monstruo de la fábrica, una tarjeta que rescataste del muro de sanguijuelas, tu hoja de un quiz. Si el profesor puede pedirte “enséñamela” y tú puedes, es una pieza.</span></span></div>
+    <div class="clase"><span class="n">2</span><span><b>Tu serie de calibración</b>
+      <span>Los únicos números del semestre que dicen algo sobre ti. No dicen cuánto sabes: dicen qué tan bien te conoces, que es otra cosa y más difícil.</span></span></div>
+    <div class="clase"><span class="n">3</span><span><b>Un “aún no” con nombre y con plan</b>
+      <span>Decir qué se te cae, cuándo te diste cuenta y qué hiciste. Esta es la que más sorprende: reconocer un hueco trabajado pesa más que afirmar que todo salió bien.</span></span></div>
+    <div class="clase"><span class="n">4</span><span><b>Algo que hiciste sin que nadie te lo pidiera</b>
+      <span>Una palabra que descifraste en la calle, un libro que buscaste tú, una pieza que agregaste al mazo porque se te resistía. Es la evidencia más difícil de discutir, porque no venía en ninguna instrucción.</span></span></div>
   </div>
+
+  <h3>La misma idea, dicha de dos maneras</h3>
+  <p class="mini">Ocho frases que se oyen todos los semestres. Primero lee la floja y <strong>piensa cómo la dirías tú</strong> para que cuente; luego destápala. Es el mismo trato que con los quizzes: primero apuestas, después volteas la hoja.</p>
+  <div id="pares"></div>
+
+  <div class="cita">
+    <b>La prueba de las tres preguntas.</b>
+    Antes de escribir algo en tu porqué, pásalo por aquí: ¿<strong>se puede señalar</strong>? ¿tiene <strong>fecha o lugar</strong>? ¿podría decirlo <strong>cualquier otra persona del salón</strong> sin cambiarle una palabra? Si a la última contestas que sí, no está argumentando por ti: está rellenando.
+  </div>
+
   <div class="tarjeta" style="border-color:var(--ambar);background:var(--ambar-bg)">
-    <p style="margin:.1rem 0;color:var(--ambar)"><strong>No cuenta</strong></p>
-    <p class="mini" style="margin:.2rem 0 0;color:#7d3d16">“Me esforcé mucho” sin nada que enseñar · “necesito diez para mi promedio” · “nunca falté” a secas (eso es el suelo, no la calificación) · lo que hiciste en otra materia.</p>
+    <p style="margin:.1rem 0;color:var(--ambar)"><strong>Y esto no cuenta, aunque sea cierto</strong></p>
+    <p class="mini" style="margin:.2rem 0 0;color:#7d3d16">Lo que necesitas para tu promedio o para una beca · lo que hiciste en otra materia · lo mucho que te esforzaste, si no hay nada que enseñar · haber venido siempre, a secas. Ojo con la última: la asistencia es el suelo, y el suelo no es la calificación — es lo que te deja entrar a la conversación.</p>
   </div>
 
   <div class="cita">Aquí el error no cuesta. Lo único que cuesta es no estar.</div>
@@ -841,6 +887,35 @@ body.papel .medidor{position:static}
       fija:'Fíjate en lo que hace y en lo que no hace. No dice "me esforcé". No pide nada. Nombra una pieza que se puede ver, una que descifró sola, y su propia falla, sin disculparse por ella. Y propone 8, no 10.' }
   };
 
+  /* Los ocho pares. Todos los ejemplos fuertes salen de cosas que de verdad
+     pasaron entre la semana 2 y la 7: por eso funcionan como modelo. */
+  var PARES = [
+    { flojo:'Le eché muchas ganas al Museo.',
+      fuerte:'Mi ficha de cosmético trae el viaje completo y su fuente en el DECEL. Mi primera ficha, la de la semana 2, no traía ni de dónde venía la palabra.',
+      porque:'La primera dice cómo te sentiste. La segunda se puede abrir y mirar, y además se compara contigo mismo de hace seis semanas.' },
+    { flojo:'Entregué todo y nunca falté.',
+      fuerte:'Los seis quizzes están intentados. Al #3 falté el martes 18 y lo reintenté el viernes 21 en el Triage, que es como funciona aquí: cuenta la versión más reciente.',
+      porque:'Estar es el suelo, y el suelo no es tu calificación: es lo que te deja entrar a esta conversación. Lo que sí argumenta es lo que hiciste estando.' },
+    { flojo:'Me sé todas las raíces.',
+      fuerte:'En el campeonato del 28 de agosto saqué once palabras de arqui- y verifiqué tres en el DECEL. Las otras ocho no las verifiqué, y eso también es dato.',
+      porque:'Un número y una fuente. Y fíjate en el remate: decir hasta dónde llegaste de verdad hace más creíble todo lo anterior, no menos.' },
+    { flojo:'Sí le entendí a lo de los espejismos.',
+      fuerte:'En el banco de dudosos defendí man + go como corte real. Cuando me pidieron la fuente se me cayó, y desde entonces no corto ninguna palabra sin buscarle familia primero.',
+      porque:'Un error contado con lo que aprendiste de él vale más que diez afirmaciones de que entendiste. Esto es la clase 3.' },
+    { flojo:'Participo mucho en clase.',
+      fuerte:'En ¿Quién quiere ser etimólogo? gané la ronda de quiromancia explicando las dos piezas en voz alta, no adivinando.',
+      porque:'“Participo” no se puede señalar. Un momento con nombre y fecha sí, y además el profesor estaba ahí y lo vio.' },
+    { flojo:'Mi bitácora está llena.',
+      fuerte:'Mi bitácora tiene rastro desde que estrenamos el minuto del lector, el 25 de agosto, y de ahí salió hemeroteca, la palabra que puse en el reactivo 8.',
+      porque:'Nadie lee tu bitácora por dentro: eso es parte del trato. Lo que argumenta no es que esté llena, sino lo que salió de ella.' },
+    { flojo:'Siempre saco buenas calificaciones en todo.',
+      fuerte:'Mi serie muestra que me subestimo: las seis veces salí por encima de lo que aposté, y en el de diez por tres reactivos. Estoy aprendiendo a leerme.',
+      porque:'Lo de otras materias no viaja hasta aquí. Lo que sí es tuyo y de este curso es tu calibración, que ninguna otra clase te enseñó a mirar.' },
+    { flojo:'Necesito nueve para mi promedio.',
+      fuerte:'—',
+      porque:'Esta no tiene versión buena, y es a propósito. Tu promedio no es evidencia de lo que sabes hacer. Si te preocupa, dilo en la conversación como lo que es —una preocupación— y no como argumento: se escucha igual, pero no se confunde con una razón.' }
+  ];
+
   var PREGUNTAS = [
     { k:'p1', t:'¿Qué sabes hacer hoy que no sabías en agosto?', c:'Una cosa, concreta, con la pieza en la mano.' },
     { k:'p2', t:'¿Con qué lo demuestras?', c:'Aquí se enseña, no se cuenta. Si no puedes señalar nada, falta buscar en el portafolio.' },
@@ -1164,6 +1239,23 @@ body.papel .medidor{position:static}
     medTxt.textContent = c.si + ' con evidencia · ' + c.no + ' en aún no · ' + (TOTAL_EV - c.si - c.no) + ' sin contestar'
       + (c.si && c.conPieza < c.si ? ' — y ' + (c.si - c.conPieza) + ' sin decir con qué' : '');
   }
+
+  /* ---------- los pares de argumento ---------- */
+  var paresEl = document.getElementById('pares');
+  if (paresEl) PARES.forEach(function(par, i){
+    var caja = document.createElement('div');
+    caja.className = 'par';
+    var sinVersion = par.fuerte === '—';
+    caja.innerHTML =
+      '<div class="flojo"><span class="et">No cuenta</span><p>“' + esc(par.flojo) + '”</p></div>' +
+      '<button type="button" class="voltea">' + (sinVersion ? '¿Cómo la dirías tú para que cuente?' : '¿Cómo la dirías tú? · destapar') + '</button>' +
+      '<div class="fuerte">' +
+        (sinVersion ? '' : '<span class="et">Sí cuenta</span><p>“' + esc(par.fuerte) + '”</p>') +
+        '<span class="porque"><b>Por qué:</b> ' + esc(par.porque) + '</span>' +
+      '</div>';
+    caja.querySelector('.voltea').addEventListener('click', function(){ caja.classList.add('abierto'); });
+    paresEl.appendChild(caja);
+  });
 
   /* ---------- el ejemplo, paso por paso ---------- */
   Array.prototype.forEach.call(document.querySelectorAll('.ej-slot'), function(slot){
