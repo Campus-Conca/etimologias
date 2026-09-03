@@ -258,6 +258,7 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
 <section class="panel" id="panelRegistro" style="display:none">
   <h2 style="margin-top:.2rem">4 · El registro</h2>
   <p class="mini">Lo que vas a asentar, y lo que le regresas a tu hoja de cálculo. El botón copia las columnas nuevas en el orden de esta tabla: pégalas junto a las que ya tienes.</p>
+  <p class="mini" id="avisoTapados" style="color:var(--rosa)"></p>
   <div style="overflow-x:auto"><table class="reg" id="tablaReg"></table></div>
   <div class="fila">
     <button class="btn ciruela" type="button" id="btnTsvSalida">Copiar para la hoja de cálculo</button>
@@ -815,14 +816,22 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
   function pintaRegistro(){
     var t = document.getElementById('tablaReg');
     if (!R.orden.length){ t.innerHTML = '<tr><td class="vacio-tabla">Todavía no hay nadie en la mesa.</td></tr>'; return; }
+    var tapados = 0;
     t.innerHTML = '<tr><th>Nombre</th><th>Grupo</th><th>Propone</th><th>Mi apuesta</th><th>Se asentó</th><th>Cómo terminó</th><th>Acuerdos U2</th><th>Fecha</th></tr>' +
       R.orden.map(function(id){
         var a = R.al[id]; if (!a) return '';
+        /* el modo a ciegas no sirve de nada si el numero se asoma aqui abajo */
+        var tapado = R.ciegas && !a.destapado && !a.resultado;
+        if (tapado) tapados++;
         return '<tr><td>' + esc(a.nombre) + '</td><td>' + esc(a.grupo || '') + '</td>' +
-          '<td class="n">' + esc(a.propuesta || '') + '</td><td class="n">' + esc(a.apuesta || '') + '</td>' +
+          '<td class="n">' + (tapado ? '·' : esc(a.propuesta || '')) + '</td><td class="n">' + esc(a.apuesta || '') + '</td>' +
           '<td class="n">' + esc(a.acordado || '') + '</td><td>' + esc(etiquetaRes(a.resultado)) + '</td>' +
           '<td>' + esc(a.acuerdos || '') + '</td><td>' + esc(a.fecha || '') + '</td></tr>';
       }).join('');
+    var av = document.getElementById('avisoTapados');
+    av.textContent = tapados
+      ? 'Hay ' + tapados + ' número(s) tapados con un punto: el modo a ciegas también aplica aquí, para que no se te asomen antes de apostar. Al exportar sí salen completos.'
+      : '';
   }
   function filasSalida(){
     var enc = ['Nombre','Grupo','Propone','Mi apuesta','Se asentó','Cómo terminó','Acuerdos U2','Fecha'];
