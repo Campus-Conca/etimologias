@@ -202,7 +202,7 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
   </div>
 
   <div class="hoja-carga on" data-h="tsv">
-    <p class="mini">Selecciona las filas en Google Sheets (con encabezado) y pégalas aquí. También sirve un CSV.</p>
+    <p class="mini">Selecciona las filas en Google Sheets (con encabezado) y pégalas aquí. También sirve un CSV. Si tu hoja trae la columna <code>codigo</code> —la que manda la autoevaluación al enviarse—, marca cuál es y el grupo entero entra con su análisis completo de un solo pegue.</p>
     <textarea id="tsv" placeholder="Marca temporal	Tu nombre	Propongo…	Porque…" style="min-height:7rem;font-family:ui-monospace,monospace;font-size:.78rem"></textarea>
     <div id="mapa" style="display:none">
       <p class="rot" style="margin-top:.8rem">Di qué columna es cuál</p>
@@ -211,6 +211,7 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
         <label class="campo"><span>Grupo (opcional)</span><select id="colGrupo"></select></label>
         <label class="campo"><span>Su número</span><select id="colNum"></select></label>
         <label class="campo"><span>Su porqué</span><select id="colPorque"></select></label>
+        <label class="campo"><span>Su código (trae el análisis completo)</span><select id="colCodigo"></select></label>
       </div>
       <p class="mini" id="previaTsv"></p>
     </div>
@@ -490,7 +491,8 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
     [['colNombre', ['nombre','alumn','estudiante']],
      ['colGrupo', ['grupo','sección','seccion']],
      ['colNum', ['propon','número','numero','calific','parcial']],
-     ['colPorque', ['porque','porqué','razón','razon','justific']]].forEach(function(par){
+     ['colPorque', ['porque','porqué','razón','razon','justific']],
+     ['colCodigo', ['codigo','código','respaldo','etim']]].forEach(function(par){
       var sel = document.getElementById(par[0]);
       sel.innerHTML = '<option value="-1">— ninguna —</option>' + cols.map(function(c, i){
         return '<option value="' + i + '">' + esc(c.slice(0, 44) || ('columna ' + (i + 1))) + '</option>';
@@ -506,22 +508,29 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
     var iG = +document.getElementById('colGrupo').value;
     var iP = +document.getElementById('colNum').value;
     var iQ = +document.getElementById('colPorque').value;
+    var iC = +document.getElementById('colCodigo').value;
     if (iN < 0){ nota('Dime cuál columna trae el nombre.'); return; }
-    var ok = 0;
+    var ok = 0, completos = 0;
     tablaTsv.slice(1).forEach(function(f){
       var num = iP > -1 ? String(f[iP] || '').replace(/[^0-9.,]/g, '').replace(',', '.') : '';
-      if (alta(f[iN], {
+      var id = alta(f[iN], {
         grupo: iG > -1 ? f[iG] : '',
         propuesta: num,
         porque: iQ > -1 ? String(f[iQ] || '').trim() : '',
         fuente: 'hoja'
-      })) ok++;
+      });
+      if (!id) return;
+      ok++;
+      if (iC > -1 && String(f[iC] || '').indexOf(PREFIJO) > -1){
+        var antes = R.al[id].datos;
+        if (meterCodigo(f[iC]) && R.al[id].datos && R.al[id].datos !== antes) completos++;
+      }
     });
     document.getElementById('tsv').value = '';
     document.getElementById('mapa').style.display = 'none';
     tablaTsv = null;
     guardar(); pinta();
-    nota(ok + ' fila(s) leída(s).');
+    nota(ok + ' fila(s) leída(s)' + (completos ? ', ' + completos + ' con su análisis completo' : '') + '.');
   });
 
   /* ---------- carga: a mano ---------- */

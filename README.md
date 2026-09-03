@@ -26,6 +26,18 @@ Just the Docs, ya configurado en `_config.yml`).
   el equipo editorial del grupo (o tú) pega el contenido curado en la
   página correspondiente. Editar es fácil: cualquier archivo se puede
   modificar desde el propio GitHub en el navegador (botón del lápiz).
+- **Cierres de unidad — antes del primero, revisa el recolector.** La
+  autoevaluación manda su envío al mismo Apps Script de `cosecha_url`, con
+  `tipo = parcial-u1`. Si tu script crea la pestaña sola, no hay nada que
+  hacer; si espera una pestaña existente, créala con ese nombre y con estas
+  columnas: `nombre`, `grupo`, `numero`, `porque`, `suelo`, `calibracion`,
+  `evidencias`, `pieza`, `descifrada`, `aunno`, `codigo`. **Pruébalo tú
+  primero**, mandando una autoevaluación de mentiras: la página no puede leer
+  la respuesta del script (así funciona un POST a un iframe, sin CORS), así
+  que dice "se mandó" en cuanto el iframe carga, aunque el script haya
+  fallado por dentro. Por eso el formulario de siempre sigue ahí abajo como
+  red. La columna `codigo` es la importante: lleva la autoevaluación completa
+  y es la que hace que la mesa levante a todo el grupo de un solo pegue.
 - **Cierres de unidad:** el estudiante llena su autoevaluación en
   `recursos/plantillas/autoevaluacion-u1.html` (se guarda en su teléfono y
   manda su frase al formulario). Tú conversas y registras en

@@ -229,6 +229,16 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--rosa);outline-of
 .pie .donde{flex:none;font-size:.76rem;color:var(--gris);text-align:center;min-width:3.4rem}
 .pie button:disabled{opacity:.35;cursor:default}
 
+/* ---------- el envío ---------- */
+.enviado{border:2px solid var(--jade);background:var(--jade-bg);border-radius:1rem;padding:.9rem 1rem;margin:.8rem 0;display:none}
+.enviado.ver{display:block}
+.enviado .rotulo{font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--jade);font-weight:800}
+.enviado b{display:block;color:var(--jade);font-size:1.05rem;margin:.15rem 0 .25rem}
+.enviado p{margin:.3rem 0;font-size:.9rem;color:#2a5c3e}
+.red{border:1px solid var(--borde);background:var(--fondo);border-radius:.9rem;padding:.8rem .9rem;margin:.8rem 0}
+.red>summary{cursor:pointer;font-weight:700;color:var(--ciruela);font-size:.9rem}
+.red[open]>summary{margin-bottom:.5rem}
+
 /* ---------- el ejemplo ---------- */
 .btn-ejemplo{display:inline-flex;align-items:center;gap:.35rem;border:1px dashed #d9c49a;background:#fffaf0;
   color:#8a6a1a;border-radius:2rem;padding:.32rem .8rem;font:inherit;font-size:.82rem;font-weight:700;
@@ -294,7 +304,7 @@ body.papel .medidor{position:static}
 <div class="velo" id="velo"></div>
 <div class="hoja" id="hoja">
   <h3>Opciones</h3>
-  <p class="mini" style="margin:0 0 .7rem">Todo lo que escribes vive solo en este teléfono. Estas son las tres cosas que puedes hacer con eso.</p>
+  <p class="mini" style="margin:0 0 .7rem">Lo que escribes vive en este teléfono hasta que tú lo mandes, en el paso 8. Estas son las tres cosas que puedes hacer mientras tanto.</p>
   <button class="op" type="button" id="opPapel"><b>Modo papel</b><span>Abre los nueve pasos seguidos y manda a imprimir, para llenarlo a mano.</span></button>
   <button class="op" type="button" id="opCopiar"><b>Copiar mi respaldo</b><span>Un código con todo lo que llevas escrito. Mándatelo a tu propio WhatsApp: con él lo recuperas en otro teléfono, o si se te borra.</span></button>
   <button class="op" type="button" id="opPegar"><b>Pegar un respaldo</b><span>¿Ya tienes un código? Pégalo aquí y vuelve todo a su lugar.</span></button>
@@ -327,12 +337,12 @@ body.papel .medidor{position:static}
 
   <div class="tarjeta suave">
     <p style="margin:.1rem 0"><strong>Cómo funciona esta pantalla</strong></p>
-    <p class="mini" style="margin:.35rem 0 0">Nueve pasos. Se avanza con el botón de abajo o deslizando el dedo. <strong>Se guarda solo</strong> en este teléfono conforme escribes: puedes cerrarla y volver mañana. Nada se manda a ningún lado hasta que tú lo copias al formulario.</p>
+    <p class="mini" style="margin:.35rem 0 0">Nueve pasos. Se avanza con el botón de abajo o deslizando el dedo. <strong>Se guarda solo</strong> en este teléfono conforme escribes: puedes cerrarla y volver mañana. No sale de aquí hasta que <strong>tú</strong> toques el botón de enviar, en el paso 8.</p>
     <p class="mini" style="margin:.5rem 0 0">Hazlo con tu expediente y tu portafolio enfrente. Sin adivinar: revisando. Tardas unos veinte minutos.</p>
     <p class="mini" style="margin:.5rem 0 0">Los puntitos de arriba son los nueve pasos: se ponen <strong style="color:#2e7d32">verdes</strong> cuando ese paso ya trae algo tuyo, y puedes tocarlos para saltar. El amarillo es donde estás.</p>
     <p class="mini" style="margin:.5rem 0 0">Y en cada cosa que se te pida encontrarás <strong>los enlaces a la actividad donde se hizo</strong>: ábrela, checa si la hiciste, y si no, hazla ahora. Ninguna está cerrada.</p>
     <p class="mini" style="margin:.5rem 0 0">¿No sabes qué escribir? Casi todos los pasos traen un botón <strong>Ver un ejemplo</strong>: es la autoevaluación de una estudiante inventada, llenada completa. No la copies —se nota—, pero míralo antes de escribir el tuyo.</p>
-    <p class="mini" style="margin:.5rem 0 0">Y antes de cerrar: en <strong>Papel · opciones</strong>, arriba a la derecha, está <em>copiar mi respaldo</em>. Es un código que te mandas a tu propio WhatsApp y con el que recuperas todo si cambias de teléfono o se te borra el navegador.</p>
+    <p class="mini" style="margin:.5rem 0 0">Y antes de cerrar: en <strong>Papel · respaldo</strong>, arriba a la derecha, está <em>copiar mi respaldo</em>. Es un código que te mandas a tu propio WhatsApp y con el que recuperas todo si cambias de teléfono o se te borra el navegador.</p>
   </div>
 
   <p class="mini">¿Prefieres papel? Arriba a la derecha, <strong>Papel</strong> abre los nueve pasos seguidos para imprimir y llenar a mano. Vale exactamente igual.</p>
@@ -550,16 +560,36 @@ body.papel .medidor{position:static}
   <div class="checks" id="checks"></div>
 
   <div class="acciones">
-    <button class="btn principal" type="button" id="btnCopiar">Copiar mi propuesta</button>
-    <div class="aviso" id="avisoCopia">Copiada. Ahora pégala en el formulario.</div>
-    <a class="btn segundo" id="btnForm" href="https://forms.gle/wVMNguqu3Nfu7yBX7" target="_blank" rel="noopener">Abrir el formulario de parciales</a>
+    <button class="btn principal" type="button" id="btnEnviar">Enviar mi propuesta al profesor</button>
+    <p class="pista" style="margin:0" id="pistaEnviar">Se va tu número, tu porqué y lo que llenaste en estos nueve pasos. Lo lee <strong>únicamente el profesor</strong>, y lo va a tener enfrente cuando conversen. Antes del lunes.</p>
+  </div>
+
+  <div class="enviado" id="cajaEnviado">
+    <div class="rotulo">Listo</div>
+    <b id="enviadoTitulo">Tu propuesta salió.</b>
+    <p id="enviadoDetalle"></p>
+    <p>Ya no tienes que hacer nada más. Si le mueves a algo, vuelve a tocar el botón: cuenta la versión más reciente, como con los quizzes.</p>
+  </div>
+
+  <details class="red">
+    <summary>¿No se mandó, o prefieres el formulario?</summary>
+    <p class="mini">Las dos redes de siempre siguen aquí, y ninguna necesita que el envío haya funcionado.</p>
+    <div class="acciones">
+      <button class="btn segundo" type="button" id="btnCopiar">Copiar mi propuesta</button>
+      <div class="aviso" id="avisoCopia">Copiada. Ahora pégala en el formulario.</div>
+      <a class="btn linea" id="btnForm" href="https://forms.gle/wVMNguqu3Nfu7yBX7" target="_blank" rel="noopener">Abrir el formulario de parciales</a>
+    </div>
+    <p class="pista">Si el teléfono no es lo tuyo, se hace en la siguiente sesión de cómputo, o se entrega en papel: vale igual.</p>
+  </details>
+
+  <div class="acciones">
     <button class="btn linea" type="button" id="btnDescargar">Descargar mi expediente de la unidad</button>
   </div>
   <div class="enlaces"><span class="rot">por si te falta contexto</span>
     <a href="../../evaluacion.html" target="_blank" rel="noopener">Tu calificación · el sistema completo</a>
     <a href="../../unidades/u1.html" target="_blank" rel="noopener">La unidad 1 completa</a>
   </div>
-  <p class="pista">El formulario lo ve únicamente el profesor. Se manda <strong>antes del lunes</strong>. Si el teléfono no es lo tuyo, se hace en la siguiente sesión de cómputo, o se entrega en papel: vale igual.</p>
+
 </section>
 
 <!-- ==================== 9 · LA CONVERSACIÓN ==================== -->
@@ -607,6 +637,13 @@ body.papel .medidor{position:static}
 
   var CLAVE = 'etimologias-autoeval-u1';
   var FORM = 'https://forms.gle/wVMNguqu3Nfu7yBX7';
+
+  /* El recolector del curso. Es el MISMO que cosecha_url en _config.yml:
+     esta página es HTML suelto, sin layout de Jekyll, así que no recibe
+     window.COSECHA_URL y hay que repetirlo aquí. Si cambia allá, cámbialo
+     aquí. El envío cae en la pestaña que diga el campo "tipo". */
+  var COSECHA = 'https://script.google.com/macros/s/AKfycbyowFaq0n-zK4TBagspKG0Roye0Lun0FHaB5gQTiZGisXG4A-9ehIWmamw_mWo3KeZmrw/exec';
+  var TIPO = 'parcial-u1';
 
   /* ---------- estado ---------- */
   var D = {};
@@ -1338,6 +1375,98 @@ body.papel .medidor{position:static}
     });
   });
 
+  /* ---------- el envío al profesor ----------
+     Va como POST de formulario a un iframe escondido, igual que la cosecha
+     del resto del sitio: sin CORS no se puede leer la respuesta, así que la
+     confirmación se apoya en que el iframe cargue. Por eso las dos redes de
+     abajo (copiar y formulario) nunca se quitan de la página. */
+  var btnEnviar = document.getElementById('btnEnviar');
+  var cajaEnviado = document.getElementById('cajaEnviado');
+  var pistaEnviar = document.getElementById('pistaEnviar');
+
+  function resumenSuelo(){
+    var n = cuentaSuelo();
+    if (n === TABLAS.length) return '6/6 · completo';
+    var faltan = TABLAS.filter(function(t){ return !D.suelo[t.k]; }).map(function(t){ return t.t; });
+    return n + '/6 · falta: ' + faltan.join(', ');
+  }
+  function resumenEvidencias(){
+    var c = conteoEv();
+    return c.si + ' con pieza · ' + c.no + ' en aún no · de ' + TOTAL_EV;
+  }
+  function paquete(){
+    var L = lecturaSerie();
+    return {
+      tipo: TIPO,
+      nombre: val('nombre'),
+      grupo: val('grupo'),
+      numero: numeroFinal(),
+      porque: val('frase'),
+      suelo: resumenSuelo(),
+      calibracion: (L ? L.t + '. ' : '') + val('serieTexto'),
+      evidencias: resumenEvidencias(),
+      pieza: val('piezaCual') + (val('piezaPorque') ? ' — ' + val('piezaPorque') : ''),
+      descifrada: val('descifrada') + (val('descifradaPiezas') ? ' — ' + val('descifradaPiezas') : ''),
+      aunno: val('aunNo') || val('ensayoHueco'),
+      codigo: codigoRespaldo()
+    };
+  }
+  function pintaEnviado(){
+    if (!D.enviado) { cajaEnviado.classList.remove('ver'); return; }
+    cajaEnviado.classList.add('ver');
+    document.getElementById('enviadoDetalle').textContent =
+      'Se mandó el ' + D.enviado + (D.enviadoNum ? ' con ' + D.enviadoNum + ' como tu propuesta.' : '.');
+    btnEnviar.textContent = 'Volver a enviar';
+  }
+  if (btnEnviar) btnEnviar.addEventListener('click', function(){
+    if (!numeroFinal()) { pistaEnviar.innerHTML = '<strong>Falta tu número.</strong> Elígelo aquí arriba antes de mandarlo.'; return; }
+    if (val('frase').length < 40) { pistaEnviar.innerHTML = '<strong>Falta tu porqué.</strong> Un número solo no se puede conversar: escribe con qué lo sostienes.'; return; }
+    if (!val('nombre')) { pistaEnviar.innerHTML = '<strong>Falta tu nombre</strong>, en el primer paso. Sin él, el profesor no sabe de quién es.'; return; }
+
+    var datos = paquete();
+    var marco = document.createElement('iframe');
+    marco.name = 'envio-parcial-u1';
+    marco.style.display = 'none';
+    document.body.appendChild(marco);
+
+    var f = document.createElement('form');
+    f.method = 'POST';
+    f.action = COSECHA;
+    f.target = marco.name;
+    f.style.display = 'none';
+    Object.keys(datos).forEach(function(k){
+      var i = document.createElement('input');
+      i.type = 'hidden'; i.name = k; i.value = datos[k] == null ? '' : datos[k];
+      f.appendChild(i);
+    });
+    document.body.appendChild(f);
+
+    btnEnviar.disabled = true;
+    btnEnviar.textContent = 'Enviando…';
+    var listo = false;
+    function acabo(bien){
+      if (listo) return;
+      listo = true;
+      btnEnviar.disabled = false;
+      if (bien){
+        D.enviado = new Date().toLocaleDateString('es-MX', { day:'numeric', month:'long', year:'numeric' });
+        D.enviadoNum = numeroFinal();
+        guardar();
+        pintaEnviado();
+        pistaEnviar.textContent = 'Le llegó al profesor. Nadie más lo ve.';
+      } else {
+        btnEnviar.textContent = 'Enviar mi propuesta al profesor';
+        pistaEnviar.innerHTML = '<strong>No se pudo mandar.</strong> Puede ser el internet. Vuelve a intentarlo, o usa el formulario de aquí abajo: cuenta exactamente igual.';
+        document.querySelector('.red').open = true;
+      }
+      setTimeout(function(){ try { f.remove(); marco.remove(); } catch(e){} }, 1500);
+    }
+    marco.addEventListener('load', function(){ acabo(true); });
+    marco.addEventListener('error', function(){ acabo(false); });
+    setTimeout(function(){ acabo(false); }, 12000);
+    f.submit();
+  });
+
   /* ---------- 9 · resumen para la conversación ---------- */
   var resumenEl = document.getElementById('resumen');
   function pintaResumen(){
@@ -1372,6 +1501,7 @@ body.papel .medidor{position:static}
           '<dt>La que descifré yo solo</dt><dd>' + esc(val('descifrada') || 'sin llenar') + '</dd>' +
           '<dt>Lo que todavía me falta</dt><dd>' + esc(val('aunNo') || val('ensayoHueco') || 'sin llenar') + '</dd>' +
           '<dt>Mi porqué, completo</dt><dd>' + esc(val('frase') || 'sin escribir') + '</dd>' +
+          '<dt>¿Ya lo mandé?</dt><dd>' + (D.enviado ? esc('sí, el ' + D.enviado) : 'todavía no — está en el paso 8') + '</dd>' +
         '</dl>' +
       '</div>';
   }
@@ -1567,6 +1697,7 @@ body.papel .medidor{position:static}
 
   /* ---------- arranque ---------- */
   enlazaTodos(document);
+  pintaEnviado();
   pintaRail();
   pintaPiso();
   pintaGrafica();
