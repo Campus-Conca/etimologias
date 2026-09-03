@@ -26,6 +26,16 @@ Just the Docs, ya configurado en `_config.yml`).
   el equipo editorial del grupo (o tú) pega el contenido curado en la
   página correspondiente. Editar es fácil: cualquier archivo se puede
   modificar desde el propio GitHub en el navegador (botón del lápiz).
+- **Cierres de unidad:** el estudiante llena su autoevaluación en
+  `recursos/plantillas/autoevaluacion-u1.html` (se guarda en su teléfono y
+  manda su frase al formulario). Tú conversas y registras en
+  `recursos/plantillas/mesa-u1.html`, la **pantalla del profesor**: trae al
+  grupo desde la hoja de cálculo del formulario, desde el código de respaldo
+  del estudiante o a mano; te deja apostar tu propio número a ciegas antes de
+  ver el suyo; y devuelve el registro listo para pegar de vuelta en la hoja.
+  Esa página no guarda nada por dentro (todo vive en el navegador de quien la
+  abre), así que puede estar publicada sin exponer a nadie; no está enlazada
+  desde el menú del sitio. **Vacíala al salir de una computadora compartida.**
 - Cada commit actualiza la web sola en 1–2 minutos.
 
 ## Qué NO va en este repo

@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#4a1540">
+<title>La mesa de conversación · Unidad 1 · Etimologías Grecolatinas</title>
+<style>
+:root{
+  --rosa:#c8127a; --ciruela:#6b1e5a; --ciruela-osc:#4a1540;
+  --fondo:#fbf4f9; --borde:#eadce6; --papel:#fff;
+  --jade:#1f8a4c; --jade-bg:#e9f6ef;
+  --ambar:#b3541e; --ambar-bg:#fdf0e6;
+  --rojo:#a3312b; --rojo-bg:#fdf3f0;
+  --gris:#6f6470;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+  background:var(--fondo);color:#2a2a2a;line-height:1.55;font-size:16px}
+
+.barra{position:sticky;top:0;z-index:40;background:var(--ciruela-osc);color:#fff;padding:.6rem 1rem;
+  box-shadow:0 1px 10px rgba(74,21,64,.3)}
+.barra .caja{max-width:74rem;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:.8rem;flex-wrap:wrap}
+.barra .marca{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;opacity:.7;line-height:1.3}
+.barra .marca b{display:block;font-size:1rem;letter-spacing:0;text-transform:none;opacity:1}
+.barra .acc{display:flex;gap:.4rem;flex-wrap:wrap}
+.barra button{background:transparent;border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:2rem;
+  font:inherit;font-size:.78rem;padding:.3rem .75rem;cursor:pointer}
+.barra button:hover{background:rgba(255,255,255,.12)}
+.barra button.on{background:#ffd23f;color:var(--ciruela-osc);border-color:#ffd23f;font-weight:700}
+
+main{max-width:74rem;margin:0 auto;padding:1rem 1rem 5rem}
+h1{font-size:1.5rem;color:var(--ciruela);margin:.2rem 0 .4rem}
+h2{font-size:1.15rem;color:var(--ciruela);margin:1.6rem 0 .5rem}
+h3{font-size:.95rem;color:var(--rosa);margin:1.1rem 0 .35rem}
+p{margin:.5rem 0}
+.mini{font-size:.85rem;color:var(--gris);line-height:1.45}
+.rot{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--rosa);font-weight:800}
+
+.panel{background:var(--papel);border:1px solid var(--borde);border-radius:1rem;padding:1rem 1.1rem;margin:.9rem 0}
+.panel.suave{background:var(--fondo)}
+.aviso{border-left:4px solid var(--rosa);background:var(--fondo);border-radius:0 .7rem .7rem 0;
+  padding:.7rem .95rem;margin:.9rem 0;font-size:.92rem;color:var(--ciruela)}
+
+label.campo{display:block;margin-top:.7rem}
+label.campo>span{display:block;font-size:.7rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--ciruela);margin-bottom:.2rem}
+input[type=text],input[type=number],textarea,select{width:100%;border:1px solid var(--borde);border-radius:.6rem;
+  padding:.55rem .65rem;font:inherit;font-size:.98rem;background:var(--papel);color:#2a2a2a}
+textarea{min-height:4rem;resize:vertical;font-size:.92rem}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--rosa);outline-offset:1px;border-color:var(--rosa)}
+
+.btn{border:none;border-radius:.65rem;padding:.6rem 1rem;font:inherit;font-weight:700;cursor:pointer;font-size:.92rem}
+.btn.rosa{background:var(--rosa);color:#fff}
+.btn.ciruela{background:var(--ciruela);color:#fff}
+.btn.linea{background:var(--papel);color:var(--ciruela);border:1px solid var(--borde)}
+.btn.peligro{background:var(--rojo-bg);color:var(--rojo);border:1px solid #e6b8ab}
+.btn:disabled{opacity:.4;cursor:default}
+.fila{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+
+/* pestañas de carga */
+.tabs{display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:.7rem}
+.tabs button{border:1px solid var(--borde);background:var(--fondo);color:var(--ciruela);border-radius:2rem;
+  padding:.35rem .8rem;font:inherit;font-size:.84rem;font-weight:700;cursor:pointer}
+.tabs button.on{background:var(--ciruela);color:#fff;border-color:var(--ciruela)}
+.hoja-carga{display:none}
+.hoja-carga.on{display:block}
+.suelta{border:2px dashed #cdbcc8;border-radius:.9rem;padding:1.4rem 1rem;text-align:center;color:var(--gris);
+  background:var(--fondo);cursor:pointer}
+.suelta.encima{border-color:var(--rosa);background:#fdeef6;color:var(--rosa)}
+
+/* lista del grupo */
+.contadores{display:flex;gap:.4rem;flex-wrap:wrap;margin:.6rem 0}
+.cont{flex:1 1 7rem;border:1px solid var(--borde);border-radius:.7rem;background:var(--papel);padding:.5rem .7rem}
+.cont b{display:block;font-size:1.5rem;line-height:1.1;color:var(--ciruela)}
+.cont span{font-size:.74rem;color:var(--gris);line-height:1.3;display:block}
+.lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:.5rem;margin-top:.6rem}
+.alumno{text-align:left;border:1px solid var(--borde);background:var(--papel);border-radius:.75rem;
+  padding:.55rem .7rem;font:inherit;cursor:pointer;display:flex;align-items:center;gap:.6rem}
+.alumno:hover{border-color:var(--rosa)}
+.alumno.sel{border-color:var(--ciruela);border-width:2px;background:var(--fondo)}
+.alumno .luz{flex:none;width:12px;height:12px;border-radius:50%;background:#d8c8d4}
+.alumno.hecho .luz{background:var(--jade)}
+.alumno.hablar .luz{background:var(--ambar)}
+.alumno .quien{flex:1;min-width:0}
+.alumno .quien b{display:block;font-size:.95rem;color:var(--ciruela);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.alumno .quien span{display:block;font-size:.75rem;color:var(--gris)}
+.alumno .nums{flex:none;font-size:.85rem;color:var(--gris);font-variant-numeric:tabular-nums;text-align:right}
+.alumno .nums b{display:block;font-size:1.1rem;color:var(--rosa)}
+
+/* ficha */
+.ficha{border:2px solid var(--ciruela);border-radius:1rem;background:var(--papel);overflow:hidden;margin:.9rem 0}
+.ficha .cabeza{background:var(--ciruela);color:#fff;padding:.8rem 1rem;display:flex;justify-content:space-between;align-items:center;gap:.7rem;flex-wrap:wrap}
+.ficha .cabeza b{font-size:1.15rem;display:block;line-height:1.2}
+.ficha .cabeza span{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;opacity:.8}
+.ficha .cuerpo{padding:1rem}
+.dos{display:grid;grid-template-columns:1fr;gap:1rem}
+@media (min-width:900px){.dos{grid-template-columns:1.15fr .85fr}}
+
+.tapa{border:2px dashed #d9c49a;background:#fffaf0;border-radius:.9rem;padding:1rem;margin-bottom:1rem}
+.tapa .rot{color:#96721d}
+.tapa p{color:#4a3d20;font-size:.92rem}
+.apuestas{display:flex;gap:.4rem;flex-wrap:wrap;margin:.5rem 0}
+.apuestas button{flex:1 1 3rem;border:2px solid var(--borde);background:#fff;color:var(--ciruela);border-radius:.6rem;
+  padding:.45rem .2rem;font:inherit;font-size:1.25rem;font-weight:800;cursor:pointer}
+.apuestas button.on{background:var(--ciruela);border-color:var(--ciruela);color:#fff}
+.destape{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin:.6rem 0}
+.destape .par{text-align:center;flex:1 1 6rem}
+.destape .par b{display:block;font-size:2.4rem;line-height:1;font-weight:900}
+.destape .par.mia b{color:var(--ciruela)}
+.destape .par.suya b{color:var(--rosa)}
+.destape .par span{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gris)}
+.brecha{flex:1 1 10rem;border-radius:.7rem;padding:.55rem .8rem;font-size:.9rem;text-align:center;font-weight:700}
+.brecha.igual{background:var(--jade-bg);color:var(--jade)}
+.brecha.menos{background:#eef3fb;color:#2c5aa0}
+.brecha.mas{background:var(--ambar-bg);color:var(--ambar)}
+
+.duelas{display:flex;gap:.25rem;margin:.35rem 0}
+.duelas i{flex:1;height:11px;border-radius:2px;background:#e6d8e2}
+.duelas i.on{background:var(--jade)}
+.grafica{background:var(--fondo);border:1px solid var(--borde);border-radius:.8rem;padding:.6rem .5rem .3rem;margin:.5rem 0}
+.grafica svg{display:block;width:100%;height:auto}
+
+dl.datos{margin:0}
+dl.datos dt{font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;color:var(--rosa);font-weight:800;margin-top:.75rem}
+dl.datos dd{margin:.12rem 0 0;font-size:.93rem;color:#39323c;white-space:pre-wrap}
+dl.datos dd.vacio{color:#b3a8b0;font-style:italic}
+
+.evlista{margin:.3rem 0 0;padding:0;list-style:none}
+.evlista li{font-size:.86rem;padding:.22rem 0;border-bottom:1px solid var(--borde);color:#39323c}
+.evlista li b{color:var(--ciruela);font-weight:700}
+.evlista li.no{color:var(--ambar)}
+
+.preguntas{background:var(--fondo);border-radius:.8rem;padding:.7rem .9rem;margin:.7rem 0}
+.preguntas ol{margin:.3rem 0 0;padding-left:1.1rem}
+.preguntas li{font-size:.9rem;color:var(--ciruela);margin-bottom:.2rem}
+.crono{display:flex;align-items:center;gap:.6rem;margin-top:.5rem}
+.crono .num{font-variant-numeric:tabular-nums;font-weight:800;font-size:1.4rem;color:var(--rosa);min-width:4rem}
+.crono.corre .num{color:var(--jade)}
+
+.resultados{display:flex;flex-direction:column;gap:.35rem;margin:.5rem 0}
+.resultados button{text-align:left;border:1px solid var(--borde);background:var(--papel);color:var(--ciruela);
+  border-radius:.6rem;padding:.5rem .7rem;font:inherit;font-size:.88rem;cursor:pointer}
+.resultados button.on{border-color:var(--ciruela);border-width:2px;background:var(--fondo);font-weight:700}
+.resultados button small{display:block;color:var(--gris);font-weight:400;font-size:.78rem;line-height:1.35}
+
+/* registro */
+table.reg{width:100%;border-collapse:collapse;font-size:.85rem;margin-top:.5rem}
+table.reg th{text-align:left;padding:.35rem .4rem;border-bottom:2px solid var(--borde);color:var(--ciruela);
+  font-size:.68rem;letter-spacing:.05em;text-transform:uppercase}
+table.reg td{padding:.35rem .4rem;border-bottom:1px solid var(--borde);vertical-align:top}
+table.reg td.n{font-variant-numeric:tabular-nums;text-align:center;font-weight:700}
+.vacio-tabla{color:var(--gris);font-style:italic;padding:1rem 0}
+pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.7rem;
+  font-size:.75rem;white-space:pre;overflow-x:auto;max-height:16rem}
+
+/* tablero del grupo */
+.barras{margin:.5rem 0}
+.barras .b{display:flex;align-items:center;gap:.5rem;margin-bottom:.25rem;font-size:.85rem}
+.barras .b .et{flex:none;width:5.5rem;color:var(--ciruela);font-weight:700}
+.barras .b .pista{flex:1;height:16px;background:#eee3ec;border-radius:3px;overflow:hidden}
+.barras .b .pista i{display:block;height:100%;background:var(--rosa)}
+.barras .b .n{flex:none;width:2.2rem;text-align:right;color:var(--gris);font-variant-numeric:tabular-nums}
+
+@media print{
+  .barra,.tabs,.suelta,.fila,.btn,.preguntas,.tapa{display:none!important}
+  body{background:#fff;font-size:10pt}
+  .panel,.ficha{break-inside:avoid;border-color:#999}
+}
+</style>
+</head>
+<body>
+
+<header class="barra">
+  <div class="caja">
+    <div class="marca">Etimologías · pantalla del profesor<b>La mesa de conversación · U1</b></div>
+    <div class="acc">
+      <button type="button" id="btnCiegas" class="on">Modo a ciegas: sí</button>
+      <button type="button" id="btnRespaldo">Respaldo</button>
+      <button type="button" id="btnLimpiar">Vaciar</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<div class="aviso" id="avisoPrivacidad">
+  <strong>Antes de empezar.</strong> Todo lo que cargues aquí vive <strong>solo en este navegador</strong>: no se sube a ningún lado y esta página no guarda nada por dentro. Eso significa dos cosas. Una: si borras los datos del navegador, se va. Copia tu respaldo al terminar la jornada. Dos: <strong>si estás en una computadora compartida, vacía al salir</strong> — aquí hay trabajo de tus estudiantes con su nombre.
+</div>
+
+<!-- ============ CARGAR ============ -->
+<section class="panel">
+  <h2 style="margin-top:.2rem">1 · Trae al grupo a la mesa</h2>
+  <p class="mini">Cuatro maneras, y se pueden mezclar. Lo normal: pegas la hoja del formulario para tener a todos con su número, y en la conversación el estudiante te enseña el resto en su teléfono. Si además te mandó su código, ves su análisis completo en pantalla grande.</p>
+
+  <div class="tabs" id="tabs">
+    <button type="button" data-h="tsv" class="on">Pegar la hoja de cálculo</button>
+    <button type="button" data-h="codigo">Pegar un código</button>
+    <button type="button" data-h="archivo">Abrir un archivo</button>
+    <button type="button" data-h="mano">Capturar a mano</button>
+  </div>
+
+  <div class="hoja-carga on" data-h="tsv">
+    <p class="mini">Selecciona las filas en Google Sheets (con encabezado) y pégalas aquí. También sirve un CSV.</p>
+    <textarea id="tsv" placeholder="Marca temporal	Tu nombre	Propongo…	Porque…" style="min-height:7rem;font-family:ui-monospace,monospace;font-size:.78rem"></textarea>
+    <div id="mapa" style="display:none">
+      <p class="rot" style="margin-top:.8rem">Di qué columna es cuál</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.5rem">
+        <label class="campo"><span>Nombre</span><select id="colNombre"></select></label>
+        <label class="campo"><span>Grupo (opcional)</span><select id="colGrupo"></select></label>
+        <label class="campo"><span>Su número</span><select id="colNum"></select></label>
+        <label class="campo"><span>Su porqué</span><select id="colPorque"></select></label>
+      </div>
+      <p class="mini" id="previaTsv"></p>
+    </div>
+    <div class="fila"><button class="btn rosa" type="button" id="btnTsv">Leer lo pegado</button></div>
+  </div>
+
+  <div class="hoja-carga" data-h="codigo">
+    <p class="mini">El código <code>ETIM1·…</code> que el estudiante copia desde su autoevaluación. Trae todo: suelo, calibración, evidencias, su frase. Puedes pegar varios, uno por línea.</p>
+    <textarea id="codigo" placeholder="ETIM1·eyJub21icmUiOi…" style="font-family:ui-monospace,monospace;font-size:.78rem"></textarea>
+    <div class="fila"><button class="btn rosa" type="button" id="btnCodigo">Leer el código</button></div>
+  </div>
+
+  <div class="hoja-carga" data-h="archivo">
+    <p class="mini">El archivo que el estudiante descarga al terminar (<code>mi-primer-parcial-u1-….html</code>). Arrastra varios de golpe si te los mandaron por correo.</p>
+    <div class="suelta" id="suelta">Suelta aquí los archivos, o toca para elegirlos</div>
+    <input type="file" id="archivo" accept=".html,.htm,.txt" multiple style="display:none">
+  </div>
+
+  <div class="hoja-carga" data-h="mano">
+    <p class="mini">Para quien llega sin nada digital: lo capturas mientras conversan.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.5rem">
+      <label class="campo"><span>Nombre</span><input type="text" id="mNombre"></label>
+      <label class="campo"><span>Grupo</span><input type="text" id="mGrupo"></label>
+      <label class="campo"><span>Su número</span><input type="text" id="mNum" inputmode="decimal"></label>
+    </div>
+    <div class="fila"><button class="btn rosa" type="button" id="btnMano">Agregar a la mesa</button></div>
+  </div>
+
+  <p class="mini" id="avisoCarga" style="margin-top:.7rem"></p>
+</section>
+
+<!-- ============ LISTA ============ -->
+<section class="panel" id="panelLista" style="display:none">
+  <h2 style="margin-top:.2rem">2 · La lista</h2>
+  <div class="contadores" id="contadores"></div>
+  <label class="campo" style="margin-top:.3rem"><span>Buscar</span><input type="text" id="buscar" placeholder="Escribe un nombre"></label>
+  <div class="lista" id="lista"></div>
+</section>
+
+<!-- ============ FICHA ============ -->
+<section id="panelFicha"></section>
+
+<!-- ============ REGISTRO ============ -->
+<section class="panel" id="panelRegistro" style="display:none">
+  <h2 style="margin-top:.2rem">4 · El registro</h2>
+  <p class="mini">Lo que vas a asentar, y lo que le regresas a tu hoja de cálculo. El botón copia las columnas nuevas en el orden de esta tabla: pégalas junto a las que ya tienes.</p>
+  <div style="overflow-x:auto"><table class="reg" id="tablaReg"></table></div>
+  <div class="fila">
+    <button class="btn ciruela" type="button" id="btnTsvSalida">Copiar para la hoja de cálculo</button>
+    <button class="btn linea" type="button" id="btnCsv">Descargar CSV</button>
+    <button class="btn linea" type="button" id="btnImprimir">Imprimir el registro</button>
+  </div>
+  <pre class="salida" id="salidaTsv" style="display:none"></pre>
+</section>
+
+<!-- ============ TABLERO ============ -->
+<section class="panel" id="panelTablero" style="display:none">
+  <h2 style="margin-top:.2rem">5 · Lo que dice el grupo</h2>
+  <p class="mini">No es para ellos: es para ti, y para planear la unidad 2.</p>
+  <div id="tablero"></div>
+</section>
+
+</main>
+
+<script>
+/* ============================================================
+   LA MESA DE CONVERSACIÓN · Unidad 1 · Etimologías Grecolatinas
+   ------------------------------------------------------------
+   Pantalla del profesor para las conversaciones de parcial.
+   No guarda nada dentro del archivo: todo lo que se carga vive
+   en el localStorage de ESTE navegador, con la clave de abajo,
+   y sale por el respaldo o por el registro.
+
+   Las etiquetas de las seis tablas del suelo, los seis quizzes
+   y los diecisiete renglones de evidencias son las mismas que
+   en autoevaluacion-u1.html. Si cambian allá, cámbialas aquí.
+   ============================================================ */
+(function(){
+  'use strict';
+
+  var CLAVE = 'etimologias-mesa-u1';
+  var PREFIJO = 'ETIM1·';
+
+  var TABLAS = [
+    ['quizzes', 'Los seis quizzes'],
+    ['museo', 'Pieza del Museo'],
+    ['defensa', 'Defensa en parejas'],
+    ['circulo', 'Círculo de lectura'],
+    ['bitacora', 'Bitácora viva'],
+    ['mazo', 'Mazo vivo']
+  ];
+  var QUIZZES = [
+    ['q1', '#1', 3], ['q2', '#2', 3], ['q3', '#3', 3],
+    ['q4', '#4', 10], ['q5', '#5', 3], ['qi', 'int', 8]
+  ];
+  var EVID = [
+    ['e1', 'Desarmar en prefijo, raíz y sufijo', 'S2'],
+    ['e2', 'Las dos linternas', 'S2'],
+    ['e3', 'Biografía de una palabra', 'S2'],
+    ['e4', 'La suma de una palabra', 'S3'],
+    ['e5', 'Cachar un espejismo', 'S3'],
+    ['e6', 'Veinte palabras de una matriz', 'S3'],
+    ['e7', 'Caja de medicina y especialista', 'S4'],
+    ['e8', 'Apostar y verificar en fuente', 'S4'],
+    ['e9', 'Mi horario en griego', 'S4'],
+    ['e10', 'La familia entera de una raíz', 'S5'],
+    ['e11', 'No caer en parientes falsos', 'S5'],
+    ['e12', 'Usar el gimnasio por mi cuenta', 'S5'],
+    ['e13', 'Descifrar una palabra nunca vista', 'S6'],
+    ['e14', 'Armar una palabra nueva', 'S6'],
+    ['e15', 'Saber si la inventé o la redescubrí', 'S6'],
+    ['e16', 'Defender en voz alta con fuente', 'S7'],
+    ['e17', 'Cosechar palabras de lo que leo', 'S7']
+  ];
+  var RESULTADOS = [
+    ['coincidi', 'Coincidí con su propuesta', 'Se asienta lo que propuso. Es lo que pasa la mayoría de las veces.'],
+    ['subi', 'La subí: se castigó de más', 'Y le dije por qué. Anótalo en los acuerdos, para que se lo crea.'],
+    ['hablamos-igual', 'Conversamos y quedó igual', 'Me pareció alta, hablamos, y sostuvo su propuesta con evidencia.'],
+    ['hablamos-bajo', 'Conversamos y bajó', 'Con razones concretas de las dos partes. Nunca por escrito, solo así.'],
+    ['pendiente', 'Queda pendiente', 'Le falta suelo, o no llegó a la conversación. Segunda vuelta de diciembre.']
+  ];
+
+  /* ---------- estado ---------- */
+  var R = { al: {}, orden: [], ciegas: true, sel: null };
+  try {
+    var g = JSON.parse(localStorage.getItem(CLAVE) || 'null');
+    if (g && g.al) R = g;
+  } catch(e){}
+  if (R.ciegas === undefined) R.ciegas = true;
+
+  function guardar(){ try { localStorage.setItem(CLAVE, JSON.stringify(R)); } catch(e){} }
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[&<>"]/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];
+    });
+  }
+  function norm(s){
+    return String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  }
+  function slug(s){ return norm(s) || ('x' + Date.now()); }
+  function aBase64(t){
+    if (window.TextEncoder){ var a = new TextEncoder().encode(t), b = ''; for (var i=0;i<a.length;i++) b += String.fromCharCode(a[i]); return btoa(b); }
+    return btoa(unescape(encodeURIComponent(t)));
+  }
+  function deBase64(b){
+    var bin = atob(b);
+    if (window.TextDecoder){ var a = new Uint8Array(bin.length); for (var i=0;i<bin.length;i++) a[i] = bin.charCodeAt(i); return new TextDecoder().decode(a); }
+    return decodeURIComponent(escape(bin));
+  }
+  function copiar(t, listo){
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(listo, manual);
+    } else manual();
+    function manual(){
+      var ta = document.createElement('textarea');
+      ta.value = t; ta.style.position='fixed'; ta.style.left='-9999px';
+      document.body.appendChild(ta); ta.select();
+      var ok = false; try { ok = document.execCommand('copy'); } catch(e){}
+      ta.remove();
+      listo(ok);
+    }
+  }
+  function nota(t){ document.getElementById('avisoCarga').textContent = t; }
+
+  /* ---------- alta de estudiantes ---------- */
+  function alta(nombre, extra){
+    var n = String(nombre || '').replace(/\s+/g, ' ').trim();
+    if (!n) return null;
+    var id = slug(n);
+    if (!R.al[id]) { R.al[id] = { nombre: n }; R.orden.push(id); }
+    var a = R.al[id];
+    Object.keys(extra || {}).forEach(function(k){
+      if (extra[k] !== undefined && extra[k] !== '' && extra[k] !== null) a[k] = extra[k];
+    });
+    return id;
+  }
+
+  function numeroDe(d){
+    if (!d || !d.num) return '';
+    return d.num + (d.mitad === '1' && d.num !== '10' ? '.5' : '');
+  }
+
+  function meterCodigo(txt){
+    var t = String(txt || '').trim();
+    var i = t.indexOf(PREFIJO);
+    if (i > -1) t = t.slice(i + PREFIJO.length);
+    t = t.replace(/[^A-Za-z0-9+/=]/g, '');
+    var d = null;
+    try { d = JSON.parse(deBase64(t)); } catch(e){ return null; }
+    if (!d || typeof d !== 'object' || Array.isArray(d)) return null;
+    var id = alta(d.nombre || 'Sin nombre', {
+      grupo: d.grupo || '', datos: d, propuesta: numeroDe(d),
+      porque: (d.frase || '').trim(), fuente: 'código'
+    });
+    return id;
+  }
+
+  /* ---------- pestañas ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('#tabs button'), function(b){
+    b.addEventListener('click', function(){
+      Array.prototype.forEach.call(document.querySelectorAll('#tabs button'), function(x){ x.classList.toggle('on', x === b); });
+      Array.prototype.forEach.call(document.querySelectorAll('.hoja-carga'), function(h){
+        h.classList.toggle('on', h.getAttribute('data-h') === b.getAttribute('data-h'));
+      });
+    });
+  });
+
+  /* ---------- carga: código ---------- */
+  document.getElementById('btnCodigo').addEventListener('click', function(){
+    var lineas = document.getElementById('codigo').value.split(/\n+/).filter(function(x){ return x.trim(); });
+    var ok = 0;
+    lineas.forEach(function(l){ if (meterCodigo(l)) ok++; });
+    if (!ok) { nota('Ningún código se pudo leer. Tiene que empezar con ETIM1· y venir completo.'); return; }
+    document.getElementById('codigo').value = '';
+    guardar(); pinta();
+    nota(ok + (ok === 1 ? ' código leído.' : ' códigos leídos.'));
+  });
+
+  /* ---------- carga: archivos ---------- */
+  var suelta = document.getElementById('suelta');
+  var inputArchivo = document.getElementById('archivo');
+  suelta.addEventListener('click', function(){ inputArchivo.click(); });
+  inputArchivo.addEventListener('change', function(){ archivos(this.files); this.value = ''; });
+  ['dragenter','dragover'].forEach(function(ev){
+    suelta.addEventListener(ev, function(e){ e.preventDefault(); suelta.classList.add('encima'); });
+  });
+  ['dragleave','drop'].forEach(function(ev){
+    suelta.addEventListener(ev, function(e){ e.preventDefault(); suelta.classList.remove('encima'); });
+  });
+  suelta.addEventListener('drop', function(e){ archivos(e.dataTransfer.files); });
+
+  function archivos(lista){
+    var pend = lista.length, ok = 0;
+    if (!pend) return;
+    Array.prototype.forEach.call(lista, function(f){
+      var fr = new FileReader();
+      fr.onload = function(){
+        var m = String(fr.result).match(/ETIM1·[A-Za-z0-9+/=\s]+/);
+        if (m && meterCodigo(m[0])) ok++;
+        if (--pend === 0){
+          guardar(); pinta();
+          nota(ok ? (ok + ' archivo(s) leído(s).') : 'Ninguno traía código de respaldo adentro.');
+        }
+      };
+      fr.onerror = function(){ if (--pend === 0){ guardar(); pinta(); nota('No se pudo leer algún archivo.'); } };
+      fr.readAsText(f);
+    });
+  }
+
+  /* ---------- carga: hoja de cálculo ---------- */
+  var tablaTsv = null;
+  function parte(linea){
+    if (linea.indexOf('\t') > -1) return linea.split('\t');
+    var out = [], act = '', dentro = false;
+    for (var i = 0; i < linea.length; i++){
+      var c = linea[i];
+      if (c === '"'){ if (dentro && linea[i+1] === '"'){ act += '"'; i++; } else dentro = !dentro; }
+      else if (c === ',' && !dentro){ out.push(act); act = ''; }
+      else act += c;
+    }
+    out.push(act);
+    return out;
+  }
+  function adivina(cols, claves){
+    for (var i = 0; i < cols.length; i++){
+      var c = cols[i].toLowerCase();
+      for (var j = 0; j < claves.length; j++) if (c.indexOf(claves[j]) > -1) return i;
+    }
+    return -1;
+  }
+  document.getElementById('tsv').addEventListener('input', function(){
+    var lineas = this.value.split(/\r?\n/).filter(function(x){ return x.trim(); });
+    if (lineas.length < 2){ document.getElementById('mapa').style.display = 'none'; tablaTsv = null; return; }
+    tablaTsv = lineas.map(parte);
+    var cols = tablaTsv[0];
+    [['colNombre', ['nombre','alumn','estudiante']],
+     ['colGrupo', ['grupo','sección','seccion']],
+     ['colNum', ['propon','número','numero','calific','parcial']],
+     ['colPorque', ['porque','porqué','razón','razon','justific']]].forEach(function(par){
+      var sel = document.getElementById(par[0]);
+      sel.innerHTML = '<option value="-1">— ninguna —</option>' + cols.map(function(c, i){
+        return '<option value="' + i + '">' + esc(c.slice(0, 44) || ('columna ' + (i + 1))) + '</option>';
+      }).join('');
+      sel.value = String(adivina(cols, par[1]));
+    });
+    document.getElementById('mapa').style.display = 'block';
+    document.getElementById('previaTsv').textContent = (tablaTsv.length - 1) + ' fila(s) debajo del encabezado.';
+  });
+  document.getElementById('btnTsv').addEventListener('click', function(){
+    if (!tablaTsv){ nota('Pega primero la hoja, con su fila de encabezado.'); return; }
+    var iN = +document.getElementById('colNombre').value;
+    var iG = +document.getElementById('colGrupo').value;
+    var iP = +document.getElementById('colNum').value;
+    var iQ = +document.getElementById('colPorque').value;
+    if (iN < 0){ nota('Dime cuál columna trae el nombre.'); return; }
+    var ok = 0;
+    tablaTsv.slice(1).forEach(function(f){
+      var num = iP > -1 ? String(f[iP] || '').replace(/[^0-9.,]/g, '').replace(',', '.') : '';
+      if (alta(f[iN], {
+        grupo: iG > -1 ? f[iG] : '',
+        propuesta: num,
+        porque: iQ > -1 ? String(f[iQ] || '').trim() : '',
+        fuente: 'hoja'
+      })) ok++;
+    });
+    document.getElementById('tsv').value = '';
+    document.getElementById('mapa').style.display = 'none';
+    tablaTsv = null;
+    guardar(); pinta();
+    nota(ok + ' fila(s) leída(s).');
+  });
+
+  /* ---------- carga: a mano ---------- */
+  document.getElementById('btnMano').addEventListener('click', function(){
+    var n = document.getElementById('mNombre').value;
+    if (!n.trim()){ nota('Falta el nombre.'); return; }
+    var id = alta(n, {
+      grupo: document.getElementById('mGrupo').value,
+      propuesta: document.getElementById('mNum').value.replace(',', '.'),
+      fuente: 'a mano'
+    });
+    document.getElementById('mNombre').value = '';
+    document.getElementById('mNum').value = '';
+    R.sel = id;
+    guardar(); pinta();
+    nota('Agregado.');
+  });
+
+  /* ---------- lista ---------- */
+  var buscarEl = document.getElementById('buscar');
+  buscarEl.addEventListener('input', pintaLista);
+
+  function estado(a){
+    if (a.resultado) return 'hecho';
+    if (a.apuesta && !a.resultado) return 'hablar';
+    return '';
+  }
+  function pintaLista(){
+    var q = norm(buscarEl.value);
+    var cont = document.getElementById('lista');
+    cont.innerHTML = '';
+    R.orden.forEach(function(id){
+      var a = R.al[id];
+      if (!a) return;
+      if (q && norm(a.nombre).indexOf(q) === -1) return;
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'alumno ' + estado(a) + (R.sel === id ? ' sel' : '');
+      var tapado = R.ciegas && !a.destapado && !a.resultado;
+      b.innerHTML = '<span class="luz"></span><span class="quien"><b>' + esc(a.nombre) + '</b>' +
+        '<span>' + esc(a.grupo || '') + (a.datos ? ' · análisis completo' : ' · ' + esc(a.fuente || '')) + '</span></span>' +
+        '<span class="nums"><b>' + (a.resultado ? esc(a.acordado || '—') : (tapado ? '·' : esc(a.propuesta || '—'))) + '</b>' +
+        (a.resultado ? 'acordado' : (tapado ? 'tapado' : 'propone')) + '</span>';
+      b.addEventListener('click', function(){ R.sel = id; guardar(); pinta(); });
+      cont.appendChild(b);
+    });
+    var total = R.orden.length;
+    var hechos = R.orden.filter(function(id){ return R.al[id] && R.al[id].resultado; }).length;
+    var completos = R.orden.filter(function(id){ return R.al[id] && R.al[id].datos; }).length;
+    document.getElementById('contadores').innerHTML =
+      '<div class="cont"><b>' + total + '</b><span>en la mesa</span></div>' +
+      '<div class="cont"><b>' + hechos + '</b><span>conversados</span></div>' +
+      '<div class="cont"><b>' + (total - hechos) + '</b><span>por conversar</span></div>' +
+      '<div class="cont"><b>' + completos + '</b><span>con análisis completo</span></div>';
+  }
+
+  /* ---------- gráfica de calibración ---------- */
+  function grafica(d){
+    if (!d || !d.serie) return '';
+    var P = QUIZZES.map(function(q){
+      var r = d.serie[q[0]] || {};
+      var a = (r.a === '' || r.a == null) ? null : Math.max(0, Math.min(q[2], +r.a));
+      var s = (r.s === '' || r.s == null) ? null : Math.max(0, Math.min(q[2], +r.s));
+      return { et:q[1], pa: a == null ? null : a/q[2], ps: s == null ? null : s/q[2], a:a, s:s, max:q[2] };
+    });
+    if (!P.some(function(p){ return p.pa != null || p.ps != null; })) return '';
+    var X0 = 26, X1 = 300, Y0 = 104, Y1 = 12;
+    function px(i){ return X0 + (X1 - X0) * (i / (P.length - 1)); }
+    function py(v){ return Y0 - (Y0 - Y1) * v; }
+    var g = '';
+    [0, .5, 1].forEach(function(v){
+      g += '<line x1="' + X0 + '" y1="' + py(v) + '" x2="' + X1 + '" y2="' + py(v) + '" stroke="#eadce6"/>' +
+           '<text x="' + (X0-4) + '" y="' + (py(v)+3) + '" text-anchor="end" font-size="7.5" fill="#9d8f9a">' + (v*100) + '%</text>';
+    });
+    var la = [], ls = [];
+    P.forEach(function(p, i){ if (p.pa != null) la.push(px(i)+','+py(p.pa)); if (p.ps != null) ls.push(px(i)+','+py(p.ps)); });
+    if (la.length > 1) g += '<polyline points="' + la.join(' ') + '" fill="none" stroke="#6b1e5a" stroke-width="1.3" stroke-dasharray="4 3" opacity=".6"/>';
+    if (ls.length > 1) g += '<polyline points="' + ls.join(' ') + '" fill="none" stroke="#c8127a" stroke-width="2"/>';
+    P.forEach(function(p, i){
+      var x = px(i);
+      if (p.pa != null && p.ps != null) g += '<line x1="'+x+'" y1="'+py(p.pa)+'" x2="'+x+'" y2="'+py(p.ps)+'" stroke="#c8a0bd"/>';
+      if (p.pa != null) g += '<circle cx="'+x+'" cy="'+py(p.pa)+'" r="3.6" fill="#fff" stroke="#6b1e5a" stroke-width="1.8"/>';
+      if (p.ps != null) g += '<circle cx="'+x+'" cy="'+py(p.ps)+'" r="4" fill="#c8127a"/>';
+      g += '<text x="'+x+'" y="119" text-anchor="middle" font-size="8" fill="#6b1e5a" font-weight="bold">'+p.et+'</text>';
+      if (p.a != null && p.s != null) g += '<text x="'+x+'" y="129" text-anchor="middle" font-size="7" fill="#9d8f9a">'+p.a+'→'+p.s+'</text>';
+    });
+    var br = P.filter(function(p){ return p.pa != null && p.ps != null; });
+    var lectura = '';
+    if (br.length >= 2){
+      var prom = br.reduce(function(x, p){ return x + (p.ps - p.pa)*100; }, 0) / br.length;
+      lectura = prom > 12 ? 'Se subestima: sale ' + Math.round(prom) + ' puntos por encima de lo que apuesta.'
+        : prom < -12 ? 'Se sobreestima: sale ' + Math.round(-prom) + ' puntos por debajo de lo que apuesta.'
+        : 'Se predice bien: brecha promedio de ' + Math.round(Math.abs(prom)) + ' puntos.';
+    }
+    return '<div class="grafica"><svg viewBox="0 0 310 134" role="img" aria-label="Calibración del estudiante"></svg>'
+      .replace('></svg>', '>' + g + '</svg>') +
+      (lectura ? '<p class="mini" style="text-align:center;margin:.1rem 0 .2rem">' + esc(lectura) + '</p>' : '') + '</div>';
+  }
+
+  /* ---------- ficha ---------- */
+  function pintaFicha(){
+    var cont = document.getElementById('panelFicha');
+    var id = R.sel, a = id && R.al[id];
+    if (!a){ cont.innerHTML = ''; return; }
+    var d = a.datos || null;
+    var tapado = R.ciegas && !a.destapado && !a.resultado;
+
+    var duelas = TABLAS.map(function(t){
+      return '<i class="' + (d && d.suelo && d.suelo[t[0]] ? 'on' : '') + '"></i>';
+    }).join('');
+    var puestas = d && d.suelo ? TABLAS.filter(function(t){ return d.suelo[t[0]]; }).length : 0;
+    var faltan = d && d.suelo ? TABLAS.filter(function(t){ return !d.suelo[t[0]]; }).map(function(t){ return t[1]; }) : [];
+
+    var evSi = [], evNo = [];
+    if (d && d.ev) EVID.forEach(function(e){
+      var r = d.ev[e[0]];
+      if (!r || !r.e) return;
+      if (r.e === 'si') evSi.push('<li><b>' + esc(e[1]) + '</b>' + (r.t ? ' → ' + esc(r.t) : ' <span class="mini">(sin decir con qué)</span>') + '</li>');
+      else evNo.push('<li class="no">' + esc(e[1]) + ' <span class="mini">· ' + e[2] + '</span></li>');
+    });
+
+    function dd(v, vacio){
+      return v && String(v).trim() ? '<dd>' + esc(v) + '</dd>' : '<dd class="vacio">' + (vacio || 'sin llenar') + '</dd>';
+    }
+
+    var izq = '';
+    if (d){
+      izq =
+        '<h3 style="margin-top:0">Su suelo · ' + puestas + ' de 6</h3>' +
+        '<div class="duelas">' + duelas + '</div>' +
+        '<p class="mini">' + (faltan.length ? 'Le falta: ' + esc(faltan.join(' · ')) : 'Completo. No reprueba.') + '</p>' +
+        (d.sueloFalta ? '<p class="mini"><em>' + esc(d.sueloFalta) + '</em></p>' : '') +
+        '<h3>Su calibración</h3>' + (grafica(d) || '<p class="mini">Sin llenar.</p>') +
+        (d.serieTexto ? '<p class="mini">Lo dice así: “' + esc(d.serieTexto) + '”</p>' : '') +
+        '<h3>Lo que dice tener · ' + evSi.length + ' con pieza</h3>' +
+        (evSi.length ? '<ul class="evlista">' + evSi.join('') + '</ul>' : '<p class="mini">Nada marcado.</p>') +
+        (evNo.length ? '<h3>Lo que dejó en aún no · ' + evNo.length + '</h3><ul class="evlista">' + evNo.join('') + '</ul>' : '') +
+        '<dl class="datos">' +
+          '<dt>La palabra que descifró solo</dt>' + dd((d.descifrada || '') + (d.descifradaPiezas ? ' · ' + d.descifradaPiezas : '')) +
+          '<dt>Su mejor pieza</dt>' + dd((d.piezaCual || '') + (d.piezaPorque ? '\n' + d.piezaPorque : '')) +
+          '<dt>Qué habría hecho hace seis semanas</dt>' + dd(d.piezaAntes) +
+          '<dt>Lo que le falta</dt>' + dd(d.aunNo) +
+          '<dt>Lo que no supo contestar en el ensayo</dt>' + dd(d.ensayoHueco) +
+        '</dl>';
+    } else {
+      izq = '<p class="mini">De esta persona solo tienes el nombre' + (a.propuesta ? ' y su número' : '') +
+        '. Su análisis completo está en su teléfono: pídele que abra su autoevaluación en el paso 9 y lean juntos. ' +
+        'Si te manda su código <code>ETIM1·</code>, aparece aquí.</p>';
+    }
+
+    var der = '';
+    if (tapado){
+      der = '<div class="tapa">' +
+        '<div class="rot">Antes de destapar</div>' +
+        '<p><strong>¿Qué le pondrías tú?</strong> Escríbelo antes de ver su número. Es la misma apuesta que les pides a ellos en cada quiz, y al final del día te va a decir si tu ojo y el de tu grupo coinciden.</p>' +
+        '<div class="apuestas" id="apuestas"></div>' +
+        '<div class="fila"><button class="btn ciruela" type="button" id="btnDestapar">Destapar su propuesta</button>' +
+        '<button class="btn linea" type="button" id="btnSaltar">Saltarme la apuesta</button></div>' +
+        '</div>';
+    } else {
+      var mia = a.apuesta ? +a.apuesta : null;
+      var suya = a.propuesta ? parseFloat(a.propuesta) : null;
+      var brecha = '';
+      if (mia != null && suya != null){
+        var dif = mia - suya;
+        brecha = Math.abs(dif) < 0.01
+          ? '<div class="brecha igual">Coincidimos exacto.</div>'
+          : dif > 0
+            ? '<div class="brecha menos">Se puso ' + (Math.round(Math.abs(dif)*10)/10) + ' menos de lo que tú le pondrías.</div>'
+            : '<div class="brecha mas">Se puso ' + (Math.round(Math.abs(dif)*10)/10) + ' más de lo que tú le pondrías. Aquí toca conversar.</div>';
+      }
+      der = '<div class="destape">' +
+        (mia != null ? '<div class="par mia"><b>' + esc(a.apuesta) + '</b><span>tu apuesta</span></div>' : '') +
+        '<div class="par suya"><b>' + esc(a.propuesta || '—') + '</b><span>lo que propone</span></div>' +
+        brecha + '</div>' +
+        (a.porque ? '<div class="panel suave" style="margin:.5rem 0"><div class="rot">Su porqué</div><p style="white-space:pre-wrap;font-size:.93rem;margin:.25rem 0 0">' + esc(a.porque) + '</p></div>' : '<p class="mini">No escribió su porqué, o no lo tienes todavía.</p>');
+    }
+
+    der += '<div class="preguntas">' +
+      '<div class="rot">Las tres de siempre</div>' +
+      '<ol><li>¿Qué sabes hacer hoy que no sabías en agosto?</li>' +
+      '<li>¿Con qué lo demuestras?</li>' +
+      '<li>¿Qué te falta todavía?</li></ol>' +
+      '<div class="crono" id="crono"><button class="btn linea" type="button">Cinco minutos</button><span class="num">5:00</span></div>' +
+      '</div>' +
+      '<h3>Cómo terminó</h3><div class="resultados" id="resultados"></div>' +
+      '<label class="campo"><span>Lo que se asentó</span><input type="text" id="fAcordado" inputmode="decimal" value="' + esc(a.acordado || '') + '"></label>' +
+      '<label class="campo"><span>Acuerdos para la unidad 2</span><textarea id="fAcuerdos">' + esc(a.acuerdos || '') + '</textarea></label>' +
+      '<label class="campo"><span>Nota para mí (no se la enseño)</span><textarea id="fNotas">' + esc(a.notas || '') + '</textarea></label>' +
+      '<div class="fila"><button class="btn rosa" type="button" id="btnCerrar">Guardar y pasar al siguiente</button>' +
+      '<button class="btn peligro" type="button" id="btnQuitar">Quitar de la mesa</button></div>';
+
+    cont.innerHTML =
+      '<div class="ficha"><div class="cabeza">' +
+        '<div><b>' + esc(a.nombre) + '</b><span>' + esc(a.grupo || 'sin grupo') + ' · ' + (a.datos ? 'análisis completo' : esc(a.fuente || 'solo el número')) + '</span></div>' +
+        (a.resultado ? '<span style="background:#fff;color:var(--ciruela);border-radius:2rem;padding:.2rem .7rem;font-size:.78rem;font-weight:700">conversado</span>' : '') +
+      '</div><div class="cuerpo"><div class="dos"><div>' + izq + '</div><div>' + der + '</div></div></div></div>';
+
+    /* apuestas */
+    var ap = document.getElementById('apuestas');
+    if (ap){
+      [5,6,7,8,9,10].forEach(function(n){
+        var b = document.createElement('button');
+        b.type = 'button'; b.textContent = n;
+        b.className = String(a.apuesta) === String(n) ? 'on' : '';
+        b.addEventListener('click', function(){ a.apuesta = String(n); guardar(); pintaFicha(); });
+        ap.appendChild(b);
+      });
+      document.getElementById('btnDestapar').addEventListener('click', function(){
+        if (!a.apuesta){ alert('Escribe tu apuesta primero: es el punto del ejercicio.'); return; }
+        a.destapado = 1; guardar(); pintaFicha();
+      });
+      document.getElementById('btnSaltar').addEventListener('click', function(){
+        a.destapado = 1; a.apuesta = ''; guardar(); pintaFicha();
+      });
+    }
+
+    /* resultados */
+    var res = document.getElementById('resultados');
+    RESULTADOS.forEach(function(r){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = a.resultado === r[0] ? 'on' : '';
+      b.innerHTML = '<span>' + esc(r[1]) + '</span><small>' + esc(r[2]) + '</small>';
+      b.addEventListener('click', function(){
+        a.resultado = a.resultado === r[0] ? '' : r[0];
+        if (a.resultado && !a.acordado && a.propuesta && r[0] === 'coincidi') a.acordado = a.propuesta;
+        if (a.resultado && !a.fecha) a.fecha = new Date().toLocaleDateString('es-MX', {day:'numeric', month:'short'});
+        guardar(); pintaFicha(); pintaLista(); pintaRegistro(); pintaTablero();
+      });
+      res.appendChild(b);
+    });
+
+    ['fAcordado','fAcuerdos','fNotas'].forEach(function(elId){
+      var el = document.getElementById(elId);
+      var k = { fAcordado:'acordado', fAcuerdos:'acuerdos', fNotas:'notas' }[elId];
+      el.addEventListener('input', function(){
+        a[k] = el.value;
+        if (k === 'acordado' && !a.fecha) a.fecha = new Date().toLocaleDateString('es-MX', {day:'numeric', month:'short'});
+        guardar(); pintaLista(); pintaRegistro(); pintaTablero();
+      });
+    });
+
+    document.getElementById('btnCerrar').addEventListener('click', function(){
+      var i = R.orden.indexOf(id);
+      var sig = null;
+      for (var k = 1; k <= R.orden.length; k++){
+        var cand = R.orden[(i + k) % R.orden.length];
+        if (R.al[cand] && !R.al[cand].resultado){ sig = cand; break; }
+      }
+      R.sel = sig; guardar(); pinta();
+      window.scrollTo(0, 0);
+    });
+    document.getElementById('btnQuitar').addEventListener('click', function(){
+      if (!confirm('¿Quitar a ' + a.nombre + ' de la mesa? Lo que hayas anotado se borra.')) return;
+      delete R.al[id];
+      R.orden = R.orden.filter(function(x){ return x !== id; });
+      R.sel = null; guardar(); pinta();
+    });
+
+    /* cronómetro */
+    var crono = document.getElementById('crono');
+    if (crono){
+      var btn = crono.querySelector('button'), num = crono.querySelector('.num'), t = null, seg = 300;
+      btn.addEventListener('click', function(){
+        if (t){ clearInterval(t); t = null; crono.classList.remove('corre'); btn.textContent = 'Cinco minutos'; num.textContent = '5:00'; seg = 300; return; }
+        seg = 300; crono.classList.add('corre'); btn.textContent = 'Parar';
+        t = setInterval(function(){
+          seg--;
+          num.textContent = Math.floor(seg/60) + ':' + (seg % 60 < 10 ? '0' : '') + (seg % 60);
+          if (seg <= 0){ clearInterval(t); t = null; crono.classList.remove('corre'); btn.textContent = 'Otra vez'; num.textContent = 'tiempo'; }
+        }, 1000);
+      });
+    }
+  }
+
+  /* ---------- registro ---------- */
+  function etiquetaRes(k){
+    for (var i = 0; i < RESULTADOS.length; i++) if (RESULTADOS[i][0] === k) return RESULTADOS[i][1];
+    return '';
+  }
+  function pintaRegistro(){
+    var t = document.getElementById('tablaReg');
+    if (!R.orden.length){ t.innerHTML = '<tr><td class="vacio-tabla">Todavía no hay nadie en la mesa.</td></tr>'; return; }
+    t.innerHTML = '<tr><th>Nombre</th><th>Grupo</th><th>Propone</th><th>Mi apuesta</th><th>Se asentó</th><th>Cómo terminó</th><th>Acuerdos U2</th><th>Fecha</th></tr>' +
+      R.orden.map(function(id){
+        var a = R.al[id]; if (!a) return '';
+        return '<tr><td>' + esc(a.nombre) + '</td><td>' + esc(a.grupo || '') + '</td>' +
+          '<td class="n">' + esc(a.propuesta || '') + '</td><td class="n">' + esc(a.apuesta || '') + '</td>' +
+          '<td class="n">' + esc(a.acordado || '') + '</td><td>' + esc(etiquetaRes(a.resultado)) + '</td>' +
+          '<td>' + esc(a.acuerdos || '') + '</td><td>' + esc(a.fecha || '') + '</td></tr>';
+      }).join('');
+  }
+  function filasSalida(){
+    var enc = ['Nombre','Grupo','Propone','Mi apuesta','Se asentó','Cómo terminó','Acuerdos U2','Fecha'];
+    var filas = R.orden.map(function(id){
+      var a = R.al[id]; if (!a) return null;
+      return [a.nombre, a.grupo||'', a.propuesta||'', a.apuesta||'', a.acordado||'', etiquetaRes(a.resultado), (a.acuerdos||'').replace(/[\t\n\r]+/g,' '), a.fecha||''];
+    }).filter(Boolean);
+    return [enc].concat(filas);
+  }
+  document.getElementById('btnTsvSalida').addEventListener('click', function(){
+    var txt = filasSalida().map(function(f){ return f.join('\t'); }).join('\n');
+    var pre = document.getElementById('salidaTsv');
+    copiar(txt, function(ok){
+      if (ok === false){ pre.style.display = 'block'; pre.textContent = txt; }
+      else { pre.style.display = 'none'; nota('Copiado. Pégalo en tu hoja de cálculo.'); }
+    });
+  });
+  document.getElementById('btnCsv').addEventListener('click', function(){
+    var csv = filasSalida().map(function(f){
+      return f.map(function(c){ return '"' + String(c).replace(/"/g, '""') + '"'; }).join(',');
+    }).join('\n');
+    var blob = new Blob(['﻿' + csv], { type:'text/csv;charset=utf-8' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'registro-parcial-u1.csv';
+    document.body.appendChild(a); a.click(); a.remove();
+  });
+  document.getElementById('btnImprimir').addEventListener('click', function(){ window.print(); });
+
+  /* ---------- tablero del grupo ---------- */
+  function pintaTablero(){
+    var cont = document.getElementById('tablero');
+    var todos = R.orden.map(function(id){ return R.al[id]; }).filter(Boolean);
+    if (!todos.length){ cont.innerHTML = ''; return; }
+
+    function barras(mapa, titulo, nota){
+      var claves = Object.keys(mapa).sort();
+      var max = Math.max.apply(null, claves.map(function(k){ return mapa[k]; }).concat([1]));
+      return '<h3>' + esc(titulo) + '</h3>' + (nota ? '<p class="mini">' + esc(nota) + '</p>' : '') +
+        '<div class="barras">' + claves.map(function(k){
+          return '<div class="b"><span class="et">' + esc(k) + '</span><span class="pista"><i style="width:' +
+            Math.round(mapa[k]/max*100) + '%"></i></span><span class="n">' + mapa[k] + '</span></div>';
+        }).join('') + '</div>';
+    }
+
+    var propuestas = {}, acordadas = {};
+    todos.forEach(function(a){
+      if (a.propuesta) propuestas[a.propuesta] = (propuestas[a.propuesta] || 0) + 1;
+      if (a.acordado) acordadas[a.acordado] = (acordadas[a.acordado] || 0) + 1;
+    });
+
+    var conApuesta = todos.filter(function(a){ return a.apuesta && a.propuesta; });
+    var miCal = '';
+    if (conApuesta.length >= 3){
+      var difs = conApuesta.map(function(a){ return (+a.apuesta) - parseFloat(a.propuesta); });
+      var prom = difs.reduce(function(x, y){ return x + y; }, 0) / difs.length;
+      var bajo = difs.filter(function(x){ return x > 0.01; }).length;
+      var igual = difs.filter(function(x){ return Math.abs(x) <= 0.01; }).length;
+      var alto = difs.filter(function(x){ return x < -0.01; }).length;
+      miCal = '<h3>Mi calibración como profesor</h3>' +
+        '<p class="mini">Sobre ' + conApuesta.length + ' apuestas hechas a ciegas. Esto es lo que el curso les asegura en la lámina 6; aquí lo mides con tu propio grupo.</p>' +
+        '<p style="font-size:.95rem"><strong>' + bajo + '</strong> se pusieron menos de lo que tú les pondrías · <strong>' + igual + '</strong> coincidieron exacto · <strong>' + alto + '</strong> se pusieron más.<br>' +
+        (bajo > alto ? 'El dato del curso se sostiene en tu grupo: cuéntaselos en la semana 12, con el número en la mano.'
+          : alto > bajo ? 'Ojo: en tu grupo el dato no se sostiene, y eso también hay que decirlo en voz alta.'
+          : 'Empatados. Con más conversaciones se va a inclinar para algún lado.') + '<br>' +
+        '<span class="mini">En promedio tu número está ' + (prom >= 0 ? Math.round(prom*10)/10 + ' arriba' : Math.round(-prom*10)/10 + ' abajo') + ' del suyo' +
+        (((prom < 0) === (bajo > alto)) ? ', aunque el promedio lo jala un caso extremo: la cuenta de arriba dice más que esta cifra' : '') + '.</span></p>';
+    } else {
+      miCal = '<h3>Mi calibración como profesor</h3><p class="mini">Aparece cuando lleves tres apuestas a ciegas. Es la única forma de saber si el dato que les cuentas —que casi todos se ponen menos— es cierto en tu grupo.</p>';
+    }
+
+    var conDatos = todos.filter(function(a){ return a.datos; });
+    var faltaSuelo = '', huecos = '';
+    if (conDatos.length){
+      var st = {};
+      TABLAS.forEach(function(t){
+        var n = conDatos.filter(function(a){ return !(a.datos.suelo && a.datos.suelo[t[0]]); }).length;
+        if (n) st[t[1]] = n;
+      });
+      faltaSuelo = Object.keys(st).length
+        ? barras(st, 'Tablas del suelo que faltan', 'Sobre ' + conDatos.length + ' con análisis completo. A quien le falte una, se repone o va a la segunda vuelta.')
+        : '<h3>Tablas del suelo que faltan</h3><p class="mini">Ninguna. Los ' + conDatos.length + ' que cargaste llegaron con el suelo completo.</p>';
+
+      var hu = {};
+      EVID.forEach(function(e){
+        var n = conDatos.filter(function(a){ return a.datos.ev && a.datos.ev[e[0]] && a.datos.ev[e[0]].e === 'no'; }).length;
+        if (n) hu[e[1] + ' (' + e[2] + ')'] = n;
+      });
+      var ord = Object.keys(hu).sort(function(x, y){ return hu[y] - hu[x]; }).slice(0, 8);
+      var top = {}; ord.forEach(function(k){ top[k] = hu[k]; });
+      huecos = ord.length
+        ? barras(top, 'Lo que más quedó en “aún no”', 'Esto no es sobre ellos: es tu lista de qué retomar al abrir la unidad 2.')
+        : '<h3>Lo que más quedó en “aún no”</h3><p class="mini">Nadie marcó nada en aún no. Sospechoso: vale la pena decirles en clase que un hueco honesto suma.</p>';
+    }
+
+    cont.innerHTML =
+      barras(propuestas, 'Lo que proponen', todos.length + ' en la mesa.') +
+      (Object.keys(acordadas).length ? barras(acordadas, 'Lo que se asentó') : '') +
+      miCal + faltaSuelo + huecos;
+  }
+
+  /* ---------- barra ---------- */
+  var btnCiegas = document.getElementById('btnCiegas');
+  function pintaCiegas(){
+    btnCiegas.textContent = 'Modo a ciegas: ' + (R.ciegas ? 'sí' : 'no');
+    btnCiegas.classList.toggle('on', !!R.ciegas);
+  }
+  btnCiegas.addEventListener('click', function(){ R.ciegas = !R.ciegas; guardar(); pintaCiegas(); pinta(); });
+
+  document.getElementById('btnRespaldo').addEventListener('click', function(){
+    var c = PREFIJO + aBase64(JSON.stringify(R));
+    copiar(c, function(ok){
+      if (ok === false) window.prompt('Copia tu respaldo:', c);
+      else nota('Respaldo de la mesa copiado. Mándatelo por correo: con él recuperas la jornada en otra computadora. Para restaurarlo, pégalo en “Pegar un código”.');
+    });
+  });
+
+  document.getElementById('btnLimpiar').addEventListener('click', function(){
+    if (!confirm('¿Vaciar la mesa? Se borra todo lo cargado en este navegador. Copia tu respaldo antes si no lo has hecho.')) return;
+    try { localStorage.removeItem(CLAVE); } catch(e){}
+    location.reload();
+  });
+
+  /* el respaldo de la mesa también entra por "pegar un código" */
+  var btnCodigoOrig = document.getElementById('btnCodigo');
+  btnCodigoOrig.addEventListener('click', function(){
+    var t = document.getElementById('codigo').value.trim();
+    if (t.indexOf(PREFIJO) !== 0) return;
+    var d = null;
+    try { d = JSON.parse(deBase64(t.slice(PREFIJO.length).replace(/\s+/g, ''))); } catch(e){ return; }
+    if (d && d.al && d.orden){
+      if (!confirm('Ese código es un respaldo de la mesa completa, no de un estudiante. ¿Restaurarlo? Reemplaza lo que tengas aquí.')) return;
+      R = d; guardar(); location.reload();
+    }
+  }, true);
+
+  /* ---------- pintar todo ---------- */
+  function pinta(){
+    document.getElementById('panelLista').style.display = R.orden.length ? 'block' : 'none';
+    document.getElementById('panelRegistro').style.display = R.orden.length ? 'block' : 'none';
+    document.getElementById('panelTablero').style.display = R.orden.length ? 'block' : 'none';
+    pintaLista(); pintaFicha(); pintaRegistro(); pintaTablero();
+  }
+  pintaCiegas();
+  pinta();
+})();
+</script>
+
+</body>
+</html>
