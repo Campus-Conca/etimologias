@@ -13,7 +13,7 @@ nav_order: 8
 **Esta semana podrás:**
 
 - demostrar, con piezas concretas, todo lo que la unidad prometió enseñarte
-- defender una palabra en voz alta por primera vez, en parejas y con rúbrica conocida
+- defender una palabra en voz alta por primera vez, tú solo y con rúbrica conocida
 - estrenar el círculo de lectura con tu obra terminada
 - proponer tu primera calificación y sostenerla con evidencia
 
@@ -25,7 +25,7 @@ No hay tema nuevo. Esta semana se ve lo que ya sabes. Y pasa algo que no había 
 |---|---|---|
 | [Martes 8](#martes) · 1 h | El taller de pistas | el mazo completo de la unidad |
 | [Miércoles 9](#miercoles) · 1 h | Arma tu defensa | tu palabra del Museo y su fuente |
-| [Jueves 10](#jueves) · 1 h | Las defensas en parejas | tu ficha de apoyo |
+| [Jueves 10](#jueves) · 1 h | Las defensas individuales | tu ficha de apoyo |
 | [Viernes 11](#viernes) · 2 h | El integrador, el círculo y el ensayo | tu expediente al día |
 
 <p class="pista-mazos">Cada día es un mazo de láminas. En clase se proyectan una por una con el botón <strong>Presentar</strong>; aquí se quedan apiladas, en orden, para volver a ellas cuando quieras. Debajo de los mazos: la rúbrica de la defensa, la autoevaluación del parcial y el repaso integrador para practicar.</p>
@@ -96,7 +96,7 @@ No hay tema nuevo. Esta semana se ve lo que ya sabes. Y pasa algo que no había 
 <div>
 <div class="cuando">Miércoles 9 de septiembre · 1 hora</div>
 <h3>Arma tu defensa</h3>
-<p class="foco">Nadie se estrena solo y nadie se estrena difícil.</p>
+<p class="foco">Nadie se estrena difícil, y por eso hoy se ensaya.</p>
 </div>
 <button class="btn-presentar" type="button">Presentar ▸</button>
 </div>
@@ -116,7 +116,7 @@ No hay tema nuevo. Esta semana se ve lo que ya sabes. Y pasa algo que no había 
 <tr><td>Que expliques por qué elegiste esa palabra</td><td>Que memorices un discurso</td></tr>
 <tr><td>La honestidad del "esto no lo sé todavía"</td><td>Cuántas palabras raras metiste</td></tr>
 </table>
-<p class="apoyo">Peldaño 1: en parejas, ante el profesor, tres a cuatro minutos, los dos hablan. Puedes apoyarte en una ficha; no se vale leer todo. La columna derecha no es un consuelo: es literalmente lo que el profesor no va a mirar.</p>
+<p class="apoyo">Peldaño 1: individual, ante el profesor, tres a cuatro minutos. Puedes apoyarte en una ficha; no se vale leer todo. La columna derecha no es un consuelo: es literalmente lo que el profesor no va a mirar.</p>
 <p class="nota-conductor">Lee la columna derecha en voz alta, completa. Baja la ansiedad más que cualquier otra cosa que digas esta semana.</p>
 </section>
 <section class="lam lam--oscura">
@@ -128,9 +128,9 @@ No hay tema nuevo. Esta semana se ve lo que ya sabes. Y pasa algo que no había 
 <section class="lam lam--actividad">
 <h4><span class="n">4</span> Gimnasio: ensayo con cronómetro <span class="reloj">30 min</span></h4>
 <span class="senal">Actividad · en parejas</span>
-<p class="di">Una pasada completa, cronometrada, con tu pareja de mañana.</p>
-<p class="apoyo"><a href="../ejercicios/semana-07/ejercicio-7B-arma-tu-defensa.html">Arma tu defensa</a>: llena la ficha de apoyo, ensaya una vez con reloj, márquense con la rúbrica y termínense con la pregunta amable. Si en el ensayo se cae la fuente, se arregla hoy: para eso es el ensayo.</p>
-<p class="recurso"><a href="../ejercicios/semana-07/ejercicio-7B-arma-tu-defensa.html" target="_blank" rel="noopener">Arma tu defensa</a><span class="pie">Peldaño 1 de la escalera: en parejas, nadie se estrena solo. 3 a 4 minutos, los dos hablan.</span></p>
+<p class="di">Una pasada completa, cronometrada, con quien tengas al lado.</p>
+<p class="apoyo"><a href="../ejercicios/semana-07/ejercicio-7B-arma-tu-defensa.html">Arma tu defensa</a>: llena la ficha de apoyo, ensaya una vez con reloj mientras el otro te escucha, márquense con la rúbrica y termínense con la pregunta amable. Mañana defiendes solo, y por eso hoy se ensaya con alguien: para que la primera vez que lo digas en voz alta no sea frente al profesor. Si en el ensayo se cae la fuente, se arregla hoy: para eso es el ensayo.</p>
+<p class="recurso"><a href="../ejercicios/semana-07/ejercicio-7B-arma-tu-defensa.html" target="_blank" rel="noopener">Arma tu defensa</a><span class="pie">Peldaño 1 de la escalera: individual, ante el profesor. 3 a 4 minutos, tú solo con tu palabra.</span></p>
 <p class="nota-conductor">Circula y escucha pedazos. Corrige una sola cosa por pareja, la más importante. Si alguien no tiene fuente anotada, esa es la única corrección que hace falta.</p>
 </section>
 <section class="lam">
@@ -146,21 +146,21 @@ No hay tema nuevo. Esta semana se ve lo que ya sabes. Y pasa algo que no había 
 <div class="mazo-cabeza">
 <div>
 <div class="cuando">Jueves 10 de septiembre · 1 hora</div>
-<h3>Las defensas en parejas</h3>
-<p class="foco">El primer peldaño de la escalera. Los dos hablan.</p>
+<h3>Las defensas individuales</h3>
+<p class="foco">El primer peldaño de la escalera. Tú solo, con tu palabra.</p>
 </div>
 <button class="btn-presentar" type="button">Presentar ▸</button>
 </div>
 <section class="lam">
 <h4><span class="n">1</span> Cómo va a estar <span class="reloj">5 min</span></h4>
-<p class="di">Pasan de dos en dos. Tres a cuatro minutos. Nadie mira desde la butaca.</p>
-<p class="apoyo">Mientras una pareja defiende, el resto trabaja en lo suyo: el <a href="../ejercicios/semana-07/quiz-gimnasio-semana-07.html">quiz de gimnasio integrador</a> para calentar de cara al viernes, o el mazo en modo aleatorio. Nadie se queda viendo a nadie: eso también baja los nervios.</p>
+<p class="di">Pasa uno por uno. Tres a cuatro minutos. Nadie mira desde la butaca.</p>
+<p class="apoyo">Mientras alguien defiende, el resto trabaja en lo suyo: el <a href="../ejercicios/semana-07/quiz-gimnasio-semana-07.html">quiz de gimnasio integrador</a> para calentar de cara al viernes, o el mazo en modo aleatorio. Nadie se queda viendo a nadie: eso también baja los nervios.</p>
 <p class="recurso"><a href="../ejercicios/semana-07/quiz-gimnasio-semana-07.html" target="_blank" rel="noopener">Quiz de gimnasio · Integrador</a><span class="pie">Práctica libre para el quiz integrador de la unidad. Mismos músculos, otros reactivos: aquí se entrena, no se compite.</span></p>
 <p class="nota-conductor">Ten a la mano las hojas de retroalimentación de la rúbrica. Una por estudiante, entregada en el momento: el papel en la mano vale más que el comentario al aire.</p>
 </section>
 <section class="lam lam--actividad">
 <h4><span class="n">2</span> Las defensas <span class="reloj">45 min</span></h4>
-<span class="senal">Por parejas · ante el profesor</span>
+<span class="senal">Individual · ante el profesor</span>
 <p class="di">Tu palabra, sus piezas, tu fuente y por qué la elegiste.</p>
 <p class="apoyo">Sin nota. Con comentarios y con la rúbrica que conoces desde el primer día. Al terminar recibes tu hoja: guárdala en el expediente y copia esa frase en tu <a href="../recursos/plantillas/autoevaluacion-u1.html">autoevaluación del parcial</a>, en el paso de la defensa. Es evidencia, y el domingo te va a servir.</p>
 <p class="nota-conductor">Cronómetro visible pero flexible. Si alguien se traba, sostén el silencio dos segundos antes de rescatarlo: casi siempre se rescata solo, y eso vale más. Anota una frase concreta por estudiante; genéricos como "bien" no le sirven a nadie el domingo.</p>
@@ -260,7 +260,7 @@ Estrenas el círculo. Tu obra terminada deja su ficha en el tendedero de [Leemos
 
 ### Cómo se evalúa tu defensa (rúbrica)
 
-Peldaño 1: en parejas, ante el profesor. Los dos hablan. Dura 3 a 4 minutos. Esto es lo que cuenta:
+Peldaño 1: individual, ante el profesor. Dura 3 a 4 minutos. Esto es lo que cuenta:
 
 | Se evalúa | No se evalúa |
 |---|---|

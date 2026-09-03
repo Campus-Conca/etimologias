@@ -320,9 +320,8 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
   var PREFIJO = 'ETIM1·';
 
   var TABLAS = [
-    ['quizzes', 'Los seis quizzes'],
-    ['museo', 'Pieza del Museo'],
-    ['defensa', 'Defensa en parejas'],
+    ['museo', 'Palabra del Museo'],
+    ['defensa', 'Defensa individual'],
     ['circulo', 'Círculo de lectura'],
     ['bitacora', 'Bitácora viva'],
     ['mazo', 'Mazo vivo']
@@ -347,7 +346,7 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
     ['e13', 'Descifrar una palabra nunca vista', 'S6'],
     ['e14', 'Armar una palabra nueva', 'S6'],
     ['e15', 'Saber si la inventé o la redescubrí', 'S6'],
-    ['e16', 'Defender en voz alta con fuente', 'S7'],
+    ['e16', 'Defender en voz alta, solo, con fuente', 'S7'],
     ['e17', 'Cosechar palabras de lo que leo', 'S7']
   ];
   var RESULTADOS = [
@@ -748,7 +747,7 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
     var izq = '';
     if (d){
       izq =
-        '<h3 style="margin-top:0">Su suelo · ' + puestas + ' de 6</h3>' +
+        '<h3 style="margin-top:0">Su suelo · ' + puestas + ' de ' + TABLAS.length + '</h3>' +
         '<div class="duelas">' + duelas + '</div>' +
         '<p class="mini">' + (faltan.length ? 'Le falta: ' + esc(faltan.join(' · ')) : 'Completo. No reprueba.') + '</p>' +
         (d.sueloFalta ? '<p class="mini"><em>' + esc(d.sueloFalta) + '</em></p>' : '') +
@@ -758,7 +757,6 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
         (evSi.length ? '<ul class="evlista">' + evSi.join('') + '</ul>' : '<p class="mini">Nada marcado.</p>') +
         (evNo.length ? '<h3>Lo que dejó en aún no · ' + evNo.length + '</h3><ul class="evlista">' + evNo.join('') + '</ul>' : '') +
         '<dl class="datos">' +
-          '<dt>La palabra que descifró solo</dt>' + dd((d.descifrada || '') + (d.descifradaPiezas ? ' · ' + d.descifradaPiezas : '')) +
           '<dt>Su mejor pieza</dt>' + dd((d.piezaCual || '') + (d.piezaPorque ? '\n' + d.piezaPorque : '')) +
           '<dt>Qué habría hecho hace seis semanas</dt>' + dd(d.piezaAntes) +
           '<dt>Lo que le falta</dt>' + dd(d.aunNo) +

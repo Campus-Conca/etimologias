@@ -66,10 +66,10 @@ Este curso no reparte calificaciones. Ningún quiz, ninguna defensa, ninguna pie
 <section class="lam">
 <h4><span class="n">5</span> El suelo</h4>
 <p class="di">La lista de lo que debe existir al cerrar cada unidad. Quien llega con el suelo completo, no reprueba.</p>
-<!-- PENDIENTE DE ARTE: el dibujo tiene cinco tablas y el suelo de la U1 ya son seis (se agrego "tu mazo, vivo"). El texto alternativo describe el dibujo tal como esta hoy, que es lo correcto para un lector de pantalla; cuando se regenere la ilustracion con la sexta tabla, actualizar aqui y en la lamina 5 del mazo. -->
+<!-- PENDIENTE DE ARTE: el dibujo sigue teniendo cinco tablas, que ya es el numero correcto, pero tres rotulos cambiaron. Hoy el suelo es: palabra del Museo, defensa individual, circulo de lectura, bitacora viva y mazo vivo. Los quizzes salieron del suelo (son evidencia, viven en la serie de calibracion) y la defensa dejo de ser en parejas. El texto alternativo describe el dibujo tal como esta, que es lo correcto para un lector de pantalla; al regenerarlo, actualizar aqui, abajo y en la lamina 5 del mazo. -->
 <img class="ilustracion" src="assets/img/semana-07/el-suelo.webp" alt="Una figura dibujada a mano parada firme sobre un piso de cinco tablas rotuladas quizzes intentados, pieza del Museo, defensa en parejas, círculo de lectura y bitácora viva; del piso sube una escalera rosa que dice la conversación decide cuánto más, y a la derecha falta un pedazo de tabla con un martillo encima y la nota si falta una tabla, se repone">
 <p class="apoyo">No mide qué tan bien te salió: registra que estuviste y que lo hiciste. La conversación decide cuánto más. Y si algo queda pendiente, se completa en la segunda vuelta de diciembre.</p>
-<p class="apoyo">Las seis tablas de la unidad 1: <strong>los seis quizzes intentados · tu pieza del Museo con su ficha · tu defensa en parejas · el primer círculo de lectura · tu bitácora viva · tu mazo vivo</strong>.</p>
+<p class="apoyo">Las cinco tablas de la unidad 1: <strong>tu palabra del Museo con su ficha · tu defensa individual · el primer círculo de lectura · tu bitácora viva · tu mazo vivo</strong>. Los quizzes no son suelo: son evidencia, y se leen en tu serie de calibración.</p>
 <p class="nota-conductor">Ojo con las dos tablas que dicen <em>vivo</em>, la bitácora y el mazo: se revisa que existan y que tengan rastro reciente, nunca la racha ni el porcentaje de aciertos. Dilo en voz alta, porque si no lo dices lo van a suponer al revés.</p>
 </section>
 
@@ -234,21 +234,20 @@ Se abren en el navegador y se imprimen con Ctrl/Cmd + P (o se guardan como PDF d
 
 El suelo es la lista de lo que debe existir al cerrar cada unidad. No mide qué tan bien te salió: registra que estuviste y que lo hiciste. Quien llega al cierre con el suelo completo tiene una garantía: **no reprueba**. La conversación decide cuánto más.
 
-<!-- PENDIENTE DE ARTE: el dibujo tiene cinco tablas y el suelo de la U1 ya son seis (se agrego "tu mazo, vivo"). El texto alternativo describe el dibujo tal como esta hoy, que es lo correcto para un lector de pantalla; cuando se regenere la ilustracion con la sexta tabla, actualizar aqui y en la lamina 5 del mazo. -->
+<!-- PENDIENTE DE ARTE: el dibujo sigue teniendo cinco tablas, que ya es el numero correcto, pero tres rotulos cambiaron. Hoy el suelo es: palabra del Museo, defensa individual, circulo de lectura, bitacora viva y mazo vivo. Los quizzes salieron del suelo (son evidencia, viven en la serie de calibracion) y la defensa dejo de ser en parejas. El texto alternativo describe el dibujo tal como esta, que es lo correcto para un lector de pantalla; al regenerarlo, actualizar aqui, abajo y en la lamina 5 del mazo. -->
 <img class="ilustracion" src="assets/img/semana-07/el-suelo.webp" alt="Una figura dibujada a mano parada firme sobre un piso de cinco tablas rotuladas quizzes intentados, pieza del Museo, defensa en parejas, círculo de lectura y bitácora viva; del piso sube una escalera rosa que dice la conversación decide cuánto más, y a la derecha falta un pedazo de tabla con un martillo encima y la nota si falta una tabla, se repone">
 
 **Suelo de la unidad 1** (semanas 2 a 7). Como es el primero, va desglosado:
 
 | Lo que debe existir | Qué cuenta exactamente |
 |---|---|
-| Los seis quizzes intentados | #1 (6 de agosto), #2 (13), #3 (18 y 21, la semana que trajo dos), #4 (28, el de diez reactivos), #5 (3 de septiembre) y el integrador (11). El resultado no importa, el intento sí. Si faltaste a uno, se reintenta, y cuenta tu versión más reciente. |
-| Tu primera pieza del Museo | En el portafolio, con su ficha completa: palabra, origen, viaje, por qué la elegiste y registro de fuentes. Nació en la semana 2, le creció la familia en el campeonato de árboles de la 5 y en la 7 se le sumó la palabra que cosechaste de tu libro. |
-| Tu defensa en parejas | Peldaño 1 de la escalera, hecha ante el profesor en la semana 7. |
+| Tu palabra del Museo | En el portafolio, con su ficha completa: de dónde viene, cómo viajó, por qué la elegiste y su registro de fuentes. |
+| Tu defensa individual | Peldaño 1 de la escalera, hecha ante el profesor en la semana 7. |
 | El primer círculo de lectura | Estuviste, y tu obra terminada dejó su ficha en el tendedero de [Leemos](leemos.html). |
 | Tu bitácora del lector, viva | Viva es con rastro reciente, desde que estrenó el minuto del lector el 25 de agosto. Nadie la lee por dentro: se revisa que exista. |
 | Tu mazo, vivo | Tu gimnasio con rastro reciente: las estadísticas de [Anki](recursos/anki.html), tu caja Leitner con sus tres apartados, o el mazo que enseñaste en clase. Las tres valen igual. No se mira la racha ni el porcentaje de aciertos —una racha se consigue apretando "Bien" sin pensar, y eso ya lo diagnosticamos en el rescate de sanguijuelas—: se revisa que exista y que lo hayas usado. |
 
-Lo que **no** es suelo, aunque lo hayas hecho: el pacto del salón —la alarma, los tres minutos, el curador del día— no cuenta para la calificación, y no cuenta a propósito: el día que contara dejaría de ser un pacto y se volvería tarea. Tampoco cuentan el alfabeto griego ni tu nombre en griego: esos fueron el juguete de la semana 4.
+Los **quizzes no son suelo**: son evidencia, y viven en tu serie de calibración, donde además los vuelves a hacer para ver qué te quedó. Tampoco es suelo el pacto del salón —la alarma, los tres minutos, el curador del día— no cuenta para la calificación, y no cuenta a propósito: el día que contara dejaría de ser un pacto y se volvería tarea. Tampoco cuentan el alfabeto griego ni tu nombre en griego: esos fueron el juguete de la semana 4.
 
 Todo eso se palomea tocando tablas en **[tu primer parcial](recursos/plantillas/autoevaluacion-u1.html)**, la autoevaluación que se llena desde el celular, y que además trae lo que sigue: tu serie de calibración dibujada y leída, el mapa de tus evidencias semana por semana, qué cuenta como argumento y qué no, y el ensayo en voz alta antes de la conversación.
 

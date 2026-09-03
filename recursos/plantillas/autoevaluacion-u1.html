@@ -113,6 +113,10 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--rosa);outline-of
 .serie td.q em{display:block;font-style:normal;font-weight:400;font-size:.76rem;color:var(--gris)}
 .serie input{text-align:center;padding:.45rem .2rem;font-weight:700;font-size:1.05rem}
 .serie .de{font-size:.72rem;color:var(--gris);text-align:center;display:block;margin-top:.1rem}
+.serie .rehacer{display:inline-block;margin-top:.2rem;font-size:.74rem;font-weight:700;color:var(--rosa);text-decoration:none;
+  border:1px solid var(--borde);border-radius:2rem;padding:.1rem .5rem;background:var(--fondo)}
+.serie .rehacer:hover{background:#fdeef6;border-color:var(--rosa)}
+.leyenda-g i.ho{background:var(--jade)}
 .grafica{background:var(--papel);border:1px solid var(--borde);border-radius:1rem;padding:.8rem .6rem .5rem;margin:.9rem 0}
 .grafica svg{display:block;width:100%;height:auto}
 .leyenda-g{display:flex;gap:1rem;justify-content:center;font-size:.78rem;color:var(--gris);margin-top:.2rem;flex-wrap:wrap}
@@ -254,6 +258,17 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--rosa);outline-of
 .par .fuerte .porque b{color:#1f6b43}
 
 /* ---------- el envío ---------- */
+.estado{display:none;border-radius:.9rem;padding:.8rem .95rem;margin:.7rem 0;border:2px solid;font-size:.95rem;line-height:1.5}
+.estado.ver{display:block}
+.estado b{display:block;font-size:1.02rem;margin-bottom:.2rem}
+.estado.falta{border-color:var(--ambar);background:var(--ambar-bg);color:#7d3d16}
+.estado.falta b{color:var(--ambar)}
+.estado.yendo{border-color:var(--ciruela);background:var(--fondo);color:var(--ciruela)}
+.estado.yendo b{color:var(--ciruela)}
+@keyframes sacude{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.estado.sacude{animation:sacude .42s ease}
+.destacado{outline:3px solid var(--ambar);outline-offset:3px;border-radius:.7rem}
+
 .enviado{border:2px solid var(--jade);background:var(--jade-bg);border-radius:1rem;padding:.9rem 1rem;margin:.8rem 0;display:none}
 .enviado.ver{display:block}
 .enviado .rotulo{font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--jade);font-weight:800}
@@ -434,7 +449,7 @@ body.papel .medidor{position:static}
   <p class="paso">Paso 2 de 9</p>
   <h2>Primero, el suelo</h2>
   <p class="entrada">El suelo es la lista de lo que debe <strong>existir</strong> al cerrar la unidad. No mide qué tan bien te salió: registra que estuviste y que lo hiciste. Quien llega al cierre con el suelo completo tiene una garantía: <strong>no reprueba</strong>. La conversación decide cuánto más.</p>
-  <p class="mini">Son seis tablas. Toca cada una que ya tengas puesta: abajo se arma tu piso.</p>
+  <p class="mini">Son cinco tablas. Toca cada una que ya tengas puesta: abajo se arma tu piso.</p>
   <div class="ej-slot" data-ej="2"></div>
 
   <div class="suelo-obra" id="suelo"></div>
@@ -453,7 +468,7 @@ body.papel .medidor{position:static}
 
   <div class="tarjeta suave">
     <p style="margin:.1rem 0"><strong>Lo que no es suelo, aunque lo hayas hecho</strong></p>
-    <p class="mini" style="margin:.3rem 0 0">El pacto del salón —la alarma, los tres minutos, el curador del día— <strong>no cuenta para la calificación</strong>, y no cuenta a propósito: el día que contara dejaría de ser un pacto y se volvería tarea. Tampoco cuentan el alfabeto griego ni tu nombre en griego: esos fueron el juguete de la semana 4. Se hacen porque sí, y ese es justo el punto.</p>
+    <p class="mini" style="margin:.3rem 0 0"><strong>Los quizzes tampoco son suelo.</strong> No se palomean aquí: son evidencia, y viven en el paso que sigue, donde además los vas a rehacer. El pacto del salón —la alarma, los tres minutos— tampoco cuenta, y no cuenta a propósito: el día que contara dejaría de ser un pacto y se volvería tarea. Ni el alfabeto griego ni tu nombre en griego: esos fueron el juguete de la semana 4.</p>
   </div>
 
   <div class="cita">El suelo dice que estuviste. Los pasos que siguen dicen qué aprendiste. Esos son los que van a sostener tu número.</div>
@@ -463,18 +478,19 @@ body.papel .medidor{position:static}
 <section class="pantalla" data-titulo="Calibración">
   <p class="paso">Paso 3 de 9</p>
   <h2>Tu serie de calibración</h2>
-  <p class="entrada">Seis veces apostaste, antes de voltear la hoja, cuántas ibas a sacar. Seis veces se supo el resultado. Cópialos de tu expediente: la gráfica se dibuja sola.</p>
+  <p class="entrada">Seis veces apostaste, antes de voltear la hoja, cuántas ibas a sacar. Seis veces se supo el resultado. Cópialos de tu expediente en las dos primeras columnas.</p>
+  <p class="entrada">Y ahora la tercera, que es nueva y es la que importa: <strong>vuelve a hacer cada quiz, aquí y ahora</strong>. Cada renglón tiene su enlace, con cronómetro y con las respuestas. No es trampa mirar cuánto sacaste entonces: el punto es justo comparar. Lo que apostaste dice cómo te veías, lo que salió dice cómo estabas, y lo de <strong>hoy</strong> dice qué te quedó.</p>
   <div class="ej-slot" data-ej="3"></div>
 
   <table class="serie">
-    <tr><th style="width:44%">Quiz</th><th style="width:28%">Aposté</th><th style="width:28%">Salió</th></tr>
+    <tr><th style="width:34%">Quiz</th><th style="width:21%">Aposté</th><th style="width:21%">Salió</th><th style="width:24%">Hoy</th></tr>
     <tbody id="serie"></tbody>
   </table>
-  <p class="pista">En la semana 4 hubo dos quizzes relámpago —el del martes y el del <em>Triage</em> del viernes—. Usa el más reciente: en este curso siempre cuenta tu versión más nueva, no el promedio.</p>
+  <p class="pista">En la semana 4 hubo dos quizzes relámpago —el del martes y el del <em>Triage</em> del viernes—. Usa el más reciente: en este curso siempre cuenta tu versión más nueva, no el promedio. Y si no llenas la columna de hoy no pasa nada: la gráfica funciona con dos.</p>
 
   <div class="grafica">
     <svg id="chart" viewBox="0 0 320 148" role="img" aria-label="Gráfica de tu calibración: lo que apostaste contra lo que salió, quiz por quiz"></svg>
-    <div class="leyenda-g"><span><i class="ap"></i>lo que apostaste</span><span><i class="sa"></i>lo que salió</span></div>
+    <div class="leyenda-g"><span><i class="ap"></i>lo que apostaste</span><span><i class="sa"></i>lo que salió</span><span><i class="ho"></i>lo que sacas hoy</span></div>
   </div>
 
   <div class="lectura" id="lecturaSerie"><b>Llena al menos dos renglones</b>Con dos parejas de números ya se puede leer algo. Con las seis, se lee tu semestre.</div>
@@ -513,22 +529,10 @@ body.papel .medidor{position:static}
 <!-- ==================== 5 · TUS PIEZAS ==================== -->
 <section class="pantalla" data-titulo="Tus piezas">
   <p class="paso">Paso 5 de 9</p>
-  <h2>Tus dos piezas más fuertes</h2>
+  <h2>Tu mejor pieza</h2>
   <div class="ej-slot" data-ej="5"></div>
 
-  <h3>La palabra que descifré yo solo, fuera de clase</h3>
-  <p class="mini">Es el reactivo 8 del integrador, el que no califica nadie. Cópiala aquí completa: es la evidencia más difícil de discutir que existe, porque no te la dio nadie.</p>
-  <div class="enlaces"><span class="rot">de dónde salió</span>
-    <a href="../../ejercicios/semana-07/quiz-integrador-u1-semana-07.html" target="_blank" rel="noopener">El quiz integrador</a>
-    <a href="../../ejercicios/semana-06/ejercicio-6A-la-prueba-de-fuego.html" target="_blank" rel="noopener">La prueba de fuego</a>
-  </div>
-  <div class="tarjeta">
-    <label class="campo"><span>La palabra</span><input type="text" data-k="descifrada" placeholder="Ej.: hemeralopía"></label>
-    <label class="campo"><span>En piezas, y qué significa</span><input type="text" data-k="descifradaPiezas" placeholder="hēmera (día) + opía (visión): problema para ver de día"></label>
-    <label class="campo"><span>Dónde te la encontraste y con qué fuente la verificaste</span><textarea data-k="descifradaFuente" placeholder="Dónde apareció y en qué diccionario la comprobaste."></textarea></label>
-  </div>
-
-  <h3>La pieza que mejor me representa</h3>
+  <h3>La que mejor te representa</h3>
   <p class="mini">De todo lo que produjiste en seis semanas, una sola cosa. No la más bonita: la que mejor muestra lo que sabes hacer ahora y no sabías en agosto. Puede ser tu pieza del Museo, un árbol del campeonato, un crucigrama del taller de pistas, un monstruo de la fábrica, una tarjeta rescatada del muro de sanguijuelas o una página de tu bitácora.</p>
   <div class="enlaces"><span class="rot">ve a buscarla</span>
     <a href="../../museo/galeria.html" target="_blank" rel="noopener">La galería del Museo</a>
@@ -546,7 +550,7 @@ body.papel .medidor{position:static}
 <!-- ==================== 6 · LA DEFENSA ==================== -->
 <section class="pantalla" data-titulo="La defensa">
   <p class="paso">Paso 6 de 9</p>
-  <h2>Mi defensa en parejas</h2>
+  <h2>Mi defensa individual</h2>
   <p class="entrada">Los cuatro criterios de la rúbrica pública, la que conoces desde la primera semana. Márcate tú, antes de releer lo que anotó el profesor.</p>
   <div class="enlaces"><span class="rot">ábrelo y checa</span>
     <a href="rubrica-defensas.html" target="_blank" rel="noopener">La rúbrica pública</a>
@@ -609,6 +613,8 @@ body.papel .medidor{position:static}
     <button class="btn principal" type="button" id="btnEnviar">Enviar mi propuesta al profesor</button>
     <p class="pista" style="margin:0" id="pistaEnviar">Se va tu número, tu porqué y lo que llenaste en estos nueve pasos. Lo lee <strong>únicamente el profesor</strong>, y lo va a tener enfrente cuando conversen. Antes del lunes.</p>
   </div>
+
+  <div class="estado" id="estadoEnvio"></div>
 
   <div class="enviado" id="cajaEnviado">
     <div class="rotulo">Listo</div>
@@ -721,60 +727,47 @@ body.papel .medidor{position:static}
   var EJ = '../../ejercicios/';
 
   var TABLAS = [
-    { k:'quizzes', t:'Los seis quizzes, intentados',
-      d:'El resultado no importa para el suelo; el intento sí. Si faltaste a uno, se reintenta y cuenta tu versión más reciente. Aquí están los seis, con cronómetro y con las respuestas: ábrelos y checa.',
-      rot:'los seis quizzes', e:[
-        ['#1 · 6 ago', EJ + 'semana-02/quiz-relampago-semana-02.html'],
-        ['#2 · 13 ago', EJ + 'semana-03/quiz-relampago-semana-03.html'],
-        ['#3 · 18 ago', EJ + 'semana-04/quiz-relampago-semana-04-martes.html'],
-        ['#3 · 21 ago', EJ + 'semana-04/quiz-relampago-semana-04-viernes.html'],
-        ['#4 · 28 ago', EJ + 'semana-05/quiz-relampago-semana-05-viernes.html'],
-        ['#5 · 3 sep', EJ + 'semana-06/quiz-relampago-semana-06.html'],
-        ['integrador · 11 sep', EJ + 'semana-07/quiz-integrador-u1-semana-07.html']
-      ] },
-    { k:'museo', t:'Tu primera pieza del Museo, con su ficha completa',
-      d:'Nació en la semana 2 con la biografía de una palabra, le creció la familia en el campeonato de árboles de la 5 y en la 7 se le sumó la palabra que cosechaste de tu libro. Debe traer: la palabra, de dónde viene, cómo viajó, por qué la elegiste y su registro de fuentes.',
+    { k:'museo', t:'Tu palabra del Museo, con su ficha completa',
+      d:'De dónde viene, cómo viajó, por qué la elegiste y sus fuentes.',
       rot:'dónde se hizo', e:[
         ['Biografía de una palabra', EJ + 'semana-02/ejercicio-2D-biografia-de-una-palabra.html'],
         ['La familia numerosa', EJ + 'semana-05/ejercicio-5D-familia-numerosa.html'],
-        ['Cosecha de palabras', EJ + 'semana-07/ejercicio-7D-cosecha-de-palabras.html'],
         ['La ficha del Museo', 'ficha-museo.html'],
         ['La galería', '../../museo/galeria.html']
       ] },
-    { k:'defensa', t:'Tu defensa en parejas, hecha ante el profesor',
-      d:'Jueves 10 de septiembre. Peldaño 1 de la escalera: tres a cuatro minutos, los dos hablan, con la rúbrica pública enfrente.',
+    { k:'defensa', t:'Tu defensa individual, ante el profesor',
+      d:'Jueves 10 de septiembre. Tú solo, con la rúbrica pública enfrente.',
       rot:'con qué se preparó', e:[
         ['Arma tu defensa', EJ + 'semana-07/ejercicio-7B-arma-tu-defensa.html'],
         ['La rúbrica pública', 'rubrica-defensas.html']
       ] },
     { k:'circulo', t:'Estuviste en el primer círculo de lectura',
-      d:'Viernes 11 de septiembre. Si terminaste tu obra, tu ficha quedó colgada en el tendedero de Leemos.',
+      d:'Viernes 11. Si terminaste tu obra, tu ficha quedó en el tendedero.',
       rot:'lo del círculo', e:[
         ['El tendedero de Leemos', '../../leemos.html'],
         ['Cosecha de palabras', EJ + 'semana-07/ejercicio-7D-cosecha-de-palabras.html']
       ] },
     { k:'bitacora', t:'Tu bitácora del lector, viva',
-      d:'Viva significa con rastro reciente, desde que estrenó el minuto del lector el 25 de agosto. Nadie la lee por dentro ni la califica: se revisa que exista.',
+      d:'Viva es con rastro reciente. Nadie la lee por dentro: se revisa que exista.',
       rot:'la plantilla', e:[
         ['La bitácora del lector', 'bitacora-lector.html']
       ] },
     { k:'mazo', t:'Tu mazo, vivo',
-      d:'Tu gimnasio con rastro reciente: las estadísticas de Anki, tu caja Leitner con sus tres apartados, o el mazo que enseñaste en clase. Las tres valen igual. Y ojo con lo que NO se mira: ni la racha, ni el porcentaje de aciertos. Una racha se consigue apretando “Bien” sin pensar, y eso ya lo diagnosticamos el jueves de la semana 5 con el rescate de sanguijuelas. Aquí se revisa lo mismo que en la bitácora: que exista y que lo hayas usado.',
+      d:'Anki, caja Leitner o el mazo que enseñaste en clase: las tres valen igual. No se mira la racha ni el porcentaje de aciertos, se mira que exista y que lo uses.',
       rot:'tu gimnasio', e:[
         ['Anki y caja Leitner', '../anki.html'],
         ['El safari del mazo', EJ + 'semana-05/ejercicio-5E-safari-del-mazo.html'],
-        ['Botonología', EJ + 'semana-05/ejercicio-5F-botonologia.html'],
         ['Rescate de sanguijuelas', EJ + 'semana-05/ejercicio-5G-rescate-de-sanguijuelas.html']
       ] }
   ];
 
   var QUIZZES = [
-    { id:'q1', t:'#1 · semana 2',  s:'jueves 6 de agosto · 3 reactivos',      max:3 },
-    { id:'q2', t:'#2 · semana 3',  s:'jueves 13 de agosto · 3 reactivos',     max:3 },
-    { id:'q3', t:'#3 · semana 4',  s:'martes 18 y viernes 21 · 3 reactivos',  max:3 },
-    { id:'q4', t:'#4 · semana 5',  s:'viernes 28 de agosto · 10 reactivos',   max:10 },
-    { id:'q5', t:'#5 · semana 6',  s:'jueves 3 de septiembre · 3 reactivos',  max:3 },
-    { id:'qi', t:'Integrador · semana 7', s:'viernes 11 de septiembre · 8 reactivos', max:8 }
+    { id:'q1', t:'#1 · semana 2',   s:'jueves 6 de agosto',     max:3,  u:EJ + 'semana-02/quiz-relampago-semana-02.html' },
+    { id:'q2', t:'#2 · semana 3',   s:'jueves 13 de agosto',    max:3,  u:EJ + 'semana-03/quiz-relampago-semana-03.html' },
+    { id:'q3', t:'#3 · semana 4',   s:'martes 18 y viernes 21', max:3,  u:EJ + 'semana-04/quiz-relampago-semana-04-viernes.html' },
+    { id:'q4', t:'#4 · semana 5',   s:'viernes 28 · diez',      max:10, u:EJ + 'semana-05/quiz-relampago-semana-05-viernes.html' },
+    { id:'q5', t:'#5 · semana 6',   s:'jueves 3 de septiembre', max:3,  u:EJ + 'semana-06/quiz-relampago-semana-06.html' },
+    { id:'qi', t:'Integrador · s7', s:'viernes 11 · ocho',      max:8,  u:EJ + 'semana-07/quiz-integrador-u1-semana-07.html' }
   ];
 
   var EVID = [
@@ -836,7 +829,7 @@ body.papel .medidor{position:static}
         e:[['¿Existían de verdad?', EJ + 'semana-06/ejercicio-6C-existian-de-verdad.html']] },
     ]},
     { s:'Semana 7 · El cierre', l:[
-      { k:'e16', t:'Defender mi palabra en voz alta, con fuente y con honestidad', f:'Miércoles 9 y jueves 10 de septiembre',
+      { k:'e16', t:'Defender mi palabra en voz alta, yo solo, con fuente', f:'Miércoles 9 y jueves 10 de septiembre',
         e:[['Arma tu defensa', EJ + 'semana-07/ejercicio-7B-arma-tu-defensa.html'],
            ['La rúbrica pública', 'rubrica-defensas.html'],
            ['El taller de pistas', EJ + 'semana-07/ejercicio-7A-el-taller-de-pistas.html']] },
@@ -864,16 +857,17 @@ body.papel .medidor{position:static}
     '3': { t:'Así leyó su serie',
       d:['Mis seis renglones: aposté 1 y salió 3 · aposté 2 y salieron 3 · aposté 2 y salieron 3 · aposté 5 y salieron 8 · aposté 2 y salieron 3 · aposté 6 y salieron 7.'],
       dice:'Siempre le bajo por miedo a quedar mal. Las seis veces salí por encima de lo que aposté, y en el de diez me pasé por tres reactivos. Mi medidor está descalibrado hacia abajo y ya lo sé; lo raro es que eso también me pasa con la calificación que estoy escribiendo aquí.',
-      dice2:'Aún no: el anti- de antiguo se me seguía cayendo. Lo saqué del mazo, le escribí en el reverso "no está contra nada, viene de ante" y en el integrador ya no fallé.' },
+      dice2:'Aún no: el anti- de antiguo se me seguía cayendo. Lo saqué del mazo, le escribí en el reverso "no está contra nada, viene de ante" y en el integrador ya no fallé.',
+      fija:'Rehízo los seis y anotó la tercera columna. En el #1 sacó 3 de 3, igual que entonces; en el #4 sacó 9 donde había sacado 8. Eso es lo que llevó a la conversación: no que le fue bien en agosto, sino que en septiembre sigue sabiéndolo.' },
     '4': { t:'Dos renglones bien contestados',
       d:['Uno con pieza:'],
       dice:'Sacar la familia entera de una raíz → lo tengo: mi árbol de arqui- del campeonato, once palabras, y tres las verifiqué en el DECEL.',
       dice2:'Leer mi horario en griego → aún no: se me atoró química. Me dijeron que llegó del árabe alquimia y no supe comprobarlo.',
       fija:'Fíjate en el segundo: un "aún no" con el motivo exacto vale más en la conversación que una palomita sin nada detrás.' },
-    '5': { t:'Sus dos piezas',
-      d:['La palabra que descifró sola:'],
-      dice:'hemeroteca · hēmera (día) + thēkē (depósito): donde se guardan los diarios. La vi en un letrero de la biblioteca y la leí antes de preguntar. La comprobé en el DLE.',
-      dice2:'Mi mejor pieza es mi ficha de cosmético. Hace seis semanas habría escrito "crema para la cara" y ya. Hoy sé que viene de kósmos, orden, y que el maquillaje y el universo son literalmente la misma palabra: las dos ordenan algo.' },
+    '5': { t:'Así eligió la suya',
+      d:['No eligió la más difícil ni la más bonita: eligió la que mejor muestra la distancia entre agosto y hoy.'],
+      dice:'Mi mejor pieza es mi ficha de cosmético. Hace seis semanas habría escrito "crema para la cara" y ya. Hoy sé que viene de kósmos, orden, y que el maquillaje y el universo son literalmente la misma palabra: las dos ordenan algo.',
+      fija:'Fíjate en la última línea: no dice qué sabe, dice qué habría hecho antes. Esa comparación contigo mismo es lo que convierte una pieza en argumento.' },
     '6': { t:'Así se marcó en la defensa',
       d:['Tres criterios en bien y uno en aún no: el de la fuente.'],
       dice:'Lo que me dijo el profesor: buena descomposición, pero cuando te pregunté cómo supiste que la fuente era confiable, contestaste "porque estaba en internet".',
@@ -952,7 +946,7 @@ body.papel .medidor{position:static}
       case 3: return !!(D.serie && Object.keys(D.serie).some(function(k){
                 return (D.serie[k].a || '') !== '' || (D.serie[k].s || '') !== ''; })) || !!val('serieTexto') || !!val('aunNo');
       case 4: return algunaEv() > 0;
-      case 5: return !!(val('descifrada') || val('piezaCual'));
+      case 5: return !!val('piezaCual');
       case 6: return !!(val('defensaProfe') || Object.keys(D.crit || {}).some(function(k){ return D.crit[k]; }));
       case 7: return !!(val('p1') || val('p2') || val('p3') || val('ensayoHueco'));
       case 8: return !!(numeroFinal() && val('frase'));
@@ -1078,9 +1072,11 @@ body.papel .medidor{position:static}
   QUIZZES.forEach(function(q){
     var tr = document.createElement('tr');
     tr.innerHTML =
-      '<td class="q">' + esc(q.t) + '<em>' + esc(q.s) + '</em></td>' +
+      '<td class="q">' + esc(q.t) + '<em>' + esc(q.s) + '</em>' +
+        '<a class="rehacer" href="' + esc(q.u) + '" target="_blank" rel="noopener">rehacerlo ↗</a></td>' +
       '<td><input type="number" inputmode="numeric" min="0" max="' + q.max + '" data-q="' + q.id + '" data-c="a" aria-label="Lo que apostaste en el quiz ' + esc(q.t) + '"><span class="de">de ' + q.max + '</span></td>' +
-      '<td><input type="number" inputmode="numeric" min="0" max="' + q.max + '" data-q="' + q.id + '" data-c="s" aria-label="Lo que sacaste en el quiz ' + esc(q.t) + '"><span class="de">de ' + q.max + '</span></td>';
+      '<td><input type="number" inputmode="numeric" min="0" max="' + q.max + '" data-q="' + q.id + '" data-c="s" aria-label="Lo que sacaste en el quiz ' + esc(q.t) + '"><span class="de">de ' + q.max + '</span></td>' +
+      '<td><input type="number" inputmode="numeric" min="0" max="' + q.max + '" data-q="' + q.id + '" data-c="h" aria-label="Lo que sacas hoy en el quiz ' + esc(q.t) + '"><span class="de">de ' + q.max + '</span></td>';
     tbody.appendChild(tr);
   });
   Array.prototype.forEach.call(tbody.querySelectorAll('input'), function(inp){
@@ -1096,9 +1092,12 @@ body.papel .medidor{position:static}
   function parejas(){
     return QUIZZES.map(function(q){
       var r = D.serie[q.id] || {};
-      var a = r.a === '' || r.a == null ? null : Math.max(0, Math.min(q.max, +r.a));
-      var s = r.s === '' || r.s == null ? null : Math.max(0, Math.min(q.max, +r.s));
-      return { q:q, a:a, s:s, pa: a == null ? null : a / q.max, ps: s == null ? null : s / q.max };
+      function v(x){ return x === '' || x == null ? null : Math.max(0, Math.min(q.max, +x)); }
+      var a = v(r.a), s = v(r.s), h = v(r.h);
+      return { q:q, a:a, s:s, h:h,
+        pa: a == null ? null : a / q.max,
+        ps: s == null ? null : s / q.max,
+        ph: h == null ? null : h / q.max };
     });
   }
 
@@ -1113,18 +1112,21 @@ body.papel .medidor{position:static}
       g += '<line x1="' + X0 + '" y1="' + py(v) + '" x2="' + X1 + '" y2="' + py(v) + '" stroke="#eadce6" stroke-width="1"/>';
       g += '<text x="' + (X0 - 5) + '" y="' + (py(v) + 3.5) + '" text-anchor="end" font-size="8" fill="#9d8f9a">' + (v * 100) + '%</text>';
     });
-    var lineaA = [], lineaS = [];
+    var lineaA = [], lineaS = [], lineaH = [];
     P.forEach(function(p, i){
       if (p.pa != null) lineaA.push(px(i) + ',' + py(p.pa));
       if (p.ps != null) lineaS.push(px(i) + ',' + py(p.ps));
+      if (p.ph != null) lineaH.push(px(i) + ',' + py(p.ph));
     });
     if (lineaA.length > 1) g += '<polyline points="' + lineaA.join(' ') + '" fill="none" stroke="#6b1e5a" stroke-width="1.4" stroke-dasharray="4 3" opacity=".65"/>';
     if (lineaS.length > 1) g += '<polyline points="' + lineaS.join(' ') + '" fill="none" stroke="#c8127a" stroke-width="2"/>';
+    if (lineaH.length > 1) g += '<polyline points="' + lineaH.join(' ') + '" fill="none" stroke="#1f8a4c" stroke-width="2" stroke-dasharray="7 4"/>';
     P.forEach(function(p, i){
       var x = px(i);
       if (p.pa != null && p.ps != null) g += '<line x1="' + x + '" y1="' + py(p.pa) + '" x2="' + x + '" y2="' + py(p.ps) + '" stroke="#c8a0bd" stroke-width="1.2"/>';
       if (p.pa != null) g += '<circle cx="' + x + '" cy="' + py(p.pa) + '" r="4" fill="#fff" stroke="#6b1e5a" stroke-width="2"/>';
       if (p.ps != null) g += '<circle cx="' + x + '" cy="' + py(p.ps) + '" r="4.5" fill="#c8127a"/>';
+      if (p.ph != null) g += '<rect x="' + (x - 4) + '" y="' + (py(p.ph) - 4) + '" width="8" height="8" rx="1.5" fill="#1f8a4c"/>';
       g += '<text x="' + x + '" y="134" text-anchor="middle" font-size="8.5" fill="#6b1e5a" font-weight="bold">' + (i < 5 ? '#' + (i + 1) : 'int') + '</text>';
     });
     chart.innerHTML = g;
@@ -1172,14 +1174,38 @@ body.papel .medidor{position:static}
     };
   }
 
+  /* Lo de hoy contra lo de entonces: que quedo de verdad. */
+  function lecturaHoy(){
+    var P = parejas().filter(function(p){ return p.ps != null && p.ph != null; });
+    if (P.length < 2) return null;
+    var d = P.reduce(function(x, p){ return x + (p.ph - p.ps) * 100; }, 0) / P.length;
+    var mejor = P.filter(function(p){ return p.ph > p.ps; }).length;
+    var peor = P.filter(function(p){ return p.ph < p.ps; }).length;
+    if (d > 8) return {
+      t:'Hoy sabes más que entonces',
+      d:'Rehaciéndolos sales ' + Math.round(d) + ' puntos de cada cien por encima de como saliste en su día, y mejoraste en ' + mejor + ' de ' + P.length + '. Eso no lo dice ningún examen: lo dice que volviste a intentarlo semanas después. Es de los argumentos más fuertes que puedes llevar.',
+      corto:'rehíce los quizzes hoy y salgo ' + Math.round(d) + ' puntos por encima de como salí en su día'
+    };
+    if (d < -8) return {
+      t:'Se te enfrió parte de lo que sabías',
+      d:'Hoy sales ' + Math.round(-d) + ' puntos de cada cien por debajo de como saliste entonces; bajaste en ' + peor + ' de ' + P.length + '. No es un fracaso: es exactamente lo que este curso dice que pasa cuando algo se estudia para el momento. Mira cuáles bajaron y ahí tienes tu lista para la unidad 2.',
+      corto:'al rehacerlos hoy salgo ' + Math.round(-d) + ' puntos por debajo de entonces, y ya sé en cuáles'
+    };
+    return {
+      t:'Lo que sabías, lo conservas',
+      d:'Rehaciéndolos hoy sales prácticamente igual que en su día. Suena a poco y no lo es: quiere decir que lo que aprendiste se quedó, semanas después y sin volver a estudiarlo.',
+      corto:'rehíce los quizzes hoy y salgo prácticamente igual que entonces: lo que aprendí se quedó'
+    };
+  }
+
   var lecturaEl = document.getElementById('lecturaSerie');
   function pintaLectura(){
-    var L = lecturaSerie();
-    if (!L) {
-      lecturaEl.innerHTML = '<b>Llena al menos dos renglones</b>Con dos parejas de números ya se puede leer algo. Con las seis, se lee tu semestre.';
-      return;
-    }
-    lecturaEl.innerHTML = '<b>' + esc(L.t) + '</b>' + esc(L.d);
+    var L = lecturaSerie(), H = lecturaHoy();
+    var out = '';
+    if (!L) out = '<b>Llena al menos dos renglones</b>Con dos parejas de números ya se puede leer algo. Con las seis, se lee tu semestre.';
+    else out = '<b>' + esc(L.t) + '</b>' + esc(L.d);
+    if (H) out += '<hr style="border:none;border-top:1px dashed var(--borde);margin:.7rem 0"><b>' + esc(H.t) + '</b>' + esc(H.d);
+    lecturaEl.innerHTML = out;
   }
 
   /* ---------- 4 · evidencias ---------- */
@@ -1352,11 +1378,12 @@ body.papel .medidor{position:static}
     var L = lecturaSerie();
     if (val('serieTexto')) out.push({ id:'ser1', tipo:'calibración', t:val('serieTexto') });
     else if (L) out.push({ id:'ser2', tipo:'calibración', t:L.corto });
-    if (cuentaSuelo() === TABLAS.length) out.push({ id:'suelo', tipo:'suelo', t:'llegué al cierre con el suelo completo: los seis quizzes intentados, mi pieza del Museo con ficha, la defensa en parejas, el círculo de lectura, la bitácora viva y el mazo vivo' });
-    if (val('descifrada')) out.push({ id:'desc', tipo:'pieza', t:'descifré ' + val('descifrada') + ' yo solo, fuera de clase' + (val('descifradaPiezas') ? ' (' + val('descifradaPiezas') + ')' : '') });
+    var H = lecturaHoy();
+    if (H) out.push({ id:'hoy', tipo:'lo que me quedó', t:H.corto });
+    if (cuentaSuelo() === TABLAS.length) out.push({ id:'suelo', tipo:'suelo', t:'llegué al cierre con el suelo completo: mi palabra del Museo con su ficha, mi defensa individual, el círculo de lectura, la bitácora viva y el mazo vivo' });
     if (val('piezaCual')) out.push({ id:'pieza', tipo:'pieza', t:'la pieza que mejor me representa es ' + val('piezaCual') + (val('piezaPorque') ? ': ' + val('piezaPorque') : '') });
     if (val('piezaAntes')) out.push({ id:'antes', tipo:'pieza', t:'hace seis semanas ' + val('piezaAntes') });
-    if (val('defensaProfe')) out.push({ id:'def', tipo:'pieza', t:'en mi defensa en parejas el profesor anotó: ' + val('defensaProfe') });
+    if (val('defensaProfe')) out.push({ id:'def', tipo:'pieza', t:'en mi defensa el profesor anotó: ' + val('defensaProfe') });
     Object.keys(D.ev).forEach(function(k){
       var r = D.ev[k];
       if (r.e === 'si' && (r.t || '').trim()) {
@@ -1475,12 +1502,33 @@ body.papel .medidor{position:static}
   var btnEnviar = document.getElementById('btnEnviar');
   var cajaEnviado = document.getElementById('cajaEnviado');
   var pistaEnviar = document.getElementById('pistaEnviar');
+  var estadoEl = document.getElementById('estadoEnvio');
+  var tDestaque = null;
+
+  /* Un aviso que no se pueda confundir con el texto que ya estaba ahi:
+     cambia de color, se mueve, y lleva al campo que falta. */
+  function avisa(clase, titulo, cuerpo){
+    estadoEl.className = 'estado ver ' + clase;
+    estadoEl.innerHTML = '<b>' + esc(titulo) + '</b>' + cuerpo;
+    if (clase === 'falta'){
+      estadoEl.classList.add('sacude');
+      setTimeout(function(){ estadoEl.classList.remove('sacude'); }, 500);
+    }
+    try { estadoEl.scrollIntoView({ behavior:'smooth', block:'center' }); } catch(e){ estadoEl.scrollIntoView(); }
+  }
+  function destaca(el){
+    if (!el) return;
+    clearTimeout(tDestaque);
+    el.classList.add('destacado');
+    tDestaque = setTimeout(function(){ el.classList.remove('destacado'); }, 3200);
+    try { el.scrollIntoView({ behavior:'smooth', block:'center' }); } catch(e){}
+  }
 
   function resumenSuelo(){
     var n = cuentaSuelo();
-    if (n === TABLAS.length) return '6/6 · completo';
+    if (n === TABLAS.length) return n + '/' + TABLAS.length + ' · completo';
     var faltan = TABLAS.filter(function(t){ return !D.suelo[t.k]; }).map(function(t){ return t.t; });
-    return n + '/6 · falta: ' + faltan.join(', ');
+    return n + '/' + TABLAS.length + ' · falta: ' + faltan.join(', ');
   }
   function resumenEvidencias(){
     var c = conteoEv();
@@ -1498,7 +1546,6 @@ body.papel .medidor{position:static}
       calibracion: (L ? L.t + '. ' : '') + val('serieTexto'),
       evidencias: resumenEvidencias(),
       pieza: val('piezaCual') + (val('piezaPorque') ? ' — ' + val('piezaPorque') : ''),
-      descifrada: val('descifrada') + (val('descifradaPiezas') ? ' — ' + val('descifradaPiezas') : ''),
       aunno: val('aunNo') || val('ensayoHueco'),
       codigo: codigoRespaldo()
     };
@@ -1511,9 +1558,26 @@ body.papel .medidor{position:static}
     btnEnviar.textContent = 'Volver a enviar';
   }
   if (btnEnviar) btnEnviar.addEventListener('click', function(){
-    if (!numeroFinal()) { pistaEnviar.innerHTML = '<strong>Falta tu número.</strong> Elígelo aquí arriba antes de mandarlo.'; return; }
-    if (val('frase').length < 40) { pistaEnviar.innerHTML = '<strong>Falta tu porqué.</strong> Un número solo no se puede conversar: escribe con qué lo sostienes.'; return; }
-    if (!val('nombre')) { pistaEnviar.innerHTML = '<strong>Falta tu nombre</strong>, en el primer paso. Sin él, el profesor no sabe de quién es.'; return; }
+    if (!val('nombre')) {
+      avisa('falta', 'Falta tu nombre', 'Sin él, el profesor no sabe de quién es esto. Está en la portada; te llevo.');
+      setTimeout(function(){
+        ir(0);
+        var el = document.querySelector('[data-k="nombre"]');
+        destaca(el); if (el) el.focus();
+      }, 900);
+      return;
+    }
+    if (!numeroFinal()) {
+      avisa('falta', 'Todavía no eliges tu número', 'Está aquí abajo, en <em>Mi número</em>: toca uno del 5 al 10. Sin número no hay propuesta que mandar.');
+      destaca(document.getElementById('numeros'));
+      return;
+    }
+    if (val('frase').length < 40) {
+      avisa('falta', 'Falta tu porqué', 'Un número solo no se puede conversar. Escribe con qué lo sostienes: toca las piezas de arriba y la frase se arma sola, o escríbela tú.');
+      destaca(fraseEl); fraseEl.focus();
+      return;
+    }
+    avisa('yendo', 'Mandando tu propuesta…', 'Aguanta un segundo, no cierres la página.');
 
     var datos = paquete();
     var marco = document.createElement('iframe');
@@ -1544,11 +1608,14 @@ body.papel .medidor{position:static}
         D.enviado = new Date().toLocaleDateString('es-MX', { day:'numeric', month:'long', year:'numeric' });
         D.enviadoNum = numeroFinal();
         guardar();
+        estadoEl.className = 'estado';
         pintaEnviado();
-        pistaEnviar.textContent = 'Le llegó al profesor. Nadie más lo ve.';
+        pistaEnviar.textContent = 'Salió de este teléfono. Solo lo ve el profesor.';
+        try { cajaEnviado.scrollIntoView({ behavior:'smooth', block:'center' }); } catch(e){}
       } else {
         btnEnviar.textContent = 'Enviar mi propuesta al profesor';
-        pistaEnviar.innerHTML = '<strong>No se pudo mandar.</strong> Puede ser el internet. Vuelve a intentarlo, o usa el formulario de aquí abajo: cuenta exactamente igual.';
+        avisa('falta', 'No se pudo mandar',
+          'Puede ser el internet. Vuelve a intentarlo, o usa el formulario de aquí abajo, que ya te lo abrí: cuenta exactamente igual.');
         document.querySelector('.red').open = true;
       }
       setTimeout(function(){ try { f.remove(); marco.remove(); } catch(e){} }, 1500);
@@ -1590,7 +1657,6 @@ body.papel .medidor{position:static}
           '<dt>Evidencias</dt><dd>' + c.si + ' con pieza · ' + c.no + ' en aún no' +
             (evFuertes.length ? '<br><span class="mini">' + evFuertes.slice(0, 3).map(esc).join('<br>') + '</span>' : '') + '</dd>' +
           '<dt>Mi mejor pieza</dt><dd>' + esc(val('piezaCual') || 'sin llenar') + (val('piezaPorque') ? '<br><span class="mini">' + esc(val('piezaPorque')) + '</span>' : '') + '</dd>' +
-          '<dt>La que descifré yo solo</dt><dd>' + esc(val('descifrada') || 'sin llenar') + '</dd>' +
           '<dt>Lo que todavía me falta</dt><dd>' + esc(val('aunNo') || val('ensayoHueco') || 'sin llenar') + '</dd>' +
           '<dt>Mi porqué, completo</dt><dd>' + esc(val('frase') || 'sin escribir') + '</dd>' +
           '<dt>¿Ya lo mandé?</dt><dd>' + (D.enviado ? esc('sí, el ' + D.enviado) : 'todavía no — está en el paso 8') + '</dd>' +
@@ -1645,7 +1711,6 @@ body.papel .medidor{position:static}
       (evFilas.length ? '<ul style="padding-left:1.2rem;font-size:.94rem">' + evFilas.join('') + '</ul>' : '') +
       '<h2 style="color:#6b1e5a;font-size:1.15rem;margin-top:1.4rem">Lo demás</h2>' +
       '<table style="border-collapse:collapse;width:100%;font-size:.94rem">' +
-      fila('La palabra que descifré yo solo', esc(val('descifrada')) + (val('descifradaPiezas') ? ' — ' + esc(val('descifradaPiezas')) : '') + (val('descifradaFuente') ? '<br><i>' + esc(val('descifradaFuente')) + '</i>' : '')) +
       fila('La pieza que mejor me representa', esc(val('piezaCual')) + (val('piezaPorque') ? '<br>' + esc(val('piezaPorque')) : '')) +
       fila('Qué habría hecho hace seis semanas', esc(val('piezaAntes'))) +
       fila('Mi defensa · lo que dijo el profesor', esc(val('defensaProfe'))) +
