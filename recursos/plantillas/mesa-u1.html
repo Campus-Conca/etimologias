@@ -130,6 +130,19 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--rosa);outline-of
 .grafica{background:var(--fondo);border:1px solid var(--borde);border-radius:.8rem;padding:.6rem .5rem .3rem;margin:.5rem 0}
 .grafica svg{display:block;width:100%;height:auto}
 
+/* ---------- cuando no hay nadie ---------- */
+.vacio{border:2px dashed #cdbcc8;border-radius:1rem;background:var(--papel);padding:1.3rem 1.4rem;margin:1rem 0}
+.vacio h2{margin:0 0 .2rem}
+.vacio > p{color:var(--gris);margin:.2rem 0 1rem}
+.pasos3{display:grid;grid-template-columns:1fr;gap:.7rem}
+@media (min-width:760px){.pasos3{grid-template-columns:repeat(3,1fr)}}
+.paso3{display:flex;gap:.7rem;align-items:flex-start;background:var(--fondo);border-radius:.8rem;padding:.8rem .9rem}
+.paso3 .n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--rosa);color:#fff;
+  font-weight:800;display:flex;align-items:center;justify-content:center}
+.paso3 b{display:block;color:var(--ciruela);font-size:.98rem;line-height:1.3}
+.paso3 span{display:block;font-size:.85rem;color:var(--gris);line-height:1.45;margin-top:.15rem}
+.pista-lista{font-size:.88rem;color:var(--rosa);font-weight:700;margin:.6rem 0 0}
+
 /* ---------- la vista de lectura ---------- */
 .sintesis{font-size:1.02rem;line-height:1.5;color:var(--ciruela);background:var(--fondo);
   border-radius:.8rem;padding:.7rem .9rem;margin:0 0 .8rem}
@@ -321,6 +334,19 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
   <p class="mini" id="avisoCarga" style="margin-top:.7rem"></p>
 </section>
 
+<section class="vacio" id="panelVacio">
+  <h2>Todavía no hay nadie en la mesa</h2>
+  <p>Esta pantalla se llena cuando traes al grupo. Así funciona, de principio a fin:</p>
+  <div class="pasos3">
+    <div class="paso3"><span class="n">1</span><span><b>Trae al grupo</b>
+      <span>Aquí arriba. Lo más rápido: <em>Traer del recolector</em>, con tu clave. Si prefieres, pegas la hoja o los capturas a mano.</span></span></div>
+    <div class="paso3"><span class="n">2</span><span><b>Toca un nombre</b>
+      <span>Aparece una lista con todo el grupo. Al tocar a alguien se abre su ficha completa, aquí mismo, debajo.</span></span></div>
+    <div class="paso3"><span class="n">3</span><span><b>Conversen y anota</b>
+      <span>Apuestas tu número a ciegas, destapas el suyo, hablan, y dejas asentado lo que acordaron.</span></span></div>
+  </div>
+</section>
+
 <!-- ============ LISTA ============ -->
 <section class="panel" id="panelLista" style="display:none">
   <h2 style="margin-top:.2rem">2 · La lista</h2>
@@ -333,6 +359,7 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
   </div>
   <p class="mini" id="avisoFiltro" style="margin:.5rem 0 0"></p>
   <label class="campo" style="margin-top:.3rem"><span>Buscar</span><input type="text" id="buscar" placeholder="Escribe un nombre"></label>
+  <p class="pista-lista" id="pistaLista">Toca un nombre para abrir su ficha.</p>
   <div class="lista" id="lista"></div>
 </section>
 
@@ -462,6 +489,15 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
   }
   function nota(t){ document.getElementById('avisoCarga').textContent = t; }
 
+  /* Lleva la vista a la ficha: sin esto, cargar el grupo no parece hacer nada. */
+  function alaFicha(){
+    setTimeout(function(){
+      var f = document.querySelector('.ficha') || document.getElementById('panelLista');
+      if (!f) return;
+      try { f.scrollIntoView({ behavior:'smooth', block:'start' }); } catch(e){ f.scrollIntoView(); }
+    }, 120);
+  }
+
   /* ---------- alta de estudiantes ---------- */
   function alta(nombre, extra){
     var n = String(nombre || '').replace(/\s+/g, ' ').trim();
@@ -513,7 +549,8 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
     if (!ok) { nota('Ningún código se pudo leer. Tiene que empezar con ETIM1· y venir completo.'); return; }
     document.getElementById('codigo').value = '';
     guardar(); pinta();
-    nota(ok + (ok === 1 ? ' código leído.' : ' códigos leídos.'));
+    nota(ok + (ok === 1 ? ' código leído.' : ' códigos leídos.') + ' Te abrí el primero aquí abajo.');
+    alaFicha();
   });
 
   /* ---------- carga: archivos ---------- */
@@ -615,7 +652,8 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
     document.getElementById('mapa').style.display = 'none';
     tablaTsv = null;
     guardar(); pinta();
-    nota(ok + ' fila(s) leída(s)' + (completos ? ', ' + completos + ' con su análisis completo' : '') + '.');
+    nota(ok + ' fila(s) leída(s)' + (completos ? ', ' + completos + ' con su análisis completo' : '') + '. Te abrí el primero aquí abajo.');
+    alaFicha();
   });
 
   /* ---------- carga: traer del recolector ----------
@@ -690,7 +728,8 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
         if (f.codigo && String(f.codigo).indexOf(PREFIJO) > -1 && meterCodigo(f.codigo)) completos++;
       });
       guardar(); pinta();
-      acabo(nuevos + ' en la mesa' + (completos ? ', ' + completos + ' con su análisis completo' : '') + '. Puedes volver a tocarlo cuando lleguen más: no se duplica nadie.', true);
+      acabo(nuevos + ' en la mesa' + (completos ? ', ' + completos + ' con su análisis completo' : '') + '. Te abrí el primero aquí abajo; toca cualquier otro nombre para cambiar.', true);
+      alaFicha();
     };
 
     et.src = url + (url.indexOf('?') > -1 ? '&' : '?') + 'parciales=1&clave=' +
@@ -736,6 +775,7 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
     R.sel = id;
     guardar(); pinta();
     nota('Agregado.');
+    alaFicha();
   });
 
   /* ---------- lista ---------- */
@@ -794,6 +834,11 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
     var hechos = todos.filter(function(a){ return a.resultado; }).length;
     var faltan = todos.filter(function(a){ return estado(a) === 'falta'; });
     var completos = todos.filter(function(a){ return a.datos; }).length;
+    var pl = document.getElementById('pistaLista');
+    if (pl) pl.textContent = total === 1
+      ? 'Su ficha está abierta aquí abajo.'
+      : 'Toca un nombre para abrir su ficha. Ahora mismo está abierta la de ' +
+        ((R.al[R.sel] && R.al[R.sel].nombre) || '—') + '.';
     document.getElementById('contadores').innerHTML =
       '<div class="cont"><b>' + total + '</b><span>en la mesa</span></div>' +
       '<div class="cont' + (faltan.length ? ' alerta' : '') + '"><b>' + faltan.length + '</b><span>no han mandado</span></div>' +
@@ -1305,9 +1350,27 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
 
   /* ---------- pintar todo ---------- */
   function pinta(){
-    document.getElementById('panelLista').style.display = R.orden.length ? 'block' : 'none';
-    document.getElementById('panelRegistro').style.display = R.orden.length ? 'block' : 'none';
-    document.getElementById('panelTablero').style.display = R.orden.length ? 'block' : 'none';
+    var hay = R.orden.length > 0;
+
+    /* Si hay gente y no has abierto a nadie, se abre el primero que falte
+       por conversar: la ficha es el corazon de esta pantalla y no deberia
+       haber que descubrirla. */
+    if (hay && (!R.sel || !R.al[R.sel])){
+      var cand = null;
+      for (var i = 0; i < R.orden.length; i++){
+        var x = R.al[R.orden[i]];
+        if (x && !x.resultado && estado(x) !== 'falta'){ cand = R.orden[i]; break; }
+      }
+      if (!cand) for (var j = 0; j < R.orden.length; j++){
+        if (R.al[R.orden[j]] && !R.al[R.orden[j]].resultado){ cand = R.orden[j]; break; }
+      }
+      R.sel = cand || R.orden[0];
+    }
+
+    document.getElementById('panelVacio').style.display = hay ? 'none' : 'block';
+    document.getElementById('panelLista').style.display = hay ? 'block' : 'none';
+    document.getElementById('panelRegistro').style.display = hay ? 'block' : 'none';
+    document.getElementById('panelTablero').style.display = hay ? 'block' : 'none';
     pintaLista(); pintaFicha(); pintaRegistro(); pintaTablero();
   }
   pintaCiegas();
