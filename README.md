@@ -36,8 +36,15 @@ Just the Docs, ya configurado en `_config.yml`).
   la respuesta del script (así funciona un POST a un iframe, sin CORS), así
   que dice "se mandó" en cuanto el iframe carga, aunque el script haya
   fallado por dentro. Por eso el formulario de siempre sigue ahí abajo como
-  red. La columna `codigo` es la importante: lleva la autoevaluación completa
-  y es la que hace que la mesa levante a todo el grupo de un solo pegue.
+  red. La columna `codigo` es la importante: lleva la autoevaluación completa.
+- **La mesa se trae al grupo sola.** En el script de la hoja hay una
+  `CLAVE_MESA`: cámbiala por lo que quieras y escribe lo mismo, una sola vez,
+  en la pestaña *Traer del recolector* de la mesa. Hace falta porque la URL
+  `/exec` está en el HTML de todas las páginas del sitio: sin clave,
+  cualquiera que la tuviera podría leer las autoevaluaciones del grupo. La
+  clave se guarda aparte del estado de la mesa, así que **no viaja en el
+  código de respaldo**. Si no quieres conectarla, pegar la hoja a mano
+  sigue funcionando igual.
 - **Cierres de unidad:** el estudiante llena su autoevaluación en
   `recursos/plantillas/autoevaluacion-u1.html` (se guarda en su teléfono y
   manda su frase al formulario). Tú conversas y registras en

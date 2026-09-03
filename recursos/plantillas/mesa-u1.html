@@ -203,14 +203,25 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
   <p class="mini">Cuatro maneras, y se pueden mezclar. Lo normal: pegas la hoja del formulario para tener a todos con su número, y en la conversación el estudiante te enseña el resto en su teléfono. Si además te mandó su código, ves su análisis completo en pantalla grande.</p>
 
   <div class="tabs" id="tabs">
-    <button type="button" data-h="tsv" class="on">Pegar la hoja de cálculo</button>
+    <button type="button" data-h="jalar" class="on">Traer del recolector</button>
+    <button type="button" data-h="tsv">Pegar la hoja de cálculo</button>
     <button type="button" data-h="codigo">Pegar un código</button>
     <button type="button" data-h="archivo">Abrir un archivo</button>
     <button type="button" data-h="mano">Capturar a mano</button>
     <button type="button" data-h="lista">Pegar la lista del grupo</button>
   </div>
 
-  <div class="hoja-carga on" data-h="tsv">
+  <div class="hoja-carga on" data-h="jalar">
+    <p class="mini">Lo más rápido: se conecta con el mismo recolector al que los estudiantes mandan su autoevaluación y se trae a todos los que hayan enviado, con su análisis completo. La clave se guarda en este navegador y <strong>no viaja en el respaldo</strong>: si abres la mesa en otra computadora, la vuelves a escribir.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.5rem">
+      <label class="campo"><span>Dirección del recolector</span><input type="text" id="jUrl" placeholder="https://script.google.com/macros/s/…/exec"></label>
+      <label class="campo"><span>Clave</span><input type="text" id="jClave" placeholder="la que pusiste en CLAVE_MESA"></label>
+    </div>
+    <div class="fila"><button class="btn rosa" type="button" id="btnJalar">Traer a todos</button></div>
+    <p class="mini" id="jAviso" style="margin-top:.5rem"></p>
+  </div>
+
+  <div class="hoja-carga" data-h="tsv">
     <p class="mini">Selecciona las filas en Google Sheets (con encabezado) y pégalas aquí. También sirve un CSV. Si tu hoja trae la columna <code>codigo</code> —la que manda la autoevaluación al enviarse—, marca cuál es y el grupo entero entra con su análisis completo de un solo pegue.</p>
     <textarea id="tsv" placeholder="Marca temporal	Tu nombre	Propongo…	Porque…" style="min-height:7rem;font-family:ui-monospace,monospace;font-size:.78rem"></textarea>
     <div id="mapa" style="display:none">
@@ -554,6 +565,90 @@ pre.salida{background:var(--fondo);border:1px solid var(--borde);border-radius:.
     tablaTsv = null;
     guardar(); pinta();
     nota(ok + ' fila(s) leída(s)' + (completos ? ', ' + completos + ' con su análisis completo' : '') + '.');
+  });
+
+  /* ---------- carga: traer del recolector ----------
+     Va por JSONP: una página estática no puede hacer CORS contra Apps
+     Script, así que se le pide con una etiqueta <script> y el propio
+     recolector devuelve una llamada a la función que le decimos.
+     La dirección y la clave viven aparte del estado de la mesa, para
+     que la clave NO se cuele en el código de respaldo. */
+  var CLAVE_CONEXION = 'etimologias-mesa-conexion';
+  var jUrl = document.getElementById('jUrl');
+  var jClave = document.getElementById('jClave');
+  var jAviso = document.getElementById('jAviso');
+  var jSecuencia = 0;
+
+  (function cargaConexion(){
+    var c = {};
+    try { c = JSON.parse(localStorage.getItem(CLAVE_CONEXION) || '{}') || {}; } catch(e){}
+    jUrl.value = c.url || 'https://script.google.com/macros/s/AKfycbyowFaq0n-zK4TBagspKG0Roye0Lun0FHaB5gQTiZGisXG4A-9ehIWmamw_mWo3KeZmrw/exec';
+    jClave.value = c.clave || '';
+  })();
+  function guardaConexion(){
+    try {
+      localStorage.setItem(CLAVE_CONEXION, JSON.stringify({ url: jUrl.value.trim(), clave: jClave.value.trim() }));
+    } catch(e){}
+  }
+  jUrl.addEventListener('change', guardaConexion);
+  jClave.addEventListener('change', guardaConexion);
+
+  document.getElementById('btnJalar').addEventListener('click', function(){
+    var url = jUrl.value.trim(), clave = jClave.value.trim();
+    if (!url){ jAviso.textContent = 'Falta la dirección del recolector.'; return; }
+    if (!clave){ jAviso.textContent = 'Falta la clave. Es la que escribiste en CLAVE_MESA, dentro del script de la hoja.'; return; }
+    guardaConexion();
+
+    var btn = this;
+    btn.disabled = true;
+    btn.textContent = 'Trayendo…';
+    jAviso.textContent = '';
+
+    var cb = 'mesaU1_' + (++jSecuencia) + '_' + Date.now();
+    var et = document.createElement('script');
+    var listo = false;
+
+    function acabo(msg, ok){
+      if (listo) return;
+      listo = true;
+      btn.disabled = false;
+      btn.textContent = 'Traer a todos';
+      jAviso.textContent = msg;
+      jAviso.style.color = ok ? 'var(--jade)' : 'var(--ambar)';
+      try { delete window[cb]; } catch(e){ window[cb] = undefined; }
+      try { et.remove(); } catch(e){}
+    }
+
+    window[cb] = function(r){
+      if (!r || r.error === 'clave'){
+        acabo('El recolector no reconoció la clave. Revísala en el script de la hoja, en CLAVE_MESA.', false);
+        return;
+      }
+      var filas = (r && r.filas) || [];
+      if (!filas.length){ acabo('El recolector contestó, pero todavía no ha mandado nadie.', true); return; }
+      var nuevos = 0, completos = 0;
+      filas.forEach(function(f){
+        var id = alta(f.nombre, {
+          grupo: f.grupo || '',
+          propuesta: String(f.numero || '').replace(',', '.'),
+          porque: (f.porque || '').trim(),
+          fuente: 'recolector'
+        });
+        if (!id) return;
+        nuevos++;
+        if (f.codigo && String(f.codigo).indexOf(PREFIJO) > -1 && meterCodigo(f.codigo)) completos++;
+      });
+      guardar(); pinta();
+      acabo(nuevos + ' en la mesa' + (completos ? ', ' + completos + ' con su análisis completo' : '') + '. Puedes volver a tocarlo cuando lleguen más: no se duplica nadie.', true);
+    };
+
+    et.src = url + (url.indexOf('?') > -1 ? '&' : '?') + 'parciales=1&clave=' +
+             encodeURIComponent(clave) + '&callback=' + cb;
+    et.onerror = function(){
+      acabo('No se pudo conectar. Revisa la dirección, y que el script esté implementado con acceso «cualquier persona».', false);
+    };
+    setTimeout(function(){ acabo('El recolector no contestó a tiempo. Vuelve a intentarlo, o usa el pegado de la hoja.', false); }, 20000);
+    document.body.appendChild(et);
   });
 
   /* ---------- carga: la lista del grupo ---------- */
