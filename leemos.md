@@ -49,7 +49,7 @@ window.LEEMOS = {
 };
 </script>
 
-<p class="pista-mazos">El programa lector es un mazo de láminas: en clase se proyecta con el botón <strong>Presentar</strong> y aquí se queda, apilado, para volver a él cuando quieras. Debajo del mazo están tus derechos completos y las vitrinas del grupo.</p>
+<p class="pista-mazos">Aquí abajo hay dos mazos de láminas: el <strong>programa lector</strong>, que vale todo el semestre, y <strong>la sesión del silencio</strong>, una hora suelta sobre lo que cuesta leer. En clase se proyectan con el botón <strong>Presentar</strong> y aquí se quedan, apilados, para volver a ellos cuando quieras. Debajo de los mazos están tus derechos completos y las vitrinas del grupo.</p>
 
 <!-- ============================ EL PROGRAMA LECTOR ============================ -->
 <section class="mazo" id="programa">
@@ -133,6 +133,130 @@ window.LEEMOS = {
 </section>
 </section>
 
+
+<p class="pista-mazos">Y una hora suelta, para cuando toque: la sesión del silencio. Empieza sin explicación y termina con una apuesta.</p>
+
+<!-- ============================ LA SESIÓN DEL SILENCIO ============================ -->
+<section class="mazo" id="silencio">
+<div class="mazo-cabeza">
+<div>
+<div class="cuando">Sesión suelta · 1 hora</div>
+<h3>La sesión del silencio</h3>
+<p class="foco">¿De qué te alimentan y quién trae el aguijón?</p>
+</div>
+<button class="btn-presentar" type="button">Presentar ▸</button>
+</div>
+<section class="lam lam--actividad" data-crono="240">
+<h4><span class="n">1</span> Cuatro minutos de nada <span class="reloj">5 min</span></h4>
+<span class="senal">Actividad · en silencio</span>
+<p class="di">Cuatro minutos. Sin teléfono, sin hablar, sin escribir.</p>
+<p class="apoyo">Tampoco te recargues, ni juegues con algo, ni te acomodes el pelo. Solo estar sentado. El reloj está a la vista y yo también lo hago.</p>
+<p class="nota-conductor">No anuncies el tema, no expliques para qué es, no prometas nada. Arranca el cronómetro con la tecla T (esta lámina ya lo dejó en 4:00) y siéntate a hacer lo mismo. La risa nerviosa del minuto uno y el fastidio del minuto tres no son fallas de la actividad: son el dato de la sesión. Si alguien saca el celular, se lo pides sin discutir y sigues.</p>
+<p class="nota-conductor">Antes de entrar: video probado en el proyector con los subtítulos ya revisados, media hoja repartida en cada banca, la pregunta del minuto 35 escrita en el pizarrón y tapada, y tu propio dato decidido (tu tiempo de pantalla de ayer, o cuánto llevas sin leer una hora seguida sin interrumpirte).</p>
+</section>
+<section class="lam lam--actividad" data-crono="180">
+<h4><span class="n">2</span> Escritura muda <span class="reloj">3 min</span></h4>
+<span class="senal">Actividad · para ti</span>
+<p class="di">¿Qué pasó en tu cuerpo, minuto por minuto?</p>
+<p class="apoyo">Media hoja, y no la va a leer nadie más. Dónde lo sentiste: las manos, la mandíbula, la espalda, los ojos, las piernas. No escribas qué opinas del ejercicio. Escribe qué te pasó.</p>
+<p class="nota-conductor">Insiste en lo físico dos veces, porque la primera van a escribir opiniones. Si preguntan de qué se trata todo esto, contesta que ahorita se ve. Nadie lee nada en voz alta todavía: eso es lo que hace que escriban de verdad.</p>
+</section>
+<section class="lam">
+<h4><span class="n">3</span> El video <span class="reloj">5 min</span></h4>
+<p class="di">Dos pases. En el segundo, cazas una frase.</p>
+<p class="apoyo">Primer pase: solo míralo. Segundo pase: anota literal la frase que te pegue, la que sea, aunque no sepas explicar por qué te pegó.</p>
+<p class="nota-conductor">David Foster Wallace, entrevista para la ZDF, 2003, dos minutos ocho segundos (archivo <em>H7KHIerQFHbHUDd_.mp4</em>). Los subtítulos son automáticos y vienen sucios, con líneas repetidas: revísalos antes y, si estorban, proyéctalo sin ellos y traduce en vivo. No presentes al autor, no aporta al punto. Si alguien lo busca en el celular y pregunta por su muerte, respuesta breve, factual, sin detalles, y de regreso al tema.</p>
+</section>
+<section class="lam">
+<h4><span class="n">4</span> Lo que pasó en tu cuerpo <span class="reloj">5 min</span></h4>
+<span class="senal senal--aire">Al aire</span>
+<p class="di">Ahora sí, en voz alta: un pedazo de lo que escribiste.</p>
+<p class="apoyo">No hace falta leer todo, una línea basta. Y se vale repetir lo que ya dijo alguien: si a tres les pasó lo mismo, eso significa algo.</p>
+<p class="nota-conductor">Aquí confiesas tu dato, antes de pedirles nada: tu tiempo de pantalla de ayer, con número, o cuánto llevas sin leer una hora seguida sin interrumpirte. Si esto suena a adulto diagnosticando jóvenes, la sesión se acaba en el minuto tres. Tú solo enlazas: repites en voz alta lo que dicen y buscas las coincidencias, sin interpretar a nadie.</p>
+</section>
+<section class="lam lam--oscura">
+<h4><span class="n">5</span> La frase que cazaste <span class="reloj">5 min</span></h4>
+<span class="senal senal--aire">Al aire</span>
+<p class="di">Lee la tuya. Sin explicarla.</p>
+<p class="cita">Se hace sentir en el cuerpo.<cite>David Foster Wallace, entrevista para la ZDF, 2003</cite></p>
+<p class="apoyo">Esta es la frase que a mí me interesa, y fíjate en el orden en que pasaron las cosas hoy: él dice que se siente en el cuerpo, y tú lo escribiste hace ocho minutos, antes de oírlo. No estás repitiendo lo que dijo un señor en la tele. Estás confirmando algo tuyo.</p>
+<p class="nota-conductor">Este es el minuto que justifica el orden invertido de toda la sesión, y por eso el experimento va siempre antes que el video. Dilo despacio. Si nadie cazó esa frase, la traes tú y la lees, pero primero pasan todas las de ellos.</p>
+</section>
+<section class="lam lam--oscura">
+<h4><span class="n">6</span> Antes de que lo diga el diccionario <span class="reloj">1 min</span></h4>
+<p class="di">¿Qué crees que significaba <em>aburrir</em> hace ochocientos años?</p>
+<p class="apoyo">No lo busques: apuesta. Aquí siempre se apuesta primero y se verifica después, y equivocarse en la apuesta no cuesta nada.</p>
+<p class="nota-conductor">Pide tres apuestas en voz alta, no más, y no corrijas ninguna. Casi siempre dicen "no tener nada que hacer" o "estar sin gracia". Déjalas flotando y pasa a la siguiente lámina.</p>
+</section>
+<section class="lam">
+<h4><span class="n">7</span> aburrir <span class="reloj">3 min</span></h4>
+<p class="palabra-grande">abhorrēre</p>
+<div class="dis"><span class="pz pz--pre">ab-<small>apartarse de</small></span> <span class="pz pz--raiz">horrēre<small>erizarse</small></span> <span class="eq">= aburrir</span></div>
+<p class="di">Aburrirse no era no tener nada que hacer. Era espantarse.</p>
+<p class="apoyo">De <em>horrēre</em>, erizarse, que se te pongan los pelos de punta. De ahí salen <strong>aborrecer</strong>, <strong>horror</strong>, <strong>horrible</strong>, <strong>horrendo</strong> y <strong>erizar</strong>. En el video no dice que sus amigos no lean por flojera: dice que hay un casi pavor. El pavor ya vivía dentro de la palabra, seiscientos años antes de que él naciera.</p>
+<p class="aparte">Corominas la documenta en Berceo, como <em>aborrir</em>, con el sentido de aborrecer. El de fastidio llega en el siglo XVI, cuando aparece <em>aburrirse</em>.</p>
+<p class="nota-conductor">Si alguien apostó cerca, dilo con su nombre: es la mejor propaganda que tiene la ley del curso. Verificada en Corominas y en el DLE antes de la sesión; si te piden la fuente, esa es.</p>
+</section>
+<section class="lam">
+<h4><span class="n">8</span> estímulo <span class="reloj">2 min</span></h4>
+<p class="palabra-grande">stimulus</p>
+<p class="di">Un estímulo era un palo con punta para picar al ganado y que avance.</p>
+<p class="apoyo">Del latín <em>stimulus</em>, aguijón. De ahí <strong>estimular</strong>, <strong>estimulante</strong> y <strong>estimulación</strong>. El video dice que ya casi nunca estamos sin ningún tipo de estimulación. Traducido a la palabra original: casi nunca estamos sin que algo nos pique para que avancemos. Así que la pregunta no es si te estimulan. La pregunta es quién trae el aguijón, y hacia dónde te está picando.</p>
+<p class="nota-conductor">Esta es la palabra que sostiene la sesión entera y la que va a volver en la pregunta del minuto 35, así que no la pases rápido. Si el grupo se ríe con lo del ganado, aprovecha: la risa es que ya vieron la imagen, y la imagen es el argumento.</p>
+</section>
+<section class="lam">
+<h4><span class="n">9</span> entretener <span class="reloj">2 min</span></h4>
+<div class="dis"><span class="pz pz--pre">inter-<small>entre</small></span> <span class="pz pz--raiz">tenēre<small>sostener</small></span> <span class="eq">= entretener</span></div>
+<p class="di">Entretener a alguien era, literalmente, detenerlo.</p>
+<p class="apoyo">Tenerte entre, mantenerte donde estás. Mira la familia completa: <strong>retener</strong>, <strong>detener</strong>, <strong>contener</strong>, <strong>sostener</strong>, <strong>obtener</strong>, <strong>tenaz</strong>. Todas sujetan algo. El entretenimiento no te lleva a ningún lado, y no es que esté fallando: es exactamente lo que la palabra prometió desde el principio.</p>
+<p class="nota-conductor">Buena para sacar familia en cadena: pide verbos terminados en tener y anótalos en el pizarrón. Salen seis o siete en veinte segundos y la raíz queda sola, a la vista. Cuida el matiz por si alguien pregunta: entretener se arma ya en romance sobre entre y tener (llega por el francés <em>entretenir</em>, y en el Quijote ya está), no viene de un verbo latino <em>intertenere</em> hecho y derecho.</p>
+</section>
+<section class="lam">
+<h4><span class="n">10</span> escuela <span class="reloj">2 min</span></h4>
+<p class="palabra-grande">σχολή</p>
+<p class="di">Estás sentado en un lugar cuyo nombre significa tiempo libre.</p>
+<p class="apoyo"><em>Scholḗ</em>, en griego, era el ocio: el tiempo que te sobra y que decides tú en qué se usa. Después pasó a nombrar aquello a lo que se dedicaba ese tiempo, y de ahí salió <strong>escuela</strong>. Al trabajo los griegos le decían <em>ascholía</em>, el no-ocio. Los romanos hicieron lo mismo con <strong>negocio</strong>, <em>nec otium</em>, la negación del ocio. Dos lenguas distintas, la misma decisión: el ocio era lo primero, y al trabajo lo nombraron como su ausencia.</p>
+<p class="nota-conductor">Este es el momento incómodo de la sesión y hay que dejarlo incómodo: no lo resuelvas, no lo suavices con una moraleja y no defiendas a la escuela. Si alguien dice en voz alta que entonces la escuela hace lo contrario de lo que su nombre dice, esa frase te sirve el resto del semestre. No la tapes.</p>
+</section>
+<section class="lam">
+<h4><span class="n">11</span> alumno <span class="reloj">2 min</span></h4>
+<p class="palabra-grande">alumnus</p>
+<p class="di">Alumno es el que es alimentado.</p>
+<p class="apoyo">De <em>alere</em>, alimentar, nutrir, hacer crecer. De esa misma raíz salen <strong>alimento</strong>, <strong>adolescente</strong> (el que está creciendo) y <strong>adulto</strong> (el que ya creció). La sesión entera habló de alimentar una parte y dejar sin comer a la otra, y resulta que esa metáfora no había que traerla de ningún lado: estaba dentro de cómo te llamas aquí desde hace dos mil años.</p>
+<p class="aparte">Y el eje de todo esto, dicho con la palabra en la mano: no hay una parte buena y una parte mala. Hay una parte que come doscientas veces al día y otra que no come nunca. El problema no es la estimulación, es la asimetría.</p>
+<p class="nota-conductor">Aquí cierras el bloque de palabras. La cadena <em>alere</em> hacia alumno, alimento, adolescente y adulto está verificada, pero es larga: dila completa y despacio, sin brincos. Y sostén el eje tal cual está escrito. Si esto se convierte en el lobo bueno contra el lobo malo, la conversación que sigue se vuelve un regaño y nadie va a defender el silencio después de haberlo acusado de aburrido.</p>
+</section>
+<section class="lam lam--actividad" data-crono="120">
+<h4><span class="n">12</span> Solo, en pares, en cuartetos <span class="reloj">12 min</span></h4>
+<span class="senal">Actividad · 1-2-4</span>
+<p class="di">¿Cuándo fue la última vez que estuviste media hora despierto sin que nada te picara, y cómo llegaste ahí?</p>
+<p class="apoyo">Dos minutos solo, en silencio, sin escribirle a nadie. Cinco minutos en pares. Cinco en cuartetos. No hace falta que se pongan de acuerdo, hace falta que se oigan.</p>
+<p class="nota-conductor">La pregunta va escrita en el pizarrón antes de que empiece la sesión, y no nombra el celular. Que lo nombren ellos. Si lo dices tú primero, esto se vuelve un sermón sobre pantallas y se apaga solo. Tiempos: 2 solo, 5 en pares, 5 en cuartetos, con el cronómetro a la vista en cada cambio (tecla T; la lámina lo dejó en 2:00 para el primer tramo). Y fíjate en la segunda mitad de la pregunta, el "cómo llegaste ahí": ahí está lo bueno, porque casi siempre fue un apagón, un camino largo, una fila o un lugar sin señal.</p>
+<p class="nota-conductor">Variante de dos horas, si esta sesión cae en la sesión fuerte: aquí es donde se abre. Veinte minutos de verificación en fuentes con las cinco palabras (DLE, DECEL y Corominas; <em>aburrir</em> y la cadena de <em>alere</em> son las que dan mejor pelea) y veinticinco de lectura larga sostenida, en silencio real, con un texto que exija trabajo. Esa lectura no es relleno: es la única forma de probar la tesis del video en lugar de discutirla.</p>
+</section>
+<section class="lam">
+<h4><span class="n">13</span> La cosecha <span class="reloj">3 min</span></h4>
+<span class="senal senal--aire">Al aire</span>
+<p class="di">Una frase por cuarteto. No un reporte.</p>
+<p class="apoyo">Lo que se oyó, no lo que se acordó. Y si en el cuarteto salieron dos respuestas opuestas, traigan las dos.</p>
+<p class="nota-conductor">Tú enlazas y no cierras con moraleja. Anota en el pizarrón los lugares que vayan saliendo: casi siempre son el mismo puñado (el camión, el cerro, la azotea, la casa del abuelo, cuando se va la luz). Ese mapa vale más que cualquier conclusión que puedas dar tú.</p>
+</section>
+<section class="lam lam--actividad">
+<h4><span class="n">14</span> La apuesta de la semana <span class="reloj">7 min</span></h4>
+<span class="senal">Actividad · se escribe y se guarda</span>
+<p class="di">Elige un rato fijo de esta semana para alimentar al que tiene hambre.</p>
+<p class="apoyo">Tú decides cuál, cuánto y dónde. Puede ser media hora o pueden ser diez minutos. Puede ser un libro del tendedero de esta misma página, o puede ser sentarte en la puerta de tu casa a no hacer nada. Se escribe en la misma media hoja de hace rato, con día y hora, y te la quedas tú.</p>
+<p class="aparte">No es tarea y no se califica. La semana que entra le dedicamos cinco minutos: quién la cumplió, quién no y qué se atravesó. Las dos respuestas sirven igual.</p>
+<p class="nota-conductor">No lo llames compromiso ni reto. Es una apuesta, y una apuesta se puede perder. Exige día y hora concretos, porque "cuando pueda" no ocurre nunca. Escribe la tuya en voz alta delante de ellos y, la semana siguiente, reporta tú primero si la cumpliste o no.</p>
+</section>
+<section class="lam lam--oscura">
+<h4><span class="n">15</span> Lo que te llevas <span class="reloj">3 min</span></h4>
+<p class="di">¿De qué te alimentan, y quién trae el aguijón?</p>
+<p class="apoyo">Cinco palabras que usas todos los días traían adentro el argumento de esta sesión mucho antes de que existiera la sesión. <em>Aburrir</em> era espantarse. <em>Estímulo</em> era el aguijón. <em>Entretener</em> era detenerte. <em>Escuela</em> era el tiempo libre. Y <em>alumno</em> es el que es alimentado. Eso es lo que hacemos aquí: abrir palabras comunes y encontrar adentro cosas que no sabías que estabas diciendo.</p>
+<p class="nota-conductor">Cierra sin resumen y sin moraleja: lee las cinco de corrido y ya. Las cinco tarjetas entran al mazo (con la reserva son siete piezas, cabe bajo el tope de catorce de la semana). Si sobran minutos, no los llenes: el mejor final de esta sesión es un silencio corto que a estas alturas ya significa otra cosa.</p>
+<p class="nota-conductor">Extensiones, si la sesión prende: <em>aburrimiento</em>, <em>estímulo</em> y <em>ocio</em> son candidatas fuertes a pieza de Museo, porque la biografía de esas palabras es el argumento. Y para el Diccionario de la Sierra, la contraparte comunitaria es grabar a un abuelo o una abuela de Concá contestando qué se hacía antes, cuando no había con qué llenar el silencio.</p>
+</section>
+</section>
 ---
 
 ## Tus derechos como lector
