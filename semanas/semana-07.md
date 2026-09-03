@@ -28,7 +28,7 @@ No hay tema nuevo. Esta semana se ve lo que ya sabes. Y pasa algo que no había 
 | [Jueves 10](#jueves) · 1 h | Las defensas en parejas | tu ficha de apoyo |
 | [Viernes 11](#viernes) · 2 h | El integrador, el círculo y el ensayo | tu expediente al día |
 
-<p class="pista-mazos">Cada día es un mazo de láminas. En clase se proyectan una por una con el botón <strong>Presentar</strong>; aquí se quedan apiladas, en orden, para volver a ellas cuando quieras. Debajo de los mazos: la rúbrica de la defensa, el cuadernillo de cierre y el repaso integrador para practicar.</p>
+<p class="pista-mazos">Cada día es un mazo de láminas. En clase se proyectan una por una con el botón <strong>Presentar</strong>; aquí se quedan apiladas, en orden, para volver a ellas cuando quieras. Debajo de los mazos: la rúbrica de la defensa, la autoevaluación del parcial y el repaso integrador para practicar.</p>
 
 <!-- ============================ MARTES ============================ -->
 <section class="mazo" id="martes">
@@ -52,7 +52,8 @@ No hay tema nuevo. Esta semana se ve lo que ya sabes. Y pasa algo que no había 
 <span class="senal">Actividad · en parejas</span>
 <p class="di">Noventa piezas en tu mazo. Hoy se barajan todas.</p>
 <p class="apoyo">Modo aleatorio, sin avisar de qué semana viene cada una. Y una consigna: <strong>anota las cinco que más se te resistan</strong>. Esas cinco no son un fracaso, son tu lista de tarea, y el viernes las vas a necesitar por escrito.</p>
-<p class="nota-conductor">Insiste en que apunten las cinco. Es el insumo del renglón "lo que quedó en aún no" del cuadernillo, y quien no lo haga hoy va a inventar algo genérico el domingo.</p>
+<p class="nota-conductor">Insiste en que apunten las cinco. Es el insumo del renglón "lo que quedó en aún no" de su autoevaluación del parcial, y quien no lo haga hoy va a inventar algo genérico el domingo.</p>
+<p class="nota-conductor">Y aprovecha que el mazo está abierto para recordarles que <strong>el mazo vivo es tabla del suelo</strong>: el fin de semana necesitan la captura de sus estadísticas, su caja Leitner o el mazo enseñado aquí. Dilo completo, porque la mitad va a suponer lo contrario: <em>no</em> se mira la racha ni el porcentaje de aciertos —eso se consigue apretando "Bien" sin pensar, como vimos en el rescate de sanguijuelas—, se mira que exista y que lo usen.</p>
 </section>
 <section class="lam lam--oscura">
 <h4><span class="n">3</span> Qué se ve esta semana <span class="reloj">6 min</span></h4>
@@ -161,7 +162,7 @@ No hay tema nuevo. Esta semana se ve lo que ya sabes. Y pasa algo que no había 
 <h4><span class="n">2</span> Las defensas <span class="reloj">45 min</span></h4>
 <span class="senal">Por parejas · ante el profesor</span>
 <p class="di">Tu palabra, sus piezas, tu fuente y por qué la elegiste.</p>
-<p class="apoyo">Sin nota. Con comentarios y con la rúbrica que conoces desde el primer día. Al terminar recibes tu hoja: guárdala en el expediente y copia en tu cuadernillo lo que te haya dicho el profesor. Esa frase es evidencia, y el domingo te va a servir.</p>
+<p class="apoyo">Sin nota. Con comentarios y con la rúbrica que conoces desde el primer día. Al terminar recibes tu hoja: guárdala en el expediente y copia esa frase en tu <a href="../recursos/plantillas/autoevaluacion-u1.html">autoevaluación del parcial</a>, en el paso de la defensa. Es evidencia, y el domingo te va a servir.</p>
 <p class="nota-conductor">Cronómetro visible pero flexible. Si alguien se traba, sostén el silencio dos segundos antes de rescatarlo: casi siempre se rescata solo, y eso vale más. Anota una frase concreta por estudiante; genéricos como "bien" no le sirven a nadie el domingo.</p>
 </section>
 <section class="lam">
@@ -239,8 +240,8 @@ No hay tema nuevo. Esta semana se ve lo que ya sabes. Y pasa algo que no había 
 <h4><span class="n">6</span> El fin de semana <span class="reloj">10 min</span></h4>
 <span class="senal senal--casa">Para llevar a casa</span>
 <p class="di">Ocho páginas, tu expediente enfrente, y un número que escribes tú.</p>
-<p class="apoyo">El <a href="../recursos/plantillas/cuadernillo-u1.html">cuadernillo de cierre de la Unidad 1</a> se llena en casa, sin prisa: tu suelo, tu serie de calibración, el mapa de tus evidencias, tu mejor pieza y tu propuesta. Solo el bloque final se transcribe al <a href="https://forms.gle/wVMNguqu3Nfu7yBX7">formulario de parciales</a> desde tu celular, antes del lunes.</p>
-<p class="nota-conductor">Reparte el cuadernillo impreso hoy, no el lunes. Y di en voz alta el dato que más tranquiliza: la mayoría de los estudiantes se pone menos de lo que el profesor le pondría, y cuando eso pasa, la calificación sube.</p>
+<p class="apoyo"><a href="../recursos/plantillas/autoevaluacion-u1.html">Tu primer parcial</a> se llena en casa, sin prisa y desde el teléfono: nueve pasos que se hojean con el dedo y se guardan solos. Armas tu suelo tocando tablas, tu serie de calibración se dibuja y te dice qué significa, marcas tus evidencias, y al final las piezas de lo que escribiste se juntan en la frase que vas a sostener. Solo esa frase se transcribe al <a href="https://forms.gle/wVMNguqu3Nfu7yBX7">formulario de parciales</a>, antes del lunes.</p>
+<p class="nota-conductor">Ábrela hoy en pantalla y hojéala con ellos: dos minutos bastan y quita la mitad del miedo. Que la abran ahí mismo en su teléfono y escriban su nombre, para que ya la traigan guardada. Enséñales las dos cosas que más se usan: el botón <em>Ver un ejemplo</em> de cada paso, con un caso completo de una estudiante inventada que propone 8 y nombra su propia falla, y el <em>copiar mi respaldo</em> del menú, que da un código para mandarse a su propio WhatsApp por si cambian de teléfono o se les borra el navegador. Quien no tenga datos o prefiera papel, la imprime con el mismo menú. Y di en voz alta el dato que más tranquiliza: la mayoría de los estudiantes se pone menos de lo que el profesor le pondría, y cuando eso pasa, la calificación sube.</p>
 </section>
 <section class="lam">
 <h4><span class="n">7</span> Cierra la unidad <span class="reloj">5 min</span></h4>
@@ -272,9 +273,9 @@ Traes tu palabra, su descomposición y tu fuente anotada. Puedes apoyarte en una
 
 ### Tu primer parcial
 
-Ni el quiz integrador ni la defensa llevan nota: son evidencia. Esta es la primera vez que vas a proponer tu propia calificación, así que no lo hagas de memoria: para eso existe el **[cuadernillo de cierre de la Unidad 1](../recursos/plantillas/cuadernillo-u1.html)**, ocho páginas que se llenan con tu expediente y tu portafolio enfrente.
+Ni el quiz integrador ni la defensa llevan nota: son evidencia. Esta es la primera vez que vas a proponer tu propia calificación, así que no lo hagas de memoria: para eso existe **[tu primer parcial](../recursos/plantillas/autoevaluacion-u1.html)**, nueve pasos que se llenan desde el celular con tu expediente y tu portafolio enfrente. Tarda unos veinte minutos, se guarda sola y puedes dejarla a medias y volver.
 
-Adentro está todo lo que necesitas saber la primera vez: qué es esto y por qué existe, las tres cosas que pueden pasar con tu propuesta, qué cuenta como argumento y qué no, tu suelo desglosado, cómo se lee tu serie de calibración, el mapa de tus evidencias semana por semana y el ensayo en parejas. El bloque final —solo ese— lo transcribes al [formulario de parciales](https://forms.gle/wVMNguqu3Nfu7yBX7) desde tu celular, antes del lunes.
+Adentro está todo lo que necesitas la primera vez: qué es esto y por qué existe, las tres cosas que pueden pasar con tu propuesta, qué cuenta como argumento y qué no, tu suelo armado tabla por tabla, tu serie de calibración dibujada y leída, el mapa de tus evidencias semana por semana con **el enlace a cada actividad donde se hizo** —ábrela, checa si la hiciste y, si no, hazla—, el ensayo en voz alta con reloj, y un último paso que le muestras al profesor cuando conversen. Casi todos los pasos traen un botón **Ver un ejemplo**, con un caso completo, por si no sabes cómo se escribe esto. La frase final —solo esa— la transcribes al [formulario de parciales](https://forms.gle/wVMNguqu3Nfu7yBX7), antes del lunes. ¿Prefieres papel? El botón de arriba a la derecha las imprime todas seguidas y vale exactamente igual.
 
 Cómo funciona todo el sistema: [Tu calificación](../evaluacion.html).
 
@@ -287,6 +288,7 @@ Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y
 - [El taller de pistas](../ejercicios/semana-07/ejercicio-7A-el-taller-de-pistas.html) · martes
 - [Arma tu defensa](../ejercicios/semana-07/ejercicio-7B-arma-tu-defensa.html) · miércoles
 - [Cosecha de palabras](../ejercicios/semana-07/ejercicio-7D-cosecha-de-palabras.html) · viernes
+- [Tu primer parcial](../recursos/plantillas/autoevaluacion-u1.html) · el fin de semana, desde tu celular
 - [Quiz de gimnasio · Integrador](../ejercicios/semana-07/quiz-gimnasio-semana-07.html) · para ensayar cuando quieras
 - [El quiz integrador de la unidad 1, tal como se proyecta](../ejercicios/semana-07/quiz-integrador-u1-semana-07.html) · con cronómetro de 10 minutos y respuestas
 
@@ -360,7 +362,7 @@ Ninguna pieza nueva: esta semana es de consolidación, y tu mazo ya trae **noven
 Lo único que se agrega hoy es un submazo raro y chiquito: **[las cinco que se resisten](../recursos/anki/etimologias-semana-07.apkg)**. No son piezas: son las cuatro trampas de la unidad (los dos *hipo-*, el *in-* de invierno, el *anti-* de antiguo, el *a-* de amigo) y la regla de oro. Son exactamente las que más se caen en el integrador.
 
 {: .ojo }
-Un ejercicio que vale la pena antes del integrador: pon tu mazo en modo aleatorio y anota las cinco piezas que más se te resisten. Esas cinco son, exactamente, lo que tienes que escribir en el renglón de "lo que quedó en aún no" de tu cuadernillo.
+Un ejercicio que vale la pena antes del integrador: pon tu mazo en modo aleatorio y anota las cinco piezas que más se te resisten. Esas cinco son, exactamente, lo que tienes que escribir en el renglón de "lo que quedó en aún no" de [tu primer parcial](../recursos/plantillas/autoevaluacion-u1.html).
 
 ## Lo que produjimos
 

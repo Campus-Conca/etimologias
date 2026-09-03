@@ -59,15 +59,18 @@ Este curso no reparte calificaciones. Ningún quiz, ninguna defensa, ninguna pie
 
 <section class="lam">
 <h4><span class="n">4</span> Qué recibes en lugar de números</h4>
-<p class="di">Papel: comentarios, "bien" o "aún no", y un expediente que es tuyo.</p>
-<p class="apoyo">Cada quiz regresa revisado reactivo por reactivo, y cuenta tu versión más reciente, no el promedio de tus intentos. Las defensas se miran con la rúbrica pública. El portafolio y la bitácora se comentan, no se puntúan.</p>
+<p class="di">Comentarios, "bien" o "aún no", y un expediente que es tuyo.</p>
+<p class="apoyo">Cada quiz regresa revisado reactivo por reactivo, y cuenta tu versión más reciente, no el promedio de tus intentos. Las defensas se miran con la rúbrica pública. El portafolio y la bitácora se comentan, no se puntúan. Y al cerrar cada unidad, la autoevaluación: la primera se llena desde el celular, hojeando nueve pasos.</p>
 </section>
 
 <section class="lam">
 <h4><span class="n">5</span> El suelo</h4>
 <p class="di">La lista de lo que debe existir al cerrar cada unidad. Quien llega con el suelo completo, no reprueba.</p>
+<!-- PENDIENTE DE ARTE: el dibujo tiene cinco tablas y el suelo de la U1 ya son seis (se agrego "tu mazo, vivo"). El texto alternativo describe el dibujo tal como esta hoy, que es lo correcto para un lector de pantalla; cuando se regenere la ilustracion con la sexta tabla, actualizar aqui y en la lamina 5 del mazo. -->
 <img class="ilustracion" src="assets/img/semana-07/el-suelo.webp" alt="Una figura dibujada a mano parada firme sobre un piso de cinco tablas rotuladas quizzes intentados, pieza del Museo, defensa en parejas, círculo de lectura y bitácora viva; del piso sube una escalera rosa que dice la conversación decide cuánto más, y a la derecha falta un pedazo de tabla con un martillo encima y la nota si falta una tabla, se repone">
 <p class="apoyo">No mide qué tan bien te salió: registra que estuviste y que lo hiciste. La conversación decide cuánto más. Y si algo queda pendiente, se completa en la segunda vuelta de diciembre.</p>
+<p class="apoyo">Las seis tablas de la unidad 1: <strong>los seis quizzes intentados · tu pieza del Museo con su ficha · tu defensa en parejas · el primer círculo de lectura · tu bitácora viva · tu mazo vivo</strong>.</p>
+<p class="nota-conductor">Ojo con las dos tablas que dicen <em>vivo</em>, la bitácora y el mazo: se revisa que existan y que tengan rastro reciente, nunca la racha ni el porcentaje de aciertos. Dilo en voz alta, porque si no lo dices lo van a suponer al revés.</p>
 </section>
 
 <section class="lam">
@@ -169,7 +172,7 @@ Lo que este curso te propone a cambio: que elijas el anagrama difícil. 😀
 
 ## Qué recibes en lugar de números
 
-Papel. Literalmente: cuatro cuadernillos que puedes tener en las manos, imprimir y llenar. Ninguno lleva calificación; todos dejan rastro de lo que sabes hacer.
+Papel, y una pantalla. Literalmente: cuadernillos que puedes tener en las manos, imprimir y llenar, y una autoevaluación que se llena desde el celular al cerrar cada unidad. Ninguno lleva calificación; todos dejan rastro de lo que sabes hacer.
 
 - **Cada quiz** regresa revisado, con cada reactivo en **bien** o **aún no** y comentarios donde hagan falta. Lo que quedó en "aún no" lo reintentas la semana siguiente, y cuenta tu versión más reciente, no el promedio de tus intentos.
 - **Cada defensa oral** recibe retroalimentación con la rúbrica pública, que conoces desde la primera semana y que puedes descargar aquí abajo.
@@ -187,11 +190,11 @@ Estas son las plantillas, para que veas de qué estamos hablando antes de que em
     <span class="pl-cta">Verlo y descargarlo →</span>
   </a>
 
-  <a class="pl-card" href="recursos/plantillas/cuadernillo-u1.html">
-    <span class="pl-tag">cuadernillo · 8 páginas · semana 7</span>
-    <b>El cierre de la Unidad 1</b>
-    <span class="pl-desc">El cuadernillo que llenas para proponer tu primer parcial, pensado para quien nunca ha vivido esto: qué cuenta como argumento y qué no, tu suelo detallado, tu serie de calibración explicada, el mapa de tus evidencias y el ensayo en parejas antes de la conversación.</span>
-    <span class="pl-cta">Verlo y descargarlo →</span>
+  <a class="pl-card" href="recursos/plantillas/autoevaluacion-u1.html">
+    <span class="pl-tag">se llena en tu celular · semana 7</span>
+    <b>Tu primer parcial</b>
+    <span class="pl-desc">La autoevaluación de la Unidad 1: nueve pasos que se hojean con el dedo. Armas tu suelo tocando tablas, tu serie de calibración se dibuja sola y te dice qué significa, marcas tus evidencias con el enlace a cada actividad donde se hicieron, y al final las piezas de lo que escribiste se juntan en la frase que vas a sostener. Trae un ejemplo lleno en cada paso y un respaldo que se copia. Se guarda solo; también se imprime, para quien prefiera papel.</span>
+    <span class="pl-cta">Abrirla y llenarla →</span>
   </a>
 
   <a class="pl-card" href="recursos/plantillas/pactos.html">
@@ -231,19 +234,23 @@ Se abren en el navegador y se imprimen con Ctrl/Cmd + P (o se guardan como PDF d
 
 El suelo es la lista de lo que debe existir al cerrar cada unidad. No mide qué tan bien te salió: registra que estuviste y que lo hiciste. Quien llega al cierre con el suelo completo tiene una garantía: **no reprueba**. La conversación decide cuánto más.
 
+<!-- PENDIENTE DE ARTE: el dibujo tiene cinco tablas y el suelo de la U1 ya son seis (se agrego "tu mazo, vivo"). El texto alternativo describe el dibujo tal como esta hoy, que es lo correcto para un lector de pantalla; cuando se regenere la ilustracion con la sexta tabla, actualizar aqui y en la lamina 5 del mazo. -->
 <img class="ilustracion" src="assets/img/semana-07/el-suelo.webp" alt="Una figura dibujada a mano parada firme sobre un piso de cinco tablas rotuladas quizzes intentados, pieza del Museo, defensa en parejas, círculo de lectura y bitácora viva; del piso sube una escalera rosa que dice la conversación decide cuánto más, y a la derecha falta un pedazo de tabla con un martillo encima y la nota si falta una tabla, se repone">
 
 **Suelo de la unidad 1** (semanas 2 a 7). Como es el primero, va desglosado:
 
 | Lo que debe existir | Qué cuenta exactamente |
 |---|---|
-| Los seis quizzes intentados | #1 (semana 2), #2 (3), #3 (4), #4 (5), #5 (6) y el integrador (7). El resultado no importa, el intento sí. Si faltaste a uno, se reintenta. |
-| Tu primera pieza del Museo | En el portafolio, con su ficha completa: palabra, origen, viaje, por qué la elegiste y registro de fuentes. |
+| Los seis quizzes intentados | #1 (6 de agosto), #2 (13), #3 (18 y 21, la semana que trajo dos), #4 (28, el de diez reactivos), #5 (3 de septiembre) y el integrador (11). El resultado no importa, el intento sí. Si faltaste a uno, se reintenta, y cuenta tu versión más reciente. |
+| Tu primera pieza del Museo | En el portafolio, con su ficha completa: palabra, origen, viaje, por qué la elegiste y registro de fuentes. Nació en la semana 2, le creció la familia en el campeonato de árboles de la 5 y en la 7 se le sumó la palabra que cosechaste de tu libro. |
 | Tu defensa en parejas | Peldaño 1 de la escalera, hecha ante el profesor en la semana 7. |
 | El primer círculo de lectura | Estuviste, y tu obra terminada dejó su ficha en el tendedero de [Leemos](leemos.html). |
-| Tu bitácora del lector, viva | Viva es con rastro reciente. Nadie la lee por dentro: se revisa que exista. |
+| Tu bitácora del lector, viva | Viva es con rastro reciente, desde que estrenó el minuto del lector el 25 de agosto. Nadie la lee por dentro: se revisa que exista. |
+| Tu mazo, vivo | Tu gimnasio con rastro reciente: las estadísticas de [Anki](recursos/anki.html), tu caja Leitner con sus tres apartados, o el mazo que enseñaste en clase. Las tres valen igual. No se mira la racha ni el porcentaje de aciertos —una racha se consigue apretando "Bien" sin pensar, y eso ya lo diagnosticamos en el rescate de sanguijuelas—: se revisa que exista y que lo hayas usado. |
 
-Todo eso se palomea en el [cuadernillo de cierre de la unidad 1](recursos/plantillas/cuadernillo-u1.html), que además trae lo que sigue: cómo se lee tu serie de calibración, qué cuenta como argumento y qué no, y el ensayo en parejas antes de la conversación.
+Lo que **no** es suelo, aunque lo hayas hecho: el pacto del salón —la alarma, los tres minutos, el curador del día— no cuenta para la calificación, y no cuenta a propósito: el día que contara dejaría de ser un pacto y se volvería tarea. Tampoco cuentan el alfabeto griego ni tu nombre en griego: esos fueron el juguete de la semana 4.
+
+Todo eso se palomea tocando tablas en **[tu primer parcial](recursos/plantillas/autoevaluacion-u1.html)**, la autoevaluación que se llena desde el celular, y que además trae lo que sigue: tu serie de calibración dibujada y leída, el mapa de tus evidencias semana por semana, qué cuenta como argumento y qué no, y el ensayo en voz alta antes de la conversación.
 
 **Suelo de la unidad 2** (semanas 8 a 12): quizzes intentados · piezas de la unidad en el portafolio · defensa individual hecha · presencia en el segundo círculo · primer booktuber entregado (en cualquiera de sus formatos) · bitácora viva.
 
@@ -253,7 +260,7 @@ Si algo del suelo te queda pendiente, no repruebas en automático: te queda pend
 
 ## Los tres parciales
 
-Al cerrar cada unidad (semanas 7, 12 y 16) llenas una **autoevaluación de unidad**: una cuartilla de tu expediente donde revisas tu suelo, tu serie de calibración y la pieza que mejor te representa, y terminas con una frase: *propongo tal calificación como mi parcial, porque...* Antes del lunes siguiente transcribes solo el bloque final al [formulario de parciales](https://forms.gle/wVMNguqu3Nfu7yBX7) desde tu celular (lo ve únicamente el profesor). Si el teléfono no es lo tuyo, lo haces en la siguiente sesión de cómputo.
+Al cerrar cada unidad (semanas 7, 12 y 16) llenas una **autoevaluación de unidad**: revisas tu suelo, tu serie de calibración y la pieza que mejor te representa, y terminas con una frase: *propongo tal calificación como mi parcial, porque...* La primera se llena en **[tu primer parcial](recursos/plantillas/autoevaluacion-u1.html)**, nueve pasos que se hojean desde el celular y se guardan solos; las otras dos, en la cuartilla correspondiente de tu expediente. Antes del lunes siguiente transcribes solo el bloque final al [formulario de parciales](https://forms.gle/wVMNguqu3Nfu7yBX7) desde tu celular (lo ve únicamente el profesor). Si el teléfono no es lo tuyo, la misma pantalla se imprime y se llena a mano, o lo haces en la siguiente sesión de cómputo.
 
 Después pasa una de tres cosas: si el profesor coincide contigo, esa es tu calificación parcial y se asienta. Si te castigaste de más, la sube y te lo dice. Si le parece alta, hay una conversación de cinco minutos antes de asentar nada. La regla de la casa: **ninguna calificación baja por escrito, solo en conversación**. Y un dato del medio siglo de investigación: la mayoría de los estudiantes se pone menos de lo que el profesor le pondría.
 

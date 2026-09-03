@@ -17,11 +17,11 @@ Todo lo que en este curso se llena a mano vive aquí. Se abren en el navegador, 
     <span class="pl-cta">Abrir e imprimir →</span>
   </a>
 
-  <a class="pl-card" href="plantillas/cuadernillo-u1.html">
-    <span class="pl-tag">cuadernillo · 8 páginas · semana 7</span>
-    <b>Cierre de la Unidad 1</b>
-    <span class="pl-desc">El cuadernillo que llenas para proponer tu primer parcial: qué es esto y por qué existe, tu suelo con nombre y apellido, tu serie de calibración leída, el mapa de tus evidencias, el ensayo en parejas y la propuesta que transcribes al formulario. Si es tu primera vez con este sistema, empieza por aquí.</span>
-    <span class="pl-cta">Abrir e imprimir →</span>
+  <a class="pl-card" href="plantillas/autoevaluacion-u1.html">
+    <span class="pl-tag">se llena en tu celular · semana 7</span>
+    <b>Tu primer parcial</b>
+    <span class="pl-desc">La autoevaluación de la Unidad 1, en nueve pasos que se hojean con el dedo: armas tu suelo tocando tablas, tu serie de calibración se dibuja sola y te dice qué significa, marcas tus evidencias semana por semana —cada una con el enlace a la actividad donde se hizo, para entrar y cotejar—, y al final las piezas de lo que escribiste se juntan en la frase que vas a sostener. Cada paso trae un ejemplo lleno, por si no sabes cómo se escribe esto. Se guarda solo en tu teléfono, y en el menú hay un respaldo que te puedes mandar por WhatsApp. Si prefieres papel, el mismo menú la imprime.</span>
+    <span class="pl-cta">Abrirla y llenarla →</span>
   </a>
 
   <a class="pl-card" href="plantillas/pactos.html">

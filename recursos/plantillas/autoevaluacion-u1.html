@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#6b1e5a">
+<title>Tu primer parcial · Autoevaluación de la Unidad 1 · Etimologías Grecolatinas</title>
+<style>
+:root{
+  --rosa:#c8127a; --ciruela:#6b1e5a; --ciruela-osc:#4a1540;
+  --fondo:#fbf4f9; --borde:#eadce6; --papel:#fff;
+  --jade:#1f8a4c; --jade-bg:#e9f6ef;
+  --ambar:#b3541e; --ambar-bg:#fdf0e6;
+  --gris:#6f6470;
+  --madera:#c8a06a; --madera-osc:#a67e49;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+  background:var(--fondo);color:#2a2a2a;line-height:1.55;font-size:16px;
+  overflow-x:hidden;
+}
+
+/* ---------- barra superior ---------- */
+.barra{
+  position:sticky;top:0;z-index:40;background:var(--ciruela);color:#fff;
+  padding:.55rem .9rem calc(.5rem + env(safe-area-inset-top,0)) .9rem;
+  padding-top:calc(.55rem + env(safe-area-inset-top,0));
+  box-shadow:0 1px 10px rgba(74,21,64,.25);
+}
+.barra .fila{display:flex;align-items:center;justify-content:space-between;gap:.7rem}
+.barra .marca{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;opacity:.75;line-height:1.3}
+.barra .marca b{display:block;font-size:.95rem;letter-spacing:0;text-transform:none;opacity:1;font-weight:700}
+.barra .menu{background:transparent;border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:2rem;
+  font:inherit;font-size:.78rem;padding:.3rem .7rem;cursor:pointer;white-space:nowrap}
+.rail{display:flex;gap:.28rem;margin-top:.5rem}
+.rail button{flex:1;height:5px;border:none;border-radius:3px;background:rgba(255,255,255,.28);padding:0;cursor:pointer}
+.rail button.vista{background:rgba(255,255,255,.62)}
+.rail button.lleno{background:#8fd6ab}
+.rail button.aqui{background:#ffd23f}
+.guardado{position:fixed;left:50%;transform:translateX(-50%);top:4.6rem;z-index:60;
+  background:var(--ciruela-osc);color:#fff;font-size:.72rem;letter-spacing:.04em;
+  padding:.22rem .8rem;border-radius:2rem;opacity:0;pointer-events:none;transition:opacity .25s}
+.guardado.ver{opacity:.92}
+
+/* ---------- carrete ---------- */
+main{max-width:44rem;margin:0 auto;padding:0 .9rem 8rem}
+.pantalla{display:none;animation:entra .28s ease}
+.pantalla.activa{display:block}
+@keyframes entra{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+.paso{font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;color:var(--rosa);font-weight:800;margin:1.2rem 0 .1rem}
+h1{font-size:1.75rem;line-height:1.15;color:var(--ciruela);margin:.1rem 0 .4rem}
+h2{font-size:1.32rem;line-height:1.2;color:var(--ciruela);margin:.1rem 0 .35rem}
+h3{font-size:1rem;color:var(--rosa);margin:1.3rem 0 .35rem}
+p{margin:.55rem 0}
+.entrada{color:#4b4550}
+small,.mini{font-size:.85rem;color:var(--gris);line-height:1.45}
+
+.tarjeta{background:var(--papel);border:1px solid var(--borde);border-radius:1rem;padding:.95rem 1rem;margin:.8rem 0}
+.tarjeta.suave{background:var(--fondo)}
+.cita{border-left:4px solid var(--rosa);background:var(--fondo);border-radius:0 .7rem .7rem 0;
+  padding:.7rem .95rem;margin:1rem 0;color:var(--ciruela);font-size:.96rem}
+.cita b{color:var(--ciruela)}
+
+label.campo{display:block;margin-top:.9rem}
+label.campo>span{display:block;font-size:.74rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--ciruela);margin-bottom:.25rem}
+input[type=text],input[type=number],textarea,select{
+  width:100%;border:1px solid var(--borde);border-radius:.65rem;padding:.6rem .7rem;
+  font:inherit;font-size:1rem;background:var(--papel);color:#2a2a2a}
+textarea{min-height:4.2rem;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--rosa);outline-offset:1px;border-color:var(--rosa)}
+.pista{font-size:.82rem;color:var(--gris);margin:.3rem 0 0}
+
+/* ---------- enlaces a las actividades ---------- */
+.enlaces{display:flex;flex-wrap:wrap;gap:.32rem;margin:.5rem 0 0;align-items:center}
+.enlaces .rot{font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;color:var(--gris);font-weight:800;margin-right:.1rem}
+.enlaces a{display:inline-block;font-size:.78rem;font-weight:700;color:var(--rosa);background:var(--fondo);
+  border:1px solid var(--borde);border-radius:2rem;padding:.2rem .6rem;text-decoration:none;line-height:1.4}
+.enlaces a::after{content:" ↗";font-size:.7rem;opacity:.55}
+.enlaces a:hover,.enlaces a:focus{background:#fdeef6;border-color:var(--rosa)}
+
+/* ---------- el suelo ---------- */
+.suelo-obra{margin:1rem 0 .3rem}
+.tabla-caja{border:2px dashed #cdbcc8;background:var(--papel);border-radius:.75rem;
+  margin-bottom:.5rem;padding-bottom:.6rem;transition:.15s}
+.tabla-caja.puesta{border-style:solid;border-color:var(--jade);background:var(--jade-bg)}
+.tabla-caja .enlaces{padding:0 .8rem}
+.tabla-caja .enlaces a{background:#fff}
+.tabla{display:flex;align-items:flex-start;gap:.7rem;width:100%;text-align:left;
+  border:none;background:transparent;border-radius:.75rem;
+  padding:.7rem .8rem .1rem;font:inherit;cursor:pointer}
+.tabla .caja{flex:none;width:26px;height:26px;border-radius:.4rem;border:2px solid #cdbcc8;
+  display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:.95rem;background:#fff}
+.tabla b{display:block;color:var(--ciruela);font-size:.98rem;line-height:1.3}
+.tabla span.det{display:block;font-size:.82rem;color:var(--gris);line-height:1.4;margin-top:.15rem}
+.tabla-caja.puesta .caja{background:var(--jade);border-color:var(--jade)}
+.tabla-caja.puesta .caja::after{content:"✓"}
+.piso{margin:1rem 0 .2rem;border-radius:.6rem;overflow:hidden;border:1px solid var(--borde);background:var(--fondo)}
+.piso .figura{text-align:center;font-size:2.1rem;line-height:1;padding:.7rem 0 .1rem;transition:.3s}
+.piso .duela{height:13px;margin:0 0 3px;border-radius:2px;background:repeating-linear-gradient(90deg,var(--madera) 0 22px,var(--madera-osc) 22px 24px)}
+.piso .duela.falta{background:none;border:2px dashed #cdbcc8;height:13px}
+.piso .leyenda{padding:.5rem .8rem;font-size:.85rem;color:var(--ciruela);background:var(--papel);border-top:1px solid var(--borde)}
+.piso.completo .leyenda{background:var(--jade-bg);color:var(--jade);font-weight:700}
+
+/* ---------- serie de calibración ---------- */
+.serie{width:100%;border-collapse:collapse;margin:.7rem 0}
+.serie th{font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ciruela);
+  text-align:left;padding:.3rem .25rem;border-bottom:2px solid var(--borde);font-weight:800}
+.serie td{padding:.3rem .25rem;border-bottom:1px solid var(--borde);vertical-align:middle}
+.serie td.q{font-size:.86rem;color:var(--ciruela);font-weight:700;line-height:1.25}
+.serie td.q em{display:block;font-style:normal;font-weight:400;font-size:.76rem;color:var(--gris)}
+.serie input{text-align:center;padding:.45rem .2rem;font-weight:700;font-size:1.05rem}
+.serie .de{font-size:.72rem;color:var(--gris);text-align:center;display:block;margin-top:.1rem}
+.grafica{background:var(--papel);border:1px solid var(--borde);border-radius:1rem;padding:.8rem .6rem .5rem;margin:.9rem 0}
+.grafica svg{display:block;width:100%;height:auto}
+.leyenda-g{display:flex;gap:1rem;justify-content:center;font-size:.78rem;color:var(--gris);margin-top:.2rem;flex-wrap:wrap}
+.leyenda-g i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:.25rem;vertical-align:-1px}
+.leyenda-g i.ap{border:2px solid var(--ciruela);background:#fff}
+.leyenda-g i.sa{background:var(--rosa)}
+.lectura{border-radius:.8rem;padding:.75rem .9rem;margin:.6rem 0;font-size:.95rem;border:1px solid var(--borde);background:var(--fondo);color:var(--ciruela)}
+.lectura b{display:block;font-size:1rem;margin-bottom:.15rem}
+
+/* ---------- evidencias ---------- */
+.medidor{position:sticky;top:3.9rem;z-index:20;background:var(--fondo);padding:.5rem 0 .35rem}
+.medidor .barra-med{height:9px;border-radius:5px;background:#e6d8e2;overflow:hidden}
+.medidor .barra-med i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--rosa),var(--ciruela));transition:width .3s}
+.medidor .txt{font-size:.8rem;color:var(--gris);margin-top:.25rem}
+.sem{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--rosa);font-weight:800;margin:1.1rem 0 .3rem}
+.ev{border:1px solid var(--borde);border-radius:.8rem;background:var(--papel);padding:.65rem .75rem;margin-bottom:.5rem}
+.ev p{margin:0;font-size:.95rem;color:#39323c;line-height:1.35}
+.ev .fuente{display:block;font-size:.76rem;color:var(--gris);margin-top:.15rem}
+.ev .botones{display:flex;gap:.4rem;margin-top:.5rem}
+.ev .botones button{flex:1;border:1px solid var(--borde);background:var(--fondo);color:var(--ciruela);
+  border-radius:.55rem;padding:.4rem .3rem;font:inherit;font-size:.85rem;font-weight:700;cursor:pointer}
+.ev .botones button.si.on{background:var(--jade);border-color:var(--jade);color:#fff}
+.ev .botones button.no.on{background:var(--ambar);border-color:var(--ambar);color:#fff}
+.ev .conque{display:none;margin-top:.45rem}
+.ev.abierto .conque{display:block}
+.ev.tengo{border-color:var(--jade)}
+.ev.aunno{border-color:var(--ambar);background:var(--ambar-bg)}
+
+/* ---------- criterios de la defensa ---------- */
+.crit{display:flex;align-items:center;gap:.6rem;border:1px solid var(--borde);border-radius:.7rem;
+  background:var(--papel);padding:.55rem .7rem;margin-bottom:.45rem}
+.crit p{flex:1;margin:0;font-size:.92rem}
+.crit .par{display:flex;gap:.3rem;flex:none}
+.crit .par button{border:1px solid var(--borde);background:var(--fondo);color:var(--ciruela);border-radius:.5rem;
+  padding:.32rem .55rem;font:inherit;font-size:.78rem;font-weight:700;cursor:pointer}
+.crit .par button.b.on{background:var(--jade);border-color:var(--jade);color:#fff}
+.crit .par button.a.on{background:var(--ambar);border-color:var(--ambar);color:#fff}
+
+/* ---------- ensayo con reloj ---------- */
+.preg{border:1px solid var(--borde);border-radius:.9rem;background:var(--papel);padding:.8rem .9rem;margin:.7rem 0}
+.preg b{display:block;color:var(--ciruela);font-size:1rem;line-height:1.3}
+.preg .comose{font-size:.82rem;color:var(--gris);margin:.2rem 0 .5rem}
+.reloj{display:flex;align-items:center;gap:.6rem}
+.reloj button{border:none;background:var(--ciruela);color:#fff;border-radius:2rem;padding:.42rem 1rem;
+  font:inherit;font-weight:700;font-size:.85rem;cursor:pointer}
+.reloj .num{font-variant-numeric:tabular-nums;font-weight:800;font-size:1.3rem;color:var(--rosa);min-width:3.6rem}
+.reloj.corriendo .num{color:var(--jade)}
+
+/* ---------- la frase ---------- */
+.numeros{display:flex;gap:.4rem;flex-wrap:wrap;margin:.6rem 0 .2rem}
+.numeros button{flex:1 1 3.1rem;border:2px solid var(--borde);background:var(--papel);color:var(--ciruela);
+  border-radius:.7rem;padding:.55rem .2rem;font:inherit;font-size:1.45rem;font-weight:800;cursor:pointer}
+.numeros button.on{background:var(--ciruela);border-color:var(--ciruela);color:#fff}
+.medio{display:flex;align-items:center;gap:.5rem;margin:.4rem 0 0;font-size:.88rem;color:var(--gris)}
+.medio input{width:auto}
+.bandeja{margin:.7rem 0}
+.chip{display:block;width:100%;text-align:left;border:1px solid var(--borde);background:var(--papel);
+  border-radius:.7rem;padding:.5rem .7rem;margin-bottom:.4rem;font:inherit;font-size:.9rem;
+  color:#39323c;cursor:pointer;line-height:1.35;position:relative;padding-left:2.1rem}
+.chip::before{content:"+";position:absolute;left:.6rem;top:50%;transform:translateY(-50%);
+  width:20px;height:20px;border-radius:.35rem;border:1.5px solid var(--borde);
+  display:flex;align-items:center;justify-content:center;font-weight:900;color:var(--gris);font-size:.9rem;background:#fff}
+.chip.on{border-color:var(--rosa);background:#fdeef6}
+.chip.on::before{content:"✓";background:var(--rosa);border-color:var(--rosa);color:#fff}
+.chip i{font-style:normal;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--rosa);display:block;font-weight:800}
+.propuesta{border:2px solid var(--ciruela);border-radius:1rem;background:var(--papel);padding:.85rem .9rem;margin:.9rem 0}
+.propuesta .encabeza{font-size:1.02rem;color:var(--ciruela);font-weight:800;margin-bottom:.4rem}
+.propuesta .encabeza em{font-style:normal;background:#ffd23f;border-radius:.35rem;padding:0 .4rem}
+.propuesta textarea{min-height:7.5rem;font-size:1rem}
+.checks{margin:.7rem 0}
+.check{display:flex;gap:.55rem;align-items:flex-start;font-size:.9rem;padding:.32rem 0;color:var(--gris)}
+.check .m{flex:none;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--borde);background:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:900;color:#cdbcc8}
+.check.ok{color:var(--jade)}
+.check.ok .m{background:var(--jade);border-color:var(--jade);color:#fff}
+.check.ok .m::after{content:"✓"}
+.check.alerta{color:var(--ambar)}
+.check.alerta .m{background:var(--ambar);border-color:var(--ambar);color:#fff}
+.check.alerta .m::after{content:"!"}
+
+.acciones{display:flex;flex-direction:column;gap:.5rem;margin:1rem 0}
+.btn{display:block;width:100%;text-align:center;border:none;border-radius:.75rem;padding:.8rem 1rem;
+  font:inherit;font-size:1rem;font-weight:800;cursor:pointer;text-decoration:none}
+.btn.principal{background:var(--rosa);color:#fff}
+.btn.segundo{background:var(--ciruela);color:#fff}
+.btn.linea{background:var(--papel);color:var(--ciruela);border:1.5px solid var(--borde)}
+.aviso{font-size:.86rem;color:var(--jade);background:var(--jade-bg);border-radius:.6rem;padding:.5rem .7rem;display:none}
+.aviso.ver{display:block}
+
+/* ---------- resumen de la conversación ---------- */
+.resumen{border:2px solid var(--ciruela);border-radius:1.1rem;background:var(--papel);overflow:hidden;margin:.8rem 0}
+.resumen .cabeza{background:var(--ciruela);color:#fff;padding:.75rem .9rem}
+.resumen .cabeza .quien{font-size:1.05rem;font-weight:800;line-height:1.2}
+.resumen .cabeza .cual{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+.resumen .cuerpo{padding:.8rem .9rem}
+.resumen .granumero{display:flex;align-items:baseline;gap:.6rem;margin-bottom:.5rem}
+.resumen .granumero b{font-size:3rem;line-height:1;color:var(--rosa);font-weight:900}
+.resumen .granumero span{font-size:.85rem;color:var(--gris)}
+.resumen dl{margin:0}
+.resumen dt{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--rosa);font-weight:800;margin-top:.6rem}
+.resumen dd{margin:.1rem 0 0;font-size:.92rem;color:#39323c}
+.resumen .tablitas{display:flex;gap:.25rem;margin:.5rem 0 .2rem}
+.resumen .tablitas i{flex:1;height:10px;border-radius:2px;background:#e6d8e2}
+.resumen .tablitas i.on{background:var(--jade)}
+
+/* ---------- pie de navegación ---------- */
+.pie{position:fixed;left:0;right:0;bottom:0;z-index:45;background:rgba(251,244,249,.96);
+  backdrop-filter:blur(6px);border-top:1px solid var(--borde);
+  padding:.55rem .9rem calc(.55rem + env(safe-area-inset-bottom,0))}
+.pie .caja{max-width:44rem;margin:0 auto;display:flex;align-items:center;gap:.5rem}
+.pie button{border:none;border-radius:.7rem;padding:.7rem .9rem;font:inherit;font-weight:800;cursor:pointer;font-size:.95rem}
+.pie .atras{background:var(--papel);color:var(--ciruela);border:1px solid var(--borde);flex:none}
+.pie .sig{background:var(--rosa);color:#fff;flex:1}
+.pie .donde{flex:none;font-size:.76rem;color:var(--gris);text-align:center;min-width:3.4rem}
+.pie button:disabled{opacity:.35;cursor:default}
+
+/* ---------- el ejemplo ---------- */
+.btn-ejemplo{display:inline-flex;align-items:center;gap:.35rem;border:1px dashed #d9c49a;background:#fffaf0;
+  color:#8a6a1a;border-radius:2rem;padding:.32rem .8rem;font:inherit;font-size:.82rem;font-weight:700;
+  cursor:pointer;margin:.6rem 0 0}
+.btn-ejemplo:hover{background:#fff3dc}
+.ejemplo{display:none;border:1px dashed #d9c49a;background:#fffaf0;border-radius:.8rem;
+  padding:.75rem .9rem;margin:.5rem 0 0}
+.ejemplo.ver{display:block}
+.ejemplo .rotulo{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#96721d;font-weight:800}
+.ejemplo p{margin:.35rem 0;font-size:.92rem;color:#4a3d20;line-height:1.5}
+.ejemplo p.dice{color:#2f2716;background:#fff;border-radius:.5rem;padding:.5rem .65rem;border:1px solid #eadfc4;white-space:pre-wrap}
+.ejemplo .fija{font-size:.82rem;color:#8a6a1a;font-style:italic;margin-top:.5rem}
+
+/* ---------- la hoja del menú ---------- */
+.velo{position:fixed;inset:0;background:rgba(45,15,40,.5);z-index:70;display:none}
+.velo.ver{display:block}
+.hoja{position:fixed;left:0;right:0;bottom:0;z-index:71;background:var(--papel);
+  border-radius:1.1rem 1.1rem 0 0;padding:1rem 1rem calc(1.2rem + env(safe-area-inset-bottom,0));
+  max-width:44rem;margin:0 auto;display:none;max-height:88vh;overflow-y:auto}
+.hoja.ver{display:block}
+.hoja h3{margin:.1rem 0 .2rem}
+.hoja .op{display:block;width:100%;text-align:left;border:1px solid var(--borde);background:var(--fondo);
+  border-radius:.75rem;padding:.7rem .85rem;margin-bottom:.5rem;font:inherit;cursor:pointer;color:var(--ciruela)}
+.hoja .op b{display:block;font-size:.98rem}
+.hoja .op span{display:block;font-size:.82rem;color:var(--gris);line-height:1.4;margin-top:.1rem}
+.hoja .op.peligro{border-color:#e6b8ab;background:#fdf3f0;color:#a3312b}
+.hoja .op.peligro span{color:#a0665c}
+.hoja textarea{min-height:5rem;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.8rem}
+.hoja .cerrar{background:var(--ciruela);color:#fff;border:none;border-radius:.75rem;padding:.7rem;width:100%;
+  font:inherit;font-weight:800;cursor:pointer;margin-top:.3rem}
+
+/* ---------- modo papel / impresión ---------- */
+body.papel .pantalla{display:block!important;border-bottom:2px dashed var(--borde);padding-bottom:1rem;margin-bottom:1rem;animation:none}
+body.papel .pie,body.papel .rail{display:none}
+body.papel .medidor{position:static}
+@media print{
+  body{background:#fff;font-size:11pt}
+  .barra,.pie,.rail,.acciones,.guardado,.medidor,.btn-ejemplo,.velo,.hoja{display:none!important}
+  .ejemplo{display:none!important}
+  .pantalla{display:block!important;page-break-inside:avoid;border:none;margin:0 0 .6cm}
+  main{padding:0}
+  .tarjeta,.ev,.crit,.preg,.propuesta,.resumen,.grafica{break-inside:avoid}
+  a{color:#000;text-decoration:none}
+}
+@media (min-width:720px){
+  body{font-size:17px}
+  h1{font-size:2.1rem}
+}
+</style>
+</head>
+<body>
+
+<header class="barra">
+  <div class="fila">
+    <div class="marca">Etimologías · Unidad 1 · semana 7<b>Tu primer parcial</b></div>
+    <button class="menu" type="button" id="btnMenu">Papel · respaldo</button>
+  </div>
+  <div class="rail" id="rail"></div>
+</header>
+
+<div class="guardado" id="guardado">guardado</div>
+
+<div class="velo" id="velo"></div>
+<div class="hoja" id="hoja">
+  <h3>Opciones</h3>
+  <p class="mini" style="margin:0 0 .7rem">Todo lo que escribes vive solo en este teléfono. Estas son las tres cosas que puedes hacer con eso.</p>
+  <button class="op" type="button" id="opPapel"><b>Modo papel</b><span>Abre los nueve pasos seguidos y manda a imprimir, para llenarlo a mano.</span></button>
+  <button class="op" type="button" id="opCopiar"><b>Copiar mi respaldo</b><span>Un código con todo lo que llevas escrito. Mándatelo a tu propio WhatsApp: con él lo recuperas en otro teléfono, o si se te borra.</span></button>
+  <button class="op" type="button" id="opPegar"><b>Pegar un respaldo</b><span>¿Ya tienes un código? Pégalo aquí y vuelve todo a su lugar.</span></button>
+  <div id="cajaPegar" style="display:none">
+    <label class="campo"><span>Pega aquí tu código</span><textarea id="txtPegar" placeholder="Empieza con ETIM1·"></textarea></label>
+    <p class="pista" id="avisoPegar"></p>
+    <button class="op" type="button" id="opRestaurar" style="text-align:center"><b>Restaurar</b></button>
+  </div>
+  <button class="op peligro" type="button" id="opBorrar"><b>Borrar todo</b><span>Deja esta autoevaluación en blanco. No se puede deshacer.</span></button>
+  <button class="cerrar" type="button" id="opCerrar">Cerrar</button>
+</div>
+
+<main id="carrete">
+
+<!-- ==================== 0 · PORTADA ==================== -->
+<section class="pantalla activa" data-titulo="Portada">
+  <p class="paso">La palabra que hoy te toca desarmar</p>
+  <h1>Eres tú.</h1>
+  <p class="entrada">Seis semanas partiendo palabras en piezas para ver cómo funcionan por dentro. Hoy el método se aplica a otra cosa: a lo que aprendiste. Se desarma igual —con piezas, con fuente y con honestidad— y al final las piezas se vuelven a juntar en <strong>una sola frase</strong>, la que vas a sostener frente al profesor.</p>
+
+  <div class="cita">
+    <b>Esto no es pedir una calificación. Es demostrar una.</b><br>
+    La diferencia está en una palabra: <em>porque</em>.
+  </div>
+
+  <label class="campo"><span>Tu nombre</span>
+    <input type="text" data-k="nombre" autocomplete="name" placeholder="Como apareces en la lista"></label>
+  <label class="campo"><span>Grupo</span>
+    <input type="text" data-k="grupo" placeholder="Ej. 1º B"></label>
+
+  <div class="tarjeta suave">
+    <p style="margin:.1rem 0"><strong>Cómo funciona esta pantalla</strong></p>
+    <p class="mini" style="margin:.35rem 0 0">Nueve pasos. Se avanza con el botón de abajo o deslizando el dedo. <strong>Se guarda solo</strong> en este teléfono conforme escribes: puedes cerrarla y volver mañana. Nada se manda a ningún lado hasta que tú lo copias al formulario.</p>
+    <p class="mini" style="margin:.5rem 0 0">Hazlo con tu expediente y tu portafolio enfrente. Sin adivinar: revisando. Tardas unos veinte minutos.</p>
+    <p class="mini" style="margin:.5rem 0 0">Los puntitos de arriba son los nueve pasos: se ponen <strong style="color:#2e7d32">verdes</strong> cuando ese paso ya trae algo tuyo, y puedes tocarlos para saltar. El amarillo es donde estás.</p>
+    <p class="mini" style="margin:.5rem 0 0">Y en cada cosa que se te pida encontrarás <strong>los enlaces a la actividad donde se hizo</strong>: ábrela, checa si la hiciste, y si no, hazla ahora. Ninguna está cerrada.</p>
+    <p class="mini" style="margin:.5rem 0 0">¿No sabes qué escribir? Casi todos los pasos traen un botón <strong>Ver un ejemplo</strong>: es la autoevaluación de una estudiante inventada, llenada completa. No la copies —se nota—, pero míralo antes de escribir el tuyo.</p>
+    <p class="mini" style="margin:.5rem 0 0">Y antes de cerrar: en <strong>Papel · opciones</strong>, arriba a la derecha, está <em>copiar mi respaldo</em>. Es un código que te mandas a tu propio WhatsApp y con el que recuperas todo si cambias de teléfono o se te borra el navegador.</p>
+  </div>
+
+  <p class="mini">¿Prefieres papel? Arriba a la derecha, <strong>Papel</strong> abre los nueve pasos seguidos para imprimir y llenar a mano. Vale exactamente igual.</p>
+</section>
+
+<!-- ==================== 1 · QUÉ ES ESTO ==================== -->
+<section class="pantalla" data-titulo="Qué es esto">
+  <p class="paso">Paso 1 de 9</p>
+  <h2>Qué es esto, y por qué existe</h2>
+  <p class="entrada">Llevas seis semanas en un curso donde nada tuvo calificación. Ni los quizzes, ni el consultorio, ni el campeonato, ni tu primera pieza del Museo. Todo regresó con comentarios y con dos palabras: <strong>bien</strong> o <strong>aún no</strong>.</p>
+  <p class="entrada">Pero la universidad pide tres parciales y una final. Existen, hay que entregarlos, y este es el primero. La diferencia con cualquier otra materia: <strong>lo propones tú</strong>, con tu evidencia enfrente, y después se conversa.</p>
+
+  <h3>Las tres cosas que pueden pasar</h3>
+  <div class="tarjeta">
+    <p style="margin:.1rem 0"><strong>Si el profesor coincide contigo</strong></p>
+    <p class="mini" style="margin:.15rem 0 0">Esa es tu calificación y se asienta. Es lo que pasa la mayoría de las veces.</p>
+  </div>
+  <div class="tarjeta">
+    <p style="margin:.1rem 0"><strong>Si cree que te castigaste de más</strong></p>
+    <p class="mini" style="margin:.15rem 0 0">La sube, y te dice por qué. Pasa más seguido de lo que crees: casi todos se ponen menos de lo que el profesor les pondría.</p>
+  </div>
+  <div class="tarjeta">
+    <p style="margin:.1rem 0"><strong>Si le parece alta</strong></p>
+    <p class="mini" style="margin:.15rem 0 0">Hay una conversación de cinco minutos <strong>antes</strong> de asentar nada. La regla de la casa: ninguna calificación baja por escrito, solo en conversación, y con razones concretas de las dos partes.</p>
+  </div>
+
+  <h3>Qué cuenta como argumento</h3>
+  <div class="tarjeta" style="border-color:var(--jade);background:var(--jade-bg)">
+    <p style="margin:.1rem 0;color:var(--jade)"><strong>Sí cuenta</strong></p>
+    <p class="mini" style="margin:.2rem 0 0;color:#2a5c3e">Una pieza concreta que se puede ver · tu serie de calibración completa · “esto quedó en aún no, y esto hice” · una palabra que descifraste tú solo, con su fuente.</p>
+  </div>
+  <div class="tarjeta" style="border-color:var(--ambar);background:var(--ambar-bg)">
+    <p style="margin:.1rem 0;color:var(--ambar)"><strong>No cuenta</strong></p>
+    <p class="mini" style="margin:.2rem 0 0;color:#7d3d16">“Me esforcé mucho” sin nada que enseñar · “necesito diez para mi promedio” · “nunca falté” a secas (eso es el suelo, no la calificación) · lo que hiciste en otra materia.</p>
+  </div>
+
+  <div class="cita">Aquí el error no cuesta. Lo único que cuesta es no estar.</div>
+  <p class="mini">El sistema completo, por si quieres releerlo: <a href="../../evaluacion.html">Tu calificación</a>.</p>
+</section>
+
+<!-- ==================== 2 · EL SUELO ==================== -->
+<section class="pantalla" data-titulo="El suelo">
+  <p class="paso">Paso 2 de 9</p>
+  <h2>Primero, el suelo</h2>
+  <p class="entrada">El suelo es la lista de lo que debe <strong>existir</strong> al cerrar la unidad. No mide qué tan bien te salió: registra que estuviste y que lo hiciste. Quien llega al cierre con el suelo completo tiene una garantía: <strong>no reprueba</strong>. La conversación decide cuánto más.</p>
+  <p class="mini">Son seis tablas. Toca cada una que ya tengas puesta: abajo se arma tu piso.</p>
+  <div class="ej-slot" data-ej="2"></div>
+
+  <div class="suelo-obra" id="suelo"></div>
+
+  <div class="piso" id="piso">
+    <div class="figura" id="figura">🧍</div>
+    <div id="duelas"></div>
+    <div class="leyenda" id="pisoLeyenda">Todavía no marcas ninguna tabla.</div>
+  </div>
+
+  <div id="cajaFalta" style="display:none">
+    <label class="campo"><span>¿Qué te falta y cuándo lo repones?</span>
+      <textarea data-k="sueloFalta" placeholder="Ej.: me falta el quiz #3, lo reintento el martes en el gimnasio."></textarea></label>
+    <p class="pista">Faltar una tabla no te reprueba en automático, y no hay que fingir que está. Se anota, se repone, y si no alcanza este semestre se completa en la segunda vuelta de diciembre, que no es castigo: es la misma evaluación, en segunda oportunidad.</p>
+  </div>
+
+  <div class="tarjeta suave">
+    <p style="margin:.1rem 0"><strong>Lo que no es suelo, aunque lo hayas hecho</strong></p>
+    <p class="mini" style="margin:.3rem 0 0">El pacto del salón —la alarma, los tres minutos, el curador del día— <strong>no cuenta para la calificación</strong>, y no cuenta a propósito: el día que contara dejaría de ser un pacto y se volvería tarea. Tampoco cuentan el alfabeto griego ni tu nombre en griego: esos fueron el juguete de la semana 4. Se hacen porque sí, y ese es justo el punto.</p>
+  </div>
+
+  <div class="cita">El suelo dice que estuviste. Los pasos que siguen dicen qué aprendiste. Esos son los que van a sostener tu número.</div>
+</section>
+
+<!-- ==================== 3 · CALIBRACIÓN ==================== -->
+<section class="pantalla" data-titulo="Calibración">
+  <p class="paso">Paso 3 de 9</p>
+  <h2>Tu serie de calibración</h2>
+  <p class="entrada">Seis veces apostaste, antes de voltear la hoja, cuántas ibas a sacar. Seis veces se supo el resultado. Cópialos de tu expediente: la gráfica se dibuja sola.</p>
+  <div class="ej-slot" data-ej="3"></div>
+
+  <table class="serie">
+    <tr><th style="width:44%">Quiz</th><th style="width:28%">Aposté</th><th style="width:28%">Salió</th></tr>
+    <tbody id="serie"></tbody>
+  </table>
+  <p class="pista">En la semana 4 hubo dos quizzes relámpago —el del martes y el del <em>Triage</em> del viernes—. Usa el más reciente: en este curso siempre cuenta tu versión más nueva, no el promedio.</p>
+
+  <div class="grafica">
+    <svg id="chart" viewBox="0 0 320 148" role="img" aria-label="Gráfica de tu calibración: lo que apostaste contra lo que salió, quiz por quiz"></svg>
+    <div class="leyenda-g"><span><i class="ap"></i>lo que apostaste</span><span><i class="sa"></i>lo que salió</span></div>
+  </div>
+
+  <div class="lectura" id="lecturaSerie"><b>Llena al menos dos renglones</b>Con dos parejas de números ya se puede leer algo. Con las seis, se lee tu semestre.</div>
+
+  <label class="campo"><span>Lo que me dice mi serie, en mis palabras</span>
+    <textarea data-k="serieTexto" placeholder="Una o dos líneas. Puedes partir de lo que dice el recuadro de arriba, pero dilo tú."></textarea></label>
+
+  <label class="campo"><span>Lo que quedó en “aún no”, y qué hice al respecto</span>
+    <textarea data-k="aunNo" placeholder="Ej.: los dos hipo- se me seguían cayendo; los saqué del mazo, les escribí “no confundir con la otra” en el reverso y en el integrador ya no fallé."></textarea></label>
+  <p class="pista">Un “aún no” reconocido y trabajado vale más que un “bien” de suerte. Si el martes anotaste las cinco piezas que más se te resistían, aquí es donde sirven. Esta casilla suma; dejarla vacía, no.</p>
+  <div class="enlaces"><span class="rot">para trabajarlo</span>
+    <a href="../anki.html" target="_blank" rel="noopener">Tu mazo · las cinco que se resisten</a>
+    <a href="../gimnasio.html" target="_blank" rel="noopener">Todo el gimnasio</a>
+    <a href="../../ejercicios/semana-07/quiz-gimnasio-semana-07.html" target="_blank" rel="noopener">Quiz de gimnasio integrador</a>
+  </div>
+</section>
+
+<!-- ==================== 4 · EVIDENCIAS ==================== -->
+<section class="pantalla" data-titulo="Evidencias">
+  <p class="paso">Paso 4 de 9</p>
+  <h2>El mapa de tus evidencias</h2>
+  <p class="entrada">Diecisiete cosas que la unidad prometió enseñarte, semana por semana. En cada una: <strong>lo tengo</strong> —y dices con qué se demuestra— o <strong>aún no</strong>. Las dos respuestas son legítimas y las dos sirven en la conversación.</p>
+
+  <div class="ej-slot" data-ej="4"></div>
+
+  <div class="medidor">
+    <div class="barra-med"><i id="medBarra"></i></div>
+    <div class="txt" id="medTxt">Sin contestar todavía.</div>
+  </div>
+
+  <div id="evidencias"></div>
+
+  <p class="pista">No hace falta tener las diecisiete: nadie las tiene. Un mapa con huecos honestos es mejor argumento que uno lleno de palomitas sin pieza detrás.</p>
+</section>
+
+<!-- ==================== 5 · TUS PIEZAS ==================== -->
+<section class="pantalla" data-titulo="Tus piezas">
+  <p class="paso">Paso 5 de 9</p>
+  <h2>Tus dos piezas más fuertes</h2>
+  <div class="ej-slot" data-ej="5"></div>
+
+  <h3>La palabra que descifré yo solo, fuera de clase</h3>
+  <p class="mini">Es el reactivo 8 del integrador, el que no califica nadie. Cópiala aquí completa: es la evidencia más difícil de discutir que existe, porque no te la dio nadie.</p>
+  <div class="enlaces"><span class="rot">de dónde salió</span>
+    <a href="../../ejercicios/semana-07/quiz-integrador-u1-semana-07.html" target="_blank" rel="noopener">El quiz integrador</a>
+    <a href="../../ejercicios/semana-06/ejercicio-6A-la-prueba-de-fuego.html" target="_blank" rel="noopener">La prueba de fuego</a>
+  </div>
+  <div class="tarjeta">
+    <label class="campo"><span>La palabra</span><input type="text" data-k="descifrada" placeholder="Ej.: hemeralopía"></label>
+    <label class="campo"><span>En piezas, y qué significa</span><input type="text" data-k="descifradaPiezas" placeholder="hēmera (día) + opía (visión): problema para ver de día"></label>
+    <label class="campo"><span>Dónde te la encontraste y con qué fuente la verificaste</span><textarea data-k="descifradaFuente" placeholder="Dónde apareció y en qué diccionario la comprobaste."></textarea></label>
+  </div>
+
+  <h3>La pieza que mejor me representa</h3>
+  <p class="mini">De todo lo que produjiste en seis semanas, una sola cosa. No la más bonita: la que mejor muestra lo que sabes hacer ahora y no sabías en agosto. Puede ser tu pieza del Museo, un árbol del campeonato, un crucigrama del taller de pistas, un monstruo de la fábrica, una tarjeta rescatada del muro de sanguijuelas o una página de tu bitácora.</p>
+  <div class="enlaces"><span class="rot">ve a buscarla</span>
+    <a href="../../museo/galeria.html" target="_blank" rel="noopener">La galería del Museo</a>
+    <a href="../../vitrina/index.html" target="_blank" rel="noopener">Nuestra vitrina</a>
+    <a href="../gimnasio.html" target="_blank" rel="noopener">Todo el gimnasio</a>
+    <a href="ficha-museo.html" target="_blank" rel="noopener">La ficha del Museo</a>
+  </div>
+  <div class="tarjeta">
+    <label class="campo"><span>Cuál es</span><input type="text" data-k="piezaCual" placeholder="Nómbrala en pocas palabras"></label>
+    <label class="campo"><span>Por qué esa, y no otra</span><textarea data-k="piezaPorque"></textarea></label>
+    <label class="campo"><span>Qué habría hecho con ella hace seis semanas</span><textarea data-k="piezaAntes" placeholder="Esta es la pregunta que convierte una pieza en argumento. Compárate contigo, no con el de junto."></textarea></label>
+  </div>
+</section>
+
+<!-- ==================== 6 · LA DEFENSA ==================== -->
+<section class="pantalla" data-titulo="La defensa">
+  <p class="paso">Paso 6 de 9</p>
+  <h2>Mi defensa en parejas</h2>
+  <p class="entrada">Los cuatro criterios de la rúbrica pública, la que conoces desde la primera semana. Márcate tú, antes de releer lo que anotó el profesor.</p>
+  <div class="enlaces"><span class="rot">ábrelo y checa</span>
+    <a href="rubrica-defensas.html" target="_blank" rel="noopener">La rúbrica pública</a>
+    <a href="../../ejercicios/semana-07/ejercicio-7B-arma-tu-defensa.html" target="_blank" rel="noopener">Arma tu defensa</a>
+  </div>
+  <div class="ej-slot" data-ej="6"></div>
+  <div id="criterios"></div>
+
+  <label class="campo"><span>Lo que me dijo el profesor</span>
+    <textarea data-k="defensaProfe" placeholder="Copia la frase de tu hoja de retroalimentación, tal cual."></textarea></label>
+
+  <div class="tarjeta suave">
+    <p class="mini" style="margin:0"><strong>Lo que expresamente no se evalúa:</strong> que estés nervioso, que hables bonito, que memorices un discurso, cuántas palabras raras metiste. No es un consuelo: es literalmente lo que el profesor no miró.</p>
+  </div>
+</section>
+
+<!-- ==================== 7 · EL ENSAYO ==================== -->
+<section class="pantalla" data-titulo="El ensayo">
+  <p class="paso">Paso 7 de 9</p>
+  <h2>El ensayo en voz alta</h2>
+  <p class="entrada">Las tres preguntas de la conversación son siempre las mismas, y son estas. Contéstalas <strong>en voz alta</strong>, con el reloj corriendo, antes de escribir nada. Puedes hacerlo solo, frente al espejo, o con alguien de tu grupo. Nadie revisa esto.</p>
+  <div class="ej-slot" data-ej="7"></div>
+  <div id="ensayo"></div>
+
+  <label class="campo"><span>Lo que me preguntaron y no supe contestar</span>
+    <textarea data-k="ensayoHueco" placeholder="Este renglón vale oro: es exactamente lo que hay que resolver antes del lunes."></textarea></label>
+
+  <label class="campo"><span>Después del ensayo, ¿le moverías a tu número?</span>
+    <input type="text" data-k="ensayoMueve" placeholder="Ej.: sí, le subo medio punto; ya sé con qué lo sostengo."></label>
+</section>
+
+<!-- ==================== 8 · LA FRASE ==================== -->
+<section class="pantalla" data-titulo="La frase">
+  <p class="paso">Paso 8 de 9</p>
+  <h2>La frase</h2>
+  <p class="entrada">Todo lo anterior era para llegar aquí. Elige tu número, toca las piezas que quieres usar y la frase se arma sola con tus propias palabras. Después la editas hasta que suene a ti: <strong>tú eres quien firma, no esta pantalla</strong>.</p>
+  <div class="ej-slot" data-ej="8"></div>
+
+  <h3>Mi número</h3>
+  <div class="numeros" id="numeros"></div>
+  <div class="medio">
+    <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer">
+      <input type="checkbox" id="mitad" style="width:auto"> y medio (por ejemplo 8.5)</label>
+  </div>
+
+  <h3>Las piezas que tienes</h3>
+  <p class="mini">Salieron de lo que escribiste. Toca las que quieras meter en tu frase; tres o cuatro bastan si son buenas.</p>
+  <div class="bandeja" id="bandeja"></div>
+
+  <div class="propuesta">
+    <div class="encabeza">Propongo <em id="numMuestra">—</em> como mi primer parcial, porque:</div>
+    <textarea data-k="frase" id="frase" placeholder="Toca piezas arriba y aparece aquí. O escríbela desde cero, si prefieres."></textarea>
+    <button class="btn linea" type="button" id="rearmar" style="margin-top:.5rem;font-size:.85rem;padding:.5rem">Rearmar con las piezas marcadas</button>
+  </div>
+
+  <h3>Antes de mandarla</h3>
+  <div class="checks" id="checks"></div>
+
+  <div class="acciones">
+    <button class="btn principal" type="button" id="btnCopiar">Copiar mi propuesta</button>
+    <div class="aviso" id="avisoCopia">Copiada. Ahora pégala en el formulario.</div>
+    <a class="btn segundo" id="btnForm" href="https://forms.gle/wVMNguqu3Nfu7yBX7" target="_blank" rel="noopener">Abrir el formulario de parciales</a>
+    <button class="btn linea" type="button" id="btnDescargar">Descargar mi expediente de la unidad</button>
+  </div>
+  <div class="enlaces"><span class="rot">por si te falta contexto</span>
+    <a href="../../evaluacion.html" target="_blank" rel="noopener">Tu calificación · el sistema completo</a>
+    <a href="../../unidades/u1.html" target="_blank" rel="noopener">La unidad 1 completa</a>
+  </div>
+  <p class="pista">El formulario lo ve únicamente el profesor. Se manda <strong>antes del lunes</strong>. Si el teléfono no es lo tuyo, se hace en la siguiente sesión de cómputo, o se entrega en papel: vale igual.</p>
+</section>
+
+<!-- ==================== 9 · LA CONVERSACIÓN ==================== -->
+<section class="pantalla" data-titulo="La conversación">
+  <p class="paso">Paso 9 de 9</p>
+  <h2>La conversación</h2>
+  <p class="entrada">Este es el paso que le vas a mostrar al profesor. Todo lo que escribiste, en un solo cuadro: <strong>voltea el teléfono y hablen sobre esto</strong>.</p>
+
+  <div class="resumen" id="resumen"></div>
+
+  <h3>Lo que se acordó</h3>
+  <p class="mini">Se llena entre los dos, al terminar de conversar. Queda por escrito para que nadie lo recuerde distinto en diciembre.</p>
+  <label class="campo"><span>Lo que se asentó</span><input type="text" data-k="asentado" placeholder="El número acordado"></label>
+  <label class="campo"><span>Fecha</span><input type="text" data-k="asentadoFecha" placeholder="Día en que conversaron"></label>
+  <label class="campo"><span>Acuerdos para la unidad 2</span><textarea data-k="acuerdos" placeholder="Una o dos cosas concretas, con fecha si se puede."></textarea></label>
+
+  <div class="cita">Esta es la evaluación que te va a tocar toda la vida adulta: nadie te pone 8.5 en el trabajo, te preguntan qué hiciste y cómo lo sabes.</div>
+
+  <div class="acciones">
+    <button class="btn linea" type="button" id="btnDescargar2">Descargar mi expediente de la unidad</button>
+  </div>
+  <p class="pista">Guárdalo donde no se pierda: en la semana 12 vas a hacer esto otra vez, y lo primero que vas a querer es releer lo que escribiste hoy.</p>
+</section>
+
+</main>
+
+<div class="pie">
+  <div class="caja">
+    <button class="atras" type="button" id="btnAtras">Atrás</button>
+    <span class="donde" id="donde">1 / 10</span>
+    <button class="sig" type="button" id="btnSig">Empezar</button>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   AUTOEVALUACIÓN DE LA UNIDAD 1 · Etimologías Grecolatinas
+   Una sola pantalla, diez pasos, todo en el navegador.
+   Nada viaja a ningún servidor: el estado vive en localStorage
+   con la clave etimologias-autoeval-u1 y en el archivo que el
+   estudiante descarga. Mismo criterio que los tres pactos.
+   ============================================================ */
+(function(){
+  'use strict';
+
+  var CLAVE = 'etimologias-autoeval-u1';
+  var FORM = 'https://forms.gle/wVMNguqu3Nfu7yBX7';
+
+  /* ---------- estado ---------- */
+  var D = {};
+  try { D = JSON.parse(localStorage.getItem(CLAVE) || '{}') || {}; } catch(e) { D = {}; }
+  var avisoEl = document.getElementById('guardado');
+  var tGuarda = null;
+  function guardar(){
+    try { localStorage.setItem(CLAVE, JSON.stringify(D)); } catch(e){}
+    pintaRail();
+    clearTimeout(tGuarda);
+    avisoEl.classList.add('ver');
+    tGuarda = setTimeout(function(){ avisoEl.classList.remove('ver'); }, 900);
+  }
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[&<>"]/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];
+    });
+  }
+  function val(k){ return (D[k] || '').toString().trim(); }
+  function enlacesHTML(lista, rotulo){
+    if (!lista || !lista.length) return '';
+    return '<div class="enlaces"><span class="rot">' + esc(rotulo || 'ábrelo y checa') + '</span>' +
+      lista.map(function(e){
+        return '<a href="' + esc(e[1]) + '" target="_blank" rel="noopener">' + esc(e[0]) + '</a>';
+      }).join('') + '</div>';
+  }
+
+  /* ---------- datos del curso ---------- */
+  var EJ = '../../ejercicios/';
+
+  var TABLAS = [
+    { k:'quizzes', t:'Los seis quizzes, intentados',
+      d:'El resultado no importa para el suelo; el intento sí. Si faltaste a uno, se reintenta y cuenta tu versión más reciente. Aquí están los seis, con cronómetro y con las respuestas: ábrelos y checa.',
+      rot:'los seis quizzes', e:[
+        ['#1 · 6 ago', EJ + 'semana-02/quiz-relampago-semana-02.html'],
+        ['#2 · 13 ago', EJ + 'semana-03/quiz-relampago-semana-03.html'],
+        ['#3 · 18 ago', EJ + 'semana-04/quiz-relampago-semana-04-martes.html'],
+        ['#3 · 21 ago', EJ + 'semana-04/quiz-relampago-semana-04-viernes.html'],
+        ['#4 · 28 ago', EJ + 'semana-05/quiz-relampago-semana-05-viernes.html'],
+        ['#5 · 3 sep', EJ + 'semana-06/quiz-relampago-semana-06.html'],
+        ['integrador · 11 sep', EJ + 'semana-07/quiz-integrador-u1-semana-07.html']
+      ] },
+    { k:'museo', t:'Tu primera pieza del Museo, con su ficha completa',
+      d:'Nació en la semana 2 con la biografía de una palabra, le creció la familia en el campeonato de árboles de la 5 y en la 7 se le sumó la palabra que cosechaste de tu libro. Debe traer: la palabra, de dónde viene, cómo viajó, por qué la elegiste y su registro de fuentes.',
+      rot:'dónde se hizo', e:[
+        ['Biografía de una palabra', EJ + 'semana-02/ejercicio-2D-biografia-de-una-palabra.html'],
+        ['La familia numerosa', EJ + 'semana-05/ejercicio-5D-familia-numerosa.html'],
+        ['Cosecha de palabras', EJ + 'semana-07/ejercicio-7D-cosecha-de-palabras.html'],
+        ['La ficha del Museo', 'ficha-museo.html'],
+        ['La galería', '../../museo/galeria.html']
+      ] },
+    { k:'defensa', t:'Tu defensa en parejas, hecha ante el profesor',
+      d:'Jueves 10 de septiembre. Peldaño 1 de la escalera: tres a cuatro minutos, los dos hablan, con la rúbrica pública enfrente.',
+      rot:'con qué se preparó', e:[
+        ['Arma tu defensa', EJ + 'semana-07/ejercicio-7B-arma-tu-defensa.html'],
+        ['La rúbrica pública', 'rubrica-defensas.html']
+      ] },
+    { k:'circulo', t:'Estuviste en el primer círculo de lectura',
+      d:'Viernes 11 de septiembre. Si terminaste tu obra, tu ficha quedó colgada en el tendedero de Leemos.',
+      rot:'lo del círculo', e:[
+        ['El tendedero de Leemos', '../../leemos.html'],
+        ['Cosecha de palabras', EJ + 'semana-07/ejercicio-7D-cosecha-de-palabras.html']
+      ] },
+    { k:'bitacora', t:'Tu bitácora del lector, viva',
+      d:'Viva significa con rastro reciente, desde que estrenó el minuto del lector el 25 de agosto. Nadie la lee por dentro ni la califica: se revisa que exista.',
+      rot:'la plantilla', e:[
+        ['La bitácora del lector', 'bitacora-lector.html']
+      ] },
+    { k:'mazo', t:'Tu mazo, vivo',
+      d:'Tu gimnasio con rastro reciente: las estadísticas de Anki, tu caja Leitner con sus tres apartados, o el mazo que enseñaste en clase. Las tres valen igual. Y ojo con lo que NO se mira: ni la racha, ni el porcentaje de aciertos. Una racha se consigue apretando “Bien” sin pensar, y eso ya lo diagnosticamos el jueves de la semana 5 con el rescate de sanguijuelas. Aquí se revisa lo mismo que en la bitácora: que exista y que lo hayas usado.',
+      rot:'tu gimnasio', e:[
+        ['Anki y caja Leitner', '../anki.html'],
+        ['El safari del mazo', EJ + 'semana-05/ejercicio-5E-safari-del-mazo.html'],
+        ['Botonología', EJ + 'semana-05/ejercicio-5F-botonologia.html'],
+        ['Rescate de sanguijuelas', EJ + 'semana-05/ejercicio-5G-rescate-de-sanguijuelas.html']
+      ] }
+  ];
+
+  var QUIZZES = [
+    { id:'q1', t:'#1 · semana 2',  s:'jueves 6 de agosto · 3 reactivos',      max:3 },
+    { id:'q2', t:'#2 · semana 3',  s:'jueves 13 de agosto · 3 reactivos',     max:3 },
+    { id:'q3', t:'#3 · semana 4',  s:'martes 18 y viernes 21 · 3 reactivos',  max:3 },
+    { id:'q4', t:'#4 · semana 5',  s:'viernes 28 de agosto · 10 reactivos',   max:10 },
+    { id:'q5', t:'#5 · semana 6',  s:'jueves 3 de septiembre · 3 reactivos',  max:3 },
+    { id:'qi', t:'Integrador · semana 7', s:'viernes 11 de septiembre · 8 reactivos', max:8 }
+  ];
+
+  var EVID = [
+    { s:'Semana 2 · Las palabras tienen anatomía', l:[
+      { k:'e1', t:'Desarmar una palabra en prefijo, raíz y sufijo, y nombrar cada pieza', f:'Martes 4 de agosto',
+        e:[['Primeras disecciones', EJ + 'semana-02/ejercicio-2A-primeras-disecciones.html']] },
+      { k:'e2', t:'Distinguir la definición del diccionario de la etimológica: las dos linternas', f:'Miércoles 5 y jueves 6 de agosto',
+        e:[['El taller de las dos linternas', EJ + 'semana-02/ejercicio-2B-las-dos-linternas.html'],
+           ['¿Con qué linterna está escrita?', EJ + 'semana-02/ejercicio-2C-con-que-linterna.html']] },
+      { k:'e3', t:'Escribir la biografía de una palabra y decir por qué la elegí', f:'Viernes 7 de agosto · abre el Museo, con chao y aguacate',
+        e:[['Biografía de una palabra', EJ + 'semana-02/ejercicio-2D-biografia-de-una-palabra.html'],
+           ['La ficha del Museo', 'ficha-museo.html']] },
+    ]},
+    { s:'Semana 3 · Sumas de palabras', l:[
+      { k:'e4', t:'Escribir la suma de una palabra y leerla de vuelta', f:'Martes 11 de agosto',
+        e:[['Sumas de palabras', EJ + 'semana-03/ejercicio-3A-sumas-de-palabras.html']] },
+      { k:'e5', t:'Cachar un espejismo con la regla de oro: familia y fuente', f:'El banco de dudosos · man + go, in + vierno',
+        e:[['Sumas de palabras', EJ + 'semana-03/ejercicio-3A-sumas-de-palabras.html'],
+           ['Reglas del torneo', EJ + 'semana-03/reglas-torneo-matrices.html'],
+           ['El quiz destapable', EJ + 'semana-03/quiz-abierto-todo-lo-visto.html']] },
+      { k:'e6', t:'Sacar veinte palabras de una sola matriz y defenderlas', f:'Miércoles 12 y viernes 14 · el torneo',
+        e:[['La fábrica de matrices', EJ + 'semana-03/ejercicio-3B-fabrica-de-matrices.html'],
+           ['Veinte palabras gratis', EJ + 'semana-03/ejercicio-3C-veinte-palabras-gratis.html'],
+           ['Reglas del torneo', EJ + 'semana-03/reglas-torneo-matrices.html']] },
+    ]},
+    { s:'Semana 4 · El griego de la farmacia y del cuerpo', l:[
+      { k:'e7', t:'Leer una caja de medicina y saber a qué especialista ir', f:'Martes 18 y miércoles 19 de agosto',
+        e:[['El botiquín griego', EJ + 'semana-04/ejercicio-4A-botiquin-griego.html'],
+           ['El cuerpo en griego', EJ + 'semana-04/ejercicio-4B-el-cuerpo-en-griego.html'],
+           ['El consultorio griego', EJ + 'semana-04/consultorio-griego-tablero.html']] },
+      { k:'e8', t:'Apostar el significado de una palabra y verificarlo en una fuente', f:'Jueves 20 · el tribunal de las apuestas',
+        e:[['Apuesta y verifica', EJ + 'semana-04/ejercicio-4C-apuesta-y-verifica.html'],
+           ['Decodifica y verifica', EJ + 'semana-04/ejercicio-4C-decodifica-y-verifica.html']] },
+      { k:'e9', t:'Leer mi propio horario de clases en griego', f:'Jueves 20 · tu horario también es griego',
+        e:[['Apuesta y verifica', EJ + 'semana-04/ejercicio-4C-apuesta-y-verifica.html'],
+           ['Decodifica la palabra', EJ + 'semana-04/ejercicio-4A-decodifica-la-palabra.html']] },
+    ]},
+    { s:'Semana 5 · Familias, árboles y gimnasio', l:[
+      { k:'e10', t:'Sacar la familia entera de una raíz', f:'Martes 25 y viernes 28 · el campeonato de árboles',
+        e:[['La cadena de raíces', EJ + 'semana-05/ejercicio-5A-cadena-de-raices.html'],
+           ['La familia numerosa', EJ + 'semana-05/ejercicio-5D-familia-numerosa.html'],
+           ['El campeonato de árboles', EJ + 'semana-05/campeonato-de-arboles-tablero.html']] },
+      { k:'e11', t:'No caer en los parientes falsos', f:'Los dos hipo- · cosmos y cosmético',
+        e:[['La cadena de raíces', EJ + 'semana-05/ejercicio-5A-cadena-de-raices.html'],
+           ['El tribunal del reloj', EJ + 'semana-05/ejercicio-5C-tribunal-del-reloj.html'],
+           ['El quiz de los diez', EJ + 'semana-05/quiz-relampago-semana-05-viernes.html']] },
+      { k:'e12', t:'Usar el gimnasio por mi cuenta: mazo, botones y rescate de sanguijuelas', f:'Jueves 27 · el gimnasio abierto',
+        e:[['El safari del mazo', EJ + 'semana-05/ejercicio-5E-safari-del-mazo.html'],
+           ['Botonología', EJ + 'semana-05/ejercicio-5F-botonologia.html'],
+           ['Rescate de sanguijuelas', EJ + 'semana-05/ejercicio-5G-rescate-de-sanguijuelas.html']] },
+    ]},
+    { s:'Semana 6 · Descifrar a ciegas', l:[
+      { k:'e13', t:'Descifrar una palabra que nunca había visto', f:'Martes 1 y miércoles 2 de septiembre',
+        e:[['¿Quién quiere ser etimólogo?', EJ + 'semana-06/ejercicio-6A-quien-quiere-ser-etimologo.html'],
+           ['La prueba de fuego', EJ + 'semana-06/ejercicio-6A-la-prueba-de-fuego.html']] },
+      { k:'e14', t:'Armar una palabra nueva que se entienda, aunque no esté en el diccionario', f:'Miércoles 2 y viernes 4 · la fábrica de monstruos',
+        e:[['Taller de descifrado', EJ + 'semana-06/ejercicio-6B-taller-de-descifrado.html']] },
+      { k:'e15', t:'Saber si la inventé o la redescubrí, y comprobarlo', f:'Jueves 3 · el juicio de los monstruos',
+        e:[['¿Existían de verdad?', EJ + 'semana-06/ejercicio-6C-existian-de-verdad.html']] },
+    ]},
+    { s:'Semana 7 · El cierre', l:[
+      { k:'e16', t:'Defender mi palabra en voz alta, con fuente y con honestidad', f:'Miércoles 9 y jueves 10 de septiembre',
+        e:[['Arma tu defensa', EJ + 'semana-07/ejercicio-7B-arma-tu-defensa.html'],
+           ['La rúbrica pública', 'rubrica-defensas.html'],
+           ['El taller de pistas', EJ + 'semana-07/ejercicio-7A-el-taller-de-pistas.html']] },
+      { k:'e17', t:'Leer por gusto y cosechar palabras de lo que leo', f:'Viernes 11 · el círculo de lectura',
+        e:[['Cosecha de palabras', EJ + 'semana-07/ejercicio-7D-cosecha-de-palabras.html'],
+           ['El tendedero de Leemos', '../../leemos.html'],
+           ['La bitácora del lector', 'bitacora-lector.html']] },
+    ]}
+  ];
+
+  var CRITERIOS = [
+    { k:'c1', t:'La descomposición de mi palabra estaba correcta' },
+    { k:'c2', t:'Usé una fuente de autoridad y supe decir cuál' },
+    { k:'c3', t:'Expliqué por qué elegí esa palabra' },
+    { k:'c4', t:'Dije “esto no lo sé todavía” cuando fue el caso' }
+  ];
+
+  /* Un caso completo, de una estudiante inventada, para que nadie se quede
+     mirando la hoja en blanco. Es de lectura: no toca nada de lo que escriben. */
+  var EJEMPLOS = {
+    '2': { t:'Así llenó su suelo',
+      d:['Marqué las seis tablas. La que casi no: el quiz #3. Falté el martes 18, me enteré de que se reintenta y lo hice el viernes 21 en el Triage del consultorio. Cuenta mi versión más reciente, así que la tabla está puesta.',
+          'La del mazo la marqué con la captura de mis estadísticas: no tengo racha, se me cayó dos veces, pero se ve que lo uso. Eso es lo que pide.',
+          'No marqué nada del pacto del salón aunque sí barro, porque eso no es suelo y no debe serlo.'] },
+    '3': { t:'Así leyó su serie',
+      d:['Mis seis renglones: aposté 1 y salió 3 · aposté 2 y salieron 3 · aposté 2 y salieron 3 · aposté 5 y salieron 8 · aposté 2 y salieron 3 · aposté 6 y salieron 7.'],
+      dice:'Siempre le bajo por miedo a quedar mal. Las seis veces salí por encima de lo que aposté, y en el de diez me pasé por tres reactivos. Mi medidor está descalibrado hacia abajo y ya lo sé; lo raro es que eso también me pasa con la calificación que estoy escribiendo aquí.',
+      dice2:'Aún no: el anti- de antiguo se me seguía cayendo. Lo saqué del mazo, le escribí en el reverso "no está contra nada, viene de ante" y en el integrador ya no fallé.' },
+    '4': { t:'Dos renglones bien contestados',
+      d:['Uno con pieza:'],
+      dice:'Sacar la familia entera de una raíz → lo tengo: mi árbol de arqui- del campeonato, once palabras, y tres las verifiqué en el DECEL.',
+      dice2:'Leer mi horario en griego → aún no: se me atoró química. Me dijeron que llegó del árabe alquimia y no supe comprobarlo.',
+      fija:'Fíjate en el segundo: un "aún no" con el motivo exacto vale más en la conversación que una palomita sin nada detrás.' },
+    '5': { t:'Sus dos piezas',
+      d:['La palabra que descifró sola:'],
+      dice:'hemeroteca · hēmera (día) + thēkē (depósito): donde se guardan los diarios. La vi en un letrero de la biblioteca y la leí antes de preguntar. La comprobé en el DLE.',
+      dice2:'Mi mejor pieza es mi ficha de cosmético. Hace seis semanas habría escrito "crema para la cara" y ya. Hoy sé que viene de kósmos, orden, y que el maquillaje y el universo son literalmente la misma palabra: las dos ordenan algo.' },
+    '6': { t:'Así se marcó en la defensa',
+      d:['Tres criterios en bien y uno en aún no: el de la fuente.'],
+      dice:'Lo que me dijo el profesor: buena descomposición, pero cuando te pregunté cómo supiste que la fuente era confiable, contestaste "porque estaba en internet".',
+      fija:'Copiar la frase incómoda tal cual, sin suavizarla, es lo que hace creíble todo lo demás.' },
+    '7': { t:'Lo que sacó del ensayo',
+      d:['Contestó las tres en voz alta con su compañera de banca, y anotó lo único que importa de ahí:'],
+      dice:'Lo que me preguntaron y no supe contestar: en qué otra palabra vive esa raíz. Me quedé callada. Es lo primero que voy a resolver antes del lunes.' },
+    '8': { t:'Su frase completa',
+      d:['Propuso 8. Así quedó su porqué:'],
+      dice:'Llegué al cierre con el suelo completo. Mi serie muestra que me subestimo: las seis veces salí por encima de lo que aposté, y en el de diez por tres reactivos. Puedo sacar la familia entera de una raíz, y lo demuestro con mi árbol de arqui- del campeonato: once palabras, tres verificadas en el DECEL. Descifré hemeroteca yo sola, en un letrero de la biblioteca, sin que nadie me la enseñara. Todavía me falta la fuente: en la defensa dije "porque estaba en internet", y eso no es una fuente, es un lugar. Es lo primero que voy a arreglar en la unidad 2.',
+      fija:'Fíjate en lo que hace y en lo que no hace. No dice "me esforcé". No pide nada. Nombra una pieza que se puede ver, una que descifró sola, y su propia falla, sin disculparse por ella. Y propone 8, no 10.' }
+  };
+
+  var PREGUNTAS = [
+    { k:'p1', t:'¿Qué sabes hacer hoy que no sabías en agosto?', c:'Una cosa, concreta, con la pieza en la mano.' },
+    { k:'p2', t:'¿Con qué lo demuestras?', c:'Aquí se enseña, no se cuenta. Si no puedes señalar nada, falta buscar en el portafolio.' },
+    { k:'p3', t:'¿Qué te falta todavía?', c:'La respuesta honesta suma. “Nada” nunca es cierto y siempre se nota.' }
+  ];
+
+  /* ---------- navegación ---------- */
+  var pantallas = Array.prototype.slice.call(document.querySelectorAll('.pantalla'));
+  var TOTAL = pantallas.length;
+  var actual = 0;
+  var rail = document.getElementById('rail');
+  var btnAtras = document.getElementById('btnAtras');
+  var btnSig = document.getElementById('btnSig');
+  var donde = document.getElementById('donde');
+
+  pantallas.forEach(function(p, i){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Ir a ' + (p.getAttribute('data-titulo') || ('paso ' + i)));
+    b.addEventListener('click', function(){ ir(i); });
+    rail.appendChild(b);
+  });
+
+  function algunaEv(){
+    var n = 0;
+    Object.keys(D.ev || {}).forEach(function(k){ if (D.ev[k] && D.ev[k].e) n++; });
+    return n;
+  }
+  function conAlgo(i){
+    switch(i){
+      case 0: return !!val('nombre');
+      case 1: return (D.vistas || {})['1'] === 1;
+      case 2: return cuentaSuelo() > 0;
+      case 3: return !!(D.serie && Object.keys(D.serie).some(function(k){
+                return (D.serie[k].a || '') !== '' || (D.serie[k].s || '') !== ''; })) || !!val('serieTexto') || !!val('aunNo');
+      case 4: return algunaEv() > 0;
+      case 5: return !!(val('descifrada') || val('piezaCual'));
+      case 6: return !!(val('defensaProfe') || Object.keys(D.crit || {}).some(function(k){ return D.crit[k]; }));
+      case 7: return !!(val('p1') || val('p2') || val('p3') || val('ensayoHueco'));
+      case 8: return !!(numeroFinal() && val('frase'));
+      case 9: return !!(val('asentado') || val('acuerdos'));
+    }
+    return false;
+  }
+  function pintaRail(){
+    Array.prototype.forEach.call(rail.children, function(b, j){
+      b.classList.toggle('lleno', conAlgo(j));
+    });
+  }
+
+  function ir(i){
+    if (document.body.classList.contains('papel')) return;
+    actual = Math.max(0, Math.min(TOTAL - 1, i));
+    D.vistas = D.vistas || {};
+    D.vistas[actual] = 1;
+    pantallas.forEach(function(p, j){ p.classList.toggle('activa', j === actual); });
+    Array.prototype.forEach.call(rail.children, function(b, j){
+      b.classList.toggle('aqui', j === actual);
+      b.classList.toggle('vista', j < actual);
+      b.classList.toggle('lleno', conAlgo(j));
+    });
+    btnAtras.disabled = actual === 0;
+    btnSig.disabled = actual === TOTAL - 1;
+    btnSig.textContent = actual === 0 ? 'Empezar' : (actual === TOTAL - 2 ? 'Ver el resumen' : 'Siguiente');
+    donde.textContent = actual === 0 ? 'inicio' : actual + ' / ' + (TOTAL - 1);
+    if (actual === 8) { pintaBandeja(); pintaChecks(); }
+    if (actual === 9) { pintaResumen(); }
+    Array.prototype.forEach.call(pantallas[actual].querySelectorAll('textarea'), crece);
+    window.scrollTo(0, 0);
+  }
+  btnAtras.addEventListener('click', function(){ ir(actual - 1); });
+  btnSig.addEventListener('click', function(){ ir(actual + 1); });
+
+  /* deslizar con el dedo */
+  var x0 = null, y0 = null;
+  document.addEventListener('touchstart', function(e){
+    if (e.touches.length !== 1) { x0 = null; return; }
+    x0 = e.touches[0].clientX; y0 = e.touches[0].clientY;
+  }, { passive:true });
+  document.addEventListener('touchend', function(e){
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    var dy = e.changedTouches[0].clientY - y0;
+    x0 = null;
+    if (Math.abs(dx) < 70 || Math.abs(dx) < Math.abs(dy) * 1.6) return;
+    ir(actual + (dx < 0 ? 1 : -1));
+  }, { passive:true });
+
+  document.addEventListener('keydown', function(e){
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test((e.target.tagName || ''))) return;
+    if (e.key === 'ArrowRight') ir(actual + 1);
+    if (e.key === 'ArrowLeft') ir(actual - 1);
+  });
+
+  /* ---------- campos con data-k ---------- */
+  function crece(el){
+    if (!el || el.tagName !== 'TEXTAREA') return;
+    el.style.height = 'auto';
+    el.style.height = Math.max(el.scrollHeight, 60) + 'px';
+  }
+  function enlaza(el){
+    var k = el.getAttribute('data-k');
+    if (D[k] != null) el.value = D[k];
+    crece(el);
+    el.addEventListener('input', function(){
+      D[k] = el.value;
+      guardar();
+      crece(el);
+      if (k === 'frase') { D.fraseTocada = '1'; pintaChecks(); }
+    });
+  }
+  function enlazaTodos(raiz){
+    Array.prototype.forEach.call((raiz || document).querySelectorAll('[data-k]'), enlaza);
+  }
+
+  /* ---------- 2 · el suelo ---------- */
+  var cajaSuelo = document.getElementById('suelo');
+  var duelasEl = document.getElementById('duelas');
+  var pisoEl = document.getElementById('piso');
+  var pisoLeyenda = document.getElementById('pisoLeyenda');
+  var figura = document.getElementById('figura');
+  var cajaFalta = document.getElementById('cajaFalta');
+  D.suelo = D.suelo || {};
+
+  TABLAS.forEach(function(t){
+    var caja = document.createElement('div');
+    caja.className = 'tabla-caja' + (D.suelo[t.k] ? ' puesta' : '');
+    caja.innerHTML =
+      '<button type="button" class="tabla"><span class="caja"></span>' +
+      '<span><b>' + esc(t.t) + '</b><span class="det">' + esc(t.d) + '</span></span></button>' +
+      enlacesHTML(t.e, t.rot);
+    caja.querySelector('.tabla').addEventListener('click', function(){
+      D.suelo[t.k] = !D.suelo[t.k];
+      caja.classList.toggle('puesta', !!D.suelo[t.k]);
+      guardar(); pintaPiso(); pintaRail();
+    });
+    cajaSuelo.appendChild(caja);
+  });
+
+  function cuentaSuelo(){
+    return TABLAS.filter(function(t){ return D.suelo[t.k]; }).length;
+  }
+  function pintaPiso(){
+    var n = cuentaSuelo();
+    duelasEl.innerHTML = TABLAS.map(function(t){
+      return '<div class="duela' + (D.suelo[t.k] ? '' : ' falta') + '"></div>';
+    }).join('');
+    pisoEl.classList.toggle('completo', n === TABLAS.length);
+    figura.textContent = n === TABLAS.length ? '🧍' : (n >= 3 ? '🧍' : '🧍');
+    figura.style.opacity = n === 0 ? '.3' : (n === TABLAS.length ? '1' : '.7');
+    if (n === 0) pisoLeyenda.textContent = 'Todavía no marcas ninguna tabla.';
+    else if (n < TABLAS.length) pisoLeyenda.textContent = n + ' de ' + TABLAS.length + ' tablas puestas. Faltan ' + (TABLAS.length - n) + ': anótalas abajo y ponles fecha.';
+    else pisoLeyenda.textContent = 'Suelo completo. No repruebas. La conversación decide cuánto más.';
+    cajaFalta.style.display = (n > 0 && n < TABLAS.length) ? 'block' : 'none';
+  }
+
+  /* ---------- 3 · calibración ---------- */
+  var tbody = document.getElementById('serie');
+  D.serie = D.serie || {};
+  QUIZZES.forEach(function(q){
+    var tr = document.createElement('tr');
+    tr.innerHTML =
+      '<td class="q">' + esc(q.t) + '<em>' + esc(q.s) + '</em></td>' +
+      '<td><input type="number" inputmode="numeric" min="0" max="' + q.max + '" data-q="' + q.id + '" data-c="a" aria-label="Lo que apostaste en el quiz ' + esc(q.t) + '"><span class="de">de ' + q.max + '</span></td>' +
+      '<td><input type="number" inputmode="numeric" min="0" max="' + q.max + '" data-q="' + q.id + '" data-c="s" aria-label="Lo que sacaste en el quiz ' + esc(q.t) + '"><span class="de">de ' + q.max + '</span></td>';
+    tbody.appendChild(tr);
+  });
+  Array.prototype.forEach.call(tbody.querySelectorAll('input'), function(inp){
+    var q = inp.getAttribute('data-q'), c = inp.getAttribute('data-c');
+    D.serie[q] = D.serie[q] || {};
+    if (D.serie[q][c] != null) inp.value = D.serie[q][c];
+    inp.addEventListener('input', function(){
+      D.serie[q][c] = inp.value;
+      guardar(); pintaGrafica();
+    });
+  });
+
+  function parejas(){
+    return QUIZZES.map(function(q){
+      var r = D.serie[q.id] || {};
+      var a = r.a === '' || r.a == null ? null : Math.max(0, Math.min(q.max, +r.a));
+      var s = r.s === '' || r.s == null ? null : Math.max(0, Math.min(q.max, +r.s));
+      return { q:q, a:a, s:s, pa: a == null ? null : a / q.max, ps: s == null ? null : s / q.max };
+    });
+  }
+
+  var chart = document.getElementById('chart');
+  function pintaGrafica(){
+    var P = parejas();
+    var X0 = 30, X1 = 306, Y0 = 118, Y1 = 12;
+    function px(i){ return X0 + (X1 - X0) * (i / (P.length - 1)); }
+    function py(p){ return Y0 - (Y0 - Y1) * p; }
+    var g = '';
+    [0, 0.5, 1].forEach(function(v){
+      g += '<line x1="' + X0 + '" y1="' + py(v) + '" x2="' + X1 + '" y2="' + py(v) + '" stroke="#eadce6" stroke-width="1"/>';
+      g += '<text x="' + (X0 - 5) + '" y="' + (py(v) + 3.5) + '" text-anchor="end" font-size="8" fill="#9d8f9a">' + (v * 100) + '%</text>';
+    });
+    var lineaA = [], lineaS = [];
+    P.forEach(function(p, i){
+      if (p.pa != null) lineaA.push(px(i) + ',' + py(p.pa));
+      if (p.ps != null) lineaS.push(px(i) + ',' + py(p.ps));
+    });
+    if (lineaA.length > 1) g += '<polyline points="' + lineaA.join(' ') + '" fill="none" stroke="#6b1e5a" stroke-width="1.4" stroke-dasharray="4 3" opacity=".65"/>';
+    if (lineaS.length > 1) g += '<polyline points="' + lineaS.join(' ') + '" fill="none" stroke="#c8127a" stroke-width="2"/>';
+    P.forEach(function(p, i){
+      var x = px(i);
+      if (p.pa != null && p.ps != null) g += '<line x1="' + x + '" y1="' + py(p.pa) + '" x2="' + x + '" y2="' + py(p.ps) + '" stroke="#c8a0bd" stroke-width="1.2"/>';
+      if (p.pa != null) g += '<circle cx="' + x + '" cy="' + py(p.pa) + '" r="4" fill="#fff" stroke="#6b1e5a" stroke-width="2"/>';
+      if (p.ps != null) g += '<circle cx="' + x + '" cy="' + py(p.ps) + '" r="4.5" fill="#c8127a"/>';
+      g += '<text x="' + x + '" y="134" text-anchor="middle" font-size="8.5" fill="#6b1e5a" font-weight="bold">' + (i < 5 ? '#' + (i + 1) : 'int') + '</text>';
+    });
+    chart.innerHTML = g;
+    pintaLectura(P);
+  }
+
+  function brechas(){
+    return parejas().filter(function(p){ return p.pa != null && p.ps != null; })
+      .map(function(p){ return { i:p, d:(p.ps - p.pa) * 100 }; });
+  }
+
+  function lecturaSerie(){
+    var B = brechas();
+    if (B.length < 2) return null;
+    var suma = B.reduce(function(a, b){ return a + b.d; }, 0);
+    var prom = suma / B.length;
+    var mitad = Math.ceil(B.length / 2);
+    var absIni = B.slice(0, mitad).reduce(function(a, b){ return a + Math.abs(b.d); }, 0) / mitad;
+    var resto = B.slice(mitad);
+    var absFin = resto.length ? resto.reduce(function(a, b){ return a + Math.abs(b.d); }, 0) / resto.length : absIni;
+    var cierra = resto.length && absFin < absIni - 6;
+    var cola = cierra
+      ? ' Y hay algo más: tu brecha se está cerrando, de ' + Math.round(absIni) + ' puntos al principio a ' + Math.round(absFin) + ' en los últimos quizzes. Te estás conociendo mejor, que es justo lo que este curso entrena.'
+      : '';
+    var colaCorta = cierra ? ', y mi brecha se fue cerrando de ' + Math.round(absIni) + ' puntos a ' + Math.round(absFin) : '';
+    if (prom > 12) return {
+      t:'Apuestas de menos y sales mejor',
+      d:'En promedio sacas ' + Math.round(prom) + ' puntos de cada cien por encima de lo que apuestas. Sabes más de lo que crees. Súbele a tu medidor interno, y ojo: eso aplica también a la calificación que estás por proponer.' + cola,
+      corto:'mi serie muestra que me subestimo: salgo en promedio ' + Math.round(prom) + ' puntos por encima de lo que apuesto' + colaCorta
+    };
+    if (prom < -12) return {
+      t:'Apuestas de más y sales por debajo',
+      d:'En promedio sales ' + Math.round(Math.abs(prom)) + ' puntos de cada cien por debajo de lo que apostaste. No es una falla moral: es información. Falta ver dónde se te escapa. Nombra el tema en el renglón de “aún no” y ya tienes plan.' + cola,
+      corto:'mi serie muestra que me sobreestimo: salgo en promedio ' + Math.round(Math.abs(prom)) + ' puntos por debajo de lo que apuesto' + colaCorta
+    };
+    if (cierra) return {
+      t:'Tus dos columnas se están acercando',
+      d:'Al principio te equivocabas por ' + Math.round(absIni) + ' puntos de cada cien al predecirte; en los últimos quizzes, por ' + Math.round(absFin) + '. Te estás conociendo mejor, y eso es exactamente lo que este curso entrena. Es un argumento de peso: dilo en tu frase.',
+      corto:'mi serie de calibración se fue cerrando: al principio me equivocaba por ' + Math.round(absIni) + ' puntos al predecirme y ya voy en ' + Math.round(absFin)
+    };
+    return {
+      t:'Te predices bien',
+      d:'Tu brecha promedio es de ' + Math.round(Math.abs(prom)) + ' puntos de cada cien: apuestas casi exactamente lo que sacas. Conocerte así es una de las cosas que este curso enseña, y no todos llegan aquí.',
+      corto:'mi serie muestra que me predigo bien: mi brecha promedio es de ' + Math.round(Math.abs(prom)) + ' puntos de cada cien'
+    };
+  }
+
+  var lecturaEl = document.getElementById('lecturaSerie');
+  function pintaLectura(){
+    var L = lecturaSerie();
+    if (!L) {
+      lecturaEl.innerHTML = '<b>Llena al menos dos renglones</b>Con dos parejas de números ya se puede leer algo. Con las seis, se lee tu semestre.';
+      return;
+    }
+    lecturaEl.innerHTML = '<b>' + esc(L.t) + '</b>' + esc(L.d);
+  }
+
+  /* ---------- 4 · evidencias ---------- */
+  var evEl = document.getElementById('evidencias');
+  D.ev = D.ev || {};
+  EVID.forEach(function(bloque){
+    var h = document.createElement('div');
+    h.className = 'sem';
+    h.textContent = bloque.s;
+    evEl.appendChild(h);
+    bloque.l.forEach(function(item){
+      D.ev[item.k] = D.ev[item.k] || { e:'', t:'' };
+      var caja = document.createElement('div');
+      caja.className = 'ev';
+      caja.innerHTML =
+        '<p>' + esc(item.t) + '<span class="fuente">' + esc(item.f) + '</span></p>' +
+        enlacesHTML(item.e, 'ábrelo y checa') +
+        '<div class="botones">' +
+          '<button type="button" class="si">Lo tengo</button>' +
+          '<button type="button" class="no">Aún no</button>' +
+        '</div>' +
+        '<div class="conque"><input type="text" placeholder="¿Con qué lo demuestras?"></div>';
+      var bs = caja.querySelector('.si'), bn = caja.querySelector('.no');
+      var inp = caja.querySelector('.conque input');
+      inp.value = D.ev[item.k].t || '';
+      function pinta(){
+        var e = D.ev[item.k].e;
+        bs.classList.toggle('on', e === 'si');
+        bn.classList.toggle('on', e === 'no');
+        caja.classList.toggle('abierto', e === 'si');
+        caja.classList.toggle('tengo', e === 'si');
+        caja.classList.toggle('aunno', e === 'no');
+      }
+      bs.addEventListener('click', function(){ D.ev[item.k].e = (D.ev[item.k].e === 'si' ? '' : 'si'); pinta(); guardar(); pintaMedidor(); pintaRail(); });
+      bn.addEventListener('click', function(){ D.ev[item.k].e = (D.ev[item.k].e === 'no' ? '' : 'no'); pinta(); guardar(); pintaMedidor(); pintaRail(); });
+      inp.addEventListener('input', function(){ D.ev[item.k].t = inp.value; guardar(); });
+      pinta();
+      evEl.appendChild(caja);
+    });
+  });
+
+  var TOTAL_EV = EVID.reduce(function(a, b){ return a + b.l.length; }, 0);
+  var medBarra = document.getElementById('medBarra');
+  var medTxt = document.getElementById('medTxt');
+  function conteoEv(){
+    var si = 0, no = 0, conPieza = 0;
+    Object.keys(D.ev).forEach(function(k){
+      if (D.ev[k].e === 'si') { si++; if ((D.ev[k].t || '').trim()) conPieza++; }
+      if (D.ev[k].e === 'no') no++;
+    });
+    return { si:si, no:no, conPieza:conPieza };
+  }
+  function pintaMedidor(){
+    var c = conteoEv();
+    medBarra.style.width = Math.round((c.si + c.no) / TOTAL_EV * 100) + '%';
+    if (!c.si && !c.no) { medTxt.textContent = 'Sin contestar todavía.'; return; }
+    medTxt.textContent = c.si + ' con evidencia · ' + c.no + ' en aún no · ' + (TOTAL_EV - c.si - c.no) + ' sin contestar'
+      + (c.si && c.conPieza < c.si ? ' — y ' + (c.si - c.conPieza) + ' sin decir con qué' : '');
+  }
+
+  /* ---------- el ejemplo, paso por paso ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('.ej-slot'), function(slot){
+    var e = EJEMPLOS[slot.getAttribute('data-ej')];
+    if (!e) return;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'btn-ejemplo';
+    btn.textContent = 'Ver un ejemplo';
+    var caja = document.createElement('div');
+    caja.className = 'ejemplo';
+    caja.innerHTML = '<div class="rotulo">Ejemplo · no es tuyo</div>' +
+      '<p><strong>' + esc(e.t) + '</strong></p>' +
+      (e.d || []).map(function(x){ return '<p>' + esc(x) + '</p>'; }).join('') +
+      (e.dice ? '<p class="dice">' + esc(e.dice) + '</p>' : '') +
+      (e.dice2 ? '<p class="dice">' + esc(e.dice2) + '</p>' : '') +
+      (e.fija ? '<p class="fija">' + esc(e.fija) + '</p>' : '');
+    btn.addEventListener('click', function(){
+      var abierto = caja.classList.toggle('ver');
+      btn.textContent = abierto ? 'Cerrar el ejemplo' : 'Ver un ejemplo';
+    });
+    slot.appendChild(btn);
+    slot.appendChild(caja);
+  });
+
+  /* ---------- 6 · criterios ---------- */
+  var critEl = document.getElementById('criterios');
+  D.crit = D.crit || {};
+  CRITERIOS.forEach(function(c){
+    var caja = document.createElement('div');
+    caja.className = 'crit';
+    caja.innerHTML = '<p>' + esc(c.t) + '</p><div class="par"><button type="button" class="b">Bien</button><button type="button" class="a">Aún no</button></div>';
+    var bb = caja.querySelector('.b'), ba = caja.querySelector('.a');
+    function pinta(){ bb.classList.toggle('on', D.crit[c.k] === 'b'); ba.classList.toggle('on', D.crit[c.k] === 'a'); }
+    bb.addEventListener('click', function(){ D.crit[c.k] = D.crit[c.k] === 'b' ? '' : 'b'; pinta(); guardar(); pintaRail(); });
+    ba.addEventListener('click', function(){ D.crit[c.k] = D.crit[c.k] === 'a' ? '' : 'a'; pinta(); guardar(); pintaRail(); });
+    pinta();
+    critEl.appendChild(caja);
+  });
+
+  /* ---------- 7 · ensayo con reloj ---------- */
+  var ensEl = document.getElementById('ensayo');
+  PREGUNTAS.forEach(function(p, i){
+    var caja = document.createElement('div');
+    caja.className = 'preg';
+    caja.innerHTML =
+      '<b>' + (i + 1) + '. ' + esc(p.t) + '</b>' +
+      '<div class="comose">' + esc(p.c) + '</div>' +
+      '<div class="reloj"><button type="button">Un minuto, en voz alta</button><span class="num">1:00</span></div>' +
+      '<label class="campo"><span>En una línea, lo que dijiste</span><input type="text" data-k="' + p.k + '"></label>';
+    var btn = caja.querySelector('button'), num = caja.querySelector('.num'), fila = caja.querySelector('.reloj');
+    var t = null, seg = 60;
+    btn.addEventListener('click', function(){
+      if (t) { clearInterval(t); t = null; fila.classList.remove('corriendo'); btn.textContent = 'Un minuto, en voz alta'; num.textContent = '1:00'; seg = 60; return; }
+      seg = 60; fila.classList.add('corriendo'); btn.textContent = 'Parar';
+      num.textContent = '1:00';
+      t = setInterval(function(){
+        seg--;
+        num.textContent = '0:' + (seg < 10 ? '0' : '') + seg;
+        if (seg <= 0) { clearInterval(t); t = null; fila.classList.remove('corriendo'); btn.textContent = 'Otra vez'; num.textContent = 'listo'; }
+      }, 1000);
+    });
+    ensEl.appendChild(caja);
+  });
+
+  /* ---------- 8 · la frase ---------- */
+  var numerosEl = document.getElementById('numeros');
+  var numMuestra = document.getElementById('numMuestra');
+  var mitadEl = document.getElementById('mitad');
+  [5, 6, 7, 8, 9, 10].forEach(function(n){
+    var b = document.createElement('button');
+    b.type = 'button'; b.textContent = n;
+    b.addEventListener('click', function(){ D.num = String(n); if (n === 10) { D.mitad = ''; mitadEl.checked = false; } pintaNumero(); guardar(); pintaChecks(); pintaResumen(); });
+    numerosEl.appendChild(b);
+  });
+  mitadEl.addEventListener('change', function(){
+    D.mitad = mitadEl.checked ? '1' : '';
+    if (D.num === '10') { mitadEl.checked = false; D.mitad = ''; }
+    pintaNumero(); guardar(); pintaResumen();
+  });
+  function numeroFinal(){
+    if (!D.num) return '';
+    return D.num + (D.mitad === '1' && D.num !== '10' ? '.5' : '');
+  }
+  function pintaNumero(){
+    Array.prototype.forEach.call(numerosEl.children, function(b){ b.classList.toggle('on', b.textContent === D.num); });
+    mitadEl.checked = D.mitad === '1';
+    var n = numeroFinal();
+    numMuestra.textContent = n || '—';
+  }
+
+  function piezas(){
+    var out = [];
+    var L = lecturaSerie();
+    if (val('serieTexto')) out.push({ id:'ser1', tipo:'calibración', t:val('serieTexto') });
+    else if (L) out.push({ id:'ser2', tipo:'calibración', t:L.corto });
+    if (cuentaSuelo() === TABLAS.length) out.push({ id:'suelo', tipo:'suelo', t:'llegué al cierre con el suelo completo: los seis quizzes intentados, mi pieza del Museo con ficha, la defensa en parejas, el círculo de lectura, la bitácora viva y el mazo vivo' });
+    if (val('descifrada')) out.push({ id:'desc', tipo:'pieza', t:'descifré ' + val('descifrada') + ' yo solo, fuera de clase' + (val('descifradaPiezas') ? ' (' + val('descifradaPiezas') + ')' : '') });
+    if (val('piezaCual')) out.push({ id:'pieza', tipo:'pieza', t:'la pieza que mejor me representa es ' + val('piezaCual') + (val('piezaPorque') ? ': ' + val('piezaPorque') : '') });
+    if (val('piezaAntes')) out.push({ id:'antes', tipo:'pieza', t:'hace seis semanas ' + val('piezaAntes') });
+    if (val('defensaProfe')) out.push({ id:'def', tipo:'pieza', t:'en mi defensa en parejas el profesor anotó: ' + val('defensaProfe') });
+    Object.keys(D.ev).forEach(function(k){
+      var r = D.ev[k];
+      if (r.e === 'si' && (r.t || '').trim()) {
+        var texto = '';
+        EVID.forEach(function(b){ b.l.forEach(function(it){ if (it.k === k) texto = it.t; }); });
+        out.push({ id:'ev' + k, tipo:'pieza', t:'puedo ' + texto.charAt(0).toLowerCase() + texto.slice(1) + ', y lo demuestro con ' + r.t.trim() });
+      }
+    });
+    if (val('aunNo')) out.push({ id:'aun', tipo:'aún no', t:'todavía me falta: ' + val('aunNo') });
+    if (val('ensayoHueco')) out.push({ id:'hueco', tipo:'aún no', t:'en el ensayo no supe contestar ' + val('ensayoHueco') + ', y es lo primero que voy a resolver' });
+    Object.keys(D.crit).forEach(function(k){
+      if (D.crit[k] === 'a') {
+        var texto = '';
+        CRITERIOS.forEach(function(c){ if (c.k === k) texto = c.t; });
+        out.push({ id:'cr' + k, tipo:'aún no', t:'en mi defensa quedó en aún no: ' + texto.charAt(0).toLowerCase() + texto.slice(1) });
+      }
+    });
+    if (val('p1')) out.push({ id:'p1', tipo:'lo que sé hoy', t:val('p1') });
+    return out;
+  }
+
+  var bandejaEl = document.getElementById('bandeja');
+  D.usadas = D.usadas || {};
+  function pintaBandeja(){
+    pintaNumero();
+    var P = piezas();
+    if (!P.length) {
+      bandejaEl.innerHTML = '<p class="mini">Todavía no hay piezas: regresa a los pasos anteriores y escribe algo. Con dos o tres frases ya se arma esto solo.</p>';
+      return;
+    }
+    bandejaEl.innerHTML = '';
+    P.forEach(function(p){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'chip' + (D.usadas[p.id] ? ' on' : '');
+      b.innerHTML = '<i>' + esc(p.tipo) + '</i>' + esc(p.t);
+      b.addEventListener('click', function(){
+        D.usadas[p.id] = !D.usadas[p.id];
+        b.classList.toggle('on', !!D.usadas[p.id]);
+        guardar();
+        if (D.fraseTocada !== '1') arma();
+        pintaChecks();
+      });
+      bandejaEl.appendChild(b);
+    });
+  }
+
+  var fraseEl = document.getElementById('frase');
+  function arma(){
+    var P = piezas().filter(function(p){ return D.usadas[p.id]; });
+    if (!P.length) return;
+    var t = P.map(function(p){
+      var s = p.t.trim().replace(/[.;]+$/, '');
+      return s.charAt(0).toUpperCase() + s.slice(1);
+    }).join('. ') + '.';
+    fraseEl.value = t;
+    D.frase = t;
+    guardar();
+    crece(fraseEl);
+    pintaChecks();
+  }
+  document.getElementById('rearmar').addEventListener('click', function(){
+    D.fraseTocada = '';
+    arma();
+  });
+
+  var checksEl = document.getElementById('checks');
+  function pintaChecks(){
+    var t = (fraseEl.value || '');
+    var bajo = t.toLowerCase();
+    var P = piezas();
+    var usadas = P.filter(function(p){ return D.usadas[p.id]; });
+    var tienePieza = usadas.some(function(p){ return p.tipo === 'pieza'; }) ||
+      /(defens|pieza|museo|ficha|quiz|bit[áa]cora|crucigrama|[áa]rbol|matriz|tarjeta|descifr|monstruo|campeonato)/i.test(t);
+    var tieneCal = usadas.some(function(p){ return p.tipo === 'calibración'; }) ||
+      /(apost|calibra|predi|brecha|serie)/i.test(bajo);
+    var tieneAun = usadas.some(function(p){ return p.tipo === 'aún no'; }) ||
+      /(a[úu]n no|todav[íi]a|me falta|no domino|no s[ée])/i.test(bajo);
+    var veto = /(me esforc|necesito el|necesito un|para mi promedio|para la beca|por favor|nunca falt)/i.test(bajo);
+    var hayNum = !!numeroFinal();
+    var largo = t.trim().length >= 120;
+    var lista = [
+      { ok:hayNum, t:'Elegiste un número.' },
+      { ok:tienePieza, t:'Tu porqué menciona por lo menos una pieza concreta que se puede ver.' },
+      { ok:tieneCal, t:'Mencionaste tu serie de calibración, aunque sea en una línea.' },
+      { ok:tieneAun, t:'Dijiste algo que todavía no dominas, sin excusarte por ello.' },
+      { ok:largo, t:'Tiene cuerpo: más de un renglón. Una frase de diez palabras no sostiene nada.' },
+      { ok:!veto, alerta:veto, t: veto ? 'Hay algo que no cuenta como argumento (“me esforcé”, “necesito el diez”, “nunca falté”). Cámbialo por una pieza.' : 'No metiste nada de lo que no cuenta como argumento.' }
+    ];
+    checksEl.innerHTML = lista.map(function(c){
+      return '<div class="check' + (c.alerta ? ' alerta' : (c.ok ? ' ok' : '')) + '"><span class="m"></span><span>' + esc(c.t) + '</span></div>';
+    }).join('') +
+    '<p class="mini" style="margin-top:.5rem">Y una más que no puede revisar ninguna pantalla: <strong>léela en voz alta una vez</strong>. Si te da pena, no es la frase.</p>';
+  }
+
+  function textoParaFormulario(){
+    var n = numeroFinal();
+    return 'Propongo ' + (n || '____') + ' como mi primer parcial, porque:\n\n' +
+      (fraseEl.value || '').trim() +
+      '\n\n— ' + (val('nombre') || 'sin nombre') + (val('grupo') ? ' · ' + val('grupo') : '');
+  }
+
+  var avisoCopia = document.getElementById('avisoCopia');
+  document.getElementById('btnCopiar').addEventListener('click', function(){
+    alPortapapeles(textoParaFormulario(), function(){
+      avisoCopia.classList.add('ver');
+      setTimeout(function(){ avisoCopia.classList.remove('ver'); }, 4000);
+    });
+  });
+
+  /* ---------- 9 · resumen para la conversación ---------- */
+  var resumenEl = document.getElementById('resumen');
+  function pintaResumen(){
+    var c = conteoEv();
+    var L = lecturaSerie();
+    var n = numeroFinal();
+    var tablitas = TABLAS.map(function(t){ return '<i class="' + (D.suelo[t.k] ? 'on' : '') + '"></i>'; }).join('');
+    var evFuertes = [];
+    Object.keys(D.ev).forEach(function(k){
+      var r = D.ev[k];
+      if (r.e === 'si' && (r.t || '').trim()) {
+        var texto = '';
+        EVID.forEach(function(b){ b.l.forEach(function(it){ if (it.k === k) texto = it.t; }); });
+        evFuertes.push(texto + ' → ' + r.t.trim());
+      }
+    });
+    resumenEl.innerHTML =
+      '<div class="cabeza">' +
+        '<div class="quien">' + esc(val('nombre') || 'Sin nombre todavía') + '</div>' +
+        '<div class="cual">Primer parcial · Unidad 1' + (val('grupo') ? ' · ' + esc(val('grupo')) : '') + '</div>' +
+      '</div>' +
+      '<div class="cuerpo">' +
+        '<div class="granumero"><b' + (n ? '' : ' style="color:#cdbcc8"') + '>' + esc(n || '?') + '</b><span>' +
+          (n ? 'es lo que propongo' : 'todavía no eliges tu número — está en el paso 8') + '</span></div>' +
+        '<div class="tablitas">' + tablitas + '</div>' +
+        '<p class="mini" style="margin:.2rem 0 0">Suelo: ' + cuentaSuelo() + ' de ' + TABLAS.length + ' tablas' + (cuentaSuelo() === TABLAS.length ? ' · completo' : (val('sueloFalta') ? ' · ' + esc(val('sueloFalta')) : '')) + '</p>' +
+        '<dl>' +
+          '<dt>Calibración</dt><dd>' + esc(L ? L.t + '. ' + (val('serieTexto') || '') : 'sin llenar') + '</dd>' +
+          '<dt>Evidencias</dt><dd>' + c.si + ' con pieza · ' + c.no + ' en aún no' +
+            (evFuertes.length ? '<br><span class="mini">' + evFuertes.slice(0, 3).map(esc).join('<br>') + '</span>' : '') + '</dd>' +
+          '<dt>Mi mejor pieza</dt><dd>' + esc(val('piezaCual') || 'sin llenar') + (val('piezaPorque') ? '<br><span class="mini">' + esc(val('piezaPorque')) + '</span>' : '') + '</dd>' +
+          '<dt>La que descifré yo solo</dt><dd>' + esc(val('descifrada') || 'sin llenar') + '</dd>' +
+          '<dt>Lo que todavía me falta</dt><dd>' + esc(val('aunNo') || val('ensayoHueco') || 'sin llenar') + '</dd>' +
+          '<dt>Mi porqué, completo</dt><dd>' + esc(val('frase') || 'sin escribir') + '</dd>' +
+        '</dl>' +
+      '</div>';
+  }
+
+  /* ---------- descarga del expediente ---------- */
+  function fechaHoy(){
+    return new Date().toLocaleDateString('es-MX', { day:'numeric', month:'long', year:'numeric' });
+  }
+  function documento(){
+    var c = conteoEv();
+    var L = lecturaSerie();
+    var fila = function(t, d){ return '<tr><th style="text-align:left;vertical-align:top;padding:.35rem .5rem;border-bottom:1px solid #eadce6;color:#6b1e5a;width:34%">' + esc(t) + '</th><td style="padding:.35rem .5rem;border-bottom:1px solid #eadce6">' + (d || '<i style="color:#999">sin llenar</i>') + '</td></tr>'; };
+    var serieFilas = QUIZZES.map(function(q){
+      var r = D.serie[q.id] || {};
+      return '<tr><td style="padding:.25rem .5rem;border-bottom:1px solid #eee">' + esc(q.t) + '</td>' +
+        '<td style="padding:.25rem .5rem;border-bottom:1px solid #eee;text-align:center">' + esc(r.a || '—') + '</td>' +
+        '<td style="padding:.25rem .5rem;border-bottom:1px solid #eee;text-align:center">' + esc(r.s || '—') + '</td>' +
+        '<td style="padding:.25rem .5rem;border-bottom:1px solid #eee;text-align:center">de ' + q.max + '</td></tr>';
+    }).join('');
+    var evFilas = [];
+    EVID.forEach(function(b){
+      b.l.forEach(function(it){
+        var r = D.ev[it.k] || {};
+        if (!r.e) return;
+        evFilas.push('<li><b>' + esc(it.t) + '</b> — ' + (r.e === 'si' ? 'lo tengo' + (r.t ? ': ' + esc(r.t) : '') : 'aún no') + '</li>');
+      });
+    });
+    return '<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">' +
+      '<meta name="viewport" content="width=device-width, initial-scale=1">' +
+      '<title>Mi primer parcial · Unidad 1 · ' + esc(val('nombre')) + '</title></head>' +
+      '<body style="font-family:Georgia,serif;max-width:720px;margin:2rem auto;padding:0 1rem;color:#222;line-height:1.6">' +
+      '<p style="font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:#c8127a;font-weight:bold">Etimologías Grecolatinas · UAQ Campus Concá</p>' +
+      '<h1 style="color:#6b1e5a;margin:.2rem 0">Mi primer parcial</h1>' +
+      '<p style="color:#666;margin:.1rem 0 1.2rem">Autoevaluación de la Unidad 1 · ' + esc(val('nombre') || 'sin nombre') + (val('grupo') ? ' · ' + esc(val('grupo')) : '') + ' · llenada el ' + fechaHoy() + '</p>' +
+      '<div style="border:2px solid #6b1e5a;border-radius:.6rem;padding:1rem 1.2rem;background:#fbf4f9">' +
+      '<p style="margin:0;font-size:1.15rem;color:#6b1e5a"><b>Propongo ' + esc(numeroFinal() || '____') + ' como mi primer parcial, porque:</b></p>' +
+      '<p style="margin:.5rem 0 0;white-space:pre-wrap">' + esc(val('frase') || 'sin escribir') + '</p></div>' +
+      '<h2 style="color:#6b1e5a;font-size:1.15rem;margin-top:1.6rem">El suelo</h2>' +
+      '<ul style="padding-left:1.2rem">' + TABLAS.map(function(t){
+        return '<li>' + (D.suelo[t.k] ? '✔' : '✗') + ' ' + esc(t.t) + '</li>';
+      }).join('') + '</ul>' +
+      (val('sueloFalta') ? '<p><b>Lo que falta y cuándo lo repongo:</b> ' + esc(val('sueloFalta')) + '</p>' : '') +
+      '<h2 style="color:#6b1e5a;font-size:1.15rem;margin-top:1.4rem">Mi serie de calibración</h2>' +
+      '<table style="border-collapse:collapse;width:100%;font-size:.92rem"><tr style="color:#6b1e5a"><th style="text-align:left;padding:.25rem .5rem">Quiz</th><th style="padding:.25rem .5rem">Aposté</th><th style="padding:.25rem .5rem">Salió</th><th style="padding:.25rem .5rem">Máximo</th></tr>' + serieFilas + '</table>' +
+      (L ? '<p><b>' + esc(L.t) + '.</b> ' + esc(L.d) + '</p>' : '') +
+      (val('serieTexto') ? '<p><b>En mis palabras:</b> ' + esc(val('serieTexto')) + '</p>' : '') +
+      '<h2 style="color:#6b1e5a;font-size:1.15rem;margin-top:1.4rem">Mis evidencias</h2>' +
+      '<p style="color:#666">' + c.si + ' con pieza concreta · ' + c.no + ' en aún no · de ' + TOTAL_EV + '</p>' +
+      (evFilas.length ? '<ul style="padding-left:1.2rem;font-size:.94rem">' + evFilas.join('') + '</ul>' : '') +
+      '<h2 style="color:#6b1e5a;font-size:1.15rem;margin-top:1.4rem">Lo demás</h2>' +
+      '<table style="border-collapse:collapse;width:100%;font-size:.94rem">' +
+      fila('La palabra que descifré yo solo', esc(val('descifrada')) + (val('descifradaPiezas') ? ' — ' + esc(val('descifradaPiezas')) : '') + (val('descifradaFuente') ? '<br><i>' + esc(val('descifradaFuente')) + '</i>' : '')) +
+      fila('La pieza que mejor me representa', esc(val('piezaCual')) + (val('piezaPorque') ? '<br>' + esc(val('piezaPorque')) : '')) +
+      fila('Qué habría hecho hace seis semanas', esc(val('piezaAntes'))) +
+      fila('Mi defensa · lo que dijo el profesor', esc(val('defensaProfe'))) +
+      fila('Lo que quedó en aún no', esc(val('aunNo'))) +
+      fila('Lo que no supe contestar en el ensayo', esc(val('ensayoHueco'))) +
+      fila('Lo que se asentó en la conversación', esc(val('asentado')) + (val('asentadoFecha') ? ' · ' + esc(val('asentadoFecha')) : '')) +
+      fila('Acuerdos para la unidad 2', esc(val('acuerdos'))) +
+      '</table>' +
+      '<p style="margin-top:1.6rem;color:#8a6c80;font-size:.9rem">Guarda este archivo en tu expediente. En la semana 12 vas a hacer esto otra vez, y lo primero que vas a querer es releer lo que escribiste hoy.</p>' +
+      '<details style="margin-top:1.4rem;border:1px dashed #d9c3d4;border-radius:.5rem;padding:.7rem .9rem;background:#fbf4f9">' +
+      '<summary style="cursor:pointer;color:#6b1e5a;font-weight:bold">Tu código de respaldo</summary>' +
+      '<p style="font-size:.88rem;color:#555">Si cambias de teléfono o se te borra el navegador, copia este código completo y pégalo en <i>Pegar un respaldo</i>, dentro de la autoevaluación. Vuelve todo a su lugar.</p>' +
+      '<textarea readonly style="width:100%;min-height:6rem;font-family:monospace;font-size:.72rem;border:1px solid #d9c3d4;border-radius:.4rem;padding:.5rem">' + esc(codigoRespaldo()) + '</textarea>' +
+      '</details>' +
+      '</body></html>';
+  }
+  function descarga(){
+    var blob = new Blob([documento()], { type:'text/html' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'mi-primer-parcial-u1' + (val('nombre') ? '-' + val('nombre').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') : '') + '.html';
+    document.body.appendChild(a); a.click(); a.remove();
+  }
+  document.getElementById('btnDescargar').addEventListener('click', descarga);
+  document.getElementById('btnDescargar2').addEventListener('click', descarga);
+
+  /* ---------- respaldo portátil ----------
+     El código es el estado completo en base64, con un prefijo que lo hace
+     reconocible a simple vista. Cabe en un mensaje de WhatsApp y no necesita
+     servidor: es la única forma de que nadie pierda su trabajo al cambiar de
+     teléfono o al borrar los datos del navegador. */
+  var PREFIJO = 'ETIM1·';
+  function aBase64(txt){
+    if (window.TextEncoder) {
+      var arr = new TextEncoder().encode(txt), bin = '';
+      for (var i = 0; i < arr.length; i++) bin += String.fromCharCode(arr[i]);
+      return btoa(bin);
+    }
+    return btoa(unescape(encodeURIComponent(txt)));
+  }
+  function deBase64(b64){
+    var bin = atob(b64);
+    if (window.TextDecoder) {
+      var arr = new Uint8Array(bin.length);
+      for (var i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+      return new TextDecoder().decode(arr);
+    }
+    return decodeURIComponent(escape(bin));
+  }
+  function codigoRespaldo(){
+    try { return PREFIJO + aBase64(JSON.stringify(D)); } catch(e){ return ''; }
+  }
+  function alPortapapeles(t, listo, falla){
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(t).then(listo, function(){ manual(); });
+    } else manual();
+    function manual(){
+      var ta = document.createElement('textarea');
+      ta.value = t; ta.style.position = 'fixed'; ta.style.left = '-9999px';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch(e){}
+      ta.remove();
+      if (ok) listo(); else (falla || function(){ window.prompt('Copia esto:', t); })();
+    }
+  }
+
+  /* ---------- la hoja de opciones ---------- */
+  var velo = document.getElementById('velo');
+  var hoja = document.getElementById('hoja');
+  var cajaPegar = document.getElementById('cajaPegar');
+  var txtPegar = document.getElementById('txtPegar');
+  var avisoPegar = document.getElementById('avisoPegar');
+
+  function abreHoja(){ velo.classList.add('ver'); hoja.classList.add('ver'); }
+  function cierraHoja(){
+    velo.classList.remove('ver'); hoja.classList.remove('ver');
+    cajaPegar.style.display = 'none'; avisoPegar.textContent = '';
+    document.getElementById('opCopiar').querySelector('b').textContent = 'Copiar mi respaldo';
+  }
+  document.getElementById('btnMenu').addEventListener('click', abreHoja);
+  velo.addEventListener('click', cierraHoja);
+  document.getElementById('opCerrar').addEventListener('click', cierraHoja);
+
+  document.getElementById('opPapel').addEventListener('click', function(){
+    cierraHoja();
+    document.body.classList.add('papel');
+    window.scrollTo(0, 0);
+    setTimeout(function(){
+      window.print();
+      document.body.classList.remove('papel');
+      ir(actual);
+    }, 400);
+  });
+
+  document.getElementById('opCopiar').addEventListener('click', function(){
+    var b = this.querySelector('b');
+    var c = codigoRespaldo();
+    if (!c) { b.textContent = 'No se pudo generar el respaldo'; return; }
+    alPortapapeles(c, function(){
+      b.textContent = 'Copiado · pégalo en tu WhatsApp';
+    }, function(){
+      b.textContent = 'Cópialo a mano de la caja de abajo';
+      cajaPegar.style.display = 'block';
+      txtPegar.value = c;
+    });
+  });
+
+  document.getElementById('opPegar').addEventListener('click', function(){
+    cajaPegar.style.display = 'block';
+    txtPegar.value = '';
+    avisoPegar.textContent = '';
+    txtPegar.focus();
+  });
+
+  document.getElementById('opRestaurar').addEventListener('click', function(){
+    var c = (txtPegar.value || '').trim();
+    if (c.indexOf(PREFIJO) === 0) c = c.slice(PREFIJO.length);
+    c = c.replace(/\s+/g, '');
+    var datos = null;
+    try { datos = JSON.parse(deBase64(c)); } catch(e){ datos = null; }
+    if (!datos || typeof datos !== 'object' || Array.isArray(datos)) {
+      avisoPegar.textContent = 'Ese código no se entiende. Cópialo completo, desde ETIM1· hasta el final.';
+      return;
+    }
+    var pinta = !!(datos.nombre || datos.serie || datos.ev || datos.suelo || datos.frase);
+    if (!pinta) {
+      avisoPegar.textContent = 'El código se lee, pero viene vacío. ¿Será otro?';
+      return;
+    }
+    if (!window.confirm('Esto reemplaza lo que tengas escrito aquí por lo del respaldo. ¿Va?')) return;
+    try { localStorage.setItem(CLAVE, JSON.stringify(datos)); } catch(e){}
+    location.reload();
+  });
+
+  document.getElementById('opBorrar').addEventListener('click', function(){
+    if (!window.confirm('¿Seguro? Se borra todo lo que escribiste en este teléfono. Si no copiaste tu respaldo, no se puede recuperar.')) return;
+    try { localStorage.removeItem(CLAVE); } catch(e){}
+    location.reload();
+  });
+
+  /* ---------- arranque ---------- */
+  enlazaTodos(document);
+  pintaRail();
+  pintaPiso();
+  pintaGrafica();
+  pintaMedidor();
+  pintaNumero();
+  pintaBandeja();
+  pintaChecks();
+  pintaResumen();
+  ir(0);
+})();
+</script>
+
+</body>
+</html>

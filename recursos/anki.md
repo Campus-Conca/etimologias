@@ -10,6 +10,9 @@ Aquí no se estudia releyendo. Se entrena.
 
 Tu **gimnasio de palabras** es tu mazo de tarjetas y los diez minutos diarios que pasas con él. Puede ser digital (Anki) o de papel (caja Leitner): las dos opciones son igual de oficiales en este curso y hacen exactamente lo mismo. Elige la que de verdad vayas a usar.
 
+{: .ojo }
+**Tu mazo vivo es parte del suelo.** Al cerrar cada unidad se revisa que tu gimnasio tenga rastro reciente: la pantalla de estadísticas de Anki, tu caja con sus tres apartados, o el mazo que enseñes en clase. Las tres valen igual. Lo que **no** se mira es la racha ni el porcentaje de aciertos: una racha se consigue apretando *Bien* sin pensar, y eso ya lo diagnosticamos en el rescate de sanguijuelas. Se revisa que exista y que lo uses, igual que la bitácora del lector. Cómo funciona el suelo: [Tu calificación](../evaluacion.html).
+
 ## Por qué tarjetas y no apuntes
 
 Dos ideas sostienen todo el sistema, y las dos tienen décadas de evidencia detrás.
