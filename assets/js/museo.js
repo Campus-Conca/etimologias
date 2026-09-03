@@ -82,10 +82,12 @@
   /* ---------- la pared ---------- */
 
   function marcoHTML(p) {
-    var t = '<button type="button" class="mu-marco' + (p.destacada ? ' mu-destacada' : '') +
+    var inv = p.lengua === 'inventada';
+    var t = '<button type="button" class="mu-marco' + (p.destacada ? ' mu-destacada' : '') + (inv ? ' mu-inventada' : '') +
       '" data-inv="' + esc(p.inv) + '" aria-label="Abrir la cédula de ' + esc(p.palabra) + '">';
-    if (p.nueva) t += '<span class="mu-tag">nueva adquisición</span>';
+    if (p.nueva) t += '<span class="mu-tag' + (inv ? ' mu-tag-inv' : '') + '">nueva adquisición</span>';
     if (p.destacada) t += '<span class="mu-rot-dest">Pieza destacada de la semana</span>';
+    if (inv) t += '<span class="mu-rot-inv">Palabra inventada</span>';
     t += '<span class="mu-m-palabra">' + esc(p.palabra) + '</span>';
     if (p.procedencia) t += '<span class="mu-m-proc">' + esc(p.procedencia) + '</span>';
     if (p.lema) t += '<span class="mu-m-lema">“' + esc(p.lema) + '”</span>';
@@ -203,9 +205,15 @@
       if (p.lengua) conteo[p.lengua] = (conteo[p.lengua] || 0) + 1;
     });
     var t = '<button type="button" class="mu-chip' + (F.lengua ? '' : ' activa') + '" data-lengua="">Todas · ' + piezas.length + '</button>';
-    Object.keys(conteo).sort(function (a, b) { return conteo[b] - conteo[a]; }).forEach(function (l) {
-      t += '<button type="button" class="mu-chip' + (F.lengua === l ? ' activa' : '') + '" data-lengua="' + esc(l) + '">' +
-        esc(l) + ' · ' + conteo[l] + '</button>';
+    /* Las inventadas van al final y con su propio color: no son una lengua de origen. */
+    Object.keys(conteo).sort(function (a, b) {
+      if (a === 'inventada') return 1;
+      if (b === 'inventada') return -1;
+      return conteo[b] - conteo[a];
+    }).forEach(function (l) {
+      var inv = l === 'inventada';
+      t += '<button type="button" class="mu-chip' + (inv ? ' mu-chip-inv' : '') + (F.lengua === l ? ' activa' : '') +
+        '" data-lengua="' + esc(l) + '">' + (inv ? 'inventadas' : esc(l)) + ' · ' + conteo[l] + '</button>';
     });
     if (abiertas().length > 1) {
       t += '<span class="mu-chip-sep" aria-hidden="true"></span>';

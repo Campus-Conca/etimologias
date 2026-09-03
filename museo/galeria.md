@@ -37,7 +37,9 @@ window.MUSEO_PIEZAS = [
      inv         numero de inventario: 2026.sala.numero (las de muestra llevan M)
      sala        1, 2 o 3
      palabra     tal como se cuelga en la pared
-     lengua      lengua de origen, en minuscula: alimenta los filtros
+     lengua      lengua de origen, en minuscula: alimenta los filtros.
+                 Si la palabra la invento alguien del grupo, pon "inventada":
+                 cae en el filtro "inventadas" y su marco se pinta de jade
      procedencia la linea del marco: "del griego · epi + hemera"
      lema        frase corta del marco, sin comillas (se ponen solas)
      cita        la frase en uso que abre la cedula, sin comillas
@@ -116,7 +118,7 @@ window.MUSEO_PIEZAS = [
    adquisicion:"En una lectura que hizo el profe Lalo en clase.",
    curaduria:"El viaje vino armado y bien. En curaduría solo se cuelga la familia: devorar es su hermana directa, y todos los -voros —carnívoro, herbívoro, omnívoro— comen del mismo verbo.",
    fuente:"Verificada en el DLE",
-   nombre:"Iris", nueva:true},
+   nombre:"Iris"},
 
   {inv:"2026.1.005", sala:1, palabra:"Surrealista", lengua:"francés",
    procedencia:"del francés · surréalisme",
@@ -131,7 +133,72 @@ window.MUSEO_PIEZAS = [
    adquisicion:"En un video de YouTube.",
    curaduria:"La pieza llegó con una sola escala —\"de Francia\"— y en curaduría se le tendió el puente: la palabra la inventaron los poetas. Apollinaire la estrenó en 1917 y Breton la volvió movimiento en 1924. El sur- inicial es el latín super: lo surrealista es lo que está por encima de lo real.",
    fuente:"Verificada en el DLE",
+   nombre:"Iker"},
+
+  {inv:"2026.1.006", sala:1, palabra:"Cosmogonía", lengua:"griego",
+   procedencia:"del griego · kósmos + gonía",
+   lema:"Nos llamó la atención en un libro",
+   cita:"¿Cómo surgió el universo y todo lo que existe?",
+   citaPie:"Andre, sobre la pregunta que guarda la palabra",
+   viaje:[
+     ["kósmos","griego","orden, mundo"],
+     ["gónos","griego","nacimiento, origen"],
+     ["kosmogonía","griego","el origen del mundo"],
+     ["cosmogonía","español","relato de cómo nació el universo"]
+   ],
+   adquisicion:"La encontró en un libro; les llamó la atención en su momento.",
+   curaduria:"El viaje llegó bien armado, pero la fuente decía \"en internet\", así que en curaduría se buscó en el DLE: confirma kosmogonía, tal cual. El regalo está en kósmos, que antes de ser \"mundo\" fue \"orden\": los griegos pensaron que el universo era un orden, y de ahí también cosmético, lo que pone en orden la cara. Su hermana es teogonía, el nacimiento de los dioses, título del poema de Hesíodo.",
+   fuente:"Verificada en el DLE",
+   nombre:"Andre", nueva:true},
+
+  {inv:"2026.1.007", sala:1, palabra:"Antropófago", lengua:"griego",
+   procedencia:"del griego · ánthropos + phageín",
+   lema:"El profe la dijo en clase",
+   cita:"Su significado literal es el que come carne humana.",
+   citaPie:"Ángel, sobre lo que la palabra dice al pie de la letra",
+   viaje:[
+     ["ánthropos","griego","ser humano"],
+     ["phageín","griego","comer"],
+     ["anthropophágos","griego","el que come humanos"],
+     ["anthropophagus","latín","palabra culta"],
+     ["antropófago","español","caníbal"]
+   ],
+   adquisicion:"La dijo el profesor en clase y se la quedó.",
+   curaduria:"Dos ajustes de ortografía griega: es ánthropos, con la t antes de la r, y phageín es el infinitivo \"comer\". Lo demás vino verificado en el DECEL. La familia de -fago es enorme y un poco macabra: sarcófago es la caja que \"come carne\", esófago el que \"lleva lo que se come\", y los bacteriófagos, virus que se comen bacterias.",
+   fuente:"Verificada en DECEL",
+   nombre:"Ángel", nueva:true},
+
+  {inv:"2026.1.008", sala:1, palabra:"Misántropo", lengua:"griego",
+   procedencia:"del griego · mísos + ánthropos",
+   lema:"Llegó en la clase de Etimología",
+   cita:"Personas poco sociables, que odian a los demás humanos.",
+   citaPie:"Iker, sobre a quién nombra la palabra",
+   viaje:[
+     ["mísos","griego","odio"],
+     ["ánthropos","griego","ser humano"],
+     ["misánthropos","griego","el que odia a la gente"],
+     ["misántropo","español","quien huye del trato humano"]
+   ],
+   adquisicion:"En la clase de Etimología.",
+   curaduria:"Segunda pieza de Iker en la sala, y esta llegó con el viaje y la fuente completos. Su espejo exacto es filántropo, el que ama a la gente, y su prima misoginia, que comparte el mísos. Molière escribió una comedia entera con este título en 1666: El misántropo, sobre un hombre que odia la hipocresía de todos y termina solo.",
+   fuente:"Verificada en DECEL",
    nombre:"Iker", nueva:true},
+
+  {inv:"2026.1.009", sala:1, palabra:"Amistaluz", lengua:"inventada",
+   procedencia:"inventada · ami + luz",
+   lema:"La inventé en la actividad de crear palabras",
+   cita:"La conexión con las personas que consideras amigas y que te traen luz e iluminan tu vida.",
+   citaPie:"Iris, definiendo su propia palabra",
+   viaje:[
+     ["amāre","latín","amar"],
+     ["amīcus","latín","amigo"],
+     ["lux, lūcis","latín","luz, claridad"],
+     ["amistaluz","español · 2026","los amigos que iluminan"]
+   ],
+   adquisicion:"La inventó en la actividad de crear palabras, pensando en sus amigas.",
+   curaduria:"Iris hizo lo que hace un buen lexicógrafo: buscó la palabra antes de darla por nueva y confirmó que no existe. Por eso cuelga en un marco distinto, el jade de las inventadas. Las piezas, en cambio, son antiguas y las dos latinas: amīcus viene de amāre, y lux, lūcis es la misma luz de lúcido y de Lucía. El español lleva siglos armando compuestos así, como aguanieve o pelirrojo; esta es solo la más joven.",
+   fuente:"Buscada y no encontrada: todavía no existe en ningún diccionario",
+   nombre:"Iris", nueva:true},
 
   {inv:"2026.1.M1", sala:1, palabra:"Trabajo", lengua:"latín",
    procedencia:"del latín tardío · tripalium",
@@ -205,6 +272,9 @@ Tu biografía entra a curaduría: se verifica en las fuentes antes de aparecer e
 #museo-galeria .mu-chip{border:1px solid #d9b8cd;background:#fff;color:#6b1e5a;border-radius:99px;padding:.25rem .75rem;font-size:.8rem;font-weight:600;cursor:pointer}
 #museo-galeria .mu-chip:hover{border-color:#c8127a}
 #museo-galeria .mu-chip.activa{background:#c8127a;border-color:#c8127a;color:#fff}
+#museo-galeria .mu-chip-inv{border-color:#1b7f79;color:#1b7f79}
+#museo-galeria .mu-chip-inv:hover{border-color:#0f5f5a}
+#museo-galeria .mu-chip-inv.activa{background:#1b7f79;border-color:#1b7f79;color:#fff}
 #museo-galeria .mu-chip-sep{width:1px;background:#d9b8cd;margin:0 4px}
 #museo-galeria .mu-controles{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 #museo-galeria .mu-busca{flex:1;min-width:170px;border:1px solid #d9b8cd;border-radius:.5rem;padding:.4rem .7rem;font-size:.85rem}
@@ -228,6 +298,11 @@ Tu biografía entra a curaduría: se verifica en las fuentes antes de aparecer e
 .mu-m-palabra{display:block;font-family:Georgia,'Times New Roman',serif;font-size:1.35rem;color:#2e0b27;line-height:1.15}
 .mu-destacada .mu-m-palabra{font-size:2rem;margin-top:6px}
 .mu-m-proc{display:block;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:#993556;margin-top:4px;font-weight:700}
+/* las inventadas: marco jade, para distinguirlas de las que ya existían */
+.mu-inventada{border-color:#1b7f79;outline-color:#7fc4bf;background:#f0f9f7}
+.mu-inventada .mu-m-proc{color:#1b7f79}
+.mu-rot-inv{display:block;font-size:.66rem;letter-spacing:.15em;text-transform:uppercase;color:#1b7f79;font-weight:700}
+.mu-tag.mu-tag-inv{background:#1b7f79;color:#e6f6f4}
 .mu-m-lema{display:block;font-size:.78rem;font-style:italic;color:#5f5e5a;margin-top:7px}
 .mu-m-firma{display:block;font-size:.68rem;color:#8a6c80;margin-top:8px}
 .mu-tag{position:absolute;top:-10px;right:8px;background:#c8127a;color:#fde7f3;font-size:.66rem;padding:2px 8px;border-radius:9px;letter-spacing:.05em}
