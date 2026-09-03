@@ -529,11 +529,11 @@ body.papel .medidor{position:static}
 <!-- ==================== 5 · TUS PIEZAS ==================== -->
 <section class="pantalla" data-titulo="Tus piezas">
   <p class="paso">Paso 5 de 9</p>
-  <h2>Tu mejor pieza</h2>
+  <h2>Tu palabra</h2>
   <div class="ej-slot" data-ej="5"></div>
 
-  <h3>La que mejor te representa</h3>
-  <p class="mini">De todo lo que produjiste en seis semanas, una sola cosa. No la más bonita: la que mejor muestra lo que sabes hacer ahora y no sabías en agosto. Puede ser tu pieza del Museo, un árbol del campeonato, un crucigrama del taller de pistas, un monstruo de la fábrica, una tarjeta rescatada del muro de sanguijuelas o una página de tu bitácora.</p>
+  <h3>La palabra nueva que mejor te representa</h3>
+  <p class="mini">De todas las palabras nuevas que te llevas de estas seis semanas, una sola. No la más difícil ni la más bonita: la que mejor muestra lo que sabes hacer ahora y no sabías en agosto. Puede venir de donde sea: de tu ficha del Museo, de un árbol del campeonato, del taller de pistas, de la fábrica de monstruos, del muro de sanguijuelas, de tu libro o de un letrero de la calle.</p>
   <div class="enlaces"><span class="rot">ve a buscarla</span>
     <a href="../../museo/galeria.html" target="_blank" rel="noopener">La galería del Museo</a>
     <a href="../../vitrina/index.html" target="_blank" rel="noopener">Nuestra vitrina</a>
@@ -541,9 +541,9 @@ body.papel .medidor{position:static}
     <a href="ficha-museo.html" target="_blank" rel="noopener">La ficha del Museo</a>
   </div>
   <div class="tarjeta">
-    <label class="campo"><span>Cuál es</span><input type="text" data-k="piezaCual" placeholder="Nómbrala en pocas palabras"></label>
+    <label class="campo"><span>Cuál es</span><input type="text" data-k="piezaCual" placeholder="La palabra, tal cual"></label>
     <label class="campo"><span>Por qué esa, y no otra</span><textarea data-k="piezaPorque"></textarea></label>
-    <label class="campo"><span>Qué habría hecho con ella hace seis semanas</span><textarea data-k="piezaAntes" placeholder="Esta es la pregunta que convierte una pieza en argumento. Compárate contigo, no con el de junto."></textarea></label>
+    <label class="campo"><span>Qué habrías hecho con ella hace seis semanas</span><textarea data-k="piezaAntes" placeholder="Esta es la pregunta que convierte una palabra en argumento. Compárate contigo, no con el de junto."></textarea></label>
   </div>
 </section>
 
@@ -866,8 +866,8 @@ body.papel .medidor{position:static}
       fija:'Fíjate en el segundo: un "aún no" con el motivo exacto vale más en la conversación que una palomita sin nada detrás.' },
     '5': { t:'Así eligió la suya',
       d:['No eligió la más difícil ni la más bonita: eligió la que mejor muestra la distancia entre agosto y hoy.'],
-      dice:'Mi mejor pieza es mi ficha de cosmético. Hace seis semanas habría escrito "crema para la cara" y ya. Hoy sé que viene de kósmos, orden, y que el maquillaje y el universo son literalmente la misma palabra: las dos ordenan algo.',
-      fija:'Fíjate en la última línea: no dice qué sabe, dice qué habría hecho antes. Esa comparación contigo mismo es lo que convierte una pieza en argumento.' },
+      dice:'Mi palabra es cosmético. Hace seis semanas habría escrito "crema para la cara" y ya. Hoy sé que viene de kósmos, orden, y que el maquillaje y el universo son literalmente la misma palabra: las dos ordenan algo.',
+      fija:'Fíjate en la última línea: no dice qué sabe, dice qué habría hecho antes. Esa comparación contigo mismo es lo que convierte una palabra en argumento.' },
     '6': { t:'Así se marcó en la defensa',
       d:['Tres criterios en bien y uno en aún no: el de la fuente.'],
       dice:'Lo que me dijo el profesor: buena descomposición, pero cuando te pregunté cómo supiste que la fuente era confiable, contestaste "porque estaba en internet".',
@@ -1381,7 +1381,7 @@ body.papel .medidor{position:static}
     var H = lecturaHoy();
     if (H) out.push({ id:'hoy', tipo:'lo que me quedó', t:H.corto });
     if (cuentaSuelo() === TABLAS.length) out.push({ id:'suelo', tipo:'suelo', t:'llegué al cierre con el suelo completo: mi palabra del Museo con su ficha, mi defensa individual, el círculo de lectura, la bitácora viva y el mazo vivo' });
-    if (val('piezaCual')) out.push({ id:'pieza', tipo:'pieza', t:'la pieza que mejor me representa es ' + val('piezaCual') + (val('piezaPorque') ? ': ' + val('piezaPorque') : '') });
+    if (val('piezaCual')) out.push({ id:'pieza', tipo:'pieza', t:'la palabra nueva que mejor me representa es ' + val('piezaCual') + (val('piezaPorque') ? ': ' + val('piezaPorque') : '') });
     if (val('piezaAntes')) out.push({ id:'antes', tipo:'pieza', t:'hace seis semanas ' + val('piezaAntes') });
     if (val('defensaProfe')) out.push({ id:'def', tipo:'pieza', t:'en mi defensa el profesor anotó: ' + val('defensaProfe') });
     Object.keys(D.ev).forEach(function(k){
@@ -1545,7 +1545,7 @@ body.papel .medidor{position:static}
       suelo: resumenSuelo(),
       calibracion: (L ? L.t + '. ' : '') + val('serieTexto'),
       evidencias: resumenEvidencias(),
-      pieza: val('piezaCual') + (val('piezaPorque') ? ' — ' + val('piezaPorque') : ''),
+      palabra: val('piezaCual') + (val('piezaPorque') ? ' — ' + val('piezaPorque') : ''),
       aunno: val('aunNo') || val('ensayoHueco'),
       codigo: codigoRespaldo()
     };
@@ -1656,7 +1656,7 @@ body.papel .medidor{position:static}
           '<dt>Calibración</dt><dd>' + esc(L ? L.t + '. ' + (val('serieTexto') || '') : 'sin llenar') + '</dd>' +
           '<dt>Evidencias</dt><dd>' + c.si + ' con pieza · ' + c.no + ' en aún no' +
             (evFuertes.length ? '<br><span class="mini">' + evFuertes.slice(0, 3).map(esc).join('<br>') + '</span>' : '') + '</dd>' +
-          '<dt>Mi mejor pieza</dt><dd>' + esc(val('piezaCual') || 'sin llenar') + (val('piezaPorque') ? '<br><span class="mini">' + esc(val('piezaPorque')) + '</span>' : '') + '</dd>' +
+          '<dt>Mi palabra</dt><dd>' + esc(val('piezaCual') || 'sin llenar') + (val('piezaPorque') ? '<br><span class="mini">' + esc(val('piezaPorque')) + '</span>' : '') + '</dd>' +
           '<dt>Lo que todavía me falta</dt><dd>' + esc(val('aunNo') || val('ensayoHueco') || 'sin llenar') + '</dd>' +
           '<dt>Mi porqué, completo</dt><dd>' + esc(val('frase') || 'sin escribir') + '</dd>' +
           '<dt>¿Ya lo mandé?</dt><dd>' + (D.enviado ? esc('sí, el ' + D.enviado) : 'todavía no — está en el paso 8') + '</dd>' +
@@ -1711,7 +1711,7 @@ body.papel .medidor{position:static}
       (evFilas.length ? '<ul style="padding-left:1.2rem;font-size:.94rem">' + evFilas.join('') + '</ul>' : '') +
       '<h2 style="color:#6b1e5a;font-size:1.15rem;margin-top:1.4rem">Lo demás</h2>' +
       '<table style="border-collapse:collapse;width:100%;font-size:.94rem">' +
-      fila('La pieza que mejor me representa', esc(val('piezaCual')) + (val('piezaPorque') ? '<br>' + esc(val('piezaPorque')) : '')) +
+      fila('La palabra nueva que mejor me representa', esc(val('piezaCual')) + (val('piezaPorque') ? '<br>' + esc(val('piezaPorque')) : '')) +
       fila('Qué habría hecho hace seis semanas', esc(val('piezaAntes'))) +
       fila('Mi defensa · lo que dijo el profesor', esc(val('defensaProfe'))) +
       fila('Lo que quedó en aún no', esc(val('aunNo'))) +

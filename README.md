@@ -31,7 +31,7 @@ Just the Docs, ya configurado en `_config.yml`).
   `tipo = parcial-u1`. Si tu script crea la pestaña sola, no hay nada que
   hacer; si espera una pestaña existente, créala con ese nombre y con estas
   columnas: `nombre`, `grupo`, `numero`, `porque`, `suelo`, `calibracion`,
-  `evidencias`, `pieza`, `descifrada`, `aunno`, `codigo`. **Pruébalo tú
+  `evidencias`, `palabra`, `aunno`, `codigo`. **Pruébalo tú
   primero**, mandando una autoevaluación de mentiras: la página no puede leer
   la respuesta del script (así funciona un POST a un iframe, sin CORS), así
   que dice "se mandó" en cuanto el iframe carga, aunque el script haya
