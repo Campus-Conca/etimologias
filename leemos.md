@@ -49,6 +49,39 @@ window.LEEMOS = {
 };
 </script>
 
+<!-- ============================================================
+     LO QUE LLEGA DESDE LA BITÁCORA DEL LECTOR
+     Estas dos listas NO se escriben a mano: las genera el recolector
+     (hoja de cálculo → menú Cosecha → Bloque para la web) con lo que
+     los estudiantes mandaron desde su bitácora y tú palomeaste.
+     Pega el bloque tal cual, reemplazando la línea que corresponde,
+     entre estas marcas. Si están vacías, no pasa nada: las vitrinas
+     de abajo se alimentan igual de la lista de arriba.
+     ============================================================ -->
+<!-- COSECHA:palabra-libro -->
+<script>window.PALABRAS_LIBRO = [];</script>
+<!-- /COSECHA:palabra-libro -->
+
+<!-- COSECHA:testamento -->
+<script>window.TESTAMENTOS = [];</script>
+<!-- /COSECHA:testamento -->
+
+<script>
+/* Las dos listas de arriba se suman a las de LEEMOS, sin pisarlas: lo que
+   pegaste a mano y lo que llegó por el recolector conviven. Comentarios
+   siempre entre barra-asterisco, como el resto de esta página: el compresor
+   de Jekyll junta el script en una sola línea. */
+(function(){
+  var D = window.LEEMOS || {};
+  if (window.PALABRAS_LIBRO && window.PALABRAS_LIBRO.length) {
+    D.palabras = (D.palabras || []).concat(window.PALABRAS_LIBRO);
+  }
+  if (window.TESTAMENTOS && window.TESTAMENTOS.length) {
+    D.testamentos = (D.testamentos || []).concat(window.TESTAMENTOS);
+  }
+})();
+</script>
+
 <p class="pista-mazos">Aquí abajo hay dos mazos de láminas: el <strong>programa lector</strong>, que vale todo el semestre, y <strong>la sesión del silencio</strong>, una hora suelta sobre lo que cuesta leer. En clase se proyectan con el botón <strong>Presentar</strong> y aquí se quedan, apilados, para volver a ellos cuando quieras. Debajo de los mazos están tus derechos completos y las vitrinas del grupo.</p>
 
 <!-- ============================ EL PROGRAMA LECTOR ============================ -->

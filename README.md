@@ -26,6 +26,23 @@ Just the Docs, ya configurado en `_config.yml`).
   el equipo editorial del grupo (o tú) pega el contenido curado en la
   página correspondiente. Editar es fácil: cualquier archivo se puede
   modificar desde el propio GitHub en el navegador (botón del lápiz).
+- **La bitácora del lector se llena en el celular.**
+  `recursos/plantillas/bitacora-lector.html` es la herramienta que el
+  estudiante abre todo el semestre: una sesión de lectura se anota en dos
+  toques, y en *Mi rastro* la síntesis se calcula sola (desde cuándo hay
+  rastro, cuántas sesiones, cuántas en clase, qué palabras salieron) junto
+  con la frase que después copia en su autoevaluación. **No manda nada al
+  recolector por su cuenta**: nadie lee la bitácora por dentro, y eso está
+  escrito en `evaluacion.md` y en la propia autoevaluación. Lo único que
+  sale de ahí son piezas sueltas, una por una y con su botón: una palabra
+  cosechada (`tipo = palabra-libro`) y el testamento lector de la semana 16
+  (`tipo = testamento`). Las dos se publican con el menú *Cosecha → Bloque
+  para la web* y se pegan en `leemos.md`, entre las marcas
+  `<!-- COSECHA:palabra-libro -->` y `<!-- COSECHA:testamento -->`. Para el
+  expediente, la herramienta baja una **constancia de rastro** con solo
+  fechas y conteos: eso es lo que se revisa en el cierre, sin leer nada.
+  Quien prefiera papel sigue teniendo el cuadernillo de cinco páginas en
+  `bitacora-imprimible.html`, y vale igual.
 - **Cierres de unidad — antes del primero, revisa el recolector.** La
   autoevaluación manda su envío al mismo Apps Script de `cosecha_url`, con
   `tipo = parcial-u1`. Si tu script crea la pestaña sola, no hay nada que
