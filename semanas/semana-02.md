@@ -295,7 +295,7 @@ Los dos casos resueltos del viernes, enteros, para consultarlos cuando escribas 
 
 ## La lectura, esta semana
 
-Tu libro avanza a tu ritmo, pero avanza. Esta semana la lectura vive en tres lugares: el **minuto del lector** (alguien cuenta qué está leyendo; se agenda el martes), la **lectura en voz alta** con la que cerramos alguna sesión, y tu **bitácora del lector**, que sigue viva con una línea por sesión de lectura. El primer círculo llega en la semana 7: ahí conversamos de verdad. Si todavía no tienes libro, pasa por [Leemos](../leemos.html).
+Tu libro avanza a tu ritmo, pero avanza. Esta semana la lectura vive en tres lugares: el **minuto del lector** (alguien cuenta qué está leyendo; se agenda el martes), la **lectura en voz alta** con la que cerramos alguna sesión, y tu **[bitácora del lector](../recursos/plantillas/bitacora-lector.html)**, que sigue viva con una línea por sesión de lectura. Se llena desde el celular, al terminar de leer: dos toques y ya quedó el rastro. Nadie la lee por dentro. El primer círculo llega en la semana 7: ahí conversamos de verdad. Si todavía no tienes libro, pasa por [Leemos](../leemos.html).
 
 ---
 

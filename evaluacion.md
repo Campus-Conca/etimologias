@@ -219,10 +219,10 @@ Estas son las plantillas, para que veas de qué estamos hablando antes de que em
   </a>
 
   <a class="pl-card" href="recursos/plantillas/bitacora-lector.html">
-    <span class="pl-tag">cuadernillo · 5 páginas</span>
+    <span class="pl-tag">se llena en tu celular</span>
     <b>La bitácora del lector</b>
-    <span class="pl-desc">Una línea por sesión de lectura, tus libros del semestre y la cosecha de palabras. Nadie la califica ni la lee por dentro: se revisa que exista y que tenga rastro reciente.</span>
-    <span class="pl-cta">Verla y descargarla →</span>
+    <span class="pl-desc">Una línea por sesión de lectura, tus libros del semestre y la cosecha de palabras. Nadie la califica ni la lee por dentro: se revisa que exista y que tenga rastro reciente, y para eso la propia bitácora baja una constancia con solo fechas y conteos. Si prefieres papel, el <a href="recursos/plantillas/bitacora-imprimible.html">cuadernillo de cinco páginas</a> vale igual.</span>
+    <span class="pl-cta">Abrirla y llenarla →</span>
   </a>
 
 </div>

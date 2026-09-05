@@ -257,7 +257,7 @@ nav_order: 7
 
 ## La lectura, esta semana
 
-El **minuto del lector** abre el martes (pasa una persona por semana, hasta que pasa todo el grupo), la voz alta cierra el viernes y tu bitácora suma líneas. La semana que entra estrenas el círculo de lectura: si tu obra ya está terminada, ve preparando su ficha para el tendedero de [Leemos](../leemos.html).
+El **minuto del lector** abre el martes (pasa una persona por semana, hasta que pasa todo el grupo), la voz alta cierra el viernes y tu [bitácora](../recursos/plantillas/bitacora-lector.html) suma líneas. Antes del círculo de la semana que entra, ábrela en <em>Mi rastro</em>: ahí está, ya hecha, la síntesis de lo que llevas leído. La semana que entra estrenas el círculo de lectura: si tu obra ya está terminada, ve preparando su ficha para el tendedero de [Leemos](../leemos.html).
 
 ---
 

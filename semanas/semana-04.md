@@ -336,7 +336,7 @@ El español está lleno de griego. No en los libros viejos: en la farmacia, en e
 
 ## La lectura, esta semana
 
-El **minuto del lector** abre el martes (pasa una persona por semana, hasta que pasa todo el grupo), la voz alta cierra el viernes y tu bitácora suma líneas. ¿El libro que elegiste no te está gustando? Cambiarlo no es fracaso, es tu derecho número 3: está completo en [Leemos](../leemos.html).
+El **minuto del lector** abre el martes (pasa una persona por semana, hasta que pasa todo el grupo), la voz alta cierra el viernes y tu [bitácora](../recursos/plantillas/bitacora-lector.html) suma líneas: se anota en el celular, en lo que guardas el libro. ¿El libro que elegiste no te está gustando? Cambiarlo no es fracaso, es tu derecho número 3: está completo en [Leemos](../leemos.html).
 
 ---
 

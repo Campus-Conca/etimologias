@@ -209,7 +209,7 @@ La regla de oro de la semana (apréndetela, se usa todo el semestre): un corte e
 
 ## La lectura, esta semana
 
-El **minuto del lector** abre el martes (pasa una persona por semana), la voz alta cierra alguna de las sesiones y tu bitácora suma líneas. ¿El libro que elegiste no te está gustando? Cambiarlo no es fracaso, es tu derecho número 3: está completo en [Leemos](../leemos.html).
+El **minuto del lector** abre el martes (pasa una persona por semana), la voz alta cierra alguna de las sesiones y tu [bitácora](../recursos/plantillas/bitacora-lector.html) suma líneas: se anota en el celular, en lo que guardas el libro. ¿El libro que elegiste no te está gustando? Cambiarlo no es fracaso, es tu derecho número 3: está completo en [Leemos](../leemos.html).
 
 ---
 

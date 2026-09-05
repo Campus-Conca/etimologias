@@ -202,7 +202,7 @@ No hay tema nuevo. Esta semana se ve lo que ya sabes. Y pasa algo que no había 
 <h4><span class="n">3</span> El primer círculo de lectura <span class="reloj">45 min</span></h4>
 <span class="senal">Todo el grupo · en corro</span>
 <p class="di">Tu libro en la mano y una frase marcada. Se habla de lo que te dio, no de lo que pasa en él.</p>
-<p class="apoyo">Cinco minutos antes de sentarnos, llena la hoja "Antes de cada círculo" de tu <a href="../recursos/plantillas/bitacora-lector.html">bitácora del lector</a>: la frase que marcaste y qué te está dando el libro. No se entrega; es para que el silencio no te agarre en frío.</p>
+<p class="apoyo">Cinco minutos antes de sentarnos, abre la pestaña <strong>Antes del círculo</strong> de tu <a href="../recursos/plantillas/bitacora-lector.html">bitácora del lector</a> —la tarjeta de esta semana se abre sola—: la frase que marcaste y qué te está dando el libro. No se entrega; es para que el silencio no te agarre en frío. Y en <strong>Mi rastro</strong> está la síntesis de tu semestre, con la frase que vas a copiar en tu autoevaluación.</p>
 <p class="nota-conductor">Corro de verdad: sillas en círculo, sin mesas de por medio, y tú sentado como uno más. Nadie resume, nadie evalúa. Si alguien no terminó su libro, participa igual contando por dónde va y por qué: el círculo no verifica lecturas, las contagia. Nadie se salta su turno.</p>
 </section>
 <section class="lam">

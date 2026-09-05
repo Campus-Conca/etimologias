@@ -677,7 +677,7 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 
 ## La lectura, esta semana
 
-El **minuto del lector** se estrena este martes con el grupo entero —de la próxima semana en adelante pasa una persona por martes, hasta que pase todo el mundo—, la lectura en voz alta llega el mismo día y tu bitácora suma líneas. ¿El libro que elegiste no te está gustando? Cambiarlo no es fracaso, es tu derecho número 3: está completo en [Leemos](../leemos.html).
+El **minuto del lector** se estrena este martes con el grupo entero —de la próxima semana en adelante pasa una persona por martes, hasta que pase todo el mundo—, la lectura en voz alta llega el mismo día y tu [bitácora](../recursos/plantillas/bitacora-lector.html) suma líneas: se anota en el celular, en lo que guardas el libro. ¿El libro que elegiste no te está gustando? Cambiarlo no es fracaso, es tu derecho número 3: está completo en [Leemos](../leemos.html).
 
 ---
 

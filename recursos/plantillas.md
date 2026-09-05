@@ -53,9 +53,16 @@ Todo lo que en este curso se llena a mano vive aquí. Se abren en el navegador, 
   </a>
 
   <a class="pl-card" href="plantillas/bitacora-lector.html">
-    <span class="pl-tag">cuadernillo · 5 páginas</span>
+    <span class="pl-tag">se llena en tu celular · todo el semestre</span>
     <b>Bitácora del lector</b>
-    <span class="pl-desc">Una línea por sesión de lectura, tus libros del semestre, la cosecha de palabras y la preparación de los tres círculos. Nadie la califica: se revisa que exista.</span>
+    <span class="pl-desc">Una línea por sesión de lectura, en dos toques: qué leías, hasta dónde llegaste y qué pasó —sigo, me aburrió, me lo salté, lo dejé aquí—. Guarda tus libros, la cosecha de palabras y la preparación de los tres círculos, y en <i>Mi rastro</i> arma sola la síntesis de tu semestre, con la frase que vas a necesitar en tu autoevaluación. Nadie la lee por dentro: vive en tu teléfono y de ahí no sale, salvo la palabra que tú mandes al muro de Leemos. Trae constancia de rastro para el expediente —solo fechas y conteos— y respaldo para mandarte por WhatsApp.</span>
+    <span class="pl-cta">Abrirla y llenarla →</span>
+  </a>
+
+  <a class="pl-card" href="plantillas/bitacora-imprimible.html">
+    <span class="pl-tag">cuadernillo · 5 páginas</span>
+    <b>Bitácora del lector, en papel</b>
+    <span class="pl-desc">La misma bitácora para llenar a mano: el registro de lectura, tus libros, la cosecha y las hojas de los tres círculos. Vale exactamente igual que la del celular; se elige la que se te dé mejor.</span>
     <span class="pl-cta">Abrir e imprimir →</span>
   </a>
 
