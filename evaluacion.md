@@ -197,6 +197,13 @@ Estas son las plantillas, para que veas de qué estamos hablando antes de que em
     <span class="pl-cta">Abrirla y llenarla →</span>
   </a>
 
+  <a class="pl-card" href="recursos/plantillas/autoevaluacion-u1-recorrido.html">
+    <span class="pl-tag">míralo antes de llenarla · semana 7</span>
+    <b>Recorrido por tu primer parcial</b>
+    <span class="pl-desc">La misma autoevaluación dentro de un teléfono dibujado, ya llena con el ejemplo de una estudiante inventada, y al lado quince paradas que explican qué se hace en cada pantalla y por qué. Ahí nada se manda ni toca lo que hayas escrito en la tuya.</span>
+    <span class="pl-cta">Ver el recorrido →</span>
+  </a>
+
   <a class="pl-card" href="recursos/plantillas/pactos.html">
     <span class="pl-tag">se firman en tu celular</span>
     <b>Los tres pactos</b>

@@ -687,7 +687,12 @@ body.papel .medidor{position:static}
 (function(){
   'use strict';
 
-  var CLAVE = 'etimologias-autoeval-u1';
+  /* Modo demo: lo abre autoevaluacion-u1-recorrido.html dentro de un
+     teléfono dibujado, con ?demo en la URL. Guarda en otra llave para no
+     pisar lo que el estudiante ya escribió de verdad, no manda nada al
+     recolector, y se deja llevar por postMessage desde el recorrido. */
+  var DEMO = /(^|[?&])demo(=|&|$)/.test(location.search);
+  var CLAVE = DEMO ? 'etimologias-autoeval-u1-demo' : 'etimologias-autoeval-u1';
   var FORM = 'https://forms.gle/wVMNguqu3Nfu7yBX7';
 
   /* El recolector del curso. Es el MISMO que cosecha_url en _config.yml:
@@ -700,6 +705,17 @@ body.papel .medidor{position:static}
   /* ---------- estado ---------- */
   var D = {};
   try { D = JSON.parse(localStorage.getItem(CLAVE) || '{}') || {}; } catch(e) { D = {}; }
+  if (DEMO) {
+    /* El recorrido manda el ejemplo ya lleno en el hash (#ejemplo=base64,
+       el mismo formato del respaldo). Se aplica una vez y se quita del
+       hash, para que Borrar todo y Pegar un respaldo sigan funcionando. */
+    var semilla = (location.hash || '').match(/ejemplo=([^&]+)/);
+    if (semilla) {
+      try { D = JSON.parse(deBase64(decodeURIComponent(semilla[1]))) || {}; } catch(e) { D = {}; }
+      try { localStorage.setItem(CLAVE, JSON.stringify(D)); } catch(e){}
+      try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
+    }
+  }
   var avisoEl = document.getElementById('guardado');
   var tGuarda = null;
   function guardar(){
@@ -979,6 +995,7 @@ body.papel .medidor{position:static}
     if (actual === 9) { pintaResumen(); }
     Array.prototype.forEach.call(pantallas[actual].querySelectorAll('textarea'), crece);
     window.scrollTo(0, 0);
+    avisaRecorrido();
   }
   btnAtras.addEventListener('click', function(){ ir(actual - 1); });
   btnSig.addEventListener('click', function(){ ir(actual + 1); });
@@ -1557,6 +1574,15 @@ body.papel .medidor{position:static}
       'Se mandó el ' + D.enviado + (D.enviadoNum ? ' con ' + D.enviadoNum + ' como tu propuesta.' : '.');
     btnEnviar.textContent = 'Volver a enviar';
   }
+  function exitoEnvio(){
+    D.enviado = new Date().toLocaleDateString('es-MX', { day:'numeric', month:'long', year:'numeric' });
+    D.enviadoNum = numeroFinal();
+    guardar();
+    estadoEl.className = 'estado';
+    pintaEnviado();
+    pistaEnviar.textContent = 'Salió de este teléfono. Solo lo ve el profesor.';
+    try { cajaEnviado.scrollIntoView({ behavior:'smooth', block:'center' }); } catch(e){}
+  }
   if (btnEnviar) btnEnviar.addEventListener('click', function(){
     if (!val('nombre')) {
       avisa('falta', 'Falta tu nombre', 'Sin él, el profesor no sabe de quién es esto. Está en la portada; te llevo.');
@@ -1578,6 +1604,18 @@ body.papel .medidor{position:static}
       return;
     }
     avisa('yendo', 'Mandando tu propuesta…', 'Aguanta un segundo, no cierres la página.');
+
+    if (DEMO) {
+      /* En el recorrido no sale nada de aquí: se enseña qué pasa y ya. */
+      btnEnviar.disabled = true;
+      btnEnviar.textContent = 'Enviando…';
+      setTimeout(function(){
+        btnEnviar.disabled = false;
+        exitoEnvio();
+        pistaEnviar.textContent = 'Esto es un recorrido: no salió nada. En tu autoevaluación de verdad, aquí lo recibe el profesor y nadie más.';
+      }, 900);
+      return;
+    }
 
     var datos = paquete();
     var marco = document.createElement('iframe');
@@ -1605,13 +1643,7 @@ body.papel .medidor{position:static}
       listo = true;
       btnEnviar.disabled = false;
       if (bien){
-        D.enviado = new Date().toLocaleDateString('es-MX', { day:'numeric', month:'long', year:'numeric' });
-        D.enviadoNum = numeroFinal();
-        guardar();
-        estadoEl.className = 'estado';
-        pintaEnviado();
-        pistaEnviar.textContent = 'Salió de este teléfono. Solo lo ve el profesor.';
-        try { cajaEnviado.scrollIntoView({ behavior:'smooth', block:'center' }); } catch(e){}
+        exitoEnvio();
       } else {
         btnEnviar.textContent = 'Enviar mi propuesta al profesor';
         avisa('falta', 'No se pudo mandar',
@@ -1785,11 +1817,12 @@ body.papel .medidor{position:static}
   var txtPegar = document.getElementById('txtPegar');
   var avisoPegar = document.getElementById('avisoPegar');
 
-  function abreHoja(){ velo.classList.add('ver'); hoja.classList.add('ver'); }
+  function abreHoja(){ velo.classList.add('ver'); hoja.classList.add('ver'); avisaRecorrido(); }
   function cierraHoja(){
     velo.classList.remove('ver'); hoja.classList.remove('ver');
     cajaPegar.style.display = 'none'; avisoPegar.textContent = '';
     document.getElementById('opCopiar').querySelector('b').textContent = 'Copiar mi respaldo';
+    avisaRecorrido();
   }
   document.getElementById('btnMenu').addEventListener('click', abreHoja);
   velo.addEventListener('click', cierraHoja);
@@ -1851,6 +1884,55 @@ body.papel .medidor{position:static}
     try { localStorage.removeItem(CLAVE); } catch(e){}
     location.reload();
   });
+
+  /* ---------- el recorrido (solo con ?demo) ----------
+     El recorrido vive en autoevaluacion-u1-recorrido.html y mete esta
+     página en un iframe. Se hablan por postMessage, que funciona aunque
+     el origen no coincida: él manda {ir, sel, hoja, destaca} y esta página
+     le avisa en qué paso va y si la hoja de opciones está abierta. */
+  var selloRecorrido = null;
+  function avisaRecorrido(){
+    if (!DEMO) return;
+    try {
+      parent.postMessage({ demo:'autoeval-u1', sello:selloRecorrido, paso:actual, hoja:hoja.classList.contains('ver') }, '*');
+    } catch(e){}
+  }
+  /* Deslizar a mano: el scroll suave del navegador se cancela dentro del
+     iframe cuando la distancia es larga, y este no. */
+  function desliza(y){
+    y = Math.max(0, Math.min(y, document.documentElement.scrollHeight - window.innerHeight));
+    var y0 = window.pageYOffset, dy = y - y0, t0 = null;
+    if (!dy) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { window.scrollTo(0, y); return; }
+    function paso(t){
+      if (t0 === null) t0 = t;
+      var p = Math.min(1, (t - t0) / 380);
+      var e = 1 - Math.pow(1 - p, 3);
+      window.scrollTo(0, y0 + dy * e);
+      if (p < 1) requestAnimationFrame(paso);
+    }
+    requestAnimationFrame(paso);
+  }
+  if (DEMO) {
+    document.querySelector('.barra .marca b').textContent = 'Tu primer parcial · recorrido';
+    window.addEventListener('message', function(e){
+      var m = e.data;
+      if (!m || m.demo !== 'autoeval-u1') return;
+      selloRecorrido = m.sello;
+      if (typeof m.ir === 'number') ir(m.ir);
+      if (m.hoja === true && !hoja.classList.contains('ver')) abreHoja();
+      else if (m.hoja === false && hoja.classList.contains('ver')) cierraHoja();
+      if (m.sel) setTimeout(function(){
+        var el = document.querySelector(m.sel);
+        if (!el) return;
+        desliza(el.getBoundingClientRect().top + window.pageYOffset - (m.margen || 88));
+      }, 80);
+      if (m.destaca) {
+        var d = document.querySelector(m.destaca);
+        if (d) { d.classList.add('destacado'); setTimeout(function(){ d.classList.remove('destacado'); }, 3200); }
+      }
+    });
+  }
 
   /* ---------- arranque ---------- */
   enlazaTodos(document);

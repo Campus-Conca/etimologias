@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Recorrido por tu primer parcial · Etimologías Grecolatinas</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="La autoevaluación de la Unidad 1 explicada pantalla por pantalla, con el ejemplo de una estudiante inventada. Nada se manda ni se guarda en tu autoevaluación real.">
+<meta name="theme-color" content="#6b1e5a">
+<style>
+/* ============ Página (fuera del teléfono) ============ */
+:root{
+  --bg:#fbf4f9; --panel:#ffffff; --ink:#2a1a26; --muted:#7a6a76; --line:#eadce6;
+  --accent:#c8127a; --accent-ink:#ffffff; --ciruela:#6b1e5a; --ambar:#b3541e;
+  --glow:rgba(200,18,122,.18); --hint:#fdf0e6; --hint-ink:#7d3d16; --focus:#b3541e;
+  --bezel:#141414; --shadow:rgba(60,10,45,.35); --done:#8fd6ab;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1a0f16; --panel:#241620; --ink:#f7ecf3; --muted:#c6b0be; --line:#3e2a37;
+    --accent:#f28ac0; --accent-ink:#2a0f22; --ciruela:#e3a9d0; --ambar:#f0a06a;
+    --glow:rgba(242,138,192,.14); --hint:rgba(240,160,106,.14); --hint-ink:#f5c9a8; --focus:#f0a06a;
+    --bezel:#0a0a0a; --shadow:rgba(0,0,0,.6); --done:#4f9a6e;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1a0f16; --panel:#241620; --ink:#f7ecf3; --muted:#c6b0be; --line:#3e2a37;
+  --accent:#f28ac0; --accent-ink:#2a0f22; --ciruela:#e3a9d0; --ambar:#f0a06a;
+  --glow:rgba(242,138,192,.14); --hint:rgba(240,160,106,.14); --hint-ink:#f5c9a8; --focus:#f0a06a;
+  --bezel:#0a0a0a; --shadow:rgba(0,0,0,.6); --done:#4f9a6e;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.page{min-height:100vh;display:flex;flex-direction:column}
+.top{display:flex;align-items:center;gap:18px;padding:12px 28px;border-bottom:1px solid var(--line);background:var(--panel)}
+.top .marca{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;line-height:1.3}
+.top h1{font-size:17px;line-height:1.2;margin:0;font-weight:800;letter-spacing:-.01em;color:var(--ciruela)}
+.top .sub{font-size:13px;color:var(--muted);margin-top:2px}
+.badge{margin-left:auto;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);padding:8px 12px;border-radius:999px;color:var(--muted);white-space:nowrap}
+.stage{flex:1;display:grid;grid-template-columns:400px minmax(0,1fr);gap:28px;padding:24px 28px 20px}
+.panel{display:flex;flex-direction:column;gap:18px;max-width:440px}
+.phases{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.phase{display:flex;flex-direction:column;gap:7px;background:none;border:0;padding:0;text-align:left}
+.phase i{display:block;height:5px;border-radius:3px;background:var(--line)}
+.phase.done i{background:var(--done)}
+.phase.active i{background:var(--accent)}
+.phase span{font-size:10.5px;font-weight:600;line-height:1.2;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.phase.active span{color:var(--ink)}
+.step{display:flex;flex-direction:column;gap:12px}
+.eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ambar)}
+.step h2{font-size:26px;line-height:1.15;margin:0;font-weight:800;letter-spacing:-.015em;color:var(--ciruela);text-wrap:balance}
+.step p{margin:0;font-size:16px;line-height:1.55;max-width:60ch}
+.hint{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;background:var(--hint);border-radius:10px;font-size:14.5px;line-height:1.45;color:var(--hint-ink)}
+.hint svg{flex:none;width:22px;height:22px;margin-top:1px;color:var(--ambar)}
+.hint b{font-weight:700;color:var(--ambar)}
+.nav{display:flex;gap:10px;margin-top:6px}
+.nav button{border-radius:10px;padding:12px 18px;border:1px solid var(--line);background:var(--panel);font-weight:600;font-size:15px;transition:transform .08s ease}
+.nav button:active{transform:translateY(1px)}
+.nav button.primary{flex:1;background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.nav button:disabled{opacity:.45;cursor:default}
+.keys{font-size:12.5px;color:var(--muted)}
+.keys kbd{font-size:11px;font-weight:600;border:1px solid var(--line);border-radius:5px;padding:2px 5px;background:var(--panel)}
+.note{margin:auto 0 0;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);line-height:1.5}
+.linkbtn{background:none;border:0;padding:0;color:var(--ambar);text-decoration:underline;font-size:inherit}
+.note a{color:var(--ambar)}
+.device-wrap{position:relative;display:flex;align-items:center;justify-content:center;height:calc(100vh - 118px);min-height:520px}
+.device-wrap::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 46% 55% at 50% 52%,var(--glow),transparent 70%);pointer-events:none}
+.device{transform:scale(var(--s,1));transform-origin:center center;will-change:transform}
+@media (max-width:900px){
+  .top{padding:10px 16px} .badge{display:none}
+  .stage{grid-template-columns:1fr;padding:12px 14px 24px;gap:14px}
+  .device-wrap{height:72vh;min-height:440px;order:-1}
+  .panel{max-width:none}
+  .step h2{font-size:22px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ============ Teléfono (la autoevaluación de verdad, adentro) ============ */
+.phone{width:384px;height:806px;background:var(--bezel);border-radius:46px;padding:12px;box-shadow:0 32px 64px var(--shadow),0 0 0 1px rgba(255,255,255,.06) inset;position:relative}
+.phone::after{content:"";position:absolute;left:50%;top:22px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:#000;box-shadow:0 0 0 2px #1f1f1f;z-index:5}
+.screen{width:360px;height:782px;background:#fbf4f9;border-radius:36px;overflow:hidden;position:relative;display:flex;flex-direction:column;color:#000}
+.sb{height:30px;flex:none;display:flex;justify-content:space-between;align-items:center;padding:0 22px;font-size:13px;font-weight:500;color:#000;background:#fff}
+.sb .ic{display:flex;gap:5px;align-items:center}
+.sb svg{width:14px;height:14px}
+.url{height:34px;flex:none;display:flex;align-items:center;gap:8px;padding:0 12px;background:#fff;border-bottom:1px solid #e6e0e4}
+.url span{flex:1;height:24px;border-radius:12px;background:#f1eef0;display:flex;align-items:center;gap:6px;padding:0 10px;font-size:11.5px;color:#444;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.url span b{font-weight:600;color:#222}
+.url svg{width:12px;height:12px;flex:none;color:#2e7d32}
+.url .dots{width:18px;flex:none;color:#666;font-size:16px;line-height:1;text-align:center}
+.app{flex:1;min-height:0;position:relative;background:#fbf4f9}
+.app iframe{display:block;width:360px;height:100%;border:0;background:#fbf4f9}
+.app .cargando{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:13px;color:#6b1e5a;background:#fbf4f9;pointer-events:none;transition:opacity .25s}
+.app .cargando.fuera{opacity:0}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header class="top">
+    <div>
+      <div class="marca">Etimologías · Unidad 1 · semana 7</div>
+      <h1>Recorrido por tu primer parcial</h1>
+      <div class="sub">La autoevaluación, pantalla por pantalla, con el ejemplo de una estudiante inventada.</div>
+    </div>
+    <span class="badge">Recorrido · datos de ejemplo</span>
+  </header>
+
+  <main class="stage">
+    <aside class="panel">
+      <div class="phases" id="phases"></div>
+
+      <div class="step" id="stepBox">
+        <div class="eyebrow" id="stEyebrow">Parada 1 de 15</div>
+        <h2 id="stTitle"></h2>
+        <p id="stText"></p>
+        <div class="hint" id="stHint"></div>
+        <div class="nav">
+          <button id="btnPrev" type="button">Anterior</button>
+          <button id="btnNext" class="primary" type="button">Siguiente</button>
+        </div>
+        <div class="keys">También con las flechas <kbd>←</kbd> <kbd>→</kbd> del teclado. Puedes tocar cualquier cosa en el teléfono: es la página de verdad.</div>
+      </div>
+
+      <p class="note" id="nota">
+        Lo que ves adentro es tu autoevaluación tal cual, en modo recorrido: aquí nada se manda al profesor y nada toca lo que ya
+        hayas escrito en la tuya. Ximena no existe; sus respuestas son el mismo ejemplo que trae cada paso.
+        <button class="linkbtn" id="btnRestart" type="button">Reiniciar el recorrido</button> ·
+        <button class="linkbtn" id="btnBlanco" type="button">Verla en blanco</button> ·
+        <a href="autoevaluacion-u1.html">Abrir la tuya</a>
+      </p>
+    </aside>
+
+    <section class="device-wrap" id="deviceWrap">
+      <div class="device" id="device">
+        <div class="phone">
+          <div class="screen" id="screen">
+            <div class="sb"><span>9:41</span><span class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19" r="1" fill="currentColor"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h3v-4H3zm5 0h3V9H8zm5 0h3V5h-3zm5 0h3V2h-3z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="16" height="10" rx="2"/><path d="M21 10v4" stroke-linecap="round"/><rect x="5" y="9" width="11" height="6" fill="currentColor" stroke="none"/></svg>
+            </span></div>
+            <div class="url">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><b>campus-conca.github.io</b>/etimologias/recursos/plantillas/autoevaluacion-u1.html</span>
+              <span class="dots" style="flex:none;background:none;padding:0;width:18px">⋮</span>
+            </div>
+            <div class="app" id="app">
+              <iframe id="marco" title="Tu primer parcial · autoevaluación de la Unidad 1, en modo recorrido"></iframe>
+              <div class="cargando" id="cargando">Abriendo tu primer parcial…</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+(function(){
+'use strict';
+const $=s=>document.querySelector(s);
+
+/* ---------- El ejemplo: la misma estudiante inventada de los «Ver un ejemplo» ----------
+   Es el estado completo de la autoevaluación (la misma forma que guarda en
+   localStorage y que viaja en el código de respaldo). Se manda en el hash del
+   iframe y la página lo aplica al arrancar, en su llave de demo. */
+const EJEMPLO={
+  nombre:'Ximena Reséndiz', grupo:'1º B',
+  suelo:{museo:true,defensa:true,circulo:true,bitacora:true,mazo:true},
+  serie:{q1:{a:'1',s:'3',h:'3'},q2:{a:'2',s:'3',h:''},q3:{a:'2',s:'3',h:''},q4:{a:'5',s:'8',h:'9'},q5:{a:'2',s:'3',h:''},qi:{a:'6',s:'7',h:''}},
+  serieTexto:'Siempre le bajo por miedo a quedar mal. Las seis veces salí por encima de lo que aposté, y en el de diez me pasé por tres reactivos. Mi medidor está descalibrado hacia abajo y ya lo sé; lo raro es que eso también me pasa con la calificación que estoy escribiendo aquí.',
+  aunNo:'El anti- de antiguo se me seguía cayendo. Lo saqué del mazo, le escribí en el reverso «no está contra nada, viene de ante» y en el integrador ya no fallé.',
+  ev:{
+    e1:{e:'si',t:'mis primeras disecciones del 4 de agosto, en el portafolio'},
+    e2:{e:'si',t:'mi hoja de las dos linternas, con la linterna marcada en cada definición'},
+    e3:{e:'si',t:'mi ficha de cosmético en el Museo, con el viaje completo y su fuente en el DECEL'},
+    e4:{e:'si',t:'la suma de anti + bió + tico que leí de vuelta en el pizarrón'},
+    e5:{e:'no',t:''},
+    e6:{e:'si',t:'las veinte palabras de mi matriz del torneo del 14 de agosto'},
+    e7:{e:'si',t:'la caja de omeprazol que descifré en el consultorio'},
+    e8:{e:'si',t:'mi hoja del tribunal de las apuestas, con dos apuestas verificadas en el DLE'},
+    e9:{e:'no',t:''},
+    e10:{e:'si',t:'mi árbol de arqui- del campeonato: once palabras, tres verificadas en el DECEL'},
+    e11:{e:'no',t:''},
+    e12:{e:'si',t:'la captura de mis estadísticas de Anki: sin racha, pero con repasos casi diarios'},
+    e13:{e:'si',t:'hemeroteca, que descifré sola en un letrero de la biblioteca'},
+    e14:{e:'si',t:'mi monstruo cronófago, de la fábrica'},
+    e16:{e:'si',t:'mi hoja de retroalimentación de la defensa'},
+    e17:{e:'si',t:'mi bitácora, con rastro desde el 25 de agosto'}
+  },
+  piezaCual:'cosmético',
+  piezaPorque:'Viene de kósmos, orden. El maquillaje y el universo son literalmente la misma palabra: las dos ordenan algo.',
+  piezaAntes:'Habría escrito «crema para la cara» y ya. No se me habría ocurrido que tuviera un adentro.',
+  crit:{c1:'b',c2:'a',c3:'b',c4:'b'},
+  defensaProfe:'Buena descomposición, pero cuando te pregunté cómo supiste que la fuente era confiable, contestaste «porque estaba en internet».',
+  p1:'Sacar la familia entera de una raíz y comprobar tres en el DECEL.',
+  p2:'Mi árbol de arqui- del campeonato, once palabras.',
+  p3:'La fuente: todavía digo «lo vi en internet».',
+  ensayoHueco:'en qué otra palabra vive la raíz de mi palabra. Me quedé callada.',
+  ensayoMueve:'No. Sostengo el 8; ya sé con qué.',
+  num:'8', mitad:'',
+  usadas:{ser1:true,suelo:true,eve10:true,eve13:true,crc2:true},
+  fraseTocada:'1',
+  frase:'Llegué al cierre con el suelo completo. Mi serie muestra que me subestimo: las seis veces salí por encima de lo que aposté, y en el de diez por tres reactivos. Puedo sacar la familia entera de una raíz, y lo demuestro con mi árbol de arqui- del campeonato: once palabras, tres verificadas en el DECEL. Descifré hemeroteca yo sola, en un letrero de la biblioteca, sin que nadie me la enseñara. Todavía me falta la fuente: en la defensa dije «porque estaba en internet», y eso no es una fuente, es un lugar. Es lo primero que voy a arreglar en la unidad 2.'
+};
+
+function aBase64(txt){
+  const arr=new TextEncoder().encode(txt); let bin='';
+  for(let i=0;i<arr.length;i++) bin+=String.fromCharCode(arr[i]);
+  return btoa(bin);
+}
+
+/* ---------- El teléfono ---------- */
+const marco=$('#marco'), cargandoEl=$('#cargando');
+let cargando=false, enBlanco=false, sello=0;
+function cargar(conEjemplo){
+  enBlanco=!conEjemplo;
+  cargando=true;
+  sello=Date.now();
+  cargandoEl.classList.remove('fuera');
+  /* Siempre va una semilla, aunque sea vacía: la página guarda en su llave de
+     demo lo último que se tocó, y «Verla en blanco» tiene que borrarlo.
+     Si este archivo no corre dentro del sitio (lo abrieron desde WhatsApp,
+     desde Descargas, con content:// o file://), la autoevaluación hermana no
+     existe a su lado: se carga la publicada. postMessage no pide mismo origen. */
+  const base=/^https?:$/.test(location.protocol)
+    ? 'autoevaluacion-u1.html'
+    : 'https://campus-conca.github.io/etimologias/recursos/plantillas/autoevaluacion-u1.html';
+  marco.src=base+'?demo&v='+Date.now()+'#ejemplo='+encodeURIComponent(aBase64(JSON.stringify(conEjemplo?EJEMPLO:{})));
+}
+/* Cada carga del teléfono lleva un sello; la autoevaluación lo devuelve en
+   sus avisos, y así se ignoran los que llegan de una carga anterior (el
+   «voy en el paso 0» del arranque puede llegar después del load). */
+function manda(m){
+  m.demo='autoeval-u1'; m.sello=sello;
+  try{ marco.contentWindow.postMessage(m,'*'); }catch(e){}
+}
+marco.addEventListener('load',()=>{
+  cargando=false;
+  cargandoEl.classList.add('fuera');
+  navega(TOUR[ti]);
+});
+
+/* ---------- Recorrido guiado ---------- */
+const PHASES=['Entrar','Tu evidencia','Tus piezas','La frase','Después'];
+const HAND='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V12"/><path d="M11 11.5a1.5 1.5 0 0 1 3 0V13"/><path d="M14 12.5a1.5 1.5 0 0 1 3 0V14"/><path d="M17 13.5a1.5 1.5 0 0 1 3 0V17a5 5 0 0 1-5 5h-2.6a5 5 0 0 1-4.2-2.3L5 15.5a1.6 1.6 0 0 1 2.6-1.8L8 14"/></svg>';
+/* scr: qué pantalla de la autoevaluación (0 portada … 9 la conversación).
+   sel: hasta dónde bajar dentro de esa pantalla. hoja: abrir Papel · respaldo. */
+const TOUR=[
+  {ph:0,scr:0,title:'Se abre en tu celular y se guarda sola',
+    text:'Tu primer parcial no es un examen: es una página. La abres desde el enlace de la semana 7, y todo lo que escribes se queda guardado en ese mismo teléfono, aunque la cierres y vuelvas mañana. Lo que ves aquí adentro es esa página, ya llena con el ejemplo de una estudiante inventada.',
+    hint:'Empieza por tu <b>nombre</b>, como apareces en la lista, y tu <b>grupo</b>. Aquí ya vienen los de Ximena: puedes cambiarlos.',
+    hintBlanco:'Empieza por tu <b>nombre</b>, como apareces en la lista, y tu <b>grupo</b>. Escríbelos aquí para ver cómo se pone verde la primera raya.'},
+  {ph:0,scr:0,sel:'.tarjeta.suave',
+    title:'Las rayitas de arriba son los nueve pasos',
+    text:'Cada raya de la barra morada es un paso. Verde: ese paso ya trae algo tuyo. Amarilla: ahí estás. Puedes tocarlas para saltar, y abajo siempre están Atrás y Siguiente. También se avanza deslizando el dedo. Tardas unos veinte minutos, con tu expediente y tu portafolio enfrente.',
+    hint:'Toca una <b>raya verde</b> en el teléfono para brincar a ese paso, y regresa tocando la primera.'},
+  {ph:0,scr:1,sel:'#pares',margen:120,
+    title:'Primero, entender qué es esto',
+    text:'El paso 1 no pide nada: se lee. Dice las tres cosas que pueden pasar con tu propuesta, qué cuenta como argumento (una pieza que se puede ver, tu serie de calibración, un «aún no» con plan, algo que hiciste sin que te lo pidieran) y qué no cuenta aunque sea cierto. Vale la pena leerlo completo antes de escribir una sola línea.',
+    hint:'Estás en «La misma idea, dicha de dos maneras». Lee la frase floja, piensa cómo la dirías tú, y luego <b>destápala</b>.'},
+  {ph:1,scr:2,
+    title:'El suelo: cinco tablas que deben existir',
+    text:'Tocas cada tabla que ya tienes puesta y abajo se arma tu piso. El suelo no mide qué tan bien te salió: registra que estuviste y que lo hiciste. Con las cinco, no repruebas; la conversación decide cuánto más. Cada tabla trae el enlace a la actividad donde se hizo, para abrirla y cotejar.',
+    hint:'<b>Desmarca una tabla</b> y mira el piso: aparece la caja para anotar qué te falta y cuándo lo repones. Vuelve a marcarla.'},
+  {ph:1,scr:3,
+    title:'Tu serie de calibración: copia, rehaz, lee',
+    text:'Seis quizzes. En «Aposté» y «Salió» copias los números de tu expediente. «Hoy» es la columna nueva: rehaces cada quiz ahora mismo con el enlace de su renglón y anotas cuánto sacas. La gráfica se dibuja sola y el recuadro de abajo te dice, en palabras, qué significa tu serie.',
+    hint:'<b>Cambia un número</b> de la tabla y mira moverse la gráfica y la lectura. Luego baja al renglón de «aún no»: ese suma, dejarlo vacío no.'},
+  {ph:1,scr:4,
+    title:'El mapa de tus evidencias',
+    text:'Diecisiete cosas que la unidad prometió enseñarte, semana por semana. En cada una: «Lo tengo», y dices con qué se demuestra, o «Aún no». Las dos respuestas sirven en la conversación. Nadie tiene las diecisiete: un mapa con huecos honestos es mejor argumento que uno lleno de palomitas sin pieza detrás.',
+    hint:'Busca una que esté sin contestar, toca <b>Lo tengo</b> y escribe con qué lo demuestras. El medidor de arriba se mueve.'},
+  {ph:2,scr:5,
+    title:'Tu palabra: una sola',
+    text:'De todas las palabras nuevas que te llevas, una: la que mejor muestra lo que sabes hacer hoy y no sabías en agosto. Tres preguntas: cuál es, por qué esa y qué habrías hecho con ella hace seis semanas. La tercera es la que convierte una palabra en argumento, porque te compara contigo y no con el de junto.',
+    hint:'Toca <b>Ver un ejemplo</b>: así lo llenó Ximena. No lo copies, se nota; míralo antes de escribir el tuyo.'},
+  {ph:2,scr:6,
+    title:'La defensa, con la rúbrica enfrente',
+    text:'Los cuatro criterios de la rúbrica pública, la que conoces desde la primera semana. Te marcas tú, «Bien» o «Aún no», antes de releer lo que anotó el profesor. Luego copias su frase de tu hoja de retroalimentación tal cual, sin suavizarla: eso es lo que hace creíble todo lo demás.',
+    hint:'Fíjate en que Ximena se puso <b>Aún no</b> en la fuente, y en la frase incómoda que copió sin cambiarle nada.',
+    hintBlanco:'Márcate en los cuatro criterios y abre <b>Ver un ejemplo</b>: Ximena se puso «Aún no» en la fuente y copió la frase incómoda sin cambiarle nada.'},
+  {ph:2,scr:7,
+    title:'El ensayo en voz alta',
+    text:'Las tres preguntas de la conversación son siempre las mismas, y son estas. Las contestas en voz alta con el reloj corriendo, antes de escribir nada: solo, frente al espejo o con alguien de tu grupo. Nadie revisa esto. El renglón que vale oro es el de lo que no supiste contestar: es tu lista para antes del lunes.',
+    hint:'Toca <b>Un minuto, en voz alta</b> y mira correr el reloj. Se puede parar cuando quieras.'},
+  {ph:3,scr:8,sel:'#numeros',margen:150,
+    title:'Tu número',
+    text:'Aquí llega todo lo anterior. Eliges un número del 5 al 10, con «y medio» si quieres. No es pedir una calificación: es proponerla, y en el cuadro de abajo vas a decir por qué. Casi todos se ponen menos de lo que el profesor les pondría; si te pasa, la conversación lo corrige.',
+    hint:'<b>Toca un número</b> y mira cómo cambia «Propongo … como mi primer parcial».'},
+  {ph:3,scr:8,sel:'#bandeja',margen:150,
+    title:'Las piezas se vuelven frase',
+    text:'Cada pieza salió de lo que escribiste en los pasos anteriores: tu calibración, tu suelo, tus evidencias con pieza, tus «aún no». Tocas tres o cuatro y la frase se arma sola con tus propias palabras. Después la editas hasta que suene a ti: tú eres quien firma, no la pantalla.',
+    hint:'Toca <b>una pieza más</b> y luego <b>Rearmar con las piezas marcadas</b>. Después edita la frase a mano: se queda como la dejes.'},
+  {ph:3,scr:8,sel:'#checks',margen:150,
+    title:'Antes de mandarla, y mandarla',
+    text:'La lista revisa tu frase: que tenga número, una pieza que se pueda ver, tu serie, un «aún no», cuerpo, y nada de lo que no cuenta («me esforcé», «necesito el diez»). Cuando está lista, «Enviar mi propuesta al profesor» la manda. Solo él la lee, y la tiene enfrente en la conversación. Si no sale, abajo están las redes: copiar y pegar en el formulario, o papel.',
+    hint:'Toca <b>Enviar mi propuesta al profesor</b>. En este recorrido no se manda nada: solo ves qué pasa cuando sale.'},
+  {ph:4,scr:9,
+    title:'La conversación',
+    text:'Este paso se lo enseñas al profesor: todo lo que escribiste, en un solo cuadro. Volteas el teléfono y hablan sobre eso. Al terminar, entre los dos, anotan lo que se asentó, la fecha y los acuerdos para la unidad 2, para que nadie lo recuerde distinto en diciembre.',
+    hint:'Baja hasta <b>Lo que se acordó</b>: esos tres renglones se llenan hasta después de conversar, no antes.'},
+  {ph:4,scr:9,sel:'#btnDescargar2',margen:200,
+    title:'Descarga tu expediente',
+    text:'Un archivo con todo lo que llenaste, para guardarlo donde no se pierda. En la semana 12 vas a hacer esto otra vez, y lo primero que vas a querer es releer lo de hoy. El botón está al final del paso 8 y del paso 9.',
+    hint:'Toca <b>Descargar mi expediente de la unidad</b> y ábrelo: es una página que se lee en cualquier teléfono.'},
+  {ph:4,hoja:true,
+    title:'Papel · respaldo: tu red de seguridad',
+    text:'Arriba a la derecha. «Copiar mi respaldo» te da un código con todo lo que llevas escrito: mándatelo a tu propio WhatsApp y con él lo recuperas en otro teléfono, o si se te borra el navegador. «Pegar un respaldo» hace lo contrario. Y «Modo papel» imprime los nueve pasos seguidos para llenarlos a mano: vale exactamente igual.',
+    hint:'Toca <b>Copiar mi respaldo</b> y luego <b>Cerrar</b>. Cuando la llenes de verdad, hazlo cada vez antes de cerrar la página.'}
+];
+let ti=0;
+function renderPhases(){
+  const cur=TOUR[ti].ph;
+  $('#phases').innerHTML=PHASES.map((p,i)=>`<button class="phase ${i<cur?'done':(i===cur?'active':'')}" type="button" data-ph="${i}" title="Ir a ${p}"><i></i><span>${p}</span></button>`).join('');
+}
+function navega(st){
+  if(cargando) return;
+  const m={hoja:!!st.hoja};
+  if(typeof st.scr==='number') m.ir=st.scr;
+  if(st.sel){ m.sel=st.sel; if(st.margen) m.margen=st.margen; }
+  manda(m);
+}
+function showStep(i,navigate=true){
+  ti=Math.max(0,Math.min(TOUR.length-1,i)); const st=TOUR[ti];
+  if(navigate) navega(st);
+  $('#stEyebrow').textContent=`Parada ${ti+1} de ${TOUR.length} · ${PHASES[st.ph]}`;
+  $('#stTitle').textContent=st.title; $('#stText').textContent=st.text;
+  $('#stHint').innerHTML=HAND+'<div>'+((enBlanco&&st.hintBlanco)||st.hint)+'</div>';
+  $('#btnPrev').disabled=ti===0; $('#btnNext').textContent=ti===TOUR.length-1?'Volver al inicio':'Siguiente';
+  renderPhases();
+  try{ history.replaceState(null,'','#parada-'+(ti+1)); }catch(e){}
+}
+/* La autoevaluación avisa en qué paso va (el estudiante puede tocar lo que
+   quiera adentro): el panel se pone en la parada que corresponde. */
+window.addEventListener('message',e=>{
+  const m=e.data; if(!m||m.demo!=='autoeval-u1'||cargando||m.sello!==sello) return;
+  const st=TOUR[ti];
+  if(m.hoja){ if(!st.hoja) showStep(TOUR.findIndex(s=>s.hoja),false); return; }
+  if(st.hoja) return;
+  if(typeof m.paso==='number' && st.scr!==m.paso){
+    const idx=TOUR.findIndex(s=>s.scr===m.paso);
+    if(idx>=0) showStep(idx,false);
+  }
+});
+$('#btnNext').addEventListener('click',()=>showStep(ti===TOUR.length-1?0:ti+1));
+$('#btnPrev').addEventListener('click',()=>showStep(ti-1));
+$('#btnRestart').addEventListener('click',()=>{ ti=0; cargar(true); showStep(0,false); });
+$('#btnBlanco').addEventListener('click',()=>{ ti=0; cargar(false); showStep(0,false); });
+$('#phases').addEventListener('click',e=>{const b=e.target.closest('[data-ph]');if(!b)return;const i=TOUR.findIndex(s=>s.ph===Number(b.dataset.ph));if(i>=0)showStep(i);});
+document.addEventListener('keydown',e=>{
+  if(e.target.matches('input,textarea,select')) return;
+  if(e.key==='ArrowRight'){showStep(ti===TOUR.length-1?0:ti+1);} else if(e.key==='ArrowLeft'){showStep(ti-1);} else if(e.key==='Escape'){manda({hoja:false});}
+});
+
+/* ---------- Escala del teléfono ---------- */
+function fit(){
+  const w=$('#deviceWrap'); const s=Math.min(1,(w.clientHeight-16)/806,(w.clientWidth-16)/384);
+  $('#device').style.setProperty('--s',s.toFixed(3));
+}
+window.addEventListener('resize',fit);
+
+/* ---------- Arranque ---------- */
+let start=0;
+try{ const m=(location.hash||'').match(/parada-(\d+)/)||(location.search||'').match(/parada=(\d+)/); if(m) start=Number(m[1])-1; }catch(e){}
+fit(); showStep(isNaN(start)?0:start,false); cargar(true);
+})();
+</script>
+</body>
+</html>

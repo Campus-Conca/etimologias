@@ -64,7 +64,10 @@ Just the Docs, ya configurado en `_config.yml`).
   sigue funcionando igual.
 - **Cierres de unidad:** el estudiante llena su autoevaluación en
   `recursos/plantillas/autoevaluacion-u1.html` (se guarda en su teléfono y
-  manda su frase al formulario). Tú conversas y registras en
+  manda su frase al formulario). Para explicarla en clase está
+  `autoevaluacion-u1-recorrido.html`, en la misma carpeta: la abre dentro de
+  un teléfono dibujado con `?demo` (llave de guardado aparte, envío simulado,
+  ejemplo ya lleno) y al lado lleva las paradas del recorrido. Tú conversas y registras en
   `recursos/plantillas/mesa-u1.html`, la **pantalla del profesor**: trae al
   grupo desde la hoja de cálculo del formulario, desde el código de respaldo
   del estudiante o a mano; te deja apostar tu propio número a ciegas antes de
