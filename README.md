@@ -35,10 +35,14 @@ Just the Docs, ya configurado en `_config.yml`).
   recolector por su cuenta**: nadie lee la bitácora por dentro, y eso está
   escrito en `evaluacion.md` y en la propia autoevaluación. Lo único que
   sale de ahí son piezas sueltas, una por una y con su botón: una palabra
-  cosechada (`tipo = palabra-libro`) y el testamento lector de la semana 16
-  (`tipo = testamento`). Las dos se publican con el menú *Cosecha → Bloque
-  para la web* y se pegan en `leemos.md`, entre las marcas
-  `<!-- COSECHA:palabra-libro -->` y `<!-- COSECHA:testamento -->`. Para el
+  cosechada (`tipo = palabra-libro`), esa misma palabra con su biografía
+  completa para el Museo (`tipo = pieza-museo`, los mismos campos que el
+  formulario de la Galería, así que cae en la misma pestaña y se cura igual)
+  y el testamento lector de la semana 16 (`tipo = testamento`). Palabra y
+  testamento se publican con el menú *Cosecha → Bloque para la web* y se
+  pegan en `leemos.md`, entre las marcas `<!-- COSECHA:palabra-libro -->` y
+  `<!-- COSECHA:testamento -->`; la pieza del Museo se cura a mano en
+  `museo/galeria.md`, como las que llegan por el formulario. Para el
   expediente, la herramienta baja una **constancia de rastro** con solo
   fechas y conteos: eso es lo que se revisa en el cierre, sin leer nada.
   Quien prefiera papel sigue teniendo el cuadernillo de cinco páginas en

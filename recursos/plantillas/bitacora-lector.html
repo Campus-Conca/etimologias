@@ -113,6 +113,13 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--rosa);outline-of
 .item .quitar{border:none;background:transparent;color:#b09aa9;font:inherit;font-size:.78rem;
   cursor:pointer;padding:.2rem 0;margin-top:.3rem}
 .item .quitar:hover{color:var(--ambar)}
+.ficha-museo{display:none;margin-top:.7rem;padding:.75rem .8rem .9rem;border:1.5px dashed var(--borde);border-radius:.7rem;background:var(--fondo)}
+.ficha-museo.ver{display:block}
+.ficha-museo .rot{margin:0;font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--rosa)}
+.ficha-museo .mini{margin:.2rem 0 0}
+.ficha-museo label.campo{margin-top:.6rem}
+.ficha-museo textarea{min-height:4.2rem}
+.ficha-museo .acciones{margin:.7rem 0 0}
 .item.cerrado{background:var(--fondo)}
 .item.dejado{border-color:#e6cdbb}
 .vacio{border:2px dashed #d9c3d4;border-radius:.9rem;padding:.9rem 1rem;color:var(--gris);
@@ -325,7 +332,7 @@ body.papel .pestanas,body.papel .chips,body.papel .acciones{display:none}
 <section class="pantalla" data-titulo="La cosecha" data-corto="Cosecha">
   <p class="rot">Palabras que salieron de mis libros</p>
   <h2>La cosecha</h2>
-  <p class="mini">Todas son candidatas al Museo. Se llevan al círculo de lectura y varias terminan en el muro de <a href="../../leemos.html" target="_blank" rel="noopener">Leemos</a>. Para que una salga de aquí tienes que tocar su botón: ninguna se manda sola.</p>
+  <p class="mini">Todas son candidatas al Museo. Se llevan al círculo de lectura y varias terminan en el muro de <a href="../../leemos.html" target="_blank" rel="noopener">Leemos</a>. Para que una salga de aquí tienes que tocar su botón: ninguna se manda sola. Al muro va con su palabra; al Museo va con su biografía, que se llena aquí mismo.</p>
 
   <div id="listaPalabras"></div>
 
@@ -345,8 +352,8 @@ body.papel .pestanas,body.papel .chips,body.papel .acciones{display:none}
   </div>
 
   <div class="cita">
-    Una palabra tuya, con su viaje y su fuente verificada, es una pieza del Museo. La ficha se llena en
-    <a href="ficha-museo.html" target="_blank" rel="noopener">Biografía de una palabra</a>.
+    Una palabra tuya, con su viaje y su fuente verificada, es una pieza del Museo. Se manda desde su tarjeta, con <strong>Llevarla al Museo</strong>.
+    Si prefieres trabajarla en papel antes, la ficha imprimible es <a href="ficha-museo.html" target="_blank" rel="noopener">Biografía de una palabra</a>.
   </div>
 </section>
 
@@ -412,10 +419,11 @@ body.papel .pestanas,body.papel .chips,body.papel .acciones{display:none}
    en el localStorage de este teléfono, con la clave de abajo, y en
    el código de respaldo que el estudiante se manda a sí mismo.
 
-   Las dos únicas cosas que pueden salir de aquí son las que ya son
-   públicas en el curso: una palabra para el muro de Leemos y el
-   testamento lector de la semana 16. Las dos van una por una, con
-   un botón que el estudiante toca a propósito.
+   Las únicas cosas que pueden salir de aquí son las que ya son
+   públicas en el curso: una palabra para el muro de Leemos, la misma
+   palabra con su biografía completa para el Museo, y el testamento
+   lector de la semana 16. Todas van una por una, con un botón que el
+   estudiante toca a propósito y con los datos que se piden ahí mismo.
 
    Mismo criterio que los tres pactos y la autoevaluación de U1.
    ============================================================ */
@@ -432,6 +440,7 @@ body.papel .pestanas,body.papel .chips,body.papel .acciones{display:none}
   var COSECHA = 'https://script.google.com/macros/s/AKfycbyowFaq0n-zK4TBagspKG0Roye0Lun0FHaB5gQTiZGisXG4A-9ehIWmamw_mWo3KeZmrw/exec';
   var TIPO_PALABRA = 'palabra-libro';
   var TIPO_TESTAMENTO = 'testamento';
+  var TIPO_PIEZA = 'pieza-museo';   /* misma pestaña y mismos campos que el formulario de la Galería */
 
   /* ---------- estado ---------- */
   var D = {};
@@ -843,18 +852,23 @@ body.papel .pestanas,body.papel .chips,body.papel .acciones{display:none}
         '<label class="campo"><span>Qué creo que significa / qué encontré</span>' +
           '<textarea data-nota="1">' + esc(p.nota || '') + '</textarea></label>' +
         '<div class="acciones" style="margin:.6rem 0 0">' +
-          '<a class="btn linea" href="ficha-museo.html" target="_blank" rel="noopener">Llevarla al Museo</a>' +
+          (p.museo
+            ? '<p class="mini" style="margin:.2rem 0 0;color:#1f8a4c"><strong>Se mandó al Museo el ' + esc(p.museo) + '.</strong> El profesor la cura y aparece en la Galería con tu nombre de pila.</p>'
+            : '<button class="btn linea" type="button" data-museo="1">Llevarla al Museo</button>') +
           (p.enviada
             ? '<p class="mini" style="margin:.2rem 0 0;color:#1f8a4c"><strong>Se mandó al muro el ' + esc(p.enviada) + '.</strong> El profesor la palomea y aparece en Leemos.</p>'
             : '<button class="btn segundo" type="button" data-mandar="1">Mandarla al muro de Leemos</button>') +
         '</div>' +
         '<p class="mini" style="margin:.4rem 0 0" data-aviso="1"></p>' +
+        fichaMuseoHTML(p) +
         '<button class="quitar" type="button" data-quitar="1">Quitar esta palabra</button>';
 
       caj.querySelector('[data-nota]').addEventListener('change', function(){
         p.nota = this.value; guardar();
       });
       var avisoP = caj.querySelector('[data-aviso]');
+      var btnMu = caj.querySelector('[data-museo]');
+      if (btnMu) armaFichaMuseo(p, caj, btnMu, avisoP);
       var btnM = caj.querySelector('[data-mandar]');
       if (btnM) btnM.addEventListener('click', function(){
         if (!(D.nombre || '').trim()){
@@ -885,6 +899,97 @@ body.papel .pestanas,body.papel .chips,body.papel .acciones{display:none}
       caja.appendChild(caj);
     });
   }
+  /* ---------- la ficha del Museo, ahí mismo ----------
+     Los campos son los MISMOS que pide el formulario de la Galería
+     (museo/galeria.md, data-tipo="pieza-museo"), para que caigan en la misma
+     pestaña de la hoja y el profesor los cure igual. El borrador se guarda
+     con la palabra, así que se puede empezar hoy y mandar otro día. */
+  var CAMPOS_PIEZA = [
+    { n:'llegada', t:'¿Cómo llegó a ti? La cita del libro, tal como aparece', larga:true, req:true,
+      ph:'Copia la frase donde la encontraste.' },
+    { n:'viaje',   t:'El viaje que investigaste: una escala por renglón', larga:true, req:true,
+      ph:'forma — lengua — qué significaba ahí\nuna escala por renglón' },
+    { n:'porque',  t:'¿Por qué la elegiste?', larga:true, req:true,
+      ph:'Lo que te hizo detenerte en ella.' },
+    { n:'fuente',  t:'¿Dónde la verificaste?', larga:false, req:true,
+      ph:'DLE, DECEL, Corominas… o escribe: aún no' },
+    { n:'bitacora', t:'Bitácora de IA, si usaste: qué le pediste y qué decidiste tú', larga:true, req:false,
+      ph:'Opcional.' }
+  ];
+  function fichaMuseoHTML(p){
+    if (p.museo) return '';
+    var f = p.ficha || {};
+    var llegada = f.llegada != null ? f.llegada
+      : ('En ' + (tituloDe(p.libroId) || 'mi libro') + (p.pag ? ', p. ' + p.pag : '') + ': ');
+    var h = '<div class="ficha-museo" data-ficha="1">' +
+      '<p class="rot">Biografía de ' + esc(p.palabra) + '</p>' +
+      '<p class="mini">Esto es una biografía, no un examen. Se guarda en tu bitácora mientras la escribes: puedes empezar hoy y mandarla otro día.</p>';
+    CAMPOS_PIEZA.forEach(function(c){
+      var v = c.n === 'llegada' ? llegada : (f[c.n] || '');
+      h += '<label class="campo"><span>' + esc(c.t) + (c.req ? '' : ' <em style="font-weight:400">(opcional)</em>') + '</span>' +
+        (c.larga
+          ? '<textarea data-campo="' + c.n + '" placeholder="' + esc(c.ph) + '">' + esc(v) + '</textarea>'
+          : '<input type="text" data-campo="' + c.n + '" placeholder="' + esc(c.ph) + '" value="' + esc(v) + '">') +
+        '</label>';
+    });
+    h += '<div class="acciones">' +
+      '<button class="btn segundo" type="button" data-mandar-museo="1">Mandarla al Museo</button>' +
+      '<button class="btn linea" type="button" data-cerrar-ficha="1">Mejor después</button>' +
+      '</div><p class="mini" style="margin:.4rem 0 0" data-aviso-museo="1"></p></div>';
+    return h;
+  }
+  function armaFichaMuseo(p, caj, btn, avisoP){
+    var ficha = caj.querySelector('[data-ficha]');
+    if (!ficha) return;
+    var avisoM = ficha.querySelector('[data-aviso-museo]');
+    btn.addEventListener('click', function(){
+      if (!(D.nombre || '').trim()){
+        avisoP.textContent = 'Antes hace falta tu nombre: está en la pestaña Mi rastro. Sin él, el Museo no sabe de quién es la pieza.';
+        return;
+      }
+      ficha.classList.toggle('ver');
+      if (ficha.classList.contains('ver')){
+        var primero = ficha.querySelector('[data-campo]');
+        if (primero) primero.focus();
+      }
+    });
+    ficha.querySelector('[data-cerrar-ficha]').addEventListener('click', function(){
+      ficha.classList.remove('ver');
+      avisoP.textContent = 'Tu borrador queda guardado aquí.';
+    });
+    ficha.querySelectorAll('[data-campo]').forEach(function(el){
+      el.addEventListener('change', function(){
+        p.ficha = p.ficha || {};
+        p.ficha[el.getAttribute('data-campo')] = el.value;
+        guardar();
+      });
+    });
+    var btnM = ficha.querySelector('[data-mandar-museo]');
+    btnM.addEventListener('click', function(){
+      var datos = { tipo: TIPO_PIEZA, nombre: D.nombre, palabra: p.palabra };
+      var falta = [];
+      CAMPOS_PIEZA.forEach(function(c){
+        var v = (ficha.querySelector('[data-campo="' + c.n + '"]').value || '').trim();
+        datos[c.n] = v;
+        if (c.req && !v) falta.push(c.t.split(/[?:]/)[0].replace(/^¿/, '').trim().toLowerCase());
+      });
+      if (falta.length){
+        avisoM.textContent = 'Falta ' + (falta.length === 1 ? 'un dato: ' : 'llenar: ') + falta.join(', ') + '. Si todavía no verificaste, escribe "aún no" en la fuente: eso también se vale.';
+        return;
+      }
+      p.ficha = { llegada: datos.llegada, viaje: datos.viaje, porque: datos.porque, fuente: datos.fuente, bitacora: datos.bitacora };
+      guardar();
+      btnM.disabled = true; btnM.textContent = 'Mandando…';
+      manda(datos, function(){
+        p.museo = fechaLarga(hoyISO());
+        guardar(); pintaPalabras(); pintaRastro();
+      }, function(){
+        btnM.disabled = false; btnM.textContent = 'Mandarla al Museo';
+        avisoM.textContent = 'No se pudo mandar. Puede ser el internet: tu biografía quedó guardada aquí, inténtalo otra vez en un rato.';
+      });
+    });
+  }
+
   $('btnAgregarPalabra').addEventListener('click', function(){
     var pal = $('nPalabra').value.trim();
     if (!pal){ $('nPalabra').focus(); return; }
@@ -998,7 +1103,7 @@ body.papel .pestanas,body.papel .chips,body.papel .acciones{display:none}
     var c = {
       sesiones: D.sesiones.length, clase: 0, palabras: D.palabras.length,
       libros: D.libros.length, terminados: 0, dejados: 0,
-      primera: '', ultima: '', dias: {}, museo: 0
+      primera: '', ultima: '', dias: {}, museo: 0, piezas: 0
     };
     D.sesiones.forEach(function(s){
       if (s.donde === 'clase') c.clase++;
@@ -1011,7 +1116,7 @@ body.papel .pestanas,body.papel .chips,body.papel .acciones{display:none}
       if (l.finTipo === 'terminado') c.terminados++;
       if (l.finTipo === 'dejado') c.dejados++;
     });
-    D.palabras.forEach(function(p){ if (p.enviada) c.museo++; });
+    D.palabras.forEach(function(p){ if (p.enviada) c.museo++; if (p.museo) c.piezas++; });
     return c;
   }
   function frase(){
@@ -1024,9 +1129,15 @@ body.papel .pestanas,body.papel .chips,body.papel .acciones{display:none}
     if (c.palabras){
       var ultimas = D.palabras.slice(-2).map(function(p){ return p.palabra; }).join(' y ');
       t += ' De ahí ' + (c.palabras === 1 ? 'salió una palabra' : 'salieron ' + c.palabras + ' palabras') + ' —' + ultimas + '—';
-      t += c.museo
-        ? ', y ' + (c.museo === 1 ? 'una fue' : c.museo + ' fueron') + ' al muro del grupo.'
-        : (c.palabras === 1 ? ', que es mi candidata al Museo.' : ', que son mis candidatas al Museo.');
+      if (c.piezas){
+        var piezas = D.palabras.filter(function(p){ return p.museo; }).map(function(p){ return p.palabra; });
+        t += (c.museo ? ', ' + (c.museo === 1 ? 'una fue' : c.museo + ' fueron') + ' al muro del grupo' : '') +
+             ' y ' + (c.piezas === 1 ? piezas[0] + ' ya está en el Museo con su biografía.' : c.piezas + ' ya están en el Museo con su biografía.');
+      } else {
+        t += c.museo
+          ? ', y ' + (c.museo === 1 ? 'una fue' : c.museo + ' fueron') + ' al muro del grupo.'
+          : (c.palabras === 1 ? ', que es mi candidata al Museo.' : ', que son mis candidatas al Museo.');
+      }
     }
     var dejado = null;
     D.libros.forEach(function(l){ if (l.finTipo === 'dejado') dejado = l; });
