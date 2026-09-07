@@ -257,6 +257,11 @@ th { background: #F7F3FB !important; color: #221A3A !important;
 .lam .ilustracion { display: block; max-width: 100%; height: auto; margin: .6rem auto 0;
   border: 1px solid #E6DFF0; border-radius: .7rem; background: #fff; }
 
+// Video embebido en una lámina (Drive, YouTube): marco 16:9 que se ajusta solo
+.lam .video { position: relative; width: 100%; max-width: 52rem; aspect-ratio: 16 / 9;
+  margin: .6rem auto 0; border: 1px solid #E6DFF0; border-radius: .7rem; overflow: hidden; background: #000; }
+.lam .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
 // Cita proyectable (el blockquote del tema no llega al telón)
 .lam .cita { font-family: "Bricolage Grotesque", "Inter", sans-serif; font-weight: 600;
   font-size: clamp(1.1rem, 2.6vw, 1.45rem); line-height: 1.4; color: #4A2440;
@@ -323,6 +328,7 @@ html.telon-abierto, html.telon-abierto body { overflow: hidden; }
 #telon .escenario > .lam .faro span:not(.foquito) { font-size: 1.15rem; }
 #telon .escenario > .lam .palabra-grande { font-size: clamp(3.6rem, 9vw, 6rem); }
 #telon .escenario > .lam .ilustracion { max-height: 62vh; width: auto; margin: .8rem auto 0; }
+#telon .escenario > .lam .video { max-height: 62vh; max-width: calc(62vh * 16 / 9); margin: .8rem auto 0; }
 #telon .escenario > .lam.lam--portada { text-align: center; background: #2B2440; color: #F4EFF9; }
 #telon.sin-apoyo .escenario > .lam .apoyo { display: none; }
 #telon .escenario > .lam .recurso { margin: 1.4rem 0 0; }

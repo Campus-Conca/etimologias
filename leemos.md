@@ -197,8 +197,10 @@ window.LEEMOS = {
 <section class="lam">
 <h4><span class="n">3</span> El video <span class="reloj">5 min</span></h4>
 <p class="di">Dos pases. En el segundo, cazas una frase.</p>
+<div class="video"><iframe src="https://drive.google.com/file/d/1lyrGfxmKMtDVaP0JptkG9hu-NlKHuV4F/preview" title="David Foster Wallace, entrevista para la ZDF, 2003" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+<p class="recurso"><a href="https://drive.google.com/file/d/1lyrGfxmKMtDVaP0JptkG9hu-NlKHuV4F/view" target="_blank" rel="noopener">Abrir el video en Drive</a><span class="pie">David Foster Wallace, entrevista para la ZDF, 2003. Dos minutos ocho segundos.</span></p>
 <p class="apoyo">Primer pase: solo míralo. Segundo pase: anota literal la frase que te pegue, la que sea, aunque no sepas explicar por qué te pegó.</p>
-<p class="nota-conductor">David Foster Wallace, entrevista para la ZDF, 2003, dos minutos ocho segundos (archivo <em>H7KHIerQFHbHUDd_.mp4</em>). Los subtítulos son automáticos y vienen sucios, con líneas repetidas: revísalos antes y, si estorban, proyéctalo sin ellos y traduce en vivo. No presentes al autor, no aporta al punto. Si alguien lo busca en el celular y pregunta por su muerte, respuesta breve, factual, sin detalles, y de regreso al tema.</p>
+<p class="nota-conductor">El video está embebido en esta lámina desde Drive y también abre aparte con el botón, por si el proyector se pelea con el marco. Ponlo en pantalla completa desde el propio reproductor. Los subtítulos son automáticos y vienen sucios, con líneas repetidas: revísalos antes y, si estorban, proyéctalo sin ellos y traduce en vivo. No presentes al autor, no aporta al punto. Si alguien lo busca en el celular y pregunta por su muerte, respuesta breve, factual, sin detalles, y de regreso al tema.</p>
 </section>
 <section class="lam">
 <h4><span class="n">4</span> Lo que pasó en tu cuerpo <span class="reloj">5 min</span></h4>
@@ -226,6 +228,7 @@ window.LEEMOS = {
 <p class="palabra-grande">abhorrēre</p>
 <div class="dis"><span class="pz pz--pre">ab-<small>apartarse de</small></span> <span class="pz pz--raiz">horrēre<small>erizarse</small></span> <span class="eq">= aburrir</span></div>
 <p class="di">Aburrirse no era no tener nada que hacer. Era espantarse.</p>
+<img class="ilustracion" src="assets/img/leemos/aburrir-era-erizarse.webp" alt="Un muchacho dibujado a mano se echa hacia atrás con las manos al frente y el pelo erizado, en punta y de color rosa: el horrēre que vive dentro de aburrir">
 <p class="apoyo">De <em>horrēre</em>, erizarse, que se te pongan los pelos de punta. De ahí salen <strong>aborrecer</strong>, <strong>horror</strong>, <strong>horrible</strong>, <strong>horrendo</strong> y <strong>erizar</strong>. En el video no dice que sus amigos no lean por flojera: dice que hay un casi pavor. El pavor ya vivía dentro de la palabra, seiscientos años antes de que él naciera.</p>
 <p class="aparte">Corominas la documenta en Berceo, como <em>aborrir</em>, con el sentido de aborrecer. El de fastidio llega en el siglo XVI, cuando aparece <em>aburrirse</em>.</p>
 <p class="nota-conductor">Si alguien apostó cerca, dilo con su nombre: es la mejor propaganda que tiene la ley del curso. Verificada en Corominas y en el DLE antes de la sesión; si te piden la fuente, esa es.</p>
@@ -234,6 +237,7 @@ window.LEEMOS = {
 <h4><span class="n">8</span> estímulo <span class="reloj">2 min</span></h4>
 <p class="palabra-grande">stimulus</p>
 <p class="di">Un estímulo era un palo con punta para picar al ganado y que avance.</p>
+<img class="ilustracion" src="assets/img/leemos/estimulo-era-el-aguijon.webp" alt="Una mano sostiene un palo largo con la punta rosa y pica el costado de una vaca que camina hacia adelante: el stimulus, el aguijón">
 <p class="apoyo">Del latín <em>stimulus</em>, aguijón. De ahí <strong>estimular</strong>, <strong>estimulante</strong> y <strong>estimulación</strong>. El video dice que ya casi nunca estamos sin ningún tipo de estimulación. Traducido a la palabra original: casi nunca estamos sin que algo nos pique para que avancemos. Así que la pregunta no es si te estimulan. La pregunta es quién trae el aguijón, y hacia dónde te está picando.</p>
 <p class="nota-conductor">Esta es la palabra que sostiene la sesión entera y la que va a volver en la pregunta del minuto 35, así que no la pases rápido. Si el grupo se ríe con lo del ganado, aprovecha: la risa es que ya vieron la imagen, y la imagen es el argumento.</p>
 </section>
@@ -248,6 +252,7 @@ window.LEEMOS = {
 <h4><span class="n">10</span> escuela <span class="reloj">2 min</span></h4>
 <p class="palabra-grande">σχολή</p>
 <p class="di">Estás sentado en un lugar cuyo nombre significa tiempo libre.</p>
+<img class="ilustracion" src="assets/img/leemos/escuela-era-tiempo-libre.webp" alt="Un muchacho acostado sobre una piedra, con las manos bajo la cabeza y las sandalias a un lado, mira una rama con hojas rosas: la scholḗ, el ocio">
 <p class="apoyo"><em>Scholḗ</em>, en griego, era el ocio: el tiempo que te sobra y que decides tú en qué se usa. Después pasó a nombrar aquello a lo que se dedicaba ese tiempo, y de ahí salió <strong>escuela</strong>. Al trabajo los griegos le decían <em>ascholía</em>, el no-ocio. Los romanos hicieron lo mismo con <strong>negocio</strong>, <em>nec otium</em>, la negación del ocio. Dos lenguas distintas, la misma decisión: el ocio era lo primero, y al trabajo lo nombraron como su ausencia.</p>
 <p class="nota-conductor">Este es el momento incómodo de la sesión y hay que dejarlo incómodo: no lo resuelvas, no lo suavices con una moraleja y no defiendas a la escuela. Si alguien dice en voz alta que entonces la escuela hace lo contrario de lo que su nombre dice, esa frase te sirve el resto del semestre. No la tapes.</p>
 </section>
@@ -255,6 +260,7 @@ window.LEEMOS = {
 <h4><span class="n">11</span> alumno <span class="reloj">2 min</span></h4>
 <p class="palabra-grande">alumnus</p>
 <p class="di">Alumno es el que es alimentado.</p>
+<img class="ilustracion" src="assets/img/leemos/alumno-el-que-es-alimentado.webp" alt="Una regadera riega una planta joven en una maceta rosa: alere, alimentar y hacer crecer, la raíz de alumno">
 <p class="apoyo">De <em>alere</em>, alimentar, nutrir, hacer crecer. De esa misma raíz salen <strong>alimento</strong>, <strong>adolescente</strong> (el que está creciendo) y <strong>adulto</strong> (el que ya creció). La sesión entera habló de alimentar una parte y dejar sin comer a la otra, y resulta que esa metáfora no había que traerla de ningún lado: estaba dentro de cómo te llamas aquí desde hace dos mil años.</p>
 <p class="aparte">Y el eje de todo esto, dicho con la palabra en la mano: no hay una parte buena y una parte mala. Hay una parte que come doscientas veces al día y otra que no come nunca. El problema no es la estimulación, es la asimetría.</p>
 <p class="nota-conductor">Aquí cierras el bloque de palabras. La cadena <em>alere</em> hacia alumno, alimento, adolescente y adulto está verificada, pero es larga: dila completa y despacio, sin brincos. Y sostén el eje tal cual está escrito. Si esto se convierte en el lobo bueno contra el lobo malo, la conversación que sigue se vuelve un regaño y nadie va a defender el silencio después de haberlo acusado de aburrido.</p>
@@ -278,6 +284,7 @@ window.LEEMOS = {
 <h4><span class="n">14</span> La apuesta de la semana <span class="reloj">7 min</span></h4>
 <span class="senal">Actividad · se escribe y se guarda</span>
 <p class="di">Elige un rato fijo de esta semana para alimentar al que tiene hambre.</p>
+<img class="ilustracion" src="assets/img/leemos/los-dos-que-comen.webp" alt="Dos perros sentados frente a sus platos: al de la izquierda le llueven chispas rosas sin parar sobre el plato y mira con los ojos muy abiertos; el de la derecha tiene el plato lleno de algo liso y quieto, y está tranquilo">
 <p class="apoyo">Tú decides cuál, cuánto y dónde. Puede ser media hora o pueden ser diez minutos. Puede ser un libro del tendedero de esta misma página, o puede ser sentarte en la puerta de tu casa a no hacer nada. Se escribe en la misma media hoja de hace rato, con día y hora, y te la quedas tú.</p>
 <p class="aparte">No es tarea y no se califica. La semana que entra le dedicamos cinco minutos: quién la cumplió, quién no y qué se atravesó. Las dos respuestas sirven igual.</p>
 <p class="nota-conductor">No lo llames compromiso ni reto. Es una apuesta, y una apuesta se puede perder. Exige día y hora concretos, porque "cuando pueda" no ocurre nunca. Escribe la tuya en voz alta delante de ellos y, la semana siguiente, reporta tú primero si la cumpliste o no.</p>
