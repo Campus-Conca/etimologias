@@ -47,6 +47,13 @@ No hay tema nuevo. Esta semana se ve lo que ya sabes. Y pasa algo que no había 
 <p class="apoyo">Sin resumen y sin recomendación forzada. Solo el título, por dónde vas y si te está gustando o no. Se vale decir que no.</p>
 <p class="nota-conductor">El último minuto del lector antes del círculo del viernes. Si alguien no ha terminado su libro, aquí se entera de que no es el único, y llega menos nervioso al corro.</p>
 </section>
+<section class="lam lam--bitacora">
+<h4>La bitácora del lector <span class="reloj">1 min</span></h4>
+<p class="di">El viernes es el círculo. Abre <em>Mi rastro</em>: ahí está lo que llevas leído.</p>
+<img class="qr-lam" src="../assets/img/qr-bitacora-lector.png" alt="Código QR de la bitácora del lector">
+<p class="recurso"><a href="../recursos/plantillas/bitacora-lector.html" target="_blank" rel="noopener">Bitácora del lector</a><span class="pie">Llega al círculo con el libro en la mano, una frase marcada y tu bitácora abierta en <em>Mi rastro</em>. Nadie la lee por dentro: cuenta lo que salió de ella.</span></p>
+<p class="nota-conductor">Lámina fija de todos los martes: pasa el QR, manda el enlace al grupo en este momento y sigue. Recuérdales cada tanto que la bitácora vive solo en su teléfono: desde el menú se copia un código de respaldo (empieza con ETIMB·) que se mandan a sí mismos por WhatsApp. Última pasada antes del círculo 1. Si alguien no ha anotado nada, que anote hoy su primera sesión: con una ya hay rastro que llevar.</p>
+</section>
 <section class="lam lam--actividad">
 <h4><span class="n">2</span> Ritual: duelo del mazo completo <span class="reloj">7 min</span></h4>
 <span class="senal">Actividad · en parejas</span>

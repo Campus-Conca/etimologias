@@ -287,9 +287,11 @@ th { background: #F7F3FB !important; color: #221A3A !important;
 .lam--portada h3 { font-family: "Bricolage Grotesque", "Inter", sans-serif; font-weight: 800;
   letter-spacing: -.02em; font-size: clamp(2rem, 5vw, 3.2rem); margin: .4rem 0; color: #fff; }
 .lam--portada .foco { font-style: italic; font-size: 1.3rem; color: #D9CFE8; }
-.lam--ticket { text-align: center; }
+.lam--ticket, .lam--bitacora { text-align: center; }
+.lam--bitacora .qr-lam { width: 9rem; }
+#telon .escenario > .lam--bitacora .qr-lam { width: min(50vh, 400px); }
 .lam--ticket > h4 { justify-content: center; }
-.lam--ticket .qr-lam { width: min(50vh, 400px); max-width: 78%; display: block; margin: .8rem auto 0;
+.lam--ticket .qr-lam, .lam--bitacora .qr-lam { width: min(50vh, 400px); max-width: 78%; display: block; margin: .8rem auto 0;
   border: 1px solid #E6DFF0; border-radius: .7rem; background: #fff; padding: .4rem; }
 
 // ---- El telón: modo presentación a pantalla completa ----

@@ -49,6 +49,13 @@ Toda palabra se puede abrir. La IA define cualquier palabra en un segundo; lo qu
 <p class="apoyo">Algunas se presentan al grupo: la palabra, su historia y el nombre de quien la regaló. Todas quedan anotadas: son las primeras candidatas a pieza del Museo.</p>
 <p class="nota-conductor">No alcanza el tiempo para todas y no hace falta: elige cuatro o cinco variadas (un objeto, un verbo, una que suene rarísimo) y garantiza en voz alta que las demás tendrán su turno. El escribano del kraft de la semana 0 puede repetir oficio. Agenda aquí el minuto del lector del martes.</p>
 </section>
+<section class="lam lam--bitacora">
+<h4>La bitácora del lector <span class="reloj">1 min</span></h4>
+<p class="di">Ya tienes libro. Desde hoy, cada vez que leas, que quede el rastro.</p>
+<img class="qr-lam" src="../assets/img/qr-bitacora-lector.png" alt="Código QR de la bitácora del lector">
+<p class="recurso"><a href="../recursos/plantillas/bitacora-lector.html" target="_blank" rel="noopener">Bitácora del lector</a><span class="pie">Se abre en el celular y se llena al terminar de leer: dos toques y ya. Nadie la lee por dentro. Guarda el enlace, porque va a volver cada martes.</span></p>
+<p class="nota-conductor">Lámina fija de todos los martes: pasa el QR, manda el enlace al grupo en este momento y sigue. Recuérdales cada tanto que la bitácora vive solo en su teléfono: desde el menú se copia un código de respaldo (empieza con ETIMB·) que se mandan a sí mismos por WhatsApp. Es la primera vez que la ven: abre la página proyectada, enseña los dos toques de "Hoy leí" y ya. Lo que sigue se aprende usándola.</p>
+</section>
 <section class="lam">
 <h4><span class="n">2</span> La anatomía <span class="reloj">15 min</span></h4>
 <p class="di">Toda palabra se puede abrir. Hoy les ponemos nombre a las piezas.</p>

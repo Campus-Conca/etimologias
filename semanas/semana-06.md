@@ -47,6 +47,13 @@ nav_order: 7
 <p class="apoyo">Sin resumen y sin recomendación forzada. Solo el título, por dónde vas y si te está gustando o no. Se vale decir que no.</p>
 <p class="nota-conductor">Lleva la lista y ve tachando: uno por martes, hasta que pase todo el grupo. A estas alturas ya hay quien cambió de libro dos veces: eso también se cuenta y también se aplaude.</p>
 </section>
+<section class="lam lam--bitacora">
+<h4>La bitácora del lector <span class="reloj">1 min</span></h4>
+<p class="di">Que quede el rastro. Y antes del círculo de la semana que entra, abre <em>Mi rastro</em>.</p>
+<img class="qr-lam" src="../assets/img/qr-bitacora-lector.png" alt="Código QR de la bitácora del lector">
+<p class="recurso"><a href="../recursos/plantillas/bitacora-lector.html" target="_blank" rel="noopener">Bitácora del lector</a><span class="pie">En la pestaña <em>Mi rastro</em> ya está armada la síntesis de lo que llevas leído: con eso llegas al círculo. Nadie la lee por dentro.</span></p>
+<p class="nota-conductor">Lámina fija de todos los martes: pasa el QR, manda el enlace al grupo en este momento y sigue. Recuérdales cada tanto que la bitácora vive solo en su teléfono: desde el menú se copia un código de respaldo (empieza con ETIMB·) que se mandan a sí mismos por WhatsApp. El círculo 1 es el viernes de la semana 7: hoy toca que descubran la pestaña Mi rastro y la frase que se arma sola.</p>
+</section>
 <section class="lam lam--actividad">
 <h4><span class="n">2</span> Ritual: duelo de piezas <span class="reloj">7 min</span></h4>
 <span class="senal">Actividad · en parejas</span>
@@ -131,6 +138,14 @@ nav_order: 7
 </table>
 <p class="apoyo">Fíjate en <em>sarcófago</em>: <em>sarx</em> (carne) + <em>-fagia</em>. La caja donde se guarda un muerto se llama, literalmente, "la que come carne". Que duerman bien.</p>
 <p class="nota-conductor">No dictes la tabla: tapa la tercera columna y que la llenen ellos. Ya traen la mitad. Y el <em>a-</em> de ateo es el mismo de amnesia, desde la semana 2: si nadie lo dice, dilo tú.</p>
+</section>
+<section class="lam">
+<h4>xeno-: dos maneras de rechazar</h4>
+<div class="dis"><span class="pz pz--raiz">xeno<small>extraño, extranjero</small></span> <span class="pz pz--suf">-fobia<small>miedo, rechazo</small></span> <span class="eq">= xenofobia</span></div>
+<p class="di">El xenófobo rechaza lo de fuera. El malinchista rechaza lo propio.</p>
+<img class="ilustracion" src="../assets/img/semana-06/malinchista-y-xenofobo.webp" alt="Dos viñetas dibujadas a mano. A la izquierda, MALINCHISTA: una figura aparta un sombrero y un taco y prefiere una bandera de Estados Unidos y un celular; abajo dice rechazo a la cultura nativa. A la derecha, XENÓFOBO: una figura abraza una planta y empuja con la mano un globo terráqueo rodeado de gente; abajo dice rechazo a lo de fuera. Al pie: punto común, visión distorsionada de la identidad nacional por el rechazo extremo">
+<p class="apoyo">Las dos palabras se arman distinto. <em>Xenofobia</em> es griego puro, pieza más pieza, igual que las diez de la tabla. <em>Malinchismo</em> no tiene ni una pieza griega: sale de un nombre propio, el de Malintzin, la intérprete de Cortés. Una palabra fabricada con piezas y otra fabricada con una persona: las dos son mexicanas de uso, y solo una es griega de origen.</p>
+<p class="nota-conductor">La imagen la aporta el grupo y vale como pieza de Museo si alguien quiere seguirla: la biografía de <em>malinchismo</em> (de nombre propio a insulto político, siglo XX) es un caso perfecto de epónimo, que es la palabra que van a necesitar cuando salgan <em>sándwich</em> o <em>nicotina</em>. No moralices sobre ninguno de los dos rechazos: la lámina es sobre cómo se fabrican las palabras, no sobre quién tiene razón.</p>
 </section>
 <section class="lam lam--oscura">
 <h4><span class="n">3</span> El juego se invierte <span class="reloj">10 min</span></h4>

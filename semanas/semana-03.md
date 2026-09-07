@@ -52,6 +52,13 @@ La regla de oro de la semana (apréndetela, se usa todo el semestre): un corte e
 </div>
 <p class="apoyo">Hoy aprendes a escribir la suma de una palabra y a leerla de vuelta: dada la suma, ¿qué palabra es? Directa e inversa, como en aritmética.</p>
 </section>
+<section class="lam lam--bitacora">
+<h4>La bitácora del lector <span class="reloj">1 min</span></h4>
+<p class="di">Si leíste esta semana, que quede el rastro: dos toques en el celular.</p>
+<img class="qr-lam" src="../assets/img/qr-bitacora-lector.png" alt="Código QR de la bitácora del lector">
+<p class="recurso"><a href="../recursos/plantillas/bitacora-lector.html" target="_blank" rel="noopener">Bitácora del lector</a><span class="pie">Se llena al terminar de leer, en lo que guardas el libro. Nadie la lee por dentro: solo se revisa que exista y que tenga rastro reciente.</span></p>
+<p class="nota-conductor">Lámina fija de todos los martes: pasa el QR, manda el enlace al grupo en este momento y sigue. Recuérdales cada tanto que la bitácora vive solo en su teléfono: desde el menú se copia un código de respaldo (empieza con ETIMB·) que se mandan a sí mismos por WhatsApp.</p>
+</section>
 <section class="lam lam--oscura">
 <h4>La regla de oro de la semana</h4>
 <p class="di">Un corte es real solo si la pieza reaparece en otras palabras con el mismo significado, y la fuente lo confirma.</p>

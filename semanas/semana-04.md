@@ -47,6 +47,13 @@ El español está lleno de griego. No en los libros viejos: en la farmacia, en e
 <p class="apoyo">Sin resumen y sin recomendación forzada. Solo el título, por dónde vas y si te está gustando o no. Se vale decir que no.</p>
 <p class="nota-conductor">Lleva la lista y ve tachando: en el semestre pasa todo el grupo, uno por martes. Arranca tú la primera vez, con el libro que traigas leyendo de verdad: se copia lo que ven, no lo que se les pide.</p>
 </section>
+<section class="lam lam--bitacora">
+<h4>La bitácora del lector <span class="reloj">1 min</span></h4>
+<p class="di">Si leíste esta semana, que quede el rastro: dos toques en el celular.</p>
+<img class="qr-lam" src="../assets/img/qr-bitacora-lector.png" alt="Código QR de la bitácora del lector">
+<p class="recurso"><a href="../recursos/plantillas/bitacora-lector.html" target="_blank" rel="noopener">Bitácora del lector</a><span class="pie">Se llena al terminar de leer, en lo que guardas el libro. Nadie la lee por dentro: solo se revisa que exista y que tenga rastro reciente.</span></p>
+<p class="nota-conductor">Lámina fija de todos los martes: pasa el QR, manda el enlace al grupo en este momento y sigue. Recuérdales cada tanto que la bitácora vive solo en su teléfono: desde el menú se copia un código de respaldo (empieza con ETIMB·) que se mandan a sí mismos por WhatsApp.</p>
+</section>
 <section class="lam">
 <h4><span class="n">2</span> Ritual: quiz relámpago <span class="reloj">7 min</span></h4>
 <p class="di">Tres reactivos de las semanas 2 y 3. Primero tu apuesta, luego la hoja.</p>

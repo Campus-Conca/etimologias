@@ -48,6 +48,13 @@ Una raíz no es un dato: es una llave maestra. Quien sabe *hemo-* (sangre) ya le
 <p class="apoyo">Del próximo martes en adelante son tres minutos: pasa una persona por semana, hasta que pase el grupo entero.</p>
 <p class="nota-conductor">Reparte las fichas de papel ANTES de proyectar la lámina de la ficha, boca abajo, y repite dos veces que nadie las recoge. El cronómetro de la barra se pone solo: 45 s en la ficha, 60 s en cada minuto. Teclas: T arranca y pausa, R reinicia, N enseña estas notas, A oculta el apoyo.</p>
 </section>
+<section class="lam lam--bitacora">
+<h4>La bitácora del lector <span class="reloj">1 min</span></h4>
+<p class="di">Si leíste esta semana, que quede el rastro: dos toques en el celular.</p>
+<img class="qr-lam" src="../assets/img/qr-bitacora-lector.png" alt="Código QR de la bitácora del lector">
+<p class="recurso"><a href="../recursos/plantillas/bitacora-lector.html" target="_blank" rel="noopener">Bitácora del lector</a><span class="pie">Se llena al terminar de leer, en lo que guardas el libro. Nadie la lee por dentro: solo se revisa que exista y que tenga rastro reciente.</span></p>
+<p class="nota-conductor">Lámina fija de todos los martes: pasa el QR, manda el enlace al grupo en este momento y sigue. Recuérdales cada tanto que la bitácora vive solo en su teléfono: desde el menú se copia un código de respaldo (empieza con ETIMB·) que se mandan a sí mismos por WhatsApp.</p>
+</section>
 <section class="lam lam--actividad">
 <h4>Párense y ubíquense</h4>
 <span class="senal">Actividad · todo el grupo, sin hablar</span>
