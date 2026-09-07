@@ -58,15 +58,13 @@
 <div class="wrap">
 
   <div class="instr">
-    <strong>Cómo se juega.</strong> Cinco reactivos, uno por cada músculo de la unidad: leer griego, descomponer, sacar familia, descifrar a ciegas y cazar espejismos. Primero calibra, luego resuelve, al final compara tu predicción con tu resultado. El quiz de verdad es en papel y a mano; este es el calentamiento.
+    <strong>Cómo se juega.</strong> Dos bloques. El primero son cinco reactivos que se revisan solos, uno por cada músculo de la unidad: leer griego, descomponer, sacar familia, descifrar a ciegas y cazar espejismos. El segundo son los ocho reactivos que fueron el integrador del año pasado: abiertos, se contestan escribiendo y te marcas tú al ver la respuesta. Primero calibra, luego resuelve, al final compara tu predicción con tu resultado. El quiz de verdad es el viernes, en papel, con cincuenta reactivos: este es el calentamiento.
   </div>
 
   <h2>Paso 0 · Calibra</h2>
   <div class="card">
-    <p style="margin:0 0 .2rem">Antes de ver los reactivos: ¿cuántos de los 5 crees que tendrás bien?</p>
-    <div class="calib" id="calib">
-      <button>0</button><button>1</button><button>2</button><button>3</button><button>4</button><button>5</button>
-    </div>
+    <p style="margin:0 0 .2rem">Antes de ver los reactivos: ¿cuántos de los 12 que se califican crees que tendrás bien? (El reactivo 13 es tuyo y no se califica.)</p>
+    <div class="calib" id="calib"></div>
     <div class="fb" id="fbCalib"></div>
   </div>
 
@@ -119,6 +117,12 @@
     <div class="fb" id="r5fb"></div>
   </div>
 
+  <h2 style="margin-top:2.2rem">Bloque 2 · Los ocho del integrador, para practicar</h2>
+  <div class="instr" style="margin-top:.4rem">
+    Estos ocho fueron el quiz integrador completo el año pasado. Ahora son gimnasio: contesta escribiendo, toca <strong>Ver la respuesta</strong> y márcate con honestidad. El viernes vienen cincuenta parecidos a estos, así que aquí no se copia la respuesta: se prueba el músculo.
+  </div>
+  <div id="bloque2"></div>
+
   <h2>Cierre · ¿Cómo calibraste?</h2>
   <div class="card">
     <div class="fila-botones"><button class="btn rosa" id="btnCierre">Ver mi resultado</button></div>
@@ -132,7 +136,9 @@
 
 <script>
 (function(){
-  var estado={calib:null,r1:null,r2:null,r3:null,r4:null,r5:null};
+  var estado={calib:null,r1:null,r2:null,r3:null,r4:null,r5:null,g1:null,g2:null,g3:null,g4:null,g5:null,g6:null,g7:null,g8:null};
+  var calibZona=document.getElementById('calib');
+  for(var ci=0;ci<=12;ci++){var cb=document.createElement('button');cb.textContent=ci;calibZona.appendChild(cb);}
   function baraja(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
 
   // Paso 0
@@ -143,7 +149,7 @@
       b.classList.add('sel');estado.calib=i;
       var fb=document.getElementById('fbCalib');
       fb.className='fb ej';
-      fb.textContent='Anotado. Al final comparas tu predicción con tu resultado: saber cuánto sabes también es la materia. El martes, en el quiz de papel, la casilla de calibración va igual.';
+      fb.textContent='Anotado. Al final comparas tu predicción con tu resultado: saber cuánto sabes también es la materia. El viernes, en la hoja del integrador, la casilla de apuesta va igual.';
     });
   });
 
@@ -232,6 +238,47 @@
     'Bien: espejismo. <em>Verdura</em> viene de <em>verde</em> (latín <em>viridis</em>) + -ura. Ahí no hay nada de ver ni de duro. La fuente lo confirma.',
     'aplica la regla de oro: ¿"dura" reaparece en otras palabras significando lo mismo aquí? ¿Y si la palabra madre fuera un color?');
 
+  // Bloque 2 · los ocho del integrador viejo, abiertos
+  var G=[
+    {k:'g1',t:'amnesia',p:'Sus tres piezas, cada una con su nombre (prefijo, raíz, sufijo) y su significado.',
+     r:'<strong>a-</strong> (prefijo, sin) + <strong>mnem</strong> (raíz, memoria) + <strong>-ia</strong> (sufijo, cualidad): la condición de estar sin memoria. Cuenta como bien si nombraste las tres piezas <em>y</em> dijiste cuál es cuál.'},
+    {k:'g2',t:'anti + guo',p:'¿REAL o ESPEJISMO? Una frase que defienda tu veredicto.',
+     r:'<strong>Espejismo.</strong> Antiguo viene del latín <em>antiquus</em>, de <em>ante</em> (antes). No trae el anti- griego de "contra": un antiguo no está en contra de nada.'},
+    {k:'g3',t:'Ves borroso desde hace días',p:'¿A qué especialista pides cita, y qué pieza de su nombre te lo dice?',
+     r:'<strong>Oftalmólogo</strong>: oftalmo (ojo) + -logo (especialista). Bien si nombraste al especialista <em>y</em> dijiste qué pieza te lo dijo.'},
+    {k:'g4',t:'Tres palabras de la familia de -teca',p:'Que no sea biblioteca. Y de pilón: ¿qué significa la pieza?',
+     r:'<strong>-teca = depósito, caja.</strong> Discoteca, hemeroteca, pinacoteca, filmoteca, videoteca, ludoteca, fototeca. Si escribiste botica o bodega, cuéntate dos: son la misma palabra griega, gastada por los siglos.'},
+    {k:'g5',t:'hipotermia · hipódromo',p:'¿El hipo- es la misma pieza en las dos? SÍ o NO, y por qué.',
+     r:'<strong>No.</strong> Hipotermia: de <em>hypó</em>, debajo, de menos. Hipódromo: de <em>híppos</em>, caballo. Idénticas a la vista, sin parentesco. Este reactivo separa a quien memorizó piezas de quien aprendió a desconfiar de ellas.'},
+    {k:'g6',t:'bibliofobia',p:'Nunca la has visto. Sus piezas y tu apuesta de significado.',
+     r:'<strong>biblio</strong> (libro) + <strong>-fobia</strong> (miedo, rechazo) = rechazo a los libros. La hermana malvada de la bibliofilia. Nadie te la enseñó: la leíste con piezas que traías desde la semana 4.'},
+    {k:'g7',t:'"El mango que te comes viene de manus, mano."',p:'Un compañero lo afirma. ¿Qué le contestas, y qué necesitas para sostener tu respuesta?',
+     r:'<strong>"Depende: hay dos mangos."</strong> El de la sartén sí viene de <em>manus</em>; el fruto llegó del tamil, por el portugués. Pero el reactivo no premia el dato: premia que digas que <strong>necesitas una fuente</strong> (DECEL, DLE), no una corazonada ni una IA. Si dijiste eso, es bien aunque hayas fallado el dato.'},
+    {k:'g8',t:'Una palabra que descifraste tú solo',p:'En la calle, en una caja de medicina, en un libro. Escríbela con sus piezas y dónde la encontraste.',
+     r:'<strong>Esta no la califica nadie.</strong> Guárdala completa: el fin de semana es una de tus evidencias. Márcala como "me quedó bien" si la escribiste con sus piezas.'}
+  ];
+  var zonaG=document.getElementById('bloque2');
+  G.forEach(function(g,i){
+    var card=document.createElement('div');card.className='card';
+    card.innerHTML='<h3>'+(i+6)+' · '+g.t+'</h3><p style="margin:0;font-size:.92rem">'+g.p+'</p>'
+      +'<textarea placeholder="Escribe tu respuesta antes de verla"></textarea>'
+      +'<div class="fila-botones"><button class="btn gris">Ver la respuesta</button></div>'
+      +'<div class="fb"></div>'
+      +'<div class="marca" style="display:none"><button data-v="bien">Me quedó bien</button><button data-v="aun">Aún no</button></div>';
+    var fb=card.querySelector('.fb'),marca=card.querySelector('.marca'),ta=card.querySelector('textarea');
+    card.querySelector('.btn').addEventListener('click',function(){
+      if(!ta.value.trim()){fb.className='fb no';fb.textContent='Escribe algo primero, aunque sea tu apuesta. Ver la respuesta sin intentar no entrena nada.';return;}
+      fb.className='fb ej';fb.innerHTML=g.r;marca.style.display='flex';
+    });
+    marca.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){
+        marca.querySelectorAll('button').forEach(function(x){x.classList.remove('sel-ok','sel-no');});
+        b.classList.add(b.dataset.v==='bien'?'sel-ok':'sel-no');estado[g.k]=b.dataset.v;
+      });
+    });
+    zonaG.appendChild(card);
+  });
+
   // Cierre
   document.getElementById('btnCierre').addEventListener('click',function(){
     var fb=document.getElementById('fbCierre');
@@ -242,17 +289,18 @@
     if(!estado.r3)pend.push('marcarte el reactivo 3');
     if(!estado.r4)pend.push('el reactivo 4');
     if(!estado.r5)pend.push('el reactivo 5');
+    for(var gi=1;gi<=8;gi++){ if(!estado['g'+gi])pend.push(gi===8?'marcarte el reactivo 13, el tuyo':'marcarte el reactivo '+(gi+5)); }
     if(pend.length){
       fb.className='fb no';
       fb.textContent='Todavía falta: '+pend.join(', ')+'.';
       return;
     }
-    var claves=['r1','r2','r3','r4','r5'];
+    var claves=['r1','r2','r3','r4','r5','g1','g2','g3','g4','g5','g6','g7'];
     var bien=claves.filter(function(k){return estado[k]==='bien';}).length;
-    var lista=claves.map(function(k,i){return 'Reactivo '+(i+1)+': '+(estado[k]==='bien'?'bien':'aún no');}).join(' · ');
+    var lista=claves.map(function(k,i){return 'Reactivo '+(i+1)+': '+(estado[k]==='bien'?'bien':'aún no');}).join(' · ')+' · Reactivo 13: tuyo, intentado';
     var msj;
     if(estado.calib===bien)msj='Calibración exacta: predijiste '+estado.calib+' y tuviste '+bien+'. Eso, en este curso, vale tanto como los aciertos.';
-    else if(estado.calib>bien)msj='Predijiste '+estado.calib+' y tuviste '+bien+'. La brecha es el dato, no la culpa: ya sabes qué músculo repasar antes del martes.';
+    else if(estado.calib>bien)msj='Predijiste '+estado.calib+' y tuviste '+bien+'. La brecha es el dato, no la culpa: ya sabes qué músculo repasar antes del viernes.';
     else msj='Predijiste '+estado.calib+' y tuviste '+bien+'. Sabes más de lo que crees: ajusta tu medidor interno hacia arriba.';
     fb.className='fb ok';
     fb.innerHTML=lista+'<br><br>'+msj+'<br><br>Lo que quedó en "aún no" se reintenta cuando quieras: recarga la página y vuelve a entrar.';

@@ -130,7 +130,7 @@ No hay tema nuevo. Esta semana se ve lo que ya sabes. Y pasa algo que no había 
 <h4><span class="n">3</span> La pregunta amable <span class="reloj">8 min</span></h4>
 <p class="di">Al final de cada defensa hay una sola pregunta, y es siempre la misma clase de pregunta.</p>
 <p class="apoyo">No es una trampa ni un examen sorpresa: es una pregunta que se puede contestar con lo que ya sabes, o con un honesto "eso no lo sé todavía". Las dos respuestas están bien vistas. La segunda, a veces, mejor que la primera.</p>
-<p class="nota-conductor">Ejemplos de pregunta amable: ¿en qué otra palabra vive esa raíz? · ¿cómo supiste que la fuente era confiable? · si te dijera que esa pieza significa otra cosa, ¿cómo lo comprobarías? Nunca preguntes datos que no estén en su ficha.</p>
+<p class="nota-conductor">Ejemplos de pregunta amable: ¿en qué otra palabra vive esa raíz? · ¿cómo supiste que la fuente era confiable? · si te dijera que esa pieza significa otra cosa, ¿cómo lo comprobarías? El banco completo, ordenado por criterio de la rúbrica y con las repreguntas, está dentro de <a href="../ejercicios/semana-07/ejercicio-7B-arma-tu-defensa.html#banco">Arma tu defensa</a>: es público a propósito, para que lleguen mañana sabiendo qué clase de pregunta viene. Nunca preguntes datos que no estén en su ficha.</p>
 </section>
 <section class="lam lam--actividad">
 <h4><span class="n">4</span> Gimnasio: ensayo con cronómetro <span class="reloj">30 min</span></h4>
@@ -162,7 +162,7 @@ No hay tema nuevo. Esta semana se ve lo que ya sabes. Y pasa algo que no había 
 <h4><span class="n">1</span> Cómo va a estar <span class="reloj">5 min</span></h4>
 <p class="di">Pasa uno por uno. Tres a cuatro minutos. Nadie mira desde la butaca.</p>
 <p class="apoyo">Mientras alguien defiende, el resto trabaja en lo suyo: el <a href="../ejercicios/semana-07/quiz-gimnasio-semana-07.html">quiz de gimnasio integrador</a> para calentar de cara al viernes, o el mazo en modo aleatorio. Nadie se queda viendo a nadie: eso también baja los nervios.</p>
-<p class="recurso"><a href="../ejercicios/semana-07/quiz-gimnasio-semana-07.html" target="_blank" rel="noopener">Quiz de gimnasio · Integrador</a><span class="pie">Práctica libre para el quiz integrador de la unidad. Mismos músculos, otros reactivos: aquí se entrena, no se compite.</span></p>
+<p class="recurso"><a href="../ejercicios/semana-07/quiz-gimnasio-semana-07.html" target="_blank" rel="noopener">Quiz de gimnasio · Integrador</a><span class="pie">Trece reactivos de práctica: cinco que se revisan solos y los ocho que fueron el integrador el año pasado. Mismos músculos que el viernes: aquí se entrena, no se compite.</span></p>
 <p class="nota-conductor">Ten a la mano las hojas de retroalimentación de la rúbrica. Una por estudiante, entregada en el momento: el papel en la mano vale más que el comentario al aire.</p>
 </section>
 <section class="lam lam--actividad">
@@ -192,12 +192,12 @@ No hay tema nuevo. Esta semana se ve lo que ya sabes. Y pasa algo que no había 
 <button class="btn-presentar" type="button">Presentar ▸</button>
 </div>
 <section class="lam lam--actividad">
-<h4><span class="n">1</span> El quiz integrador <span class="reloj">25 min</span></h4>
+<h4><span class="n">1</span> El quiz integrador <span class="reloj">45 min</span></h4>
 <span class="senal">A solas · papel</span>
-<p class="di">Ocho reactivos con toda la unidad. Tu apuesta primero, del 0 al 8.</p>
-<p class="apoyo">Anatomía de la semana 2, cortes y espejismos de la 3, el griego de la 4, familias de la 5 y una palabra nunca vista de la 6. El octavo no lo califica nadie: es una palabra que hayas descifrado tú solo, fuera de clase. Se revisa en el momento, reactivo por reactivo, en bien o aún no.</p>
-<p class="recurso"><a href="../ejercicios/semana-07/quiz-integrador-u1-semana-07.html" target="_blank" rel="noopener">El integrador, lámina por lámina</a><span class="pie">El mismo que se proyecta, con cronómetro de diez minutos y con las respuestas.</span></p>
-<p class="nota-conductor">El integrador proyectable, con respuestas y cronómetro de 10 minutos, está aquí: <a href="../ejercicios/semana-07/quiz-integrador-u1-semana-07.html">quiz integrador de la unidad 1</a>. El reactivo 7 no premia el dato sino el método: si dijeron "necesito una fuente", es bien aunque fallen el dato.</p>
+<p class="di">Cincuenta reactivos con toda la unidad, en ocho bloques. Tu apuesta primero, del 0 al 49.</p>
+<p class="apoyo">Anatomía de la semana 2, cortes y espejismos de la 3, el griego de la 4, familias de la 5, las trampas, palabras nunca vistas de la 6 y la regla de oro. Casi todos se contestan con una palabra o dos. El último no lo califica nadie: es una palabra que hayas descifrado tú solo, fuera de clase. Se revisa en el momento, bloque por bloque, en bien o aún no.</p>
+<p class="recurso"><a href="../ejercicios/semana-07/quiz-integrador-u1-semana-07.html" target="_blank" rel="noopener">El integrador, bloque por bloque</a><span class="pie">El mismo que se proyecta, con cronómetro de treinta minutos, las respuestas y la hoja para imprimir.</span></p>
+<p class="nota-conductor">Antes de la sesión: abre el <a href="../ejercicios/semana-07/quiz-integrador-u1-semana-07.html">integrador</a> y toca "Imprimir la hoja": son dos páginas por estudiante, con casillas de apuesta y resultado. En clase se proyectan los bloques mientras contestan en su hoja; el cronómetro arranca en 30:00. Reparte: 3 min de apuesta y mapa, 30 de resolución, 12 de calificación bloque por bloque. El reactivo del mango (bloque G) no premia el dato sino el método: si dijeron "necesito una fuente", es bien aunque fallen el dato. Al cerrar, pídeles que anoten en qué bloque se les juntaron los "aún no": ese nombre es lo que va a su primer parcial.</p>
 </section>
 <section class="lam lam--oscura">
 <h4><span class="n">2</span> La serie completa <span class="reloj">10 min</span></h4>
@@ -276,7 +276,7 @@ Peldaño 1: individual, ante el profesor. Dura 3 a 4 minutos. Esto es lo que cue
 | Que expliques por qué elegiste esa palabra | Que hables bonito |
 | La honestidad del "esto no lo sé todavía" | Cuántas palabras raras metiste |
 
-Traes tu palabra, su descomposición y tu fuente anotada. Puedes apoyarte en una ficha. No se vale leer todo. La versión completa, con la hoja de retroalimentación que recibes al terminar: [la rúbrica pública](../recursos/plantillas/rubrica-defensas.html).
+Traes tu palabra, su descomposición y tu fuente anotada. Puedes apoyarte en una ficha. No se vale leer todo. La versión completa, con la hoja de retroalimentación que recibes al terminar: [la rúbrica pública](../recursos/plantillas/rubrica-defensas.html). Y las preguntas que te pueden hacer al final, todas, están en [Arma tu defensa](../ejercicios/semana-07/ejercicio-7B-arma-tu-defensa.html#banco): no hay sorpresas.
 
 ### Tu primer parcial
 
@@ -298,7 +298,7 @@ Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y
 - [Tu primer parcial](../recursos/plantillas/autoevaluacion-u1.html) · el fin de semana, desde tu celular
 - [Recorrido por tu primer parcial](../recursos/plantillas/autoevaluacion-u1-recorrido.html) · míralo antes de llenarla: la misma pantalla, parada por parada, con el ejemplo ya lleno
 - [Quiz de gimnasio · Integrador](../ejercicios/semana-07/quiz-gimnasio-semana-07.html) · para ensayar cuando quieras
-- [El quiz integrador de la unidad 1, tal como se proyecta](../ejercicios/semana-07/quiz-integrador-u1-semana-07.html) · con cronómetro de 10 minutos y respuestas
+- [El quiz integrador de la unidad 1, tal como se proyecta](../ejercicios/semana-07/quiz-integrador-u1-semana-07.html) · cincuenta reactivos en ocho bloques, con cronómetro de 30 minutos, hoja imprimible y respuestas
 
 ## Hoja de consulta
 

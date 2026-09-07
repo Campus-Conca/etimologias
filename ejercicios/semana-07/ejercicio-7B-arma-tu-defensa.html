@@ -8,6 +8,8 @@
   :root{
     --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
     --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+    --medio:#8a6a1a; --mediobg:#fff7e0;
+    --c1:#c8127a; --c2:#1b7f79; --c3:#b07b12; --c4:#4a5fc1;
   }
   *{box-sizing:border-box}
   body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
@@ -23,6 +25,7 @@
   .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
   .instr strong{color:var(--ciruela)}
   h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  h2 small{display:block;font-size:.8rem;font-weight:400;color:#777;margin-top:.1rem}
   .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
   .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
   label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
@@ -32,7 +35,6 @@
   .protocolo li{position:relative;padding:.7rem .8rem .7rem 3rem;border:1px solid var(--borde);border-radius:.7rem;margin-top:.5rem;background:#fff}
   .protocolo li::before{counter-increment:paso;content:counter(paso);position:absolute;left:.8rem;top:.75rem;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--rosa);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem}
   .protocolo a{color:var(--rosa);font-weight:700}
-  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
   .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
   .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
   .btn.rosa{background:var(--rosa);color:#fff}
@@ -40,25 +42,80 @@
   .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
   .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
   .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.medio{display:block;background:var(--mediobg);color:var(--medio)}
   .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
-  .marca{display:flex;gap:.5rem;margin-top:.6rem}
-  .marca button{flex:1;padding:.5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
-  .marca button.sel-ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
-  .marca button.sel-no{background:var(--nobg);color:var(--no);border-color:var(--no)}
   .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
   .crono{font-size:2rem;font-weight:800;color:var(--ciruela);margin-top:.5rem}
   pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+
+  /* ---------- la rúbrica, bonita ---------- */
+  .escalera{display:flex;gap:.4rem;flex-wrap:wrap;margin:.6rem 0 0}
+  .escalera span{flex:1 1 7rem;border:1px solid var(--borde);border-radius:.6rem;padding:.45rem .6rem;font-size:.8rem;color:#555;background:#fff}
+  .escalera span b{display:block;color:var(--ciruela);font-size:.85rem}
+  .escalera span.aqui{border-color:var(--rosa);background:#fff0f7;color:var(--ciruela)}
+  .escalera span.aqui b{color:var(--rosa)}
+  .criterios{display:grid;gap:.8rem;margin:.8rem 0 0}
+  .crit{border:1px solid var(--borde);border-radius:.9rem;overflow:hidden;background:#fff}
+  .crit .cab{display:flex;align-items:center;gap:.7rem;padding:.7rem .9rem;color:#fff}
+  .crit .cab .num{width:1.9rem;height:1.9rem;border-radius:50%;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-weight:800;flex:none}
+  .crit .cab b{font-size:1.02rem}
+  .crit .cab small{display:block;font-weight:400;opacity:.9;font-size:.8rem}
+  .crit[data-c="1"] .cab{background:var(--c1)} .crit[data-c="2"] .cab{background:var(--c2)}
+  .crit[data-c="3"] .cab{background:var(--c3)} .crit[data-c="4"] .cab{background:var(--c4)}
+  .niveles{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+  .nivel{padding:.7rem .8rem;font-size:.86rem;line-height:1.45;border-right:1px solid var(--borde)}
+  .nivel:last-child{border-right:none}
+  .nivel i{display:inline-block;font-style:normal;font-weight:800;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;border-radius:.4rem;padding:.1rem .45rem;margin-bottom:.3rem}
+  .nivel.l i{background:var(--okbg);color:var(--ok)} .nivel.m i{background:var(--mediobg);color:var(--medio)} .nivel.n i{background:var(--nobg);color:var(--no)}
+  @media (max-width:560px){.niveles{grid-template-columns:1fr}.nivel{border-right:none;border-top:1px solid var(--borde)}.nivel:first-child{border-top:none}}
+  .noeval{margin:.9rem 0 0;border:1px dashed var(--borde);border-radius:.9rem;padding:.8rem 1rem;background:var(--fondo)}
+  .noeval .rot{font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ciruela)}
+  .noeval ul{margin:.4rem 0 0;padding-left:1.1rem;font-size:.9rem;color:#444}
+  .noeval li{margin:.2rem 0}
+  .noeval li b{color:var(--ciruela)}
+
+  /* ---------- automarcaje en tres niveles ---------- */
+  .marca{display:flex;gap:.5rem;margin-top:.6rem;flex-wrap:wrap}
+  .marca button{flex:1 1 7rem;padding:.5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer;font-size:.9rem}
+  .marca button.sel-ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
+  .marca button.sel-medio{background:var(--mediobg);color:var(--medio);border-color:var(--medio)}
+  .marca button.sel-no{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  .automarca .crit-mini{display:flex;align-items:center;gap:.6rem;margin-top:1rem;font-weight:700;color:var(--ciruela)}
+  .automarca .crit-mini i{width:1.5rem;height:1.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-style:normal;font-size:.8rem;flex:none}
+  .automarca .crit-mini[data-c="1"] i{background:var(--c1)} .automarca .crit-mini[data-c="2"] i{background:var(--c2)}
+  .automarca .crit-mini[data-c="3"] i{background:var(--c3)} .automarca .crit-mini[data-c="4"] i{background:var(--c4)}
+
+  /* ---------- el modelo ---------- */
   .modelo{border:1px dashed #d9c49a;background:#fffaf0;border-radius:.9rem;padding:.9rem 1rem;margin:1rem 0}
   .modelo .rot{font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:#96721d;font-weight:800}
   .modelo h3{margin:.15rem 0 .5rem;color:#8a6a1a;font-size:1.05rem}
-  .modelo .habla{background:#fff;border:1px solid #eadfc4;border-radius:.6rem;padding:.7rem .85rem;margin:.5rem 0;
-    color:#2f2716;font-size:.95rem;line-height:1.55}
+  .modelo .habla{background:#fff;border:1px solid #eadfc4;border-radius:.6rem;padding:.7rem .85rem;margin:.5rem 0;color:#2f2716;font-size:.95rem;line-height:1.55}
   .modelo .habla em{color:#8a6a1a;font-style:normal;font-weight:700}
   .modelo .marca-crit{display:flex;gap:.5rem;align-items:flex-start;font-size:.86rem;color:#4a3d20;margin:.3rem 0}
   .modelo .marca-crit b{flex:none;background:var(--ok);color:#fff;border-radius:.35rem;padding:0 .35rem;font-size:.74rem;line-height:1.5}
   .modelo .apunte{font-size:.85rem;color:#8a6a1a;font-style:italic;margin-top:.6rem;border-top:1px dashed #e0cfa8;padding-top:.5rem}
-  .modelo .flojo{background:#fdf0e6;border:1px solid #f0dbc9;border-radius:.6rem;padding:.6rem .8rem;margin:.5rem 0;
-    color:#7d3d16;font-size:.92rem;font-style:italic}
+  .modelo .flojo{background:#fdf0e6;border:1px solid #f0dbc9;border-radius:.6rem;padding:.6rem .8rem;margin:.5rem 0;color:#7d3d16;font-size:.92rem;font-style:italic}
+
+  /* ---------- el banco de preguntas ---------- */
+  .banco{display:grid;gap:.7rem;margin-top:.6rem}
+  .grupo{border:1px solid var(--borde);border-radius:.9rem;background:#fff;overflow:hidden}
+  .grupo summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:.7rem;padding:.7rem .9rem;font-weight:700;color:var(--ciruela)}
+  .grupo summary::-webkit-details-marker{display:none}
+  .grupo summary i{width:1.6rem;height:1.6rem;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-style:normal;font-size:.8rem;flex:none}
+  .grupo summary small{margin-left:auto;font-weight:400;color:#777;font-size:.8rem;white-space:nowrap}
+  .grupo summary::after{content:"+";font-size:1.2rem;color:var(--rosa);margin-left:.4rem}
+  .grupo[open] summary::after{content:"–"}
+  .grupo[data-c="1"] summary i{background:var(--c1)} .grupo[data-c="2"] summary i{background:var(--c2)}
+  .grupo[data-c="3"] summary i{background:var(--c3)} .grupo[data-c="4"] summary i{background:var(--c4)}
+  .grupo[data-c="5"] summary i{background:var(--ciruela)}
+  .grupo .que{padding:0 .9rem .3rem 3.2rem;font-size:.85rem;color:#666;font-style:italic;margin-top:-.3rem}
+  .grupo ol{margin:0;padding:.3rem .9rem .9rem 3.2rem;font-size:.95rem}
+  .grupo ol li{margin:.35rem 0;color:#333}
+  .grupo ol li::marker{color:var(--rosa);font-weight:700}
+  .azar{border:2px solid var(--rosa);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff0f7}
+  .azar .pregunta{font-size:1.25rem;font-weight:800;color:var(--ciruela);line-height:1.3;margin:.5rem 0 .3rem;min-height:2.6rem}
+  .azar .tag{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#fff;border-radius:.4rem;padding:.15rem .5rem}
+  .azar .pista{font-size:.85rem;color:#666;font-style:italic;margin:.2rem 0 0}
   footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
 </style>
 </head>
@@ -73,12 +130,64 @@
 
 <div class="wrap">
 
-  <div class="regla">
-    <strong>Lo que cuenta (y lo que no).</strong> Se evalúa: que la descomposición sea correcta, que uses una fuente de autoridad, que expliques por qué elegiste esa palabra y que digas "esto no lo sé todavía" cuando sea el caso. No se evalúa: que estés nervioso, que actúes, que hables bonito. El nerviosismo no está en la rúbrica.
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Lee la rúbrica completa (está aquí abajo, igual que la verá el profesor). Elige una palabra trabajada en la unidad, llena la ficha, genera la captura (esa es tu ficha de apoyo para el jueves: se vale mirarla, no se vale leerla toda), ensaya una vez con el cronómetro, márcate con la rúbrica y practica con el banco de preguntas. El jueves defiendes <strong>tú solo</strong>; hoy ensayas con quien tengas al lado, para que la primera vez que lo digas en voz alta no sea frente al profesor.
   </div>
 
-  <div class="instr">
-    <strong>Cómo se juega.</strong> Elige una palabra trabajada en la unidad, llena la ficha, genera la captura (esa es tu ficha de apoyo para el jueves: se vale mirarla, no se vale leerla toda), ensaya una vez con el cronómetro y márcate con la rúbrica. El jueves defiendes <strong>tú solo</strong>; hoy ensayas con quien tengas al lado, para que la primera vez que lo digas en voz alta no sea frente al profesor.
+  <h2 id="rubrica">La rúbrica, completa <small>La misma hoja con la que te va a escuchar el profesor. Si algo no está aquí, no se evalúa.</small></h2>
+
+  <div class="escalera">
+    <span class="aqui"><b>Peldaño 1 · semana 7</b>Individual, ante el profesor · 3 a 4 min</span>
+    <span><b>Peldaño 2 · semana 12</b>Individual, con banco de preguntas publicado · 4 a 5 min</span>
+    <span><b>Peldaño 3 · semana 16</b>Socrática: se repregunta · 5 a 6 min</span>
+    <span><b>Final · semana 17</b>Tu Museo, ante el grupo · 6 a 8 min</span>
+  </div>
+
+  <div class="criterios">
+    <div class="crit" data-c="1">
+      <div class="cab"><span class="num">1</span><div><b>Anatomía</b><small>la palabra por dentro</small></div></div>
+      <div class="niveles">
+        <div class="nivel l"><i>Logrado</i>Separas las piezas correctamente y explicas qué aporta cada una al significado.</div>
+        <div class="nivel m"><i>En camino</i>Identificas las piezas, pero la explicación del significado se queda corta o se equivoca en una.</div>
+        <div class="nivel n"><i>Aún no</i>La descomposición no corresponde a la palabra.</div>
+      </div>
+    </div>
+    <div class="crit" data-c="2">
+      <div class="cab"><span class="num">2</span><div><b>Fuente</b><small>nada sin fuente</small></div></div>
+      <div class="niveles">
+        <div class="nivel l"><i>Logrado</i>Dices en qué fuente lo verificaste y qué encontraste ahí; si dos fuentes discrepan, lo señalas.</div>
+        <div class="nivel m"><i>En camino</i>Usaste fuente pero no recuerdas cuál, o citas una sola donde hacían falta dos.</div>
+        <div class="nivel n"><i>Aún no</i>No hay verificación: la etimología viene de memoria, de un amigo o de una IA.</div>
+      </div>
+    </div>
+    <div class="crit" data-c="3">
+      <div class="cab"><span class="num">3</span><div><b>Criterio</b><small>por qué esta palabra</small></div></div>
+      <div class="niveles">
+        <div class="nivel l"><i>Logrado</i>Explicas por qué elegiste esa palabra y qué te dio. La razón es tuya y se nota.</div>
+        <div class="nivel m"><i>En camino</i>Das una razón genérica: "me gustó", "estaba en la lista".</div>
+        <div class="nivel n"><i>Aún no</i>No hay razón: la palabra podría ser cualquier otra.</div>
+      </div>
+    </div>
+    <div class="crit" data-c="4">
+      <div class="cab"><span class="num">4</span><div><b>Honestidad</b><small>saber qué no sabes</small></div></div>
+      <div class="niveles">
+        <div class="nivel l"><i>Logrado</i>Distingues lo que sabes de lo que supones, y dices "esto no lo sé todavía" cuando toca.</div>
+        <div class="nivel m"><i>En camino</i>Rellenas los huecos con adorno, pero rectificas si te repreguntan.</div>
+        <div class="nivel n"><i>Aún no</i>Sostienes con seguridad algo que no verificaste.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="noeval">
+    <div class="rot">Lo que no se evalúa, con nombre y apellido</div>
+    <ul>
+      <li><b>Que estés nervioso</b>, que te tiemble la voz o que necesites un momento. Los nervios no son un defecto de conocimiento.</li>
+      <li><b>Que hables bonito</b>, fuerte o "como orador". Esto no es un concurso de oratoria.</li>
+      <li><b>Que memorices un discurso.</b> Al contrario: la defensa memorizada se nota y se repregunta.</li>
+      <li><b>Cuántas palabras raras metiste.</b> Una palabra sencilla bien defendida vale más que cinco rebuscadas.</li>
+      <li><b>Tu acento, tu forma de hablar o las palabras de tu casa.</b> Aquí el habla propia es material de estudio, no un error.</li>
+    </ul>
+    <p style="margin:.6rem 0 0;font-size:.88rem;color:#555">Ninguna defensa lleva calificación: lleva comentarios en una hoja que se guarda en tu expediente. La versión imprimible, con esa hoja, es <a href="../../recursos/plantillas/rubrica-defensas.html" target="_blank" rel="noopener" style="color:var(--rosa);font-weight:700">la rúbrica pública</a>.</p>
   </div>
 
   <div class="cuaderno">
@@ -88,7 +197,7 @@
   <h2>Antes de llenar: verifica tu fuente</h2>
   <ol class="protocolo">
     <li>Confirma la descomposición de tu palabra en el <a href="https://dle.rae.es" target="_blank" rel="noopener">DLE</a> (el origen viene entre paréntesis) y en el <a href="http://etimologias.dechile.net" target="_blank" rel="noopener">DECEL</a> (la historia completa).</li>
-    <li>Anota qué fuente consultaste y qué dice. Sin fuente no hay defensa: es la regla de oro desde la semana 2.</li>
+    <li>Anota qué fuente consultaste y qué dice. Sin fuente no hay defensa: es la regla de oro desde la semana 2, y es el criterio 2 completo.</li>
   </ol>
 
   <h2>Cómo suena una defensa que funciona</h2>
@@ -98,25 +207,22 @@
 
     <div class="habla">
       <em>Abre con la palabra y la suma.</em><br>
-      «Mi palabra es <strong>cosmético</strong>. Viene del griego <em>kósmos</em>, que significa orden, más el sufijo <em>-ikós</em>, que forma adjetivos: “relativo a”. Literalmente, <strong>lo relativo al orden</strong>.»
+      «Mi palabra es <strong>cosmético</strong>. Viene del griego <em>kósmos</em>, que significa orden, más el sufijo <em>-ikós</em>, que forma adjetivos: "relativo a". Literalmente, <strong>lo relativo al orden</strong>.»
     </div>
-
     <div class="habla">
       <em>Cuenta la historia, y dice de dónde la sacó.</em><br>
       «Aquí está lo raro. <em>Kósmos</em> les servía a los griegos para dos cosas: el orden del universo y el orden de la cara. Por eso <strong>cosmos</strong> y <strong>cosmético</strong> son la misma palabra: las dos ordenan algo, una el cielo y la otra las cejas. Lo verifiqué en el DECEL, que trae el camino completo desde el griego, y lo confirmé en el DLE, donde el origen viene entre paréntesis.»
     </div>
-
     <div class="habla">
       <em>Dice por qué eligió esa y no otra.</em><br>
       «La elegí porque me hizo enojar. Yo usaba las dos palabras todos los días y jamás se me ocurrió que fueran parientes. Me dio la sensación de haber estado viendo algo mal durante años, y esa sensación es exactamente lo que me está gustando de esta clase.»
     </div>
-
     <div class="habla">
       <em>Y dice lo que no sabe.</em><br>
       «Lo que no pude averiguar es <strong>cuándo</strong> entró al español. El DECEL cuenta el viaje desde el griego pero no da fecha, y el DLE tampoco. Sé que llegó por el latín, no directo del griego, pero no sé en qué siglo. Eso me falta.»
     </div>
 
-    <p class="rot" style="margin-top:.9rem">Por qué esta defensa cumple los cuatro criterios</p>
+    <p class="rot" style="margin-top:.9rem">Por qué esta defensa queda en "logrado" en los cuatro criterios</p>
     <div class="marca-crit"><b>1</b><span><strong>Anatomía:</strong> parte la palabra en dos piezas y dice qué hace cada una. No dice «viene del griego» y ya.</span></div>
     <div class="marca-crit"><b>2</b><span><strong>Fuente:</strong> nombra las dos, y dice <em>qué</em> encontró en cada una. Ahí está la diferencia entre citar y consultar.</span></div>
     <div class="marca-crit"><b>3</b><span><strong>Criterio:</strong> su razón es suya y es honesta. «Me hizo enojar» funciona mejor que cualquier razón elegante.</span></div>
@@ -126,21 +232,21 @@
 
     <p class="rot" style="margin-top:.9rem">La misma palabra, defendida mal</p>
     <div class="flojo">«Mi palabra es cosmético, que viene del griego y significa algo de belleza. La escogí porque me gustó y me pareció interesante. Lo busqué en internet. Estuve mucho tiempo investigando.»</div>
-    <p class="apunte">Cuatro renglones y ninguno se puede señalar: no hay piezas, «internet» no es una fuente, «me pareció interesante» no es una razón y el tiempo invertido no está en la rúbrica. Es exactamente la misma palabra.</p>
+    <p class="apunte">Cuatro renglones y ninguno se puede señalar: no hay piezas (criterio 1 en "aún no"), «internet» no es una fuente (criterio 2 en "aún no"), «me pareció interesante» es la razón genérica (criterio 3 en "en camino") y el tiempo invertido no está en la rúbrica. Es exactamente la misma palabra.</p>
   </div>
 
   <h2>La ficha de apoyo</h2>
-  <div class="card">
+  <div class="card" id="ficha">
     <h3>Una palabra, tu voz</h3>
     <label>Palabra que defiendes</label>
     <input type="text" data-campo="palabra" placeholder="ej. una que hayan abierto en la unidad">
-    <label>Suma de palabras (descomposición)</label>
+    <label>Suma de palabras (descomposición) · criterio 1</label>
     <textarea data-campo="suma" placeholder="ej. pieza (significado) + pieza (significado) = significado literal"></textarea>
-    <label>Su historia, con fuente</label>
+    <label>Su historia, con fuente · criterio 2</label>
     <textarea data-campo="historia" placeholder="qué dice el DLE o el DECEL sobre su origen y su camino"></textarea>
-    <label>Por qué la elegí</label>
+    <label>Por qué la elegí · criterio 3</label>
     <textarea data-campo="porque" placeholder="la razón honesta: me sorprendió, me costó, me gustó su historia..."></textarea>
-    <label>Lo que todavía no sé de ella</label>
+    <label>Lo que todavía no sé de ella · criterio 4</label>
     <textarea data-campo="hueco" placeholder="ej. no encontré desde cuándo se usa en español; el DLE y el DECEL no dicen lo mismo y no sé cuál seguir"></textarea>
     <div class="fila-botones">
       <button class="btn rosa" data-generar>Generar captura</button>
@@ -161,19 +267,23 @@
     <div class="fb" id="fbCrono"></div>
   </div>
 
-  <h2>Márquense con la rúbrica</h2>
-  <div class="card">
-    <h3>Los cuatro criterios</h3>
+  <h2>Márquense con la rúbrica <small>Quien escuchó marca; quien defendió se marca también. Si no coinciden, ahí hay algo que conversar.</small></h2>
+  <div class="card automarca">
     <div id="rubros"></div>
   </div>
 
-  <h2>Prueba de fuego: la pregunta amable</h2>
-  <div class="card">
-    <h3>Al final de cada defensa, el profesor hace una sola pregunta</h3>
-    <p style="font-size:.92rem;margin:.3rem 0 0">Es andamiaje, no interrogatorio. Practica responder algunas del banco:</p>
-    <div class="fila-botones"><button class="btn gris" id="btnPregunta">Dame una pregunta de ensayo</button></div>
-    <div class="fb" id="fbPregunta"></div>
+  <h2 id="banco">Las preguntas que te pueden hacer <small>Todas. Al final de tu defensa el profesor hace una sola, y sale de aquí. Es andamiaje, no interrogatorio.</small></h2>
+
+  <div class="azar">
+    <div class="fila-botones" style="margin-top:0"><button class="btn rosa" id="btnPregunta">Dame una pregunta de ensayo</button></div>
+    <p class="pregunta" id="pregunta">Toca el botón y contesta en voz alta, sin ver la ficha.</p>
+    <span class="tag" id="tag" style="display:none"></span>
+    <p class="pista" id="pistaPregunta"></p>
   </div>
+
+  <div class="banco" id="listaBanco"></div>
+
+  <p style="font-size:.9rem;color:#555;margin-top:.9rem">Dos respuestas están bien vistas: la que contesta con lo que ya sabes, y el honesto <strong>"eso no lo sé todavía"</strong>. La segunda, a veces, mejor que la primera. Lo único que baja es inventar.</p>
 
   <footer>Semana 7 · Cierre de unidad: qué tan hondo veo ya · Este ejercicio es gimnasio: sin nota, sin registro. La captura solo se guarda si tú la copias y la pegas; al cerrar la página todo se borra.</footer>
 </div>
@@ -182,8 +292,8 @@
 
 <script>
 (function(){
-  // Ficha de apoyo
-  var card=document.querySelector('.card');
+  /* ---------- ficha de apoyo ---------- */
+  var card=document.getElementById('ficha');
   var btnG=card.querySelector('[data-generar]');
   var btnC=card.querySelector('[data-copiar]');
   var pre=card.querySelector('pre.captura');
@@ -194,16 +304,16 @@
     var palabra=g('palabra'),suma=g('suma'),historia=g('historia'),porque=g('porque'),hueco=g('hueco');
     var faltan=[];
     if(!palabra)faltan.push('la palabra');
-    if(!suma)faltan.push('la suma de palabras');
-    if(!historia)faltan.push('la historia con fuente');
-    if(!porque)faltan.push('el porqué');
+    if(!suma)faltan.push('la suma de palabras (criterio 1)');
+    if(!historia)faltan.push('la historia con fuente (criterio 2)');
+    if(!porque)faltan.push('el porqué (criterio 3)');
     if(faltan.length){
       fb.className='fb no';
       fb.textContent='La rúbrica pide exactamente eso. Falta: '+faltan.join(', ')+'.';
       return;
     }
     fb.className='fb ok';
-    fb.textContent='Ficha lista. Cópiala o pásala a media cuartilla: es tu apoyo del jueves.';
+    fb.textContent=hueco?'Ficha lista, con los cuatro criterios. Cópiala o pásala a media cuartilla: es tu apoyo del jueves.':'Ficha lista. Ojo: el criterio 4 está vacío. Siempre falta algo de una palabra; búscalo antes del jueves y anótalo.';
     pre.textContent='PALABRA: '+palabra
       +'\nSUMA: '+suma
       +'\nHISTORIA Y FUENTE: '+historia
@@ -226,89 +336,119 @@
     }
   });
 
-  // Cronómetro de ensayo
+  /* ---------- cronómetro ---------- */
   var corriendo=false,inicio=0,timer=null;
   var disp=document.getElementById('crono');
   var btnCr=document.getElementById('btnCrono');
   var fbCr=document.getElementById('fbCrono');
-  function pinta(seg){
-    var m=Math.floor(seg/60),s=seg%60;
-    disp.textContent=m+':'+(s<10?'0':'')+s;
-  }
+  function pinta(seg){var m=Math.floor(seg/60),s=seg%60;disp.textContent=m+':'+(s<10?'0':'')+s;}
   btnCr.addEventListener('click',function(){
     if(!corriendo){
-      corriendo=true;inicio=Date.now();
-      btnCr.textContent='Terminamos';
-      fbCr.className='fb';
+      corriendo=true;inicio=Date.now();btnCr.textContent='Terminamos';fbCr.className='fb';
       timer=setInterval(function(){pinta(Math.floor((Date.now()-inicio)/1000));},250);
     }else{
       corriendo=false;clearInterval(timer);
-      var seg=Math.floor((Date.now()-inicio)/1000);
-      pinta(seg);
-      btnCr.textContent='Iniciar ensayo';
-      if(seg<180){
-        fbCr.className='fb no';
-        fbCr.textContent='Quedó corto ('+Math.floor(seg/60)+' min con '+(seg%60)+' seg). Espacio de sobra para la historia de la palabra o el porqué. ¿Qué parte pueden contar con más calma?';
-      }else if(seg<=240){
-        fbCr.className='fb ok';
-        fbCr.textContent='En el rango: 3 a 4 minutos. Así se siente la medida del jueves.';
-      }else{
-        fbCr.className='fb no';
-        fbCr.textContent='Se pasó de 4 minutos. Recorten: la descomposición y la fuente no se tocan; lo que suele sobrar es rodeo antes de entrar a la palabra.';
-      }
+      var seg=Math.floor((Date.now()-inicio)/1000);pinta(seg);btnCr.textContent='Iniciar ensayo';
+      if(seg<180){fbCr.className='fb no';fbCr.textContent='Quedó corto ('+Math.floor(seg/60)+' min con '+(seg%60)+' seg). Espacio de sobra para la historia de la palabra o el porqué. ¿Qué parte pueden contar con más calma?';}
+      else if(seg<=240){fbCr.className='fb ok';fbCr.textContent='En el rango: 3 a 4 minutos. Así se siente la medida del jueves.';}
+      else{fbCr.className='fb no';fbCr.textContent='Se pasó de 4 minutos. Recorten: la descomposición y la fuente no se tocan; lo que suele sobrar es rodeo antes de entrar a la palabra.';}
     }
   });
 
-  // Rúbrica con autoevaluación
+  /* ---------- automarcaje con la rúbrica, en tres niveles ---------- */
   var RUBROS=[
-    {t:"La descomposición es correcta y la puedo explicar pieza por pieza",
-     ok:"Ese es el corazón de la defensa. Bien.",
-     no:"Vuelve al DECEL y revisa cada pieza: ¿reaparece en otras palabras con el mismo significado? Mañana lo agradeces."},
-    {t:"Tengo la fuente anotada y sé decir qué dice",
-     ok:"Regla de oro cubierta: sin fuente no hay etimología.",
-     no:"Pasa por el protocolo de arriba antes de salir hoy. 'Lo vi en internet' no es una fuente; DLE o DECEL con lo que dicen, sí."},
-    {t:"Sé decir por qué elegí esta palabra, con una razón mía",
-     ok:"Eso hace que la defensa sea tuya y no un recitado.",
-     no:"No busques una razón elegante: la honesta funciona mejor. ¿Qué te sorprendió, qué te costó, qué te gustó de su historia?"},
-    {t:"Sé qué es lo que todavía no sé de ella, y lo voy a decir",
-     ok:"Ese es el criterio que más sorprende: nombrar un hueco suma, no resta.",
-     no:"Vuelve a mirarla: siempre falta algo. Desde cuándo se usa, por qué cambió de significado, si el DLE y el DECEL coinciden. Un 'no sé' con nombre vale más que un silencio."}
+    {c:1,t:'Anatomía · la palabra por dentro',
+     ok:'Logrado. Ese es el corazón de la defensa: piezas separadas y cada una con lo que aporta.',
+     medio:'En camino. Las piezas están, pero a una le falta explicación o se equivoca. Vuelve al DECEL y revisa esa pieza: ¿reaparece en otras palabras con el mismo significado?',
+     no:'Aún no. La descomposición no corresponde a la palabra. Antes de irte hoy, ábrela en el DLE: el origen viene entre paréntesis.'},
+    {c:2,t:'Fuente · nada sin fuente',
+     ok:'Logrado. Nombraste la fuente y dijiste qué encontraste ahí. Regla de oro cubierta.',
+     medio:'En camino. Hubo fuente, pero no recuerdas cuál o solo una donde hacían falta dos. Anota el nombre exacto y qué dice: eso es todo lo que falta.',
+     no:'Aún no. "Lo vi en internet" no es una fuente, y la memoria tampoco. Pasa por el protocolo de arriba antes de salir hoy.'},
+    {c:3,t:'Criterio · por qué esta palabra',
+     ok:'Logrado. La razón es tuya y se nota. Eso hace que la defensa sea una defensa y no un recitado.',
+     medio:'En camino. "Me gustó" o "estaba en la lista" es una razón genérica. ¿Qué te sorprendió, qué te costó, dónde te la encontraste?',
+     no:'Aún no. Sin razón, la palabra podría ser cualquier otra. Busca la honesta, no la elegante: funciona mejor.'},
+    {c:4,t:'Honestidad · saber qué no sabes',
+     ok:'Logrado. Nombraste un hueco con precisión: qué buscaste, dónde y qué faltó. Es el criterio que más sorprende.',
+     medio:'En camino. Rellenaste con adorno, pero rectificas si te repreguntan. Mejor decirlo tú primero: "esto no lo sé todavía".',
+     no:'Aún no. Sostener con seguridad algo que no verificaste es lo único que de verdad baja. Vuelve a mirarla: siempre falta algo.'}
   ];
   var zona=document.getElementById('rubros');
   RUBROS.forEach(function(r){
     var div=document.createElement('div');
-    div.innerHTML='<p style="margin:.9rem 0 0;font-weight:700;color:var(--ciruela)">'+r.t+'</p>'
-      +'<div class="marca"><button data-v="bien">Me quedó bien</button><button data-v="aun">Aún no</button></div>'
+    div.innerHTML='<div class="crit-mini" data-c="'+r.c+'"><i>'+r.c+'</i>'+r.t+'</div>'
+      +'<div class="marca"><button data-v="ok">Logrado</button><button data-v="medio">En camino</button><button data-v="no">Aún no</button></div>'
       +'<div class="fb" data-fbr></div>';
     var fbr=div.querySelector('[data-fbr]');
     div.querySelectorAll('.marca button').forEach(function(b){
       b.addEventListener('click',function(){
-        div.querySelectorAll('.marca button').forEach(function(x){x.classList.remove('sel-ok','sel-no');});
-        b.classList.add(b.dataset.v==='bien'?'sel-ok':'sel-no');
-        if(b.dataset.v==='bien'){fbr.className='fb ok';fbr.textContent=r.ok;}
-        else{fbr.className='fb no';fbr.textContent=r.no;}
+        div.querySelectorAll('.marca button').forEach(function(x){x.classList.remove('sel-ok','sel-medio','sel-no');});
+        b.classList.add('sel-'+b.dataset.v);
+        fbr.className='fb '+b.dataset.v;fbr.textContent=r[b.dataset.v];
       });
     });
     zona.appendChild(div);
   });
 
-  // Banco de preguntas suaves
-  var PREGUNTAS=[
-    "¿Qué otra palabra comparte esa raíz?",
-    "¿Dónde verificaron la etimología?",
-    "¿Qué pieza les costó más trabajo y por qué?",
-    "Si la palabra tuviera una pieza más, ¿cuál le pondrían y qué significaría?",
-    "¿Qué decía el DLE que no decía el DECEL, o al revés?",
-    "¿La palabra significa hoy exactamente lo que dice su suma? ¿Qué cambió en el camino?"
+  /* ---------- el banco de preguntas ---------- */
+  var BANCO=[
+    {c:1,t:'Anatomía',color:'var(--c1)',que:'Prueban que puedes mover las piezas, no solo nombrarlas.',p:[
+      '¿Qué otra palabra comparte esa raíz?',
+      'Si le quitas el prefijo, ¿qué queda y qué significa?',
+      '¿Cuál de las piezas carga el significado principal, y cómo lo sabes?',
+      '¿La palabra significa hoy exactamente lo que dice su suma? ¿Qué cambió en el camino?',
+      'Si la palabra tuviera una pieza más, ¿cuál le pondrías y qué significaría?',
+      '¿Esa pieza es griega o latina? ¿Qué te lo dice?',
+      '¿Hay alguna palabra que parezca de la familia y no lo sea?'
+    ]},
+    {c:2,t:'Fuente',color:'var(--c2)',que:'Prueban que consultaste, no que citaste.',p:[
+      '¿Dónde verificaste la etimología?',
+      '¿Qué decía el DLE que no decía el DECEL, o al revés?',
+      '¿Cómo supiste que la fuente era confiable?',
+      'Si te dijera que esa pieza significa otra cosa, ¿cómo lo comprobarías?',
+      '¿Qué dice exactamente el paréntesis del DLE de tu palabra?',
+      '¿Qué habría pasado si solo le hubieras preguntado a una IA?'
+    ]},
+    {c:3,t:'Criterio',color:'var(--c3)',que:'Prueban que la palabra es tuya y no de la lista.',p:[
+      '¿Por qué esta palabra y no otra?',
+      '¿Qué te dio esta palabra que no tenías antes de abrirla?',
+      '¿Dónde te la encontraste por primera vez?',
+      '¿A quién se la contarías, y cómo se la explicarías en una frase?',
+      '¿Qué fue lo que más te costó de ella?'
+    ]},
+    {c:4,t:'Honestidad',color:'var(--c4)',que:'Prueban que distingues lo que sabes de lo que supones.',p:[
+      '¿Qué es lo que todavía no sabes de esta palabra?',
+      '¿Qué parte de lo que dijiste está verificado y qué parte es tu suposición?',
+      '¿Buscaste desde cuándo se usa en español? ¿Qué encontraste?',
+      'Si alguien te discute la etimología, ¿qué le contestas?',
+      '¿Hay algo de lo que dijiste hoy que dirías distinto después de revisarlo?'
+    ]},
+    {c:5,t:'Repreguntas',color:'var(--ciruela)',que:'No tienen criterio propio: siguen a cualquier respuesta. En el peldaño 3 van a ser la norma.',p:[
+      '¿Puedes decir eso mismo con otras palabras?',
+      '¿Cómo lo sabes?',
+      'Dame un ejemplo.',
+      '¿Y eso qué tiene que ver con lo que dijiste antes?',
+      '¿Estás seguro? ¿Qué te haría cambiar de opinión?'
+    ]}
   ];
+  var lista=document.getElementById('listaBanco');
+  BANCO.forEach(function(g){
+    var d=document.createElement('details');d.className='grupo';d.setAttribute('data-c',g.c);
+    d.innerHTML='<summary><i>'+(g.c===5?'↺':g.c)+'</i>'+(g.c===5?g.t:'Sobre el criterio '+g.c+' · '+g.t)+'<small>'+g.p.length+' preguntas</small></summary>'
+      +'<p class="que">'+g.que+'</p><ol>'+g.p.map(function(q){return '<li>'+q+'</li>';}).join('')+'</ol>';
+    lista.appendChild(d);
+  });
+  var planas=[];
+  BANCO.forEach(function(g){g.p.forEach(function(q){planas.push({q:q,g:g});});});
   var ultima=-1;
   document.getElementById('btnPregunta').addEventListener('click',function(){
-    var i;
-    do{i=Math.floor(Math.random()*PREGUNTAS.length);}while(i===ultima&&PREGUNTAS.length>1);
+    var i;do{i=Math.floor(Math.random()*planas.length);}while(i===ultima&&planas.length>1);
     ultima=i;
-    var fbp=document.getElementById('fbPregunta');
-    fbp.className='fb ej';
-    fbp.textContent=PREGUNTAS[i]+' (Respondan en voz alta, sin ver la ficha. Errar en voz alta es el deporte del curso.)';
+    document.getElementById('pregunta').textContent=planas[i].q;
+    var tag=document.getElementById('tag');tag.style.display='inline-block';tag.style.background=planas[i].g.color;
+    tag.textContent=planas[i].g.c===5?'repregunta':'criterio '+planas[i].g.c+' · '+planas[i].g.t;
+    document.getElementById('pistaPregunta').textContent='Contesta en voz alta, sin ver la ficha. Errar en voz alta es el deporte del curso.';
   });
 
   document.getElementById('btnModo').addEventListener('click',function(){
