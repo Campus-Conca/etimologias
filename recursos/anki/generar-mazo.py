@@ -236,6 +236,88 @@ SEMANAS = [
             ("la regla de oro", "un corte es real solo si la pieza reaparece en otras palabras con el mismo significado, y la fuente lo confirma", "concepto", "port- en transporte, portátil y reportero (real); port- en portero (no)", "", "Se aprende en la semana 3 y se usa todo el semestre. Sin fuente no hay etimología: ni de un compañero, ni de una IA, ni tuya."),
         ],
     },
+    {
+        "n": 8,
+        "titulo": "Semana 8 · La máquina del tiempo fonética",
+        "piezas": [
+            # Esta semana el mazo no crece de piezas: crece de leyes. Cada tarjeta
+            # es una ruta del desgaste, con su par ancla latín -> español.
+            ("F- inicial \u2192 h-", "la F inicial del lat\u00edn se volvi\u00f3 h muda en espa\u00f1ol", "ley fon\u00e9tica", "FARINA \u2192 harina", "FACERE \u2192 hacer, FILIU \u2192 hijo, FABULARI \u2192 hablar", "Fugitivas: febrero, fiebre, fiesta y fin conservaron su F. Entraron tarde o por la v\u00eda culta."),
+            ("-CT- \u2192 -ch-", "el grupo CT del lat\u00edn se volvi\u00f3 ch en espa\u00f1ol", "ley fon\u00e9tica", "NOCTE \u2192 noche", "LACTE \u2192 leche, OCTO \u2192 ocho, FACTU \u2192 hecho", "Sirve en las dos direcciones: si hoy dices ch, busca un CT mil a\u00f1os atr\u00e1s."),
+            ("PL- / CL- / FL- \u2192 ll-", "PL, CL y FL iniciales se volvieron ll en espa\u00f1ol", "ley fon\u00e9tica", "PLUVIA \u2192 lluvia", "CLAMARE \u2192 llamar, FLAMMA \u2192 llama, PLENU \u2192 lleno", "Tres grupos distintos que desembocaron en el mismo sonido."),
+            ("vocal breve \u2192 diptongo", "las vocales breves t\u00f3nicas diptongaron: la O breve en ue, la E breve en ie", "ley fon\u00e9tica", "PORTA \u2192 puerta", "FOCU \u2192 fuego, TERRA \u2192 tierra, FESTA \u2192 fiesta", "Por eso puerta y portero son parientes: una diptong\u00f3 y la otra no."),
+            ("consonante entre vocales \u2192 suave", "las consonantes sordas entre vocales se suavizaron: T en d, P en b, C en g", "ley fon\u00e9tica", "VITA \u2192 vida", "LUPU \u2192 lobo, AMICU \u2192 amigo, ROTA \u2192 rueda", "El desgaste entre dos vocales es el m\u00e1s constante de todos."),
+            ("doblete", "una palabra latina que dio dos espa\u00f1olas: una popular, gastada por las leyes, y una culta, entrada por los libros", "concepto", "AURICULA \u2192 oreja (popular) y aur\u00edcula (culta)", "FRIGIDU \u2192 fr\u00edo y fr\u00edgido, STRICTU \u2192 estrecho y estricto", "Cuando una ley parece fallar, casi siempre es la hermana culta: nunca pas\u00f3 por la m\u00e1quina."),
+        ],
+    },
+    {
+        "n": 9,
+        "titulo": "Semana 9 · Las lenguas escondidas",
+        "piezas": [
+            # --- las dos marcas: se tarjetean como piezas ---
+            ("al-", "marca del árabe: el artículo «el, la» que se quedó pegado a la palabra", "marca de préstamo", "almohada", "alfombra, alcalde, alberca, alcancía, álgebra", "La marca sospecha; la fuente decide: naranja es árabe y no trae al-."),
+            ("-tl → -te / -ate / -ote", "marca del náhuatl: el final -tl que el español volvió -te", "marca de préstamo", "tomatl → tomate", "elotl → elote, ahuacatl → aguacate, papalotl → papalote", "Tiza no la trae y es náhuatl: la marca no sentencia."),
+            # --- palabras viajeras con su fuente ---
+            ("almohada", "árabe · al-mihadda, «la que va bajo la mejilla»", "arabismo", "mejilla", "alfombra, alcalde, alberca (la firma al-)", "Colgada desde la semana 2 y pagada en la 9. DLE: del ár. hisp. almuḫádda."),
+            ("ojalá", "árabe · law sha Allah, «si Dios quiere»", "arabismo", "ojalá llueva", "", "Cada vez que lo dices, rezas en la lengua de Al-Ándalus."),
+            ("álgebra", "árabe · al-yabr, la reducción, la reunión de partes rotas", "arabismo", "álgebra", "algoritmo (de al-Juarismi), cifra", ""),
+            ("alberca", "árabe · al-birka, el estanque", "arabismo", "alberca", "acequia, aljibe", "En casi todo el mundo hispano dicen piscina; en México el estanque árabe sigue vivo."),
+            ("naranja", "árabe, y este del persa · naranya", "arabismo", "naranja", "", "Entró por el sur de España, sin al-: la marca no es obligatoria."),
+            ("chocolate", "náhuatl · xocolatl, agua amarga", "nahuatlismo", "chocolate", "tomate, aguacate, chile, chicle, coyote: las que conquistaron el mundo", "Probablemente la palabra mexicana más viajada de la historia."),
+            ("cuate", "náhuatl · coatl, serpiente, gemelo", "nahuatlismo", "cuate", "", ""),
+            ("tianguis", "náhuatl · tianquiztli, mercado", "nahuatlismo", "tianguis", "", ""),
+            ("tiza", "náhuatl · tizatl, tierra blanca", "nahuatlismo", "tiza (así le dicen en España al gis)", "gis", "En España dicen tiza (mexicana); en México decimos gis (griega). Cada quien usa la del otro."),
+            ("gis", "griego · gypsos, yeso, por el latín gypsum", "helenismo por el latín", "gis", "yeso (su hermana)", "A gis le fue mal en España y dejó de usarse; aquí sobrevivió."),
+            ("apapacho", "náhuatl · papatzoa, ablandar con los dedos; acariciar con el alma", "nahuatlismo", "apapacho", "apapachar", "El DLE la registró en 2014. La gente la decía siglos antes."),
+            ("chef / jefe", "francés · chef, «cabeza, el que manda», del latín caput", "galicismo", "chef", "jefe (la misma palabra, entrada en el siglo XVII)", "Un doblete de préstamo: la primera entrada se gasta, la segunda se conserva."),
+            ("quiosco", "persa · košk, pabellón; pasó por el turco y el francés", "préstamo con escalas", "quiosco", "", "La palabra con más escalas de la semana: ninguna de ellas América."),
+        ],
+    },
+    {
+        "n": 10,
+        "titulo": "Semana 10 · El diccionario lo hacemos nosotros",
+        "piezas": [
+            # --- conceptos del oficio ---
+            ("género próximo", "la familia grande a la que pertenece lo que defines", "concepto", "«disco plano» en la definición de comal", "diferencia específica", "Primera mitad de toda definición con oficio."),
+            ("diferencia específica", "lo que separa la cosa de sus parientes", "concepto", "«que se pone al fuego para cocer tortillas» en comal", "género próximo", "Segunda mitad de la definición: sin ella, la olla y el comal se confunden."),
+            ("definición circular", "usa la palabra que está definiendo: no vale", "concepto", "«molote: un molote de cobija»", "", "La trampa clásica del oficio. A todos nos pasa la primera vez."),
+            ("ejemplo textual", "la frase tal como la dijo alguien, entre comillas", "concepto", "«El maíz está en el tapanco»", "", "Es la voz de quien te regaló la palabra, no la tuya."),
+            ("topónimo", "nombre propio de un lugar", "concepto", "Jalpan, de Xalpan, «sobre la arena»", "Ahuacatlán, Concá (pame), Tancoyol", "Un mapa de la Sierra es también un mapa de quién nombró qué."),
+            ("voz viva no registrada", "palabra en uso que no aparece en ningún diccionario", "concepto", "la que documentaste tú", "", "No es que la palabra no exista: es que nadie la había anotado con método."),
+            # --- palabras con historia: la cocina y el campo ---
+            ("tapanco", "náhuatl · tlapantli, azotea, terrado: el piso alto donde duerme la cosecha", "nahuatlismo", "tapanco", "", ""),
+            ("itacate", "náhuatl · itacatl, provisión para el camino", "nahuatlismo", "itacate", "", ""),
+            ("comal", "náhuatl · comalli", "nahuatlismo", "comal", "", ""),
+            ("metate", "náhuatl · metlatl, la piedra de moler", "nahuatlismo", "metate", "", ""),
+            ("nixtamal", "náhuatl · nextli (ceniza) + tamalli: maíz cocido con cal", "nahuatlismo", "nixtamal", "tamal", ""),
+            ("huacal", "náhuatl · huacalli, la caja de varas", "nahuatlismo", "huacal", "", ""),
+            ("milpa", "náhuatl · milli (sembradío) + -pan (lugar)", "nahuatlismo", "milpa", "", ""),
+            ("chiquihuite", "náhuatl · chiquihuitl, el cesto", "nahuatlismo", "chiquihuite", "", "Prueba dos escrituras antes de sentenciar un «no está»: chiquihuite y chiquigüite."),
+        ],
+    },
+    {
+        "n": 11,
+        "titulo": "Semana 11 · Cazadores de mitos",
+        "piezas": [
+            # --- el oficio del cazador ---
+            ("paretimología", "etimología popular: historia de origen inventada porque suena lógica", "concepto", "«sin cera»", "etimología popular", "Circula más que la verdadera porque es más bonita."),
+            ("acrónimo", "palabra hecha de iniciales; invento del siglo XX, señal de mito en palabras antiguas", "concepto", "ovni, láser (reales) · «Caro Data Vermibus» (mito)", "", "Ninguna palabra latina nació de iniciales."),
+            ("fuente de autoridad", "la que dicta el veredicto: DLE, DECEL", "concepto", "nunca el buscador ni la IA", "", "Y la fuente honesta también duda: «quizá» es un dato."),
+            ("las cuatro señales", "acrónimo · demasiado buena · otra lengua sin razón · nadie cita fuente", "concepto", "cadáver enciende la primera", "", "Las señales dicen dónde mirar primero; no dictan el veredicto."),
+            ("«la IA no sabe cuándo no sabe»", "responde igual de segura cuando acierta y cuando inventa", "regla del curso", "punto de partida, nunca fuente", "", "Firmado en el pacto de IA de la semana 0."),
+            # --- palabras con leyenda, con veredicto ---
+            ("cadáver", "latín · de cadere, caer: «el que cayó»", "palabra con leyenda", "cadáver", "caer, caída, decadencia", "Leyenda: Caro Data Vermibus. Falsa: es un acrónimo."),
+            ("sincero", "latín · sincerus, puro, sin mezcla", "palabra con leyenda", "sincero", "sinceridad", "Leyenda: «sin cera». Falsa: el étimo es de una sola pieza."),
+            ("gringo", "quizá de griego: hablar en griego era hablar raro", "palabra con leyenda", "gringo", "", "Leyenda: green go home. Falsa; y el DLE lo dice con «quizá»."),
+            ("mermelada", "portugués · marmelada, dulce de membrillo (marmelo)", "palabra con leyenda", "mermelada", "", "Leyenda: Marie malade, la reina enferma. Falsa."),
+            ("OK", "broma de 1839 en Estados Unidos: oll korrect, all correct mal escrito", "palabra con leyenda", "OK", "", "Leyenda: 0 killed. Falsa."),
+            ("siesta", "latín · sexta (hora): el mediodía, cuando el sol obliga a parar", "palabra con leyenda", "siesta", "", "Confirmada: parece cuento y está en la fuente."),
+            ("bárbaro", "griego · bárbaros, del sonido bar-bar de las lenguas que no entendían", "palabra con leyenda", "bárbaro", "barbarie", "Confirmada."),
+            ("morfina", "de Morfeo, dios griego del sueño; bautizada por un farmacéutico a principios del siglo XIX", "palabra con leyenda", "morfina", "", "Confirmada: la historia increíble era la documentada."),
+            ("murciélago", "de murciégalo: mur (ratón, latín mus) + ciego", "palabra con leyenda", "murciélago", "", "Confirmada. Con el tiempo las letras se cambiaron de lugar."),
+            ("nigromancia", "griego · nekromanteía, adivinar con los muertos, alterada por nigro (negro)", "palabra con leyenda", "nigromancia", "necromancia, cerrojo, vagamundo", "Una paretimología que ganó: la leyenda cambió la palabra de verdad."),
+        ],
+    },
 ]
 
 
