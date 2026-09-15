@@ -251,7 +251,7 @@ Hay historias preciosas sobre el origen de las palabras que son mentira, y circu
 <tr><th>Qué</th><th>Cuándo</th><th>Qué traes</th></tr>
 <tr><td>La disputa de los extranjerismos, cambiando de bando</td><td>martes 13</td><td>tu postura, y la contraria</td></tr>
 <tr><td>Tu defensa individual, peldaño 2, con banco de preguntas publicado</td><td>miércoles 14 y jueves 15</td><td>la pieza de la unidad que mejor te representa y su fuente</td></tr>
-<tr><td>El quiz integrador de la unidad 2</td><td>viernes 16</td><td>tu serie de calibración al día: los renglones #6 a #9</td></tr>
+<tr><td>El quiz integrador de la unidad 2</td><td>viernes 16</td><td>tu serie de calibración al día: los renglones #7 a #9</td></tr>
 <tr><td>El segundo círculo de lectura</td><td>viernes 16</td><td>tu libro en la mano y una frase marcada</td></tr>
 <tr><td>Tu segundo parcial</td><td>el fin de semana</td><td>tu expediente y tu portafolio enfrente</td></tr>
 </table>

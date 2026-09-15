@@ -130,10 +130,11 @@ Cada semana tiene su mazo suelto, y abajo está el semestre completo en un solo 
 | Semana 5 · Una raíz, veinte palabras | 15 | [etimologias-semana-05.apkg](anki/etimologias-semana-05.apkg) |
 | Semana 6 · Descifrar a ciegas | 15 | [etimologias-semana-06.apkg](anki/etimologias-semana-06.apkg) |
 | Semana 7 · Las cinco que se resisten | 5 | [etimologias-semana-07.apkg](anki/etimologias-semana-07.apkg) |
+| Semana 8 · La máquina del tiempo fonética | 6 | [etimologias-semana-08.apkg](anki/etimologias-semana-08.apkg) |
 | Semana 9 · Las lenguas escondidas | 15 | [etimologias-semana-09.apkg](anki/etimologias-semana-09.apkg) |
 | Semana 10 · El diccionario lo hacemos nosotros | 14 | [etimologias-semana-10.apkg](anki/etimologias-semana-10.apkg) |
 | Semana 11 · Cazadores de mitos | 15 | [etimologias-semana-11.apkg](anki/etimologias-semana-11.apkg) |
-| **Todo el semestre**, en submazos | 134 | [etimologias-uaq.apkg](anki/etimologias-uaq.apkg) |
+| **Todo el semestre**, en submazos | 140 | [etimologias-uaq.apkg](anki/etimologias-uaq.apkg) |
 
 {: .ojo }
 **Cómo se instala:** baja el archivo, ábrelo (o en Anki: Archivo › Importar) y aparece como submazo dentro de "Etimologías UAQ". Si ya lo tenías, se actualiza el contenido y **no se pierde tu avance**.

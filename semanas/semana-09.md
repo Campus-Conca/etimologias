@@ -17,7 +17,7 @@ nav_order: 10
 - verificar el origen de una palabra en la fuente, y leer el paréntesis del DLE como quien lee una cédula
 - escribir la biografía de una palabra viajera y grabar tu primer booktuber
 
-Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo del latín hay ocho siglos de árabe, cinco de náhuatl y un puñado de modas francesas e inglesas. Esta semana se excava. Y se paga por fin la deuda más vieja del curso: *almohada*, colgada desde la semana 2.
+Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo del latín hay ocho siglos de árabe, cinco de náhuatl y un puñado de modas francesas e inglesas. Esta semana se excava, empezando por la lengua que asomó la semana pasada en *almohada* y que dejó unas cuatro mil palabras más.
 
 ---
 
@@ -36,7 +36,7 @@ Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo 
 <div>
 <div class="cuando">Martes 22 de septiembre · 1 hora</div>
 <h3>Cacería en tu propia habla</h3>
-<p class="foco">Hoy se paga una deuda de siete semanas.</p>
+<p class="foco">La semana pasada cayó almohada. Hoy caen las otras cuatro mil.</p>
 </div>
 <button class="btn-presentar" type="button">Presentar ▸</button>
 </div>
@@ -62,14 +62,14 @@ Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo 
 <p class="nota-conductor">Corto y de pie. Las leyes de la 8 vuelven en el integrador de la 12, así que no dejes que se enfríen. Si alguien pregunta por la palabra que no obedece la ley (fiesta, febrero), recuérdales la lámina de las fugitivas: cultismos y palabras que entraron tarde.</p>
 </section>
 <section class="lam lam--oscura">
-<h4><span class="n">3</span> almohada, por fin <span class="reloj">10 min</span></h4>
+<h4><span class="n">3</span> almohada, segunda vuelta <span class="reloj">10 min</span></h4>
 <p class="palabra-grande">almohada</p>
-<p class="di">Siete semanas colgada. Hoy se abre.</p>
-<p class="apoyo">Apuesten primero, en voz alta: ¿griega, latina, o ninguna de las dos? Pista que ya conocen: empieza igual que <em>álgebra</em>, <em>alcohol</em>, <em>alcalde</em>, <em>alberca</em>.</p>
-<p class="nota-conductor">Deja que apuesten de verdad antes de revelar. Desde la semana 7 saben que "no es griega ni latina": lo que no saben es qué lengua es ni por qué tantas empiezan igual. Ese es el gancho de la unidad entera.</p>
+<p class="di">La semana pasada supieron de dónde viene. Hoy, qué trajo consigo.</p>
+<p class="apoyo">Ya saben que es árabe y que ese <em>al-</em> es un artículo pegado. Lo que no saben: cuántas palabras entraron por la misma puerta, y cómo reconocerlas. Apuesten un número antes de seguir: ¿cuántas palabras árabes creen que dicen en un día normal?</p>
+<p class="nota-conductor">El martes 15 pagaste la deuda en seis minutos y dejaste los arabismos para hoy. Retoma desde ahí: que ellos cuenten la historia de almohada, no tú, y que digan qué era ese al-. Las apuestas del número van al pizarrón; la lámina de los ocho siglos las corrige.</p>
 </section>
 <section class="lam">
-<h4>Se rindió</h4>
+<h4>Lo que trae adentro</h4>
 <div class="dis">
 <span class="pz pz--pre">al-<small>el, la (artículo)</small></span>
 <span class="pz pz--raiz">mihadda<small>de hadd, mejilla</small></span>
