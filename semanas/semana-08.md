@@ -293,6 +293,10 @@ Y *hablar*, ya lo verás en el postre, viene de contar fábulas. A este viaje de
 
 ## Las tarjetas de la semana
 
+Esta semana el mazo no crece de piezas: crece de leyes. Seis tarjetas, y con esas seis cualquier palabra latina que te encuentres ya te dice algo antes de buscarla.
+
+**[Baja el mazo de la semana 8](../recursos/anki/etimologias-semana-08.apkg)** · Las cinco leyes del desgaste con su par ancla, más el doblete. En [Recursos · Anki](../recursos/anki.html) están todos, sueltos por semana o el semestre completo.
+
 | Frente | Reverso (significado · palabra ancla) |
 |---|---|
 | F inicial → h | FARINA → harina |

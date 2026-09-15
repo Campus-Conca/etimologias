@@ -236,6 +236,20 @@ SEMANAS = [
             ("la regla de oro", "un corte es real solo si la pieza reaparece en otras palabras con el mismo significado, y la fuente lo confirma", "concepto", "port- en transporte, portátil y reportero (real); port- en portero (no)", "", "Se aprende en la semana 3 y se usa todo el semestre. Sin fuente no hay etimología: ni de un compañero, ni de una IA, ni tuya."),
         ],
     },
+    {
+        "n": 8,
+        "titulo": "Semana 8 · La máquina del tiempo fonética",
+        "piezas": [
+            # Esta semana el mazo no crece de piezas: crece de leyes. Cada tarjeta
+            # es una ruta del desgaste, con su par ancla latín -> español.
+            ("F- inicial \u2192 h-", "la F inicial del lat\u00edn se volvi\u00f3 h muda en espa\u00f1ol", "ley fon\u00e9tica", "FARINA \u2192 harina", "FACERE \u2192 hacer, FILIU \u2192 hijo, FABULARI \u2192 hablar", "Fugitivas: febrero, fiebre, fiesta y fin conservaron su F. Entraron tarde o por la v\u00eda culta."),
+            ("-CT- \u2192 -ch-", "el grupo CT del lat\u00edn se volvi\u00f3 ch en espa\u00f1ol", "ley fon\u00e9tica", "NOCTE \u2192 noche", "LACTE \u2192 leche, OCTO \u2192 ocho, FACTU \u2192 hecho", "Sirve en las dos direcciones: si hoy dices ch, busca un CT mil a\u00f1os atr\u00e1s."),
+            ("PL- / CL- / FL- \u2192 ll-", "PL, CL y FL iniciales se volvieron ll en espa\u00f1ol", "ley fon\u00e9tica", "PLUVIA \u2192 lluvia", "CLAMARE \u2192 llamar, FLAMMA \u2192 llama, PLENU \u2192 lleno", "Tres grupos distintos que desembocaron en el mismo sonido."),
+            ("vocal breve \u2192 diptongo", "las vocales breves t\u00f3nicas diptongaron: la O breve en ue, la E breve en ie", "ley fon\u00e9tica", "PORTA \u2192 puerta", "FOCU \u2192 fuego, TERRA \u2192 tierra, FESTA \u2192 fiesta", "Por eso puerta y portero son parientes: una diptong\u00f3 y la otra no."),
+            ("consonante entre vocales \u2192 suave", "las consonantes sordas entre vocales se suavizaron: T en d, P en b, C en g", "ley fon\u00e9tica", "VITA \u2192 vida", "LUPU \u2192 lobo, AMICU \u2192 amigo, ROTA \u2192 rueda", "El desgaste entre dos vocales es el m\u00e1s constante de todos."),
+            ("doblete", "una palabra latina que dio dos espa\u00f1olas: una popular, gastada por las leyes, y una culta, entrada por los libros", "concepto", "AURICULA \u2192 oreja (popular) y aur\u00edcula (culta)", "FRIGIDU \u2192 fr\u00edo y fr\u00edgido, STRICTU \u2192 estrecho y estricto", "Cuando una ley parece fallar, casi siempre es la hermana culta: nunca pas\u00f3 por la m\u00e1quina."),
+        ],
+    },
 ]
 
 
