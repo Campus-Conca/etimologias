@@ -23,12 +23,13 @@ Piezas de las colecciones del grupo, publicadas con permiso de sus autores y ver
    sola linea, y un comentario de doble barra se comeria el resto. */
 
 window.MUSEO_SALAS = [
-  /* Una sala por unidad. Cuando arranque la U2, cambia su "abierta"
+  /* Una sala por unidad. Cuando arranque una unidad, cambia su "abierta"
      a true y escribe su placa: el letrero de "proxima inauguracion"
-     se convierte solo en pared. */
+     se convierte solo en pared. La sala 2 abrio en la semana 9. */
   {sala:1, unidad:"U1", titulo:"Palabras diseccionadas", abierta:true,
    placa:"Cada pieza fue encontrada, investigada y verificada por alguien del grupo. La colección crece con el semestre."},
-  {sala:2, unidad:"U2", titulo:"Palabras heredadas", abierta:false},
+  {sala:2, unidad:"U2", titulo:"Palabras heredadas", abierta:true,
+   placa:"Palabras que viajaron: del latín gastado en mil años, del árabe, del náhuatl, de la cocina de una abuela. Cada una con su fuente y con la voz de quien la regaló. Inaugurada en la semana 9."},
   {sala:3, unidad:"U3", titulo:"Palabras del futuro", abierta:false}
 ];
 

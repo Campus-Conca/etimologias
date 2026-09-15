@@ -119,7 +119,9 @@
       if (piezas.length) {
         html += piezas.map(marcoHTML).join('');
       } else {
-        html += '<div class="mu-vacio">Ninguna pieza en esta vitrina. Prueba con otro filtro o borra la búsqueda.</div>';
+        html += '<div class="mu-vacio">' + (hayFiltro()
+          ? 'Ninguna pieza en esta vitrina. Prueba con otro filtro o borra la búsqueda.'
+          : 'La sala está abierta y espera su primera pieza. Puede ser la tuya: se manda desde la bitácora o con la plantilla de biografía.') + '</div>';
       }
       if (!hayFiltro()) {
         proximosInv(s.sala, 2).forEach(function (inv) { html += reservadoHTML(inv); });
