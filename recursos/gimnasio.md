@@ -73,6 +73,7 @@ Y los juegos del alfabeto, sin mazo y sin quiz: [Tu nombre en griego](../ejercic
 - [La lista de tu lengua](../ejercicios/semana-09/ejercicio-9B-la-lista-de-tu-lengua.html) · miércoles
 - [El origen a juicio](../ejercicios/semana-09/ejercicio-9C-el-origen-a-juicio.html) · jueves, centro de cómputo
 - [La palabra viajera](../ejercicios/semana-09/ejercicio-9D-la-palabra-viajera.html) · viernes
+- [Tu booktuber](../ejercicios/semana-09/ejercicio-9E-tu-booktuber.html) · viernes: guion, ensayo con reloj y tu decisión de publicación
 - [Quiz de gimnasio](../ejercicios/semana-09/quiz-gimnasio-semana-09.html) · ensayo libre
 
 **Semana 10 · El diccionario lo hacemos nosotros**
