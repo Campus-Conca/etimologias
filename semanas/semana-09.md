@@ -75,6 +75,7 @@ Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo 
 <span class="pz pz--raiz">mihadda<small>de hadd, mejilla</small></span>
 <span class="eq">= almohada, "la que va bajo la mejilla"</span>
 </div>
+<img class="ilustracion" src="../assets/img/semana-09/el-articulo-que-se-quedo-pegado.webp" alt="Una mano estampa con un sello de goma las letras al- en rosa sobre una almohada que tiene una etiqueta cosida con mihadda, mejilla, y una carita dormida encima. Abajo, sobre una banda transportadora, una alfombra enrollada, una alberca, una alcancía de cochinito y un edificio con banda de alcalde llevan el mismo sello al-; sus nombres dicen alfombra, alberca, alcancía y alcalde con el al- en rosa. Al pie: al- quiere decir el, la, y viajó pegado a la palabra.">
 <p class="apoyo">Es árabe. <em>Al-</em> es el artículo ("el", "la") y se quedó pegado a la palabra cuando pasó al español: por eso <em>almohada</em>, <em>alfombra</em>, <em>alcalde</em> y <em>alberca</em> traen la misma firma. La <em>mihadda</em> es literalmente "la cosa de la mejilla". Cada noche pones la cabeza sobre una palabra que lleva mil doscientos años viajando.</p>
 <p class="apoyo">Así lo dice la fuente: <strong>DLE, entrada <em>almohada</em>: "Del ár. hisp. almuḫádda, y este del ár. clás. miḫaddah, de ḫadd 'mejilla'"</strong>. El jueves aprendes a leer ese paréntesis completo.</p>
 </section>
@@ -87,6 +88,7 @@ Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo 
 <section class="lam">
 <h4><span class="n">4</span> Tu habla es un sitio arqueológico <span class="reloj">5 min</span></h4>
 <p class="di">Capas. Y cada capa dejó una marca que se puede aprender a ver.</p>
+<img class="ilustracion" src="../assets/img/semana-09/tu-habla-es-un-sitio-arqueologico.webp" alt="Un corte del suelo visto de lado, como excavación arqueológica: arriba un estudiante de rodillas descubre palabras con una brocha. Las capas, rotuladas a la izquierda, dicen lo que dices hoy, latín, árabe 800 años (con almohada en rosa, azúcar y unos huesos), náhuatl 500 años (tomate y elote en tepalcates), francés (chef), inglés (futbol) y, en la roca gris del fondo, pame, otomí, huasteco con un signo de interrogación.">
 <table>
 <tr><th>Capa</th><th>Cuándo entró</th><th>La marca que la delata</th><th>Ejemplos</th></tr>
 <tr><td><strong>árabe</strong></td><td>711 a 1492, en España</td><td>empieza con <em>al-</em> (y a veces <em>a-</em>)</td><td>almohada, alberca, azúcar, aceite</td></tr>
@@ -140,6 +142,7 @@ Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo 
 <section class="lam">
 <h4><span class="n">2</span> Cuatro lenguas, cuatro puertas <span class="reloj">14 min</span></h4>
 <p class="di">Ninguna palabra entra al idioma por casualidad. Entra por una puerta, y la puerta explica qué palabras son.</p>
+<img class="ilustracion" src="../assets/img/semana-09/cuatro-puertas.webp" alt="Cuatro puertas en fila, cada una con su lengua y su época en rosa: por un arco de herradura rotulado árabe, 711 a 1492, entran caminando un costal de azúcar, una acequia y una almohada; por un marco escalonado rotulado náhuatl, desde 1519, un tomate, un elote y una taza de chocolate; por una puerta con cortinas rotulada francés, siglos XVIII y XIX, un gorro de chef y un coche que dice garaje; por una puerta moderna con letrero de neón rotulada inglés, siglo XX, un balón de futbol y un sándwich.">
 <table>
 <tr><th>Lengua</th><th>La puerta</th><th>Por eso trae palabras de</th></tr>
 <tr><td><strong>árabe</strong></td><td>ocho siglos de convivencia en Al-Ándalus</td><td>el riego, el campo, la ciencia, la casa</td></tr>
@@ -293,6 +296,7 @@ Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo 
 <span class="eq">= apapacho</span>
 </div>
 <p class="di">Hay palabras que el español no tenía, y esta tierra se las regaló.</p>
+<img class="ilustracion" src="../assets/img/semana-09/una-palabra-que-abraza.webp" alt="A la izquierda, unas manos ablandan una bola de masa sobre una mesa, con el rótulo papatzoa, ablandar con los dedos; una flecha que dice náhuatl lleva a la derecha, donde una abuela con rebozo abraza a un muchacho, los dos con los ojos cerrados, con el rótulo apapacho en rosa, acariciar con el alma. Al pie: una palabra que el español no tenía.">
 <p class="apoyo"><em>Apapacho</em> viene del náhuatl <em>papatzoa</em>, ablandar algo apretándolo con los dedos. Pero los hablantes cultos del náhuatl le daban el sentido que le damos hoy: abrazar o acariciar con el alma. No hay una palabra griega, latina ni árabe que diga eso. Fíjate en el detalle de la fuente: el DLE la registra apenas en su edición de 2014. Millones de personas la decían mucho antes de que un diccionario les diera permiso.</p>
 <p class="nota-conductor">Es la siembra directa de la semana 10 ("el diccionario lo hacemos nosotros"). No la expliques de más: deja caer la frase del permiso y sigue.</p>
 </section>

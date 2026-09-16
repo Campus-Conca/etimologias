@@ -126,6 +126,7 @@ Hay palabras vivas en la Sierra, en el barrio, en la cocina de tu abuela, que ni
 <section class="lam">
 <h4><span class="n">2</span> La ficha, con sus seis renglones <span class="reloj">8 min</span></h4>
 <p class="di">Entrada · categoría · definición · ejemplo textual · quién y dónde · origen.</p>
+<img class="ilustracion" src="../assets/img/semana-10/seis-renglones.webp" alt="Una ficha grande con seis renglones rotulados en rosa: entrada, definición, ejemplo, quién y dónde, origen y fuente; está llena a mano con la palabra tapanco, la definición piso alto bajo el techo para guardar cosas, el ejemplo entre comillas El maíz está en el tapanco, mi tío en el rancho, y náhuatl, tlapantli; el renglón de fuente está vacío con un lápiz encima. A la derecha, un señor de sombrero al pie de una escalera que sube a un tapanco lleno de mazorcas repite en su globo El maíz está en el tapanco.">
 <table>
 <tr><th>Renglón</th><th>tapanco</th></tr>
 <tr><td><strong>Entrada</strong> (categoría)</td><td>tapanco (sustantivo)</td></tr>
@@ -148,6 +149,7 @@ Hay palabras vivas en la Sierra, en el barrio, en la cocina de tu abuela, que ni
 <section class="lam">
 <h4><span class="n">4</span> El mapa empieza bajo tus pies <span class="reloj">12 min</span></h4>
 <p class="di">Los nombres de los lugares también son palabras con biografía. Se llaman topónimos.</p>
+<img class="ilustracion" src="../assets/img/semana-10/el-mapa-bajo-tus-pies.webp" alt="Un mapa dibujado a mano de una sierra con río y caminos, con cinco letreros de madera: Jalpan y Ahuacatlán con etiqueta náhuatl, Tancoyol con etiqueta huasteco y un signo de interrogación, Concá con etiqueta rosa que dice pame y un gran signo de interrogación rosa encima, y Tilaco con una etiqueta que solo trae un signo de interrogación. Abajo, unos tenis vistos desde arriba parados sobre el mapa, con el rótulo tu comunidad.">
 <table>
 <tr><th>Lugar</th><th>Lo que dicen las fuentes, o lo que se cuenta</th></tr>
 <tr><td><strong>Jalpan</strong></td><td>náhuatl, de <em>Xalpan</em>: "sobre la arena" (<em>xalli</em>, arena)</td></tr>
@@ -180,6 +182,7 @@ Hay palabras vivas en la Sierra, en el barrio, en la cocina de tu abuela, que ni
 <section class="lam">
 <h4><span class="n">1</span> Tres fuentes y tres veredictos <span class="reloj">8 min</span></h4>
 <p class="di">DLE, DECEL y, hoy, el DEM. Y solo tres cosas pueden pasar.</p>
+<img class="ilustracion" src="../assets/img/semana-10/esta-o-no-esta.webp" alt="Tres sellos en fila: ESTÁ con una palomita, NO ESTÁ en rosa con un trofeo y la nota voz viva, documentación original, y OTRO SIGNIFICADO en ocre con dos flechas que apuntan a lados distintos. Abajo, tres ventanillas atendidas por tres libros con lentes rotulados DLE, DECEL y DEM, y frente a ellas un letrerito con patas que dice guaje. Al pie: y las tres valen.">
 <table>
 <tr><th>Veredicto</th><th>Qué significa</th><th>Qué haces</th></tr>
 <tr><td><strong>Está, con su origen</strong></td><td>tu hipótesis del martes ya tiene juez</td><td>anota el origen y la fuente; compara con tu apuesta</td></tr>
@@ -245,6 +248,7 @@ Hay palabras vivas en la Sierra, en el barrio, en la cocina de tu abuela, que ni
 <section class="lam lam--oscura">
 <h4><span class="n">3</span> ¿Quién decide qué es una palabra? <span class="reloj">10 min</span></h4>
 <p class="di">Una palabra no espera al diccionario para existir. El diccionario corre detrás de la gente.</p>
+<img class="ilustracion" src="../assets/img/semana-10/el-diccionario-corre-detras.webp" alt="Un diccionario enorme con patas y brazos corre sudando con una red de cazar mariposas detrás de una fila de gente que camina platicando: una abuela, un señor de sombrero, dos muchachos con mochila, una mujer con canasta. De ellos salen globos con las palabras tapanco, itacate, apapacho y chiquihuite; el globo de apapacho está en rosa y lleva colgada una etiqueta que dice registrada en 2014.">
 <p class="apoyo">Todas las palabras del DLE fueron, alguna vez, una palabra que alguien decía y nadie había anotado. <em>Apapachar</em> llegó al DLE en 2014, después de siglos de uso. Lo que hiciste esta semana es exactamente lo que hacen los lexicógrafos: oír, documentar con ejemplo y fuente, definir con oficio. La pregunta de quién decide sigue abierta: tiene su propia semana, la 16.</p>
 <p class="nota-conductor">No resuelvas la pregunta. Si alguien dice "la RAE decide", pregúntale de dónde saca la RAE las palabras. Es la misma conversación de la semana 6 (el dinosaurio se inventó), ahora con palabras que ellos mismos documentaron.</p>
 </section>
