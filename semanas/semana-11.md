@@ -74,6 +74,7 @@ Hay historias preciosas sobre el origen de las palabras que son mentira, y circu
 <span class="pz pz--raiz">cadere<small>caer (latín)</small></span>
 <span class="eq">= cadáver, "el que cayó"</span>
 </div>
+<img class="ilustracion" src="../assets/img/semana-11/la-historia-perfecta.webp" alt="A la izquierda, un marco dorado muy adornado con la frase Caro Data Vermibus y dos gusanitos asomados, tachado por un gran sello rosa que dice FALSO, con la nota es un acrónimo, siglo XX. A la derecha, una ficha sencilla clavada con una tachuela que dice cadere, caer, y una figura de palitos que tropieza y cae, con el rótulo cadáver: el que cayó, y la palabra DECEL al pie. El título dice la leyenda es mejor cuento, la verdad es mejor historia.">
 <p class="apoyo">Los acrónimos (palabras hechas de iniciales, como <em>ovni</em> o <em>láser</em>) son un invento del siglo XX. Ninguna palabra latina nació de iniciales, así que cualquier historia que explique una palabra vieja con siglas es falsa antes de abrir el diccionario. El DECEL dicta la versión sobria: <em>cadaver</em>, emparentado con <em>cadere</em>, caer. La leyenda es mejor cuento; la verdad es mejor historia.</p>
 </section>
 <section class="lam">
@@ -220,6 +221,7 @@ Hay historias preciosas sobre el origen de las palabras que son mentira, y circu
 <section class="lam">
 <h4><span class="n">2</span> Cuando la leyenda cambia la palabra <span class="reloj">10 min</span></h4>
 <p class="di">A veces la etimología popular no solo cuenta un cuento: le cambia la forma a la palabra de verdad.</p>
+<img class="ilustracion" src="../assets/img/semana-11/cuando-la-leyenda-cambia-la-palabra.webp" alt="Una puerta de madera con cerrojo de hierro y una etiqueta colgada que dice veruculum, barrita; en la puerta está pintada la palabra verrojo con la v tachada y una letra en rosa recién pintada. Una cuadrilla de personas con brochas y una cubeta de pintura rosa trabaja sobre una escalera, y una de ellas levanta un letrero que dice porque sirve para cerrar. Al pie: DLE, influido por cerrar.">
 <table>
 <tr><th>Palabra de hoy</th><th>De dónde venía</th><th>Qué le hizo la gente</th></tr>
 <tr><td><strong>nigromancia</strong></td><td>del griego <em>nekromanteía</em>, adivinar con los muertos (la <em>necro-</em> de la semana 6)</td><td>como sonaba a magia negra, la gente la cruzó con <em>nigro</em>, negro, y la palabra cambió de letra</td></tr>
