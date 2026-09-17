@@ -45,7 +45,7 @@ El español no se inventó: es latín gastado durante mil años en la boca de la
 <span class="senal senal--aire">Al aire</span>
 <p class="di">Una persona, un minuto: qué estoy leyendo y por dónde voy.</p>
 <p class="apoyo">Sin resumen y sin recomendación forzada. Solo el título, por dónde vas y si te está gustando o no. Se vale decir que no. Si estrenas segundo libro después del círculo, cuéntanos de dónde salió la recomendación.</p>
-<p class="nota-conductor">Primera semana de la unidad 2 y primer martes después del círculo: lo más probable es que a quien le toque el minuto traiga libro nuevo, elegido oyendo al corro. Nómbralo: la recomendación que funcionó es la prueba de que el círculo sirve.</p>
+<p class="nota-conductor">Primera semana de la unidad 2 y primer martes después del círculo: lo más probable es que a quien le toque el minuto traiga libro nuevo, elegido oyendo al círculo. Nómbralo: la recomendación que funcionó es la prueba de que el círculo sirve.</p>
 </section>
 <section class="lam lam--bitacora">
 <h4>La bitácora del lector <span class="reloj">1 min</span></h4>
@@ -203,7 +203,7 @@ El español no se inventó: es latín gastado durante mil años en la boca de la
 
 ## La lectura, esta semana
 
-El **minuto del lector** abre el martes, la voz alta cierra el viernes y tu [bitácora](../recursos/plantillas/bitacora-lector.html) estrena segundo libro: regístralo esta semana, aunque lo elijas de la lista que hiciste oyendo el corro. Si tu obra terminada dejó ficha, ya cuelga en el tendedero de [Leemos](../leemos.html); y si prestaste o pediste libro en el préstamelo, la bitácora también guarda eso.
+El **minuto del lector** abre el martes, la voz alta cierra el viernes y tu [bitácora](../recursos/plantillas/bitacora-lector.html) estrena segundo libro: regístralo esta semana, aunque lo elijas de la lista que hiciste oyendo el círculo. Si tu obra terminada dejó ficha, ya cuelga en el tendedero de [Leemos](../leemos.html); y si prestaste o pediste libro en el préstamelo, la bitácora también guarda eso.
 
 ---
 

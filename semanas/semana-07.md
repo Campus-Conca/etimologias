@@ -45,7 +45,7 @@ No hay tema nuevo. Esta semana se ve lo que ya sabes. Y pasa algo que no había 
 <span class="senal senal--aire">Al aire</span>
 <p class="di">Una persona, un minuto: qué estoy leyendo y por dónde voy.</p>
 <p class="apoyo">Sin resumen y sin recomendación forzada. Solo el título, por dónde vas y si te está gustando o no. Se vale decir que no.</p>
-<p class="nota-conductor">El último minuto del lector antes del círculo del viernes. Si alguien no ha terminado su libro, aquí se entera de que no es el único, y llega menos nervioso al corro.</p>
+<p class="nota-conductor">El último minuto del lector antes del círculo del viernes. Si alguien no ha terminado su libro, aquí se entera de que no es el único, y llega menos nervioso al círculo.</p>
 </section>
 <section class="lam lam--bitacora">
 <h4>La bitácora del lector <span class="reloj">1 min</span></h4>
@@ -207,13 +207,13 @@ No hay tema nuevo. Esta semana se ve lo que ya sabes. Y pasa algo que no había 
 </section>
 <section class="lam lam--actividad">
 <h4><span class="n">3</span> El primer círculo de lectura <span class="reloj">45 min</span></h4>
-<span class="senal">Todo el grupo · en corro</span>
+<span class="senal">Todo el grupo · sentados en círculo</span>
 <p class="di">Tu libro en la mano y una frase marcada. Se habla de lo que te dio, no de lo que pasa en él.</p>
 <p class="apoyo">Cinco minutos antes de sentarnos, abre la pestaña <strong>Antes del círculo</strong> de tu <a href="../recursos/plantillas/bitacora-lector.html">bitácora del lector</a> —la tarjeta de esta semana se abre sola—: la frase que marcaste y qué te está dando el libro. No se entrega; es para que el silencio no te agarre en frío. Y en <strong>Mi rastro</strong> está la síntesis de tu semestre, con la frase que vas a copiar en tu autoevaluación.</p>
-<p class="nota-conductor">Corro de verdad: sillas en círculo, sin mesas de por medio, y tú sentado como uno más. Nadie resume, nadie evalúa. Si alguien no terminó su libro, participa igual contando por dónde va y por qué: el círculo no verifica lecturas, las contagia. Nadie se salta su turno. El guion completo de los 45 minutos, con su calentamiento en parejas, los acuerdos del corro y sus notas, está en <a href="../recursos/circulo-1.html">El círculo de lectura, por dentro</a>: proyéctalo con su propio botón Presentar.</p>
+<p class="nota-conductor">Círculo de verdad: sillas en círculo, sin mesas de por medio, y tú sentado como uno más. Nadie resume, nadie evalúa. Si alguien no terminó su libro, participa igual contando por dónde va y por qué: el círculo no verifica lecturas, las contagia. Nadie se salta su turno. El guion completo de los 45 minutos, con su calentamiento en parejas, los acuerdos del círculo y sus notas, está en <a href="../recursos/circulo-1.html">El círculo de lectura, por dentro</a>: proyéctalo con su propio botón Presentar.</p>
 </section>
 <section class="lam">
-<h4>Las tres cosas que pasan al cerrar el corro</h4>
+<h4>Las tres cosas que pasan al cerrar el círculo</h4>
 <table>
 <tr><th>Qué</th><th>En qué consiste</th></tr>
 <tr><td><strong>Tu ficha al tendedero</strong></td><td>Si terminaste la obra: libro, autor, "te va a gustar si…" y tu nombre. La generas en el ejercicio de hoy y se publica en <a href="../leemos.html">Leemos</a>, para que otro la descuelgue.</td></tr>

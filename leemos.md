@@ -111,7 +111,7 @@ window.LEEMOS = {
 <tr><th>Cuándo</th><th>Qué pasa</th></tr>
 <tr><td><strong>Semana 0</strong></td><td>La cata de libros: circulas, lees umbrales y anotas tu primera elección. Puedes cambiarla en las dos semanas siguientes sin dar explicaciones.</td></tr>
 <tr><td><strong>Cada martes</strong></td><td>El minuto del lector: un minuto, una persona, qué estoy leyendo y por dónde voy. Pasa uno por semana hasta que pasa el grupo entero.</td></tr>
-<tr><td><strong>Semana 7</strong></td><td>Primer círculo de lectura, cerrando la unidad 1. Al cerrar el corro: tu ficha va al tendedero, se instala el préstamelo del salón y eliges tu segundo libro.</td></tr>
+<tr><td><strong>Semana 7</strong></td><td>Primer círculo de lectura, cerrando la unidad 1. Al cerrar el círculo: tu ficha va al tendedero, se instala el préstamelo del salón y eliges tu segundo libro.</td></tr>
 <tr><td><strong>Semanas 7 y 8</strong></td><td>Eliges tu segundo libro, con lo que oíste en el círculo.</td></tr>
 <tr><td><strong>Semana 9</strong></td><td>Primer booktuber, sobre tu primera obra.</td></tr>
 <tr><td><strong>Semana 12</strong></td><td>Segundo círculo, cierre de la unidad 2. Cosechamos palabras de los libros para el Museo.</td></tr>
@@ -123,7 +123,7 @@ window.LEEMOS = {
 <section class="lam">
 <h4>El círculo de lectura</h4>
 <p class="di">Se llega con el libro en la mano y una frase marcada.</p>
-<p class="apoyo">Uno por unidad, 45 minutos en corro. Es una conversación, no una exposición: se habla de lo que el libro te está haciendo, no de lo que pasa en él. Nadie resume, nadie evalúa. No se califica el contenido de lo que digas: cuenta que estés y que participes.</p>
+<p class="apoyo">Uno por unidad, 45 minutos sentados en círculo. Es una conversación, no una exposición: se habla de lo que el libro te está haciendo, no de lo que pasa en él. Nadie resume, nadie evalúa. No se califica el contenido de lo que digas: cuenta que estés y que participes.</p>
 </section>
 <section class="lam">
 <h4>El booktuber</h4>
