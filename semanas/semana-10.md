@@ -159,7 +159,8 @@ Hay palabras vivas en la Sierra, en el barrio, en la cocina de tu abuela, que ni
 <tr><td><strong>Tilaco, Saldiveña, tu comunidad</strong></td><td>pregunta a los mayores. Lo que te digan vale como testimonio, y se compara con lo que diga la fuente</td></tr>
 </table>
 <p class="apoyo">Fíjate en las capas: hay nombres náhuatl (los que pusieron los aliados de los españoles y los frailes), nombres pames y huastecos (los de antes) y nombres en español (los de después). Un mapa de la Sierra es también un mapa de quién nombró qué. Y los nombres pames casi no están en ningún libro: tu ficha puede ser de las primeras.</p>
-<p class="nota-conductor">Aquí la honestidad de fuente es más importante que nunca: las etimologías de topónimos circulan sin respaldo y con mucha seguridad. Distingue en voz alta "lo dice el DLE" (Jalpan no está ahí, pero <em>xalli</em> sí) de "se cuenta" y de "nadie lo sabe todavía". Que la ficha del topónimo diga cuál de las tres es. Es también la siembra de la semana 11: la seguridad no es prueba.</p>
+<p class="recurso"><a href="../ejercicios/semana-10/ejercicio-10E-el-mapa-bajo-tus-pies.html" target="_blank" rel="noopener">El mapa bajo tus pies</a><span class="pie">Las marcas de cada lengua en los nombres, dieciséis lugares de la Sierra para apostar, y la ficha de tu topónimo con su etiqueta de honestidad.</span></p>
+<p class="nota-conductor">Aquí la honestidad de fuente es más importante que nunca: las etimologías de topónimos circulan sin respaldo y con mucha seguridad. Distingue en voz alta "lo dice la fuente" (Jalpan: xalli está en el DLE) de "se cuenta" (Tilaco, Tancoyol) y de "nadie lo sabe todavía" (Concá). El ejercicio pone esas tres etiquetas en cada respuesta y trae sorpresas (Landa es vasco, Agua Zarca lleva un arabismo, Querétaro está en disputa): proyecta cuatro o cinco nombres a mano alzada y deja el resto para la casa. Es también la siembra de la semana 11: la seguridad no es prueba.</p>
 </section>
 <section class="lam lam--actividad">
 <h4><span class="n">5</span> Cierre <span class="reloj">7 min</span></h4>
@@ -256,7 +257,7 @@ Hay palabras vivas en la Sierra, en el barrio, en la cocina de tu abuela, que ni
 <h4><span class="n">4</span> Gimnasio: la palabra que salvé <span class="reloj">35 min</span></h4>
 <span class="senal">Actividad · individual</span>
 <p class="di">Una biografía que no se centra en qué significa la palabra, sino en cómo llegó a ti.</p>
-<p class="apoyo"><a href="../ejercicios/semana-10/ejercicio-10D-la-palabra-que-salve.html">La palabra que salvé</a>: eliges una palabra de tu trabajo de campo, idealmente una que no estaba en el diccionario. Los apuntes (quién te la regaló, la escena, qué significa para esa persona, por qué merece no perderse) y luego la biografía en texto corrido, de seis a diez líneas. Es la <strong>tercera pieza de tu portafolio de la unidad 2</strong>: la captura se pasa en limpio a la ficha del Museo.</p>
+<p class="apoyo"><a href="../ejercicios/semana-10/ejercicio-10D-la-palabra-que-salve.html">La palabra que salvé</a>: eliges una palabra de tu trabajo de campo, idealmente una que no estaba en el diccionario. Los apuntes (quién te la regaló, la escena, qué significa para esa persona, por qué merece no perderse) y luego la biografía en texto corrido, de seis a diez líneas. Es la <strong>segunda pieza de tu portafolio de la unidad 2</strong>: la captura se pasa en limpio a la ficha del Museo.</p>
 <p class="recurso"><a href="../ejercicios/semana-10/ejercicio-10D-la-palabra-que-salve.html" target="_blank" rel="noopener">La palabra que salvé</a><span class="pie">Quién te la regaló, en qué escena, y por qué merece no perderse.</span></p>
 <p class="nota-conductor">Algunas palabras cargan historias íntimas (una abuela que ya no está, un pueblo que se dejó). El ejercicio lo dice y tú lo repites: cada quien decide cuánto contar, y lo que entra al Museo se documenta con cariño, no como curiosidad. Circula poco y en silencio.</p>
 </section>
@@ -369,7 +370,7 @@ Los nombres de los lugares también son palabras con biografía. Se llaman topó
 
 **Jalpan** viene del náhuatl *Xalpan*, sobre la arena. **Ahuacatlán** es náhuatl puro: lugar de aguacates. Pero **Concá** no es náhuatl: es un topónimo pame, de la lengua de los xi'úi que vivían aquí mucho antes que nadie.
 
-Misión de campo: ¿qué significa Concá? ¿Y Tancoyol, Tilaco, Saldiveña? No lo respondas con el celular: pregunta a los mayores de tu comunidad, anota lo que te digan y compara versiones. Los nombres pames y huastecos de la Sierra casi no están documentados. Tu ficha puede ser de las primeras.
+Misión de campo: ¿qué significa Concá? ¿Y Tancoyol, Tilaco, Saldiveña? No lo respondas con el celular: pregunta a los mayores de tu comunidad, anota lo que te digan y compara versiones. Los nombres pames y huastecos de la Sierra casi no están documentados. Tu ficha puede ser de las primeras. Para entrenar el ojo antes de salir, [El mapa bajo tus pies](../ejercicios/semana-10/ejercicio-10E-el-mapa-bajo-tus-pies.html): las marcas de cada lengua y dieciséis nombres de por aquí, cada uno con su etiqueta de qué tan seguro es lo que se sabe.
 
 {: .reto }
 Ficha extra para el mapa léxico: haz la ficha de un topónimo. Entrada, qué lugar nombra, qué dicen los mayores que significa, y de qué lengua parece venir. Súbela con el formulario de arriba, en el ámbito "lugares".
@@ -384,6 +385,7 @@ Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y
 - [Taller de fichas](../ejercicios/semana-10/ejercicio-10B-taller-de-fichas.html) · miércoles
 - [¿Está o no está?](../ejercicios/semana-10/ejercicio-10C-esta-o-no-esta.html) · jueves, centro de cómputo
 - [La palabra que salvé](../ejercicios/semana-10/ejercicio-10D-la-palabra-que-salve.html) · viernes
+- [El mapa bajo tus pies](../ejercicios/semana-10/ejercicio-10E-el-mapa-bajo-tus-pies.html) · miércoles, y para la casa: ¿quién nombró qué en la Sierra?, con etiqueta de honestidad en cada respuesta
 - [Quiz de gimnasio](../ejercicios/semana-10/quiz-gimnasio-semana-10.html) · para ensayar cuando quieras
 - [El quiz relámpago, tal como se proyecta](../ejercicios/semana-10/quiz-relampago-semana-10.html) · viernes, con cronómetro y respuestas
 
@@ -393,7 +395,7 @@ Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y
 
 Esta semana el trabajo es hacer fichas, no tarjetas. Al mazo entran solo los conceptos del oficio y ocho palabras de la cocina y el campo que ya tienen fuente.
 
-📥 **[Baja el mazo de la semana 10](../recursos/anki/etimologias-semana-10.apkg)** · Seis conceptos del oficio y ocho palabras con historia.
+📥 **[Baja el mazo de la semana 10](../recursos/anki/etimologias-semana-10.apkg)** · Seis conceptos del oficio, ocho palabras con historia y tres marcas del mapa.
 
 | Frente | Reverso (significado · ejemplo ancla) |
 |---|---|
@@ -411,6 +413,9 @@ Esta semana el trabajo es hacer fichas, no tarjetas. Al mazo entran solo los con
 | huacal | náhuatl · huacalli, la caja de varas |
 | milpa | náhuatl · milli (sembradío) + -pan (lugar) |
 | chiquihuite | náhuatl · chiquihuitl, el cesto |
+| -tlan / -pan / -co | marcas náhuatl de lugar: lugar de, sobre, en · Ahuacatlán, Jalpan, Tilaco |
+| Tan- / Tam- | marca huasteca de lugar · Tancoyol, Tamazunchale |
+| lo dice la fuente / se cuenta / nadie lo sabe | las tres etiquetas de honestidad de una ficha de topónimo · Jalpan / Tilaco / Concá |
 
 ## Lo que produjimos
 

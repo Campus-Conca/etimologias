@@ -55,15 +55,8 @@ Las palabras vienen de todas partes: el 75 % del latín, cuatro mil del árabe, 
 <p class="recurso"><a href="../recursos/plantillas/bitacora-lector.html" target="_blank" rel="noopener">Bitácora del lector</a><span class="pie">La tarjeta del círculo 2 ya está abierta. Y en <em>Mi rastro</em>, la constancia que vas a necesitar para tu segundo parcial.</span></p>
 <p class="nota-conductor">Lámina fija de todos los martes: pasa el QR, manda el enlace al grupo en este momento y sigue. Recuérdales cada tanto que la bitácora vive solo en su teléfono: desde el menú se copia un código de respaldo (empieza con ETIMB·) que se mandan a sí mismos por WhatsApp. Esta semana el dato útil es la constancia de rastro: baja con solo fechas y conteos, y es la evidencia de la tabla "bitácora viva" del suelo.</p>
 </section>
-<section class="lam">
-<h4><span class="n">2</span> Ritual: el marcador de la unidad <span class="reloj">4 min</span></h4>
-<span class="senal senal--aire">Al aire</span>
-<p class="di">Cuatro piezas hiciste. ¿Cuál vas a defender el jueves?</p>
-<p class="apoyo">Una vuelta rápida: la palabra y de qué semana es (la que viajó mil años, la viajera, la que salvaste o la que trae leyenda). Solo el nombre. Quien no la haya elegido, la elige oyendo a los demás.</p>
-<p class="nota-conductor">Anota las palabras: es la lista de las defensas del jueves. Si alguien no tiene ninguna pieza hecha, no lo exhibas: dile que hable contigo al final, y que el miércoles hay tiempo de armar una con el ejercicio 12B.</p>
-</section>
 <section class="lam lam--oscura">
-<h4><span class="n">3</span> Limpia, fija y da esplendor <span class="reloj">6 min</span></h4>
+<h4><span class="n">2</span> Limpia, fija y da esplendor <span class="reloj">6 min</span></h4>
 <p class="palabra-grande">barbarismo</p>
 <p class="di">Así se le ha llamado a un préstamo. Y también extranjerismo, y colonialismo cultural.</p>
 <p class="apoyo">"Limpia, fija y da esplendor" es el lema de la Real Academia Española desde 1713. Limpiar de qué, fijar qué. Durante siglos se pensó que la lengua debía quedarse pura y quieta, sin que nada ni nadie la corrompiera, y a las palabras de fuera se les puso nombre de enfermedad: <em>barbarismo</em> viene de <em>bárbaro</em>, el que hablaba mal el latín, el que decía "bar-bar". Apuesta: de estas cinco, ¿cuál fue un barbarismo alguna vez? <em>Almohada</em>, <em>chocolate</em>, <em>chef</em>, <em>futbol</em>, <em>lootear</em>.</p>
@@ -73,10 +66,17 @@ Las palabras vienen de todas partes: el 75 % del latín, cuatro mil del árabe, 
 <h4>Heráclito tenía razón</h4>
 <p class="di">Pulir y fijar una lengua es, y siempre ha sido, una empresa imposible.</p>
 <p class="apoyo">Una lengua es un organismo con tanta vida como la comunidad que la habla, y por eso está en constante movimiento, cambio y duda. Lo único que nunca para es el cambio, decía Heráclito, y en las lenguas eso se cumple al pie de la letra. Cuando por fin fijas una forma, los hablantes ya la modificaron, o ya importaron otra de una lengua con la que tienen contacto. Los españoles de 1492 tomaron prestadas <em>hamaca</em>, <em>maíz</em>, <em>huracán</em>, <em>cacique</em> y <em>tabaco</em> para nombrar lo que no conocían; el DLE aceptó <em>apapachar</em> en 2014, siglos después de que la gente la dijera; tú tomaste <em>gg</em> el año pasado. Fijar una lengua sería matarla.</p>
-<p class="nota-conductor">Aquí está el argumento del bando del contacto, dicho por ti. El del bando de la protección viene en la lámina siguiente, y también lo dices tú con la misma seriedad: si el profesor se ve de un lado, el debate se muere antes de empezar.</p>
+<p class="nota-conductor">Aquí está el argumento del bando del contacto, dicho por ti. El del bando de la protección viene dos láminas más adelante, y también lo dices tú con la misma seriedad: si el profesor se ve de un lado, el debate se muere antes de empezar.</p>
 </section>
 <section class="lam">
-<h4><span class="n">4</span> Las dos posturas, en serio <span class="reloj">6 min</span></h4>
+<h4><span class="n">3</span> Ayer el latín, hoy el inglés <span class="reloj">9 min</span></h4>
+<p class="di">Hasta el latín fue una lengua extranjera aquí: la lengua franca de un imperio. El puesto lo tiene hoy el inglés.</p>
+<p class="apoyo">A las tierras que Roma conquistó se les llamó la <em>Romania</em>, y de ahí viene <em>romance</em>. Nadie obligó a los hispanos a hablar latín: bastó con que las leyes, los contratos y los ascensos estuvieran en latín, y en tres siglos las lenguas de aquí se apagaron, salvo el vasco. Esa es la munición de los dos bandos: el de la protección dice "mira lo que le pasó al íbero"; el del contacto dice "mira lo que somos: latín gastado, tres cuartas partes de préstamo que se quedó". Y el inglés de tu pantalla está haciendo hoy exactamente lo que hacía el latín en Hispania en el siglo I.</p>
+<p class="recurso"><a href="../ejercicios/semana-12/del-latin-a-las-lenguas-francas.html" target="_blank" rel="noopener">Del latín a las lenguas francas</a><span class="pie">Dieciséis láminas para proyectar ahora: la Romania, los dos latines, qué es una lengua franca, las de ayer y las de hoy. La tecla R revela las apuestas.</span></p>
+<p class="nota-conductor">Proyecta el mazo y déjalo correr nueve minutos, saltando la lámina 13 (para discutir): sus preguntas son las de la disputa que viene. Sale de aquí el argumento histórico que la armería necesita. El gimnasio que lo acompaña, <a href="../ejercicios/semana-12/ejercicio-12C-lenguas-francas.html">Lenguas francas, ayer y hoy</a>, es para el jueves mientras esperan su turno de defensa y para la casa: deja un argumento capturado.</p>
+</section>
+<section class="lam">
+<h4><span class="n">4</span> Las dos posturas, en serio <span class="reloj">4 min</span></h4>
 <p class="di">Los dos bandos suenan razonables. Por eso hay disputa.</p>
 <table>
 <tr><th>La lengua debe protegerse</th><th>La lengua vive del contacto</th></tr>
@@ -89,12 +89,12 @@ Las palabras vienen de todas partes: el 75 % del latín, cuatro mil del árabe, 
 <p class="nota-conductor">Lee las dos columnas con la misma voz. Los argumentos del latín como lengua franca (fila 4) salieron de la semana 9 y del ejercicio de lenguas francas: quien lo hizo ya trae uno armado. Pide que lo saquen.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">5</span> Gimnasio: la armería de la disputatio <span class="reloj">12 min</span></h4>
+<h4><span class="n">5</span> Gimnasio: la armería de la disputatio <span class="reloj">10 min</span></h4>
 <span class="senal">Actividad · con tu bando</span>
 <p class="di">Carga argumentos para los dos lados. Los vas a necesitar los dos.</p>
 <p class="apoyo"><a href="../ejercicios/semana-12/ejercicio-12A-armeria-de-la-disputatio.html">La armería de la disputatio</a>: primero clasificas seis argumentos sueltos para saber a qué bando sirve cada uno; luego entrenas el giro, contestando desde la postura contraria; y al final dejas capturado tu mejor argumento, con evidencia vivida en la unidad, para el cierre. Los bandos se sortean ahora, y el sorteo no importa: en veinte minutos estarás del otro lado.</p>
 <p class="recurso"><a href="../ejercicios/semana-12/ejercicio-12A-armeria-de-la-disputatio.html" target="_blank" rel="noopener">La armería de la disputatio</a><span class="pie">Seis argumentos que clasificar, el giro entrenado y tu mejor argumento capturado.</span></p>
-<p class="nota-conductor">Sortea los bandos por moneda y anúncialo como sorteo, para que nadie sienta que defiende lo que cree. Doce minutos exactos: la armería es preparación, la disputa es lo que importa. Quien trae la captura de la semana 9 (lenguas francas) o de la puerta gamer ya tiene su argumento: que lo pula.</p>
+<p class="nota-conductor">Sortea los bandos por moneda y anúncialo como sorteo, para que nadie sienta que defiende lo que cree. Diez minutos exactos: la armería es preparación, la disputa es lo que importa. Quien trae la ficha de la puerta gamer de la semana 9 ya tiene un caso: que lo vuelva argumento.</p>
 </section>
 <section class="lam lam--actividad">
 <h4><span class="n">6</span> La disputatio <span class="reloj">22 min</span></h4>
@@ -112,7 +112,7 @@ Las palabras vienen de todas partes: el 75 % del latín, cuatro mil del árabe, 
 <p class="nota-conductor">Tú moderas y llevas el reloj con la tecla T: 60 segundos por turno. Sillas frente a frente, y en el giro que se cambien físicamente de lado: el cuerpo ayuda a soltar la postura. Anota en el pizarrón un argumento por turno, en dos palabras, para que se vea cuáles ya salieron. Si el grupo se calienta, bien; si se calla, lanza una palabra de la unidad y pregunta a cada bando qué hace con ella: <em>coche</em> (húngaro), <em>tiza</em> (náhuatl en España), <em>lootear</em>. El cierre es lo importante: que cada bando diga el mejor argumento del otro obliga a haber escuchado.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">7</span> Al muro <span class="reloj">4 min</span></h4>
+<h4><span class="n">7</span> Al muro <span class="reloj">3 min</span></h4>
 <span class="senal">Actividad · individual</span>
 <p class="di">Tu mejor argumento, desde el bando que sea, con la evidencia que lo sostiene.</p>
 <p class="apoyo">Abajo, en <a href="#sube-tu-argumento-al-muro">Sube tu argumento al muro</a>, está el formulario: bando, argumento y evidencia vivida en la unidad. El profesor revisa y los publica en "Lo que produjimos", con nombre de pila si lo das. Sube uno: el que más te gustó decir, aunque no sea el que crees.</p>
@@ -121,8 +121,8 @@ Las palabras vienen de todas partes: el 75 % del latín, cuatro mil del árabe, 
 <section class="lam">
 <h4><span class="n">8</span> Antes del miércoles <span class="reloj">2 min</span></h4>
 <span class="senal senal--casa">Para llevar a casa</span>
-<p class="di">Mañana armas tu defensa. Trae la pieza elegida y su fuente a la mano.</p>
-<p class="apoyo">El banco de preguntas está publicado abajo desde la semana pasada: cinco preguntas, ninguna sorpresa. El jueves te tocan una o dos. Y tu respuesta de hoy a la pregunta de la unidad, guárdala: el viernes la escribes.</p>
+<p class="di">Mañana armas tu defensa. Trae elegida una de tus tres piezas de la unidad, y su fuente a la mano.</p>
+<p class="apoyo">La viajera, la que salvaste o la que trae leyenda: la que más te guste, no la más difícil. El banco de preguntas está publicado abajo desde la semana pasada: cinco preguntas, ninguna sorpresa. El jueves te tocan una o dos. Y tu respuesta de hoy a la pregunta de la unidad, guárdala: el viernes la escribes.</p>
 </section>
 </section>
 
@@ -192,7 +192,7 @@ Las palabras vienen de todas partes: el 75 % del latín, cuatro mil del árabe, 
 <section class="lam">
 <h4><span class="n">1</span> Cómo va a estar <span class="reloj">5 min</span></h4>
 <p class="di">Pasa uno por uno, tres minutos, con una o dos preguntas del banco al final. Nadie mira desde la butaca.</p>
-<p class="apoyo">Mientras alguien defiende, el resto trabaja en lo suyo, en la computadora: el <a href="../ejercicios/semana-12/quiz-gimnasio-semana-12.html">quiz de gimnasio integrador</a> para calentar de cara al viernes, las estaciones 2 y 4 del <a href="../ejercicios/semana-08/arbol-de-las-lenguas.html">árbol de las lenguas</a> (reconstruir a la abuela y cazar falsas primas), o el repaso integrador de esta página. Nadie se queda viendo a nadie: eso también baja los nervios.</p>
+<p class="apoyo">Mientras alguien defiende, el resto trabaja en lo suyo, en la computadora: el <a href="../ejercicios/semana-12/quiz-gimnasio-semana-12.html">quiz de gimnasio integrador</a> para calentar de cara al viernes, <a href="../ejercicios/semana-12/ejercicio-12C-lenguas-francas.html">Lenguas francas, ayer y hoy</a> (el gimnasio del mazo del martes, con tu día en lenguas francas), o el repaso integrador de esta página. Nadie se queda viendo a nadie: eso también baja los nervios.</p>
 <p class="recurso"><a href="../ejercicios/semana-12/quiz-gimnasio-semana-12.html" target="_blank" rel="noopener">Quiz de gimnasio · Integrador de la Unidad 2</a><span class="pie">Cuatro reactivos, uno por músculo de la unidad: la ley, el préstamo, el mito y la definición. Mismos músculos que el viernes.</span></p>
 <p class="nota-conductor">Ten a la mano las hojas de retroalimentación de la rúbrica, una por estudiante, entregadas en el momento. Y la lista del orden proyectada: cada quien sabe cuándo le toca y no hay que llamar a nadie dos veces.</p>
 </section>
@@ -259,7 +259,7 @@ Las palabras vienen de todas partes: el 75 % del latín, cuatro mil del árabe, 
 <table>
 <tr><th>El suelo de la unidad 2</th><th>Dónde está la evidencia</th></tr>
 <tr><td>Quizzes intentados (#7, #8, #9 y el integrador)</td><td>tu serie de calibración, los cuatro renglones</td></tr>
-<tr><td>Las piezas de la unidad en el portafolio</td><td>la que viajó mil años, la viajera, la que salvaste, la que trae leyenda</td></tr>
+<tr><td>Las piezas de la unidad en el portafolio</td><td>la viajera, la que salvaste, la que trae leyenda</td></tr>
 <tr><td>Tu defensa individual, peldaño 2</td><td>la hoja de retroalimentación del jueves</td></tr>
 <tr><td>Presencia en el segundo círculo</td><td>hoy, y tu ficha en el tendedero si terminaste</td></tr>
 <tr><td>Tu primer booktuber entregado</td><td>en cualquiera de sus formatos; hoy es el último día</td></tr>
@@ -319,10 +319,14 @@ Los ejercicios de esta semana, para tu celular o el centro de cómputo. Sin nota
 
 - [La armería de la disputatio](../ejercicios/semana-12/ejercicio-12A-armeria-de-la-disputatio.html) · martes
 - [Tu defensa, sin sorpresas](../ejercicios/semana-12/ejercicio-12B-tu-defensa-sin-sorpresas.html) · miércoles
+- [Lenguas francas, ayer y hoy](../ejercicios/semana-12/ejercicio-12C-lenguas-francas.html) · jueves mientras esperas tu turno, y para la casa: del latín al inglés, tu día en lenguas francas y tu argumento capturado
 - [Cosecha y puente](../ejercicios/semana-12/ejercicio-12D-cosecha-y-puente.html) · viernes
 - [Quiz de gimnasio · Integrador de la Unidad 2](../ejercicios/semana-12/quiz-gimnasio-semana-12.html) · para ensayar cuando quieras
 - [El integrador, bloque por bloque](../ejercicios/semana-12/quiz-integrador-u2-semana-12.html) · viernes, tal como se proyecta: cronómetro, respuestas y hoja imprimible
-- [El árbol de las lenguas](../ejercicios/semana-08/arbol-de-las-lenguas.html) · las estaciones 2 y 4, para el jueves mientras esperas tu turno
+
+### El proyectable de la semana
+
+- [Del latín a las lenguas francas](../ejercicios/semana-12/del-latin-a-las-lenguas-francas.html) · martes: la Romania, los dos latines, qué es una lengua franca y quién tiene hoy el puesto que tuvo el latín. La tecla R revela las apuestas y la N muestra las notas del conductor.
 
 ## Hoja de consulta
 
@@ -397,7 +401,15 @@ Repaso integrador de la unidad. Responde y checa qué tan claro tienes el viaje 
 
 ## Las tarjetas de la semana
 
-Sin tarjetas nuevas. Repasa el mazo completo de las dos unidades: alfabeto, raíces, leyes fonéticas, marcas de préstamo, los conceptos del oficio y las señales de un mito. En [Recursos · Anki](../recursos/anki.html) está el semestre completo.
+Tres tarjetas, las de la disputa, y repaso del mazo completo de las dos unidades: alfabeto, raíces, leyes fonéticas, marcas de préstamo, los conceptos del oficio y las señales de un mito.
+
+📥 **[Baja el mazo de la semana 12](../recursos/anki/etimologias-semana-12.apkg)** · Las tres de la disputa. En [Recursos · Anki](../recursos/anki.html) está el semestre completo.
+
+| Frente | Reverso (significado · ejemplo ancla) |
+|---|---|
+| barbarismo | nombre despectivo del préstamo: de bárbaro, el que hablaba mal el latín · almohada fue un barbarismo un día |
+| extranjerismo | palabra de otra lengua usada tal cual; el nombre neutro · skin, gg |
+| disputatio | debate en que se defienden las dos posturas y se cambia de bando · nadie gana: se nombra el mejor argumento del otro |
 
 ## Lo que produjimos
 

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 8 · Ejercicio B · La máquina del tiempo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6; --tinta:#221A3A;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6; --jade:#0B5F52; --jadebg:#DFF5EE; --dorado:#B07B12;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:720px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:1000px}
+  body.proyector header h1{font-size:2rem}
+  body.proyector .palabra{font-size:5rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  h2 small{display:block;font-weight:400;font-size:.85rem;color:#6b6485}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .maquina{border:2px solid var(--ciruela);border-radius:1.2rem;padding:1.2rem 1.1rem;margin:1rem 0;background:linear-gradient(180deg,#fff,#fbf4f9)}
+  .nivel{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--dorado)}
+  .palabra{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:700;font-size:3rem;line-height:1.1;color:var(--tinta);margin:.4rem 0;letter-spacing:.02em;min-height:3.4rem;transition:color .3s}
+  .palabra.cambio{color:var(--rosa)}
+  .rastro{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.95rem;color:#6b6485;min-height:1.6rem}
+  .rastro span{background:#fff;border:1px solid var(--borde);border-radius:.4rem;padding:.1rem .45rem}
+  .rastro span.fin{background:var(--jadebg);color:var(--jade);border-color:#bfe7dc;font-weight:700}
+  .rastro i{font-style:normal;color:var(--rosa)}
+  .leyes{display:grid;grid-template-columns:repeat(auto-fill,minmax(13rem,1fr));gap:.5rem;margin-top:.9rem}
+  .leyes button{padding:.6rem .8rem;border:1px solid var(--borde);border-radius:.7rem;background:#fff;color:var(--ciruela);font:inherit;font-weight:700;cursor:pointer;text-align:left;line-height:1.25}
+  .leyes button small{display:block;font-weight:400;font-size:.78rem;color:#6b6485;margin-top:.15rem}
+  .leyes button.usada{background:var(--okbg);color:var(--ok);border-color:#bfe0c9}
+  .leyes button.mal{background:var(--nobg);color:var(--no);border-color:#f2c4c1}
+  .leyes button:disabled{cursor:default}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem;align-items:center}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .btn:disabled{opacity:.5;cursor:default}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  .marcador{display:inline-block;font-weight:700;color:var(--ciruela);background:var(--fondo);border:1px solid var(--borde);border-radius:2rem;padding:.2rem .7rem;font-size:.85rem}
+  table{width:100%;border-collapse:collapse;margin:.6rem 0;font-size:.92rem}
+  th{background:var(--fondo);color:var(--ciruela);text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;padding:.45rem .6rem;border:1px solid var(--borde)}
+  td{padding:.5rem .6rem;border:1px solid var(--borde);vertical-align:top}
+  textarea{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo);min-height:3.2rem;resize:vertical}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 8 · Sesión B</div>
+    <h1>La máquina del tiempo</h1>
+    <p>Mete una palabra latina, elige qué ley la gasta y mírala transformarse. Catorce palabras, de una ley a tres.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> La máquina te da una palabra latina. Primero apuestas en qué palabra española crees que se convirtió. Luego la gastas tú: tocas las leyes en el orden que quieras, y cada ley que sí trabaja en esa palabra la transforma a la vista. Si tocas una ley que no tiene dónde trabajar, la máquina te lo dice y no pasa nada. Cuando ya no quede ninguna ley por aplicar, la máquina hace el remate de siempre (la <em>-U</em> final se vuelve <em>-o</em>, la <em>-ARE</em> de los verbos se vuelve <em>-ar</em>) y compara con tu apuesta.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> escribe la palabra latina, debajo tu apuesta, y luego una línea por ley aplicada, con la forma intermedia (FACTU → hactu → hecho). Marca cuántas leyes necesitó cada palabra.
+  </div>
+
+  <h2>Las seis leyes de la máquina <small>Las cinco de la semana, más una que ya viste en <em>hijo</em> y <em>ojo</em>.</small></h2>
+  <div class="card">
+    <table>
+      <tr><th>Ley</th><th>Qué hace</th><th>Ancla</th></tr>
+      <tr><td><strong>F inicial → h</strong></td><td>la F del principio se gasta hasta quedar muda</td><td>FARINA → harina</td></tr>
+      <tr><td><strong>consonante + T → ch</strong></td><td>CT (y también LT) se funde en ch; la A de antes se cierra en e</td><td>NOCTE → noche, MULTU → mucho</td></tr>
+      <tr><td><strong>PL, CL, FL → ll</strong></td><td>los tres grupos iniciales desembocan en el mismo sonido</td><td>PLUVIA → lluvia</td></tr>
+      <tr><td><strong>vocal breve → diptongo</strong></td><td>la O breve se abre en ue; la E breve, en ie</td><td>PORTA → puerta</td></tr>
+      <tr><td><strong>consonante entre vocales → suave</strong></td><td>T se vuelve d, P se vuelve b, C se vuelve g</td><td>VITA → vida</td></tr>
+      <tr><td><strong>-LI-, -CUL- → j</strong></td><td>dos grupos del medio de la palabra que acabaron en la misma j</td><td>FILIU → hijo, OCULU → ojo</td></tr>
+    </table>
+  </div>
+
+  <h2>La máquina <small>Apuesta, gasta y compara.</small></h2>
+  <div class="maquina">
+    <div class="nivel" id="nivel">Palabra 1 de 14 · una ley</div>
+    <div class="palabra" id="palabra">FARINA</div>
+    <div class="rastro" id="rastro"></div>
+    <div id="zona-apuesta">
+      <label style="display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.6rem">Tu apuesta: ¿en qué palabra española se convirtió?</label>
+      <input type="text" id="apuesta" placeholder="escríbela antes de tocar ninguna ley">
+      <div class="fila-botones"><button class="btn rosa" id="btn-apostar" type="button">Apostar y encender la máquina</button></div>
+    </div>
+    <div id="zona-leyes" style="display:none">
+      <div class="leyes" id="leyes"></div>
+      <div class="fila-botones">
+        <button class="btn gris" id="btn-remate" type="button" disabled>Ya no queda ley: haz el remate</button>
+        <button class="btn rosa" id="btn-sigue" type="button" disabled>Siguiente palabra</button>
+        <span class="marcador" id="score">apuestas 0 / 0 · leyes de más 0</span>
+      </div>
+    </div>
+    <div class="fb" id="fb"></div>
+  </div>
+
+  <h2>Para cerrar</h2>
+  <div class="card">
+    <p>¿Cuál palabra necesitó más leyes, y cuál te sorprendió que necesitara solo una? Una línea: se comparte al aire.</p>
+    <textarea placeholder="La que más leyes necesitó fue... y me sorprendió que..."></textarea>
+  </div>
+
+  <footer>Semana 8 · La máquina del tiempo fonética · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página. Las formas intermedias (hactu, fuecu) son didácticas: muestran qué cambió cada ley, no cómo se escribió la palabra en algún siglo.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  function norm(s){return s.toLowerCase().trim().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/\s+/g,' ');}
+
+  /* Cada ley es una función sobre la forma actual (en minúsculas). Devuelve null si no encuentra dónde trabajar. */
+  var LEYES=[
+    {id:'fh', n:'F inicial → h', d:'la F del principio se queda muda', f:function(s){ return /^f/.test(s)?s.replace(/^f/,'h'):null; }},
+    {id:'ct', n:'consonante + T → ch', d:'CT o LT se funden en ch; la A de antes se cierra en e', f:function(s){ if(!/[cl]t/.test(s)) return null; return s.replace(/act/,'ech').replace(/[cl]t/,'ch'); }},
+    {id:'ll', n:'PL, CL, FL → ll', d:'el grupo inicial se vuelve ll', f:function(s){ return /^(pl|cl|fl)/.test(s)?s.replace(/^(pl|cl|fl)/,'ll'):null; }},
+    {id:'dipt', n:'vocal breve → diptongo', d:'la O se abre en ue, la E en ie', f:function(s){ var m=s.match(/[oe]/); if(!m) return null; var i=m.index; return s.slice(0,i)+(s[i]==='o'?'ue':'ie')+s.slice(i+1); }},
+    {id:'suav', n:'consonante entre vocales → suave', d:'T se vuelve d, P se vuelve b, C se vuelve g', f:function(s){ if(!/[aeiou][tpc][aeiou]/.test(s)) return null; return s.replace(/([aeiou])([tpc])([aeiou])/,function(_,a,c,b){ return a+({t:'d',p:'b',c:'g'}[c])+b; }); }},
+    {id:'j', n:'-LI-, -CUL- → j', d:'los dos grupos del medio acaban en j', f:function(s){ if(/li[aeiou]/.test(s)) return s.replace(/li([aeiou])/,'j$1'); if(/cul/.test(s)) return s.replace(/cul/,'j'); return null; }}
+  ];
+  var porId={}; LEYES.forEach(function(l){ porId[l.id]=l; });
+
+  /* Las palabras: latín, leyes que trabajan, remate final y una nota. La máquina calcula las formas intermedias. */
+  var PALABRAS=[
+    {lat:'FARINA', leyes:['fh'], esp:'harina', nota:'Una sola ley. La h se escribe pero ya no suena: es la cicatriz de la F.'},
+    {lat:'NOCTE', leyes:['ct'], esp:'noche', nota:'Una ley, y la E final se quedó. Sus primas: night, Nacht, noch.'},
+    {lat:'PLUVIA', leyes:['ll'], esp:'lluvia', nota:'Una ley. Y la hermana culta, pluvial, conservó el PL: entró por los libros.'},
+    {lat:'PORTA', leyes:['dipt'], esp:'puerta', nota:'Una ley. Portero no diptongó porque ahí la O no lleva el acento.'},
+    {lat:'VITA', leyes:['suav'], esp:'vida', nota:'Una ley. Vital, la hermana culta, conservó la T.'},
+    {lat:'OCULU', leyes:['j'], esp:'ojo', nota:'Una ley y el remate: la U final se volvió o. Oculista es la hermana culta.'},
+    {lat:'FILIU', leyes:['fh','j'], esp:'hijo', nota:'Dos leyes: la palabra del escalón gastado. Filial conservó las dos.'},
+    {lat:'FOCU', leyes:['dipt','suav'], esp:'fuego', nota:'Dos leyes: diptongo y suavizado, en el orden que quieras. Focal es la culta.'},
+    {lat:'FACTU', leyes:['fh','ct'], esp:'hecho', nota:'Dos leyes. Y de FACTU también salió facto y factura, por la vía culta: un doblete.'},
+    {lat:'LACTE', leyes:['ct'], esp:'leche', nota:'Una ley que hizo dos cosas: fundió el CT y cerró la A en e. Lácteo es la hermana culta.'},
+    {lat:'MULTU', leyes:['ct'], esp:'mucho', nota:'La misma ley del CT, ahora con LT. Múltiple entró por los libros.'},
+    {lat:'CLAMARE', leyes:['ll'], esp:'llamar', nota:'Una ley y el remate de los verbos: -ARE se vuelve -ar. Clamar es el doblete culto.'},
+    {lat:'FERRU', leyes:['fh','dipt'], esp:'hierro', nota:'Dos leyes: F muda y diptongo. Y férreo, ferrocarril, la vía culta.'},
+    {lat:'FOLIA', leyes:['fh','j'], esp:'hoja', nota:'Dos leyes. Folio y foliar, las cultas, conservaron todo.'}
+  ];
+
+  var i=0, apuestas=0, aciertos=0, demas=0;
+  var actual='', pendientes=[], rastro=[];
+  var elP=document.getElementById('palabra'), elR=document.getElementById('rastro'), elN=document.getElementById('nivel'), fb=document.getElementById('fb');
+  var zA=document.getElementById('zona-apuesta'), zL=document.getElementById('zona-leyes'), leyesBox=document.getElementById('leyes');
+  var inp=document.getElementById('apuesta'), btnA=document.getElementById('btn-apostar'), btnRem=document.getElementById('btn-remate'), btnS=document.getElementById('btn-sigue'), score=document.getElementById('score');
+
+  function pintaRastro(fin){
+    elR.innerHTML=rastro.map(function(x,k){ return (k?'<i>→</i>':'')+'<span'+(fin&&k===rastro.length-1?' class="fin"':'')+'>'+x+'</span>'; }).join('');
+  }
+  function pintaScore(){ score.textContent='apuestas '+aciertos+' / '+apuestas+' · leyes de más '+demas; }
+
+  function carga(){
+    if(i>=PALABRAS.length){
+      elN.textContent='Catorce palabras gastadas';
+      elP.textContent='FIN';
+      elR.innerHTML='';
+      zA.style.display='none'; zL.style.display='none';
+      fb.className='fb ej';
+      fb.textContent='Apostaste bien '+aciertos+' de '+apuestas+', y tocaste '+demas+' ley'+(demas===1?'':'es')+' que no tenía dónde trabajar. Fíjate en las notas: casi cada palabra tiene una hermana culta que no pasó por la máquina. Ese es el doblete del viernes.';
+      return;
+    }
+    var w=PALABRAS[i];
+    actual=w.lat.toLowerCase(); pendientes=w.leyes.slice(); rastro=[w.lat];
+    elN.textContent='Palabra '+(i+1)+' de '+PALABRAS.length+' · '+(w.leyes.length===1?'una ley':w.leyes.length+' leyes');
+    elP.textContent=w.lat; elP.classList.remove('cambio');
+    pintaRastro(false);
+    inp.value=''; fb.className='fb';
+    zA.style.display='block'; zL.style.display='none';
+    btnRem.disabled=true; btnS.disabled=true;
+    leyesBox.innerHTML='';
+    LEYES.forEach(function(l){
+      var b=document.createElement('button'); b.type='button'; b.innerHTML=l.n+'<small>'+l.d+'</small>'; b.setAttribute('data-id',l.id);
+      b.addEventListener('click',function(){ aplica(l,b); });
+      leyesBox.appendChild(b);
+    });
+    if(i>0) inp.focus();
+  }
+
+  btnA.addEventListener('click',function(){
+    if(!norm(inp.value)){ fb.className='fb no'; fb.textContent='Primero apuesta. La máquina no arranca sin tu predicción: el músculo es predecir, no ver.'; return; }
+    fb.className='fb'; zA.style.display='none'; zL.style.display='block';
+  });
+  inp.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); btnA.click(); } });
+
+  function muestra(nuevo){
+    elP.classList.remove('cambio'); void elP.offsetWidth; elP.classList.add('cambio');
+    elP.textContent=nuevo.toUpperCase();
+  }
+
+  function aplica(l,b){
+    var k=pendientes.indexOf(l.id);
+    if(k<0){
+      demas++; pintaScore();
+      b.classList.add('mal'); setTimeout(function(){ b.classList.remove('mal'); },900);
+      var r=l.f(actual);
+      fb.className='fb no';
+      fb.textContent= r===null ? 'Esa ley no encuentra dónde trabajar en '+actual.toUpperCase()+': no hay '+({fh:'F inicial',ct:'CT ni LT',ll:'PL, CL ni FL al principio',dipt:'vocal breve que diptongue aquí',suav:'consonante sorda entre vocales',j:'-LI- ni -CUL-'}[l.id])+'. La ley que sobra también enseña: aplicar una de más es el error productivo de la semana.'
+                             : 'Aquí esa ley no operó. Sí hay dónde, pero la historia real de '+PALABRAS[i].esp+' no pasó por ahí: no toda vocal es breve ni toda consonante se suaviza. La fuente decide cuál ley trabajó, y esta no.';
+      return;
+    }
+    var r=l.f(actual);
+    if(r===null){ /* no debería pasar */ return; }
+    pendientes.splice(k,1); actual=r; rastro.push(r);
+    muestra(r); pintaRastro(false);
+    b.classList.add('usada'); b.disabled=true;
+    fb.className='fb ok'; fb.textContent=l.n+': '+rastro[rastro.length-2].toUpperCase()+' → '+r.toUpperCase()+'.'+(pendientes.length?' Falta'+(pendientes.length>1?'n':'')+' '+pendientes.length+' ley'+(pendientes.length>1?'es':'')+'.':' Ya no queda ninguna ley por aplicar: haz el remate.');
+    if(!pendientes.length){ btnRem.disabled=false; Array.prototype.forEach.call(leyesBox.children,function(c){ c.disabled=true; }); }
+  }
+
+  btnRem.addEventListener('click',function(){
+    var w=PALABRAS[i];
+    btnRem.disabled=true;
+    rastro.push(w.esp); muestra(w.esp); pintaRastro(true);
+    apuestas++;
+    var bien = norm(inp.value)===norm(w.esp);
+    if(bien) aciertos++;
+    pintaScore();
+    fb.className= bien?'fb ok':'fb no';
+    fb.textContent=(bien?'Tu apuesta era '+w.esp+'. Bien. ':'Tu apuesta era "'+inp.value.trim()+'"; la máquina dice '+w.esp+'. ')+w.nota;
+    btnS.disabled=false;
+  });
+  btnS.addEventListener('click',function(){ i++; carga(); });
+
+  carga();
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

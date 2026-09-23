@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Semana 9 · Ejercicio G · Lenguas francas, ayer y hoy</title>
+<title>Semana 12 · Ejercicio C · Lenguas francas, ayer y hoy</title>
 <style>
   :root{
     --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
@@ -65,7 +65,7 @@
 <body>
 <header>
   <div class="wrap">
-    <div class="mini">Etimologías grecolatinas · Semana 9 · Sesión G</div>
+    <div class="mini">Etimologías grecolatinas · Semana 12 · Sesión C</div>
     <h1>Lenguas francas, ayer y hoy</h1>
     <p>El latín fue la lengua de medio mundo durante dos mil años. El inglés lo es ahora, en tu pantalla. Aquí se compara lo que da y lo que quita.</p>
   </div>
@@ -74,7 +74,7 @@
 <div class="wrap">
 
   <div class="instr">
-    <strong>Cómo se juega.</strong> Cinco estaciones. Primero pones cada lengua franca en su época; luego cazas el latín que dices sin saberlo; después llevas un diario de un día tuyo en lenguas francas; pesas la balanza; y al final dejas armado un argumento para la disputa de la semana 12. Las dos primeras se revisan solas; las otras tres se comparan con un ejemplo.
+    <strong>Cómo se juega.</strong> Cinco estaciones. Primero pones cada lengua franca en su época; luego cazas el latín que dices sin saberlo; después llevas un diario de un día tuyo en lenguas francas; pesas la balanza; y al final dejas armado un argumento para la disputa del martes. Las dos primeras se revisan solas; las otras tres se comparan con un ejemplo.
   </div>
 
   <div class="regla">
@@ -142,7 +142,7 @@
     <div class="fb" id="e4-fb"></div>
   </div>
 
-  <h2>Estación 5 · Tu argumento para la semana 12 <small>La disputa pregunta quién es dueño del español. Lo que aprendiste hoy es munición para los dos bandos.</small></h2>
+  <h2>Estación 5 · Tu argumento para la disputa <small>La disputa pregunta quién es dueño del español. Lo que aprendiste aquí es munición para los dos bandos.</small></h2>
   <div class="card">
     <label>¿Desde qué bando lo dices?</label>
     <div class="veredicto" id="e5-bando">
@@ -160,7 +160,7 @@
     <div class="fb" id="fb-cap"></div>
   </div>
 
-  <footer>Semana 9 · Las lenguas escondidas · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página. La captura solo vive si tú la copias; guárdala para la semana 12.</footer>
+  <footer>Semana 12 · Cierre de la unidad 2 · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página. La captura solo vive si tú la copias: es tu argumento para la disputa.</footer>
 </div>
 
 <button class="modo" id="btnModo">Aa proyector</button>
@@ -249,7 +249,7 @@
     t+=mezcla?'En '+mezcla+' momentos el español iba mezclado con otra lengua: así se ve una capa mientras se forma. ':'';
     t+=otras?'Y en '+otras+' apareció una lengua que no es franca ni de imperio: una lengua de tu casa o tu región. Esas son las que la semana 10 va a documentar. ':'';
     t+=latin?'El latín asomó en un rezo: mil doscientos años después de dejar la calle. ':'';
-    t+='Ahora la pregunta: ¿alguna de las palabras en inglés desplazó a una que ya existía en español? Anótala: es materia prima de la puerta gamer.';
+    t+='Ahora la pregunta: ¿alguna de las palabras en inglés desplazó a una que ya existía en español? Anótala: es materia prima de la disputa.';
     fb.className='fb ok';fb.textContent=t;
   });
 
@@ -283,9 +283,9 @@
     var b=document.querySelector('#e5-bando .sel'),arg=document.getElementById('e5-arg').value.trim();
     var faltan=[];if(!b)faltan.push('el bando');if(!arg)faltan.push('el argumento');
     if(faltan.length){fb.className='fb no';fb.textContent='Falta: '+faltan.join(' y ')+'.';return;}
-    pre.textContent='ARGUMENTO PARA LA SEMANA 12 · desde la semana 9\nBANDO: '+b.textContent+'\nARGUMENTO: '+arg+'\nEVIDENCIA: el latín como lengua franca (75 % del español) y el inglés de hoy';
+    pre.textContent='ARGUMENTO PARA LA DISPUTA · SEMANA 12\nBANDO: '+b.textContent+'\nARGUMENTO: '+arg+'\nEVIDENCIA: el latín como lengua franca (75 % del español) y el inglés de hoy';
     pre.style.display='block';btnC.style.display='inline-block';
-    fb.className='fb ok';fb.textContent='Captura lista. Guárdala: en la semana 12 la armería de la disputatio te la va a pedir.';
+    fb.className='fb ok';fb.textContent='Captura lista. Guárdala: la armería de la disputatio te la va a pedir el martes.';
   });
   btnC.addEventListener('click',function(){
     var t=pre.textContent;

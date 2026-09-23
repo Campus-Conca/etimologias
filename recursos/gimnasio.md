@@ -62,9 +62,8 @@ Y los juegos del alfabeto, sin mazo y sin quiz: [Tu nombre en griego](../ejercic
 **Semana 8 · La máquina del tiempo fonética**
 
 - [Predice en las dos direcciones](../ejercicios/semana-08/ejercicio-8A-predice-en-dos-direcciones.html) · martes
+- [La máquina del tiempo](../ejercicios/semana-08/ejercicio-8B-la-maquina-del-tiempo.html) · viernes: catorce palabras latinas para gastar ley por ley
 - [El árbol de las lenguas](../ejercicios/semana-08/arbol-de-las-lenguas.html) · jueves, centro de cómputo, y herramienta permanente: hermanas, primas y vecinas del español
-- [El árbol genealógico](../ejercicios/semana-08/ejercicio-8C-el-arbol-genealogico.html) · jueves, centro de cómputo
-- [La palabra que viajó mil años](../ejercicios/semana-08/ejercicio-8D-la-palabra-que-viajo-mil-anos.html) · viernes
 - [Quiz de gimnasio](../ejercicios/semana-08/quiz-gimnasio-semana-08.html) · ensayo libre
 
 **Semana 9 · Las lenguas escondidas**
@@ -74,12 +73,11 @@ Y los juegos del alfabeto, sin mazo y sin quiz: [Tu nombre en griego](../ejercic
 - [El origen a juicio](../ejercicios/semana-09/ejercicio-9C-el-origen-a-juicio.html) · jueves, centro de cómputo
 - [La palabra viajera](../ejercicios/semana-09/ejercicio-9D-la-palabra-viajera.html) · viernes
 - [Tu booktuber](../ejercicios/semana-09/ejercicio-9E-tu-booktuber.html) · viernes: guion, ensayo con reloj y tu decisión de publicación
-- [El sello al-](../ejercicios/semana-09/ejercicio-9F-el-sello-al.html) · martes o miércoles: arabismos contra impostores latinos, el paréntesis del DLE y el mapa
-- [Lenguas francas, ayer y hoy](../ejercicios/semana-09/ejercicio-9G-lenguas-francas.html) · martes: del latín al inglés, con tu día en lenguas francas y un argumento para la semana 12
-- [La puerta gamer](../ejercicios/semana-09/ejercicio-9H-la-puerta-gamer.html) · miércoles: treinta préstamos del inglés de los videojuegos, la máquina de -ear y tu ficha para el muro
+- [El sello al-](../ejercicios/semana-09/ejercicio-9F-el-sello-al.html) · miércoles, para la casa: arabismos contra impostores latinos, el paréntesis del DLE y el mapa
+- [La puerta gamer](../ejercicios/semana-09/ejercicio-9H-la-puerta-gamer.html) · miércoles, para la casa: treinta préstamos del inglés de los videojuegos, la máquina de -ear y tu ficha para el muro
 - [Quiz de gimnasio](../ejercicios/semana-09/quiz-gimnasio-semana-09.html) · ensayo libre
 
-Y los proyectables de la semana 9, para volver a ellos: [Ocho siglos de árabe](../ejercicios/semana-09/ocho-siglos-de-arabe.html) · [Del latín a las lenguas francas](../ejercicios/semana-09/del-latin-a-las-lenguas-francas.html) · [Tu booktuber, paso a paso](../ejercicios/semana-09/booktuber-como-se-hace.html)
+Y los proyectables de la semana 9, para volver a ellos: [Ocho siglos de árabe](../ejercicios/semana-09/ocho-siglos-de-arabe.html) · [Tu booktuber, paso a paso](../ejercicios/semana-09/booktuber-como-se-hace.html)
 
 **Semana 10 · El diccionario lo hacemos nosotros**
 
@@ -87,6 +85,7 @@ Y los proyectables de la semana 9, para volver a ellos: [Ocho siglos de árabe](
 - [Taller de fichas](../ejercicios/semana-10/ejercicio-10B-taller-de-fichas.html) · miércoles
 - [¿Está o no está?](../ejercicios/semana-10/ejercicio-10C-esta-o-no-esta.html) · jueves, centro de cómputo
 - [La palabra que salvé](../ejercicios/semana-10/ejercicio-10D-la-palabra-que-salve.html) · viernes
+- [El mapa bajo tus pies](../ejercicios/semana-10/ejercicio-10E-el-mapa-bajo-tus-pies.html) · miércoles: ¿quién nombró qué en la Sierra?, con etiqueta de honestidad en cada respuesta
 - [Quiz de gimnasio](../ejercicios/semana-10/quiz-gimnasio-semana-10.html) · ensayo libre
 
 **Semana 11 · Cazadores de mitos**
@@ -101,9 +100,12 @@ Y los proyectables de la semana 9, para volver a ellos: [Ocho siglos de árabe](
 
 - [La armería de la disputatio](../ejercicios/semana-12/ejercicio-12A-armeria-de-la-disputatio.html) · martes
 - [Tu defensa, sin sorpresas](../ejercicios/semana-12/ejercicio-12B-tu-defensa-sin-sorpresas.html) · miércoles
+- [Lenguas francas, ayer y hoy](../ejercicios/semana-12/ejercicio-12C-lenguas-francas.html) · jueves y casa: del latín al inglés, y tu argumento para la disputa
 - [Cosecha y puente](../ejercicios/semana-12/ejercicio-12D-cosecha-y-puente.html) · viernes
 - [Quiz de gimnasio · Integrador de la Unidad 2](../ejercicios/semana-12/quiz-gimnasio-semana-12.html) · ensayo libre
 - [El integrador de la Unidad 2, bloque por bloque](../ejercicios/semana-12/quiz-integrador-u2-semana-12.html) · viernes, tal como se proyecta: cuarenta reactivos en nueve bloques, cronómetro, respuestas y hoja imprimible
+
+Y el proyectable de la semana 12: [Del latín a las lenguas francas](../ejercicios/semana-12/del-latin-a-las-lenguas-francas.html)
 
 ## U3 · Las palabras trabajan
 

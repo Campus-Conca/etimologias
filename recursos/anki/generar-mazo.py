@@ -248,6 +248,14 @@ SEMANAS = [
             ("vocal breve \u2192 diptongo", "las vocales breves t\u00f3nicas diptongaron: la O breve en ue, la E breve en ie", "ley fon\u00e9tica", "PORTA \u2192 puerta", "FOCU \u2192 fuego, TERRA \u2192 tierra, FESTA \u2192 fiesta", "Por eso puerta y portero son parientes: una diptong\u00f3 y la otra no."),
             ("consonante entre vocales \u2192 suave", "las consonantes sordas entre vocales se suavizaron: T en d, P en b, C en g", "ley fon\u00e9tica", "VITA \u2192 vida", "LUPU \u2192 lobo, AMICU \u2192 amigo, ROTA \u2192 rueda", "El desgaste entre dos vocales es el m\u00e1s constante de todos."),
             ("doblete", "una palabra latina que dio dos espa\u00f1olas: una popular, gastada por las leyes, y una culta, entrada por los libros", "concepto", "AURICULA \u2192 oreja (popular) y aur\u00edcula (culta)", "FRIGIDU \u2192 fr\u00edo y fr\u00edgido, STRICTU \u2192 estrecho y estricto", "Cuando una ley parece fallar, casi siempre es la hermana culta: nunca pas\u00f3 por la m\u00e1quina."),
+            # --- lo que enseñó el árbol de las lenguas ---
+            ("vía culta", "la entrada por los libros, directo del latín escrito, sin pasar por la máquina del tiempo", "concepto", "aurícula, frígido, estricto", "doblete, cultismo", "Explica las fugitivas: fiesta, febrero y fiebre conservaron la F."),
+            ("latín vulgar", "el latín de la calle, de soldados y colonos, que se gastó hasta volverse romance", "concepto", "CABALLUS → caballo (no EQUUS)", "latín clásico, el de los libros", "El español heredó la palabra popular; la culta quedó para equino y ecuestre."),
+            ("indoeuropeo", "la lengua abuela de la que descienden el latín, el griego, el inglés, el ruso y el hindi; nadie la escribió", "concepto", "*méh₂tēr → madre, mother, Mutter, mātā", "romance, germánica, eslava, celta, indo-irania", "Se reconstruyó comparando a las nietas, con leyes y asterisco."),
+            ("* (asterisco)", "marca una forma reconstruida, nunca escrita", "notación", "*nókʷts, la noche de la abuela", "", "Es la notación real de los filólogos: lo que se dedujo comparando, no lo que se leyó en una piedra."),
+            ("hermana / prima / vecina", "hija del mismo latín / nieta del mismo indoeuropeo / sin parentesco, pero prestó", "concepto", "portugués / inglés / árabe", "", "Hindi es prima; árabe es vecina aunque diera cuatro mil palabras."),
+            ("herencia", "lo que bajó por el tronco: latín gastado por la boca durante mil años", "concepto", "ojo, de OCULU", "préstamo: lo que saltó la cerca (almohada)", "La herencia obedece a las leyes del desgaste; el préstamo, no. Por eso las leyes «fallan» con almohada."),
+            ("ley de Grimm", "en la rama germánica la P se volvió F, la D se volvió T y la C se volvió H", "ley fonética", "pater → father", "pie → foot, diente → tooth", "Por eso padre y father son primas aunque no lo parezcan. Vuelve en la semana 15."),
         ],
     },
     {
@@ -278,6 +286,8 @@ SEMANAS = [
             ("lengua franca", "la que usan para entenderse quienes no comparten lengua materna", "concepto", "el latín hasta el siglo XIX; el inglés hoy", "koiné griega, árabe medieval, náhuatl en la Nueva España, francés diplomático", "Nunca se mama: se aprende en el muelle. Y ninguna ha durado para siempre."),
             ("préstamo", "palabra que una lengua toma de otra con poca o ninguna adaptación, por contacto, moda o porque con ella llegó el objeto", "concepto", "hamaca, tomate, chef, lootear", "herencia (lo que bajó por el tronco) frente a préstamo (lo que saltó la cerca)", "Le han dicho extranjerismo y barbarismo. Almohada fue uno; hoy es el español."),
             ("-ear", "la máquina de adaptar: la terminación con que el español conjuga verbos ajenos", "marca de préstamo", "lootear → looteo, looteamos", "chatear, googlear, escanear, farmear, spawnear", "Cuando un préstamo se conjuga, ya empezó a ser tuyo. Los romanos hacían lo mismo con -are."),
+            ("calco", "préstamo traducido pieza por pieza, que parece español de siempre", "tipo de préstamo", "jefe final (final boss)", "modo historia, pantalla de carga", "Dos préstamos adentro: jefe es francés (chef) y boss es holandés (baas)."),
+            ("sigla", "iniciales que se leen como palabra", "tipo de préstamo", "gg (good game)", "afk, OP", "Ojo con las siglas bonitas inventadas después: meta no es sigla, es el griego metá-."),
         ],
     },
     {
@@ -300,6 +310,10 @@ SEMANAS = [
             ("huacal", "náhuatl · huacalli, la caja de varas", "nahuatlismo", "huacal", "", ""),
             ("milpa", "náhuatl · milli (sembradío) + -pan (lugar)", "nahuatlismo", "milpa", "", ""),
             ("chiquihuite", "náhuatl · chiquihuitl, el cesto", "nahuatlismo", "chiquihuite", "", "Prueba dos escrituras antes de sentenciar un «no está»: chiquihuite y chiquigüite."),
+            # --- las marcas del mapa ---
+            ("-tlan / -pan / -co", "marcas náhuatl de lugar: lugar de, sobre, en", "topónimo", "Ahuacatlán, Jalpan, Tilaco", "-apan (en el agua de): Tequisquiapan", "Hay nombres náhuatl en tierra pame porque el náhuatl fue la lengua franca de los frailes y los aliados."),
+            ("Tan- / Tam-", "marca huasteca (tének) de lugar", "topónimo", "Tancoyol", "Tamazunchale, Tancama", "Se cuenta que Tancoyol es «lugar de coyoles»; falta verificarlo."),
+            ("lo dice la fuente / se cuenta / nadie lo sabe", "las tres etiquetas de honestidad de una ficha de topónimo", "concepto", "Jalpan (fuente) · Tilaco (se cuenta) · Concá (nadie lo sabe)", "", "Las etimologías de lugares circulan con mucha seguridad y poco respaldo. La ficha dice cuál de las tres es."),
         ],
     },
     {
@@ -323,6 +337,15 @@ SEMANAS = [
             ("morfina", "de Morfeo, dios griego del sueño; bautizada por un farmacéutico a principios del siglo XIX", "palabra con leyenda", "morfina", "", "Confirmada: la historia increíble era la documentada."),
             ("murciélago", "de murciégalo: mur (ratón, latín mus) + ciego", "palabra con leyenda", "murciélago", "", "Confirmada. Con el tiempo las letras se cambiaron de lugar."),
             ("nigromancia", "griego · nekromanteía, adivinar con los muertos, alterada por nigro (negro)", "palabra con leyenda", "nigromancia", "necromancia, cerrojo, vagamundo", "Una paretimología que ganó: la leyenda cambió la palabra de verdad."),
+        ],
+    },
+    {
+        "n": 12,
+        "titulo": "Semana 12 · ¿Quién es dueño del español?",
+        "piezas": [
+            ("barbarismo", "nombre despectivo del préstamo: de bárbaro, el que hablaba mal el latín, el que decía «bar-bar»", "concepto", "almohada fue un barbarismo un día", "extranjerismo, colonialismo cultural", "De esa idea viene el lema de la RAE: limpia, fija y da esplendor. Fijar una lengua sería matarla."),
+            ("extranjerismo", "palabra de otra lengua usada tal cual; el nombre neutro de lo que se llamó barbarismo", "concepto", "skin, gg", "préstamo, calco, sigla", "Cuando se conjuga (lootear) ya empezó a ser tuyo."),
+            ("disputatio", "debate en que se defienden las dos posturas y a media sesión se cambia de bando", "concepto", "la lengua debe protegerse / la lengua vive del contacto", "", "Nadie gana: cada bando nombra el mejor argumento del otro."),
         ],
     },
 ]

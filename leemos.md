@@ -153,12 +153,12 @@ window.LEEMOS = {
 </section>
 <section class="lam">
 <h4>Si no sabes qué leer</h4>
-<p class="di">Tienes cuatro fuentes, en este orden: el **tendedero** de aquí abajo (recomendaciones del propio grupo), el **préstamelo del salón** (la mesa que se instala al cerrar el primer círculo, con el nombre de quien presta cada libro), el **minuto del lector** (cada martes alguien cuenta qué está leyendo) y la **mesa de libros del profesor**, la misma de la cata de la semana 0. La mejor recomendación no está en internet: está sentada junto a ti.
+<p class="di">Tienes cuatro fuentes, en este orden.</p>
 <ol>
 <li><strong>El tendedero</strong> de esta página: recomendaciones del propio grupo.</li>
-<li><strong>El préstamelo del salón</strong>: libros que tus compañeros ofrecen en préstamo.</li>
-<li><strong>El minuto del lector</strong>: cada semana alguien cuenta qué está leyendo.</li>
-<li><strong>La mesa de libros del profesor.</strong></li>
+<li><strong>El préstamelo del salón</strong>: la mesa que se instala al cerrar el primer círculo, con el nombre de quien presta cada libro.</li>
+<li><strong>El minuto del lector</strong>: cada martes alguien cuenta qué está leyendo.</li>
+<li><strong>La mesa de libros del profesor</strong>, la misma de la cata de la semana 0.</li>
 </ol>
 </section>
 <section class="lam lam--oscura">
@@ -383,8 +383,22 @@ El préstamelo del salón, por escrito: aquí queda registrado qué libro anda e
 
 ## Vitrina de booktubers <span class="viva">se llena con el semestre</span>
 
-{: .ojo }
-¿Terminaste una obra? Graba 2 a 3 minutos con tu celular (vertical vale) con cuatro cosas: quién eres, qué leíste, qué te dio el libro (no qué pasa en él) y una frase leída en voz alta desde tu ejemplar. ¿No quieres cámara? Vale audio o ficha ilustrada con lo mismo. Se publica aquí solo si tú lo autorizas. Antes de grabar, mira [Tu booktuber, paso a paso](ejercicios/semana-09/booktuber-como-se-hace.html): ahí está lo que se espera, lámina por lámina, y el guion se arma en [Tu booktuber](ejercicios/semana-09/ejercicio-9E-tu-booktuber.html).
+¿Terminaste una obra? Graba 2 a 3 minutos con tu celular (vertical vale) con cuatro cosas: quién eres, qué leíste, qué te dio el libro (no qué pasa en él) y una frase leída en voz alta desde tu ejemplar. ¿No quieres cámara? Vale audio o ficha ilustrada con lo mismo. Se publica aquí solo si tú lo autorizas.
+
+<div class="pl-grid">
+  <a class="pl-card" href="ejercicios/semana-09/booktuber-como-se-hace.html">
+    <span class="pl-tag">míralo antes de grabar</span>
+    <b>Tu booktuber, paso a paso</b>
+    <span class="pl-desc">La guía completa, en diecisiete láminas: qué se espera, las cuatro partes con reloj, frases que funcionan y frases que no, el mismo libro en dos versiones, cómo grabar, qué no lleva y cómo se entrega.</span>
+    <span class="pl-cta">Ver la guía →</span>
+  </a>
+  <a class="pl-card" href="ejercicios/semana-09/ejercicio-9E-tu-booktuber.html">
+    <span class="pl-tag">el guion, en tu celular</span>
+    <b>Tu booktuber</b>
+    <span class="pl-desc">Las cuatro casillas con apuntes, el cronómetro de tres minutos, la lista de cotejo y tu decisión de publicación, que se manda al profesor junto con la grabación.</span>
+    <span class="pl-cta">Armar el guion →</span>
+  </a>
+</div>
 
 <div id="lee-booktubers"></div>
 
@@ -405,6 +419,13 @@ Al final del semestre, cada lector deja escrita una recomendación para quien to
 <div id="lee-testamentos"></div>
 
 <style>
+.pl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(17rem,1fr));gap:.9rem;margin:1rem 0 1.4rem}
+.pl-card{display:block;border:1px solid #eadce6;border-radius:.9rem;padding:1rem 1.1rem;background:#fff;text-decoration:none !important;transition:box-shadow .15s,transform .15s}
+.pl-card:hover{box-shadow:0 3px 12px rgba(107,30,90,.14);transform:translateY(-1px)}
+.pl-tag{display:inline-block;font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;color:#c8127a;font-weight:700}
+.pl-card b{display:block;color:#6b1e5a;font-size:1.08rem;margin:.15rem 0 .3rem}
+.pl-desc{display:block;color:#444;font-size:.88rem;line-height:1.45}
+.pl-cta{display:block;margin-top:.6rem;color:#c8127a;font-weight:700;font-size:.85rem}
 .lee-derechos{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:.6rem;margin:1rem 0}
 .lee-d{border:1px solid #E6DFF0;border-radius:.9rem;padding:.8rem .95rem;background:#F7F3FB}
 .lee-d b{display:block;color:#6B1E5A;margin-bottom:.15rem}

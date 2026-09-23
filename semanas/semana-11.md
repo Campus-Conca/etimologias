@@ -235,7 +235,7 @@ Hay historias preciosas sobre el origen de las palabras que son mentira, y circu
 <h4><span class="n">3</span> Gimnasio: la palabra con leyenda <span class="reloj">35 min</span></h4>
 <span class="senal">Actividad · individual</span>
 <p class="di">Elige una palabra con etimología popular famosa. Cuenta las dos versiones, cada una con su encanto.</p>
-<p class="apoyo"><a href="../ejercicios/semana-11/ejercicio-11D-la-palabra-con-leyenda.html">La palabra con leyenda</a>: la versión que se cuenta, la versión documentada con su fuente, el veredicto de la leyenda, y una biografía de cinco a ocho líneas que hile las dos. Puede ser verdadera o falsa: el Museo acepta las dos. Es la <strong>cuarta pieza de tu portafolio de la unidad 2</strong>, y la última antes de la defensa.</p>
+<p class="apoyo"><a href="../ejercicios/semana-11/ejercicio-11D-la-palabra-con-leyenda.html">La palabra con leyenda</a>: la versión que se cuenta, la versión documentada con su fuente, el veredicto de la leyenda, y una biografía de cinco a ocho líneas que hile las dos. Puede ser verdadera o falsa: el Museo acepta las dos. Es la <strong>tercera pieza de tu portafolio de la unidad 2</strong>, y la última antes de la defensa.</p>
 <p class="recurso"><a href="../ejercicios/semana-11/ejercicio-11D-la-palabra-con-leyenda.html" target="_blank" rel="noopener">La palabra con leyenda</a><span class="pie">La versión que se cuenta, la versión documentada, y por qué convence la primera.</span></p>
 <p class="nota-conductor">Regla de la pieza, dicha en voz alta: la leyenda no se ridiculiza, se explica por qué convence; y el veredicto no lo da el autor, lo da la fuente. Quien eligió un caso "sigue dudosa" tiene la pieza más honesta del día.</p>
 </section>
@@ -252,12 +252,12 @@ Hay historias preciosas sobre el origen de las palabras que son mentira, y circu
 <table>
 <tr><th>Qué</th><th>Cuándo</th><th>Qué traes</th></tr>
 <tr><td>La disputa de los extranjerismos, cambiando de bando</td><td>martes 13</td><td>tu postura, y la contraria</td></tr>
-<tr><td>Tu defensa individual, peldaño 2, con banco de preguntas publicado</td><td>miércoles 14 y jueves 15</td><td>la pieza de la unidad que mejor te representa y su fuente</td></tr>
+<tr><td>Tu defensa individual, peldaño 2, con banco de preguntas publicado</td><td>se arma el miércoles 14, se defiende el jueves 15</td><td>la pieza de la unidad que mejor te representa y su fuente</td></tr>
 <tr><td>El quiz integrador de la unidad 2</td><td>viernes 16</td><td>tu serie de calibración al día: los renglones #7 a #9</td></tr>
 <tr><td>El segundo círculo de lectura</td><td>viernes 16</td><td>tu libro en la mano y una frase marcada</td></tr>
 <tr><td>Tu segundo parcial</td><td>el fin de semana</td><td>tu expediente y tu portafolio enfrente</td></tr>
 </table>
-<p class="apoyo">Cuatro piezas hiciste en esta unidad: la palabra que viajó mil años, la viajera, la que salvaste y la que trae leyenda. La semana que entra defiendes una. Elígela hoy, no el miércoles.</p>
+<p class="apoyo">Tres piezas hiciste en esta unidad: la viajera, la que salvaste y la que trae leyenda. La semana que entra defiendes una. Elígela hoy, no el miércoles.</p>
 <p class="nota-conductor">Las fechas están en la <a href="semana-12.html">semana 12</a>; ajusta aquí si el calendario cambia. Recuérdales el suelo de la unidad 2 tal como está en <a href="../evaluacion.html">Tu calificación</a>, y que el booktuber 1 es tabla: quien no lo haya entregado tiene hasta el viernes 16.</p>
 </section>
 <section class="lam">

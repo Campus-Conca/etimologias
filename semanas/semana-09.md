@@ -12,12 +12,11 @@ nav_order: 10
 
 **Esta semana podrás:**
 
-- reconocer el árabe, el náhuatl, el francés y el inglés que dices todos los días sin saberlo
-- leer las marcas que delatan a cada lengua antes de abrir el diccionario
-- verificar el origen de una palabra en la fuente, y leer el paréntesis del DLE como quien lee una cédula
-- escribir la biografía de una palabra viajera y grabar tu primer booktuber
-- poner el latín en su tamaño: la lengua franca de un imperio, y compararla con la de hoy, la de tu pantalla
+- distinguir herencia de préstamo: lo que bajó por el tronco del latín y lo que saltó la cerca desde otra lengua
+- reconocer el árabe, el náhuatl, el francés y el inglés que dices todos los días, por las marcas que los delatan
+- verificar el origen en la fuente, leyendo el paréntesis del DLE como quien lee una cédula
 - documentar un préstamo que está entrando ahora mismo por la puerta gamer, con el ejemplo dicho tal cual
+- escribir la biografía de una palabra viajera y grabar tu primer booktuber
 
 Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo del latín hay ocho siglos de árabe, cinco de náhuatl y un puñado de modas francesas e inglesas. Esta semana se excava, empezando por la lengua que asomó la semana pasada en *almohada* y que dejó unas cuatro mil palabras más.
 
@@ -26,7 +25,7 @@ Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo 
 | Día | Sesión | Trae |
 |---|---|---|
 | [Martes 22](#martes) · 1 h | Cacería en tu propia habla | tu mazo al día y a alguien para hacer pareja |
-| [Miércoles 23](#miercoles) · 1 h | La lista de tu lengua | tres palabras cazadas en casa |
+| [Miércoles 23](#miercoles) · 1 h | Cuatro puertas y una quinta | tres palabras cazadas en casa y tu equipo de cuatro |
 | [Jueves 24](#jueves) · 1 h, centro de cómputo | El origen a juicio | las dudosas de tu equipo |
 | [Viernes 25](#viernes) · 2 h | La palabra viajera y el primer booktuber | tu libro terminado y una frase marcada |
 
@@ -61,60 +60,46 @@ Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo 
 <span class="senal">Actividad · en parejas</span>
 <p class="di">Uno dice el latín, el otro lo vuelve español. Y dice la ley.</p>
 <p class="apoyo">FILIU, NOCTE, PLUVIA, PORTA, VITA. Las cinco leyes de la semana pasada, sin ver el mazo. Quien falle, la escribe y sigue: esto es calentamiento, no examen.</p>
-<p class="nota-conductor">Corto y de pie. Las leyes de la 8 vuelven en el integrador de la 12, así que no dejes que se enfríen. Si alguien pregunta por la palabra que no obedece la ley (fiesta, febrero), recuérdales la lámina de las fugitivas: cultismos y palabras que entraron tarde.</p>
+<p class="nota-conductor">Corto y de pie. Las leyes de la 8 vuelven en el integrador de la 12, así que no dejes que se enfríen. Si alguien pregunta por la palabra que no obedece la ley (fiesta, febrero), recuérdales el doblete del viernes: la vía culta no pasó por la máquina.</p>
 </section>
 <section class="lam lam--oscura">
-<h4><span class="n">3</span> almohada, segunda vuelta <span class="reloj">10 min</span></h4>
+<h4><span class="n">3</span> almohada, segunda vuelta <span class="reloj">8 min</span></h4>
 <p class="palabra-grande">almohada</p>
-<p class="di">La semana pasada supieron de dónde viene. Hoy, qué trajo consigo.</p>
-<p class="apoyo">Ya saben que es árabe y que ese <em>al-</em> es un artículo pegado. Lo que no saben: cuántas palabras entraron por la misma puerta, y cómo reconocerlas. Apuesten un número antes de seguir: ¿cuántas palabras árabes creen que dicen en un día normal?</p>
-<p class="nota-conductor">El martes 15 pagaste la deuda en seis minutos y dejaste los arabismos para hoy. Retoma desde ahí: que ellos cuenten la historia de almohada, no tú, y que digan qué era ese al-. Las apuestas del número van al pizarrón; la lámina de los ocho siglos las corrige.</p>
-</section>
-<section class="lam">
-<h4>Lo que trae adentro</h4>
 <div class="dis">
 <span class="pz pz--pre">al-<small>el, la (artículo)</small></span>
 <span class="pz pz--raiz">mihadda<small>de hadd, mejilla</small></span>
-<span class="eq">= almohada, "la que va bajo la mejilla"</span>
+<span class="eq">= "la que va bajo la mejilla"</span>
 </div>
-<img class="ilustracion" src="../assets/img/semana-09/el-articulo-que-se-quedo-pegado.webp" alt="Una mano estampa con un sello de goma las letras al- en rosa sobre una almohada que tiene una etiqueta cosida con mihadda, mejilla, y una carita dormida encima. Abajo, sobre una banda transportadora, una alfombra enrollada, una alberca, una alcancía de cochinito y un edificio con banda de alcalde llevan el mismo sello al-; sus nombres dicen alfombra, alberca, alcancía y alcalde con el al- en rosa. Al pie: al- quiere decir el, la, y viajó pegado a la palabra.">
-<p class="apoyo">Es árabe. <em>Al-</em> es el artículo ("el", "la") y se quedó pegado a la palabra cuando pasó al español: por eso <em>almohada</em>, <em>alfombra</em>, <em>alcalde</em> y <em>alberca</em> traen la misma firma. La <em>mihadda</em> es literalmente "la cosa de la mejilla". Cada noche pones la cabeza sobre una palabra que lleva mil doscientos años viajando.</p>
-<p class="apoyo">Así lo dice la fuente: <strong>DLE, entrada <em>almohada</em>: "Del ár. hisp. almuḫádda, y este del ár. clás. miḫaddah, de ḫadd 'mejilla'"</strong>. El jueves aprendes a leer ese paréntesis completo.</p>
-</section>
-<section class="lam lam--oscura">
-<h4>Ocho siglos</h4>
-<p class="di">El árabe se habló en España de 711 a 1492. Dejó unas cuatro mil palabras en el español.</p>
-<p class="apoyo">Ochocientos años son más de los que lleva el español en América. En ese tiempo entraron las palabras del riego (<em>acequia</em>, <em>alberca</em>, <em>aljibe</em>), de la cocina (<em>aceite</em>, <em>azúcar</em>, <em>alcachofa</em>, <em>jarabe</em>), de la ciencia (<em>álgebra</em>, <em>cifra</em>, <em>algoritmo</em>), de la casa (<em>almohada</em>, <em>alfombra</em>, <em>almacén</em>) y una que dices cuando deseas algo: <em>ojalá</em>. Todas cruzaron el mar en 1492 y llegaron aquí con los barcos.</p>
-<p class="recurso"><a href="../ejercicios/semana-09/ocho-siglos-de-arabe.html" target="_blank" rel="noopener">Ocho siglos de árabe</a><span class="pie">Dieciséis láminas: la línea del tiempo, el sello y sus disfraces, las puertas, los números, el mapa, y tres apuestas para revelar con la tecla R.</span></p>
-<p class="nota-conductor">El dato de "cuatro mil" es el que suele citarse; si preguntan, es la cifra habitual de los manuales, no un conteo exacto. Lo importante es el orden de magnitud: la segunda fuente del español después del latín. El mazo proyectable de los ocho siglos es el plato fuerte del árabe: doce minutos si lo proyectas entero. Hoy cabe si acortas la cacería a veinte; si no, va el miércoles al abrir la puerta árabe.</p>
+<p class="di">La semana pasada supieron de dónde viene. Hoy, qué trajo consigo.</p>
+<p class="apoyo">Es árabe, y ese <em>al-</em> no es un prefijo: es el artículo, "el, la", que se quedó pegado a la palabra al cruzar al español. Por eso <em>alfombra</em>, <em>alcalde</em>, <em>alberca</em> y <em>alcancía</em> traen la misma firma. Así lo dice la fuente, en el paréntesis del DLE: <strong>"Del ár. hisp. almuḫádda, y este del ár. clás. miḫaddah, de ḫadd 'mejilla'"</strong>; el jueves aprendes a leerlo entero. Y ahora la apuesta: ¿cuántas palabras árabes crees que dices en un día normal? Escribe un número.</p>
+<p class="nota-conductor">Que ellos cuenten la historia de almohada, no tú: la pagaste el martes 15 en seis minutos y hoy la retomas desde ahí. Las apuestas del número van al pizarrón; casi todos dicen "cinco". La respuesta (más de cincuenta) llega mañana con el mazo de los ocho siglos; hoy no la des, que la cacería la va sugiriendo sola.</p>
 </section>
 <section class="lam">
-<h4>La capa gruesa: tres de cada cuatro</h4>
+<h4><span class="n">4</span> El latín también vino de fuera <span class="reloj">6 min</span></h4>
 <div class="dis">
 <span class="pz pz--raiz">75 %<small>latín, por la boca y por los libros</small></span>
-<span class="pz pz--suf">25 %<small>griego, árabe, náhuatl, francés, inglés y todo lo demás</small></span>
+<span class="pz pz--suf">25 %<small>árabe, náhuatl, francés, inglés y todo lo demás</small></span>
 </div>
-<p class="di">Hasta el latín fue una lengua extranjera aquí: la lengua franca de un imperio.</p>
-<p class="apoyo">A las tierras que Roma conquistó se les llamó la <em>Romania</em>, y de ahí viene <em>romance</em>: el latín de la calle, mezclado con lo que ya se hablaba y gastado distinto en cada valle. No era la lengua de los conquistadores ni la de los conquistados; era un latín en evolución que supo guardar su esencia, y con él Roma controló el comercio, la política y la cultura. Dejó de hablarse en la calle hace mil doscientos años, pero fue la lengua de la ciencia y de la Iglesia hasta el siglo XIX. Ese puesto, el de la lengua en la que se entienden quienes no comparten lengua materna, se llama <strong>lengua franca</strong>. Hoy lo tiene el inglés, y por eso dices <em>gg</em>.</p>
-<p class="recurso"><a href="../ejercicios/semana-09/del-latin-a-las-lenguas-francas.html" target="_blank" rel="noopener">Del latín a las lenguas francas</a><span class="pie">Dieciséis láminas: la Romania, los dos latines, qué es una lengua franca, las de ayer y las de hoy, y tres preguntas para discutir.</span></p>
-<p class="nota-conductor">Dos minutos aquí, o salta si el ticket pidió otra cosa: es una lámina de paso que pone el latín en su tamaño antes de excavar las capas delgadas. El mazo completo se proyecta cuando alguien pregunte "¿y por qué no hablamos latín?", que pasa casi siempre esta semana; si no, queda para el miércoles o para la casa. El ejercicio que lo acompaña, <a href="../ejercicios/semana-09/ejercicio-9G-lenguas-francas.html">Lenguas francas, ayer y hoy</a>, deja un argumento armado para la disputa de la semana 12.</p>
+<p class="di">Herencia es lo que bajó por el tronco. Préstamo, lo que saltó la cerca. Y hasta el tronco llegó de fuera.</p>
+<p class="apoyo">El jueves pasado, en el árbol, viste la diferencia: <em>noche</em> bajó por el tronco desde el latín, gastada por mil años de bocas; <em>almohada</em> saltó la cerca desde una lengua que no es pariente. Tres de cada cuatro palabras tuyas son herencia; la cuarta parte es todo lo prestado. Pero fíjate: el latín tampoco nació aquí. Llegó con un imperio, como la lengua en la que se entendía todo el mundo aunque nadie la mamara (a eso se le llama <strong>lengua franca</strong>), y a las tierras que Roma conquistó se les llamó la <em>Romania</em>: de ahí viene <em>romance</em>. El español entero es un préstamo que se quedó. Ese argumento lo vas a usar en la disputa de la semana 12, y ahí se cuenta la historia completa: la del latín y la de la lengua franca de hoy, la de tu pantalla.</p>
+<p class="nota-conductor">Seis minutos y sin proyectar nada más: esta lámina solo pone el latín en su tamaño antes de excavar las capas delgadas, y deja sembrada la disputa. El mazo completo (Roma, los dos latines, las lenguas francas de ayer y de hoy) se proyecta en la semana 12, donde se necesita. Si alguien pregunta hoy "¿y por qué no hablamos latín?", la respuesta de una línea es la de la semana pasada: porque se gastó.</p>
 </section>
 <section class="lam">
-<h4><span class="n">4</span> Tu habla es un sitio arqueológico <span class="reloj">5 min</span></h4>
+<h4><span class="n">5</span> Tu habla es un sitio arqueológico <span class="reloj">8 min</span></h4>
 <p class="di">Capas. Y cada capa dejó una marca que se puede aprender a ver.</p>
 <img class="ilustracion" src="../assets/img/semana-09/tu-habla-es-un-sitio-arqueologico.webp" alt="Un corte del suelo visto de lado, como excavación arqueológica: arriba un estudiante de rodillas descubre palabras con una brocha. Las capas, rotuladas a la izquierda, dicen lo que dices hoy, latín, árabe 800 años (con almohada en rosa, azúcar y unos huesos), náhuatl 500 años (tomate y elote en tepalcates), francés (chef), inglés (futbol) y, en la roca gris del fondo, pame, otomí, huasteco con un signo de interrogación.">
 <table>
 <tr><th>Capa</th><th>Cuándo entró</th><th>La marca que la delata</th><th>Ejemplos</th></tr>
-<tr><td><strong>árabe</strong></td><td>711 a 1492, en España</td><td>empieza con <em>al-</em> (y a veces <em>a-</em>)</td><td>almohada, alberca, azúcar, aceite</td></tr>
+<tr><td><strong>árabe</strong></td><td>711 a 1492, en España</td><td>empieza con <em>al-</em>, o con <em>az-</em>, <em>ar-</em>, <em>a-</em></td><td>almohada, alberca, azúcar, aceite</td></tr>
 <tr><td><strong>náhuatl</strong></td><td>desde 1519, aquí</td><td>termina en <em>-te</em>, <em>-ate</em>, <em>-ote</em> (era <em>-tl</em>)</td><td>tomate, aguacate, elote, papalote</td></tr>
 <tr><td><strong>francés</strong></td><td>siglos XVIII y XIX, por moda</td><td>suena a cocina o a salón: <em>-é</em>, <em>-aje</em></td><td>chef, chofer, puré, garaje</td></tr>
 <tr><td><strong>inglés</strong></td><td>siglo XX, por deporte y tecnología</td><td>consonantes finales raras para el español</td><td>futbol, clóset, sándwich, clip</td></tr>
 </table>
-<p class="apoyo">Las marcas no son pruebas: son sospechas bien fundadas. <em>Tiza</em> no termina en <em>-te</em> y es náhuatl; <em>naranja</em> no empieza con <em>al-</em> y es árabe. La marca te dice dónde buscar; la fuente decide.</p>
-<p class="nota-conductor">Aquí no cabe una quinta fila, pero dila: debajo de todas esas capas, en la Sierra, están el pame, el otomí y el huasteco, y casi nada de eso está en los diccionarios. Es la siembra de la semana 10 y del mapa léxico. No la desarrolles hoy.</p>
+<p class="apoyo">Las marcas no son pruebas: son sospechas bien fundadas. <em>Tiza</em> no termina en <em>-te</em> y es náhuatl; <em>naranja</em> no empieza con <em>al-</em> y es árabe; <em>alma</em> empieza con <em>al-</em> y es latín. La marca te dice dónde buscar; la fuente decide. Y debajo de todas las capas hay una que casi no está en los diccionarios: la del pame, el otomí y el huasteco de esta Sierra. Esa se excava la semana que entra.</p>
+<p class="nota-conductor">Da las cuatro filas con sus ejemplos y para. La quinta capa, la de la Sierra, solo la nombras: es la siembra de la semana 10 y del mapa léxico. Mañana se abre cada capa como una puerta; hoy basta con que vean que las hay.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">5</span> Gimnasio: cacería en tu propia habla <span class="reloj">25 min</span></h4>
+<h4><span class="n">6</span> Gimnasio: cacería en tu propia habla <span class="reloj">22 min</span></h4>
 <span class="senal">Actividad · en parejas</span>
 <p class="di">Diez palabras que dices como si fueran "de siempre". Apuesta de dónde viene cada una.</p>
 <p class="apoyo"><a href="../ejercicios/semana-09/ejercicio-9A-caceria-de-lenguas.html">Cacería en tu propia habla</a>: para cada palabra dicen su apuesta en voz alta, tocan la lengua y revisan. Si fallan, el ejercicio da una pista antes que la respuesta. Las que se les resistan, anótenlas como dudosas: el jueves las verificamos en fuentes.</p>
@@ -122,17 +107,17 @@ Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo 
 <p class="nota-conductor">Un teléfono por pareja. La que más se cae es <em>quiosco</em> (persa, con escalas en turco y francés) y la que más sorprende es <em>tiza</em>: la palabra más escolar del salón resultó mexicana. Cuando alguien lo descubra, proyéctalo: esa es la semilla del caso de gis y tiza del jueves.</p>
 </section>
 <section class="lam">
-<h4><span class="n">6</span> Ronda de síntesis <span class="reloj">6 min</span></h4>
+<h4><span class="n">7</span> Ronda de síntesis <span class="reloj">4 min</span></h4>
 <span class="senal senal--aire">Al aire</span>
 <p class="di">¿Cuál te sorprendió más no ser "de aquí de siempre"?</p>
 <p class="apoyo">Una línea por pareja. Y una pregunta para cerrar: si <em>tiza</em> es náhuatl y <em>almohada</em> es árabe, ¿qué queda de "puro español"? Guarden la respuesta: es la pregunta con la que cierra la unidad en la semana 12.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">7</span> Antes del miércoles <span class="reloj">5 min</span></h4>
+<h4><span class="n">8</span> Antes del miércoles <span class="reloj">3 min</span></h4>
 <span class="senal senal--casa">Para llevar a casa</span>
-<p class="di">Caza tres palabras en tu casa que sospeches que no son latinas.</p>
-<p class="apoyo">En la cocina, en el patio, en lo que dice tu abuela. Tráelas con tu apuesta de lengua, sin buscarlas todavía: <strong>apuesta antes de buscar</strong>, como siempre. Y decide con tu equipo qué lengua van a adoptar mañana: náhuatl, árabe, francés o inglés.</p>
-<p class="apoyo">Una cosa más: el Museo abrió su <a href="../museo/galeria.html">Sala 2, Palabras heredadas</a>. Las piezas de esta unidad se cuelgan ahí, y la primera puede ser tuya.</p>
+<p class="di">Caza tres palabras en tu casa que sospeches que no son latinas. Y arma tu equipo de cuatro.</p>
+<p class="apoyo">En la cocina, en el patio, en lo que dice tu abuela. Tráelas con tu apuesta de lengua, sin buscarlas todavía: <strong>apuesta antes de buscar</strong>, como siempre. El equipo se arma hoy, antes de salir, y elige la lengua que va a adoptar mañana: árabe, náhuatl, francés o inglés (el inglés puede ser el de la pantalla). Mañana cada equipo hace la lista de su lengua.</p>
+<p class="nota-conductor">Deja los equipos escritos, con su lengua, antes de que salgan: mañana no hay tiempo de armarlos. Cuatro lenguas; si hay más de cuatro equipos, dos de náhuatl, que es la bolsa más grande.</p>
 </section>
 </section>
 
@@ -141,21 +126,21 @@ Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo 
 <div class="mazo-cabeza">
 <div>
 <div class="cuando">Miércoles 23 de septiembre · 1 hora</div>
-<h3>La lista de tu lengua</h3>
-<p class="foco">Cuatro lenguas, cuatro equipos, y cada una entró por una puerta distinta.</p>
+<h3>Cuatro puertas y una quinta</h3>
+<p class="foco">Ninguna palabra entra por casualidad. Entra por una puerta, y la puerta explica qué palabras son.</p>
 </div>
 <button class="btn-presentar" type="button">Presentar ▸</button>
 </div>
 <section class="lam">
-<h4><span class="n">1</span> Ritual: la cacería de casa <span class="reloj">6 min</span></h4>
+<h4><span class="n">1</span> Ritual: la cacería de casa <span class="reloj">5 min</span></h4>
 <span class="senal senal--aire">Al aire</span>
 <p class="di">¿Qué cazaste, y de qué lengua apuestas que viene?</p>
 <p class="apoyo">Ronda rápida: palabra y apuesta, nada más. Al pizarrón, en cuatro columnas, una por lengua. Las que no sepan dónde poner van a una quinta columna que se llama <em>dudosas</em>, y esa columna es la más valiosa del día.</p>
 <p class="nota-conductor">No corrijas nada todavía. Si alguien trae una que es latina de toda la vida (pasa seguido con <em>cocina</em> o <em>mesa</em>), va a dudosas sin comentario: el jueves la fuente lo dirá mejor que tú.</p>
 </section>
 <section class="lam">
-<h4><span class="n">2</span> Cuatro lenguas, cuatro puertas <span class="reloj">14 min</span></h4>
-<p class="di">Ninguna palabra entra al idioma por casualidad. Entra por una puerta, y la puerta explica qué palabras son.</p>
+<h4><span class="n">2</span> Cuatro lenguas, cuatro puertas <span class="reloj">10 min</span></h4>
+<p class="di">Cada capa del sitio arqueológico entró por una puerta distinta. Y la puerta explica qué palabras trajo.</p>
 <img class="ilustracion" src="../assets/img/semana-09/cuatro-puertas.webp" alt="Cuatro puertas en fila, cada una con su lengua y su época en rosa: por un arco de herradura rotulado árabe, 711 a 1492, entran caminando un costal de azúcar, una acequia y una almohada; por un marco escalonado rotulado náhuatl, desde 1519, un tomate, un elote y una taza de chocolate; por una puerta con cortinas rotulada francés, siglos XVIII y XIX, un gorro de chef y un coche que dice garaje; por una puerta moderna con letrero de neón rotulada inglés, siglo XX, un balón de futbol y un sándwich.">
 <table>
 <tr><th>Lengua</th><th>La puerta</th><th>Por eso trae palabras de</th></tr>
@@ -168,7 +153,17 @@ Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo 
 <p class="nota-conductor">Detente en la puerta del náhuatl: es la única lengua de la tabla que prestó palabras porque el español no las tenía, no por moda ni por dominio. Es una diferencia de fondo y la van a necesitar en la semana 12, en la disputa sobre quién es dueño del español.</p>
 </section>
 <section class="lam">
-<h4>La puerta árabe, por dentro</h4>
+<h4>La misma palabra, dos viajes</h4>
+<div class="dis">
+<span class="pz pz--raiz">caput<small>cabeza (latín)</small></span>
+<span class="eq">→ chef (francés) → jefe · chef</span>
+</div>
+<p class="di">jefe y chef son la misma palabra francesa. Entró dos veces, con tres siglos de diferencia.</p>
+<p class="apoyo">El francés <em>chef</em> ("cabeza", "el que manda") entró al español en el siglo XVII y el idioma lo masticó hasta dejarlo en <em>jefe</em>. En el siglo XX volvió a entrar, ahora con gorro blanco, y como llegó tarde se quedó tal cual: <em>chef</em>. Es un doblete como el de la semana 8 (<em>oreja</em> y <em>aurícula</em>), pero de préstamo: la primera entrada se gasta, la segunda se conserva.</p>
+<p class="nota-conductor">Dos minutos, dentro del tiempo de la lámina anterior: es la puerta francesa vista por dentro, y la prueba de que un préstamo también se gasta si lleva tiempo suficiente en la boca.</p>
+</section>
+<section class="lam">
+<h4><span class="n">3</span> La puerta árabe, por dentro <span class="reloj">14 min</span></h4>
 <p class="di">Ocho siglos, cuatro mil palabras, y cada una dice qué sabían hacer los que la trajeron.</p>
 <table>
 <tr><th>Sabían</th><th>Y dejaron</th></tr>
@@ -179,51 +174,30 @@ Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo 
 <tr><td><strong>gobernar, guerrear y comerciar</strong></td><td>alcalde, alguacil, almirante, alférez, aduana, almacén, tarifa, arancel, arroba, quilate</td></tr>
 <tr><td><strong>vivir, vestir y tocar</strong></td><td>almohada, alfombra, alhaja, albornoz, laúd, guitarra, tambor, ajedrez, azar</td></tr>
 </table>
-<p class="apoyo">El sello <em>al-</em> se disfraza delante de algunas letras: <em>az-</em> (azúcar), <em>ar-</em> (arroz), <em>ad-</em> (aduana), <em>a-</em> (aceite, acequia). El mapa también habla árabe: <em>Guad-</em> es <em>wādī</em>, río; Guadalajara es "el río de las piedras" y Guadalquivir, "el río grande". Y ojo con los impostores: <em>alma</em>, <em>alto</em>, <em>alumno</em> y <em>alegría</em> empiezan con <em>al-</em> y son latín de toda la vida. La marca sospecha; el paréntesis decide.</p>
-<p class="recurso"><a href="../ejercicios/semana-09/ejercicio-9F-el-sello-al.html" target="_blank" rel="noopener">El sello al-</a><span class="pie">Arabismos contra impostores latinos, el paréntesis leído, las puertas, el mapa y tu arabismo del día.</span></p>
-<p class="nota-conductor">Para el equipo de árabe esta tabla es la lista casi hecha; que la use para elegir, no para copiar: las ocho palabras tienen que ser de las que se dicen en su casa. El mazo proyectable de los ocho siglos, si no se vio el martes, cabe aquí en doce minutos y la sesión queda en tiempo si acortas el gimnasio a veinte.</p>
+<p class="apoyo">Es la puerta más grande después del latín, y por eso hoy se abre con su propio mazo: la línea del tiempo de 711 a 1492, el sello <em>al-</em> y sus disfraces (<em>az-</em>, <em>ar-</em>, <em>a-</em>), los números que escribes, el mapa (<em>Guad-</em> es <em>wādī</em>, río) y los impostores: <em>alma</em>, <em>alto</em> y <em>alumno</em> empiezan con <em>al-</em> y son latín de toda la vida. La marca sospecha; el paréntesis decide.</p>
+<p class="recurso"><a href="../ejercicios/semana-09/ocho-siglos-de-arabe.html" target="_blank" rel="noopener">Ocho siglos de árabe</a><span class="pie">Dieciséis láminas para proyectar ahora: la tecla R revela las apuestas y la N muestra tus notas.</span></p>
+<p class="nota-conductor">Proyecta el mazo desde el enlace y déjalo correr: doce minutos con las tres apuestas incluidas. La tabla de esta lámina se queda en la página para el equipo de árabe, que la usa para elegir sus ocho palabras, no para copiarlas: tienen que ser de las que se dicen en su casa. El gimnasio que remata esta puerta, <a href="../ejercicios/semana-09/ejercicio-9F-el-sello-al.html">El sello al-</a>, es para la casa y para el centro de cómputo de mañana si sobra tiempo.</p>
 </section>
 <section class="lam lam--oscura">
-<h4>La quinta puerta se abrió ayer</h4>
+<h4><span class="n">4</span> La quinta puerta se abrió ayer <span class="reloj">6 min</span></h4>
 <p class="di">gg · lootear · grindear · farmear · skin · nerfear</p>
-<p class="apoyo">Las cuatro puertas de la tabla son historia. Esta está abierta ahora mismo, y entra una palabra por partida. Es la puerta del inglés de la pantalla, y funciona igual que las otras: <strong>una lengua presta las palabras de lo que sabe hacer</strong>, y el juego llegó en inglés con su vocabulario pegado, como la hamaca llegó con su nombre taíno. Fíjate en el disfraz: <em>lootear</em>, <em>looteo</em>, <em>looteamos</em>. Cuando un préstamo se conjuga, ya empezó a ser tuyo. Y en el viaje de regreso: <em>farmear</em> viene del latín <em>FIRMARE</em>, <em>carrear</em> es la misma palabra que <em>cargar</em>, y <em>nice</em> era <em>NESCIUS</em>, "el que no sabe".</p>
+<p class="apoyo">Las cuatro puertas de la tabla son historia. Esta está abierta ahora mismo, y entra una palabra por partida: la puerta del inglés de la pantalla. Funciona igual que las otras: el juego llegó en inglés con su vocabulario pegado, como la hamaca llegó con su nombre taíno. Fíjate en el disfraz: <em>lootear</em>, <em>looteo</em>, <em>looteamos</em>. Cuando un préstamo se conjuga, ya empezó a ser tuyo. Y en el viaje de regreso: <em>farmear</em> viene del latín <em>FIRMARE</em>, <em>carrear</em> es la misma palabra que <em>cargar</em>, y <em>nice</em> era <em>NESCIUS</em>, "el que no sabe".</p>
 <p class="recurso"><a href="../ejercicios/semana-09/ejercicio-9H-la-puerta-gamer.html" target="_blank" rel="noopener">La puerta gamer</a><span class="pie">Treinta préstamos con su viaje, cómo entró cada uno, la máquina de -ear, y tu ficha para el muro de esta página.</span></p>
-<p class="nota-conductor">Es la lámina que más despierta al salón: son sus palabras. Pide tres en voz alta antes de mostrar la lista y anótalas: van al muro de la puerta gamer, abajo en esta página, con el formulario. Si el equipo de inglés prefiere adoptar la puerta gamer en vez del inglés de los abuelos (clóset, suéter), que lo haga: la regla sigue siendo ocho palabras que ellos digan de verdad, con el ejemplo dicho tal cual. El argumento de fondo, extranjerismo o crecimiento, no se resuelve hoy: es la disputa de la semana 12.</p>
-</section>
-<section class="lam">
-<h4>La misma palabra, dos viajes</h4>
-<div class="dis">
-<span class="pz pz--raiz">caput<small>cabeza (latín)</small></span>
-<span class="eq">→ chef (francés) → jefe · chef</span>
-</div>
-<p class="di">jefe y chef son la misma palabra francesa. Entró dos veces, con tres siglos de diferencia.</p>
-<p class="apoyo">El francés <em>chef</em> ("cabeza", "el que manda") entró al español en el siglo XVII y el idioma lo masticó hasta dejarlo en <em>jefe</em>. En el siglo XX volvió a entrar, ahora con gorro blanco, y como llegó tarde se quedó tal cual: <em>chef</em>. Es un doblete como los de la semana 8 (<em>oreja</em> y <em>aurícula</em>), pero de préstamo: la primera entrada se gasta, la segunda se conserva.</p>
-</section>
-<section class="lam lam--oscura">
-<h4>Palabras mexicanas que conquistaron el mundo</h4>
-<p class="di">chocolate · tomate · aguacate · chile · chicle · coyote</p>
-<p class="apoyo">El préstamo no va en una sola dirección. Estas seis salieron del náhuatl, pasaron por el español y hoy viven en inglés, francés, alemán, japonés. <em>Chocolate</em> se dice casi igual en cien lenguas: es probablemente la palabra mexicana más viajada de la historia.</p>
-<p class="nota-conductor">Buen momento para el mapa mental: el náhuatl no solo recibió, también exportó. Si alguien pregunta por <em>tiza</em>, guárdala: es el caso del jueves.</p>
+<p class="nota-conductor">Es la lámina que más despierta al salón: son sus palabras. Pide tres en voz alta antes de mostrar la lista y anótalas en la columna de inglés del pizarrón. El ejercicio es para la casa, con una ficha que sube al muro de la puerta gamer, abajo en esta página; el equipo de inglés puede usarlo hoy mismo como lista de partida. El argumento de fondo, extranjerismo o crecimiento, no se resuelve hoy: es la disputa de la semana 12.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">3</span> Gimnasio: la lista de tu lengua <span class="reloj">25 min</span></h4>
+<h4><span class="n">5</span> Gimnasio: la lista de tu lengua <span class="reloj">22 min</span></h4>
 <span class="senal">Actividad · por equipos</span>
 <p class="di">Cada equipo adopta una lengua y junta sus préstamos vivos en el habla de todos los días.</p>
-<p class="apoyo"><a href="../ejercicios/semana-09/ejercicio-9B-la-lista-de-tu-lengua.html">La lista de tu lengua</a>: mínimo ocho palabras con significado y, si la tiene, su pista de origen (el <em>al-</em>, el <em>-te</em>). Al final entregan sus dos más dudosas: esas van al tribunal del jueves. La captura del equipo alimenta el mapa léxico que arranca la semana que viene.</p>
+<p class="apoyo"><a href="../ejercicios/semana-09/ejercicio-9B-la-lista-de-tu-lengua.html">La lista de tu lengua</a>: mínimo ocho palabras con significado y, si la tiene, su pista de origen (el <em>al-</em>, el <em>-te</em>, el <em>-ear</em>). Al final entregan sus dos más dudosas: esas van al tribunal del jueves. La captura del equipo alimenta el mapa léxico que arranca la semana que viene.</p>
 <p class="recurso"><a href="../ejercicios/semana-09/ejercicio-9B-la-lista-de-tu-lengua.html" target="_blank" rel="noopener">La lista de tu lengua</a><span class="pie">Ocho palabras, dos dudosas y una captura por equipo.</span></p>
-<p class="nota-conductor">Cuatro equipos, una lengua cada uno; si hay más de cuatro, dos equipos de náhuatl, que es la bolsa más grande. El equipo de inglés tiende a listar palabras que no usan ("software"): pídeles palabras que de verdad se dicen en su casa (clóset, suéter, sándwich, bistec), o las de su pantalla (gg, lootear, skin), con el glosario de la puerta gamer como lista de partida. Las capturas se pegan en la plantilla del tablero y de ahí sale "Lo que produjimos".</p>
-</section>
-<section class="lam lam--actividad">
-<h4><span class="n">4</span> Fábrica de tarjetas <span class="reloj">7 min</span></h4>
-<span class="senal">Actividad · individual</span>
-<p class="di">Al mazo: las dos marcas y siete palabras viajeras.</p>
-<p class="apoyo">Frente, la palabra (<em>ojalá</em>); reverso, lengua y significado literal (<em>árabe · "si Dios quiere"</em>). Las dos marcas se tarjetean como piezas: <em>al-</em> y <em>-tl → -te</em>. La lista completa está abajo, en las tarjetas de la semana, y el mazo de Anki ya trae las catorce.</p>
+<p class="nota-conductor">Los equipos vienen armados de ayer, con su lengua. El de árabe tiene la tabla de la lámina 3; el de náhuatl, la bolsa grande al final de esta página; el de inglés tiende a listar palabras que no usa ("software"): pídele las de su casa (clóset, suéter, sándwich, bistec) o las de su pantalla (gg, lootear, skin). Las capturas se pegan en la plantilla del tablero y de ahí sale "Lo que produjimos".</p>
 </section>
 <section class="lam">
-<h4><span class="n">5</span> Cierre <span class="reloj">3 min</span></h4>
+<h4><span class="n">6</span> Cierre <span class="reloj">3 min</span></h4>
 <span class="senal senal--casa">Para llevar a casa</span>
 <p class="di">Mañana, centro de cómputo: las dudosas de tu equipo van a juicio.</p>
-<p class="apoyo">Trae a la mano tus dudosas del martes y las dos de tu equipo. Y ve pensando en <strong>una palabra de tu casa o tu región</strong> que no esté en ningún diccionario: mañana la eliges y la investigas con tu familia el fin de semana.</p>
+<p class="apoyo">Trae a la mano tus dudosas del martes y las dos de tu equipo. Ve pensando en <strong>una palabra de tu casa o tu región</strong> que no esté en ningún diccionario: mañana la eliges y la investigas con tu familia el fin de semana. Y para la casa, dos gimnasios de hoy: <a href="../ejercicios/semana-09/ejercicio-9F-el-sello-al.html">El sello al-</a> y <a href="../ejercicios/semana-09/ejercicio-9H-la-puerta-gamer.html">La puerta gamer</a>, cuya ficha sube al muro de esta página.</p>
 </section>
 </section>
 
@@ -337,11 +311,17 @@ Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo 
 <p class="apoyo"><em>Apapacho</em> viene del náhuatl <em>papatzoa</em>, ablandar algo apretándolo con los dedos. Pero los hablantes cultos del náhuatl le daban el sentido que le damos hoy: abrazar o acariciar con el alma. No hay una palabra griega, latina ni árabe que diga eso. Fíjate en el detalle de la fuente: el DLE la registra apenas en su edición de 2014. Millones de personas la decían mucho antes de que un diccionario les diera permiso.</p>
 <p class="nota-conductor">Es la siembra directa de la semana 10 ("el diccionario lo hacemos nosotros"). No la expliques de más: deja caer la frase del permiso y sigue.</p>
 </section>
+<section class="lam lam--oscura">
+<h4>Palabras mexicanas que conquistaron el mundo</h4>
+<p class="di">chocolate · tomate · aguacate · chile · chicle · coyote</p>
+<p class="apoyo">El préstamo no va en una sola dirección. Estas seis salieron del náhuatl, pasaron por el español y hoy viven en inglés, francés, alemán, japonés. <em>Chocolate</em> se dice casi igual en cien lenguas: es probablemente la palabra mexicana más viajada de la historia.</p>
+<p class="nota-conductor">Un minuto, dentro del tiempo de apapacho: el náhuatl no solo recibió, también exportó. Es la otra cara de la palabra que abraza, y sirve de puente a la biografía viajera que sigue.</p>
+</section>
 <section class="lam lam--actividad">
 <h4><span class="n">3</span> Gimnasio: la palabra viajera <span class="reloj">30 min</span></h4>
 <span class="senal">Actividad · individual</span>
 <p class="di">Toma un préstamo verificado y escribe su biografía con foco en el camino.</p>
-<p class="apoyo"><a href="../ejercicios/semana-09/ejercicio-9D-la-palabra-viajera.html">La palabra viajera</a>: la ficha de viaje arriba (palabra, lengua de origen, significado literal, fuente) y abajo un párrafo que cuente dónde nació, cómo cruzó al español (conquista, comercio, Al-Ándalus, moda, deporte) y dónde vive hoy en tu habla. Es la <strong>segunda pieza de tu portafolio de la unidad 2</strong>, y candidata a la Sala 2 del Museo. Al final generas la captura y la guardas donde lleves tu portafolio.</p>
+<p class="apoyo"><a href="../ejercicios/semana-09/ejercicio-9D-la-palabra-viajera.html">La palabra viajera</a>: la ficha de viaje arriba (palabra, lengua de origen, significado literal, fuente) y abajo un párrafo que cuente dónde nació, cómo cruzó al español (conquista, comercio, Al-Ándalus, moda, deporte) y dónde vive hoy en tu habla. Es la <strong>primera pieza de tu portafolio de la unidad 2</strong>, y candidata a la Sala 2 del Museo. Al final generas la captura y la guardas donde lleves tu portafolio.</p>
 <p class="recurso"><a href="../ejercicios/semana-09/ejercicio-9D-la-palabra-viajera.html" target="_blank" rel="noopener">La palabra viajera</a><span class="pie">Ficha de viaje, biografía con tres estaciones y un ejemplo con el que compararte.</span></p>
 <p class="nota-conductor">La regla es que la palabra ya haya pasado por el tribunal: fuente anotada o no entra. Quien se quedó con una historia rara del jueves (quiosco, naranja con escala en Persia) tiene la mejor pieza del día. Recuérdales la <a href="../recursos/plantillas/ficha-museo.html">ficha del Museo</a> para pasarla en limpio.</p>
 </section>
@@ -370,7 +350,7 @@ Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo 
 <section class="lam">
 <h4><span class="n">6</span> La Sala 2 está abierta <span class="reloj">7 min</span></h4>
 <p class="di">Palabras heredadas: las piezas de esta unidad ya tienen pared.</p>
-<p class="apoyo">En la <a href="../museo/galeria.html">galería del Museo</a> abrió la segunda sala. Ahí van a colgarse las palabras que viajaron mil años (semana 8), las viajeras de hoy, las que salvemos del olvido la semana que entra y las que traen leyenda. La pieza se manda desde la <a href="../recursos/plantillas/bitacora-lector.html">bitácora</a> o con la <a href="../museo/plantilla-biografia.html">plantilla de biografía</a>, y pasa por curaduría antes de colgarse: nombre de pila y fuente verificada, como siempre.</p>
+<p class="apoyo">En la <a href="../museo/galeria.html">galería del Museo</a> abrió la segunda sala. Ahí van a colgarse las viajeras de hoy, las que salvemos del olvido la semana que entra y las que traen leyenda. La pieza se manda desde la <a href="../recursos/plantillas/bitacora-lector.html">bitácora</a> o con la <a href="../museo/plantilla-biografia.html">plantilla de biografía</a>, y pasa por curaduría antes de colgarse: nombre de pila y fuente verificada, como siempre.</p>
 <p class="apoyo">La semana que entra la pregunta cambia de tamaño: ¿y si el diccionario lo hiciéramos nosotros? Trae tu entrevista hecha.</p>
 </section>
 <section class="lam">
@@ -396,9 +376,8 @@ Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y
 - [El origen a juicio](../ejercicios/semana-09/ejercicio-9C-el-origen-a-juicio.html) · jueves, centro de cómputo
 - [La palabra viajera](../ejercicios/semana-09/ejercicio-9D-la-palabra-viajera.html) · viernes
 - [Tu booktuber](../ejercicios/semana-09/ejercicio-9E-tu-booktuber.html) · viernes, y en casa si grabas después
-- [El sello al-](../ejercicios/semana-09/ejercicio-9F-el-sello-al.html) · martes o miércoles: arabismos contra impostores latinos, el paréntesis leído, las puertas y el mapa
-- [Lenguas francas, ayer y hoy](../ejercicios/semana-09/ejercicio-9G-lenguas-francas.html) · martes: del latín al inglés, tu día en lenguas francas y un argumento para la semana 12
-- [La puerta gamer](../ejercicios/semana-09/ejercicio-9H-la-puerta-gamer.html) · miércoles: treinta préstamos con su viaje, la máquina de -ear y tu ficha para el muro
+- [El sello al-](../ejercicios/semana-09/ejercicio-9F-el-sello-al.html) · miércoles, para la casa: arabismos contra impostores latinos, el paréntesis leído, las puertas y el mapa
+- [La puerta gamer](../ejercicios/semana-09/ejercicio-9H-la-puerta-gamer.html) · miércoles, para la casa: treinta préstamos con su viaje, la máquina de -ear y tu ficha para el muro de esta página
 - [Quiz de gimnasio](../ejercicios/semana-09/quiz-gimnasio-semana-09.html) · para ensayar cuando quieras
 - [El quiz relámpago, tal como se proyecta](../ejercicios/semana-09/quiz-relampago-semana-09.html) · viernes, con cronómetro y respuestas
 
@@ -406,8 +385,7 @@ Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y
 
 Se proyectan en clase y se quedan aquí para volver a ellos. Avanzan con las flechas; la tecla **R** revela las apuestas y la **N** muestra las notas del conductor.
 
-- [Ocho siglos de árabe](../ejercicios/semana-09/ocho-siglos-de-arabe.html) · martes o miércoles: de 711 a 1492, el sello y sus disfraces, las puertas, los números y el mapa
-- [Del latín a las lenguas francas](../ejercicios/semana-09/del-latin-a-las-lenguas-francas.html) · martes: la Romania, los dos latines, y quién tiene hoy el puesto que tuvo el latín
+- [Ocho siglos de árabe](../ejercicios/semana-09/ocho-siglos-de-arabe.html) · miércoles: de 711 a 1492, el sello y sus disfraces, las puertas, los números y el mapa
 - [Tu booktuber, paso a paso](../ejercicios/semana-09/booktuber-como-se-hace.html) · viernes: el instructivo del primer booktuber, tabla del suelo de la unidad
 
 ### En el centro de cómputo (jueves)
@@ -618,9 +596,9 @@ window.GAMER = [
 
 ## Las tarjetas de la semana
 
-Esta semana entran tres **marcas** (se tarjetean como piezas), trece palabras viajeras con su lengua y su significado literal, y cuatro conceptos que la unidad va a usar hasta la disputa: veintiuna tarjetas.
+Esta semana entran tres **marcas** (se tarjetean como piezas), trece palabras viajeras con su lengua y su significado literal, y seis conceptos que la unidad va a usar hasta la disputa: veintitrés tarjetas.
 
-📥 **[Baja el mazo de la semana 9](../recursos/anki/etimologias-semana-09.apkg)** · Las tres marcas, las trece viajeras y los cuatro conceptos, con su fuente.
+📥 **[Baja el mazo de la semana 9](../recursos/anki/etimologias-semana-09.apkg)** · Las tres marcas, las trece viajeras y los seis conceptos, con su fuente.
 
 | Frente | Reverso (origen · significado) |
 |---|---|
@@ -645,6 +623,8 @@ Esta semana entran tres **marcas** (se tarjetean como piezas), trece palabras vi
 | lengua franca | la que usan para entenderse quienes no comparten lengua materna · el latín ayer, el inglés hoy |
 | préstamo | palabra tomada de otra lengua con poca o ninguna adaptación · hamaca, chef, lootear |
 | -ear | la máquina de adaptar verbos ajenos · lootear, chatear, googlear |
+| calco | préstamo traducido pieza por pieza, que parece español de siempre · jefe final |
+| sigla | iniciales que se leen como palabra · gg, afk, OP |
 
 ## Por si hay tiempo: la bolsa grande de nahuatlismos
 
