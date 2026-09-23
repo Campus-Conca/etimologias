@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ocho siglos de árabe · Semana 9 · proyectable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ciruela:#2B2440; --morado:#6B1E5A; --rosa:#C4006A; --rosa-suave:#FFD6E9; --rosa-luz:#F4A8CE;
+    --jade:#0B5F52; --jade-suave:#DFF5EE; --dorado:#B07B12; --ambar:#FBF0D9; --tinta:#221A3A; --gris:#4A3F5C;
+    --borde:#E6DFF0; --fondo:#F4EFF9; --rojo:#A3312B; --rojo-suave:#FDECEC;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  html,body{height:100%}
+  body{font-family:"Inter",system-ui,sans-serif; background:var(--fondo); color:var(--tinta); overflow:hidden}
+  .disp{font-family:"Bricolage Grotesque","Inter",sans-serif; font-weight:800; letter-spacing:-.015em}
+  .slide{position:absolute; inset:0; display:none; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:4vmin 7vmin 12vmin; gap:2vmin}
+  .slide.activa{display:flex}
+  .slide--oscura{background:var(--ciruela); color:#F4EFF9}
+  .slide--ambar{background:#FBF7E9}
+  .kicker{font-size:2vmin; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--rosa)}
+  .slide--oscura .kicker{color:var(--rosa-luz)}
+  h1{font-size:7vmin; line-height:1.08; max-width:85vw}
+  h2{font-size:5.4vmin; line-height:1.15; max-width:88vw}
+  .sub{font-size:2.9vmin; color:var(--gris); max-width:74vw; line-height:1.5}
+  .slide--oscura .sub{color:#D9CFE8}
+  .grande{font-size:9vmin; line-height:1; color:var(--rosa)}
+  .slide--oscura .grande{color:var(--rosa-luz)}
+  .dis{display:flex; gap:1.2vmin; align-items:center; justify-content:center; flex-wrap:wrap; margin-top:1vmin}
+  .pz{display:inline-block; border-radius:1.2vmin; padding:1.2vmin 2vmin; font-weight:700; font-size:4vmin; line-height:1.1; font-family:"IBM Plex Mono",ui-monospace,monospace}
+  .pz small{display:block; font-weight:400; font-size:1.9vmin; opacity:.85; font-family:"Inter",sans-serif}
+  .pz--pre{background:#FFE3F0; color:#A30058}
+  .pz--raiz{background:#2B2440; color:#FFD6E9}
+  .pz--suf{background:#DFF5EE; color:#0B5F52}
+  .eq{font-size:4.2vmin; font-weight:800}
+  table{border-collapse:collapse; font-size:2.5vmin; max-width:90vw; background:#fff; border-radius:1.5vmin; overflow:hidden}
+  th{background:#F7F3FB; color:var(--tinta); text-transform:uppercase; font-size:1.7vmin; letter-spacing:.06em; padding:1.2vmin 1.8vmin; text-align:left; border-bottom:1px solid var(--borde)}
+  td{padding:1.1vmin 1.8vmin; border-bottom:1px solid var(--borde); text-align:left; vertical-align:top; line-height:1.35}
+  td b{color:var(--rosa)}
+  tr:last-child td{border-bottom:none}
+  .linea{display:flex; align-items:flex-end; gap:0; width:86vw; max-width:1400px; margin-top:2vmin}
+  .hito{flex:1; position:relative; padding-top:2.4vmin; border-top:.7vmin solid var(--rosa); text-align:left}
+  .hito:last-child{flex:0 0 auto; padding-right:2vmin}
+  .hito::before{content:""; position:absolute; left:0; top:-1.6vmin; width:2.6vmin; height:2.6vmin; border-radius:50%; background:var(--rosa); border:.5vmin solid #fff}
+  .hito b{display:block; font-size:4vmin; line-height:1; color:var(--tinta)}
+  .hito span{display:block; font-size:2.1vmin; color:var(--gris); margin-top:.6vmin; max-width:22vw; line-height:1.35}
+  .sello{display:inline-flex; align-items:center; gap:2.5vmin; border:.6vmin solid var(--rosa); border-radius:2vmin; padding:2vmin 4vmin; background:#fff; transform:rotate(-2deg)}
+  .sello b{font-size:9vmin; line-height:1; color:var(--rosa); font-family:"IBM Plex Mono",ui-monospace,monospace}
+  .sello span{font-size:2.8vmin; text-align:left; color:var(--gris); line-height:1.35}
+  .fila{display:flex; gap:2.5vmin; flex-wrap:wrap; justify-content:center; max-width:90vw}
+  .tarj{background:#fff; border:1px solid var(--borde); border-radius:1.6vmin; padding:2vmin 2.6vmin; min-width:22vmin; text-align:left}
+  .tarj b{display:block; font-size:3.4vmin; color:var(--morado); line-height:1.1}
+  .tarj span{display:block; font-size:2.1vmin; color:var(--gris); margin-top:.6vmin; line-height:1.4}
+  .tarj i{display:block; font-style:normal; font-size:1.7vmin; letter-spacing:.08em; text-transform:uppercase; color:var(--rosa); font-weight:700}
+  .opciones{display:flex; gap:2vmin; flex-wrap:wrap; justify-content:center}
+  .opciones span{font-size:3.6vmin; font-weight:800; background:#fff; border:1px solid var(--borde); border-radius:2vmin; padding:1.5vmin 3.5vmin; color:var(--morado)}
+  .rev{display:none}
+  .slide.revelada .rev{display:block}
+  .slide.revelada .tapa{display:none}
+  .btn-rev{font-family:inherit; font-weight:700; font-size:2.3vmin; border:none; cursor:pointer; border-radius:3vmin; padding:1.2vmin 3vmin; background:var(--rosa); color:#fff; margin-top:1vmin}
+  .slide--oscura .btn-rev{background:var(--rosa-suave); color:var(--morado)}
+  .resp{font-size:5vmin; color:var(--jade); line-height:1.15}
+  .slide--oscura .resp{color:#BFE7DC}
+  .explica{font-size:2.7vmin; color:var(--gris); max-width:76vw; line-height:1.55}
+  .slide--oscura .explica{color:#D9CFE8}
+  .nube{display:flex; flex-wrap:wrap; gap:1.4vmin 2.4vmin; justify-content:center; max-width:90vw}
+  .nube span{font-size:3.2vmin; font-weight:700; color:var(--morado)}
+  .nube span.al{color:var(--rosa)}
+  .nube span.lat{color:#9A9A9A; text-decoration:line-through; text-decoration-color:#C4006A}
+  .barra{display:flex; width:80vw; max-width:1200px; height:9vmin; border-radius:2vmin; overflow:hidden; border:1px solid var(--borde); background:#fff}
+  .barra div{display:flex; align-items:center; justify-content:center; font-weight:800; font-size:3.2vmin; color:#fff}
+  .nota-pie{font-size:1.9vmin; color:var(--gris); opacity:.8; max-width:80vw}
+  #controles{position:fixed; bottom:2.5vmin; left:0; right:0; display:flex; justify-content:center; gap:2vmin; z-index:10}
+  #controles button{font-family:inherit; font-weight:700; font-size:2.4vmin; border:none; cursor:pointer; border-radius:3vmin; padding:1.2vmin 3vmin; background:var(--rosa-suave); color:var(--morado)}
+  #controles button:hover{background:#fff}
+  #cuenta{position:fixed; bottom:3vmin; right:3vmin; font-size:2vmin; color:var(--gris); z-index:10}
+  .tecla{font-size:1.9vmin; color:var(--gris); opacity:.75}
+  .slide--oscura .tecla{color:#D9CFE8}
+  .conductor{position:fixed; left:2.5vmin; bottom:9vmin; max-width:34vw; background:var(--ambar); border:1px dashed #C79A2E; border-radius:1.2vmin; padding:1.2vmin 1.6vmin; font-size:1.8vmin; line-height:1.45; color:#5C4A1C; text-align:left; display:none; z-index:11}
+  .conductor::before{content:"Nota del conductor"; display:block; font-size:1.4vmin; letter-spacing:.11em; text-transform:uppercase; font-weight:700; margin-bottom:.4vmin}
+  body.con-notas .slide.activa .conductor{display:block}
+</style>
+</head>
+<body>
+
+<!-- 1 · Portada -->
+<section class="slide slide--oscura activa">
+  <div class="kicker">Semana 9 · Las lenguas escondidas · proyectable</div>
+  <h1 class="disp">Ocho siglos de árabe</h1>
+  <p class="sub">De 711 a 1492. Cuatro mil palabras. Y todas empiezan en tu almohada.</p>
+  <p class="tecla">Avanza con → o espacio · regresa con ← · R revela la respuesta · N notas del conductor</p>
+  <div class="conductor">Este mazo se proyecta el martes después de la lámina de los ocho siglos, o el miércoles al abrir la puerta árabe. Son dieciséis láminas; a paso normal, doce minutos. Las de apuesta (2, 11, 14 y 15) se revelan con la tecla R o con el botón: deja que apuesten en voz alta antes.</div>
+</section>
+
+<!-- 2 · Apuesta -->
+<section class="slide">
+  <div class="kicker">Antes de ver nada</div>
+  <h2 class="disp">¿Cuántas palabras árabes dices en un día normal?</h2>
+  <div class="opciones tapa"><span>ninguna</span><span>unas 5</span><span>unas 20</span><span>más de 50</span></div>
+  <button class="btn-rev tapa" type="button">Revelar</button>
+  <div class="rev">
+    <p class="resp disp">Más de cincuenta. Sin darte cuenta.</p>
+    <p class="explica">Aceite, azúcar, taza, jarra, almacén, barrio, hasta, tarea, ojalá, alcalde, alberca, café, limón, naranja, algodón, jarabe, zanahoria, alfombra, almohada, alcancía, fulano, asesino, cifra, cero, álgebra. Y no vas ni a mediodía.</p>
+  </div>
+  <div class="conductor">Que las apuestas suenen. Casi todos dicen "unas 5". El truco de la revelación es leer la lista rápido, sin parar, para que se oiga como lo que es: el habla de todos los días.</div>
+</section>
+
+<!-- 3 · La línea del tiempo -->
+<section class="slide slide--ambar">
+  <div class="kicker">Ocho siglos</div>
+  <h2 class="disp">Más tiempo del que lleva el español en América</h2>
+  <div class="linea">
+    <div class="hito"><b>711</b><span>Táriq desembarca en la roca que hoy lleva su nombre: Gibraltar, <em>Yabal Táriq</em>, "la montaña de Táriq".</span></div>
+    <div class="hito"><b>929</b><span>Córdoba, capital del califato: la ciudad más grande de Europa, con biblioteca de cuatrocientos mil libros.</span></div>
+    <div class="hito"><b>1085</b><span>Toledo pasa a manos cristianas. Ahí se traducen al latín los libros árabes de ciencia: por esa puerta entran <em>álgebra</em> y <em>algoritmo</em>.</span></div>
+    <div class="hito"><b>1492</b><span>Cae Granada. El mismo año salen los barcos hacia América, y con ellos, todas estas palabras.</span></div>
+  </div>
+  <p class="nota-pie">781 años. El español lleva en América 500.</p>
+  <div class="conductor">La comparación con América es la que les da el tamaño: el árabe estuvo en España más tiempo del que el español lleva aquí. El dato de Córdoba (la ciudad más grande de Europa hacia el año 1000) suele sorprender: úsalo.</div>
+</section>
+
+<!-- 4 · Cómo convivieron -->
+<section class="slide">
+  <div class="kicker">Lo que pasó con la lengua</div>
+  <h2 class="disp">La lengua se fue. Las palabras se quedaron.</h2>
+  <div class="fila">
+    <div class="tarj"><i>al principio</i><b>dos hablas juntas</b><span>El árabe de los recién llegados y el <strong>mozárabe</strong>: el romance que hablaban los cristianos que vivían bajo gobierno musulmán, lleno de árabe. Se casaban, comerciaban, se copiaban palabras.</span></div>
+    <div class="tarj"><i>ocho siglos</i><b>un árabe de aquí</b><span>Se formó un <strong>árabe hispánico</strong>, distinto del de Bagdad. Es el que el DLE abrevia "ár. hisp." en el paréntesis de <em>almohada</em>.</span></div>
+    <div class="tarj"><i>después de 1492</i><b>la pérdida</b><span>Expulsados los musulmanes y repobladas las tierras por gente que hablaba romance, el árabe se perdió en España. Pero las palabras ya eran de todos: nadie las devolvió.</span></div>
+  </div>
+  <div class="conductor">Aquí está la regla que vuelve en la semana 12: una lengua puede desaparecer de un territorio y dejar miles de palabras. Las palabras sobreviven a quien las trae. No la desarrolles hoy; nómbrala.</div>
+</section>
+
+<!-- 5 · La firma -->
+<section class="slide">
+  <div class="kicker">La marca que ya conoces</div>
+  <div class="sello"><b>al-</b><span>el artículo árabe: <strong>el, la</strong><br>Se quedó pegado a la palabra<br>cuando cruzó al romance.</span></div>
+  <div class="nube">
+    <span><span class="al">al</span>mohada</span><span><span class="al">al</span>fombra</span><span><span class="al">al</span>calde</span><span><span class="al">al</span>macén</span><span><span class="al">al</span>berca</span><span><span class="al">al</span>godón</span><span><span class="al">al</span>cancía</span><span><span class="al">al</span>bañil</span><span><span class="al">al</span>manaque</span><span><span class="al">al</span>fil</span>
+  </div>
+  <p class="explica">Los cristianos oían "al-mihadda" como una sola palabra, y así la adoptaron: con todo y artículo. Por eso en español decimos "la almohada", que literalmente es "la la-mohada".</p>
+</section>
+
+<!-- 6 · El sello cambia de forma -->
+<section class="slide slide--ambar">
+  <div class="kicker">La marca, disfrazada</div>
+  <h2 class="disp">El <em>al-</em> cambia de cara según la letra que sigue</h2>
+  <table>
+    <tr><th>Delante de</th><th>Se vuelve</th><th>Ejemplos</th></tr>
+    <tr><td>z</td><td><b>az-</b></td><td>azúcar (<em>as-sukkar</em>), azafrán, azotea, azulejo, azabache, azar, azafata</td></tr>
+    <tr><td>r</td><td><b>ar-</b></td><td>arroz (<em>ar-ruzz</em>), arrayán, arrabal, arrecife</td></tr>
+    <tr><td>d, t, n, s</td><td><b>ad-, at-, an-, as-</b></td><td>aduana, atalaya, anaquel, asequible, acequia (<em>as-sāqiya</em>), aceite (<em>az-zayt</em>)</td></tr>
+    <tr><td>sin artículo</td><td><b>nada</b></td><td>naranja, limón, jarabe, taza, jarra, café, ojalá, hasta, barrio, tarea</td></tr>
+  </table>
+  <p class="explica">En árabe, la L del artículo se asimila a ciertas consonantes: <em>al-sukkar</em> se pronuncia <em>as-sukkar</em>. El español copió lo que oyó. Así que la marca no es solo <em>al-</em>: es <em>a-</em> más una consonante repetida. Y muchas no la traen: la marca sospecha; la fuente decide.</p>
+  <div class="conductor">La fila de "sin artículo" es la importante: evita que salgan del salón creyendo que todo arabismo lleva al-. Naranja y jarabe son los contraejemplos que mejor funcionan.</div>
+</section>
+
+<!-- 7 · La H de en medio -->
+<section class="slide">
+  <div class="kicker">Otra huella</div>
+  <h2 class="disp">Una <em>h</em> en medio de la palabra que alguna vez sonó</h2>
+  <div class="nube">
+    <span>almo<span class="al">h</span>ada</span><span>aza<span class="al">h</span>ar</span><span>alfa<span class="al">h</span>ar</span><span>zana<span class="al">h</span>oria</span><span>al<span class="al">h</span>aja</span><span>al<span class="al">h</span>elí</span><span>al<span class="al">h</span>óndiga</span><span>rehén</span>
+  </div>
+  <p class="explica">El árabe tiene sonidos aspirados que el romance no tenía. Los escribió con <em>h</em>, y en su momento esa <em>h</em> se oía, como la de <em>harina</em> cuando todavía era F. Hoy es muda en los dos casos, y por la misma razón: mil años de bocas.</p>
+</section>
+
+<!-- 8 · Las puertas -->
+<section class="slide slide--ambar">
+  <div class="kicker">Una lengua presta las palabras de lo que sabe hacer</div>
+  <h2 class="disp">Por qué puertas entraron</h2>
+  <table>
+    <tr><th>La puerta</th><th>Las palabras</th></tr>
+    <tr><td><b>el agua y la construcción</b></td><td>acequia, alberca, aljibe, noria, albañil, alcantarilla, azotea, azulejo, adobe, tabique</td></tr>
+    <tr><td><b>el campo y las plantas</b></td><td>alfalfa, algodón, azucena, jazmín, alcachofa, acelga, espinaca, berenjena, naranja, limón, zanahoria, sandía, azafrán, amapola, alhelí</td></tr>
+    <tr><td><b>la cocina y los dulces</b></td><td>aceite, azúcar, jarabe, almíbar, albóndiga, alubia, arroz, café, taza, jarra, fideo, escabeche</td></tr>
+    <tr><td><b>la ciencia</b></td><td>álgebra, algoritmo, cifra, cero, alquimia, alcohol, elíxir, alcalino, cénit, nadir, almanaque</td></tr>
+    <tr><td><b>el gobierno y la guerra</b></td><td>alcalde, alguacil, almirante, alférez, adalid, jeque, alcázar, atalaya, rehén, asesino</td></tr>
+    <tr><td><b>el comercio y las medidas</b></td><td>aduana, almacén, tarifa, arancel, almoneda, arroba, quilate, fanega, maravedí</td></tr>
+    <tr><td><b>la casa, el vestido y la música</b></td><td>almohada, alfombra, alhaja, zafiro, albornoz, laúd, guitarra, tambor, rabel, ajedrez, azar</td></tr>
+  </table>
+  <div class="conductor">No leas la tabla completa: elige dos filas y pregunta qué tienen en común (el agua, los dulces). La regla de la semana es la que sale sola: una lengua presta las palabras de lo que sabe hacer, y los árabes sabían regar, endulzar, contar y gobernar.</div>
+</section>
+
+<!-- 9 · Los números -->
+<section class="slide slide--oscura">
+  <div class="kicker">La puerta de la ciencia</div>
+  <p class="grande disp">0 1 2 3 4 5 6 7 8 9</p>
+  <h2 class="disp">Los signos con los que cuentas llegaron por el árabe</h2>
+  <p class="explica">Nacieron en la India, viajaron a Bagdad y entraron a Europa por Al-Ándalus. <em>Cifra</em> y <em>cero</em> vienen de la misma palabra árabe, <em>ṣifr</em>, "vacío". <em>Algoritmo</em> es el apellido de un matemático de Bagdad, al-Juarismi, gastado por bocas latinas. Y <em>álgebra</em> es el título de su libro: <em>al-yabr</em>, "la reunión de las partes rotas".</p>
+  <div class="conductor">El dato de al-Juarismi es de los que se recuerdan: un nombre propio vuelto palabra común. Si preguntan por "romanos" (los números que usan en los relojes), ahí está el contraste: escribir 2026 en romano es MMXXVI, y multiplicar así era una pesadilla.</div>
+</section>
+
+<!-- 10 · Topónimos -->
+<section class="slide">
+  <div class="kicker">El mapa también habla árabe</div>
+  <h2 class="disp">Guad- es <em>wādī</em>: río</h2>
+  <div class="fila">
+    <div class="tarj"><b>Guadalquivir</b><span><em>al-wādī al-kabīr</em>: el río grande</span></div>
+    <div class="tarj"><b>Guadalajara</b><span><em>wādī al-ḥiyāra</em>: el río de las piedras. La de Jalisco se llama como la de España, y la de España se llama en árabe.</span></div>
+    <div class="tarj"><b>Gibraltar</b><span><em>Yabal Táriq</em>: la montaña de Táriq, el general que desembarcó en 711</span></div>
+    <div class="tarj"><b>Alcalá</b><span><em>al-qalʿa</em>: el castillo</span></div>
+    <div class="tarj"><b>Andalucía</b><span><em>al-Andalus</em>: así llamaron los árabes a toda la península</span></div>
+    <div class="tarj"><b>Madrid</b><span>probablemente de <em>maǧrīṭ</em>, un canal de agua; la fuente lo dice con cautela</span></div>
+  </div>
+  <p class="explica">Albacete, Alicante, Almería, Medina, Calatayud, Benicasim: la mitad del sur de España se nombra en árabe. Y en México, todo lo que se llama Guadalajara, Guadalupe o Alcalá repite ese mapa.</p>
+  <div class="conductor">Guadalupe es el caso fino: guad- es árabe, pero el resto es discutido (lupe de LUPUS, río de lobos, es la explicación más repetida y no la única). Si sale, es una etimología para el tribunal del jueves, no para creerla aquí.</div>
+</section>
+
+<!-- 11 · Apuesta: al- engañoso -->
+<section class="slide slide--ambar">
+  <div class="kicker">Apuesta</div>
+  <h2 class="disp">Todas empiezan con <em>al-</em>. ¿Cuáles son árabes?</h2>
+  <div class="opciones tapa"><span>alma</span><span>alberca</span><span>alto</span><span>alcalde</span><span>alumno</span><span>alfombra</span><span>alegría</span><span>álbum</span></div>
+  <button class="btn-rev tapa" type="button">Revelar</button>
+  <div class="rev">
+    <div class="nube">
+      <span class="al">alberca</span><span class="al">alcalde</span><span class="al">alfombra</span><span class="lat">alma</span><span class="lat">alto</span><span class="lat">alumno</span><span class="lat">alegría</span><span class="lat">álbum</span>
+    </div>
+    <p class="explica">Tres de ocho. <em>Alma</em> es ANIMA; <em>alto</em>, ALTUS; <em>alumno</em>, ALUMNUS ("el que es alimentado"); <em>alegría</em>, ALACER; <em>álbum</em>, ALBUM ("lo blanco": la tabla blanca donde se anotaba). Todas latinas de toda la vida. La marca te dice dónde buscar; el paréntesis del DLE decide.</p>
+  </div>
+  <div class="conductor">Esta es la lámina que prepara el jueves: la marca no sentencia. Pide que apuesten a mano alzada palabra por palabra antes de revelar; alumno y alegría engañan a la mitad del salón.</div>
+</section>
+
+<!-- 12 · Las que pasaron por el árabe -->
+<section class="slide">
+  <div class="kicker">Escalas</div>
+  <h2 class="disp">Palabras que viajaron <em>por</em> el árabe sin ser árabes</h2>
+  <table>
+    <tr><th>Palabra</th><th>Nació en</th><th>Pasó por</th></tr>
+    <tr><td><b>naranja</b></td><td>el persa, <em>nārang</em></td><td>el árabe <em>nāranǧa</em> → el español</td></tr>
+    <tr><td><b>ajedrez</b></td><td>el sánscrito, <em>chaturanga</em> (los cuatro cuerpos del ejército)</td><td>el persa <em>shatranj</em> → el árabe <em>aš-šaṭranǧ</em> → el español</td></tr>
+    <tr><td><b>guitarra</b></td><td>el griego, <em>kithára</em></td><td>el árabe <em>qīṯāra</em> → el español (y <em>cítara</em>, su hermana culta, entró directo del latín)</td></tr>
+    <tr><td><b>café</b></td><td>el árabe, <em>qahwa</em></td><td>el turco <em>kahve</em> → el italiano <em>caffè</em> → el español</td></tr>
+    <tr><td><b>arroz</b></td><td>el griego, <em>óryza</em> (y antes, quizá, una lengua de la India)</td><td>el árabe <em>ar-ruzz</em> → el español</td></tr>
+    <tr><td><b>quiosco</b></td><td>el persa, <em>košk</em></td><td>el turco → el francés → el español (sin tocar el árabe)</td></tr>
+  </table>
+  <p class="explica">Durante quinientos años el árabe fue la lengua en la que se hacía ciencia y comercio de Bagdad a Córdoba: una <strong>lengua franca</strong>. Por eso tantas palabras hicieron escala en él. El latín tuvo ese puesto antes; el inglés lo tiene hoy.</p>
+  <div class="conductor">Puente al mazo "Del latín a las lenguas francas": aquí solo se planta la palabra. Guitarra y cítara son un doblete de préstamo, como chef y jefe: si el grupo va rápido, dilo.</div>
+</section>
+
+<!-- 13 · Las que no parecen -->
+<section class="slide slide--oscura">
+  <div class="kicker">Sin marca, y árabes</div>
+  <h2 class="disp">Las que nadie sospecha</h2>
+  <div class="fila">
+    <div class="tarj"><b>ojalá</b><span><em>law šāʾ Allāh</em>: si Dios quiere</span></div>
+    <div class="tarj"><b>hasta</b><span><em>ḥattā</em>: la preposición más árabe del español</span></div>
+    <div class="tarj"><b>barrio</b><span><em>barrī</em>: lo de afuera, el arrabal</span></div>
+    <div class="tarj"><b>tarea</b><span><em>ṭaríḥa</em>: lo que se asigna</span></div>
+    <div class="tarj"><b>fulano</b><span><em>fulān</em>: alguien, un tal</span></div>
+    <div class="tarj"><b>jaqueca</b><span><em>šaqīqa</em>: la mitad (de la cabeza)</span></div>
+    <div class="tarj"><b>asesino</b><span><em>ḥaššāšīn</em>: una secta medieval; la leyenda dice que fumaban hachís</span></div>
+    <div class="tarj"><b>mameluco</b><span><em>mamlūk</em>: esclavo; los soldados esclavos de Egipto</span></div>
+  </div>
+  <p class="explica">Y una más que se cuela a diario: <em>hola</em> no es árabe, aunque circule esa historia. El DLE la da "de origen incierto". Cuando la oigas, ya sabes qué hacer: paréntesis.</p>
+  <div class="conductor">"Hasta" es la que más impacta: una preposición, la clase de palabra que casi nunca se presta. Es prueba de cuánto convivieron las dos lenguas. Lo de hola es una vacuna para la semana 11.</div>
+</section>
+
+<!-- 14 · Apuesta: az- -->
+<section class="slide">
+  <div class="kicker">Apuesta</div>
+  <h2 class="disp">Reconstruye: ¿qué era el <em>az-</em> de <em>azúcar</em>?</h2>
+  <div class="dis tapa"><span class="pz pz--pre">az-<small>?</small></span><span class="pz pz--raiz">úcar<small>?</small></span></div>
+  <button class="btn-rev tapa" type="button">Revelar</button>
+  <div class="rev">
+    <div class="dis"><span class="pz pz--pre">as-<small>el artículo al-, asimilado</small></span><span class="pz pz--raiz">sukkar<small>azúcar</small></span><span class="eq">= azúcar, "el azúcar"</span></div>
+    <p class="explica"><em>Al-sukkar</em> se decía <em>as-sukkar</em>, y el español lo escribió <em>azúcar</em>. La misma historia en <em>azafrán</em>, <em>azotea</em>, <em>azulejo</em> y <em>arroz</em>. Y <em>sukkar</em> venía, a su vez, del sánscrito <em>śarkarā</em>, "grava": el azúcar en grano parecía arenilla. Otra palabra con escalas.</p>
+  </div>
+</section>
+
+<!-- 15 · Apuesta: Guadalquivir -->
+<section class="slide slide--ambar">
+  <div class="kicker">Apuesta</div>
+  <h2 class="disp">Guadalquivir quiere decir…</h2>
+  <div class="opciones tapa"><span>el río de las piedras</span><span>el río grande</span><span>la montaña alta</span><span>el castillo del rey</span></div>
+  <button class="btn-rev tapa" type="button">Revelar</button>
+  <div class="rev">
+    <p class="resp disp">El río grande: <em>al-wādī al-kabīr</em></p>
+    <p class="explica">Los romanos lo llamaban Betis. Ochocientos años de árabe le cambiaron el nombre para siempre, y ni la reconquista se lo devolvió. Un topónimo es una palabra que se queda quieta mientras la lengua se va.</p>
+  </div>
+</section>
+
+<!-- 16 · Cierre -->
+<section class="slide slide--oscura">
+  <div class="kicker">Para cerrar</div>
+  <h1 class="disp">Cuatro mil palabras, y ninguna se fue en 1492</h1>
+  <p class="sub">Están en tu cocina, en tu patio, en la escuela y en tu cama. Ahora sal a cazarlas: <em>al-</em>, <em>az-</em>, <em>ar-</em>, una <em>h</em> en medio, o ninguna marca. Apuesta primero; el paréntesis decide.</p>
+  <p class="sub" style="color:var(--rosa-luz)">El ejercicio que sigue: <strong>El sello al-</strong>, en la página de la semana.</p>
+  <div class="conductor">Cierra con la pregunta de la semana 12 sembrada de paso: si cuatro mil palabras son árabes y nadie las siente extranjeras, ¿en qué momento un préstamo deja de serlo? No la contestes.</div>
+</section>
+
+<div id="controles">
+  <button type="button" id="atras">← Atrás</button>
+  <button type="button" id="sigue">Siguiente →</button>
+</div>
+<div id="cuenta">1 / 1</div>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var i = 0, cuenta = document.getElementById('cuenta');
+  function muestra(n){
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach(function(s, k){ s.classList.toggle('activa', k === i); });
+    cuenta.textContent = (i + 1) + ' / ' + slides.length;
+  }
+  function revela(){ slides[i].classList.add('revelada'); }
+  muestra(0);
+  document.getElementById('sigue').addEventListener('click', function(){ muestra(i + 1); });
+  document.getElementById('atras').addEventListener('click', function(){ muestra(i - 1); });
+  Array.prototype.forEach.call(document.querySelectorAll('.btn-rev'), function(b){ b.addEventListener('click', revela); });
+  document.addEventListener('keydown', function(e){
+    if(e.repeat) return;
+    if(e.target && e.target.tagName === 'BUTTON' && (e.key === ' ' || e.key === 'Enter')) return;
+    var k = (e.key || '').toLowerCase();
+    if(e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown'){ e.preventDefault(); muestra(i + 1); }
+    else if(e.key === 'ArrowLeft' || e.key === 'PageUp'){ e.preventDefault(); muestra(i - 1); }
+    else if(k === 'r'){ revela(); }
+    else if(k === 'n'){ document.body.classList.toggle('con-notas'); }
+  });
+  document.addEventListener('click', function(e){
+    var b = e.target && e.target.closest ? e.target.closest('button') : null;
+    if(b) b.blur();
+  });
+})();
+</script>
+</body>
+</html>

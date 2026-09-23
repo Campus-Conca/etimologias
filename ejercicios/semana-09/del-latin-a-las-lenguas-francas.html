@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Del latín a las lenguas francas · Semana 9 · proyectable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ciruela:#2B2440; --morado:#6B1E5A; --rosa:#C4006A; --rosa-suave:#FFD6E9; --rosa-luz:#F4A8CE;
+    --jade:#0B5F52; --jade-suave:#DFF5EE; --dorado:#B07B12; --ambar:#FBF0D9; --tinta:#221A3A; --gris:#4A3F5C;
+    --borde:#E6DFF0; --fondo:#F4EFF9; --rojo:#A3312B; --rojo-suave:#FDECEC;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  html,body{height:100%}
+  body{font-family:"Inter",system-ui,sans-serif; background:var(--fondo); color:var(--tinta); overflow:hidden}
+  .disp{font-family:"Bricolage Grotesque","Inter",sans-serif; font-weight:800; letter-spacing:-.015em}
+  .slide{position:absolute; inset:0; display:none; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:4vmin 7vmin 12vmin; gap:2vmin}
+  .slide.activa{display:flex}
+  .slide--oscura{background:var(--ciruela); color:#F4EFF9}
+  .slide--ambar{background:#FBF7E9}
+  .kicker{font-size:2vmin; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--rosa)}
+  .slide--oscura .kicker{color:var(--rosa-luz)}
+  h1{font-size:7vmin; line-height:1.08; max-width:85vw}
+  h2{font-size:5.2vmin; line-height:1.15; max-width:88vw}
+  .sub{font-size:2.9vmin; color:var(--gris); max-width:74vw; line-height:1.5}
+  .slide--oscura .sub{color:#D9CFE8}
+  .grande{font-size:11vmin; line-height:1; color:var(--rosa)}
+  .slide--oscura .grande{color:var(--rosa-luz)}
+  table{border-collapse:collapse; font-size:2.4vmin; max-width:92vw; background:#fff; border-radius:1.5vmin; overflow:hidden}
+  th{background:#F7F3FB; color:var(--tinta); text-transform:uppercase; font-size:1.7vmin; letter-spacing:.06em; padding:1.2vmin 1.8vmin; text-align:left; border-bottom:1px solid var(--borde)}
+  td{padding:1vmin 1.8vmin; border-bottom:1px solid var(--borde); text-align:left; vertical-align:top; line-height:1.35}
+  td b{color:var(--rosa)}
+  tr:last-child td{border-bottom:none}
+  tr.hoy td{background:#FFF3F9}
+  .barra{display:flex; width:82vw; max-width:1300px; height:10vmin; border-radius:2vmin; overflow:hidden; border:1px solid var(--borde); background:#fff; margin-top:1vmin}
+  .barra div{display:flex; align-items:center; justify-content:center; font-weight:800; font-size:3.4vmin; color:#fff; font-family:"Bricolage Grotesque","Inter",sans-serif}
+  .barra .lat{background:var(--rosa); width:75%}
+  .barra .otro{background:var(--jade); width:25%}
+  .fila{display:flex; gap:2.5vmin; flex-wrap:wrap; justify-content:center; max-width:92vw}
+  .tarj{background:#fff; border:1px solid var(--borde); border-radius:1.6vmin; padding:2vmin 2.6vmin; min-width:24vmin; max-width:40vmin; text-align:left}
+  .slide--oscura .tarj{background:rgba(255,255,255,.07); border-color:rgba(255,255,255,.2)}
+  .tarj b{display:block; font-size:3.2vmin; color:var(--morado); line-height:1.1}
+  .slide--oscura .tarj b{color:var(--rosa-luz)}
+  .tarj span{display:block; font-size:2.1vmin; color:var(--gris); margin-top:.6vmin; line-height:1.4}
+  .slide--oscura .tarj span{color:#D9CFE8}
+  .tarj i{display:block; font-style:normal; font-size:1.7vmin; letter-spacing:.08em; text-transform:uppercase; color:var(--rosa); font-weight:700}
+  .dos{display:grid; grid-template-columns:1fr 1fr; gap:3vmin; max-width:90vw}
+  .dos > div{background:#fff; border:1px solid var(--borde); border-radius:1.8vmin; padding:2.4vmin 3vmin; text-align:left}
+  .dos b{display:block; font-size:3.4vmin; color:var(--morado); margin-bottom:.8vmin}
+  .dos p{font-size:2.3vmin; color:var(--gris); line-height:1.45}
+  .opciones{display:flex; gap:2vmin; flex-wrap:wrap; justify-content:center}
+  .opciones span{font-size:3.6vmin; font-weight:800; background:#fff; border:1px solid var(--borde); border-radius:2vmin; padding:1.5vmin 3.5vmin; color:var(--morado)}
+  .slide--oscura .opciones span{background:rgba(255,255,255,.1); color:#fff; border-color:rgba(255,255,255,.25)}
+  .rev{display:none}
+  .slide.revelada .rev{display:block}
+  .slide.revelada .tapa{display:none}
+  .btn-rev{font-family:inherit; font-weight:700; font-size:2.3vmin; border:none; cursor:pointer; border-radius:3vmin; padding:1.2vmin 3vmin; background:var(--rosa); color:#fff; margin-top:1vmin}
+  .slide--oscura .btn-rev{background:var(--rosa-suave); color:var(--morado)}
+  .resp{font-size:5vmin; color:var(--jade); line-height:1.15}
+  .slide--oscura .resp{color:#BFE7DC}
+  .explica{font-size:2.7vmin; color:var(--gris); max-width:78vw; line-height:1.55}
+  .slide--oscura .explica{color:#D9CFE8}
+  .pregunta{font-size:4.4vmin; line-height:1.25; max-width:84vw; color:var(--tinta)}
+  .slide--oscura .pregunta{color:#fff}
+  .preguntas{display:flex; flex-direction:column; gap:2vmin; max-width:86vw}
+  .preguntas div{background:#fff; border-left:.8vmin solid var(--rosa); border-radius:0 1.5vmin 1.5vmin 0; padding:1.8vmin 2.6vmin; text-align:left; font-size:3vmin; line-height:1.35}
+  .preguntas div small{display:block; font-size:2vmin; color:var(--gris); margin-top:.5vmin}
+  .cita{font-family:"Bricolage Grotesque","Inter",sans-serif; font-weight:700; font-size:3.6vmin; line-height:1.35; max-width:80vw; border-left:.8vmin solid var(--rosa); padding:1.5vmin 3vmin; text-align:left; background:#FFF3F9; border-radius:0 1.5vmin 1.5vmin 0}
+  .cita cite{display:block; font-family:"Inter",sans-serif; font-weight:400; font-style:normal; font-size:2vmin; color:#8A7F93; margin-top:.8vmin}
+  .nota-pie{font-size:1.9vmin; color:var(--gris); opacity:.8; max-width:80vw}
+  #controles{position:fixed; bottom:2.5vmin; left:0; right:0; display:flex; justify-content:center; gap:2vmin; z-index:10}
+  #controles button{font-family:inherit; font-weight:700; font-size:2.4vmin; border:none; cursor:pointer; border-radius:3vmin; padding:1.2vmin 3vmin; background:var(--rosa-suave); color:var(--morado)}
+  #controles button:hover{background:#fff}
+  #cuenta{position:fixed; bottom:3vmin; right:3vmin; font-size:2vmin; color:var(--gris); z-index:10}
+  .tecla{font-size:1.9vmin; color:var(--gris); opacity:.75}
+  .slide--oscura .tecla{color:#D9CFE8}
+  .conductor{position:fixed; left:2.5vmin; bottom:9vmin; max-width:34vw; background:var(--ambar); border:1px dashed #C79A2E; border-radius:1.2vmin; padding:1.2vmin 1.6vmin; font-size:1.8vmin; line-height:1.45; color:#5C4A1C; text-align:left; display:none; z-index:11}
+  .conductor::before{content:"Nota del conductor"; display:block; font-size:1.4vmin; letter-spacing:.11em; text-transform:uppercase; font-weight:700; margin-bottom:.4vmin}
+  body.con-notas .slide.activa .conductor{display:block}
+</style>
+</head>
+<body>
+
+<!-- 1 · Portada -->
+<section class="slide slide--oscura activa">
+  <div class="kicker">Semana 9 · Las lenguas escondidas · proyectable</div>
+  <h1 class="disp">Del latín a las lenguas francas</h1>
+  <p class="sub">Cómo la lengua de un pueblo de pastores se volvió la lengua de medio mundo. Quién tuvo ese puesto después. Y quién lo tiene hoy, en tu pantalla.</p>
+  <p class="tecla">Avanza con → o espacio · regresa con ← · R revela · N notas del conductor</p>
+  <div class="conductor">Se proyecta el martes, en la lámina de la capa gruesa, o cuando el grupo pregunte "¿y por qué no hablamos latín?". Quince láminas; a paso normal, doce minutos más la discusión de la lámina 13, que puede durar lo que quieras. Las apuestas se revelan con R.</div>
+</section>
+
+<!-- 2 · Apuesta -->
+<section class="slide">
+  <div class="kicker">Apuesta</div>
+  <h2 class="disp">¿Qué parte de tus palabras viene del latín?</h2>
+  <div class="opciones tapa"><span>una cuarta parte</span><span>la mitad</span><span>tres cuartas partes</span><span>todas</span></div>
+  <button class="btn-rev tapa" type="button">Revelar</button>
+  <div class="rev">
+    <div class="barra"><div class="lat">75 % latín</div><div class="otro">25 %</div></div>
+    <p class="explica">Tres de cada cuatro palabras del español vienen del latín, por la boca o por los libros. La cuarta parte restante es todo lo demás junto: el griego, el árabe, el náhuatl, el francés, el inglés, el vasco, el celta, el gótico. La capa gruesa del sitio arqueológico es esta.</p>
+  </div>
+  <div class="conductor">Casi todos apuestan "la mitad". El 75 % es la cifra habitual de los manuales; si preguntan de dónde sale, es una estimación sobre el diccionario, no sobre el habla de un día (en el habla de un día el latín pesa todavía más, porque las palabras más frecuentes son las más viejas).</div>
+</section>
+
+<!-- 3 · La Romania -->
+<section class="slide slide--ambar">
+  <div class="kicker">De dónde viene la palabra romance</div>
+  <h2 class="disp">A todo lo que Roma conquistó se le llamó la <em>Romania</em></h2>
+  <div class="fila">
+    <div class="tarj"><i>Hispania</i><b>español, portugués, catalán, gallego</b><span>conquistada entre 218 y 19 a. C.</span></div>
+    <div class="tarj"><i>Gallia</i><b>francés, occitano</b><span>César la toma entre 58 y 50 a. C.</span></div>
+    <div class="tarj"><i>Italia</i><b>italiano, sardo</b><span>la cuna, y la primera en conquistarse a sí misma</span></div>
+    <div class="tarj"><i>Dacia</i><b>rumano</b><span>la última en entrar (106 d. C.) y la primera en quedar aislada</span></div>
+  </div>
+  <p class="explica">De <em>Romania</em> salió <em>romance</em>: la manera de hablar de los que vivían en tierras de Roma. Primero fue un adverbio, <em>romanice loqui</em>, "hablar a la romana"; luego el nombre de las lenguas hijas; y al final, el nombre de las historias que se contaban en esas lenguas y no en latín. Por eso una novela de amor se llama romance.</p>
+  <div class="conductor">El giro final (romance = historia de amor) es el gancho: es la misma palabra, y el sentido nuevo salió de que los libros "en romance" eran los de caballeros y amores, frente a los serios, que iban en latín.</div>
+</section>
+
+<!-- 4 · Dos latines -->
+<section class="slide">
+  <div class="kicker">Lo que pasó en la boca</div>
+  <h2 class="disp">Había dos latines, y el que ganó fue el de la calle</h2>
+  <div class="dos">
+    <div><b>El latín clásico</b><p>El de Cicerón y de la escuela: escrito, cuidado, con seis casos y frases larguísimas. Es el que se enseña hasta hoy, y el que casi nadie hablaba en su casa.</p></div>
+    <div><b>El latín vulgar</b><p>El de los soldados, los colonos y los mercaderes que llegaron a Hispania. <em>Vulgus</em> quiere decir "la gente": era el latín de la gente. Rápido, con palabras de moda (<em>caballus</em> en vez de <em>equus</em>, <em>bucca</em> en vez de <em>os</em>) y sin miedo a gastarse.</p></div>
+  </div>
+  <p class="explica">Ese latín de la calle se mezcló con lo que ya se hablaba aquí (íbero, celta, vasco), se gastó distinto en cada valle y, mil años después, ya no era latín: era español, portugués, francés. <strong>No era la lengua de los conquistadores ni la de los conquistados: era un latín en evolución que supo guardar su esencia.</strong> Por eso <em>caballo</em> viene de <em>caballus</em> (el rocín de la calle) y no de <em>equus</em> (el corcel de los libros).</p>
+  <div class="conductor">Caballus contra equus es el ejemplo que explica todo: el español heredó la palabra popular; la culta quedó para "equino" y "ecuestre", entradas siglos después por los libros. Es un doblete de la semana 8 visto desde arriba.</div>
+</section>
+
+<!-- 5 · Lengua y poder -->
+<section class="slide slide--oscura">
+  <div class="kicker">Por qué se impuso</div>
+  <h2 class="disp">Con el latín puesto, Roma controló el comercio, la política y la cultura</h2>
+  <p class="explica">Nadie obligó a los hispanos a hablar latín. Bastaba con que las leyes, los contratos, los mercados, los caminos y los ascensos estuvieran en latín. Quien quería vender, litigar o subir aprendía la lengua del que mandaba. En tres siglos las lenguas de aquí se apagaron, salvo una: el vasco, en las montañas donde Roma no llegó a interesarse.</p>
+  <p class="pregunta">¿En qué lengua están hoy los contratos, los mercados y los ascensos del mundo?</p>
+  <div class="conductor">No respondas: la lámina 10 lo hace. Deja que digan "inglés" y sigue. La supervivencia del vasco vale un comentario: la única lengua de la península que no es hija del latín es la única que Roma no necesitó.</div>
+</section>
+
+<!-- 6 · Qué es una lengua franca -->
+<section class="slide slide--ambar">
+  <div class="kicker">El concepto de la semana</div>
+  <h2 class="disp">Lengua franca: la que usan para entenderse quienes no comparten lengua materna</h2>
+  <div class="dos">
+    <div><b>De dónde sale el nombre</b><p>La <em>lingua franca</em> fue una lengua real: la de los puertos del Mediterráneo entre los siglos XI y XIX, una mezcla de italiano, español, árabe, griego y turco que hablaban marineros, mercaderes, piratas y cautivos. Nadie la aprendía en su casa; todos la usaban en el muelle.</p></div>
+    <div><b>Por qué "franca"</b><p>Para los árabes y los turcos, todos los europeos occidentales eran <em>franyi</em>, francos, por los reinos de Carlomagno. La lengua de los francos era la lengua de los de fuera. Y de ahí también viene <em>franco</em> en el sentido de libre: el que habla franco no le debe nada a nadie.</p></div>
+  </div>
+  <p class="explica">Hoy el nombre se usa para cualquier lengua que hace ese trabajo: la que se habla entre gente que no la mamó. Y ese trabajo lo han hecho, por turnos, unas cuantas lenguas.</p>
+</section>
+
+<!-- 7 · Ayer -->
+<section class="slide">
+  <div class="kicker">Lenguas francas, ayer</div>
+  <table>
+    <tr><th>Lengua</th><th>Cuándo y dónde</th><th>Para qué servía</th><th>Lo que dejó</th></tr>
+    <tr><td><b>griego (koiné)</b></td><td>del siglo IV a. C. al VI d. C., todo el Mediterráneo oriental</td><td>el comercio, la filosofía, los evangelios</td><td>el botiquín de la semana 4; el alfabeto cirílico</td></tr>
+    <tr><td><b>latín</b></td><td>del siglo II a. C. al XIX, Europa entera</td><td>la ley, la Iglesia, la ciencia, la universidad</td><td>el 75 % de tu vocabulario y cinco lenguas hijas</td></tr>
+    <tr><td><b>árabe</b></td><td>siglos VIII a XIII, de Bagdad a Córdoba</td><td>la ciencia, la medicina, el comercio</td><td>álgebra, algoritmo, cifra, y cuatro mil palabras en español</td></tr>
+    <tr><td><b>náhuatl</b></td><td>siglos XIV a XVII, Mesoamérica</td><td>el tributo azteca, luego la evangelización</td><td>Jalpan, Ahuacatlán y los topónimos náhuatl en tierra pame</td></tr>
+    <tr><td><b>francés</b></td><td>siglos XVII a XX, las cortes y la diplomacia</td><td>los tratados, la moda, la cocina</td><td>chef, garaje, hotel, y la palabra "diplomacia"</td></tr>
+    <tr><td><b>swahili</b></td><td>siglos XIX y XX, África oriental</td><td>el comercio entre cien pueblos con cien lenguas</td><td>safari (que es árabe, por el swahili)</td></tr>
+  </table>
+  <div class="conductor">La fila del náhuatl es la de casa: explica la semana 10. Los frailes aprendieron náhuatl y lo usaron para evangelizar a pueblos que no lo hablaban, y los indios aliados de los españoles fundaron pueblos con nombres náhuatl en tierra pame y huasteca. Una lengua franca deja nombres donde nunca fue lengua materna.</div>
+</section>
+
+<!-- 8 · El latín no murió -->
+<section class="slide slide--oscura">
+  <div class="kicker">El puesto más largo de la historia</div>
+  <h2 class="disp">El latín dejó de hablarse en la calle, pero no soltó el puesto hasta hace doscientos años</h2>
+  <div class="fila">
+    <div class="tarj"><i>1687</i><b>Newton</b><span>publica los <em>Principia</em> en latín, para que los leyeran en toda Europa</span></div>
+    <div class="tarj"><i>1753</i><b>Linneo</b><span>bautiza en latín a todos los seres vivos: <em>Homo sapiens</em>, <em>Canis lupus</em>, <em>Zea mays</em> (el maíz)</span></div>
+    <div class="tarj"><i>hasta el siglo XIX</i><b>las universidades</b><span>dan clase y examinan en latín; el castellano en el XVII y el francés en el XVIII lo rodearon, pero no lo tumbaron</span></div>
+    <div class="tarj"><i>hasta 1965</i><b>la misa</b><span>en latín en todo el mundo; el Concilio Vaticano II permite desde entonces las lenguas de cada país</span></div>
+  </div>
+  <p class="explica">Y sigue: cada bicho nuevo que se descubre recibe un nombre latino; cada juicio usa <em>habeas corpus</em> e <em>in fraganti</em>; cada receta médica está llena de latín. Una lengua que nadie mama todavía manda en tres oficios.</p>
+  <div class="conductor">Zea mays es el ejemplo local: el maíz tiene nombre latino aunque Roma nunca lo conoció. Es la prueba de que una lengua franca sigue nombrando cosas que no vio. Y siembra la semana 13, la de los tecnicismos.</div>
+</section>
+
+<!-- 9 · Náhuatl -->
+<section class="slide slide--ambar">
+  <div class="kicker">La lengua franca de aquí</div>
+  <h2 class="disp">Por qué Jalpan se llama en náhuatl si aquí se hablaba pame</h2>
+  <p class="explica">Antes de 1519, el náhuatl ya era la lengua del tributo: un pueblo otomí o pame necesitaba hablarlo para tratar con los recaudadores de Tenochtitlan. Cuando llegaron los españoles, los frailes hicieron lo mismo que Roma: en vez de aprender cien lenguas, aprendieron una, el náhuatl, y con ella evangelizaron a todos. Y los tlaxcaltecas y otros aliados fundaron pueblos por todo el norte, con nombres en su lengua.</p>
+  <p class="explica">Resultado: <em>Jalpan</em> (sobre la arena), <em>Ahuacatlán</em> (lugar de aguacates) y decenas de nombres náhuatl en una sierra donde el náhuatl nunca fue lengua materna. <strong>Concá</strong>, en cambio, es pame: de antes. El mapa de la Sierra es un mapa de lenguas francas superpuestas.</p>
+  <div class="conductor">Es la siembra directa de la semana 10 (los topónimos). Aquí conviene la honestidad de fuente: el origen náhuatl de Jalpan es el aceptado; el de Concá casi no está documentado. Que lo oigan dicho con esa diferencia.</div>
+</section>
+
+<!-- 10 · Hoy -->
+<section class="slide">
+  <div class="kicker">Lenguas francas, hoy</div>
+  <h2 class="disp">El inglés es el latín de ahora</h2>
+  <table>
+    <tr class="hoy"><td><b>inglés</b></td><td>la ciencia (nueve de cada diez artículos), internet, la aviación, el comercio, la música, los videojuegos</td><td>unos 1 500 millones lo hablan; menos de 400 lo mamaron</td></tr>
+    <tr><td><b>español</b></td><td>lengua franca de las Américas, de Tijuana a la Patagonia, y de 40 millones de personas en Estados Unidos</td><td>485 millones de hablantes nativos: la segunda del mundo</td></tr>
+    <tr><td><b>chino mandarín</b></td><td>la lengua franca de China: mil millones de personas con cien lenguas maternas distintas</td><td>940 millones nativos</td></tr>
+    <tr><td><b>árabe clásico</b></td><td>la que entiende todo el mundo árabe aunque cada país hable el suyo</td><td>de Marruecos a Irak</td></tr>
+    <tr><td><b>swahili · hindi · francés</b></td><td>África oriental · el norte de la India · África occidental</td><td>lenguas francas regionales</td></tr>
+  </table>
+  <p class="explica">Fíjate en la primera fila: mil quinientos millones hablan inglés, y la mayoría lo aprendió, no lo mamó. Exactamente lo que le pasaba al latín en Hispania en el siglo I. Y en tu pantalla ya lo ves: <em>gg</em>, <em>lootear</em>, <em>grindear</em>, <em>skin</em>, <em>lobby</em>. Esa es la lengua franca entrando por la puerta más nueva de todas.</p>
+  <div class="conductor">Aquí se conecta con el ejercicio de la puerta gamer. La cifra de 1 500 millones es la estimación habitual (nativos más segunda lengua); la de artículos científicos en inglés ronda el 90-95 %. Son órdenes de magnitud, no censos.</div>
+</section>
+
+<!-- 11 · ¿Se gastará? -->
+<section class="slide slide--oscura">
+  <div class="kicker">La pregunta incómoda</div>
+  <h2 class="disp">¿Al inglés le va a pasar lo que al latín?</h2>
+  <p class="explica">El latín se gastó distinto en cada valle hasta partirse en cinco lenguas. El inglés ya se está gastando en cada país: el de Singapur, el de Nigeria, el de la India y el de internet no son el mismo inglés, y a veces ya no se entienden entre sí. Dentro de mil años, ¿habrá "lenguas romances del inglés"?</p>
+  <p class="explica">O al revés: si un teléfono traduce todo al instante, ¿para qué sirve una lengua franca? Nadie lo sabe. Roma tampoco sabía que su latín iba a terminar en <em>hijo</em>.</p>
+  <div class="conductor">Pregunta abierta de verdad. Si el grupo se engancha, déjala rodar dos minutos y guarda las mejores frases para la semana 12: es material de la disputa.</div>
+</section>
+
+<!-- 12 · Lo que gana y lo que pierde -->
+<section class="slide slide--ambar">
+  <div class="kicker">La balanza</div>
+  <h2 class="disp">Una lengua franca da y quita</h2>
+  <div class="dos">
+    <div><b>Lo que da</b><p>Entenderse con gente de cien pueblos. Vender, estudiar, viajar. Una ciencia que se lee en todas partes. Roma unió el Mediterráneo con una lengua; el inglés une hoy los laboratorios del mundo.</p></div>
+    <div><b>Lo que quita</b><p>Las lenguas que no la hablan se apagan: el íbero, el celta de Hispania, el mozárabe, y hoy cientos de lenguas de América. Quien no la tiene queda fuera de los contratos y de los ascensos. Y las palabras propias se sustituyen por las de moda, aunque ya hubiera una que servía.</p></div>
+  </div>
+  <p class="explica">Nada de esto es nuevo: es la disputa de la semana 12, "¿quién es dueño del español?", vista con dos mil años de perspectiva.</p>
+</section>
+
+<!-- 13 · Discusión -->
+<section class="slide">
+  <div class="kicker">Para discutir · en parejas, luego al aire</div>
+  <div class="preguntas">
+    <div>1 · Roma no prohibió las lenguas de Hispania; solo puso el poder en latín. ¿Qué es más fuerte para cambiar una lengua: una prohibición o un ascenso?<small>Piensa en qué lengua está el trabajo que quieres tener.</small></div>
+    <div>2 · Los frailes usaron el náhuatl para llegar a los pames. ¿Eso salvó al náhuatl o lo usó? ¿Y qué pasó con el pame?<small>Una lengua franca puede ser, al mismo tiempo, víctima y herramienta.</small></div>
+    <div>3 · Tú ya hablas una lengua franca en tu pantalla. ¿Cuántas palabras dijiste hoy en inglés sin darte cuenta? ¿Alguna desplazó a una que ya existía en español?<small>Guarda tu lista: es la materia prima del ejercicio de la puerta gamer.</small></div>
+  </div>
+  <div class="conductor">Tres minutos en parejas, luego una vuelta rápida. La pregunta 3 se responde con ejemplos, no con opiniones: "dije lootear, gg y skin". Anota en el pizarrón las palabras que salgan: son la cacería de la puerta gamer ya hecha.</div>
+</section>
+
+<!-- 14 · Apuesta -->
+<section class="slide slide--ambar">
+  <div class="kicker">Apuesta</div>
+  <h2 class="disp">¿Hasta cuándo se escribió ciencia en latín en Europa?</h2>
+  <div class="opciones tapa"><span>hasta la caída de Roma (476)</span><span>hasta el año 1000</span><span>hasta el siglo XVI</span><span>hasta el siglo XIX</span></div>
+  <button class="btn-rev tapa" type="button">Revelar</button>
+  <div class="rev">
+    <p class="resp disp">Hasta el siglo XIX</p>
+    <p class="explica">Mil cuatrocientos años después de la caída del Imperio, los sabios de Europa seguían escribiéndose en latín. Newton, Linneo, Gauss. Ni el castellano del Siglo de Oro ni el francés de la Ilustración le quitaron el puesto. Se lo quitaron las lenguas nacionales, una a una, en el siglo XIX; y luego el inglés, a todas.</p>
+  </div>
+</section>
+
+<!-- 15 · Apuesta 2 -->
+<section class="slide">
+  <div class="kicker">Apuesta</div>
+  <h2 class="disp">¿De dónde viene la palabra <em>romance</em>?</h2>
+  <div class="opciones tapa"><span>de Roma</span><span>de "amor" en francés</span><span>de un poeta llamado Romano</span><span>del árabe</span></div>
+  <button class="btn-rev tapa" type="button">Revelar</button>
+  <div class="rev">
+    <p class="resp disp">De Roma: <em>Romania</em>, las tierras conquistadas</p>
+    <p class="explica"><em>Romanice loqui</em>, hablar a la romana, era hablar la lengua de la gente y no el latín de los libros. Las historias contadas en esa lengua eran de amores y caballeros, y así una palabra que quería decir "de Roma" acabó queriendo decir "historia de amor". Un cambio semántico de mil años, como el de <em>pedagogo</em>.</p>
+  </div>
+</section>
+
+<!-- 16 · Cierre -->
+<section class="slide slide--oscura">
+  <div class="kicker">Para cerrar</div>
+  <h1 class="disp">75 % latín, 25 % todo lo demás, 100 % préstamos</h1>
+  <p class="sub">Hasta el latín fue una lengua extranjera en Hispania: la lengua franca de un imperio. Tres cuartas partes de lo que hablas es una lengua que alguien más trajo, y que la gente de aquí gastó hasta hacerla suya. Guarda eso para la semana 12.</p>
+  <div class="conductor">Cierre en una frase: el español entero es un préstamo que se quedó. Y de ahí, a la cacería en la propia habla.</div>
+</section>
+
+<div id="controles">
+  <button type="button" id="atras">← Atrás</button>
+  <button type="button" id="sigue">Siguiente →</button>
+</div>
+<div id="cuenta">1 / 1</div>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var i = 0, cuenta = document.getElementById('cuenta');
+  function muestra(n){
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach(function(s, k){ s.classList.toggle('activa', k === i); });
+    cuenta.textContent = (i + 1) + ' / ' + slides.length;
+  }
+  function revela(){ slides[i].classList.add('revelada'); }
+  muestra(0);
+  document.getElementById('sigue').addEventListener('click', function(){ muestra(i + 1); });
+  document.getElementById('atras').addEventListener('click', function(){ muestra(i - 1); });
+  Array.prototype.forEach.call(document.querySelectorAll('.btn-rev'), function(b){ b.addEventListener('click', revela); });
+  document.addEventListener('keydown', function(e){
+    if(e.repeat) return;
+    if(e.target && e.target.tagName === 'BUTTON' && (e.key === ' ' || e.key === 'Enter')) return;
+    var k = (e.key || '').toLowerCase();
+    if(e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown'){ e.preventDefault(); muestra(i + 1); }
+    else if(e.key === 'ArrowLeft' || e.key === 'PageUp'){ e.preventDefault(); muestra(i - 1); }
+    else if(k === 'r'){ revela(); }
+    else if(k === 'n'){ document.body.classList.toggle('con-notas'); }
+  });
+  document.addEventListener('click', function(e){
+    var b = e.target && e.target.closest ? e.target.closest('button') : null;
+    if(b) b.blur();
+  });
+})();
+</script>
+</body>
+</html>

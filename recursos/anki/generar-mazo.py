@@ -271,6 +271,13 @@ SEMANAS = [
             ("apapacho", "náhuatl · papatzoa, ablandar con los dedos; acariciar con el alma", "nahuatlismo", "apapacho", "apapachar", "El DLE la registró en 2014. La gente la decía siglos antes."),
             ("chef / jefe", "francés · chef, «cabeza, el que manda», del latín caput", "galicismo", "chef", "jefe (la misma palabra, entrada en el siglo XVII)", "Un doblete de préstamo: la primera entrada se gasta, la segunda se conserva."),
             ("quiosco", "persa · košk, pabellón; pasó por el turco y el francés", "préstamo con escalas", "quiosco", "", "La palabra con más escalas de la semana: ninguna de ellas América."),
+            # --- lo que entró con los mazos de los ocho siglos, el latín y la puerta gamer ---
+            ("az- / ar- / a-", "el al- disfrazado: el artículo árabe asimilado a la consonante que sigue", "marca de préstamo", "azúcar (as-sukkar)", "arroz (ar-ruzz), aduana (ad-dīwān), aceite (az-zayt), acequia", "La marca no es solo al-: es a- más una consonante repetida. Y muchas no la traen: naranja, jarabe, ojalá."),
+            ("guad-", "wādī, río: la marca árabe de los nombres de lugar", "topónimo", "Guadalquivir, «el río grande»", "Guadalajara (el río de las piedras), Guadalupe", "Un topónimo es una palabra que se queda quieta mientras la lengua se va."),
+            ("Romania → romance", "las tierras conquistadas por Roma; de ahí el nombre de las lenguas hijas del latín", "concepto", "romanice loqui, «hablar a la romana»", "español, portugués, catalán, francés, italiano, rumano", "Las historias contadas en romance eran de amores: por eso una novela de amor se llama romance."),
+            ("lengua franca", "la que usan para entenderse quienes no comparten lengua materna", "concepto", "el latín hasta el siglo XIX; el inglés hoy", "koiné griega, árabe medieval, náhuatl en la Nueva España, francés diplomático", "Nunca se mama: se aprende en el muelle. Y ninguna ha durado para siempre."),
+            ("préstamo", "palabra que una lengua toma de otra con poca o ninguna adaptación, por contacto, moda o porque con ella llegó el objeto", "concepto", "hamaca, tomate, chef, lootear", "herencia (lo que bajó por el tronco) frente a préstamo (lo que saltó la cerca)", "Le han dicho extranjerismo y barbarismo. Almohada fue uno; hoy es el español."),
+            ("-ear", "la máquina de adaptar: la terminación con que el español conjuga verbos ajenos", "marca de préstamo", "lootear → looteo, looteamos", "chatear, googlear, escanear, farmear, spawnear", "Cuando un préstamo se conjuga, ya empezó a ser tuyo. Los romanos hacían lo mismo con -are."),
         ],
     },
     {

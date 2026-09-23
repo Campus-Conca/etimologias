@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz integrador · Unidad 2 · Semana 12</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ciruela:#2B2440; --morado:#6B1E5A; --rosa:#C4006A; --rosa-suave:#FFD6E9; --rosa-luz:#F4A8CE;
+    --jade:#0B5F52; --jade-suave:#DFF5EE; --dorado:#B07B12; --tinta:#221A3A; --gris:#4A3F5C;
+    --borde:#E6DFF0; --fondo:#F4EFF9; --rojo:#A3312B; --rojo-suave:#FDECEC;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  html,body{height:100%}
+  body{font-family:"Inter",system-ui,sans-serif; background:var(--fondo); color:var(--tinta); overflow:hidden}
+  .disp{font-family:"Bricolage Grotesque","Inter",sans-serif; font-weight:800; letter-spacing:-.015em}
+
+  .slide{position:absolute; inset:0; display:none; flex-direction:column; justify-content:center;
+    align-items:center; text-align:center; padding:4vmin 6vmin 12vmin; gap:2vmin}
+  .slide.activa{display:flex}
+  .slide--oscura{background:var(--ciruela); color:#F4EFF9}
+
+  .kicker{font-size:2vmin; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--rosa)}
+  .slide--oscura .kicker{color:var(--rosa-luz)}
+  h1{font-size:7.5vmin; line-height:1.1; max-width:80vw}
+  h2{font-size:5vmin; line-height:1.1; max-width:88vw}
+  .sub{font-size:3vmin; color:var(--gris); max-width:72vw; line-height:1.5}
+  .slide--oscura .sub{color:#D9CFE8}
+  .pregunta{font-size:6.5vmin; line-height:1.25; max-width:85vw}
+  .pista{font-size:2.6vmin; color:var(--gris); font-style:italic}
+  .tecla{font-size:1.9vmin; color:var(--gris); opacity:.75}
+  .slide--oscura .tecla{color:#D9CFE8}
+
+  /* la lista de reactivos de un bloque */
+  .lista{display:grid; grid-template-columns:1fr 1fr; gap:1.4vmin 4vmin; width:min(92vw, 170vmin); text-align:left; margin-top:1vmin}
+  .lista.una{grid-template-columns:1fr; width:min(80vw, 120vmin)}
+  .item{display:flex; gap:1.6vmin; align-items:flex-start; background:#fff; border:1px solid var(--borde); border-radius:1.4vmin; padding:1.4vmin 1.8vmin}
+  .item .n{font-family:"Bricolage Grotesque","Inter",sans-serif; font-weight:800; font-size:3.6vmin; line-height:1; color:var(--dorado); min-width:5vmin}
+  .item .q{font-weight:700; font-size:2.9vmin; line-height:1.25}
+  .item .q em{color:var(--rosa); font-style:normal}
+  .item .p{font-size:2vmin; color:var(--gris); line-height:1.4; margin-top:.4vmin}
+
+  /* la tabla de respuestas */
+  table.resp{width:min(94vw, 176vmin); border-collapse:collapse; text-align:left; background:#fff; border-radius:1.4vmin; overflow:hidden; margin-top:1vmin}
+  table.resp td{padding:1.1vmin 1.6vmin; border-bottom:1px solid var(--borde); vertical-align:top; font-size:2.35vmin; line-height:1.35}
+  table.resp tr:last-child td{border-bottom:none}
+  table.resp td.n{font-family:"Bricolage Grotesque","Inter",sans-serif; font-weight:800; color:var(--dorado); font-size:3vmin; width:6vmin}
+  table.resp td.q{width:30%; font-weight:700; color:var(--morado)}
+  table.resp td.r b{color:var(--jade)}
+  table.resp td.r small{display:block; color:var(--gris); font-size:1.95vmin; margin-top:.3vmin}
+  .esp{display:inline-block; font-weight:800; border-radius:1vmin; padding:.2vmin 1vmin; font-size:2vmin; letter-spacing:.06em}
+  .esp--si{background:var(--jade-suave); color:var(--jade)}
+  .esp--no{background:var(--rojo-suave); color:var(--rojo)}
+
+  .dis{display:flex; gap:1.2vmin; align-items:center; justify-content:center; flex-wrap:wrap; margin-top:1vmin}
+  .pz{display:inline-block; border-radius:1.2vmin; padding:1.2vmin 2vmin; font-weight:700; font-size:4vmin; line-height:1.1}
+  .pz small{display:block; font-weight:400; font-size:2vmin; opacity:.85}
+  .pz--pre{background:#FFE3F0; color:#A30058}
+  .pz--raiz{background:#2B2440; color:#FFD6E9}
+  .pz--suf{background:#DFF5EE; color:#0B5F52}
+  .eq{font-size:4.5vmin; font-weight:800; color:var(--tinta)}
+  .explica{font-size:2.9vmin; color:var(--gris); max-width:72vw; line-height:1.55}
+  .slide--oscura .explica{color:#D9CFE8}
+
+  /* mapa de bloques */
+  .mapa{display:grid; grid-template-columns:repeat(4, 1fr); gap:1.6vmin; width:min(92vw,170vmin); margin-top:1vmin}
+  .mapa div{background:#fff; border:1px solid var(--borde); border-radius:1.4vmin; padding:1.6vmin; text-align:left}
+  .mapa b{display:block; font-size:2.6vmin; color:var(--morado); line-height:1.2}
+  .mapa span{display:block; font-size:2vmin; color:var(--gris); margin-top:.5vmin}
+  .mapa i{font-family:"Bricolage Grotesque","Inter",sans-serif; font-style:normal; font-weight:800; color:var(--dorado); font-size:3.4vmin}
+
+  /* cronómetro */
+  #crono{position:fixed; top:2.5vmin; right:2.5vmin; z-index:10; display:flex; align-items:center; gap:1vmin;
+    background:var(--jade-suave); border:1px solid #BFE7DC; border-radius:3vmin; padding:.8vmin 1.8vmin}
+  #crono b{font-family:"Inter",sans-serif; font-variant-numeric:tabular-nums; font-size:3.2vmin; color:var(--jade)}
+  #crono button{border:none; background:none; cursor:pointer; font-size:2.6vmin; color:var(--jade)}
+  #crono.alerta{background:var(--rojo-suave); border-color:#F2C4C1}
+  #crono.alerta b, #crono.alerta button{color:var(--rojo)}
+
+  /* controles */
+  #controles{position:fixed; bottom:2.5vmin; left:0; right:0; display:flex; justify-content:center; gap:2vmin; z-index:10}
+  #controles button{font-family:inherit; font-weight:700; font-size:2.4vmin; border:none; cursor:pointer;
+    border-radius:3vmin; padding:1.2vmin 3vmin; background:var(--rosa-suave); color:var(--morado)}
+  #controles button:hover{background:#fff}
+  #controles button.imprimir{background:#fff; border:1px solid var(--borde)}
+  #cuenta{position:fixed; bottom:3vmin; right:3vmin; font-size:2vmin; color:var(--gris); z-index:10}
+
+  /* la hoja para imprimir: solo existe en papel */
+  #hoja{display:none}
+  @media print{
+    @page{size:letter; margin:1.4cm}
+    body{overflow:visible; background:#fff; color:#111; font-size:10.5pt}
+    .slide, #crono, #controles, #cuenta{display:none !important}
+    #hoja{display:block}
+    #hoja h1{font-size:17pt; margin:0 0 .1cm; color:#2B2440}
+    #hoja .cab{display:flex; justify-content:space-between; gap:.5cm; border-bottom:2px solid #C4006A; padding-bottom:.2cm; margin-bottom:.3cm; font-size:9.5pt; color:#333}
+    #hoja .cab span{flex:1}
+    #hoja .cab span b{display:inline-block; min-width:4cm; border-bottom:1px solid #555}
+    #hoja .cab .chico b{min-width:1.6cm}
+    #hoja .aviso{font-size:9pt; color:#555; margin-bottom:.3cm; font-style:italic}
+    #hoja h3{font-size:11pt; color:#6B1E5A; margin:.35cm 0 .12cm; border-left:3px solid #C4006A; padding-left:.2cm; break-after:avoid}
+    #hoja h3 small{font-weight:400; color:#666; font-size:8.5pt}
+    #hoja ol{list-style:none; margin:0; padding:0}
+    #hoja li{display:grid; grid-template-columns:.7cm 7.2cm 1fr 1.4cm; gap:.2cm; align-items:end; padding:.1cm 0; border-bottom:1px dotted #bbb; break-inside:avoid}
+    #hoja li .n{font-weight:800; color:#B07B12}
+    #hoja li .q{font-weight:700; color:#222}
+    #hoja li .q em{color:#C4006A; font-style:normal}
+    #hoja li .q small{display:block; font-weight:400; color:#555; font-size:8.5pt}
+    #hoja li .l{border-bottom:1px solid #888; min-height:.55cm}
+    #hoja li .m{font-size:7.5pt; color:#777; text-align:right; white-space:nowrap}
+    #hoja .pie{margin-top:.4cm; font-size:8.5pt; color:#555}
+  }
+</style>
+</head>
+<body>
+
+<div id="crono" title="clic en ▶ para arrancar">
+  <b id="crono-num">30:00</b>
+  <button id="crono-play" type="button">▶</button>
+  <button id="crono-reset" type="button">↺</button>
+</div>
+
+<!-- Portada -->
+<section class="slide slide--oscura activa">
+  <div class="kicker">Semana 12 · Cierre de la Unidad 2</div>
+  <h1 class="disp">Quiz integrador</h1>
+  <p class="sub"><span id="totalPortada"></span> reactivos con todo lo de la unidad: las leyes del desgaste, el árbol de las lenguas, las lenguas escondidas, el latín y las lenguas francas, la puerta gamer, el diccionario que hicimos, los mitos cazados y la disputa.</p>
+  <p class="sub"><strong>No lleva nota. Lleva algo mejor: se vuelve evidencia en tu cuadernillo.</strong></p>
+  <p class="tecla">Avanza con → o espacio · regresa con ← · la hoja se imprime con el botón de abajo</p>
+</section>
+
+<!-- Cómo funciona -->
+<section class="slide">
+  <div class="kicker">Antes de empezar</div>
+  <h1 class="disp">Esto no es un examen</h1>
+  <p class="sub">Se contesta en la hoja, a solas y a mano. Regresa revisado reactivo por reactivo, en clave <strong>bien</strong> o <strong>aún no</strong>. Lo que quede en "aún no" se reintenta, y cuenta tu versión más reciente, no el promedio.</p>
+  <p class="sub">Muchos reactivos se contestan con una palabra o dos. No te detengas en el que no sale: márcalo y sigue. Lo único que se te pide hoy es que esté <strong>intentado</strong>. Eso es una línea de tu suelo de unidad.</p>
+</section>
+
+<!-- La apuesta -->
+<section class="slide">
+  <div class="kicker">Tu apuesta primero</div>
+  <h1 class="disp">¿Cuántos de los <span id="totalApuesta"></span>?</h1>
+  <p class="pregunta">Escribe tu número en la casilla de la hoja antes de ver el primer reactivo.</p>
+  <p class="sub">Es la décima vez que apuestas este semestre. En tu cuadernillo tienes las nueve anteriores: mírate la serie antes de decidir. Eso es calibración. El último reactivo no cuenta para la apuesta: es tuyo y no tiene respuesta correcta.</p>
+</section>
+
+<!-- Mapa de la hoja -->
+<section class="slide">
+  <div class="kicker">Cómo está armada la hoja</div>
+  <h2 class="disp">Nueve bloques, uno por músculo</h2>
+  <div class="mapa" id="mapa"></div>
+  <p class="pista">Los bloques van en orden de semanas, de la máquina del tiempo a la disputa. El cronómetro arranca en la siguiente lámina y corre treinta minutos.</p>
+</section>
+
+<!-- Aquí se insertan las láminas de reactivos por bloque -->
+<div id="zonaReactivos"></div>
+
+<!-- Frontera -->
+<section class="slide slide--oscura">
+  <h1 class="disp">Lápices abajo</h1>
+  <p class="sub">Vienen las respuestas, bloque por bloque. Márcate tú, reactivo por reactivo, en bien o aún no. Nadie te va a quitar la pluma: el registro es tuyo y lo vas a usar el fin de semana.</p>
+</section>
+
+<!-- Aquí se insertan las láminas de respuestas por bloque -->
+<div id="zonaRespuestas"></div>
+
+<!-- El reactivo que no premia el dato -->
+<section class="slide">
+  <div class="kicker">El reactivo que no premia el dato</div>
+  <h1 class="disp" style="font-size:5.5vmin">"No está" no es "no existe"</h1>
+  <p class="explica">Tu palabra de campo no aparece en el DLE, ni en el DECEL, ni en el DEM. El reactivo no premia que sepas de dónde viene: premia el veredicto. <strong>Voz viva no registrada: documentación original</strong>, con el ejemplo dicho tal cual y con quién la documentaste. Si escribiste eso, es bien. Si escribiste "la palabra no existe", es aún no, y es exactamente el error que la semana 10 existió para corregir: el diccionario corre detrás de la gente.</p>
+</section>
+
+<!-- La tuya -->
+<section class="slide">
+  <div class="kicker">El último reactivo</div>
+  <h1 class="disp">Esta no la califico yo</h1>
+  <p class="sub">Tu palabra viajera es tuya. Guárdala completa —palabra, lengua, camino y fuente—, porque el fin de semana la vas a necesitar: es una de las evidencias con las que vas a defender tu calificación.</p>
+</section>
+
+<!-- Calibración y puente -->
+<section class="slide slide--oscura">
+  <div class="kicker">El número que importa</div>
+  <h1 class="disp">Apuesta contra resultado</h1>
+  <p class="sub">Los dos números al cuadernillo, en el renglón del integrador de la unidad 2. Y luego mira tu tabla completa: diez renglones desde agosto. ¿Se fueron acercando las dos columnas? ¿Cambió algo desde la semana 7?</p>
+  <p class="sub" style="color:var(--rosa-luz)">Y algo más, ahora que la hoja es larga: mira <strong>en qué bloque</strong> se te juntaron los "aún no". Ese bloque, con nombre, es lo que va en el renglón de "lo que quedó en aún no" de tu segundo parcial.</p>
+</section>
+
+<!-- La hoja imprimible, generada desde los mismos datos -->
+<div id="hoja"></div>
+
+<div id="controles">
+  <button type="button" id="atras">← Atrás</button>
+  <button type="button" id="sigue">Siguiente →</button>
+  <button type="button" id="imprimir" class="imprimir">🖨 Imprimir la hoja</button>
+</div>
+<div id="cuenta">1 / 1</div>
+
+<script>
+(function(){
+  /* ============================================================
+     LOS REACTIVOS. Una sola lista alimenta las láminas de reactivos,
+     las de respuestas y la hoja imprimible. Para cambiar algo, cámbialo
+     aquí y ya. Campos: q = reactivo, p = pista (opcional), r = respuesta,
+     x = explicación breve (opcional), tipo = 'esp' pinta REAL/ESPEJISMO.
+     ============================================================ */
+  var BLOQUES = [
+    { k:'A', t:'La máquina del tiempo', sem:'semana 8', items:[
+      { q:'FARINA', p:'La palabra española y la ley que la gastó.',
+        r:'<b>harina</b>: la F inicial se volvió h muda.' },
+      { q:'NOCTE', p:'La palabra española y la ley.',
+        r:'<b>noche</b>: el grupo CT se volvió ch.' },
+      { q:'Reconstruye: si hoy dices <em>hecho</em>, ¿cuál era el latín?', p:'Dos leyes al revés.',
+        r:'<b>FACTU</b>: la h delata una F y la ch delata un CT.' },
+      { q:'PORTA', p:'La palabra española y la ley.',
+        r:'<b>puerta</b>: la O breve diptongó en ue.' },
+      { q:'¿Qué es un <em>doblete</em>?', p:'Y un ejemplo.',
+        r:'<b>Dos hijas de un mismo latín</b>: una popular, gastada por las leyes, y una culta, entrada por los libros. <b>Oreja y aurícula</b>, de AURICULA.' },
+      { q:'<em>Fiesta</em> conserva la F. ¿Rompió la ley?', p:'Una frase.',
+        r:'<b>No</b>: entró o se rehízo por la vía culta, cuando la ley ya no operaba. Una excepción es una palabra con otra historia.' }
+    ]},
+    { k:'B', t:'El árbol de las lenguas', sem:'semana 8', items:[
+      { q:'portugués', p:'¿Hermana, prima o vecina del español? Y por qué.',
+        r:'<b>Hermana</b>: hija del mismo latín.' },
+      { q:'inglés', p:'¿Hermana, prima o vecina?',
+        r:'<b>Prima</b>: nieta del mismo indoeuropeo, por la rama germánica.' },
+      { q:'árabe', p:'¿Hermana, prima o vecina?',
+        r:'<b>Vecina</b>: no es pariente, y aun así prestó unas cuatro mil palabras.' },
+      { q:'<em>padre</em> y <em>father</em>', p:'¿Primas de verdad o solo se parecen? Y la ley que lo explica.',
+        r:'<b>Primas</b>: la P de la abuela se volvió F en toda la rama germánica (ley de Grimm). El parecido tapado por una ley es la prueba.' },
+      { q:'¿Qué quiere decir el asterisco en <em>*nókʷts</em>?',
+        r:'<b>Forma reconstruida</b>, nunca escrita: se dedujo comparando a las nietas.' }
+    ]},
+    { k:'C', t:'Las lenguas escondidas', sem:'semana 9', items:[
+      { q:'almohada', p:'Lengua, y qué es ese <em>al-</em>.',
+        r:'<b>Árabe</b>. El <b>al-</b> es el artículo (el, la) que se quedó pegado a la palabra.' },
+      { q:'azúcar', p:'¿Qué esconde el <em>az-</em>?',
+        r:'<b>El mismo al-, asimilado</b>: as-sukkar. La marca se disfraza de az-, ar-, ad- y a-.' },
+      { q:'tomate · elote', p:'Lengua, y qué terminación era.',
+        r:'<b>Náhuatl</b>: el final <b>-tl</b> (tomatl, elotl) que el español volvió -te.' },
+      { q:'<em>chef</em> y <em>jefe</em>', p:'¿Qué son entre sí?',
+        r:'<b>La misma palabra francesa, entrada dos veces</b>: un doblete de préstamo. La primera entrada se gasta, la segunda se conserva.' },
+      { q:'alma · alto · alumno', p:'¿Árabes? Una frase que defienda tu veredicto.',
+        r:'<b>No: latín</b> (ANIMA, ALTUS, ALUMNUS). La marca sospecha; el paréntesis del DLE decide.' },
+      { q:'Guadalquivir quiere decir…', p:'Y qué es <em>guad-</em>.',
+        r:'<b>El río grande</b>. Guad- es wādī, río, en árabe.' },
+      { q:'<em>tiza</em> y <em>gis</em>', p:'¿De dónde viene cada una?',
+        r:'<b>Tiza</b> es náhuatl (tizatl, tierra blanca) y se dice en España; <b>gis</b> es griego (gypsos, por el latín gypsum) y se dice en México. Cada quien usa la del otro.' }
+    ]},
+    { k:'D', t:'El latín y las lenguas francas', sem:'semana 9', items:[
+      { q:'¿Qué parte del español viene del latín?',
+        r:'<b>Tres cuartas partes</b>, el 75 %. El 25 % restante es todo lo demás junto.' },
+      { q:'¿De dónde viene la palabra <em>romance</em>?',
+        r:'De <b>Romania</b>, las tierras conquistadas por Roma: hablar a la romana, el latín de la calle.' },
+      { q:'¿Qué es una lengua franca?', p:'Y una de hoy.',
+        r:'<b>La que usan para entenderse quienes no comparten lengua materna.</b> Hoy, el inglés (y el español en las Américas).' },
+      { q:'¿Hasta cuándo se escribió ciencia en latín en Europa?',
+        r:'<b>Hasta el siglo XIX.</b> Newton en 1687, Linneo en 1753: mil cuatrocientos años después de caer Roma.' }
+    ]},
+    { k:'E', t:'La puerta gamer', sem:'semana 9', items:[
+      { q:'lootear', p:'¿Cómo entró: tal cual, adaptado, sigla o calco?',
+        r:'<b>Adaptado</b>, con la máquina de -ear: looteo, looteamos. (Y loot es hindi: lūṭ, botín.)' },
+      { q:'gg', p:'¿Cómo entró?',
+        r:'<b>Sigla</b>: good game, buena partida.' },
+      { q:'jefe final', p:'¿Cómo entró?',
+        r:'<b>Calco</b> de final boss: traducido pieza por pieza, y parece español de siempre.' }
+    ]},
+    { k:'F', t:'El diccionario lo hacemos nosotros', sem:'semana 10', items:[
+      { q:'Las dos partes de una definición con oficio',
+        r:'<b>Género próximo</b> (la familia) y <b>diferencia específica</b> (lo que la distingue de sus parientes).' },
+      { q:'"Molote: un molote de cobija". ¿Qué falla?',
+        r:'<b>Definición circular</b>: usa la palabra que está definiendo.' },
+      { q:'Tu palabra de campo no está en el DLE, ni en el DECEL, ni en el DEM.', p:'Tu veredicto, en una frase.',
+        r:'<b>Voz viva no registrada: documentación original.</b> "No existe" es aún no.', x:'Premia el veredicto, no el dato: quien anotó en cuáles diccionarios no apareció, y con quién la documentó, está bien.' },
+      { q:'¿Qué es un <em>ejemplo textual</em>?',
+        r:'<b>La frase tal como la dijo alguien, entre comillas.</b> Su voz, no la tuya.' },
+      { q:'Jalpan es náhuatl y Concá es pame. ¿Qué dice eso del mapa?', p:'Una frase.',
+        r:'Que el mapa tiene <b>capas de quién nombró qué</b>: el náhuatl fue lengua franca de los frailes y los aliados; el pame estaba antes.' }
+    ]},
+    { k:'G', t:'Cazadores de mitos', sem:'semana 11', items:[
+      { q:'"<em>Cadáver</em> viene de Caro Data Vermibus."', p:'La señal que enciende y el veredicto.',
+        r:'<b>Es un acrónimo</b> (señal): los acrónimos son del siglo XX. <b>Falsa</b>: viene de cadere, caer.' },
+      { q:'"<em>Siesta</em> viene de la hora sexta."', p:'Veredicto.',
+        r:'<b>Verdadera</b>: DLE, del lat. sexta (hora). El tribunal también confirma verdades.' },
+      { q:'Una IA te da una etimología con seguridad total. ¿Qué haces con ella?',
+        r:'<b>Punto de partida, nunca fuente</b>: se verifica en el DLE o el DECEL. La IA no sabe cuándo no sabe.' },
+      { q:'¿Qué es la <em>paretimología</em>?', p:'Y un caso en que cambió la palabra.',
+        r:'<b>Etimología popular</b>: una historia de origen inventada porque suena lógica. A veces se escribe en la palabra: <b>cerrojo</b> (de veruculum, influido por cerrar).' },
+      { q:'"<em>Gringo</em> viene de green go home."', p:'Señal y veredicto.',
+        r:'<b>Otra lengua sin razón</b> (señal). <b>Falsa</b>: el DLE dice "quizá de griego", y aun con quizá descarta el inglés.' }
+    ]},
+    { k:'H', t:'La disputa y la regla de oro', sem:'semana 12', items:[
+      { q:'"Limpia, fija y da esplendor"', p:'¿De quién es el lema, y por qué fijar una lengua es imposible?',
+        r:'De la <b>Real Academia Española</b>. Porque <b>lo único que nunca para es el cambio</b>: cuando fijas una forma, los hablantes ya la cambiaron o importaron otra.' },
+      { q:'Un argumento de cada bando, en una línea', p:'Protección y contacto.',
+        r:'<b>Protección</b>: sin norma común, un contrato o una receta dejan de decir lo mismo en dos países. <b>Contacto</b>: almohada, ojalá y chocolate fueron extranjerismos, y hoy son el español. (Cualquier par con evidencia de la unidad vale.)' },
+      { q:'ojo · chocolate · coche', p:'¿Herencia o préstamo? Y de dónde, los préstamos.',
+        r:'<b>ojo</b>: herencia (OCULU). <b>chocolate</b>: préstamo del náhuatl. <b>coche</b>: préstamo del húngaro (kocsi).' },
+      { q:'La regla de oro del curso', p:'Y qué le falta a "lo busqué en internet".',
+        r:'<b>Sin fuente no hay etimología.</b> Le falta nombrar la fuente (DLE, DECEL, DEM) y decir qué dice.' }
+    ]},
+    { k:'I', t:'La tuya', sem:'no tiene respuesta correcta', items:[
+      { q:'Una palabra viajera que documentaste tú', p:'De tu casa, de tu pantalla o de tu libro: lengua, camino y fuente (o en cuáles diccionarios no apareció).',
+        r:'<b>Esta no la califico yo.</b> Va derechito a tu cuadernillo, y el domingo es evidencia.' }
+    ]}
+  ];
+
+  /* numeración corrida */
+  var n = 0, total = 0;
+  BLOQUES.forEach(function(b){ b.items.forEach(function(it){ it.n = ++n; }); });
+  total = n;
+  var calificables = total - 1;
+  document.getElementById('totalPortada').textContent = total;
+  document.getElementById('totalApuesta').textContent = calificables;
+
+  function pzHTML(txt){ return txt; }
+
+  /* mapa */
+  var mapa = document.getElementById('mapa');
+  BLOQUES.forEach(function(b){
+    var d = document.createElement('div');
+    d.innerHTML = '<i>' + b.k + '</i><b>' + b.t + '</b><span>' + b.sem + ' · ' + b.items.length + (b.items.length === 1 ? ' reactivo' : ' reactivos') + '</span>';
+    mapa.appendChild(d);
+  });
+
+  /* láminas de reactivos y de respuestas */
+  var zR = document.getElementById('zonaReactivos'), zS = document.getElementById('zonaRespuestas');
+  BLOQUES.forEach(function(b){
+    var s = document.createElement('section');
+    s.className = 'slide';
+    var rango = b.items.length === 1 ? 'reactivo ' + b.items[0].n : 'reactivos ' + b.items[0].n + ' a ' + b.items[b.items.length - 1].n;
+    var lista = '<div class="lista' + (b.items.length <= 4 ? ' una' : '') + '">';
+    b.items.forEach(function(it){
+      lista += '<div class="item"><span class="n">' + it.n + '</span><div><div class="q">' + it.q + '</div>' + (it.p ? '<div class="p">' + it.p + '</div>' : '') + '</div></div>';
+    });
+    lista += '</div>';
+    s.innerHTML = '<div class="kicker">Bloque ' + b.k + ' · ' + b.t + ' · ' + b.sem + '</div>' +
+      '<h2 class="disp">' + rango.charAt(0).toUpperCase() + rango.slice(1) + '</h2>' + lista;
+    zR.appendChild(s);
+
+    var r = document.createElement('section');
+    r.className = 'slide';
+    var filas = '';
+    b.items.forEach(function(it){
+      var resp = it.tipo === 'esp'
+        ? '<span class="esp ' + (it.r === 'REAL' ? 'esp--si' : 'esp--no') + '">' + it.r + '</span>'
+        : it.r;
+      filas += '<tr><td class="n">' + it.n + '</td><td class="q">' + it.q + '</td><td class="r">' + resp + (it.x ? '<small>' + it.x + '</small>' : '') + '</td></tr>';
+    });
+    r.innerHTML = '<div class="kicker">Respuestas · Bloque ' + b.k + ' · ' + b.t + '</div><table class="resp">' + filas + '</table>';
+    zS.appendChild(r);
+  });
+
+  /* la hoja imprimible */
+  var hoja = document.getElementById('hoja');
+  var h = '<h1>Quiz integrador · Unidad 2 · Semana 12</h1>' +
+    '<div class="cab"><span>Nombre: <b></b></span><span class="chico">Mi apuesta (0 a ' + calificables + '): <b></b></span><span class="chico">Salieron bien: <b></b></span></div>' +
+    '<p class="aviso">No lleva nota: es evidencia. Contesta corto, marca "aún no" en lo que no salga y sigue. Al calificar, palomea la columna de la derecha. Esta hoja va a tu expediente.</p>';
+  BLOQUES.forEach(function(b){
+    h += '<h3>Bloque ' + b.k + ' · ' + b.t + ' <small>· ' + b.sem + '</small></h3><ol>';
+    b.items.forEach(function(it){
+      h += '<li><span class="n">' + it.n + '</span><span class="q">' + it.q + (it.p ? '<small>' + it.p + '</small>' : '') + '</span><span class="l"></span><span class="m">bien · aún no</span></li>';
+    });
+    h += '</ol>';
+  });
+  h += '<p class="pie">Los dos números de arriba, apuesta y resultado, van al renglón del integrador en tu cuadernillo. Y anota en qué bloque se te juntaron los "aún no": eso es lo que va en tu segundo parcial.</p>';
+  hoja.innerHTML = h;
+  document.getElementById('imprimir').addEventListener('click', function(){ window.print(); });
+
+  /* navegación */
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var i = 0, cuenta = document.getElementById('cuenta');
+  function muestra(k){
+    i = Math.max(0, Math.min(slides.length - 1, k));
+    slides.forEach(function(s, j){ s.classList.toggle('activa', j === i); });
+    cuenta.textContent = (i + 1) + ' / ' + slides.length;
+  }
+  muestra(0);
+  document.getElementById('sigue').addEventListener('click', function(){ muestra(i + 1); });
+  document.getElementById('atras').addEventListener('click', function(){ muestra(i - 1); });
+  document.addEventListener('keydown', function(e){
+    if(e.repeat) return;
+    if(e.target && e.target.tagName === 'BUTTON' && (e.key === ' ' || e.key === 'Enter')) return;
+    if(e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown'){ e.preventDefault(); muestra(i + 1); }
+    if(e.key === 'ArrowLeft' || e.key === 'PageUp'){ e.preventDefault(); muestra(i - 1); }
+  });
+  document.addEventListener('click', function(e){
+    var b = e.target && e.target.closest ? e.target.closest('button') : null;
+    if(b) b.blur();
+  });
+
+  /* cronómetro: 30 minutos */
+  var TOTAL = 1800, resta = TOTAL, timer = null;
+  var num = document.getElementById('crono-num'),
+      play = document.getElementById('crono-play'),
+      caja = document.getElementById('crono');
+  function pinta(){
+    var m = Math.floor(resta / 60), s = resta % 60;
+    num.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+    caja.classList.toggle('alerta', resta <= 60);
+  }
+  function tic(){
+    resta--;
+    if(resta <= 0){ resta = 0; clearInterval(timer); timer = null; play.textContent = '▶'; }
+    pinta();
+  }
+  play.addEventListener('click', function(){
+    if(timer){ clearInterval(timer); timer = null; play.textContent = '▶'; }
+    else if(resta > 0){ timer = setInterval(tic, 1000); play.textContent = '⏸'; }
+  });
+  document.getElementById('crono-reset').addEventListener('click', function(){
+    clearInterval(timer); timer = null; resta = TOTAL; play.textContent = '▶'; pinta();
+  });
+  pinta();
+})();
+</script>
+</body>
+</html>

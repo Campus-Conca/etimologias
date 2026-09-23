@@ -16,6 +16,7 @@ nav_order: 9
 - hacer el viaje al revés: del español de hoy reconstruir el latín de hace mil años
 - cazar un doblete: la hija popular y la hija culta de un mismo latín
 - escribir la biografía completa de una palabra que viajó diez siglos
+- subir por el árbol genealógico de las lenguas: quiénes son las hermanas, las primas y las vecinas del español
 
 El español no se inventó: es latín gastado durante mil años en la boca de la gente. Y ese desgaste tuvo reglas.
 
@@ -25,10 +26,10 @@ El español no se inventó: es latín gastado durante mil años en la boca de la
 |---|---|---|
 | [Martes 15](#martes) · 1 h | La máquina del tiempo | el mazo al día |
 | Miércoles 16 | No hay clase: fiestas patrias | |
-| [Jueves 17](#jueves) · 1 h, centro de cómputo | El taller y el tribunal | tu equipo armado |
+| [Jueves 17](#jueves) · 1 h, centro de cómputo | El árbol y el tribunal | tres pares dudosos del martes |
 | [Viernes 18](#viernes) · 2 h | El viaje de mil años | tu étimo verificado del jueves |
 
-<p class="pista-mazos">Cada día es un mazo de láminas. En clase se proyectan una por una con el botón <strong>Presentar</strong>; aquí se quedan apiladas, en orden, para volver a ellas cuando quieras. Debajo de los mazos: la máquina del tiempo interactiva, las tarjetas de la semana y la familia completa.</p>
+<p class="pista-mazos">Cada día es un mazo de láminas. En clase se proyectan una por una con el botón <strong>Presentar</strong>; aquí se quedan apiladas, en orden, para volver a ellas cuando quieras. Debajo de los mazos: la máquina del tiempo interactiva, el árbol de las lenguas, las tarjetas de la semana y la familia completa.</p>
 
 <!-- ============================ MARTES ============================ -->
 <section class="mazo" id="martes">
@@ -91,9 +92,9 @@ El español no se inventó: es latín gastado durante mil años en la boca de la
 <section class="lam">
 <h4><span class="n">6</span> Antes del jueves <span class="reloj">5 min</span></h4>
 <span class="senal senal--casa">Para llevar a casa</span>
-<p class="di">El miércoles es 16: no nos vemos. El jueves, centro de cómputo con tu equipo armado.</p>
-<p class="apoyo">Equipos de tres o cuatro, decididos hoy y anotados antes de salir. El jueves cada equipo recibe una ley y la exprime en el taller. Y un pendiente chiquito para las fiestas: fíjate cómo dices los números del uno al diez. Ocho de ellos son latín gastado, y ya puedes decir qué ley los gastó.</p>
-<p class="nota-conductor">Deja la lista de equipos escrita, no de palabra: el jueves en el centro de cómputo no hay tiempo de armarlos. Cinco leyes, así que con más de cinco equipos se repite ley y se comparan tablas; funciona igual de bien.</p>
+<p class="di">El miércoles es 16: no nos vemos. El jueves, centro de cómputo con tres pares dudosos en la mano.</p>
+<p class="apoyo">De lo que apostaste hoy en el gimnasio, guarda los tres pares que más dudas te dejaron: el jueves van al tribunal del diccionario. Y antes del tribunal, una sorpresa: vas a subir por el árbol genealógico de las lenguas y a descubrir que el español tiene hermanas, primas y vecinas. Un pendiente chiquito para las fiestas: fíjate cómo dices los números del uno al diez. Ocho de ellos son latín gastado, y ya puedes decir qué ley los gastó.</p>
+<p class="nota-conductor">El jueves se trabaja en parejas frente a la computadora, sin equipos que armar. Lo único que necesitan traer son sus tres pares: sin apuesta previa, el tribunal no tiene qué juzgar.</p>
 </section>
 </section>
 
@@ -102,33 +103,33 @@ El español no se inventó: es latín gastado durante mil años en la boca de la
 <div class="mazo-cabeza">
 <div>
 <div class="cuando">Jueves 17 de septiembre · 1 hora · centro de cómputo</div>
-<h3>El taller y el tribunal</h3>
-<p class="foco">Cada equipo exprime una ley; el diccionario dicta sentencia.</p>
+<h3>El árbol y el tribunal</h3>
+<p class="foco">Tu lengua tiene hermanas, primas y vecinas. Y el diccionario dicta sentencia.</p>
 </div>
 <button class="btn-presentar" type="button">Presentar ▸</button>
 </div>
 <section class="lam">
-<h4><span class="n">1</span> Ritual: el reparto de leyes <span class="reloj">5 min</span></h4>
+<h4><span class="n">1</span> Ritual: ¿hermana, prima o vecina? <span class="reloj">5 min</span></h4>
 <span class="senal senal--aire">Al aire</span>
-<p class="di">Cinco leyes sobre la mesa. Cada equipo toma una.</p>
-<p class="apoyo">Y antes de tocar el teclado, dos minutos de memoria: digan en voz alta dos palabras donde su ley ya trabajó. Si el equipo no las saca de memoria, la tabla de abajo se las presta.</p>
-<p class="nota-conductor">Reparte por sorteo, no por elección: la ley de la F y la del CT son las codiciadas y las vocales breves se quedan huérfanas. Si hay más de cinco equipos, duplica leyes y anúncialo como duelo: al final se comparan las dos tablas de la misma ley.</p>
+<p class="di">Se dice una lengua. El grupo apuesta: hermana del español, prima o vecina.</p>
+<p class="apoyo">Portugués, inglés, árabe, italiano, náhuatl, ruso, vasco, hindi. A mano alzada, antes de abrir nada. <strong>Hermana</strong> es hija del mismo latín; <strong>prima</strong>, nieta de la misma abuela, el indoeuropeo, aunque no se le note; <strong>vecina</strong>, ni una cosa ni otra, pero le prestó palabras al español.</p>
+<p class="nota-conductor">Respuestas: portugués e italiano, hermanas; inglés, ruso e hindi, primas; árabe, náhuatl y vasco, vecinas. Las que se caen siempre son hindi (prima, por increíble que parezca) y árabe (vecina, aunque nos dio cuatro mil palabras). No expliques: el árbol lo hace en la siguiente lámina.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">2</span> Gimnasio: taller de transformaciones <span class="reloj">25 min</span></h4>
-<span class="senal">Actividad · en equipos</span>
-<p class="di">Su ley, seis pares latín y español, y qué cambió exactamente en cada uno.</p>
-<p class="apoyo"><a href="../ejercicios/semana-08/ejercicio-8B-taller-de-transformaciones.html">Taller de transformaciones</a>. La tabla del equipo: mínimo seis pares donde su ley trabajó, y en cada par la transformación exacta. Anoten también su par más dudoso: ese va al tribunal de hoy mismo, en el siguiente ejercicio. La tabla terminada va a la vitrina de la semana.</p>
-<p class="recurso"><a href="../ejercicios/semana-08/ejercicio-8B-taller-de-transformaciones.html" target="_blank" rel="noopener">Taller de transformaciones</a><span class="pie">Una ley por equipo, exprimida hasta el sexto par.</span></p>
-<p class="nota-conductor">El par dudoso es el oro de la sesión: ahí están los cultismos y los préstamos tardíos sin saberlo. No los corrijas tú: déjalos llegar al tribunal del siguiente bloque, que para eso está. A los equipos rápidos, pídeles el séptimo par con una palabra que no venga en ningún ejemplo del curso.</p>
+<h4><span class="n">2</span> Gimnasio: el árbol de las lenguas <span class="reloj">20 min</span></h4>
+<span class="senal">Actividad · en parejas</span>
+<p class="di">El tronco es una lengua que nadie escribió. Toca una hoja y mira cómo dice <em>noche</em>.</p>
+<p class="apoyo"><a href="../ejercicios/semana-08/arbol-de-las-lenguas.html">El árbol de las lenguas</a>. Primero el recorrido guiado, ocho paradas, con el botón del árbol: sube por tu rama, baja por las de tus primas y mira las vecinas en el suelo. Luego las estaciones 1 y 3: <em>sube por el árbol</em> (de qué rama cuelga cada lengua) y <em>herencia o préstamo</em> (qué palabras bajaron por el tronco y cuáles saltaron la cerca). Las estaciones 2 y 4, reconstruir a la abuela y cazar falsas primas, quedan para el viernes o para la casa.</p>
+<p class="recurso"><a href="../ejercicios/semana-08/arbol-de-las-lenguas.html" target="_blank" rel="noopener">El árbol de las lenguas</a><span class="pie">Hermanas, primas y vecinas del español, con recorrido guiado y cuatro estaciones.</span></p>
+<p class="nota-conductor">Proyecta el árbol una vez con el modo <em>el árbol habla</em> en <em>noche</em> antes de soltarlos: night, Nacht, noch, naktis, y abajo layl, yohualli, gau. Con eso se entiende solo qué es herencia y qué es préstamo, que es la distinción que la semana 9 necesita. Doce minutos de recorrido y estación 1; el resto para la estación 3. El mensaje de salida: lo que bajó por el tronco obedece a las leyes de la semana; lo que saltó la cerca, no, y por eso las leyes "fallan" con almohada.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">3</span> Gimnasio: el árbol genealógico <span class="reloj">25 min</span></h4>
-<span class="senal">Actividad · en equipos</span>
+<h4><span class="n">3</span> Gimnasio: el árbol genealógico <span class="reloj">30 min</span></h4>
+<span class="senal">Actividad · en parejas</span>
 <p class="di">Sus dudosos, a juicio en el DECEL. Y de premio, la caza del doblete.</p>
-<p class="apoyo"><a href="../ejercicios/semana-08/ejercicio-8C-el-arbol-genealogico.html">El árbol genealógico</a>. Primero el juicio: verifiquen en el <a href="http://etimologias.dechile.net">DECEL</a> que el español venga del latín que apostaron y qué ley operó. Después la caza: un <strong>doblete</strong>, una palabra latina que dio dos españolas, una popular y una culta, como <em>AURICULA</em> que dio <em>oreja</em> y <em>aurícula</em>. Capturen: palabra, étimo, ley, fuente.</p>
+<p class="apoyo"><a href="../ejercicios/semana-08/ejercicio-8C-el-arbol-genealogico.html">El árbol genealógico</a>. Primero el juicio, con los tres pares dudosos que trajeron del martes: verifiquen en el <a href="http://etimologias.dechile.net">DECEL</a> que el español venga del latín que apostaron y qué ley operó. Después la caza: un <strong>doblete</strong>, una palabra latina que dio dos españolas, una popular y una culta, como <em>AURICULA</em> que dio <em>oreja</em> y <em>aurícula</em>. Capturen: palabra, étimo, ley, fuente.</p>
 <p class="recurso"><a href="../ejercicios/semana-08/ejercicio-8C-el-arbol-genealogico.html" target="_blank" rel="noopener">El árbol genealógico</a><span class="pie">El diccionario etimológico dicta sentencia y el doblete es el trofeo.</span></p>
-<p class="nota-conductor">La regla de oro sigue mandando: sin fuente no hay etimología, ni siquiera cuando la ley cuadra perfecto. Si un étimo apostado resulta falso pero la ley estaba bien aplicada, sepáralo en el pizarrón: es un espejismo nuevo, primo de los de la semana 3, y mañana el doblete lo explica.</p>
+<p class="nota-conductor">La regla de oro sigue mandando: sin fuente no hay etimología, ni siquiera cuando la ley cuadra perfecto. Si un étimo apostado resulta falso pero la ley estaba bien aplicada, sepáralo en el pizarrón: es un espejismo nuevo, primo de los de la semana 3, y mañana el doblete lo explica. Y si alguien trae un par que no obedece a ninguna ley, pregúntale si la palabra bajó por el tronco o saltó la cerca: el árbol de hace un rato ya le dio la respuesta.</p>
 </section>
 <section class="lam">
 <h4><span class="n">4</span> El marcador <span class="reloj">5 min</span></h4>
@@ -185,7 +186,8 @@ El español no se inventó: es latín gastado durante mil años en la boca de la
 <p class="di">El latín tampoco nació solo: tenía primas, y todas la misma abuela.</p>
 <img class="ilustracion" src="../assets/img/semana-08/la-reunion-de-la-familia.webp" alt="Bajo un listón que dice LA MISMA FAMILIA, SEIS MIL AÑOS DESPUÉS, una abuela con chal preside una mesa larga desde una silla rotulada indoeuropeo; cinco parientes brindan con sus letreros colgados del mantel: pater con toga romana, patér junto a una columna griega, father de traje y con paraguas, Vater con tarro de cerveza y padre con sombrero de charro">
 <p class="apoyo">Compara <em>padre</em>, <em>pater</em>, <em>patḗr</em>, <em>father</em> y <em>Vater</em> en la tabla de abajo. No es coincidencia ni copia: son primas que heredaron de la misma abuela, el indoeuropeo, una lengua de hace más de seis mil años que nadie escribió nunca. ¿Y cómo sabemos que existió, si no dejó ni una piedra? Con el truco que acabas de aprender hoy: reconstruyendo hacia atrás, con leyes y asterisco.</p>
-<p class="nota-conductor">Proyecta la tabla de la familia que está abajo en esta página y pide que lean las filas en voz alta: el parecido se oye más de lo que se ve, sobre todo en noche, night y Nacht. El remate importa: el método de la vuelta que jugaron hoy es el mismo con el que se reconstruyó el indoeuropeo entero. Y planta la semilla: en la semana 15 este cuadro vuelve para explicar por qué el inglés se les va a hacer menos extranjero.</p>
+<p class="recurso"><a href="../ejercicios/semana-08/arbol-de-las-lenguas.html" target="_blank" rel="noopener">El árbol de las lenguas</a><span class="pie">Toca <em>madre</em> y mira cómo la dicen tus primas, de Irlanda a la India. La estación 2 reconstruye a la abuela con asterisco.</span></p>
+<p class="nota-conductor">Proyecta el árbol con <em>el árbol habla</em> en <em>madre</em> y luego en <em>noche</em>, y pide que lean las hojas en voz alta: el parecido se oye más de lo que se ve, sobre todo en noche, night y Nacht. Después toca el tronco: la ficha del indoeuropeo trae las cinco formas con asterisco. El remate importa: el método de la vuelta que jugaron hoy es el mismo con el que se reconstruyó el indoeuropeo entero. Y planta la semilla: en la semana 15 este cuadro vuelve para explicar por qué el inglés se les va a hacer menos extranjero.</p>
 </section>
 <section class="lam lam--actividad">
 <h4><span class="n">6</span> Fábrica de tarjetas <span class="reloj">10 min</span></h4>
@@ -212,14 +214,15 @@ El **minuto del lector** abre el martes, la voz alta cierra el viernes y tu [bit
 Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
 
 - [Predice en las dos direcciones](../ejercicios/semana-08/ejercicio-8A-predice-en-dos-direcciones.html) · martes
-- [Taller de transformaciones](../ejercicios/semana-08/ejercicio-8B-taller-de-transformaciones.html) · jueves, en equipos
+- [El árbol de las lenguas](../ejercicios/semana-08/arbol-de-las-lenguas.html) · jueves, centro de cómputo; y para siempre: hermanas, primas y vecinas del español, con recorrido guiado y cuatro estaciones
 - [El árbol genealógico](../ejercicios/semana-08/ejercicio-8C-el-arbol-genealogico.html) · jueves, centro de cómputo
 - [La palabra que viajó mil años](../ejercicios/semana-08/ejercicio-8D-la-palabra-que-viajo-mil-anos.html) · viernes
 - [Quiz de gimnasio](../ejercicios/semana-08/quiz-gimnasio-semana-08.html) · para ensayar cuando quieras
 
 ### En el centro de cómputo (jueves)
 
-1. Toma 3 pares dudosos de tu equipo. Verifica en el [DECEL](http://etimologias.dechile.net) que el español venga de ese latín y qué ley operó.
+0. Sube por el [árbol de las lenguas](../ejercicios/semana-08/arbol-de-las-lenguas.html): el recorrido guiado y las estaciones 1 y 3.
+1. Toma los 3 pares dudosos que apostaste el martes. Verifica en el [DECEL](http://etimologias.dechile.net) que el español venga de ese latín y qué ley operó.
 2. Busca un **doblete**: una palabra latina que dio dos españolas, una popular y una culta (*AURICULA* → oreja y aurícula).
 3. Captura: palabra, étimo latino, ley, fuente.
 
@@ -308,17 +311,33 @@ Esta semana el mazo no crece de piezas: crece de leyes. Seis tarjetas, y con esa
 
 ## Por si hay tiempo: la familia completa
 
-El latín no estaba solo: era parte de una familia gigante, el indoeuropeo, una lengua madre hablada hace más de 6,000 años que hoy vive en los idiomas de más de la mitad del planeta. Compara:
+El latín no estaba solo: era parte de una familia gigante, el indoeuropeo, una lengua madre hablada hace más de 6,000 años que hoy vive en los idiomas de más de la mitad del planeta. Compara, y lee las columnas en voz alta:
 
-| Español | Latín | Griego | Inglés | Alemán |
-|---|---|---|---|---|
-| padre | pater | patḗr | father | Vater |
-| madre | mater | mḗtēr | mother | Mutter |
-| tres | tres | treîs | three | drei |
-| noche | nox | nýx | night | Nacht |
-| estrella | stella | astḗr | star | Stern |
+| Lengua | madre | noche | tres | nuevo | mes |
+|---|---|---|---|---|---|
+| **español** | madre | noche | tres | nuevo | mes |
+| latín | mater | nox | tres | novus | mensis |
+| portugués | mãe | noite | três | novo | mês |
+| francés | mère | nuit | trois | nouveau | mois |
+| italiano | madre | notte | tre | nuovo | mese |
+| rumano | mamă | noapte | trei | nou | lună |
+| griego | mitéra | nýchta | tría | néos | mínas |
+| inglés | mother | night | three | new | month |
+| alemán | Mutter | Nacht | drei | neu | Monat |
+| neerlandés | moeder | nacht | drie | nieuw | maand |
+| sueco | mor | natt | tre | ny | månad |
+| galés | mam | nos | tri | newydd | mis |
+| irlandés | máthair | oíche | trí | nua | mí |
+| polaco | matka | noc | trzy | nowy | miesiąc |
+| ruso | mat' | noch' | tri | novyy | mesyats |
+| lituano | motina | naktis | trys | naujas | mėnuo |
+| albanés | nënë | natë | tre | i ri | muaj |
+| armenio | mayr | gisher | yerek' | nor | amis |
+| persa | mādar | shab | se | now | māh |
+| sánscrito | mātṛ | nakta | tri | nava | mās |
+| *vasco (vecina, no es pariente)* | ama | gau | hiru | berri | hilabete |
 
-No es coincidencia ni copia: son primas. Todas heredaron de la misma abuela. Guarda esta tabla en la memoria, porque en la semana 15 va a explicar por qué el inglés se te va a hacer menos extranjero de lo que crees.
+No es coincidencia ni copia: son primas. Todas heredaron de la misma abuela, y la última fila, el vasco, está ahí para que se vea la diferencia: no se parece a nada porque no es pariente de nadie. Fíjate en *mes*: en casi todas es la misma raíz que *luna*, porque el mes se contaba con la luna, y el rumano lo dice de frente. Todo esto se toca en [el árbol de las lenguas](../ejercicios/semana-08/arbol-de-las-lenguas.html): cada hoja dice estas cinco palabras, y la estación 2 te hace reconstruir la forma de la abuela. Guarda la tabla en la memoria, porque en la semana 15 va a explicar por qué el inglés se te va a hacer menos extranjero de lo que crees.
 
 ## Lo que produjimos
 

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tu booktuber, paso a paso · Semana 9 · proyectable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ciruela:#2B2440; --morado:#6B1E5A; --rosa:#C4006A; --rosa-suave:#FFD6E9; --rosa-luz:#F4A8CE;
+    --jade:#0B5F52; --jade-suave:#DFF5EE; --dorado:#B07B12; --ambar:#FBF0D9; --tinta:#221A3A; --gris:#4A3F5C;
+    --borde:#E6DFF0; --fondo:#F4EFF9; --rojo:#A3312B; --rojo-suave:#FDECEC;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  html,body{height:100%}
+  body{font-family:"Inter",system-ui,sans-serif; background:var(--fondo); color:var(--tinta); overflow:hidden}
+  .disp{font-family:"Bricolage Grotesque","Inter",sans-serif; font-weight:800; letter-spacing:-.015em}
+  .slide{position:absolute; inset:0; display:none; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:4vmin 7vmin 12vmin; gap:2vmin}
+  .slide.activa{display:flex}
+  .slide--oscura{background:var(--ciruela); color:#F4EFF9}
+  .slide--ambar{background:#FBF7E9}
+  .kicker{font-size:2vmin; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--rosa)}
+  .slide--oscura .kicker{color:var(--rosa-luz)}
+  h1{font-size:7vmin; line-height:1.08; max-width:85vw}
+  h2{font-size:5.2vmin; line-height:1.15; max-width:88vw}
+  .sub{font-size:2.9vmin; color:var(--gris); max-width:74vw; line-height:1.5}
+  .slide--oscura .sub{color:#D9CFE8}
+  .grande{font-size:9vmin; line-height:1; color:var(--rosa)}
+  .slide--oscura .grande{color:var(--rosa-luz)}
+  .explica{font-size:2.7vmin; color:var(--gris); max-width:78vw; line-height:1.55}
+  .slide--oscura .explica{color:#D9CFE8}
+  table{border-collapse:collapse; font-size:2.5vmin; max-width:92vw; background:#fff; border-radius:1.5vmin; overflow:hidden}
+  th{background:#F7F3FB; color:var(--tinta); text-transform:uppercase; font-size:1.7vmin; letter-spacing:.06em; padding:1.2vmin 1.8vmin; text-align:left; border-bottom:1px solid var(--borde)}
+  td{padding:1.1vmin 1.8vmin; border-bottom:1px solid var(--borde); text-align:left; vertical-align:top; line-height:1.35}
+  td b{color:var(--rosa)}
+  tr:last-child td{border-bottom:none}
+  td.si{color:var(--jade)} td.no{color:var(--rojo)}
+  .linea{display:flex; align-items:stretch; width:88vw; max-width:1500px; margin-top:1vmin; gap:1vmin}
+  .tramo{position:relative; padding:2vmin 1.6vmin 1.6vmin; border-radius:1.5vmin; background:#fff; border:1px solid var(--borde); text-align:left}
+  .tramo i{display:block; font-style:normal; font-size:1.7vmin; letter-spacing:.08em; text-transform:uppercase; color:var(--rosa); font-weight:700}
+  .tramo b{display:block; font-size:3.2vmin; line-height:1.1; color:var(--morado); margin:.4vmin 0 .8vmin}
+  .tramo span{display:block; font-size:2.1vmin; color:var(--gris); line-height:1.4}
+  .tramo--corazon{background:#FFF3F9; border-color:var(--rosa-luz)}
+  .dos{display:grid; grid-template-columns:1fr 1fr; gap:3vmin; max-width:92vw}
+  .dos > div{background:#fff; border:1px solid var(--borde); border-radius:1.8vmin; padding:2.4vmin 3vmin; text-align:left}
+  .dos > div.mal{border-color:#F2C4C1; background:#FFF8F8}
+  .dos > div.bien{border-color:#BFE7DC; background:#F6FBF9}
+  .dos b{display:block; font-size:3vmin; margin-bottom:.8vmin}
+  .dos .mal b{color:var(--rojo)} .dos .bien b{color:var(--jade)}
+  .dos p{font-size:2.3vmin; color:var(--gris); line-height:1.5}
+  .dos p em{color:var(--tinta)}
+  .fila{display:flex; gap:2.5vmin; flex-wrap:wrap; justify-content:center; max-width:92vw}
+  .tarj{background:#fff; border:1px solid var(--borde); border-radius:1.6vmin; padding:2vmin 2.6vmin; min-width:24vmin; max-width:38vmin; text-align:left}
+  .slide--oscura .tarj{background:rgba(255,255,255,.07); border-color:rgba(255,255,255,.2)}
+  .tarj b{display:block; font-size:3vmin; color:var(--morado); line-height:1.1}
+  .slide--oscura .tarj b{color:var(--rosa-luz)}
+  .tarj span{display:block; font-size:2.1vmin; color:var(--gris); margin-top:.6vmin; line-height:1.4}
+  .slide--oscura .tarj span{color:#D9CFE8}
+  .tarj i{display:block; font-style:normal; font-size:1.7vmin; letter-spacing:.08em; text-transform:uppercase; color:var(--rosa); font-weight:700}
+  .lista{text-align:left; max-width:80vw; font-size:3vmin; line-height:1.5}
+  .lista li{margin:.8vmin 0 .8vmin 3vmin}
+  .lista li::marker{color:var(--rosa)}
+  .lista.check{list-style:none}
+  .lista.check li{margin-left:0; padding-left:5vmin; position:relative}
+  .lista.check li::before{content:"☐"; position:absolute; left:0; top:0; color:var(--rosa); font-size:3.2vmin}
+  .frases{display:grid; grid-template-columns:1fr 1fr; gap:2vmin; max-width:92vw; text-align:left}
+  .frases div{padding:1.6vmin 2.2vmin; border-radius:1.4vmin; font-size:2.5vmin; line-height:1.4; background:#fff; border:1px solid var(--borde)}
+  .frases div.si{border-left:.8vmin solid var(--jade)} .frases div.no{border-left:.8vmin solid var(--rojo); color:#777; text-decoration:line-through; text-decoration-color:#C4006A}
+  .cita{font-family:"Bricolage Grotesque","Inter",sans-serif; font-weight:700; font-size:4vmin; line-height:1.3; max-width:80vw; border-left:.8vmin solid var(--rosa); padding:1.5vmin 3vmin; text-align:left; background:#FFF3F9; border-radius:0 1.5vmin 1.5vmin 0}
+  .slide--oscura .cita{background:rgba(255,255,255,.08); color:#fff}
+  .nota-pie{font-size:1.9vmin; color:var(--gris); opacity:.8; max-width:80vw}
+  .tel{width:22vmin; height:40vmin; border:.9vmin solid var(--tinta); border-radius:4vmin; background:#fff; position:relative; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:1.5vmin}
+  .tel::after{content:""; position:absolute; top:1.2vmin; width:7vmin; height:1.2vmin; border-radius:1vmin; background:var(--tinta); opacity:.4}
+  .tel .libro{width:9vmin; height:12vmin; background:var(--rosa); border-radius:.6vmin; box-shadow:.6vmin .6vmin 0 var(--morado)}
+  .tel .cara{width:8vmin; height:8vmin; border-radius:50%; background:#FFD6E9; border:.5vmin solid var(--morado)}
+  .tel small{font-size:1.6vmin; color:var(--gris)}
+  .escena{display:flex; gap:5vmin; align-items:center}
+  #controles{position:fixed; bottom:2.5vmin; left:0; right:0; display:flex; justify-content:center; gap:2vmin; z-index:10}
+  #controles button{font-family:inherit; font-weight:700; font-size:2.4vmin; border:none; cursor:pointer; border-radius:3vmin; padding:1.2vmin 3vmin; background:var(--rosa-suave); color:var(--morado)}
+  #controles button:hover{background:#fff}
+  #cuenta{position:fixed; bottom:3vmin; right:3vmin; font-size:2vmin; color:var(--gris); z-index:10}
+  .tecla{font-size:1.9vmin; color:var(--gris); opacity:.75}
+  .slide--oscura .tecla{color:#D9CFE8}
+  .conductor{position:fixed; left:2.5vmin; bottom:9vmin; max-width:34vw; background:var(--ambar); border:1px dashed #C79A2E; border-radius:1.2vmin; padding:1.2vmin 1.6vmin; font-size:1.8vmin; line-height:1.45; color:#5C4A1C; text-align:left; display:none; z-index:11}
+  .conductor::before{content:"Nota del conductor"; display:block; font-size:1.4vmin; letter-spacing:.11em; text-transform:uppercase; font-weight:700; margin-bottom:.4vmin}
+  body.con-notas .slide.activa .conductor{display:block}
+</style>
+</head>
+<body>
+
+<!-- 1 · Portada -->
+<section class="slide slide--oscura activa">
+  <div class="kicker">Semana 9 · Viernes · Leemos</div>
+  <h1 class="disp">Tu booktuber, paso a paso</h1>
+  <p class="sub">Dos a tres minutos con tu celular, tu primer libro en la mano, y una sola pregunta que contestar: ¿qué te hizo?</p>
+  <p class="tecla">Avanza con → o espacio · regresa con ← · N notas del conductor</p>
+  <div class="conductor">Se proyecta el viernes antes del ejercicio 9E, y queda en la página de la semana y en Leemos para quien grabe en casa. Diecisiete láminas; a paso normal, diez minutos. Al terminar, modela tú uno de sesenta segundos con un libro tuyo, sin preparar: eso quita más miedo que todas las láminas juntas.</div>
+</section>
+
+<!-- 2 · Qué es -->
+<section class="slide">
+  <div class="kicker">Primero, qué es</div>
+  <h2 class="disp">Contarle a alguien qué te hizo un libro, como se lo contarías a un amigo</h2>
+  <p class="explica">Eso es todo. No es una reseña con estrellas, no es un resumen, no es un trabajo escolar leído frente a la cámara. Es lo que dirías si alguien te preguntara "¿y qué tal el libro?" y tuvieras tres minutos y ganas de contestar de verdad.</p>
+  <div class="conductor">La comparación con el amigo es la que aterriza: casi todos ya hacen booktubers sin saberlo cuando recomiendan una serie. Nómbralo.</div>
+</section>
+
+<!-- 3 · Para qué existe -->
+<section class="slide slide--ambar">
+  <div class="kicker">Para qué existe</div>
+  <h2 class="disp">Para que comuniques tu percepción de tu primer libro</h2>
+  <p class="explica">Tu percepción. No la del profesor, no la de internet, no la de la contraportada. Lo que el libro te hizo a ti es tuyo y nadie te lo puede corregir: por eso no se califica. Lo único que sí se ve es si hablaste del libro que leíste o de la trama que cualquiera puede buscar.</p>
+  <p class="cita">Es tabla del suelo de la unidad 2. Por fuerza tiene que existir: cuenta que lo hagas y lo entregues, en el formato que elijas.<cite style="display:block;font-family:Inter,sans-serif;font-weight:400;font-style:normal;font-size:2vmin;color:#8A7F93;margin-top:.8vmin">Tu calificación · el suelo de la unidad 2</cite></p>
+  <div class="conductor">Di las dos cosas juntas y en este orden: es obligatorio, y no se califica. La combinación desarma: nadie tiene que "salir bien"; solo tiene que hacerlo.</div>
+</section>
+
+<!-- 4 · Lo que espero -->
+<section class="slide slide--oscura">
+  <div class="kicker">Lo que espero, en una frase</div>
+  <h1 class="disp">Que en tres minutos yo sepa qué te hizo el libro, y me den ganas de leerlo. O de no leerlo.</h1>
+  <p class="sub">Las dos cosas valen. Un booktuber que me convence de no leer un libro es un booktuber que funcionó.</p>
+</section>
+
+<!-- 5 · Las cuatro partes -->
+<section class="slide slide--ambar">
+  <div class="kicker">Las cuatro partes, con reloj</div>
+  <div class="linea">
+    <div class="tramo" style="flex:1"><i>0:00 · 0:10</i><b>Quién eres</b><span>Nombre de pila y grupo. Diez segundos. Es lo único tuyo que aparece si se publica.</span></div>
+    <div class="tramo" style="flex:2"><i>0:10 · 0:40</i><b>Qué leíste</b><span>Título y autor, con el libro en la mano, a la cámara. Y una línea de qué tipo de libro es, para quien no lo conoce: "una novela corta de muertos que hablan".</span></div>
+    <div class="tramo tramo--corazon" style="flex:5"><i>0:40 · 2:20 · el corazón</i><b>Qué te dio</b><span>No qué pasa en él: qué te hizo. Una idea que te dejó, una escena que no se te va, un momento en que casi lo dejas y por qué seguiste (o por qué no). Es la parte larga, y la única que no puede hacer nadie más que tú.</span></div>
+    <div class="tramo" style="flex:2"><i>2:20 · 3:00</i><b>La frase</b><span>Una frase leída en voz alta desde tu ejemplar, con la página, y una línea de por qué esa. Es el único momento en que se lee.</span></div>
+  </div>
+  <p class="nota-pie">Si terminas en un minuto, te faltó la parte 3. Si pasas de tres, sobra trama.</p>
+  <div class="conductor">Señala la proporción: la parte 3 ocupa más de la mitad. El error típico es al revés: un minuto de trama y diez segundos de "me gustó". El reloj del ejercicio 9E se los va a decir.</div>
+</section>
+
+<!-- 6 · Qué te dio, por dentro -->
+<section class="slide">
+  <div class="kicker">La parte 3, por dentro</div>
+  <h2 class="disp">"Qué te dio" no es "qué pasa"</h2>
+  <div class="frases">
+    <div class="si">Me hizo leer despacio, cosa que odio.</div>
+    <div class="no">Trata de un muchacho que va a un pueblo a buscar a su papá.</div>
+    <div class="si">Hay una escena que no se me va: la del pueblo vacío.</div>
+    <div class="no">El personaje principal es Juan Preciado y luego conoce a…</div>
+    <div class="si">Lo dejé en la página 40 y mi hermana me obligó a seguir. Tenía razón.</div>
+    <div class="no">Me gustó mucho, está muy bueno, lo recomiendo.</div>
+    <div class="si">No sabía que un libro podía dar un miedo tan callado.</div>
+    <div class="no">Es una novela muy importante de la literatura mexicana.</div>
+  </div>
+  <p class="explica">Las de la izquierda solo las puedes decir tú. Las de la derecha las dice cualquiera que haya buscado el libro en internet, y eso es exactamente lo que este booktuber no es.</p>
+  <div class="conductor">Léelas en voz alta alternando: una buena, una tachada. El contraste se oye solo. "Me gustó mucho" es la frase prohibida del día: no porque sea falsa, sino porque no dice nada.</div>
+</section>
+
+<!-- 7 · Cómo empezar la parte 3 -->
+<section class="slide slide--ambar">
+  <div class="kicker">Si no sabes cómo empezar la parte 3</div>
+  <h2 class="disp">Arranques que siempre funcionan</h2>
+  <div class="fila">
+    <div class="tarj"><b>"Me hizo…"</b><span>reír en el camión, no dormir, pensar en mi abuelo, leer despacio</span></div>
+    <div class="tarj"><b>"Hay una escena que…"</b><span>no se me va, me dio rabia, me hizo cerrar el libro un rato</span></div>
+    <div class="tarj"><b>"Lo dejé en la página… porque…"</b><span>y volví por…, o no volví, y esto es lo que me quedó</span></div>
+    <div class="tarj"><b>"No sabía que…"</b><span>un libro podía…, alguien podía escribir así de…, eso me iba a pasar a mí</span></div>
+    <div class="tarj"><b>"Si te gusta…, este…"</b><span>la recomendación con condiciones, como en el tendedero de Leemos</span></div>
+  </div>
+  <p class="explica">Elige dos o tres. Con tres arranques ya tienes un minuto y medio hablado sin contar nada de la trama.</p>
+</section>
+
+<!-- 8 · Ejemplo bueno vs flojo -->
+<section class="slide">
+  <div class="kicker">El mismo libro, dos booktubers</div>
+  <div class="dos">
+    <div class="mal"><b>El flojo</b><p><em>"Hola, soy Diego. Leí Pedro Páramo de Juan Rulfo. Trata de un muchacho que va a Comala a buscar a su papá y se encuentra con que todos están muertos. Hay muchos personajes y a veces no se entiende. Me gustó mucho, está muy bueno, se los recomiendo. Y la frase es 'Vine a Comala'. Gracias."</em><br><br>Cuarenta segundos. Trama, opinión sin contenido, frase sin razón.</p></div>
+    <div class="bien"><b>El que funciona</b><p><em>"Soy Diego, de tercero A. Leí Pedro Páramo, de Juan Rulfo: una novela corta, de muertos que hablan. Me hizo leer despacio, cosa que odio, porque cada dos páginas no sabía quién estaba hablando y tuve que regresarme. Lo dejé una semana en la página 40. Volví por la voz de la mamá, que me recordó a mi abuela cuando cuenta cosas de Concá. Hay una escena, la del pueblo vacío con los murmullos, que me dio un miedo callado que no conocía. Página 7: 'Vine a Comala porque me dijeron que acá vivía mi padre'. La elegí porque es la única frase del libro que dice claramente qué está pasando, y después ya nada es claro."</em><br><br>Dos minutos y medio. Cero trama, tres cosas que solo Diego puede decir.</p></div>
+  </div>
+  <div class="conductor">Léelos los dos en voz alta, el flojo primero. Que noten que el segundo también menciona a los muertos y a Comala: no es que la trama esté prohibida, es que no es el centro.</div>
+</section>
+
+<!-- 9 · El abandono -->
+<section class="slide slide--oscura">
+  <div class="kicker">Si dejaste el libro</div>
+  <h2 class="disp">"Por qué lo dejé" también es percepción. Y también vale.</h2>
+  <p class="explica">Abandonar un libro no es fracaso: es criterio, y es el tercer derecho del lector que firmaste en la semana 0. El booktuber de un libro abandonado tiene las mismas cuatro partes. En la tercera cuentas hasta dónde llegaste, qué te sacó de él, y qué te dio mientras duró. Suele ser el booktuber más honesto del grupo.</p>
+  <div class="conductor">Dilo con todas las letras, mirando a los que no terminaron: ellos ya saben quiénes son y llevan toda la semana pensando que no tienen booktuber. Sí tienen.</div>
+</section>
+
+<!-- 10 · Cómo grabar -->
+<section class="slide slide--ambar">
+  <div class="kicker">Cómo se graba</div>
+  <div class="escena">
+    <div class="tel"><div class="cara"></div><div class="libro"></div><small>vertical vale</small></div>
+    <ul class="lista">
+      <li><strong>Tu celular, vertical vale.</strong> El de un amigo también.</li>
+      <li><strong>Una sola toma.</strong> Se vale repetirla entera; no se vale cortar y pegar.</li>
+      <li><strong>Luz de frente:</strong> una ventana enfrente de ti, nunca detrás.</li>
+      <li><strong>Silencio:</strong> el patio a la hora del recreo no.</li>
+      <li><strong>El libro a la cámara</strong> cuando digas el título.</li>
+      <li><strong>Mira la cámara,</strong> no la pantalla: es como mirar a los ojos.</li>
+    </ul>
+  </div>
+  <div class="conductor">Lo de la luz de frente es lo que más mejora un video con cero esfuerzo. Lo de una sola toma es la regla que evita que alguien pase la tarde editando: el booktuber es hablado, no producido.</div>
+</section>
+
+<!-- 11 · Lo que no lleva -->
+<section class="slide">
+  <div class="kicker">Lo que expresamente no lleva</div>
+  <table>
+    <tr><th>No lleva</th><th>Por qué</th></tr>
+    <tr><td class="no"><b>Resumen de la trama</b></td><td>eso lo hace cualquiera; lo que el libro te hizo, solo tú</td></tr>
+    <tr><td class="no"><b>Calificación con estrellas</b></td><td>este curso no pone números ni a los libros</td></tr>
+    <tr><td class="no"><b>Música, edición, efectos, filtros</b></td><td>se evalúa que exista, no que se vea bonito</td></tr>
+    <tr><td class="no"><b>Un guion leído de corrido</b></td><td>se habla; lo único que se lee es la frase</td></tr>
+    <tr><td class="no"><b>El final del libro</b></td><td>alguien del grupo lo va a leer después de verte</td></tr>
+    <tr><td class="no"><b>Disculpas</b></td><td>"perdón, no soy bueno para esto" quita diez segundos de la parte 3</td></tr>
+  </table>
+</section>
+
+<!-- 12 · Formatos -->
+<section class="slide slide--ambar">
+  <div class="kicker">¿No quieres cámara?</div>
+  <h2 class="disp">Tres formatos, y los tres valen exactamente igual</h2>
+  <div class="fila">
+    <div class="tarj"><i>formato 1</i><b>Video</b><span>Dos a tres minutos con el celular, con las cuatro partes. Es el que se publica en la vitrina si tú lo autorizas.</span></div>
+    <div class="tarj"><i>formato 2</i><b>Audio</b><span>Una nota de voz de dos a tres minutos, con las cuatro partes. Sin cámara, con la misma honestidad.</span></div>
+    <div class="tarj"><i>formato 3</i><b>Ficha ilustrada</b><span>Una hoja con las cuatro casillas dibujadas y escritas a mano (la frase, copiada con su página), y una foto de la hoja.</span></div>
+  </div>
+  <p class="explica">Para el suelo, los tres son la misma tabla. Elige el que te deje decir más.</p>
+</section>
+
+<!-- 13 · Lista de cotejo -->
+<section class="slide">
+  <div class="kicker">Antes de mandar</div>
+  <h2 class="disp">Cinco cosas que se revisan (y ninguna es si te ves bien)</h2>
+  <ul class="lista check">
+    <li>Dijiste tu nombre, el título y el autor, con el libro en la mano.</li>
+    <li>Hablaste de lo que el libro te dio, no de lo que pasa en él.</li>
+    <li>Leíste una frase desde tu ejemplar, y se entendió por qué esa.</li>
+    <li>Hablaste; no leíste un guion de corrido.</li>
+    <li>Cabe en dos a tres minutos.</li>
+  </ul>
+  <p class="explica">Es la misma lista que tu pareja te marca en el ensayo del ejercicio de hoy. Si las cinco están, ya puedes grabar.</p>
+</section>
+
+<!-- 14 · Cómo se entrega -->
+<section class="slide slide--ambar">
+  <div class="kicker">Cómo se entrega</div>
+  <h2 class="disp">Por WhatsApp al profesor, antes del martes 29</h2>
+  <div class="fila">
+    <div class="tarj"><i>una</i><b>Tu grabación</b><span>el video, el audio o la foto de la ficha</span></div>
+    <div class="tarj"><i>y dos</i><b>La captura del ejercicio</b><span>la que genera <em>Tu booktuber</em> (ejercicio 9E): tu guion en apuntes y tu decisión de publicación</span></div>
+  </div>
+  <p class="explica">Con la captura el profesor sabe qué hacer con tu entrega: si autorizaste, sube el video y su enlace aparece en la vitrina de <strong>Leemos</strong> con tu nombre de pila; si no, se queda en su carpeta y solo se palomea la tabla del suelo. Puedes cambiar de opinión después: se dice y se baja.</p>
+  <div class="conductor">Insiste en el nombre de pila: es lo único que se publica, y solo con autorización. Quien no entregue antes del martes 29 no pierde la tabla: la tiene hasta el cierre de la unidad, el viernes 16 de octubre.</div>
+</section>
+
+<!-- 15 · Lo que se revisa y lo que no -->
+<section class="slide slide--oscura">
+  <div class="kicker">Para que quede claro</div>
+  <table>
+    <tr><th>Se revisa</th><th>No se revisa</th></tr>
+    <tr><td class="si">que exista y que lo hayas entregado</td><td>si el libro te gustó</td></tr>
+    <tr><td class="si">que tenga las cuatro partes</td><td>cuántas páginas leíste</td></tr>
+    <tr><td class="si">que hables del libro que leíste tú</td><td>si sales bien en cámara, si te trabas, si te da pena</td></tr>
+    <tr><td class="si">que dure entre dos y tres minutos</td><td>la dicción, el fondo, la luz, la ropa</td></tr>
+  </table>
+  <p class="sub">El suelo registra que estuviste y que lo hiciste. Nada más, y nada menos.</p>
+</section>
+
+<!-- 16 · Por qué esto y no un resumen -->
+<section class="slide">
+  <div class="kicker">Una última cosa</div>
+  <p class="cita">Un booktuber de tres minutos vale más que un resumen de tres páginas. El resumen lo hace una IA en treinta segundos. Lo que te hizo el libro, solo tú.</p>
+  <p class="explica">Por eso este curso no pide resúmenes ni controles de lectura. Pide tu voz, con el libro en la mano. Y por eso el booktuber es tabla del suelo: es la evidencia de que leíste que ninguna máquina puede fabricar.</p>
+</section>
+
+<!-- 17 · Cierre -->
+<section class="slide slide--oscura">
+  <div class="kicker">Ahora</div>
+  <h1 class="disp">Guion en cuatro casillas, ensayo con reloj, y quien quiera graba hoy</h1>
+  <p class="sub">Abre <strong>Tu booktuber</strong> (ejercicio 9E) en tu celular: las cuatro casillas, el cronómetro de tres minutos, la lista de cotejo y tu decisión de publicación. Nadie graba frente al grupo.</p>
+  <div class="conductor">Aquí modelas tú, sesenta segundos, con un libro de tu mesa y sin preparar. Tráete el libro. Después, doce minutos de guion, dos ensayos por pareja y el resto para grabar quien se anime, en un rincón.</div>
+</section>
+
+<div id="controles">
+  <button type="button" id="atras">← Atrás</button>
+  <button type="button" id="sigue">Siguiente →</button>
+</div>
+<div id="cuenta">1 / 1</div>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var i = 0, cuenta = document.getElementById('cuenta');
+  function muestra(n){
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach(function(s, k){ s.classList.toggle('activa', k === i); });
+    cuenta.textContent = (i + 1) + ' / ' + slides.length;
+  }
+  muestra(0);
+  document.getElementById('sigue').addEventListener('click', function(){ muestra(i + 1); });
+  document.getElementById('atras').addEventListener('click', function(){ muestra(i - 1); });
+  document.addEventListener('keydown', function(e){
+    if(e.repeat) return;
+    if(e.target && e.target.tagName === 'BUTTON' && (e.key === ' ' || e.key === 'Enter')) return;
+    var k = (e.key || '').toLowerCase();
+    if(e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown'){ e.preventDefault(); muestra(i + 1); }
+    else if(e.key === 'ArrowLeft' || e.key === 'PageUp'){ e.preventDefault(); muestra(i - 1); }
+    else if(k === 'n'){ document.body.classList.toggle('con-notas'); }
+  });
+  document.addEventListener('click', function(e){
+    var b = e.target && e.target.closest ? e.target.closest('button') : null;
+    if(b) b.blur();
+  });
+})();
+</script>
+</body>
+</html>

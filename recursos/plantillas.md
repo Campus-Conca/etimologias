@@ -31,6 +31,13 @@ Todo lo que en este curso se llena a mano vive aquí. Se abren en el navegador, 
     <span class="pl-cta">Ver el recorrido →</span>
   </a>
 
+  <a class="pl-card" href="../ejercicios/semana-09/booktuber-como-se-hace.html">
+    <span class="pl-tag">míralo antes de grabar · semana 9</span>
+    <b>Tu booktuber, paso a paso</b>
+    <span class="pl-desc">El instructivo del primer booktuber, tabla del suelo de la unidad 2: qué es y qué no, las cuatro partes con reloj, frases que funcionan y frases que no, el mismo libro en dos versiones, cómo grabar con el celular, los tres formatos que valen igual, la lista de cotejo y cómo se entrega. Se proyecta en clase y se queda aquí para quien grabe en casa.</span>
+    <span class="pl-cta">Ver el instructivo →</span>
+  </a>
+
   <a class="pl-card" href="plantillas/pactos.html">
     <span class="pl-tag">se firman en tu celular</span>
     <b>Los tres pactos</b>

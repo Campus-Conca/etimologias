@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El árbol de las lenguas · Etimologías</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --tinta:#221A3A; --fondo:#fbf4f9; --borde:#eadce6;
+    --jade:#0B5F52; --jadebg:#DFF5EE; --dorado:#B07B12; --gris:#4A3F5C;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+    --cielo:#FBF7E9;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .disp{font-family:"Bricolage Grotesque","Inter",sans-serif;font-weight:800;letter-spacing:-.015em}
+  .wrap{max-width:760px;margin:0 auto;padding:1rem 1rem 3rem}
+  .wrap--ancho{max-width:1180px}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.5rem;line-height:1.2}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.3rem}
+  body.proyector .wrap{max-width:1100px}
+  body.proyector .wrap--ancho{max-width:1500px}
+  body.proyector header h1{font-size:2.1rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  .regla{background:#fff;border:1px solid var(--borde);border-left:4px solid var(--rosa);border-radius:.6rem;padding:.8rem 1rem;margin:1rem 0;font-size:.95rem}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  h2{color:var(--ciruela);font-size:1.2rem;margin:1.8rem 0 .5rem}
+  h2 small{display:block;font-weight:400;font-size:.85rem;color:#6b6485;margin-top:.1rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  .paso{font-size:.8rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.04em;margin-top:.9rem}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3.2rem;resize:vertical}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem;align-items:center}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .btn:disabled{opacity:.5;cursor:default}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .opciones{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.6rem}
+  .opciones button{padding:.5rem .85rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font:inherit;font-weight:700;cursor:pointer;text-align:left}
+  .opciones button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .opciones button.ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
+  .opciones button.no{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  .opciones button:disabled{cursor:default}
+  .marcador{display:inline-block;font-weight:700;color:var(--ciruela);background:var(--fondo);border:1px solid var(--borde);border-radius:2rem;padding:.2rem .7rem;font-size:.85rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+
+  /* ---------- el árbol ---------- */
+  .escena{display:grid;grid-template-columns:1fr;gap:1rem;margin:1rem 0;align-items:start}
+  @media (min-width:1400px){.escena{grid-template-columns:minmax(0,1fr) 19rem}}
+  .lienzo{position:relative;background:var(--cielo);border:1px solid var(--borde);border-radius:1rem;overflow:hidden}
+  .lienzo svg{display:block;width:100%;height:auto}
+  .controles{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;padding:.6rem .8rem;border-bottom:1px solid var(--borde);background:#fff}
+  .controles .rot{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#6b6485;margin-right:.2rem}
+  .chip{border:1px solid var(--borde);background:#fff;color:var(--ciruela);border-radius:2rem;padding:.3rem .8rem;font:inherit;font-size:.85rem;font-weight:700;cursor:pointer}
+  .chip.on{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .chip.jade{color:var(--jade)}
+  .chip.jade.on{background:var(--jade);border-color:var(--jade);color:#fff}
+  .leyenda{display:flex;flex-wrap:wrap;gap:.4rem .9rem;padding:.5rem .8rem .7rem;font-size:.78rem;color:var(--gris);background:#fff;border-top:1px solid var(--borde)}
+  .leyenda i{display:inline-block;width:.75rem;height:.75rem;border-radius:50%;vertical-align:-1px;margin-right:.3rem}
+  .leyenda i.seca{background:none;border:2px dashed #9a9a9a;width:.6rem;height:.6rem}
+
+  .ficha{border:1px solid var(--borde);border-radius:1rem;background:#fff;padding:1rem 1.1rem;min-height:8rem}
+  @media (min-width:1400px){.ficha{position:sticky;top:.6rem;min-height:12rem}}
+  .ficha .miga{font-size:.74rem;letter-spacing:.04em;text-transform:uppercase;color:#6b6485;font-weight:700;line-height:1.5}
+  .ficha .miga b{color:var(--rosa)}
+  .ficha h3{margin:.25rem 0 .2rem;font-size:1.7rem;line-height:1.1;color:var(--tinta)}
+  .ficha .rel{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:2rem;padding:.2rem .65rem;margin:.2rem 0 .5rem}
+  .rel--yo{background:#2B2440;color:#FFD6E9}
+  .rel--hermana{background:#FFE3F0;color:#A30058}
+  .rel--prima{background:#E6F1FB;color:#0c447c}
+  .rel--vecina{background:#F1EEF7;color:#5b4b8a}
+  .rel--seca{background:#efefef;color:#666}
+  .rel--abuela{background:#FBF0D9;color:#7A5A0B}
+  .ficha .hab{font-size:.85rem;color:var(--gris)}
+  .ficha table{width:100%;border-collapse:collapse;margin:.6rem 0 .2rem;font-size:.9rem}
+  .ficha th{font-size:.66rem;text-transform:uppercase;letter-spacing:.06em;color:#6b6485;text-align:left;padding:.25rem .35rem;border-bottom:1px solid var(--borde);font-weight:700}
+  .ficha td{padding:.28rem .35rem;border-bottom:1px solid #f1eaf0;vertical-align:top}
+  .ficha td.esp{color:#999}
+  .ficha td.igual{color:var(--jade);font-weight:700}
+  .ficha .prest{font-size:.9rem;margin:.5rem 0 0}
+  .ficha .prest b{color:var(--ciruela)}
+  .ficha .nota{font-size:.85rem;color:var(--gris);margin:.5rem 0 0;border-top:1px dashed var(--borde);padding-top:.45rem}
+  .ficha .vacia{color:#6b6485;font-size:.92rem}
+  .ficha .vacia b{display:block;color:var(--ciruela);font-size:1.05rem;margin-bottom:.3rem}
+
+  /* recorrido guiado */
+  .guia{border:1px solid #EBD9AC;background:#FBF7E9;border-radius:.9rem;padding:.8rem 1rem;margin:0 0 1rem;display:none}
+  .guia.on{display:block}
+  .guia .gk{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--dorado)}
+  .guia p{margin:.2rem 0 .5rem;font-size:1rem;line-height:1.5;color:#5C4A1C}
+  .guia .fila-botones{margin-top:.2rem}
+
+  /* svg */
+  .rama{fill:none;stroke-linecap:round;stroke-linejoin:round;transition:opacity .25s}
+  .rama.seca{stroke-dasharray:6 7}
+  .hoja{cursor:pointer}
+  .hoja circle{stroke:#fff;stroke-width:2;transition:r .15s}
+  .hoja text{font-family:"Inter",system-ui,sans-serif;font-size:14.5px;font-weight:600;fill:var(--tinta);paint-order:stroke;stroke:#FBF7E9;stroke-width:3px;stroke-linejoin:round}
+  .hoja.palabra text{font-style:italic;font-weight:700}
+  .hoja:hover circle,.hoja:focus circle{stroke:var(--tinta)}
+  .hoja:focus{outline:none}
+  .nodo{cursor:pointer}
+  .nodo text{font-family:"Bricolage Grotesque","Inter",sans-serif;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;fill:#fff;paint-order:stroke;stroke:rgba(34,26,58,.55);stroke-width:4px;stroke-linejoin:round}
+  .nodo text.claro{fill:var(--tinta);stroke:#FBF7E9}
+  svg.apagado .rama:not(.viva){opacity:.14}
+  svg.apagado .hoja:not(.viva){opacity:.14}
+  svg.apagado .nodo:not(.viva){opacity:.14}
+  .hoja.sel circle{stroke:var(--tinta);stroke-width:3}
+  .suelo{fill:#EFE7D2}
+  .rotulo{font-family:"Bricolage Grotesque","Inter",sans-serif;font-weight:800;font-size:13px;fill:#8A7F93;letter-spacing:.08em;text-transform:uppercase}
+  .raiz-txt{font-family:"Bricolage Grotesque","Inter",sans-serif;font-weight:800;font-size:20px;fill:#fff;letter-spacing:.06em;text-transform:uppercase;paint-order:stroke;stroke:#2B2440;stroke-width:6px;stroke-linejoin:round}
+  @keyframes crece{to{stroke-dashoffset:0}}
+  .rama.anim{animation:crece 1.1s ease-out forwards}
+  @media (prefers-reduced-motion:reduce){.rama.anim{animation:none;stroke-dashoffset:0 !important}}
+
+  .tabla-primas{width:100%;border-collapse:collapse;font-size:.9rem;margin:.6rem 0}
+  .tabla-primas th{background:var(--fondo);color:var(--ciruela);text-align:left;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;padding:.4rem .5rem;border:1px solid var(--borde)}
+  .tabla-primas td{padding:.4rem .5rem;border:1px solid var(--borde)}
+  .tabla-primas td:first-child{font-weight:700;color:var(--ciruela)}
+  .pie-tabla{font-size:.85rem;color:var(--gris)}
+  .pista-teclas{font-size:.78rem;color:#6b6485;margin:.3rem 0 0}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap wrap--ancho">
+    <div class="mini">Etimologías grecolatinas · Semana 8 · Herramienta permanente</div>
+    <h1 class="disp">El árbol de las lenguas</h1>
+    <p>Tu lengua tiene hermanas, primas y vecinas. Toca una rama y mira cómo se dice <em>noche</em> seis mil años después.</p>
+  </div>
+</header>
+
+<div class="wrap wrap--ancho">
+
+  <div class="instr">
+    <strong>Cómo se explora.</strong> El tronco es el <strong>indoeuropeo</strong>, una lengua de hace más de seis mil años que nadie escribió. Cada rama es una familia; cada hoja, una lengua viva (o seca, si va punteada). El grosor de la rama dice cuánta gente la habla hoy. Toca cualquier hoja y a la derecha aparece su ficha: de qué rama cuelga, qué parentesco tiene contigo, cómo dice cinco palabras que tú también dices, y qué le prestó al español. Con <strong>el árbol habla</strong>, todas las hojas dicen la misma palabra a la vez: ahí es donde se ve la familia. Y abajo, en el suelo, las vecinas: lenguas que no son parientes, pero te prestaron miles de palabras.
+  </div>
+
+  <div class="guia" id="guia">
+    <div class="gk">Recorrido guiado · <span id="guia-n">1 / 8</span></div>
+    <p id="guia-txt"></p>
+    <div class="fila-botones">
+      <button class="btn gris" id="guia-atras" type="button">← Atrás</button>
+      <button class="btn rosa" id="guia-sigue" type="button">Siguiente →</button>
+      <button class="btn gris" id="guia-salir" type="button">Salir del recorrido</button>
+    </div>
+  </div>
+
+  <div class="escena">
+    <div class="lienzo">
+      <div class="controles">
+        <span class="rot">El árbol habla</span>
+        <button class="chip" type="button" data-w="-1">nombres</button>
+        <button class="chip" type="button" data-w="0">madre</button>
+        <button class="chip" type="button" data-w="1">noche</button>
+        <button class="chip" type="button" data-w="2">tres</button>
+        <button class="chip" type="button" data-w="3">nuevo</button>
+        <button class="chip" type="button" data-w="4">mes</button>
+        <span class="rot" style="margin-left:.6rem">·</span>
+        <button class="chip jade" type="button" id="btn-guia">▸ Recorrido guiado</button>
+        <button class="chip" type="button" id="btn-reset">Ver todo</button>
+      </div>
+      <svg id="arbol" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Árbol genealógico de las lenguas indoeuropeas, con el español en la rama romance, y las lenguas vecinas que le prestaron palabras dibujadas en el suelo"></svg>
+      <div class="leyenda" id="leyenda"></div>
+    </div>
+    <aside class="ficha" id="ficha">
+      <div class="vacia"><b>Toca una hoja.</b>Empieza por la tuya: <em>español</em>, en la rama romance. Luego sube por el tronco y baja por otra rama.</div>
+    </aside>
+  </div>
+  <p class="pista-teclas">Con teclado: Tab recorre las hojas, Enter abre la ficha. En el proyector, <strong>Aa proyector</strong> agranda todo.</p>
+
+  <div class="regla">
+    <strong>Dos cosas que el árbol enseña y que vas a necesitar toda la unidad.</strong> Primera: <em>herencia</em> no es <em>préstamo</em>. <em>Noche</em> es latín gastado por la boca durante mil años (herencia); <em>almohada</em> llegó de una lengua que no es pariente (préstamo). Segunda: el parecido se busca con leyes, no a ojo. <em>Padre</em> y <em>father</em> son primas aunque una lleve P y la otra F, porque esa P se volvió F en toda la rama germánica; <em>día</em> y <em>day</em> no son primas aunque se parezcan. Eso es exactamente lo que jugaste el viernes con la máquina del tiempo: reconstruir con leyes y asterisco.
+  </div>
+
+</div>
+
+<div class="wrap">
+
+  <h2>Estación 1 · Sube por el árbol <small>Te doy una lengua; tú dices de qué rama cuelga. Ocho rondas.</small></h2>
+  <div class="card">
+    <h3 id="e1-lengua">…</h3>
+    <p style="margin:.2rem 0 0;font-size:.92rem">¿De qué rama del indoeuropeo cuelga? Apuesta antes de buscarla en el árbol.</p>
+    <div class="opciones" id="e1-ops"></div>
+    <div class="fb" id="e1-fb"></div>
+    <div class="fila-botones">
+      <button class="btn rosa" id="e1-sigue" type="button" disabled>Siguiente</button>
+      <span class="marcador" id="e1-score">0 / 0</span>
+    </div>
+  </div>
+
+  <h2>Estación 2 · Reconstruye a la abuela <small>Seis primas dicen la misma palabra. ¿Cuál es la tuya? Y luego, la forma con asterisco.</small></h2>
+  <div class="card">
+    <h3 id="e2-titulo">Ronda 1 de 5</h3>
+    <div id="e2-primas" class="opciones" style="pointer-events:none"></div>
+    <p style="margin:.6rem 0 0;font-size:.92rem">Todas son primas de una palabra que tú dices todos los días. Escríbela en español.</p>
+    <input type="text" id="e2-in" placeholder="la palabra española">
+    <div class="fila-botones">
+      <button class="btn rosa" id="e2-check" type="button">Revisar</button>
+      <button class="btn gris" id="e2-sigue" type="button" disabled>Siguiente</button>
+      <span class="marcador" id="e2-score">0 / 0</span>
+    </div>
+    <div class="fb" id="e2-fb"></div>
+  </div>
+
+  <h2>Estación 3 · ¿Herencia o préstamo? <small>Doce palabras que dices. Unas bajaron por el tronco; otras saltaron la cerca.</small></h2>
+  <div class="card">
+    <h3 id="e3-palabra">…</h3>
+    <div class="opciones" id="e3-ops">
+      <button type="button" data-v="h">Herencia: latín gastado por la boca</button>
+      <button type="button" data-v="p">Préstamo: llegó de otra lengua</button>
+    </div>
+    <div id="e3-lenguas" style="display:none">
+      <div class="paso">¿De cuál?</div>
+      <div class="opciones" id="e3-lops"></div>
+    </div>
+    <div class="fb" id="e3-fb"></div>
+    <div class="fila-botones">
+      <button class="btn rosa" id="e3-sigue" type="button" disabled>Siguiente</button>
+      <span class="marcador" id="e3-score">0 / 0</span>
+    </div>
+  </div>
+
+  <h2>Estación 4 · ¿Primas de verdad, o solo se parecen? <small>El parecido no es prueba. La ley sí. Ocho pares con el inglés.</small></h2>
+  <div class="card">
+    <h3 id="e4-par">…</h3>
+    <p style="margin:.2rem 0 0;font-size:.92rem">¿Estas dos palabras heredaron de la misma abuela indoeuropea, o el parecido es casualidad?</p>
+    <div class="opciones" id="e4-ops">
+      <button type="button" data-v="1">Primas de verdad</button>
+      <button type="button" data-v="0">Solo se parecen</button>
+    </div>
+    <div class="fb" id="e4-fb"></div>
+    <div class="fila-botones">
+      <button class="btn rosa" id="e4-sigue" type="button" disabled>Siguiente</button>
+      <span class="marcador" id="e4-score">0 / 0</span>
+    </div>
+  </div>
+
+  <h2>La tabla de las primas <small>La misma que está en la página de la semana, ahora con más filas. Léelas en voz alta: el parecido se oye.</small></h2>
+  <div class="card">
+    <table class="tabla-primas" id="tabla-primas"></table>
+    <p class="pie-tabla">Fíjate en <em>mes</em>: en casi todas es la misma raíz que <em>luna</em>, porque el mes se contaba con la luna. El rumano lo dice de frente: <em>lună</em>. Y fíjate en el vasco al final: no se parece a nada, porque no es pariente de nadie.</p>
+  </div>
+
+  <h2>Para cerrar</h2>
+  <div class="card">
+    <p>¿Qué pariente te sorprendió más encontrar en el árbol, y por qué? Una línea: se comparte en la ronda de síntesis.</p>
+    <textarea placeholder="No sabía que el ... era pariente del español, porque..."></textarea>
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> dibuja el tronco y cinco ramas (romance, germánica, eslava, celta, indo-irania) y cuelga tres lenguas de cada una. Aparte, en el suelo, escribe cuatro vecinas (árabe, náhuatl, vasco, quechua) con una palabra que le prestaron al español. Para la estación 2, copia la fila de <em>noche</em> de la tabla y subraya lo que se repite en todas.
+  </div>
+
+  <footer>Semana 8 · La máquina del tiempo fonética · Esta herramienta es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página. Los números de hablantes son aproximados (lengua materna, en millones) y sirven solo para el grosor de las ramas.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  /* ------------------------------------------------------------------
+     DATOS. Cada lengua: id, nombre, hablantes (millones, lengua materna,
+     aproximado), w = [madre, noche, tres, nuevo, mes], p = lo que le
+     prestó al español, nota. Las formas van romanizadas cuando la lengua
+     no usa alfabeto latino. Un "?" es una forma no documentada.
+     ------------------------------------------------------------------ */
+  var PALABRAS = ['madre','noche','tres','nuevo','mes'];
+  var PIE = ['*méh₂tēr','*nókʷts','*tréyes','*néwos','*mḗh₁n̥s'];
+  var ESP = ['madre','noche','tres','nuevo','mes'];
+
+  var COLOR = {
+    romance:'#C4006A', germanica:'#0B5F52', celta:'#5A8F3C', helenica:'#B07B12',
+    baltoeslava:'#2F5FA8', indoirania:'#D9641E', armenia:'#7A4B9B', albanesa:'#8C6D3F',
+    seca:'#9A9A9A', vecina:'#6B6485', raiz:'#2B2440'
+  };
+  var FAM_NOMBRE = {
+    romance:'romance', germanica:'germánica', celta:'celta', helenica:'helénica',
+    baltoeslava:'balto-eslava', indoirania:'indo-irania', armenia:'armenia', albanesa:'albanesa', seca:'rama seca'
+  };
+
+  var IE = {id:'ie', n:'indoeuropeo', tipo:'raiz', fam:'raiz',
+    desc:'La abuela de todas. Se habló hace más de seis mil años, probablemente en las estepas al norte del mar Negro, y nadie la escribió nunca. Todo lo que sabemos de ella está reconstruido con leyes y asterisco, comparando a sus nietas: el mismo truco que jugaste con FACTU y hecho.',
+    c:[
+      {id:'celta', n:'celta', fam:'celta', desc:'Hace dos mil años se hablaba celta desde España hasta Turquía. El latín la fue arrinconando hasta las orillas del Atlántico. Al español le dejó poco directo, pero sí un puñado: cerveza, carro, camisa y camino son de origen celta, por el latín.', c:[
+        {id:'irlandes', n:'irlandés', hab:0.2, w:['máthair','oíche','trí','nua','mí'], p:'whisky (uisce beatha, "agua de vida"), eslogan (por el inglés)', nota:'Lengua oficial de Irlanda, aunque casi todos sus hablantes viven en inglés.'},
+        {id:'gaelico', n:'gaélico escocés', hab:0.06, w:['màthair','oidhche','trì','ùr','mìos'], p:'clan, eslogan (sluagh-ghairm, "grito de guerra")', nota:'Prima cercanísima del irlandés.'},
+        {id:'gales', n:'galés', hab:0.6, w:['mam','nos','tri','newydd','mis'], p:'casi nada directo; corgi', nota:'Fíjate en nos: la misma noche, con la N intacta.'},
+        {id:'breton', n:'bretón', hab:0.2, w:['mamm','noz','tri','nevez','miz'], p:'menhir y dolmen, por el francés', nota:'Se habla en Francia: llegó desde Gran Bretaña hace mil quinientos años.'}
+      ]},
+      {id:'germanica', n:'germánica', fam:'germanica', desc:'La rama del inglés y el alemán. Aquí la P del indoeuropeo se volvió F (pater → father, pes → foot): es la ley de Grimm, y es la razón de que padre y father sean primas aunque no lo parezcan. Al español llegaron por los godos: guerra, guardar, ganso, ropa, espía.', c:[
+        {id:'germ-occ', n:'occidental', fam:'germanica', c:[
+          {id:'ingles', n:'inglés', hab:380, w:['mother','night','three','new','month'], p:'futbol, clóset, sándwich, líder, clip, y las de esta década: gg, lootear, grindear', nota:'Tu prima más presente. La mitad de su vocabulario es latín y francés, así que muchas palabras "inglesas" son en realidad primas tuyas por partida doble. La semana 15 es suya.'},
+          {id:'aleman', n:'alemán', hab:95, w:['Mutter','Nacht','drei','neu','Monat'], p:'kínder, búnker, cuarzo, níquel, vals, blitz', nota:'Nacht y noche: la misma palabra, con seis mil años de por medio.'},
+          {id:'neerlandes', n:'neerlandés', hab:24, w:['moeder','nacht','drie','nieuw','maand'], p:'yate, babor y estribor, arenque, maniquí (por el francés)', nota:'La lengua de los marineros holandeses: casi todo lo que prestó huele a barco.'},
+          {id:'afrikaans', n:'afrikáans', hab:7, w:['moeder','nag','drie','nuwe','maand'], p:'apartheid', nota:'Hija del neerlandés, nacida en Sudáfrica hace tres siglos. Una lengua nueva: pasa todavía.'},
+          {id:'frison', n:'frisón', hab:0.5, w:['mem','nacht','trije','nij','moanne'], p:'ninguno conocido', nota:'La lengua viva más parecida al inglés.'},
+          {id:'yidis', n:'yidis', hab:0.6, w:['muter','nakht','dray','nay','khoydesh'], p:'bagel, klutz (por el inglés)', nota:'Alemán medieval con hebreo y eslavo adentro: la lengua de los judíos de Europa central. Mes lo dice en hebreo: khoydesh.'}
+        ]},
+        {id:'germ-nord', n:'nórdica', fam:'germanica', c:[
+          {id:'sueco', n:'sueco', hab:10, w:['mor','natt','tre','ny','månad'], p:'ombudsman, tungsteno', nota:''},
+          {id:'danes', n:'danés', hab:6, w:['mor','nat','tre','ny','måned'], p:'ninguno cotidiano', nota:''},
+          {id:'noruego', n:'noruego', hab:5, w:['mor','natt','tre','ny','måned'], p:'esquí, fiordo, eslalon', nota:''},
+          {id:'islandes', n:'islandés', hab:0.35, w:['móðir','nótt','þrír','nýr','mánuður'], p:'saga, vikingo, géiser', nota:'Cambió tan poco en mil años que sus hablantes leen las sagas medievales sin traducción.'}
+        ]}
+      ]},
+      {id:'italica', n:'itálica', fam:'romance', desc:'La rama que llegó a Italia. De todas sus lenguas, una sola sobrevivió: el latín de Roma, que se comió al osco, al umbro y al falisco.', c:[
+        {id:'latin', n:'latín', fam:'romance', seca:true, madre:true, hab:0, w:['mater','nox','tres','novus','mensis'], p:'el 75 % de tu vocabulario, por herencia (la boca) y por la vía culta (los libros)', nota:'No está muerto: se gastó hasta volverse español, portugués, francés, italiano y rumano. Y nunca dejó de escribirse: fue la lengua de la ciencia europea hasta el siglo XIX.', c:[
+          {id:'romance', n:'romance', fam:'romance', desc:'Las hijas del latín. A los territorios que Roma conquistó se les llamó la Romania, y de ahí viene la palabra romance: el latín que hablaba la gente, gastado de un modo distinto en cada valle. Son tus hermanas: si lees despacio, las entiendes.', c:[
+            {id:'portugues', n:'portugués', hab:250, w:['mãe','noite','três','novo','mês'], p:'mermelada, caramelo, ostra, mejillón, chubasco, buzo', nota:'Tu hermana más grande. Y la que llevó chocolate y tomate a medio mundo, junto contigo.'},
+            {id:'gallego', n:'gallego', hab:2.4, w:['nai','noite','tres','novo','mes'], p:'morriña, vieira, grelo', nota:'Hermana gemela del portugués: nacieron de la misma cuna medieval.'},
+            {id:'espanol', n:'español', yo:true, hab:485, w:['madre','noche','tres','nuevo','mes'], p:'a otras lenguas les prestó: guerrilla, siesta, patio, cargo, tornado, y de paso les pasó chocolate y tomate', nota:'Tú. Latín gastado durante mil años en la boca de la gente, con capas de árabe, náhuatl, francés e inglés encima. Cuatrocientos ochenta millones de bocas.'},
+            {id:'catalan', n:'catalán', hab:4.1, w:['mare','nit','tres','nou','mes'], p:'paella, capicúa, clavel, forastero, cantimplora, papel', nota:'Fíjate en nit: el CT de NOCTE se volvió aquí una i, no una ch. Cada hermana gastó el latín a su modo.'},
+            {id:'occitano', n:'occitano', hab:0.2, w:['maire','nuèch','tres','nòu','mes'], p:'trovador, balada (por el francés)', nota:'La lengua de los trovadores medievales. Hoy apenas sobrevive en el sur de Francia.'},
+            {id:'frances', n:'francés', hab:80, w:['mère','nuit','trois','nouveau','mois'], p:'chef, chofer, garaje, puré, jamón, hotel, bulevar, jefe', nota:'La hermana que más se alejó del latín en el sonido, y la que más le prestó al español por moda, en los siglos XVIII y XIX.'},
+            {id:'italiano', n:'italiano', hab:65, w:['madre','notte','tre','nuovo','mese'], p:'piano, ópera, pizza, espagueti, novela, soneto, bancarrota, capricho', nota:'Notte: aquí el CT se volvió tt. Es la hermana que más se parece al latín escrito.'},
+            {id:'sardo', n:'sardo', hab:1, w:['mama','notte','tres','nou','mese'], p:'ninguno', nota:'La hija más conservadora del latín: en Cerdeña todavía dicen tres con S final, como Roma.'},
+            {id:'rumano', n:'rumano', hab:24, w:['mamă','noapte','trei','nou','lună'], p:'ninguno cotidiano: quedó del otro lado de Europa', nota:'Latín que creció rodeado de eslavo y húngaro. Fíjate en lună: el mes se llama luna, porque el mes se contaba con la luna.'},
+            {id:'judeoespanol', n:'judeoespañol', hab:0.05, w:['madre','noche','tres','muevo','mez'], p:'es tu propia hermana perdida', nota:'El español de 1492, que los judíos expulsados se llevaron a Turquía y a los Balcanes y siguieron hablando cinco siglos. Es un español que no pasó por la máquina del tiempo después de 1492.'}
+          ]}
+        ]}
+      ]},
+      {id:'helenica', n:'helénica', fam:'helenica', desc:'Una sola lengua en esta rama, pero con tres mil años de escritura seguida. Al español le prestó miles de palabras por la vía culta: todas las de la semana 4.', c:[
+        {id:'griego', n:'griego', hab:13, w:['mitéra','nýchta','tría','néos','mínas'], p:'teléfono, democracia, escuela, gis, y todo el botiquín de la semana 4', nota:'En griego antiguo era mḗtēr, nýx, treîs, néos, mḗn. Compáralo con el latín: primas cercanas.'}
+      ]},
+      {id:'albanesa', n:'albanesa', fam:'albanesa', desc:'Otra rama de una sola lengua. Nadie sabe bien de qué lengua antigua desciende.', c:[
+        {id:'albanes', n:'albanés', hab:6, w:['nënë','natë','tre','i ri','muaj'], p:'ninguno', nota:'Natë: la noche también llegó aquí.'}
+      ]},
+      {id:'baltoeslava', n:'balto-eslava', fam:'baltoeslava', desc:'La rama del este de Europa. Las eslavas son muchas y muy parecidas entre sí; las bálticas son dos, y el lituano es la lengua viva que más se parece a la abuela indoeuropea.', c:[
+        {id:'baltica', n:'báltica', fam:'baltoeslava', c:[
+          {id:'lituano', n:'lituano', hab:3, w:['motina','naktis','trys','naujas','mėnuo'], p:'ninguno', nota:'Naktis: casi la forma que los filólogos reconstruyen para la abuela, *nókʷts. Por eso los lingüistas lo adoran.'},
+          {id:'leton', n:'letón', hab:1.5, w:['māte','nakts','trīs','jauns','mēnesis'], p:'ninguno', nota:''}
+        ]},
+        {id:'eslava', n:'eslava', fam:'baltoeslava', c:[
+          {id:'ruso', n:'ruso', hab:150, w:['matʹ','nochʹ','tri','novyy','mesyats'], p:'vodka, estepa, mamut, taiga, troika, bolchevique', nota:'Se escribe con alfabeto cirílico, que nació del griego: por eso lo lees a medias si sabes las letras de la semana 4.'},
+          {id:'ucraniano', n:'ucraniano', hab:33, w:['maty','nich','try','novyy','misyatsʹ'], p:'ninguno', nota:''},
+          {id:'polaco', n:'polaco', hab:40, w:['matka','noc','trzy','nowy','miesiąc'], p:'mazurca', nota:''},
+          {id:'checo', n:'checo', hab:10, w:['matka','noc','tři','nový','měsíc'], p:'robot, polca, pistola (por el alemán)', nota:'Robot la inventó un escritor checo en 1920, de robota, "trabajo forzado". Una palabra con acta de nacimiento.'},
+          {id:'eslovaco', n:'eslovaco', hab:5, w:['matka','noc','tri','nový','mesiac'], p:'ninguno', nota:''},
+          {id:'esloveno', n:'esloveno', hab:2, w:['mati','noč','tri','nov','mesec'], p:'ninguno', nota:''},
+          {id:'serbocroata', n:'serbio y croata', hab:16, w:['majka','noć','tri','nov','mjesec'], p:'corbata (de Hrvat, croata: la usaban sus soldados)', nota:'Corbata viene del nombre de este pueblo, por el francés cravate.'},
+          {id:'bulgaro', n:'búlgaro', hab:7, w:['mayka','nosht','tri','nov','mesets'], p:'ninguno', nota:''}
+        ]}
+      ]},
+      {id:'armenia', n:'armenia', fam:'armenia', desc:'Una rama de una sola lengua, con alfabeto propio desde el año 405.', c:[
+        {id:'armenio', n:'armenio', hab:5, w:['mayr','gisher','yerekʹ','nor','amis'], p:'ninguno', nota:'Yerek es tres: cuesta verlo, pero las leyes lo demuestran.'}
+      ]},
+      {id:'indoirania', n:'indo-irania', fam:'indoirania', desc:'La rama que se fue hacia el este: la India, Irán, Afganistán. Y de la India salió, hace mil años, la lengua del pueblo gitano. Es la rama más numerosa de todas.', c:[
+        {id:'indoaria', n:'indoaria', fam:'indoirania', c:[
+          {id:'sanscrito', n:'sánscrito', hab:0, seca:true, w:['mātṛ','nakta','tri','nava','mās'], p:'yoga, karma, avatar, mantra, nirvana', nota:'Lengua sagrada de la India, escrita hace más de tres mil años. Cuando un juez inglés la comparó con el latín y el griego en 1786, nació la idea del árbol entero.'},
+          {id:'hindi', n:'hindi', hab:345, w:['mātā','rāt','tīn','nayā','mahīnā'], p:'champú (chāmpo, "masajear"), bungalow, chal, cachemira, pijama (por el inglés)', nota:'Mātā y madre: seis mil años y cinco mil kilómetros, y todavía se les nota.'},
+          {id:'urdu', n:'urdu', hab:70, w:['mādar','rāt','tīn','nayā','mahīnā'], p:'los mismos que el hindi', nota:'Hindi y urdu son casi la misma lengua hablada con dos alfabetos distintos y dos religiones distintas.'},
+          {id:'bengali', n:'bengalí', hab:235, w:['mā','rāt','tin','natun','mās'], p:'ninguno', nota:''},
+          {id:'panyabi', n:'panyabí', hab:100, w:['mā̃','rāt','tinn','navā̃','mahīnā'], p:'ninguno', nota:''},
+          {id:'marati', n:'maratí', hab:83, w:['āī','rātra','tīn','navā','mahinā'], p:'ninguno', nota:''},
+          {id:'nepali', n:'nepalí', hab:17, w:['āmā','rāt','tīn','nayā̃','mahinā'], p:'ninguno', nota:''},
+          {id:'romani', n:'romaní', hab:3.5, w:['daj','rat','trin','nevo','čhon'], p:'chaval, camelar, currar, molar, chungo, parné (sobre todo en España, por el caló)', nota:'La lengua del pueblo gitano salió de la India hace mil años. Trin es tres. Es la única prima tuya que cruzó Europa a pie.'}
+        ]},
+        {id:'irania', n:'irania', fam:'indoirania', c:[
+          {id:'persa', n:'persa', hab:72, w:['mādar','shab','se','now','māh'], p:'naranja, jazmín, espinaca, ajedrez, bazar, caravana, quiosco, paraíso (casi todos con escala en el árabe)', nota:'Mādar, madre. Y ajedrez viene de shāh, rey: jaque mate es shāh māt, "el rey está muerto".'},
+          {id:'kurdo', n:'kurdo', hab:30, w:['dayik','şev','sê','nû','meh'], p:'ninguno', nota:''},
+          {id:'pastun', n:'pastún', hab:45, w:['mor','shpa','dre','naway','myāsht'], p:'ninguno', nota:'La lengua de Afganistán. Mor es madre: como en sueco, por caminos distintos.'}
+        ]}
+      ]},
+      {id:'anatolia', n:'anatolia', fam:'seca', seca:true, desc:'Rama seca: las lenguas de la Turquía antigua. Solo quedaron tablillas de barro.', c:[
+        {id:'hitita', n:'hitita', hab:0, seca:true, w:['anna','nekuz','tri-','newa-','?'], p:'ninguno: se extinguió hace tres mil años', nota:'Se descifró en 1915. Es la nieta más vieja que se conoce por escrito, y cambió lo que se sabía de la abuela.'}
+      ]},
+      {id:'tocaria', n:'tocaria', fam:'seca', seca:true, desc:'Rama seca: dos lenguas del desierto de China, escritas en manuscritos budistas del siglo VI.', c:[
+        {id:'tocario', n:'tocario', hab:0, seca:true, w:['mācer','?','tre','ñu','meñe'], p:'ninguno', nota:'La nieta que llegó más lejos: hasta la Ruta de la Seda. Mācer es madre; ñu es nuevo.'}
+      ]}
+    ]
+  };
+
+  /* Las vecinas: no son parientes del español ni entre sí. Cada una es su propio árbol. */
+  var VECINAS = {
+    izq:{rot:'Lenguas de América', lista:[
+      {id:'nahuatl', n:'náhuatl', fam:'yuto-nahua', hab:1.7, w:['nantli','yohualli','eyi','yancuic','metztli'], p:'chocolate, tomate, aguacate, elote, apapacho, tianguis, tiza, cuate, y trescientas más', nota:'La vecina que más le regaló al español de México. Y la que exportó chocolate al mundo entero. Los frailes la usaron como lengua franca de la Nueva España: por eso hay nombres náhuatl hasta en la Sierra Gorda.'},
+      {id:'otomi', n:'otomí', fam:'otomangue', hab:0.3, w:['nänä','xui','hñu','raʼyo','zänä'], p:'casi nada registrado; topónimos de Querétaro', nota:'Hñähñu, se llaman a sí mismos. La familia otomangue es de las más antiguas de Mesoamérica.'},
+      {id:'pame', n:'pame', fam:'otomangue', hab:0.01, w:['?','?','?','?','?'], p:'Concá, y otros nombres de lugar de la Sierra', nota:'Los xiʼiúi vivían aquí antes que nadie. Su lengua está tan poco documentada que tu entrevista de la semana 10 puede ser de las primeras fichas. Por eso las formas van con signo de interrogación: no las inventamos.'},
+      {id:'huasteco', n:'huasteco', fam:'maya', hab:0.17, w:['mim','akal','ox','it','?'], p:'topónimos: se cuenta que Tancoyol es huasteco', nota:'Tének, se llaman a sí mismos. Es la lengua maya que se separó de las otras hace más tiempo, y quedó aquí, lejos de Yucatán.'},
+      {id:'maya', n:'maya yucateco', fam:'maya', hab:0.8, w:['naʼ','áakʼab','óox','túumben','uj'], p:'cenote, cigarro (discutido)', nota:'Uj es luna, y también mes: como en indoeuropeo, sin ser pariente. Las buenas ideas se repiten.'},
+      {id:'taino', n:'taíno', fam:'arahuaca', hab:0, seca:true, w:['?','?','?','?','?'], p:'hamaca, huracán, maíz, canoa, tabaco, cacique, barbacoa, iguana', nota:'La primera lengua americana que oyeron los españoles, en 1492. Se extinguió en un siglo, pero sus palabras dieron la vuelta al mundo: huracán se dice hurricane en inglés.'},
+      {id:'quechua', n:'quechua', fam:'quechua', hab:8, w:['mama','tuta','kimsa','musuq','killa'], p:'papa, cancha, choclo, carpa, pampa, cóndor, puma', nota:'La lengua del imperio inca, viva en Perú, Bolivia y Ecuador. Mama es madre: no por parentesco, sino porque casi todas las lenguas del mundo hacen esa palabra con el primer sonido de un bebé.'},
+      {id:'guarani', n:'guaraní', fam:'tupí-guaraní', hab:6, w:['sy','pyhare','mbohapy','pyahu','jasy'], p:'jaguar, tapir, ñandú, mandioca, tapioca, piraña', nota:'Lengua oficial de Paraguay, donde la habla casi todo el país. Casi todos los animales grandes de Sudamérica se llaman en guaraní.'}
+    ]},
+    der:{rot:'Vecinas de África, Asia y Europa', lista:[
+      {id:'arabe', n:'árabe', fam:'semítica', hab:370, w:['umm','layl','thalātha','jadīd','shahr'], p:'almohada, ojalá, azúcar, aceite, álgebra, alcalde, alberca, naranja, y unas cuatro mil más', nota:'Ochocientos años en España (711 a 1492) y la segunda fuente del español después del latín. No es pariente: fíjate en que ninguna de sus cinco palabras se parece a las tuyas. Tiene su propia semana: la 9.'},
+      {id:'hebreo', n:'hebreo', fam:'semítica', hab:9, w:['em','layla','shalosh','chadash','chodesh'], p:'amén, aleluya, sábado, jubileo, mesías (todos por el latín de la Biblia)', nota:'Hermana del árabe. Compara layl y layla, shahr y chodesh: ahí sí hay familia, pero es otra.'},
+      {id:'vasco', n:'vasco', fam:'aislada', hab:0.75, w:['ama','gau','hiru','berri','hilabete'], p:'izquierda, pizarra, chatarra, boina, zurdo, aquelarre', nota:'No es pariente de nadie: una lengua aislada, más vieja que la llegada del indoeuropeo a Europa. Izquierda es vasca: el latín sinistra dio siniestro, y la gente prefirió la palabra de la vecina.'},
+      {id:'hungaro', n:'húngaro', fam:'urálica', hab:13, w:['anya','éjszaka','három','új','hónap'], p:'coche (de kocsi, el carruaje del pueblo de Kocs), sable, húsar', nota:'Coche es húngaro. Sí, coche. Rodeado de indoeuropeas, el húngaro es pariente del finés y de nadie más de por ahí.'},
+      {id:'fines', n:'finés', fam:'urálica', hab:5.5, w:['äiti','yö','kolme','uusi','kuukausi'], p:'sauna', nota:'Prima del húngaro y del estonio; de ninguna otra lengua de Europa.'},
+      {id:'turco', n:'turco', fam:'túrquica', hab:80, w:['anne','gece','üç','yeni','ay'], p:'yogur, quiosco (escala), café (escala, desde el árabe), turbante, tulipán', nota:'Ay es luna, y también mes. Otra vez la misma idea, en otra familia.'},
+      {id:'japones', n:'japonés', fam:'japónica', hab:125, w:['haha','yoru','san','atarashii','tsuki'], p:'karaoke, sushi, manga, anime, emoji, tsunami, karate', nota:'Tsuki es luna y mes. Y san, tres, no es pariente de nada tuyo: lo tomó del chino.'},
+      {id:'chino', n:'chino mandarín', fam:'sínica', hab:940, w:['mǔqīn','yè','sān','xīn','yuè'], p:'té (por el chino del sur, te), kétchup (discutido), tofu, wok', nota:'La lengua con más hablantes nativos del planeta, y ni una palabra que se parezca a las tuyas: no hay parentesco. Yuè es luna y mes.'}
+    ]}
+  };
+
+  /* ------------------------------------------------------------------
+     LAYOUT radial: raíz abajo al centro, hojas en el arco de arriba.
+     ------------------------------------------------------------------ */
+  var W=1200, CX=600, CY=560, GY=700, R=360;
+  var A0=Math.PI*(1-15/180), A1=Math.PI*(15/180); /* de 165° a 15°, izquierda a derecha */
+  var hojas=[], nodos=[], porId={};
+
+  function hab(n){ if(n.hab!==undefined) return n.hab; var s=0; (n.c||[]).forEach(function(c){s+=hab(c);}); n.hab=s; return s; }
+  function prof(n,d){ n.d=d; var m=d; (n.c||[]).forEach(function(c){ m=Math.max(m,prof(c,d+1)); }); n.dmax=m; return m; }
+  function enlista(n,padre,fam){
+    n.padre=padre; if(!n.fam) n.fam=fam; porId[n.id]=n;
+    if(n.c&&n.c.length){ nodos.push(n); n.c.forEach(function(c){ enlista(c,n,n.fam); }); }
+    else hojas.push(n);
+  }
+  hab(IE); prof(IE,0); enlista(IE,null,'raiz');
+
+  /* ángulos: hojas repartidas con un hueco entre familias */
+  var pesos=[], total=0;
+  hojas.forEach(function(h,i){ var g=(i>0&&hojas[i-1].fam!==h.fam)?1.6:1; pesos.push(g); total+=g; });
+  var acum=0;
+  hojas.forEach(function(h,i){ acum+=pesos[i]; var t=(acum-.5)/total; h.ang=A0+(A1-A0)*t; });
+  function angMedio(n){ if(n.ang!==undefined) return n.ang; var s=0; n.c.forEach(function(c){ s+=angMedio(c); }); n.ang=s/n.c.length; return n.ang; }
+  angMedio(IE);
+  function radio(n){ if(n===IE) return 0; if(!n.c||!n.c.length) return R; return R*n.d/n.dmax; }
+  function xy(n){ var r=radio(n); return {x:CX+r*Math.cos(n.ang), y:CY-r*Math.sin(n.ang)}; }
+  function grosor(n){ var h=n.hab||0; if(!h) return 2.2; return 1.4+4.6*Math.log10(1+h); }
+  function rHoja(n){ var h=n.hab||0; if(!h) return 4.5; return 4+2.3*Math.log10(1+h); }
+  function colorDe(n){ if(n.seca&&!n.madre) return COLOR.seca; return COLOR[n.fam]||COLOR.vecina; }
+
+  function linkRadial(p,c){
+    var rp=radio(p), rc=radio(c), rm=(rp+rc)/2;
+    var P=xy(p), C=xy(c);
+    var c1={x:CX+rm*Math.cos(p.ang), y:CY-rm*Math.sin(p.ang)};
+    var c2={x:CX+rm*Math.cos(c.ang), y:CY-rm*Math.sin(c.ang)};
+    return 'M'+P.x.toFixed(1)+','+P.y.toFixed(1)+' C'+c1.x.toFixed(1)+','+c1.y.toFixed(1)+' '+c2.x.toFixed(1)+','+c2.y.toFixed(1)+' '+C.x.toFixed(1)+','+C.y.toFixed(1);
+  }
+
+  var svg=document.getElementById('arbol');
+  var NS='http://www.w3.org/2000/svg';
+  function el(t,a){ var e=document.createElementNS(NS,t); for(var k in a) e.setAttribute(k,a[k]); return e; }
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+
+  /* suelo */
+  svg.appendChild(el('ellipse',{cx:CX,cy:GY+18,rx:620,ry:38,'class':'suelo'}));
+  /* tronco: del suelo a la raíz */
+  svg.appendChild(el('path',{d:'M'+(CX-17)+','+(GY+14)+' C'+(CX-12)+','+(GY-60)+' '+(CX-9)+','+(CY+30)+' '+(CX-9)+','+CY+' L'+(CX+9)+','+CY+' C'+(CX+9)+','+(CY+30)+' '+(CX+12)+','+(GY-60)+' '+(CX+17)+','+(GY+14)+' Z',fill:COLOR.raiz}));
+
+  var gRamas=el('g',{}), gHojas=el('g',{}), gNodos=el('g',{}), gVec=el('g',{});
+  svg.appendChild(gRamas); svg.appendChild(gVec); svg.appendChild(gNodos); svg.appendChild(gHojas);
+
+  /* ramas */
+  function pintaRamas(n){
+    (n.c||[]).forEach(function(c){
+      var p=el('path',{d:linkRadial(n,c),'class':'rama'+((c.seca&&!c.madre)?' seca':'')+' anim',stroke:colorDe(c),'stroke-width':grosor(c).toFixed(1),'data-id':c.id});
+      var L=p.getTotalLength ? p.getTotalLength() : 600;
+      p.style.strokeDasharray = (c.seca&&!c.madre) ? '6 7' : L;
+      p.style.strokeDashoffset = L;
+      p.style.animationDelay = (0.12*c.d)+'s';
+      gRamas.appendChild(p);
+      c.ramaEl=p;
+      pintaRamas(c);
+    });
+  }
+  pintaRamas(IE);
+
+  /* nodos internos: etiqueta sobre la rama */
+  nodos.forEach(function(n){
+    if(n===IE) return;
+    var P=xy(n);
+    var g=el('g',{'class':'nodo','data-id':n.id,tabindex:0,role:'button'});
+    var t=el('text',{x:P.x,y:P.y+4,'text-anchor':'middle'});
+    t.textContent=n.n;
+    if(n.fam==='seca') t.setAttribute('class','claro');
+    g.appendChild(t);
+    g.addEventListener('click',function(){ abreFicha(n); });
+    g.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); abreFicha(n); } });
+    gNodos.appendChild(g); n.el=g;
+  });
+  /* la raíz */
+  (function(){
+    var g=el('g',{'class':'nodo','data-id':'ie',tabindex:0,role:'button'});
+    g.appendChild(el('circle',{cx:CX,cy:CY,r:30,fill:COLOR.raiz}));
+    var t=el('text',{x:CX,y:CY+7,'text-anchor':'middle','class':'raiz-txt'}); t.textContent='indoeuropeo';
+    t.setAttribute('font-size','17'); g.appendChild(t);
+    g.addEventListener('click',function(){ abreFicha(IE); });
+    g.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); abreFicha(IE); } });
+    gNodos.appendChild(g); IE.el=g;
+  })();
+
+  /* hojas */
+  function pintaHoja(n,P,ang){
+    var g=el('g',{'class':'hoja'+(n.yo?' yo':''),'data-id':n.id,tabindex:0,role:'button','aria-label':n.n});
+    var r=rHoja(n);
+    var c=el('circle',{cx:P.x,cy:P.y,r:r,fill:colorDe(n)});
+    if(n.seca&&!n.madre){ c.setAttribute('fill','#FBF7E9'); c.setAttribute('stroke',COLOR.seca); c.setAttribute('stroke-dasharray','3 2'); }
+    g.appendChild(c);
+    var deg=-ang*180/Math.PI; /* svg gira en sentido horario */
+    var izq = Math.cos(ang)<0;
+    var d=r+5;
+    var t=el('text',{x:0,y:4,'text-anchor':izq?'end':'start'});
+    var tr='translate('+P.x.toFixed(1)+','+P.y.toFixed(1)+') rotate('+(izq?deg+180:deg).toFixed(1)+') translate('+(izq?-d:d)+',0)';
+    t.setAttribute('transform',tr);
+    t.textContent=n.n;
+    g.appendChild(t);
+    g.addEventListener('click',function(){ abreFicha(n); });
+    g.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); abreFicha(n); } });
+    n.el=g; n.txt=t; n.circ=c;
+    return g;
+  }
+  hojas.forEach(function(h){ gHojas.appendChild(pintaHoja(h,xy(h),h.ang)); });
+  /* el latín, que es nodo con hijas, también quiere hoja tocable */
+  (function(){
+    var l=porId.latin; var P=xy(l);
+    var g=el('g',{'class':'hoja','data-id':'latin',tabindex:0,role:'button','aria-label':'latín'});
+    g.appendChild(el('circle',{cx:P.x,cy:P.y,r:9,fill:COLOR.romance}));
+    var t=el('text',{x:P.x,y:P.y+4,'text-anchor':'middle'}); t.textContent='latín';
+    t.setAttribute('style','fill:#fff;stroke:none;font-size:11px');
+    g.appendChild(t);
+    g.addEventListener('click',function(){ abreFicha(l); });
+    g.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); abreFicha(l); } });
+    gHojas.appendChild(g); l.el=g; l.txt=t;
+    if(l.el) l.el.classList.add('latin');
+  })();
+
+  /* vecinas: cada una con su propio tallo desde el suelo */
+  function pintaVecinas(lado,lista,x0,x1){
+    var n=lista.length, paso=(x1-x0)/(n-1);
+    var alturas=[80,125,170];
+    var r=el('text',{x:(x0+x1)/2,y:GY+46,'text-anchor':'middle','class':'rotulo'}); r.textContent=lado.rot; gVec.appendChild(r);
+    lista.forEach(function(v,i){
+      var x=x0+paso*i, h=alturas[i%3], y=GY-h;
+      var curva=(i%2?1:-1)*14;
+      var p=el('path',{d:'M'+x+','+(GY+8)+' Q'+(x+curva)+','+(GY-h/2)+' '+x+','+y,'class':'rama anim','stroke':v.seca?COLOR.seca:COLOR.vecina,'stroke-width':(v.seca?2:1.6+2.6*Math.log10(1+v.hab)).toFixed(1),'data-id':v.id});
+      if(v.seca) p.style.strokeDasharray='5 6';
+      var L=p.getTotalLength?p.getTotalLength():250; if(!v.seca){p.style.strokeDasharray=L;} p.style.strokeDashoffset=L; p.style.animationDelay='0.9s';
+      gVec.appendChild(p); v.ramaEl=p;
+      var g=el('g',{'class':'hoja','data-id':v.id,tabindex:0,role:'button','aria-label':v.n});
+      var rr=v.hab?4+2.3*Math.log10(1+v.hab):4.5;
+      var c=el('circle',{cx:x,cy:y,r:rr,fill:v.seca?'#FBF7E9':COLOR.vecina});
+      if(v.seca){ c.setAttribute('stroke',COLOR.seca); c.setAttribute('stroke-dasharray','3 2'); }
+      g.appendChild(c);
+      var t=el('text',{x:x,y:y-rr-6,'text-anchor':'middle'}); t.textContent=v.n; g.appendChild(t);
+      g.addEventListener('click',function(){ abreFicha(v); });
+      g.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); abreFicha(v); } });
+      gHojas.appendChild(g); v.el=g; v.txt=t; v.circ=c; v.vecina=true; porId[v.id]=v;
+    });
+  }
+  pintaVecinas(VECINAS.izq,VECINAS.izq.lista,60,300);
+  pintaVecinas(VECINAS.der,VECINAS.der.lista,900,1140);
+
+  /* el recuadro se ajusta a lo dibujado, con margen para las etiquetas */
+  (function(){ try{ var bb=svg.getBBox(); svg.setAttribute('viewBox',(bb.x-10).toFixed(0)+' '+(bb.y-10).toFixed(0)+' '+(bb.width+20).toFixed(0)+' '+(bb.height+20).toFixed(0)); }catch(e){ svg.setAttribute('viewBox','0 150 1200 620'); } })();
+
+  /* leyenda */
+  (function(){
+    var L=document.getElementById('leyenda'), h='';
+    ['romance','germanica','celta','helenica','baltoeslava','indoirania','armenia','albanesa'].forEach(function(f){
+      h+='<span><i style="background:'+COLOR[f]+'"></i>'+FAM_NOMBRE[f]+'</span>';
+    });
+    h+='<span><i class="seca"></i>rama seca: solo quedó escritura</span>';
+    h+='<span><i style="background:'+COLOR.vecina+'"></i>vecina: no es pariente, pero prestó</span>';
+    h+='<span>grosor = cuánta gente la habla hoy</span>';
+    L.innerHTML=h;
+  })();
+
+  /* ------------------------------------------------------------------
+     FICHA, camino iluminado, modo palabra
+     ------------------------------------------------------------------ */
+  var ficha=document.getElementById('ficha'), seleccion=null;
+  function miga(n){
+    var partes=[]; var p=n;
+    while(p){ partes.unshift(p.n); p=p.padre; }
+    return partes;
+  }
+  function relacion(n){
+    if(n===IE) return ['abuela','la abuela de todos'];
+    if(n.yo) return ['yo','tú'];
+    if(n.vecina) return ['vecina', n.fam==='aislada'?'vecina, y sin parientes':'vecina: no es pariente'];
+    if(n.madre) return ['abuela','tu madre'];
+    if(n.fam==='romance'&&!(n.c&&n.c.length)) return ['hermana','hermana: hija del mismo latín'];
+    if(n.fam==='romance') return ['hermana','tu rama'];
+    if(n.seca) return ['seca','prima, en rama seca'];
+    return ['prima','prima: nieta de la misma abuela'];
+  }
+  function ilumina(n){
+    svg.classList.add('apagado');
+    Array.prototype.forEach.call(svg.querySelectorAll('.viva'),function(e){ e.classList.remove('viva'); });
+    function viva(x){ if(!x) return; if(x.el) x.el.classList.add('viva'); if(x.ramaEl) x.ramaEl.classList.add('viva'); }
+    if(n.vecina){ viva(n); return; }
+    var p=n; while(p){ viva(p); p=p.padre; }
+    /* y las hermanas de la misma rama, atenuadas menos: iluminamos toda la subfamilia del nodo */
+    function bajo(x){ viva(x); (x.c||[]).forEach(bajo); }
+    if(n.c&&n.c.length) bajo(n);
+  }
+  function apaga(){ svg.classList.remove('apagado'); Array.prototype.forEach.call(svg.querySelectorAll('.viva'),function(e){ e.classList.remove('viva'); }); }
+
+  function abreFicha(n){
+    if(seleccion&&seleccion.el) seleccion.el.classList.remove('sel');
+    seleccion=n; if(n.el) n.el.classList.add('sel');
+    ilumina(n);
+    var rel=relacion(n);
+    var h='';
+    if(n===IE){
+      h+='<div class="miga">la raíz</div><h3 class="disp">indoeuropeo</h3><span class="rel rel--abuela">'+rel[1]+'</span>';
+      h+='<p class="prest">'+esc(n.desc)+'</p>';
+      h+='<table><tr><th>palabra</th><th>reconstruida</th><th>español</th></tr>';
+      for(var i=0;i<5;i++) h+='<tr><td>'+PALABRAS[i]+'</td><td>'+PIE[i]+'</td><td class="esp">'+ESP[i]+'</td></tr>';
+      h+='</table><p class="nota">El asterisco quiere decir "reconstruida, nunca escrita". Es la notación real de los filólogos.</p>';
+    } else if(n.c&&n.c.length&&!n.w){
+      var m=miga(n);
+      h+='<div class="miga">'+m.slice(0,-1).map(esc).join(' › ')+' › <b>'+esc(n.n)+'</b></div>';
+      h+='<h3 class="disp">'+esc(n.n)+'</h3><span class="rel rel--'+rel[0]+'">'+rel[1]+'</span>';
+      var cuenta=0; (function c(x){ if(!x.c||!x.c.length){cuenta++;return;} x.c.forEach(c); })(n);
+      h+='<div class="hab">'+cuenta+' lengua'+(cuenta>1?'s':'')+' en esta rama · '+fmtHab(n.hab)+'</div>';
+      if(n.desc) h+='<p class="prest">'+esc(n.desc)+'</p>';
+      else h+='<p class="prest">Toca una hoja de esta rama para ver cómo dice tus palabras.</p>';
+    } else {
+      var m2=miga(n);
+      if(n.vecina) h+='<div class="miga">familia <b>'+esc(n.fam)+'</b> · no cuelga del árbol</div>';
+      else h+='<div class="miga">'+m2.slice(0,-1).map(esc).join(' › ')+' › <b>'+esc(n.n)+'</b></div>';
+      h+='<h3 class="disp">'+esc(n.n)+'</h3><span class="rel rel--'+rel[0]+'">'+rel[1]+'</span>';
+      h+='<div class="hab">'+(n.hab?fmtHab(n.hab)+' de hablantes nativos':(n.seca?'sin hablantes: rama seca':''))+'</div>';
+      if(n.desc) h+='<p class="prest">'+esc(n.desc)+'</p>';
+      h+='<table><tr><th>palabra</th><th>'+esc(n.n)+'</th><th>español</th></tr>';
+      for(var j=0;j<5;j++){
+        var par=parecida(n.w[j],ESP[j]);
+        h+='<tr><td>'+PALABRAS[j]+'</td><td class="'+(par?'igual':'')+'">'+esc(n.w[j])+'</td><td class="esp">'+ESP[j]+'</td></tr>';
+      }
+      h+='</table>';
+      if(n.p) h+='<p class="prest"><b>Le prestó al español:</b> '+esc(n.p)+'.</p>';
+      if(n.nota) h+='<p class="nota">'+esc(n.nota)+'</p>';
+    }
+    ficha.innerHTML=h;
+    if(window.innerWidth<1400) ficha.scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+  function fmtHab(h){ if(!h) return ''; if(h>=1) return Math.round(h)+' millones'; return Math.round(h*1000)+' mil'; }
+  /* un parecido grosero, solo para pintar de verde lo que a simple vista se ve: mismas dos primeras consonantes */
+  function parecida(a,b){
+    if(!a||a==='?') return false;
+    function cons(s){ return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z]/g,'').replace(/[aeiouy]/g,'').slice(0,2); }
+    var ca=cons(a), cb=cons(b);
+    return ca.length&&ca===cb;
+  }
+
+  /* modo palabra */
+  var wActual=-1;
+  function modoPalabra(k){
+    wActual=k;
+    Array.prototype.forEach.call(document.querySelectorAll('.chip[data-w]'),function(b){ b.classList.toggle('on',+b.getAttribute('data-w')===k); });
+    var todas=hojas.concat(VECINAS.izq.lista,VECINAS.der.lista,[porId.latin]);
+    todas.forEach(function(n){
+      if(!n.txt) return;
+      if(k<0){ n.txt.textContent=n.n; n.el.classList.remove('palabra'); }
+      else { n.txt.textContent=(n.w&&n.w[k])?n.w[k]:'?'; n.el.classList.add('palabra'); }
+    });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.chip[data-w]'),function(b){
+    b.addEventListener('click',function(){ modoPalabra(+b.getAttribute('data-w')); });
+  });
+  modoPalabra(-1);
+  document.getElementById('btn-reset').addEventListener('click',function(){
+    apaga(); modoPalabra(-1);
+    if(seleccion&&seleccion.el) seleccion.el.classList.remove('sel'); seleccion=null;
+    ficha.innerHTML='<div class="vacia"><b>Toca una hoja.</b>Empieza por la tuya: <em>español</em>, en la rama romance. Luego sube por el tronco y baja por otra rama.</div>';
+  });
+
+  /* ------------------------------------------------------------------
+     RECORRIDO GUIADO
+     ------------------------------------------------------------------ */
+  var GUIA=[
+    {t:'Esto es tu familia. El tronco es el indoeuropeo, una lengua de hace más de seis mil años que nadie escribió jamás. Todo lo que sabemos de ella se reconstruyó comparando a sus nietas, con leyes y asterisco: el mismo método con el que el viernes sacaste FACTU de hecho.', ver:'ie', w:-1},
+    {t:'Tu rama: itálica, latín, romance, español. Las hojas de alrededor son tus hermanas: hijas del mismo latín, gastado de un modo distinto en cada valle. Mira cómo dicen noche: noite, nit, nuit, notte, noapte. Cada una gastó el CT de NOCTE a su manera.', ver:'romance', w:1},
+    {t:'Las primas germánicas: mother, Mutter, moeder, mor. Y fíjate en padre y father, pie y foot: en esta rama la P de la abuela se volvió F. Se llama ley de Grimm, y es la razón de que muchas primas no lo parezcan a primera vista. En la semana 15 vas a usarla para leer inglés.', ver:'germanica', w:0},
+    {t:'Las primas del este: eslavas y bálticas. Noch, noc, naktis. El lituano es la lengua viva que más se parece a la abuela: naktis está a un paso de la forma reconstruida *nókʷts.', ver:'baltoeslava', w:1},
+    {t:'Las primas que se fueron a la India y a Persia: mātā, mādar. Seis mil años y cinco mil kilómetros, y todavía se les nota la cara de familia. De aquí salió también el romaní, la lengua del pueblo gitano, que le dio al español chaval y currar.', ver:'indoirania', w:0},
+    {t:'Las ramas secas: hitita, tocario, y en medio de la tuya, el latín. Solo quedó escritura. Pero de las tablillas hititas, descifradas en 1915, salió lo que hoy sabemos de la abuela. Una lengua muerta sigue hablando si alguien la lee.', ver:'secas', w:-1},
+    {t:'Y ahora mira el suelo: las vecinas. Árabe, náhuatl, vasco, quechua, japonés. No cuelgan del árbol: no son parientes tuyas. Míralas decir noche: layl, yohualli, gau, tuta, yoru. Nada se parece. Y sin embargo te prestaron miles de palabras: almohada, chocolate, izquierda, papa, karaoke.', ver:'vecinas', w:1},
+    {t:'Esa es la lección del árbol: herencia no es préstamo. Lo que bajó por el tronco se parece a sus primas; lo que saltó la cerca, no. La semana 9 empieza a excavar las capas de préstamos de tu habla, y ya sabes por dónde entraron.', ver:'todo', w:-1}
+  ];
+  var gi=0, guia=document.getElementById('guia');
+  function pintaGuia(){
+    var g=GUIA[gi];
+    document.getElementById('guia-n').textContent=(gi+1)+' / '+GUIA.length;
+    document.getElementById('guia-txt').textContent=g.t;
+    document.getElementById('guia-atras').disabled=(gi===0);
+    document.getElementById('guia-sigue').textContent=(gi===GUIA.length-1)?'Terminar':'Siguiente →';
+    modoPalabra(g.w);
+    if(g.ver==='todo'){ apaga(); }
+    else if(g.ver==='secas'){
+      svg.classList.add('apagado');
+      Array.prototype.forEach.call(svg.querySelectorAll('.viva'),function(e){ e.classList.remove('viva'); });
+      ['anatolia','hitita','tocaria','tocario','latin','sanscrito','taino'].forEach(function(id){ var n=porId[id]; if(n&&n.el) n.el.classList.add('viva'); if(n&&n.ramaEl) n.ramaEl.classList.add('viva'); });
+    }
+    else if(g.ver==='vecinas'){
+      svg.classList.add('apagado');
+      Array.prototype.forEach.call(svg.querySelectorAll('.viva'),function(e){ e.classList.remove('viva'); });
+      VECINAS.izq.lista.concat(VECINAS.der.lista).forEach(function(v){ v.el.classList.add('viva'); v.ramaEl.classList.add('viva'); });
+    }
+    else { var n=porId[g.ver]; if(n){ ilumina(n); abreFicha(n); } }
+  }
+  document.getElementById('btn-guia').addEventListener('click',function(){ gi=0; guia.classList.add('on'); pintaGuia(); guia.scrollIntoView({behavior:'smooth',block:'nearest'}); });
+  document.getElementById('guia-sigue').addEventListener('click',function(){ if(gi<GUIA.length-1){ gi++; pintaGuia(); } else { guia.classList.remove('on'); apaga(); modoPalabra(-1); } });
+  document.getElementById('guia-atras').addEventListener('click',function(){ if(gi>0){ gi--; pintaGuia(); } });
+  document.getElementById('guia-salir').addEventListener('click',function(){ guia.classList.remove('on'); apaga(); modoPalabra(-1); });
+  document.addEventListener('keydown',function(e){
+    if(!guia.classList.contains('on')) return;
+    if(e.target&&/INPUT|TEXTAREA/.test(e.target.tagName)) return;
+    if(e.key==='ArrowRight'){ document.getElementById('guia-sigue').click(); }
+    if(e.key==='ArrowLeft'){ document.getElementById('guia-atras').click(); }
+  });
+
+  /* ------------------------------------------------------------------
+     UTILIDADES de los ejercicios
+     ------------------------------------------------------------------ */
+  function baraja(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t; } return a; }
+  function norm(s){ return s.toLowerCase().trim().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/\s+/g,' '); }
+  function tope(id){ var e=document.getElementById(id); if(e&&e.scrollIntoView&&window.innerWidth<700) e.scrollIntoView({behavior:'smooth',block:'nearest'}); }
+
+  /* ---------- Estación 1 · Sube por el árbol ---------- */
+  (function(){
+    var FAMS=['romance','germanica','celta','helenica','baltoeslava','indoirania','armenia','albanesa'];
+    var pool=baraja(hojas.filter(function(h){ return !h.yo&&!h.seca&&h.fam!=='seca'; })).slice(0,8);
+    var i=0, ok=0, hecho=0;
+    var tit=document.getElementById('e1-lengua'), ops=document.getElementById('e1-ops'), fb=document.getElementById('e1-fb'), btn=document.getElementById('e1-sigue'), sc=document.getElementById('e1-score');
+    function ronda(){
+      if(i>=pool.length){ tit.textContent='Terminaste las ocho.'; ops.innerHTML=''; fb.className='fb ej'; fb.textContent='Ocho lenguas, ocho ramas. Ahora ve al árbol y busca las que fallaste: ilumina su camino hasta el tronco.'; btn.disabled=true; return; }
+      var h=pool[i]; tit.textContent=h.n; fb.className='fb'; btn.disabled=true;
+      var opciones=baraja([h.fam].concat(baraja(FAMS.filter(function(f){return f!==h.fam;})).slice(0,3)));
+      ops.innerHTML='';
+      opciones.forEach(function(f){
+        var b=document.createElement('button'); b.type='button'; b.textContent=FAM_NOMBRE[f];
+        b.addEventListener('click',function(){
+          hecho++;
+          Array.prototype.forEach.call(ops.children,function(c){ c.disabled=true; if(c.textContent===FAM_NOMBRE[h.fam]) c.classList.add('ok'); });
+          if(f===h.fam){ ok++; fb.className='fb ok'; fb.textContent='Bien. '+h.n+': '+miga(h).join(' › ')+'.'; }
+          else { b.classList.add('no'); fb.className='fb no'; fb.textContent='Aún no. '+h.n+' cuelga de la rama '+FAM_NOMBRE[h.fam]+': '+miga(h).join(' › ')+'. Míralo en el árbol antes de seguir.'; }
+          sc.textContent=ok+' / '+hecho; btn.disabled=false;
+          ilumina(h); abreFicha(h);
+        });
+        ops.appendChild(b);
+      });
+    }
+    btn.addEventListener('click',function(){ i++; ronda(); tope('e1-lengua'); });
+    ronda();
+  })();
+
+  /* ---------- Estación 2 · Reconstruye a la abuela ---------- */
+  (function(){
+    var orden=baraja([1,0,2,3,4]);
+    var i=0, ok=0, hecho=0, intentos=0;
+    var tit=document.getElementById('e2-titulo'), zona=document.getElementById('e2-primas'), inp=document.getElementById('e2-in'), fb=document.getElementById('e2-fb'), btnC=document.getElementById('e2-check'), btnS=document.getElementById('e2-sigue'), sc=document.getElementById('e2-score');
+    var ACEPTA=[['madre'],['noche'],['tres'],['nuevo','nueva'],['mes']];
+    function ronda(){
+      if(i>=orden.length){ tit.textContent='Cinco de cinco reconstruidas.'; zona.innerHTML=''; inp.style.display='none'; btnC.disabled=true; btnS.disabled=true; fb.className='fb ej'; fb.textContent='Eso que acabas de hacer, a mano y con cinco palabras, es lo que hicieron los filólogos con miles: comparar a las nietas para adivinar a la abuela. Y por eso el indoeuropeo existe aunque nadie lo haya escrito.'; return; }
+      var k=orden[i]; intentos=0;
+      tit.textContent='Ronda '+(i+1)+' de 5';
+      var cand=baraja(hojas.filter(function(h){ return !h.yo&&h.fam!=='romance'&&h.w[k]&&h.w[k]!=='?'; })).slice(0,6);
+      zona.innerHTML='';
+      cand.forEach(function(h){ var b=document.createElement('button'); b.type='button'; b.innerHTML='<em>'+esc(h.w[k])+'</em> <small style="font-weight:400;opacity:.7">('+esc(h.n)+')</small>'; zona.appendChild(b); });
+      inp.value=''; fb.className='fb'; btnC.disabled=false; btnS.disabled=true; if(i>0) inp.focus();
+      ronda.k=k;
+    }
+    btnC.addEventListener('click',function(){
+      var k=ronda.k, v=norm(inp.value);
+      if(!v){ fb.className='fb no'; fb.textContent='Primero escribe tu apuesta. En este gimnasio no se revisa el aire.'; return; }
+      if(ACEPTA[k].indexOf(v)>-1){
+        hecho++; ok++; sc.textContent=ok+' / '+hecho;
+        fb.className='fb ok'; fb.innerHTML='Bien: <strong>'+ESP[k]+'</strong>. La forma reconstruida para la abuela es <strong>'+PIE[k]+'</strong>. Con asterisco, porque nadie la escribió: se dedujo comparando exactamente lo que tú acabas de comparar.';
+        btnC.disabled=true; btnS.disabled=false; modoPalabra(k);
+      } else {
+        intentos++;
+        if(intentos===1){ fb.className='fb no'; fb.textContent='Aún no. Pista: empieza con "'+ESP[k][0]+'" y la dices todos los días. Fíjate en las consonantes que se repiten en las seis.'; }
+        else { hecho++; sc.textContent=ok+' / '+hecho; fb.className='fb no'; fb.innerHTML='Aún no. Era <strong>'+ESP[k]+'</strong>, y la abuela decía <strong>'+PIE[k]+'</strong>. Mira la fila en la tabla de las primas de abajo: las consonantes cuentan la historia.'; btnC.disabled=true; btnS.disabled=false; modoPalabra(k); }
+      }
+    });
+    inp.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); if(!btnC.disabled) btnC.click(); else if(!btnS.disabled) btnS.click(); } });
+    btnS.addEventListener('click',function(){ i++; ronda(); tope('e2-titulo'); });
+    ronda();
+  })();
+
+  /* ---------- Estación 3 · ¿Herencia o préstamo? ---------- */
+  (function(){
+    var ITEMS=baraja([
+      {w:'ojo',v:'h',x:'Latín OCULU, gastado por la boca: el grupo -CUL- se volvió j. Herencia pura.'},
+      {w:'futbol',v:'p',l:'inglés',x:'Del inglés football, con los primeros equipos, hacia 1900. Puerta: el deporte.'},
+      {w:'almohada',v:'p',l:'árabe',x:'Del árabe al-mihadda, "la de la mejilla". Ocho siglos de convivencia en España.'},
+      {w:'noche',v:'h',x:'Latín NOCTE: el CT se volvió ch. Y sus primas: night, Nacht, noch, naktis.'},
+      {w:'chocolate',v:'p',l:'náhuatl',x:'Del náhuatl xocolatl. El español no tenía la cosa ni la palabra.'},
+      {w:'leche',v:'h',x:'Latín LACTE, con el CT vuelto ch. Igual que noche y ocho.'},
+      {w:'garaje',v:'p',l:'francés',x:'Del francés garage, con los primeros automóviles. Puerta: la moda y la técnica.'},
+      {w:'coche',v:'p',l:'húngaro',x:'Del húngaro kocsi, el carruaje del pueblo de Kocs. Sí: coche es húngaro, y llegó en el siglo XVI.'},
+      {w:'izquierda',v:'p',l:'vasco',x:'Del vasco ezkerra. El latín sinistra dio siniestro, y la gente prefirió la palabra de la vecina.'},
+      {w:'hijo',v:'h',x:'Latín FILIU: la F se volvió h muda y la -LI- se volvió j. La palabra de la lámina del escalón.'},
+      {w:'champú',v:'p',l:'hindi',x:'Del hindi chāmpo, "masajear", por el inglés shampoo. Una prima lejana que entró por la puerta de la vecina.'},
+      {w:'robot',v:'p',l:'checo',x:'Del checo robota, "trabajo forzado". La inventó un escritor en 1920: nació con acta.'}
+    ]);
+    var LENGUAS=['inglés','árabe','náhuatl','francés','húngaro','vasco','hindi','checo','italiano','quechua'];
+    var i=0, ok=0, hecho=0, fase=0;
+    var tit=document.getElementById('e3-palabra'), ops=document.getElementById('e3-ops'), zl=document.getElementById('e3-lenguas'), lops=document.getElementById('e3-lops'), fb=document.getElementById('e3-fb'), btn=document.getElementById('e3-sigue'), sc=document.getElementById('e3-score');
+    function ronda(){
+      if(i>=ITEMS.length){ tit.textContent='Doce de doce.'; ops.style.display='none'; zl.style.display='none'; fb.className='fb ej'; fb.textContent='Las de herencia bajaron por el tronco y se parecen a sus primas. Las de préstamo saltaron la cerca, y por eso no obedecen a las leyes de la semana 8: nunca pasaron por la máquina. Esa es la pista que vas a usar el jueves en el tribunal.'; btn.disabled=true; return; }
+      var it=ITEMS[i]; fase=0; tit.textContent=it.w; fb.className='fb'; btn.disabled=true; zl.style.display='none';
+      ops.style.display='flex';
+      Array.prototype.forEach.call(ops.children,function(b){ b.disabled=false; b.className=''; });
+    }
+    Array.prototype.forEach.call(ops.children,function(b){
+      b.addEventListener('click',function(){
+        var it=ITEMS[i], v=b.getAttribute('data-v');
+        Array.prototype.forEach.call(ops.children,function(c){ c.disabled=true; });
+        if(v===it.v){
+          if(v==='h'){ hecho++; ok++; sc.textContent=ok+' / '+hecho; b.classList.add('ok'); fb.className='fb ok'; fb.textContent='Bien. '+it.x; btn.disabled=false; }
+          else {
+            b.classList.add('ok'); fb.className='fb ok'; fb.textContent='Bien: es préstamo. ¿De qué lengua?';
+            var opciones=baraja([it.l].concat(baraja(LENGUAS.filter(function(x){return x!==it.l;})).slice(0,3)));
+            lops.innerHTML='';
+            opciones.forEach(function(l){
+              var c=document.createElement('button'); c.type='button'; c.textContent=l;
+              c.addEventListener('click',function(){
+                Array.prototype.forEach.call(lops.children,function(z){ z.disabled=true; if(z.textContent===it.l) z.classList.add('ok'); });
+                hecho++;
+                if(l===it.l){ ok++; fb.className='fb ok'; fb.textContent='Bien. '+it.x; }
+                else { c.classList.add('no'); fb.className='fb no'; fb.textContent='Aún no: era del '+it.l+'. '+it.x; }
+                sc.textContent=ok+' / '+hecho; btn.disabled=false;
+                var n=porId[{'inglés':'ingles','árabe':'arabe','náhuatl':'nahuatl','francés':'frances','húngaro':'hungaro','vasco':'vasco','hindi':'hindi','checo':'checo'}[it.l]]; if(n) abreFicha(n);
+              });
+              lops.appendChild(c);
+            });
+            zl.style.display='block';
+          }
+        } else {
+          hecho++; sc.textContent=ok+' / '+hecho; b.classList.add('no');
+          Array.prototype.forEach.call(ops.children,function(c){ if(c.getAttribute('data-v')===it.v) c.classList.add('ok'); });
+          fb.className='fb no'; fb.textContent='Aún no. '+(it.v==='h'?'Es herencia. ':'Es préstamo, del '+it.l+'. ')+it.x; btn.disabled=false;
+        }
+      });
+    });
+    btn.addEventListener('click',function(){ i++; ronda(); tope('e3-palabra'); });
+    ronda();
+  })();
+
+  /* ---------- Estación 4 · ¿Primas de verdad? ---------- */
+  (function(){
+    var PARES=baraja([
+      {a:'padre',b:'father',v:1,x:'Primas. La P de la abuela (*ph₂tḗr) se volvió F en toda la rama germánica: es la ley de Grimm. El parecido está tapado por una ley, y la ley es la prueba.'},
+      {a:'día',b:'day',v:0,x:'Solo se parecen. Día viene del latín DIES (raíz *dyeu-, la del cielo luminoso, la misma de Júpiter); day viene de una raíz germánica distinta (*dhegh-, quemar). Dos caminos que se cruzaron por casualidad.'},
+      {a:'pie',b:'foot',v:1,x:'Primas. Latín PES, PEDIS; inglés foot: otra vez la P vuelta F por la ley de Grimm. Y pedal, podio y pódium son de la misma familia.'},
+      {a:'mucho',b:'much',v:0,x:'Solo se parecen. Mucho viene del latín MULTU; much viene del inglés antiguo micel, "grande", que es prima de mega- en griego. Un espejismo famoso.'},
+      {a:'noche',b:'night',v:1,x:'Primas. *nókʷts en la abuela: nox, nýx, Nacht, noch, naktis. La fila más clara de toda la tabla.'},
+      {a:'haber',b:'have',v:0,x:'Solo se parecen. Haber viene de HABERE; have es prima de... CAPERE, "tomar" (la C se volvió H por Grimm). El parecido es puro accidente, y engaña a todos.'},
+      {a:'diente',b:'tooth',v:1,x:'Primas. Latín DENS, DENTIS; inglés tooth; griego odóntos (el de dentista y ortodoncia). La D de la abuela se volvió T en germánico, otra pieza de la ley de Grimm.'},
+      {a:'hueso',b:'bone',v:0,x:'Solo se parecen (y poco). Hueso viene del latín OSSU; bone es germánico y no tiene pariente latino. No todo lo que empieza parecido termina en la misma abuela.'}
+    ]);
+    var i=0, ok=0, hecho=0;
+    var tit=document.getElementById('e4-par'), ops=document.getElementById('e4-ops'), fb=document.getElementById('e4-fb'), btn=document.getElementById('e4-sigue'), sc=document.getElementById('e4-score');
+    function ronda(){
+      if(i>=PARES.length){ tit.textContent='Ocho pares juzgados.'; ops.style.display='none'; fb.className='fb ej'; fb.textContent='La lección para la semana 15: el inglés está lleno de primas tuyas, pero no se reconocen a ojo; se reconocen con leyes (P → F, D → T, C → H) y con fuente. Y las que se parecen sin ser primas se llaman falsos cognados: son el espejismo de la semana 3, ahora entre dos lenguas.'; btn.disabled=true; return; }
+      var p=PARES[i]; tit.innerHTML=esc(p.a)+' <span style="color:#6b6485;font-weight:400">y</span> '+esc(p.b); fb.className='fb'; btn.disabled=true; ops.style.display='flex';
+      Array.prototype.forEach.call(ops.children,function(b){ b.disabled=false; b.className=''; });
+    }
+    Array.prototype.forEach.call(ops.children,function(b){
+      b.addEventListener('click',function(){
+        var p=PARES[i], v=+b.getAttribute('data-v');
+        Array.prototype.forEach.call(ops.children,function(c){ c.disabled=true; if(+c.getAttribute('data-v')===p.v) c.classList.add('ok'); });
+        hecho++;
+        if(v===p.v){ ok++; fb.className='fb ok'; fb.textContent='Bien. '+p.x; }
+        else { b.classList.add('no'); fb.className='fb no'; fb.textContent='Aún no. '+p.x; }
+        sc.textContent=ok+' / '+hecho; btn.disabled=false;
+      });
+    });
+    btn.addEventListener('click',function(){ i++; ronda(); tope('e4-par'); });
+    ronda();
+  })();
+
+  /* ---------- La tabla de las primas ---------- */
+  (function(){
+    var filas=['espanol','latin','portugues','frances','italiano','rumano','griego','ingles','aleman','sueco','irlandes','gales','ruso','polaco','lituano','sanscrito','hindi','persa','armenio','vasco'];
+    var t=document.getElementById('tabla-primas'), h='<tr><th>lengua</th>';
+    PALABRAS.forEach(function(p){ h+='<th>'+p+'</th>'; });
+    h+='</tr>';
+    filas.forEach(function(id){
+      var n=porId[id]; if(!n) return;
+      h+='<tr><td>'+esc(n.n)+(n.vecina?' <small style="font-weight:400;color:#6b6485">(vecina)</small>':'')+'</td>';
+      n.w.forEach(function(x){ h+='<td>'+esc(x)+'</td>'; });
+      h+='</tr>';
+    });
+    h+='<tr><td>indoeuropeo <small style="font-weight:400;color:#6b6485">(reconstruido)</small></td>';
+    PIE.forEach(function(x){ h+='<td>'+x+'</td>'; });
+    h+='</tr>';
+    t.innerHTML=h;
+  })();
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 9 · Ejercicio F · El sello al-</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+    --jade:#0B5F52; --jadebg:#DFF5EE;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  .regla{background:#fff;border:1px solid var(--borde);border-left:4px solid var(--rosa);border-radius:.6rem;padding:.8rem 1rem;margin:1rem 0;font-size:.95rem}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  h2 small{display:block;font-weight:400;font-size:.85rem;color:#6b6485}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.25rem}
+  .paso{font-size:.8rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.04em;margin-top:.9rem}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.8rem}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3.2rem;resize:vertical}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem;align-items:center}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .btn:disabled{opacity:.5;cursor:default}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .opciones{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.6rem}
+  .opciones button{padding:.5rem .85rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font:inherit;font-weight:700;cursor:pointer;text-align:left}
+  .opciones button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .opciones button.ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
+  .opciones button.no{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  .opciones button:disabled{cursor:default}
+  .marcador{display:inline-block;font-weight:700;color:var(--ciruela);background:var(--fondo);border:1px solid var(--borde);border-radius:2rem;padding:.2rem .7rem;font-size:.85rem}
+  .palabra{font-size:1.6rem;font-weight:800;color:var(--ciruela);margin:.2rem 0}
+  .palabra .al{color:var(--rosa)}
+  .dis{display:flex;gap:.4rem;align-items:flex-end;flex-wrap:wrap;margin:.5rem 0}
+  .pz{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:700;font-size:1.3rem;padding:.2em .5em;border-radius:.45em;line-height:1.1}
+  .pz small{display:block;font-family:system-ui,sans-serif;font-weight:600;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;opacity:.75;margin-top:.2em}
+  .pz--pre{background:#FFE3F0;color:#A30058}
+  .pz--raiz{background:#2B2440;color:#FFD6E9}
+  .captura{display:none;white-space:pre-wrap;background:#2b2440;color:#f4eff9;border-radius:.6rem;padding:.9rem 1rem;font-size:.85rem;margin-top:.7rem;font-family:ui-monospace,Menlo,Consolas,monospace}
+  .veredicto{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+  .veredicto button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;font-size:.95rem;cursor:pointer;text-align:left}
+  .veredicto button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 9 · Sesión F</div>
+    <h1>El sello al-</h1>
+    <p>Cuatro mil palabras árabes viven en tu boca. Aquí aprendes a reconocer su firma, a leerla disfrazada, y a no dejarte engañar por las que solo se le parecen.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Cinco estaciones, de cinco minutos cada una. Primero cazas arabismos entre impostores latinos; luego lees el paréntesis del DLE como quien lee una cédula; después descubres por qué puerta entró cada palabra y qué dice el mapa; y al final capturas tu arabismo del día. Apuesta siempre antes de revisar: el ejercicio da pista antes que respuesta.
+  </div>
+
+  <div class="regla">
+    <strong>La regla de la marca.</strong> El <em>al-</em> es el artículo árabe ("el, la") que se quedó pegado a la palabra. Delante de ciertas letras se disfraza: <em>az-</em> (azúcar), <em>ar-</em> (arroz), <em>ad-</em> (aduana), <em>a-</em> (aceite, acequia). Y muchas palabras árabes no traen ninguna marca (naranja, jarabe, ojalá, hasta). <strong>La marca sospecha; el paréntesis del DLE decide.</strong>
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> traza dos columnas, "árabe" y "latín", y reparte las doce palabras de la estación 1 apostando. Luego copia las diez formas árabes de la estación 2 y escribe al lado la palabra española que crees que dieron. Verifica en el DLE al final, no antes.
+  </div>
+
+  <h2>Estación 1 · ¿Árabe o latín? <small>Doce palabras que empiezan con <em>al-</em>. Solo la mitad son árabes.</small></h2>
+  <div class="card">
+    <div class="palabra" id="e1-w">…</div>
+    <div class="opciones" id="e1-ops">
+      <button type="button" data-v="a">Árabe</button>
+      <button type="button" data-v="l">Latín de toda la vida</button>
+    </div>
+    <div class="fb" id="e1-fb"></div>
+    <div class="fila-botones">
+      <button class="btn rosa" id="e1-sigue" type="button" disabled>Siguiente</button>
+      <span class="marcador" id="e1-score">0 / 0</span>
+    </div>
+  </div>
+
+  <h2>Estación 2 · Lee el paréntesis <small>Así lo escribe el DLE. ¿En qué palabra española se convirtió?</small></h2>
+  <div class="card">
+    <div class="dis" id="e2-dis"></div>
+    <p style="margin:.3rem 0 0;font-size:.92rem" id="e2-pista"></p>
+    <input type="text" id="e2-in" placeholder="la palabra española">
+    <div class="fila-botones">
+      <button class="btn rosa" id="e2-check" type="button">Revisar</button>
+      <button class="btn gris" id="e2-sigue" type="button" disabled>Siguiente</button>
+      <span class="marcador" id="e2-score">0 / 0</span>
+    </div>
+    <div class="fb" id="e2-fb"></div>
+  </div>
+
+  <h2>Estación 3 · ¿Por qué puerta entró? <small>Una lengua presta las palabras de lo que sabe hacer.</small></h2>
+  <div class="card">
+    <div class="palabra" id="e3-w">…</div>
+    <div class="opciones" id="e3-ops"></div>
+    <div class="fb" id="e3-fb"></div>
+    <div class="fila-botones">
+      <button class="btn rosa" id="e3-sigue" type="button" disabled>Siguiente</button>
+      <span class="marcador" id="e3-score">0 / 0</span>
+    </div>
+  </div>
+
+  <h2>Estación 4 · El mapa habla árabe <small>Guad- es <em>wādī</em>, río. ¿Qué quiere decir cada nombre?</small></h2>
+  <div class="card">
+    <div class="palabra" id="e4-w">…</div>
+    <div class="opciones" id="e4-ops"></div>
+    <div class="fb" id="e4-fb"></div>
+    <div class="fila-botones">
+      <button class="btn rosa" id="e4-sigue" type="button" disabled>Siguiente</button>
+      <span class="marcador" id="e4-score">0 / 0</span>
+    </div>
+  </div>
+
+  <h2>Estación 5 · Tu arabismo del día <small>Una palabra árabe que dices tú, con su paréntesis. Va a la lista de tu lengua.</small></h2>
+  <div class="card">
+    <h3>Cázala en tu casa, no en la lista</h3>
+    <label>La palabra</label>
+    <input type="text" id="c-palabra" placeholder="ej. alcancía">
+    <label>¿Qué marca trae?</label>
+    <div class="veredicto" id="c-marca">
+      <button type="button">al-</button>
+      <button type="button">al- disfrazado (az-, ar-, ad-, a-)</button>
+      <button type="button">una h en medio</button>
+      <button type="button">ninguna: la fuente la delató</button>
+    </div>
+    <label>¿Por qué puerta entró?</label>
+    <div class="veredicto" id="c-puerta">
+      <button type="button">el agua y la construcción</button>
+      <button type="button">el campo y las plantas</button>
+      <button type="button">la cocina y los dulces</button>
+      <button type="button">la ciencia</button>
+      <button type="button">el gobierno, la guerra y el comercio</button>
+      <button type="button">la casa, el vestido y la música</button>
+    </div>
+    <label>Lo que dice el DLE entre paréntesis (cópialo tal cual)</label>
+    <input type="text" id="c-dle" placeholder='ej. Del ár. hisp. alkanzíyya, y este del ár. clás. kanz "tesoro"'>
+    <label>Lo que te sorprendió</label>
+    <textarea id="c-sorpresa" placeholder="ej. que la alcancía sea literalmente 'el tesoro'"></textarea>
+    <div class="fila-botones">
+      <button class="btn rosa" id="btnGenerar" type="button">Generar captura</button>
+      <button class="btn gris" id="btnCopiar" type="button" style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura" id="captura"></pre>
+    <div class="fb" id="fb-cap"></div>
+  </div>
+
+  <footer>Semana 9 · Las lenguas escondidas · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página. La captura solo vive si tú la copias.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  function baraja(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+  function norm(s){return s.toLowerCase().trim().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/\s+/g,' ');}
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+
+  /* ---------- Estación 1 ---------- */
+  (function(){
+    var ITEMS=baraja([
+      {w:'almohada',v:'a',x:'Árabe: al-mihadda, "la que va bajo la mejilla". La de la semana 2.'},
+      {w:'alma',v:'l',x:'Latín ANIMA: el aliento, el soplo. Ese al- es puro accidente.'},
+      {w:'alberca',v:'a',x:'Árabe: al-birka, el estanque. En casi todo el mundo hispano dicen piscina.'},
+      {w:'alto',v:'l',x:'Latín ALTUS. Prima de altura y de altar (que también es latín: ALTARE).'},
+      {w:'alumno',v:'l',x:'Latín ALUMNUS, "el que es alimentado", de ALERE, alimentar. Nada de árabe.'},
+      {w:'alcalde',v:'a',x:'Árabe: al-qāḍī, el juez. Entró por la puerta del gobierno.'},
+      {w:'alegría',v:'l',x:'Latín ALACER, vivo, animado. Engaña a la mitad del salón.'},
+      {w:'almacén',v:'a',x:'Árabe: al-majzan, el depósito. Y de la misma raíz salió magazine en inglés: primero "almacén", luego "revista".'},
+      {w:'alcohol',v:'a',x:'Árabe: al-kuḥl, el polvo finísimo con que se pintaban los ojos. Los alquimistas le dieron el sentido de "esencia destilada".'},
+      {w:'álbum',v:'l',x:'Latín ALBUM, "lo blanco": la tabla blanca donde los romanos anotaban avisos. Prima de alba.'},
+      {w:'algodón',v:'a',x:'Árabe: al-quṭn. En inglés le quitaron el artículo: cotton.'},
+      {w:'aliento',v:'l',x:'Latín, de ANHELARE, respirar con esfuerzo. Prima de anhelo.'}
+    ]);
+    var i=0,ok=0,hecho=0;
+    var w=document.getElementById('e1-w'),ops=document.getElementById('e1-ops'),fb=document.getElementById('e1-fb'),btn=document.getElementById('e1-sigue'),sc=document.getElementById('e1-score');
+    function ronda(){
+      if(i>=ITEMS.length){w.textContent='Doce de doce.';ops.style.display='none';fb.className='fb ej';fb.textContent='Seis árabes, seis latinas, y todas con al-. Eso es lo que quiere decir "la marca sospecha; la fuente decide". El jueves, en el tribunal, ya sabes qué mirar primero: el paréntesis.';btn.disabled=true;return;}
+      var it=ITEMS[i];w.innerHTML='<span class="al">'+esc(it.w.slice(0,2))+'</span>'+esc(it.w.slice(2));fb.className='fb';btn.disabled=true;
+      Array.prototype.forEach.call(ops.children,function(b){b.disabled=false;b.className='';});
+    }
+    Array.prototype.forEach.call(ops.children,function(b){
+      b.addEventListener('click',function(){
+        var it=ITEMS[i],v=b.getAttribute('data-v');hecho++;
+        Array.prototype.forEach.call(ops.children,function(c){c.disabled=true;if(c.getAttribute('data-v')===it.v)c.classList.add('ok');});
+        if(v===it.v){ok++;fb.className='fb ok';fb.textContent='Bien. '+it.x;}
+        else{b.classList.add('no');fb.className='fb no';fb.textContent='Aún no. '+it.x;}
+        sc.textContent=ok+' / '+hecho;btn.disabled=false;
+      });
+    });
+    btn.addEventListener('click',function(){i++;ronda();});
+    ronda();
+  })();
+
+  /* ---------- Estación 2 ---------- */
+  (function(){
+    var ITEMS=baraja([
+      {pre:'as-',raiz:'sukkar',ans:['azucar'],esp:'azúcar',x:'El al- se asimiló a la s y el español lo escribió az-. Y sukkar venía del sánscrito śarkarā, "grava": el azúcar en grano parecía arenilla.'},
+      {pre:'ar-',raiz:'ruzz',ans:['arroz'],esp:'arroz',x:'Otra asimilación: al-ruzz sonaba ar-ruzz. El grano venía, con la palabra, del griego óryza.'},
+      {pre:'ad-',raiz:'dīwān',ans:['aduana'],esp:'aduana',x:'Dīwān era el registro, la oficina. La misma palabra dio diván: el sofá de la sala de audiencias.'},
+      {pre:'az-',raiz:'zayt',ans:['aceite'],esp:'aceite',x:'Az-zayt, "el jugo de la oliva". Por eso en español la oliva da aceite y la palabra latina, OLEUM, dio óleo: un doblete de dos lenguas.'},
+      {pre:'as-',raiz:'sāqiya',ans:['acequia'],esp:'acequia',x:'La que da de beber. Toda la tecnología del riego entró por esta puerta: alberca, aljibe, noria.'},
+      {pre:'al-',raiz:'qāḍī',ans:['alcalde'],esp:'alcalde',x:'El juez. En árabe sigue siendo el juez; en español pasó a ser el que gobierna el pueblo.'},
+      {pre:'al-',raiz:'ǧabr',ans:['algebra'],esp:'álgebra',x:'"La reunión de las partes rotas": el título del libro de al-Juarismi, el matemático de Bagdad cuyo apellido se volvió algoritmo.'},
+      {pre:'az-',raiz:'zaʿfarān',ans:['azafran'],esp:'azafrán',x:'La especia más cara del mundo, con su artículo pegado.'},
+      {pre:'al-',raiz:'mihadda',ans:['almohada'],esp:'almohada',x:'De hadd, mejilla. La deuda de la semana 2, pagada dos veces.'},
+      {pre:'al-',raiz:'ḫazāna',ans:['alacena'],esp:'alacena',x:'El armario empotrado de la cocina. Prima de almacén, las dos de "guardar".'}
+    ]);
+    var i=0,ok=0,hecho=0,intentos=0;
+    var dis=document.getElementById('e2-dis'),pista=document.getElementById('e2-pista'),inp=document.getElementById('e2-in'),fb=document.getElementById('e2-fb'),btnC=document.getElementById('e2-check'),btnS=document.getElementById('e2-sigue'),sc=document.getElementById('e2-score');
+    function ronda(){
+      if(i>=ITEMS.length){dis.innerHTML='<span class="pz pz--pre">al-<small>el, la</small></span>';pista.textContent='Diez de diez leídas.';inp.style.display='none';btnC.disabled=true;btnS.disabled=true;fb.className='fb ej';fb.textContent='Eso es leer el paréntesis: el artículo, la raíz, y lo que el español hizo con ellos. El DLE lo escribe con abreviaturas ("Del ár. hisp."), pero la lectura es esta.';return;}
+      var it=ITEMS[i];intentos=0;
+      dis.innerHTML='<span class="pz pz--pre">'+esc(it.pre)+'<small>el artículo</small></span><span class="pz pz--raiz">'+esc(it.raiz)+'<small>la raíz</small></span>';
+      pista.textContent='Dilo rápido, todo junto, con boca castellana. ¿Qué palabra sale?';
+      inp.value='';fb.className='fb';btnC.disabled=false;btnS.disabled=true;if(i>0)inp.focus();
+    }
+    btnC.addEventListener('click',function(){
+      var it=ITEMS[i],v=norm(inp.value);
+      if(!v){fb.className='fb no';fb.textContent='Primero escribe tu apuesta. En este gimnasio no se revisa el aire.';return;}
+      if(it.ans.indexOf(v)>-1){hecho++;ok++;sc.textContent=ok+' / '+hecho;fb.className='fb ok';fb.innerHTML='Bien: <strong>'+esc(it.esp)+'</strong>. '+esc(it.x);btnC.disabled=true;btnS.disabled=false;}
+      else{intentos++;
+        if(intentos===1){fb.className='fb no';fb.textContent='Aún no. Pista: empieza con "'+it.esp.slice(0,2)+'" y tiene '+it.esp.length+' letras. Pega el artículo a la raíz y quita lo que una boca castellana no pronunciaría.';}
+        else{hecho++;sc.textContent=ok+' / '+hecho;fb.className='fb no';fb.innerHTML='Aún no. Era <strong>'+esc(it.esp)+'</strong>. '+esc(it.x);btnC.disabled=true;btnS.disabled=false;}
+      }
+    });
+    inp.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();if(!btnC.disabled)btnC.click();else if(!btnS.disabled)btnS.click();}});
+    btnS.addEventListener('click',function(){i++;ronda();});
+    ronda();
+  })();
+
+  /* ---------- Estación 3 ---------- */
+  (function(){
+    var PUERTAS=['el agua y la construcción','el campo y las plantas','la cocina y los dulces','la ciencia','el gobierno, la guerra y el comercio','la casa, el vestido y la música'];
+    var ITEMS=baraja([
+      {w:'acequia',p:0,x:'as-sāqiya, la que da de beber. Los árabes trajeron el riego: alberca, aljibe, noria, alcantarilla.'},
+      {w:'jarabe',p:2,x:'šarāb, bebida. Prima de sorbete y de sirope. La puerta de los dulces: azúcar, almíbar, cande.'},
+      {w:'algoritmo',p:3,x:'El apellido de al-Juarismi, matemático de Bagdad, gastado por bocas latinas. La puerta de la ciencia: álgebra, cifra, cero, alquimia.'},
+      {w:'alguacil',p:4,x:'al-wazīr, el ministro (la misma palabra que visir). Puerta del gobierno: alcalde, almirante, alférez, adalid.'},
+      {w:'laúd',p:5,x:'al-ʿūd, "la madera". El instrumento de cuerda que dio también a lute en inglés. Con guitarra, tambor y rabel.'},
+      {w:'alfalfa',p:1,x:'al-faṣfaṣa. Los árabes trajeron plantas y sus nombres: algodón, azucena, jazmín, alcachofa, berenjena, naranja.'},
+      {w:'cifra',p:3,x:'ṣifr, "vacío": el cero. La misma palabra dio cero (por el italiano zero) y cifra. Un doblete de préstamo.'},
+      {w:'aduana',p:4,x:'ad-dīwān, la oficina del registro. Puerta del comercio: almacén, tarifa, arancel, arroba, quilate.'},
+      {w:'albañil',p:0,x:'al-bannāʾ, el constructor. Con azotea, azulejo, adobe y tabique: la casa entera se construye en árabe.'},
+      {w:'zanahoria',p:1,x:'safunnārya, con una h de en medio que alguna vez sonó. La huerta árabe: acelga, espinaca, alcachofa.'},
+      {w:'alfombra',p:5,x:'al-ḥumra, la roja: el tapete. Con almohada, alhaja, albornoz y zafiro: lo que había dentro de una casa andalusí.'},
+      {w:'almíbar',p:2,x:'al-maybar, un dulce de membrillo. Los árabes trajeron la caña de azúcar y con ella la repostería entera.'}
+    ]);
+    var i=0,ok=0,hecho=0;
+    var w=document.getElementById('e3-w'),ops=document.getElementById('e3-ops'),fb=document.getElementById('e3-fb'),btn=document.getElementById('e3-sigue'),sc=document.getElementById('e3-score');
+    function ronda(){
+      if(i>=ITEMS.length){w.textContent='Doce puertas cruzadas.';ops.innerHTML='';fb.className='fb ej';fb.textContent='Regla de la semana, demostrada: una lengua presta las palabras de lo que sabe hacer. Los árabes sabían regar, endulzar, contar, construir y gobernar. Nadie les pidió prestada la palabra para "nieve".';btn.disabled=true;return;}
+      var it=ITEMS[i];w.textContent=it.w;fb.className='fb';btn.disabled=true;ops.innerHTML='';
+      var opciones=baraja([it.p].concat(baraja([0,1,2,3,4,5].filter(function(x){return x!==it.p;})).slice(0,3)));
+      opciones.forEach(function(p){
+        var b=document.createElement('button');b.type='button';b.textContent=PUERTAS[p];
+        b.addEventListener('click',function(){
+          hecho++;
+          Array.prototype.forEach.call(ops.children,function(c){c.disabled=true;if(c.textContent===PUERTAS[it.p])c.classList.add('ok');});
+          if(p===it.p){ok++;fb.className='fb ok';fb.textContent='Bien. '+it.x;}
+          else{b.classList.add('no');fb.className='fb no';fb.textContent='Aún no: entró por '+PUERTAS[it.p]+'. '+it.x;}
+          sc.textContent=ok+' / '+hecho;btn.disabled=false;
+        });
+        ops.appendChild(b);
+      });
+    }
+    btn.addEventListener('click',function(){i++;ronda();});
+    ronda();
+  })();
+
+  /* ---------- Estación 4 ---------- */
+  (function(){
+    var ITEMS=baraja([
+      {w:'Guadalquivir',a:'el río grande',o:['el río de las piedras','la montaña alta','el castillo del rey'],x:'al-wādī al-kabīr. Los romanos lo llamaban Betis; ocho siglos le cambiaron el nombre para siempre.'},
+      {w:'Guadalajara',a:'el río de las piedras',o:['el río grande','la ciudad blanca','el valle del sol'],x:'wādī al-ḥiyāra. La de Jalisco se llama como la de España, y la de España se llama en árabe.'},
+      {w:'Gibraltar',a:'la montaña de Táriq',o:['la puerta del mar','la roca del sur','el faro de Hércules'],x:'Yabal Táriq: el general que desembarcó en 711 se quedó con la roca en el nombre.'},
+      {w:'Alcalá',a:'el castillo',o:['la mezquita','el mercado','la fuente'],x:'al-qalʿa. Hay Alcalás por toda España y un Alcalá en la Sierra Gorda, cerca de Jalpan.'},
+      {w:'Andalucía',a:'la tierra que los árabes llamaron al-Andalus',o:['la tierra de los vándalos, según el DLE','el jardín del sur','la costa de los olivos'],x:'al-Andalus fue el nombre árabe de toda la península. De dónde viene al-Andalus sigue discutido: la explicación de los vándalos es una hipótesis, no un dato del DLE.'},
+      {w:'Almería',a:'la atalaya',o:['el mar','la almendra','el puerto'],x:'al-mariyya, la torre vigía. Un nombre que dice para qué servía el lugar.'}
+    ]);
+    var i=0,ok=0,hecho=0;
+    var w=document.getElementById('e4-w'),ops=document.getElementById('e4-ops'),fb=document.getElementById('e4-fb'),btn=document.getElementById('e4-sigue'),sc=document.getElementById('e4-score');
+    function ronda(){
+      if(i>=ITEMS.length){w.textContent='Seis nombres leídos.';ops.innerHTML='';fb.className='fb ej';fb.textContent='Un topónimo es una palabra que se queda quieta mientras la lengua se va. La semana que entra vas a leer así los nombres de la Sierra: Jalpan, Ahuacatlán, Concá. Y a preguntarte quién nombró qué.';btn.disabled=true;return;}
+      var it=ITEMS[i];w.textContent=it.w;fb.className='fb';btn.disabled=true;ops.innerHTML='';
+      baraja([it.a].concat(it.o)).forEach(function(t){
+        var b=document.createElement('button');b.type='button';b.textContent=t;
+        b.addEventListener('click',function(){
+          hecho++;
+          Array.prototype.forEach.call(ops.children,function(c){c.disabled=true;if(c.textContent===it.a)c.classList.add('ok');});
+          if(t===it.a){ok++;fb.className='fb ok';fb.textContent='Bien. '+it.x;}
+          else{b.classList.add('no');fb.className='fb no';fb.textContent='Aún no: '+it.a+'. '+it.x;}
+          sc.textContent=ok+' / '+hecho;btn.disabled=false;
+        });
+        ops.appendChild(b);
+      });
+    }
+    btn.addEventListener('click',function(){i++;ronda();});
+    ronda();
+  })();
+
+  /* ---------- Estación 5 · captura ---------- */
+  document.querySelectorAll('.veredicto').forEach(function(v){
+    v.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){v.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});b.classList.add('sel');});
+    });
+  });
+  var pre=document.getElementById('captura'),fb=document.getElementById('fb-cap'),btnC=document.getElementById('btnCopiar');
+  document.getElementById('btnGenerar').addEventListener('click',function(){
+    var g=function(id){return document.getElementById(id).value.trim();};
+    var p=g('c-palabra'),d=g('c-dle'),s=g('c-sorpresa');
+    var m=document.querySelector('#c-marca .sel'),pu=document.querySelector('#c-puerta .sel');
+    var faltan=[];
+    if(!p)faltan.push('la palabra');if(!m)faltan.push('la marca');if(!pu)faltan.push('la puerta');if(!d)faltan.push('lo que dice el DLE');
+    if(faltan.length){fb.className='fb no';fb.textContent='Falta: '+faltan.join(', ')+'. Sin el paréntesis del DLE no hay arabismo: hay sospecha.';return;}
+    pre.textContent='ARABISMO DEL DÍA · SEMANA 9\nPALABRA: '+p+'\nMARCA: '+m.textContent+'\nPUERTA: '+pu.textContent+'\nDLE: '+d+(s?'\nME SORPRENDIÓ: '+s:'');
+    pre.style.display='block';btnC.style.display='inline-block';
+    fb.className='fb ok';fb.textContent='Captura lista. Pégala en la lista de tu lengua (ejercicio 9B) o donde indique el profesor.';
+  });
+  btnC.addEventListener('click',function(){
+    var t=pre.textContent;
+    function listo(){fb.className='fb ok';fb.textContent='Copiado.';}
+    function seleccionar(){var r=document.createRange();r.selectNodeContents(pre);var s=window.getSelection();s.removeAllRanges();s.addRange(r);fb.className='fb ok';fb.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(listo,function(){seleccionar();});}else{seleccionar();}
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

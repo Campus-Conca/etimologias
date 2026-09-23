@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 9 · Ejercicio G · Lenguas francas, ayer y hoy</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+    --jade:#0B5F52; --jadebg:#DFF5EE;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  .regla{background:#fff;border:1px solid var(--borde);border-left:4px solid var(--rosa);border-radius:.6rem;padding:.8rem 1rem;margin:1rem 0;font-size:.95rem}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  h2 small{display:block;font-weight:400;font-size:.85rem;color:#6b6485}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.8rem}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3.2rem;resize:vertical}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem;align-items:center}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .btn:disabled{opacity:.5;cursor:default}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
+  .opciones{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.6rem}
+  .opciones button{padding:.5rem .85rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font:inherit;font-weight:700;cursor:pointer;text-align:left}
+  .opciones button.ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
+  .opciones button.no{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  .opciones button:disabled{cursor:default}
+  .marcador{display:inline-block;font-weight:700;color:var(--ciruela);background:var(--fondo);border:1px solid var(--borde);border-radius:2rem;padding:.2rem .7rem;font-size:.85rem}
+  .palabra{font-size:1.5rem;font-weight:800;color:var(--ciruela);margin:.2rem 0;line-height:1.2}
+  .palabra small{display:block;font-size:.85rem;font-weight:400;color:#6b6485}
+  table{width:100%;border-collapse:collapse;margin:.6rem 0;font-size:.92rem}
+  th{background:var(--fondo);color:var(--ciruela);text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;padding:.45rem .6rem;border:1px solid var(--borde)}
+  td{padding:.5rem .6rem;border:1px solid var(--borde);vertical-align:top}
+  td select{width:100%;font:inherit;padding:.35rem;border:1px solid var(--borde);border-radius:.5rem;background:var(--fondo)}
+  .captura{display:none;white-space:pre-wrap;background:#2b2440;color:#f4eff9;border-radius:.6rem;padding:.9rem 1rem;font-size:.85rem;margin-top:.7rem;font-family:ui-monospace,Menlo,Consolas,monospace}
+  .veredicto{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+  .veredicto button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;font-size:.95rem;cursor:pointer;text-align:left}
+  .veredicto button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .dos{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+  @media (max-width:560px){.dos{grid-template-columns:1fr}}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 9 · Sesión G</div>
+    <h1>Lenguas francas, ayer y hoy</h1>
+    <p>El latín fue la lengua de medio mundo durante dos mil años. El inglés lo es ahora, en tu pantalla. Aquí se compara lo que da y lo que quita.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Cinco estaciones. Primero pones cada lengua franca en su época; luego cazas el latín que dices sin saberlo; después llevas un diario de un día tuyo en lenguas francas; pesas la balanza; y al final dejas armado un argumento para la disputa de la semana 12. Las dos primeras se revisan solas; las otras tres se comparan con un ejemplo.
+  </div>
+
+  <div class="regla">
+    <strong>Lengua franca:</strong> la que usan para entenderse quienes no comparten lengua materna. El nombre viene de la <em>lingua franca</em> de los puertos del Mediterráneo, una mezcla de italiano, español, árabe y turco que hablaban marineros y mercaderes entre los siglos XI y XIX. Nadie la aprendía en su casa; todos la usaban en el muelle.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> para la estación 1, una tabla de tres columnas: lengua, cuándo, para qué. Para la 3, la lista de los siete momentos de tu día con la lengua que mandó en cada uno. Las estaciones 4 y 5 son dos párrafos cortos, uno por lado de la balanza y uno con tu argumento.
+  </div>
+
+  <h2>Estación 1 · Cada lengua en su puesto <small>Ocho lenguas francas. ¿Cuándo y para qué mandó cada una?</small></h2>
+  <div class="card">
+    <div class="palabra" id="e1-w">…</div>
+    <div class="opciones" id="e1-ops"></div>
+    <div class="fb" id="e1-fb"></div>
+    <div class="fila-botones">
+      <button class="btn rosa" id="e1-sigue" type="button" disabled>Siguiente</button>
+      <span class="marcador" id="e1-score">0 / 0</span>
+    </div>
+  </div>
+
+  <h2>Estación 2 · Latín que dices sin saberlo <small>Unas se gastaron mil años en la boca; otras entraron tal cual, por los libros. ¿Cuál es cuál?</small></h2>
+  <div class="card">
+    <div class="palabra" id="e2-w">…</div>
+    <div class="opciones" id="e2-ops">
+      <button type="button" data-v="g">Gastada: pasó por la máquina del tiempo</button>
+      <button type="button" data-v="c">Tal cual: latín vivo, sin gastar</button>
+    </div>
+    <div class="fb" id="e2-fb"></div>
+    <div class="fila-botones">
+      <button class="btn rosa" id="e2-sigue" type="button" disabled>Siguiente</button>
+      <span class="marcador" id="e2-score">0 / 0</span>
+    </div>
+  </div>
+
+  <h2>Estación 3 · Tu día en lenguas francas <small>Siete momentos de un día normal. ¿Qué lengua mandó en cada uno?</small></h2>
+  <div class="card">
+    <table>
+      <tr><th>Momento</th><th>La lengua que mandó</th></tr>
+      <tr><td>El desayuno en tu casa</td><td><select data-m="casa"><option value="">elige</option><option>español</option><option>español con palabras de otra lengua</option><option>otra lengua de tu familia (pame, otomí, náhuatl…)</option></select></td></tr>
+      <tr><td>La clase de hoy</td><td><select data-m="escuela"><option value="">elige</option><option>español</option><option>español con tecnicismos en latín o griego</option><option>inglés</option></select></td></tr>
+      <tr><td>El videojuego o la app que más abriste</td><td><select data-m="pantalla"><option value="">elige</option><option>español</option><option>español con palabras en inglés (gg, lootear, skin…)</option><option>inglés</option></select></td></tr>
+      <tr><td>La música que oíste</td><td><select data-m="musica"><option value="">elige</option><option>español</option><option>inglés</option><option>las dos</option><option>otra</option></select></td></tr>
+      <tr><td>Las redes y los memes</td><td><select data-m="redes"><option value="">elige</option><option>español</option><option>español con inglés adentro</option><option>inglés</option></select></td></tr>
+      <tr><td>La tienda, el mercado o el tianguis</td><td><select data-m="mercado"><option value="">elige</option><option>español</option><option>español con nahuatlismos (tianguis, elote, chile…)</option><option>otra lengua</option></select></td></tr>
+      <tr><td>Un rezo, una misa, una ceremonia</td><td><select data-m="iglesia"><option value="">elige</option><option>español</option><option>latín (aunque sea una palabra: amén, aleluya)</option><option>otra lengua</option><option>no aplica</option></select></td></tr>
+    </table>
+    <div class="fila-botones"><button class="btn rosa" id="e3-ver" type="button">Leer mi día</button></div>
+    <div class="fb" id="e3-fb"></div>
+  </div>
+
+  <h2>Estación 4 · La balanza <small>Una lengua franca da y quita. Roma lo sabía; tu teléfono también.</small></h2>
+  <div class="card">
+    <div class="dos">
+      <div>
+        <label>Lo que una lengua franca le da a quien la habla</label>
+        <textarea id="e4-da" placeholder="ej. entenderse con gente de cien pueblos..."></textarea>
+      </div>
+      <div>
+        <label>Lo que le quita a quien no la habla, o a las lenguas que estaban antes</label>
+        <textarea id="e4-quita" placeholder="ej. el íbero se apagó en tres siglos..."></textarea>
+      </div>
+    </div>
+    <div class="fila-botones"><button class="btn gris" id="e4-ej" type="button">Compara con un ejemplo</button></div>
+    <div class="fb" id="e4-fb"></div>
+  </div>
+
+  <h2>Estación 5 · Tu argumento para la semana 12 <small>La disputa pregunta quién es dueño del español. Lo que aprendiste hoy es munición para los dos bandos.</small></h2>
+  <div class="card">
+    <label>¿Desde qué bando lo dices?</label>
+    <div class="veredicto" id="e5-bando">
+      <button type="button">La lengua debe protegerse</button>
+      <button type="button">La lengua vive del contacto</button>
+    </div>
+    <label>El argumento, en una o dos líneas, con el latín o el inglés adentro</label>
+    <textarea id="e5-arg" placeholder="ej. Hasta el latín fue una lengua extranjera en Hispania..."></textarea>
+    <div class="fila-botones">
+      <button class="btn gris" id="e5-ej" type="button">Compara con un ejemplo</button>
+      <button class="btn rosa" id="btnGenerar" type="button">Generar captura</button>
+      <button class="btn gris" id="btnCopiar" type="button" style="display:none">Copiar al portapapeles</button>
+    </div>
+    <pre class="captura" id="captura"></pre>
+    <div class="fb" id="fb-cap"></div>
+  </div>
+
+  <footer>Semana 9 · Las lenguas escondidas · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página. La captura solo vive si tú la copias; guárdala para la semana 12.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  function baraja(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+
+  /* ---------- Estación 1 ---------- */
+  (function(){
+    var ITEMS=baraja([
+      {w:'latín',a:'del siglo II a. C. al XIX: la ley, la Iglesia, la ciencia y la universidad de Europa',x:'Dejó de hablarse en la calle hacia el año 800 y siguió mandando en los libros mil años más. Newton escribió en latín en 1687; Linneo bautizó al maíz Zea mays en 1753.'},
+      {w:'griego (koiné)',a:'del siglo IV a. C. al VI d. C.: el comercio y la filosofía del Mediterráneo oriental, y los evangelios',x:'Koiné quiere decir "común". Alejandro la llevó hasta la India; los evangelios se escribieron en ella. De ahí sale el botiquín de la semana 4.'},
+      {w:'árabe',a:'siglos VIII a XIII: la ciencia y la medicina, de Bagdad a Córdoba',x:'Álgebra, algoritmo, cifra, alquimia: la ciencia se escribió en árabe cuando Europa apenas la leía. Y por Toledo pasó al latín.'},
+      {w:'náhuatl',a:'siglos XIV a XVII: el tributo azteca y luego la evangelización de Mesoamérica',x:'Los frailes la aprendieron para no aprender cien lenguas. Por eso hay nombres náhuatl (Jalpan, Ahuacatlán) en tierra pame.'},
+      {w:'francés',a:'siglos XVII a XX: las cortes, los tratados, la moda y la cocina',x:'La diplomacia se hizo en francés hasta 1919, y la mesa y el salón también: chef, menú, hotel, garaje.'},
+      {w:'swahili',a:'siglos XIX y XX: el comercio de África oriental entre cien pueblos',x:'Nació en la costa, mezclando bantú con árabe (safari es árabe, por el swahili), y hoy es lengua oficial de cuatro países.'},
+      {w:'inglés',a:'hoy: la ciencia, internet, la aviación, los videojuegos',x:'Unos 1 500 millones lo hablan y menos de 400 lo mamaron. Exactamente la situación del latín en Hispania en el siglo I.'},
+      {w:'español',a:'hoy: la lengua franca de las Américas, de Tijuana a la Patagonia',x:'Segunda lengua materna del mundo, con 485 millones. Y lengua franca de 40 millones en Estados Unidos, que la usan entre pueblos distintos.'}
+    ]);
+    var TODAS=ITEMS.map(function(x){return x.a;});
+    var i=0,ok=0,hecho=0;
+    var w=document.getElementById('e1-w'),ops=document.getElementById('e1-ops'),fb=document.getElementById('e1-fb'),btn=document.getElementById('e1-sigue'),sc=document.getElementById('e1-score');
+    function ronda(){
+      if(i>=ITEMS.length){w.textContent='Ocho lenguas en su puesto.';ops.innerHTML='';fb.className='fb ej';fb.textContent='Fíjate en la lista: ninguna lengua franca lo fue para siempre. Todas cedieron el puesto. La pregunta incómoda es si al inglés le va a pasar lo mismo, y cuándo.';btn.disabled=true;return;}
+      var it=ITEMS[i];w.textContent=it.w;fb.className='fb';btn.disabled=true;ops.innerHTML='';
+      baraja([it.a].concat(baraja(TODAS.filter(function(x){return x!==it.a;})).slice(0,3))).forEach(function(t){
+        var b=document.createElement('button');b.type='button';b.textContent=t;
+        b.addEventListener('click',function(){
+          hecho++;
+          Array.prototype.forEach.call(ops.children,function(c){c.disabled=true;if(c.textContent===it.a)c.classList.add('ok');});
+          if(t===it.a){ok++;fb.className='fb ok';fb.textContent='Bien. '+it.x;}
+          else{b.classList.add('no');fb.className='fb no';fb.textContent='Aún no. '+it.w+': '+it.a+'. '+it.x;}
+          sc.textContent=ok+' / '+hecho;btn.disabled=false;
+        });
+        ops.appendChild(b);
+      });
+    }
+    btn.addEventListener('click',function(){i++;ronda();});
+    ronda();
+  })();
+
+  /* ---------- Estación 2 ---------- */
+  (function(){
+    var ITEMS=baraja([
+      {w:'etcétera',v:'c',x:'ET CETERA, "y las demás cosas". Tal cual, dos mil años después.'},
+      {w:'hijo',v:'g',x:'FILIU, con la F vuelta h y la -LI- vuelta j. Mil años de bocas.'},
+      {w:'agenda',v:'c',x:'AGENDA, "las cosas que deben hacerse". Latín puro en tu mochila.'},
+      {w:'noche',v:'g',x:'NOCTE: el CT se volvió ch. La ley de la semana 8.'},
+      {w:'campus',v:'c',x:'CAMPUS, el campo. Tal cual, para nombrar la universidad; su hermana gastada es campo.'},
+      {w:'versus',v:'c',x:'VERSUS, "vuelto hacia": el "contra" de los carteles de box. Latín sin gastar.'},
+      {w:'vida',v:'g',x:'VITA: la T entre vocales se suavizó en d. Su hermana culta, vital, no se gastó.'},
+      {w:'referéndum',v:'c',x:'REFERENDUM, "lo que debe consultarse". Entró tal cual por la puerta de la política.'},
+      {w:'hacer',v:'g',x:'FACERE: la F vuelta h. Su hermana culta, factible, conserva la F.'},
+      {w:'ultimátum',v:'c',x:'ULTIMATUM, "lo último". Latín vivo en las noticias.'}
+    ]);
+    var i=0,ok=0,hecho=0;
+    var w=document.getElementById('e2-w'),ops=document.getElementById('e2-ops'),fb=document.getElementById('e2-fb'),btn=document.getElementById('e2-sigue'),sc=document.getElementById('e2-score');
+    function ronda(){
+      if(i>=ITEMS.length){w.textContent='Diez de diez.';ops.style.display='none';fb.className='fb ej';fb.textContent='El latín entró dos veces: por la boca, y se gastó; y por los libros, y llegó intacto. La segunda puerta sigue abierta: cada bicho nuevo recibe nombre latino y cada juicio usa habeas corpus. Una lengua que nadie mama todavía manda en tres oficios.';btn.disabled=true;return;}
+      var it=ITEMS[i];w.textContent=it.w;fb.className='fb';btn.disabled=true;
+      Array.prototype.forEach.call(ops.children,function(b){b.disabled=false;b.className='';});
+    }
+    Array.prototype.forEach.call(ops.children,function(b){
+      b.addEventListener('click',function(){
+        var it=ITEMS[i],v=b.getAttribute('data-v');hecho++;
+        Array.prototype.forEach.call(ops.children,function(c){c.disabled=true;if(c.getAttribute('data-v')===it.v)c.classList.add('ok');});
+        if(v===it.v){ok++;fb.className='fb ok';fb.textContent='Bien. '+it.x;}
+        else{b.classList.add('no');fb.className='fb no';fb.textContent='Aún no. '+it.x;}
+        sc.textContent=ok+' / '+hecho;btn.disabled=false;
+      });
+    });
+    btn.addEventListener('click',function(){i++;ronda();});
+    ronda();
+  })();
+
+  /* ---------- Estación 3 ---------- */
+  document.getElementById('e3-ver').addEventListener('click',function(){
+    var sels=document.querySelectorAll('select[data-m]'),fb=document.getElementById('e3-fb');
+    var vacios=0,ingles=0,mezcla=0,otras=0,latin=0,total=0;
+    sels.forEach(function(s){var v=s.value;if(!v){vacios++;return;}total++;if(/inglés/.test(v))ingles++;if(/con /.test(v))mezcla++;if(/otra lengua|pame|otomí/.test(v))otras++;if(/latín/.test(v))latin++;});
+    if(vacios){fb.className='fb no';fb.textContent='Te faltan '+vacios+' momento'+(vacios>1?'s':'')+' por llenar. Un día tiene todos.';return;}
+    var t='Tu día, leído: ';
+    t+=ingles?'en '+ingles+' de siete momentos mandó el inglés, solo o mezclado: esa es la lengua franca de tu pantalla, haciendo lo que hacía el latín en Hispania. ':'el inglés no mandó en ninguno de tus siete momentos, cosa rara en 2026: revisa el videojuego y las redes, porque gg, skin y lag también son inglés. ';
+    t+=mezcla?'En '+mezcla+' momentos el español iba mezclado con otra lengua: así se ve una capa mientras se forma. ':'';
+    t+=otras?'Y en '+otras+' apareció una lengua que no es franca ni de imperio: una lengua de tu casa o tu región. Esas son las que la semana 10 va a documentar. ':'';
+    t+=latin?'El latín asomó en un rezo: mil doscientos años después de dejar la calle. ':'';
+    t+='Ahora la pregunta: ¿alguna de las palabras en inglés desplazó a una que ya existía en español? Anótala: es materia prima de la puerta gamer.';
+    fb.className='fb ok';fb.textContent=t;
+  });
+
+  /* ---------- Estación 4 ---------- */
+  document.getElementById('e4-ej').addEventListener('click',function(){
+    var fb=document.getElementById('e4-fb');
+    var da=document.getElementById('e4-da').value.trim(),quita=document.getElementById('e4-quita').value.trim();
+    if(!da||!quita){fb.className='fb no';fb.textContent='Llena los dos platos de la balanza antes de comparar: una lengua franca siempre da y siempre quita.';return;}
+    fb.className='fb ej';
+    fb.innerHTML='<strong>Un ejemplo (para comparar, no para copiar):</strong> <em>Da:</em> entenderse con gente de cien pueblos, vender, estudiar, leer la ciencia del mundo; Roma unió el Mediterráneo con una lengua, y el inglés une hoy los laboratorios. <em>Quita:</em> las lenguas que no la hablan se apagan (el íbero, el celta de Hispania, hoy cientos de lenguas de América); quien no la tiene queda fuera de los contratos y de los ascensos; y las palabras propias se sustituyen por las de moda aunque ya hubiera una que servía. Si tu balanza tiene ejemplos concretos en los dos lados, está bien armada.';
+  });
+
+  /* ---------- Estación 5 ---------- */
+  document.querySelectorAll('.veredicto').forEach(function(v){
+    v.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){v.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});b.classList.add('sel');});
+    });
+  });
+  document.getElementById('e5-ej').addEventListener('click',function(){
+    var fb=document.getElementById('fb-cap');
+    var b=document.querySelector('#e5-bando .sel');
+    fb.className='fb ej';
+    if(b&&/protegerse/.test(b.textContent)){
+      fb.innerHTML='<strong>Un ejemplo desde la protección:</strong> "El latín se impuso porque el poder estaba en latín, y tres lenguas de Hispania se apagaron en tres siglos. Hoy el poder está en inglés. Si no cuidamos las palabras que ya tenemos, en tres generaciones el español será el íbero." Fíjate: usa un hecho de la unidad, no una opinión.';
+    } else {
+      fb.innerHTML='<strong>Un ejemplo desde el contacto:</strong> "Hasta el latín fue una lengua extranjera en Hispania: la lengua franca de un imperio. Tres cuartas partes de lo que hablo es una lengua que alguien trajo y que la gente gastó hasta hacerla suya. Lootear va por el mismo camino que almohada." Fíjate: usa un hecho de la unidad, no una opinión.';
+    }
+  });
+  var pre=document.getElementById('captura'),fb=document.getElementById('fb-cap'),btnC=document.getElementById('btnCopiar');
+  document.getElementById('btnGenerar').addEventListener('click',function(){
+    var b=document.querySelector('#e5-bando .sel'),arg=document.getElementById('e5-arg').value.trim();
+    var faltan=[];if(!b)faltan.push('el bando');if(!arg)faltan.push('el argumento');
+    if(faltan.length){fb.className='fb no';fb.textContent='Falta: '+faltan.join(' y ')+'.';return;}
+    pre.textContent='ARGUMENTO PARA LA SEMANA 12 · desde la semana 9\nBANDO: '+b.textContent+'\nARGUMENTO: '+arg+'\nEVIDENCIA: el latín como lengua franca (75 % del español) y el inglés de hoy';
+    pre.style.display='block';btnC.style.display='inline-block';
+    fb.className='fb ok';fb.textContent='Captura lista. Guárdala: en la semana 12 la armería de la disputatio te la va a pedir.';
+  });
+  btnC.addEventListener('click',function(){
+    var t=pre.textContent;
+    function listo(){fb.className='fb ok';fb.textContent='Copiado.';}
+    function seleccionar(){var r=document.createRange();r.selectNodeContents(pre);var s=window.getSelection();s.removeAllRanges();s.addRange(r);fb.className='fb ok';fb.textContent='Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(listo,function(){seleccionar();});}else{seleccionar();}
+  });
+
+  document.getElementById('btnModo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

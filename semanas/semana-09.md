@@ -16,6 +16,8 @@ nav_order: 10
 - leer las marcas que delatan a cada lengua antes de abrir el diccionario
 - verificar el origen de una palabra en la fuente, y leer el paréntesis del DLE como quien lee una cédula
 - escribir la biografía de una palabra viajera y grabar tu primer booktuber
+- poner el latín en su tamaño: la lengua franca de un imperio, y compararla con la de hoy, la de tu pantalla
+- documentar un préstamo que está entrando ahora mismo por la puerta gamer, con el ejemplo dicho tal cual
 
 Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo del latín hay ocho siglos de árabe, cinco de náhuatl y un puñado de modas francesas e inglesas. Esta semana se excava, empezando por la lengua que asomó la semana pasada en *almohada* y que dejó unas cuatro mil palabras más.
 
@@ -28,7 +30,7 @@ Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo 
 | [Jueves 24](#jueves) · 1 h, centro de cómputo | El origen a juicio | las dudosas de tu equipo |
 | [Viernes 25](#viernes) · 2 h | La palabra viajera y el primer booktuber | tu libro terminado y una frase marcada |
 
-<p class="pista-mazos">Cada día es un mazo de láminas. En clase se proyectan una por una con el botón <strong>Presentar</strong>; aquí se quedan apiladas, en orden, para volver a ellas cuando quieras. Debajo de los mazos: el mapa de lenguas para tocar, el caso de gis y tiza, las tarjetas de la semana y la bolsa grande de nahuatlismos.</p>
+<p class="pista-mazos">Cada día es un mazo de láminas. En clase se proyectan una por una con el botón <strong>Presentar</strong>; aquí se quedan apiladas, en orden, para volver a ellas cuando quieras. Debajo de los mazos: el mapa de lenguas para tocar, los arabismos puerta por puerta, el muro de la puerta gamer, el caso de gis y tiza, las tarjetas de la semana y la bolsa grande de nahuatlismos.</p>
 
 <!-- ============================ MARTES ============================ -->
 <section class="mazo" id="martes">
@@ -83,7 +85,19 @@ Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo 
 <h4>Ocho siglos</h4>
 <p class="di">El árabe se habló en España de 711 a 1492. Dejó unas cuatro mil palabras en el español.</p>
 <p class="apoyo">Ochocientos años son más de los que lleva el español en América. En ese tiempo entraron las palabras del riego (<em>acequia</em>, <em>alberca</em>, <em>aljibe</em>), de la cocina (<em>aceite</em>, <em>azúcar</em>, <em>alcachofa</em>, <em>jarabe</em>), de la ciencia (<em>álgebra</em>, <em>cifra</em>, <em>algoritmo</em>), de la casa (<em>almohada</em>, <em>alfombra</em>, <em>almacén</em>) y una que dices cuando deseas algo: <em>ojalá</em>. Todas cruzaron el mar en 1492 y llegaron aquí con los barcos.</p>
-<p class="nota-conductor">El dato de "cuatro mil" es el que suele citarse; si preguntan, es la cifra habitual de los manuales, no un conteo exacto. Lo importante es el orden de magnitud: la segunda fuente del español después del latín.</p>
+<p class="recurso"><a href="../ejercicios/semana-09/ocho-siglos-de-arabe.html" target="_blank" rel="noopener">Ocho siglos de árabe</a><span class="pie">Dieciséis láminas: la línea del tiempo, el sello y sus disfraces, las puertas, los números, el mapa, y tres apuestas para revelar con la tecla R.</span></p>
+<p class="nota-conductor">El dato de "cuatro mil" es el que suele citarse; si preguntan, es la cifra habitual de los manuales, no un conteo exacto. Lo importante es el orden de magnitud: la segunda fuente del español después del latín. El mazo proyectable de los ocho siglos es el plato fuerte del árabe: doce minutos si lo proyectas entero. Hoy cabe si acortas la cacería a veinte; si no, va el miércoles al abrir la puerta árabe.</p>
+</section>
+<section class="lam">
+<h4>La capa gruesa: tres de cada cuatro</h4>
+<div class="dis">
+<span class="pz pz--raiz">75 %<small>latín, por la boca y por los libros</small></span>
+<span class="pz pz--suf">25 %<small>griego, árabe, náhuatl, francés, inglés y todo lo demás</small></span>
+</div>
+<p class="di">Hasta el latín fue una lengua extranjera aquí: la lengua franca de un imperio.</p>
+<p class="apoyo">A las tierras que Roma conquistó se les llamó la <em>Romania</em>, y de ahí viene <em>romance</em>: el latín de la calle, mezclado con lo que ya se hablaba y gastado distinto en cada valle. No era la lengua de los conquistadores ni la de los conquistados; era un latín en evolución que supo guardar su esencia, y con él Roma controló el comercio, la política y la cultura. Dejó de hablarse en la calle hace mil doscientos años, pero fue la lengua de la ciencia y de la Iglesia hasta el siglo XIX. Ese puesto, el de la lengua en la que se entienden quienes no comparten lengua materna, se llama <strong>lengua franca</strong>. Hoy lo tiene el inglés, y por eso dices <em>gg</em>.</p>
+<p class="recurso"><a href="../ejercicios/semana-09/del-latin-a-las-lenguas-francas.html" target="_blank" rel="noopener">Del latín a las lenguas francas</a><span class="pie">Dieciséis láminas: la Romania, los dos latines, qué es una lengua franca, las de ayer y las de hoy, y tres preguntas para discutir.</span></p>
+<p class="nota-conductor">Dos minutos aquí, o salta si el ticket pidió otra cosa: es una lámina de paso que pone el latín en su tamaño antes de excavar las capas delgadas. El mazo completo se proyecta cuando alguien pregunte "¿y por qué no hablamos latín?", que pasa casi siempre esta semana; si no, queda para el miércoles o para la casa. El ejercicio que lo acompaña, <a href="../ejercicios/semana-09/ejercicio-9G-lenguas-francas.html">Lenguas francas, ayer y hoy</a>, deja un argumento armado para la disputa de la semana 12.</p>
 </section>
 <section class="lam">
 <h4><span class="n">4</span> Tu habla es un sitio arqueológico <span class="reloj">5 min</span></h4>
@@ -154,6 +168,29 @@ Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo 
 <p class="nota-conductor">Detente en la puerta del náhuatl: es la única lengua de la tabla que prestó palabras porque el español no las tenía, no por moda ni por dominio. Es una diferencia de fondo y la van a necesitar en la semana 12, en la disputa sobre quién es dueño del español.</p>
 </section>
 <section class="lam">
+<h4>La puerta árabe, por dentro</h4>
+<p class="di">Ocho siglos, cuatro mil palabras, y cada una dice qué sabían hacer los que la trajeron.</p>
+<table>
+<tr><th>Sabían</th><th>Y dejaron</th></tr>
+<tr><td><strong>regar y construir</strong></td><td>acequia, alberca, aljibe, noria, albañil, alcantarilla, azotea, azulejo, adobe</td></tr>
+<tr><td><strong>sembrar</strong></td><td>alfalfa, algodón, azucena, jazmín, alcachofa, berenjena, naranja, limón, zanahoria, azafrán</td></tr>
+<tr><td><strong>cocinar y endulzar</strong></td><td>aceite, azúcar, jarabe, almíbar, albóndiga, arroz, café, taza, jarra</td></tr>
+<tr><td><strong>contar y curar</strong></td><td>álgebra, algoritmo, cifra, cero, alquimia, alcohol, elíxir, y los signos 0 1 2 3</td></tr>
+<tr><td><strong>gobernar, guerrear y comerciar</strong></td><td>alcalde, alguacil, almirante, alférez, aduana, almacén, tarifa, arancel, arroba, quilate</td></tr>
+<tr><td><strong>vivir, vestir y tocar</strong></td><td>almohada, alfombra, alhaja, albornoz, laúd, guitarra, tambor, ajedrez, azar</td></tr>
+</table>
+<p class="apoyo">El sello <em>al-</em> se disfraza delante de algunas letras: <em>az-</em> (azúcar), <em>ar-</em> (arroz), <em>ad-</em> (aduana), <em>a-</em> (aceite, acequia). El mapa también habla árabe: <em>Guad-</em> es <em>wādī</em>, río; Guadalajara es "el río de las piedras" y Guadalquivir, "el río grande". Y ojo con los impostores: <em>alma</em>, <em>alto</em>, <em>alumno</em> y <em>alegría</em> empiezan con <em>al-</em> y son latín de toda la vida. La marca sospecha; el paréntesis decide.</p>
+<p class="recurso"><a href="../ejercicios/semana-09/ejercicio-9F-el-sello-al.html" target="_blank" rel="noopener">El sello al-</a><span class="pie">Arabismos contra impostores latinos, el paréntesis leído, las puertas, el mapa y tu arabismo del día.</span></p>
+<p class="nota-conductor">Para el equipo de árabe esta tabla es la lista casi hecha; que la use para elegir, no para copiar: las ocho palabras tienen que ser de las que se dicen en su casa. El mazo proyectable de los ocho siglos, si no se vio el martes, cabe aquí en doce minutos y la sesión queda en tiempo si acortas el gimnasio a veinte.</p>
+</section>
+<section class="lam lam--oscura">
+<h4>La quinta puerta se abrió ayer</h4>
+<p class="di">gg · lootear · grindear · farmear · skin · nerfear</p>
+<p class="apoyo">Las cuatro puertas de la tabla son historia. Esta está abierta ahora mismo, y entra una palabra por partida. Es la puerta del inglés de la pantalla, y funciona igual que las otras: <strong>una lengua presta las palabras de lo que sabe hacer</strong>, y el juego llegó en inglés con su vocabulario pegado, como la hamaca llegó con su nombre taíno. Fíjate en el disfraz: <em>lootear</em>, <em>looteo</em>, <em>looteamos</em>. Cuando un préstamo se conjuga, ya empezó a ser tuyo. Y en el viaje de regreso: <em>farmear</em> viene del latín <em>FIRMARE</em>, <em>carrear</em> es la misma palabra que <em>cargar</em>, y <em>nice</em> era <em>NESCIUS</em>, "el que no sabe".</p>
+<p class="recurso"><a href="../ejercicios/semana-09/ejercicio-9H-la-puerta-gamer.html" target="_blank" rel="noopener">La puerta gamer</a><span class="pie">Treinta préstamos con su viaje, cómo entró cada uno, la máquina de -ear, y tu ficha para el muro de esta página.</span></p>
+<p class="nota-conductor">Es la lámina que más despierta al salón: son sus palabras. Pide tres en voz alta antes de mostrar la lista y anótalas: van al muro de la puerta gamer, abajo en esta página, con el formulario. Si el equipo de inglés prefiere adoptar la puerta gamer en vez del inglés de los abuelos (clóset, suéter), que lo haga: la regla sigue siendo ocho palabras que ellos digan de verdad, con el ejemplo dicho tal cual. El argumento de fondo, extranjerismo o crecimiento, no se resuelve hoy: es la disputa de la semana 12.</p>
+</section>
+<section class="lam">
 <h4>La misma palabra, dos viajes</h4>
 <div class="dis">
 <span class="pz pz--raiz">caput<small>cabeza (latín)</small></span>
@@ -174,7 +211,7 @@ Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo 
 <p class="di">Cada equipo adopta una lengua y junta sus préstamos vivos en el habla de todos los días.</p>
 <p class="apoyo"><a href="../ejercicios/semana-09/ejercicio-9B-la-lista-de-tu-lengua.html">La lista de tu lengua</a>: mínimo ocho palabras con significado y, si la tiene, su pista de origen (el <em>al-</em>, el <em>-te</em>). Al final entregan sus dos más dudosas: esas van al tribunal del jueves. La captura del equipo alimenta el mapa léxico que arranca la semana que viene.</p>
 <p class="recurso"><a href="../ejercicios/semana-09/ejercicio-9B-la-lista-de-tu-lengua.html" target="_blank" rel="noopener">La lista de tu lengua</a><span class="pie">Ocho palabras, dos dudosas y una captura por equipo.</span></p>
-<p class="nota-conductor">Cuatro equipos, una lengua cada uno; si hay más de cuatro, dos equipos de náhuatl, que es la bolsa más grande. El equipo de inglés tiende a listar palabras que no usan ("software"): pídeles palabras que de verdad se dicen en su casa (clóset, suéter, sándwich, bistec). Las capturas se pegan en la plantilla del tablero y de ahí sale "Lo que produjimos".</p>
+<p class="nota-conductor">Cuatro equipos, una lengua cada uno; si hay más de cuatro, dos equipos de náhuatl, que es la bolsa más grande. El equipo de inglés tiende a listar palabras que no usan ("software"): pídeles palabras que de verdad se dicen en su casa (clóset, suéter, sándwich, bistec), o las de su pantalla (gg, lootear, skin), con el glosario de la puerta gamer como lista de partida. Las capturas se pegan en la plantilla del tablero y de ahí sale "Lo que produjimos".</p>
 </section>
 <section class="lam lam--actividad">
 <h4><span class="n">4</span> Fábrica de tarjetas <span class="reloj">7 min</span></h4>
@@ -309,7 +346,7 @@ Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo 
 <p class="nota-conductor">La regla es que la palabra ya haya pasado por el tribunal: fuente anotada o no entra. Quien se quedó con una historia rara del jueves (quiosco, naranja con escala en Persia) tiene la mejor pieza del día. Recuérdales la <a href="../recursos/plantillas/ficha-museo.html">ficha del Museo</a> para pasarla en limpio.</p>
 </section>
 <section class="lam">
-<h4><span class="n">4</span> El booktuber: qué es y qué no <span class="reloj">7 min</span></h4>
+<h4><span class="n">4</span> El booktuber: qué es y qué no <span class="reloj">12 min</span></h4>
 <p class="di">Dos a tres minutos con tu celular, vertical vale, sin edición. Cuatro cosas y ya.</p>
 <table>
 <tr><th>Lo que lleva</th><th>Lo que no lleva</th></tr>
@@ -319,10 +356,11 @@ Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo 
 <tr><td>Una frase leída en voz alta desde tu ejemplar</td><td>Un guion leído de corrido</td></tr>
 </table>
 <p class="apoyo">¿No quieres cámara? Vale un audio con las mismas cuatro cosas, o una ficha ilustrada. Es <strong>tabla del suelo de la unidad 2</strong>: cuenta que exista y que lo hayas entregado, en el formato que elijas. Se publica en la <a href="../leemos.html">vitrina de Leemos</a> solo si tú lo autorizas.</p>
-<p class="nota-conductor">Modela tú uno de sesenta segundos antes de que empiecen, con un libro tuyo, sin preparar: verte improvisar quita más miedo que cualquier instrucción. Y di en voz alta que el booktuber de quien abandonó su libro también vale: "qué me dio" incluye "por qué lo dejé".</p>
+<p class="recurso"><a href="../ejercicios/semana-09/booktuber-como-se-hace.html" target="_blank" rel="noopener">Tu booktuber, paso a paso</a><span class="pie">El instructivo completo, en diecisiete láminas: qué se espera, las cuatro partes con reloj, frases que funcionan y frases que no, el mismo libro en dos versiones, cómo grabar, y cómo se entrega.</span></p>
+<p class="nota-conductor">Proyecta el instructivo desde el enlace: diez minutos a paso normal, con la tecla N para tus notas. Las láminas que más importan son la 6 (qué te dio no es qué pasa), la 8 (el mismo libro en dos booktubers) y la 9 (el abandono también vale). Al terminar, modela tú uno de sesenta segundos con un libro tuyo, sin preparar: verte improvisar quita más miedo que cualquier instrucción. Y di en voz alta que el booktuber de quien abandonó su libro también vale: "qué me dio" incluye "por qué lo dejé". El instructivo se queda en Leemos y en Plantillas para quien grabe en casa.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">5</span> Gimnasio: tu booktuber <span class="reloj">33 min</span></h4>
+<h4><span class="n">5</span> Gimnasio: tu booktuber <span class="reloj">28 min</span></h4>
 <span class="senal">Actividad · en parejas, luego a solas</span>
 <p class="di">Guion en cuatro casillas, ensayo con reloj, y quien quiera graba hoy.</p>
 <p class="apoyo"><a href="../ejercicios/semana-09/ejercicio-9E-tu-booktuber.html">Tu booktuber</a>: llenas las cuatro casillas con apuntes (no con párrafos: se habla, no se lee), ensayas una vez con el cronómetro de tres minutos mientras tu pareja te escucha y te marca la lista de cotejo, y al final generas la captura con tu decisión de publicación: con nombre de pila en Leemos, o solo para el profesor. Grabar se puede hoy en un rincón tranquilo o en casa; se entrega por WhatsApp al profesor <strong>antes del martes 29</strong>, junto con esa captura.</p>
@@ -345,7 +383,7 @@ Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo 
 
 ## La lectura, esta semana
 
-El **minuto del lector** abre el martes, la voz alta cierra el viernes y tu [bitácora](../recursos/plantillas/bitacora-lector.html) estrena libro: da de alta tu segunda obra en la pestaña de libros. Y esta semana se estrenan los **booktubers**: el viernes armas el guion de tu primera obra y lo entregas antes del martes 29, en video, audio o ficha ilustrada. Los autorizados se publican en [Leemos](../leemos.html).
+El **minuto del lector** abre el martes, la voz alta cierra el viernes y tu [bitácora](../recursos/plantillas/bitacora-lector.html) estrena libro: da de alta tu segunda obra en la pestaña de libros. Y esta semana se estrenan los **booktubers**: el viernes armas el guion de tu primera obra y lo entregas antes del martes 29, en video, audio o ficha ilustrada. Lo que se espera está lámina por lámina en [Tu booktuber, paso a paso](../ejercicios/semana-09/booktuber-como-se-hace.html). Los autorizados se publican en [Leemos](../leemos.html).
 
 ---
 
@@ -358,8 +396,19 @@ Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y
 - [El origen a juicio](../ejercicios/semana-09/ejercicio-9C-el-origen-a-juicio.html) · jueves, centro de cómputo
 - [La palabra viajera](../ejercicios/semana-09/ejercicio-9D-la-palabra-viajera.html) · viernes
 - [Tu booktuber](../ejercicios/semana-09/ejercicio-9E-tu-booktuber.html) · viernes, y en casa si grabas después
+- [El sello al-](../ejercicios/semana-09/ejercicio-9F-el-sello-al.html) · martes o miércoles: arabismos contra impostores latinos, el paréntesis leído, las puertas y el mapa
+- [Lenguas francas, ayer y hoy](../ejercicios/semana-09/ejercicio-9G-lenguas-francas.html) · martes: del latín al inglés, tu día en lenguas francas y un argumento para la semana 12
+- [La puerta gamer](../ejercicios/semana-09/ejercicio-9H-la-puerta-gamer.html) · miércoles: treinta préstamos con su viaje, la máquina de -ear y tu ficha para el muro
 - [Quiz de gimnasio](../ejercicios/semana-09/quiz-gimnasio-semana-09.html) · para ensayar cuando quieras
 - [El quiz relámpago, tal como se proyecta](../ejercicios/semana-09/quiz-relampago-semana-09.html) · viernes, con cronómetro y respuestas
+
+### Los proyectables de la semana
+
+Se proyectan en clase y se quedan aquí para volver a ellos. Avanzan con las flechas; la tecla **R** revela las apuestas y la **N** muestra las notas del conductor.
+
+- [Ocho siglos de árabe](../ejercicios/semana-09/ocho-siglos-de-arabe.html) · martes o miércoles: de 711 a 1492, el sello y sus disfraces, las puertas, los números y el mapa
+- [Del latín a las lenguas francas](../ejercicios/semana-09/del-latin-a-las-lenguas-francas.html) · martes: la Romania, los dos latines, y quién tiene hoy el puesto que tuvo el latín
+- [Tu booktuber, paso a paso](../ejercicios/semana-09/booktuber-como-se-hace.html) · viernes: el instructivo del primer booktuber, tabla del suelo de la unidad
 
 ### En el centro de cómputo (jueves)
 
@@ -434,7 +483,53 @@ Toca una palabra y descubre de qué lengua viene. Cuenta cuántas creías "de si
 </script>
 
 {: .ojo }
-El *al-* delata al árabe (álgebra, alcohol, alcalde). Muchas palabras en *-te*, *-ate* y *-ote* delatan al náhuatl (eran *-tl*: elotl, papalotl). Aprende a ver las marcas, y deja que la fuente decida.
+El *al-* delata al árabe (álgebra, alcohol, alcalde), y se disfraza de *az-*, *ar-*, *ad-* y *a-* (azúcar, arroz, aduana, aceite). Muchas palabras en *-te*, *-ate* y *-ote* delatan al náhuatl (eran *-tl*: elotl, papalotl). Aprende a ver las marcas, y deja que la fuente decida.
+
+### Los arabismos, puerta por puerta
+
+Toca una puerta y mira qué entró por ella. Cuatro mil no caben; estas son las que dices.
+
+<div id="ar9">
+  <div class="ar9-puertas" id="ar9-puertas"></div>
+  <div class="ar9-out" id="ar9-out">Toca una puerta.</div>
+</div>
+
+<style>
+#ar9{margin:1rem 0}
+#ar9 *{box-sizing:border-box}
+#ar9 .ar9-puertas{display:flex;flex-wrap:wrap;gap:.45rem}
+#ar9 .ar9-puertas button{padding:.45rem .8rem;border:1px solid #d9c3d4;border-radius:2rem;background:#fff;color:#6b1e5a;font-weight:700;cursor:pointer}
+#ar9 .ar9-puertas button.on{background:#c8127a;color:#fff;border-color:#c8127a}
+#ar9 .ar9-out{margin-top:1rem;border:1px solid #eadce6;border-radius:.9rem;padding:1.1rem;background:#fbf4f9;min-height:4rem}
+#ar9 .ar9-words{font-size:1.1rem;color:#6b1e5a;font-weight:700;line-height:1.7}
+#ar9 .ar9-nota{margin-top:.5rem;color:#333}
+</style>
+
+<script>
+(function(){
+  var P=[
+   ["el agua y la construcción","acequia · alberca · aljibe · noria · albañil · alcantarilla · azotea · azulejo · adobe · tabique · zaguán","Los árabes trajeron el riego y la casa de patio. Toda la palabra del agua es suya."],
+   ["el campo y las plantas","alfalfa · algodón · azucena · jazmín · alcachofa · acelga · espinaca · berenjena · naranja · limón · zanahoria · sandía · azafrán · amapola","La huerta andalusí: lo que hoy se siembra en la Sierra tiene nombre árabe, y la naranja vino con escala en Persia."],
+   ["la cocina y los dulces","aceite · azúcar · jarabe · almíbar · albóndiga · alubia · arroz · café · taza · jarra · fideo · escabeche","Trajeron la caña de azúcar, y con ella la repostería entera. Jarabe y sirope son la misma palabra, por dos caminos."],
+   ["la ciencia","álgebra · algoritmo · cifra · cero · alquimia · alcohol · elíxir · alcalino · cénit · nadir · almanaque · y los signos 0 1 2 3","Cifra y cero son la misma palabra, ṣifr, vacío. Algoritmo es el apellido de un matemático de Bagdad."],
+   ["el gobierno, la guerra y el comercio","alcalde · alguacil · almirante · alférez · adalid · jeque · alcázar · atalaya · rehén · asesino · aduana · almacén · tarifa · arancel · arroba · quilate · fanega","Alcalde era el juez; alguacil, el ministro. Y almacén dio magazine en inglés: primero depósito, luego revista."],
+   ["la casa, el vestido y la música","almohada · alfombra · alhaja · zafiro · albornoz · laúd · guitarra · tambor · rabel · ajedrez · azar","Guitarra es griega (kithára) con escala en el árabe, y cítara es su hermana culta. Ajedrez viene del sánscrito por el persa y el árabe: jaque mate es shāh māt, el rey está muerto."],
+   ["el mapa","Guadalquivir · Guadalajara · Gibraltar · Alcalá · Andalucía · Almería · Albacete · Alicante · Medina","Guad- es wādī, río. Un topónimo se queda quieto mientras la lengua se va: Betis se volvió Guadalquivir y nunca regresó."],
+   ["las que nadie sospecha","ojalá · hasta · barrio · tarea · fulano · jaqueca · asesino · mameluco · alcahuete · azar","Sin marca, y árabes. Hasta es una preposición: la clase de palabra que casi nunca se presta. Prueba de ocho siglos de convivencia."],
+   ["los impostores latinos","alma · alto · altar · alumno · alegría · álbum · aliento · alguien · alimento","Empiezan con al- y son latín de toda la vida: ANIMA, ALTUS, ALUMNUS, ALACER, ALBUM. La marca sospecha; el paréntesis del DLE decide."]
+  ];
+  var box=document.getElementById('ar9-puertas'),out=document.getElementById('ar9-out');
+  P.forEach(function(x){
+    var b=document.createElement('button');b.textContent=x[0];
+    b.addEventListener('click',function(){
+      Array.prototype.forEach.call(box.children,function(c){c.classList.remove('on');});
+      b.classList.add('on');
+      out.innerHTML='<div class="ar9-words">'+x[1]+'</div><div class="ar9-nota">'+x[2]+'</div>';
+    });
+    box.appendChild(b);
+  });
+})();
+</script>
 
 ### Cómo se lee el paréntesis del DLE
 
@@ -457,13 +552,75 @@ El final es una broma de la historia: hoy en España dicen *tiza*, una palabra m
 
 *Apapacho* viene del náhuatl *papatzoa*, ablandar algo con los dedos. Pero los hablantes cultos del náhuatl le daban un sentido más hondo, el mismo que le damos hoy: abrazar o acariciar con el alma. Hay palabras que el español no tenía y que esta tierra le regaló. El DLE la registró apenas en 2014.
 
+### La puerta gamer, en el muro
+
+Tu préstamo de la pantalla, documentado como una palabra de campo: con el ejemplo tal como lo dijiste y quién lo dice. El profesor revisa y lo cuelga aquí, con tu nombre de pila si lo das. Es la primera lista de préstamos que este grupo documenta mientras están entrando.
+
+<div class="cosecha"
+     data-tipo="general"
+     data-titulo="Sube tu préstamo gamer al muro"
+     data-nota="Uno por persona, el que más digas. La ficha se arma en el ejercicio La puerta gamer. Escribe tu nombre de pila como quieras que aparezca, o 'anónimo'."
+     data-campos='[
+       {"n":"palabra","t":"El préstamo","req":true},
+       {"n":"origen","t":"De qué palabra inglesa viene y qué significaba allá","req":true},
+       {"n":"significado","t":"Qué significa en tu boca","req":true},
+       {"n":"ejemplo","t":"Ejemplo, tal como lo dijiste, entre comillas","req":true},
+       {"n":"quien","t":"Quién lo dice","req":true},
+       {"n":"nota","t":"Cómo entró (tal cual, con -ear, sigla o calco), si ya es español, y tu argumento en una línea","tipo":"larga"}
+     ]'></div>
+
+<!-- COSECHA:general (gamer) · el bloque de abajo lo genera la hoja de cálculo del curso
+     (pestaña general → menú Cosecha → Bloque para la web). Pega aquí lo que te dé,
+     con el nombre de variable GAMER. Cada préstamo: palabra, origen, significado,
+     ejemplo, quien, nota y nombre. Comentarios solo entre barra-asterisco. -->
+<script>
+window.GAMER = [
+];
+</script>
+<!-- /COSECHA -->
+
+<div id="gamer-muro"></div>
+
+<style>
+.gamer-muro{display:grid;grid-template-columns:repeat(auto-fill,minmax(16rem,1fr));gap:.8rem;margin:.8rem 0 1.4rem}
+.gm{border:1px solid #e6dff0;border-radius:.9rem;background:#fff;padding:.9rem 1rem;box-shadow:0 1px 4px rgba(107,30,90,.07)}
+.gm b{display:block;font-family:"Bricolage Grotesque","Inter",sans-serif;font-size:1.3rem;color:#6b1e5a}
+.gm .gm-or{font-size:.8rem;color:#c4006a;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.gm .gm-sig{font-size:.95rem;color:#2b2440;margin-top:.3rem}
+.gm .gm-ej{font-style:italic;color:#4a2440;font-size:.92rem;border-left:3px solid #f4a8ce;padding-left:.6rem;margin:.45rem 0}
+.gm .gm-quien{font-size:.82rem;color:#666}
+.gm .gm-nota{font-size:.85rem;color:#4a3f5c;margin-top:.35rem}
+.gm .gm-firma{font-size:.76rem;color:#c4006a;font-weight:700;margin-top:.4rem}
+.gamer-vacio{border:1px dashed #d9c3d4;border-radius:.9rem;padding:1rem 1.1rem;background:#fdf9fc;color:#6b1e5a;font-style:italic}
+</style>
+
+<script>
+(function(){
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  var datos=window.GAMER||[],muro=document.getElementById('gamer-muro');
+  if(!muro)return;
+  if(!datos.length){muro.innerHTML='<div class="gamer-vacio">El muro se llena a partir del miércoles 23 de septiembre, con los préstamos que el grupo documente en la puerta gamer.</div>';return;}
+  muro.className='gamer-muro';
+  muro.innerHTML=datos.map(function(g){
+    var t='<div class="gm"><b>'+esc(g.palabra)+'</b>';
+    if(g.origen)t+='<div class="gm-or">de '+esc(g.origen)+'</div>';
+    if(g.significado)t+='<div class="gm-sig">'+esc(g.significado)+'</div>';
+    if(g.ejemplo)t+='<div class="gm-ej">'+esc(g.ejemplo)+'</div>';
+    if(g.quien)t+='<div class="gm-quien">Lo dice: '+esc(g.quien)+'</div>';
+    if(g.nota)t+='<div class="gm-nota">'+esc(g.nota)+'</div>';
+    if(g.nombre)t+='<div class="gm-firma">Lo documentó: '+esc(g.nombre)+'</div>';
+    return t+'</div>';
+  }).join('');
+})();
+</script>
+
 ---
 
 ## Las tarjetas de la semana
 
-Esta semana entran dos **marcas** (se tarjetean como piezas) y trece palabras viajeras con su lengua y su significado literal.
+Esta semana entran tres **marcas** (se tarjetean como piezas), trece palabras viajeras con su lengua y su significado literal, y cuatro conceptos que la unidad va a usar hasta la disputa: veintiuna tarjetas.
 
-📥 **[Baja el mazo de la semana 9](../recursos/anki/etimologias-semana-09.apkg)** · Las dos marcas y las trece viajeras, con su fuente.
+📥 **[Baja el mazo de la semana 9](../recursos/anki/etimologias-semana-09.apkg)** · Las tres marcas, las trece viajeras y los cuatro conceptos, con su fuente.
 
 | Frente | Reverso (origen · significado) |
 |---|---|
@@ -482,6 +639,12 @@ Esta semana entran dos **marcas** (se tarjetean como piezas) y trece palabras vi
 | apapacho | náhuatl · papatzoa, ablandar con los dedos, acariciar con el alma |
 | chef / jefe | francés · la misma palabra, dos entradas |
 | quiosco | persa · košk, pabellón, con escalas en turco y francés |
+| az- / ar- / a- | el al- disfrazado: el artículo asimilado a la consonante que sigue · azúcar, arroz, aduana, aceite |
+| guad- | wādī, río: la marca árabe del mapa · Guadalquivir, el río grande |
+| Romania → romance | las tierras de Roma; de ahí el nombre de las lenguas hijas del latín |
+| lengua franca | la que usan para entenderse quienes no comparten lengua materna · el latín ayer, el inglés hoy |
+| préstamo | palabra tomada de otra lengua con poca o ninguna adaptación · hamaca, chef, lootear |
+| -ear | la máquina de adaptar verbos ajenos · lootear, chatear, googlear |
 
 ## Por si hay tiempo: la bolsa grande de nahuatlismos
 
@@ -493,7 +656,7 @@ Reto para la casa: léele la lista a la persona más grande de tu familia y preg
 
 ## Lo que produjimos
 
-*Las listas por lengua de cada equipo, el marcador del tribunal (cuántas apuestas sobrevivieron), las historias más raras que contó la fuente y los primeros booktubers autorizados, en [Leemos](../leemos.html). Se llena al cerrar la semana.*
+*Las listas por lengua de cada equipo, el marcador del tribunal (cuántas apuestas sobrevivieron), las historias más raras que contó la fuente, los préstamos gamer del [muro](#la-puerta-gamer-en-el-muro) y los primeros booktubers autorizados, en [Leemos](../leemos.html). Se llena al cerrar la semana.*
 
 ## El postre 🍨
 

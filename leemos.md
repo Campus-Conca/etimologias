@@ -129,6 +129,7 @@ window.LEEMOS = {
 <h4>El booktuber</h4>
 <p class="di">Tu recomendación grabada: dos a tres minutos con tu celular, vertical vale, sin edición.</p>
 <p class="apoyo">Dos en el semestre, uno por obra. Cuatro cosas: quién eres, qué leíste, qué te dio el libro y una frase leída en voz alta desde tu ejemplar. ¿No quieres cámara? Vale audio o ficha ilustrada con lo mismo. Se publica en la vitrina de abajo solo si tú lo autorizas.</p>
+<p class="recurso"><a href="ejercicios/semana-09/booktuber-como-se-hace.html" target="_blank" rel="noopener">Tu booktuber, paso a paso</a><span class="pie">El instructivo completo: las cuatro partes con reloj, qué se espera, cómo grabar, qué no lleva y cómo se entrega.</span></p>
 </section>
 <section class="lam">
 <h4>El testamento lector</h4>
@@ -383,7 +384,7 @@ El préstamelo del salón, por escrito: aquí queda registrado qué libro anda e
 ## Vitrina de booktubers <span class="viva">se llena con el semestre</span>
 
 {: .ojo }
-¿Terminaste una obra? Graba 2 a 3 minutos con tu celular (vertical vale) con cuatro cosas: quién eres, qué leíste, qué te dio el libro (no qué pasa en él) y una frase leída en voz alta desde tu ejemplar. ¿No quieres cámara? Vale audio o ficha ilustrada con lo mismo. Se publica aquí solo si tú lo autorizas.
+¿Terminaste una obra? Graba 2 a 3 minutos con tu celular (vertical vale) con cuatro cosas: quién eres, qué leíste, qué te dio el libro (no qué pasa en él) y una frase leída en voz alta desde tu ejemplar. ¿No quieres cámara? Vale audio o ficha ilustrada con lo mismo. Se publica aquí solo si tú lo autorizas. Antes de grabar, mira [Tu booktuber, paso a paso](ejercicios/semana-09/booktuber-como-se-hace.html): ahí está lo que se espera, lámina por lámina, y el guion se arma en [Tu booktuber](ejercicios/semana-09/ejercicio-9E-tu-booktuber.html).
 
 <div id="lee-booktubers"></div>
 
