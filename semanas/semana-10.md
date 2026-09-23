@@ -138,16 +138,30 @@ Hay palabras vivas en la Sierra, en el barrio, en la cocina de tu abuela, que ni
 <p class="apoyo">El ejemplo va entre comillas y con las palabras exactas de la persona: es su voz, no la tuya. Y el nombre de quien te la regaló se pone con su permiso, y solo el de pila: en el mapa aparece "mi tío" o "don Chuy", nunca apellidos.</p>
 <p class="nota-conductor">Insiste en el ejemplo textual: es la parte que convierte una lista de palabras en documentación. Si alguien lo inventa se nota, porque suena a definición. El renglón de origen lleva asterisco hasta el jueves: hoy no se busca nada.</p>
 </section>
+<section class="lam">
+<h4><span class="n">3</span> La misma palabra, dos fichas <span class="reloj">7 min</span></h4>
+<p class="di">Una ficha floja y una ficha con oficio, para <em>guaje</em>. Encuentra qué falla en cada renglón.</p>
+<table>
+<tr><th>Renglón</th><th>La floja</th><th>La que tiene oficio</th></tr>
+<tr><td><strong>Entrada</strong></td><td>guaje</td><td>guaje (sustantivo)</td></tr>
+<tr><td><strong>Definición</strong></td><td>una cosa de guaje que se usa en el rancho</td><td>fruto seco de una planta trepadora, hueco y duro, que sirve como recipiente para agua o semillas</td></tr>
+<tr><td><strong>Ejemplo de uso</strong></td><td>"El guaje sirve para guardar cosas."</td><td>"Llévate el guaje lleno, que allá arriba no hay agua."</td></tr>
+<tr><td><strong>Quién y dónde</strong></td><td>la gente</td><td>don Chuy, mi abuelo, en el corral; se oye en toda la comunidad, sobre todo entre los mayores</td></tr>
+<tr><td><strong>Origen</strong></td><td>mexicano</td><td>suena a náhuatl; por verificar el jueves</td></tr>
+</table>
+<p class="apoyo">La floja falla en todo, y cada falla tiene nombre: la definición es circular ("de guaje") y vaga ("una cosa"); el ejemplo está inventado, porque suena a definición y nadie habla así; "la gente" no es nadie; y "mexicano" no es una lengua. La otra ficha la podría leer alguien que nunca ha visto un guaje y sabría qué es, quién lo dice y cómo suena en su boca.</p>
+<p class="nota-conductor">Proyecta primero solo la columna floja y que digan qué falla, renglón por renglón; luego destapa la buena. Los cuatro errores de la floja son exactamente los que van a cometer en diez minutos: nómbralos ahora y el taller rinde el doble. Guaje sí es náhuatl (DLE: del nahua huaxin), pero eso no se dice hoy: el jueves lo verifican.</p>
+</section>
 <section class="lam lam--actividad">
-<h4><span class="n">3</span> Gimnasio: taller de fichas <span class="reloj">28 min</span></h4>
+<h4><span class="n">4</span> Gimnasio: taller de fichas <span class="reloj">25 min</span></h4>
 <span class="senal">Actividad · individual, luego en parejas</span>
 <p class="di">Una ficha por palabra de campo. Y una prueba de fuego: ¿tu pareja la entendería sin conocerla?</p>
 <p class="apoyo"><a href="../ejercicios/semana-10/ejercicio-10B-taller-de-fichas.html">Taller de fichas</a>: llenas dos fichas con los seis renglones (el ejercicio te frena si la palabra se cuela en su definición), generas la captura de cada una y la pegas donde indique el profesor. Luego intercambias con tu pareja: lee su ficha como si no conociera la palabra y le devuelve un veredicto de lector con lo que ajustaría.</p>
 <p class="recurso"><a href="../ejercicios/semana-10/ejercicio-10B-taller-de-fichas.html" target="_blank" rel="noopener">Taller de fichas</a><span class="pie">Dos fichas con seis renglones, y el veredicto de un lector que no conoce tu palabra.</span></p>
-<p class="nota-conductor">Dieciocho minutos de fichas, diez de intercambio. La prueba de fuego es lo que separa una ficha buena de una que solo tú entiendes: obliga a que la haga alguien que no es de la misma casa. Las capturas son el corpus del mapa: recógelas todas en la plantilla del tablero, aunque solo la mejor suba a la web.</p>
+<p class="nota-conductor">Dieciséis minutos de fichas, nueve de intercambio. La prueba de fuego es lo que separa una ficha buena de una que solo tú entiendes: obliga a que la haga alguien que no es de la misma casa. Las capturas son el corpus del mapa: recógelas todas en la plantilla del tablero, aunque solo la mejor suba a la web.</p>
 </section>
 <section class="lam">
-<h4><span class="n">4</span> El mapa empieza bajo tus pies <span class="reloj">12 min</span></h4>
+<h4><span class="n">5</span> El mapa empieza bajo tus pies <span class="reloj">10 min</span></h4>
 <p class="di">Los nombres de los lugares también son palabras con biografía. Se llaman topónimos.</p>
 <img class="ilustracion" src="../assets/img/semana-10/el-mapa-bajo-tus-pies.webp" alt="Un mapa dibujado a mano de una sierra con río y caminos, con cinco letreros de madera: Jalpan y Ahuacatlán con etiqueta náhuatl, Tancoyol con etiqueta huasteco y un signo de interrogación, Concá con etiqueta rosa que dice pame y un gran signo de interrogación rosa encima, y Tilaco con una etiqueta que solo trae un signo de interrogación. Abajo, unos tenis vistos desde arriba parados sobre el mapa, con el rótulo tu comunidad.">
 <table>
@@ -163,7 +177,7 @@ Hay palabras vivas en la Sierra, en el barrio, en la cocina de tu abuela, que ni
 <p class="nota-conductor">Aquí la honestidad de fuente es más importante que nunca: las etimologías de topónimos circulan sin respaldo y con mucha seguridad. Distingue en voz alta "lo dice la fuente" (Jalpan: xalli está en el DLE) de "se cuenta" (Tilaco, Tancoyol) y de "nadie lo sabe todavía" (Concá). El ejercicio pone esas tres etiquetas en cada respuesta y trae sorpresas (Landa es vasco, Agua Zarca lleva un arabismo, Querétaro está en disputa): proyecta cuatro o cinco nombres a mano alzada y deja el resto para la casa. Es también la siembra de la semana 11: la seguridad no es prueba.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">5</span> Cierre <span class="reloj">7 min</span></h4>
+<h4><span class="n">6</span> Cierre <span class="reloj">5 min</span></h4>
 <span class="senal senal--casa">Para llevar a casa</span>
 <p class="di">Mañana, centro de cómputo: tus fichas enfrentan a tres diccionarios.</p>
 <p class="apoyo">Trae tus capturas (o tus fichas de cuaderno) y marca cuáles tienen el origen pendiente: esas van primero. Y una ficha extra, si quieres: la de un topónimo. Entrada, qué lugar nombra, qué dicen los mayores que significa y de qué lengua parece venir. Vale para el mapa, en la columna de lugares.</p>
@@ -244,17 +258,24 @@ Hay palabras vivas en la Sierra, en el barrio, en la cocina de tu abuela, que ni
 <span class="senal senal--aire">Al aire</span>
 <p class="di">¿Qué pasó cuando le preguntaste a alguien por una palabra suya?</p>
 <p class="apoyo">Una ronda corta. Interesa menos la palabra que la escena: quién se rio, quién se puso serio, quién dijo "eso ya nadie lo dice". Ahí está el material de la biografía de hoy.</p>
-<p class="nota-conductor">Casi siempre sale una historia de alguien que se emocionó al ser preguntado. Deja que se cuente completa: es la lámina que le da sentido al mapa, y no la puedes proyectar.</p>
+<p class="nota-conductor">Casi siempre sale una historia de alguien que se emocionó al ser preguntado. Deja que se cuente completa: es la lámina que le da sentido al mapa, y no la puedes proyectar. La lámina que sigue, la de las fichas, aterriza esa emoción en oficio.</p>
+</section>
+<section class="lam">
+<h4><span class="n">3</span> Lo que vi en sus fichas <span class="reloj">10 min</span></h4>
+<span class="senal senal--aire">Al aire</span>
+<p class="di">Tres cosas que salieron bien en las fichas del grupo, y una que hay que apretar.</p>
+<p class="apoyo">Se leen dos fichas completas, sin decir de quién son, y se dice qué las hace buenas: el ejemplo que suena a persona, la definición que un desconocido entendería, el "no está" anotado con orgullo. Y la falla que más se repitió, con nombre, para que nadie la arrastre a la biografía de hoy.</p>
+<p class="nota-conductor">Elige las dos fichas la noche anterior, de las capturas del jueves: una con ejemplo textual impecable y una con un "no está" bien documentado. La falla que más se repite casi siempre es el ejemplo inventado que suena a definición; la segunda, "la gente" en el renglón de quién. Diez minutos, sin nombres, y con la ficha proyectada.</p>
 </section>
 <section class="lam lam--oscura">
-<h4><span class="n">3</span> ¿Quién decide qué es una palabra? <span class="reloj">10 min</span></h4>
+<h4><span class="n">4</span> ¿Quién decide qué es una palabra? <span class="reloj">10 min</span></h4>
 <p class="di">Una palabra no espera al diccionario para existir. El diccionario corre detrás de la gente.</p>
 <img class="ilustracion" src="../assets/img/semana-10/el-diccionario-corre-detras.webp" alt="Un diccionario enorme con patas y brazos corre sudando con una red de cazar mariposas detrás de una fila de gente que camina platicando: una abuela, un señor de sombrero, dos muchachos con mochila, una mujer con canasta. De ellos salen globos con las palabras tapanco, itacate, apapacho y chiquihuite; el globo de apapacho está en rosa y lleva colgada una etiqueta que dice registrada en 2014.">
-<p class="apoyo">Todas las palabras del DLE fueron, alguna vez, una palabra que alguien decía y nadie había anotado. <em>Apapachar</em> llegó al DLE en 2014, después de siglos de uso. Lo que hiciste esta semana es exactamente lo que hacen los lexicógrafos: oír, documentar con ejemplo y fuente, definir con oficio. La pregunta de quién decide sigue abierta: tiene su propia semana, la 16.</p>
+<p class="apoyo">Todas las palabras del DLE fueron, alguna vez, una palabra que alguien decía y nadie había anotado. Las que ayer salieron del tribunal con veredicto de "no está" están hoy exactamente en ese punto: vivas, dichas, y sin anotar hasta que tú las anotaste. Lo que hiciste esta semana es exactamente lo que hacen los lexicógrafos: oír, documentar con ejemplo y fuente, definir con oficio. La diferencia es de tamaño, no de método. La pregunta de quién decide sigue abierta: tiene su propia semana, la 16.</p>
 <p class="nota-conductor">No resuelvas la pregunta. Si alguien dice "la RAE decide", pregúntale de dónde saca la RAE las palabras. Es la misma conversación de la semana 6 (el dinosaurio se inventó), ahora con palabras que ellos mismos documentaron.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">4</span> Gimnasio: la palabra que salvé <span class="reloj">35 min</span></h4>
+<h4><span class="n">5</span> Gimnasio: la palabra que salvé <span class="reloj">35 min</span></h4>
 <span class="senal">Actividad · individual</span>
 <p class="di">Una biografía que no se centra en qué significa la palabra, sino en cómo llegó a ti.</p>
 <p class="apoyo"><a href="../ejercicios/semana-10/ejercicio-10D-la-palabra-que-salve.html">La palabra que salvé</a>: eliges una palabra de tu trabajo de campo, idealmente una que no estaba en el diccionario. Los apuntes (quién te la regaló, la escena, qué significa para esa persona, por qué merece no perderse) y luego la biografía en texto corrido, de seis a diez líneas. Es la <strong>segunda pieza de tu portafolio de la unidad 2</strong>: la captura se pasa en limpio a la ficha del Museo.</p>
@@ -262,20 +283,20 @@ Hay palabras vivas en la Sierra, en el barrio, en la cocina de tu abuela, que ni
 <p class="nota-conductor">Algunas palabras cargan historias íntimas (una abuela que ya no está, un pueblo que se dejó). El ejercicio lo dice y tú lo repites: cada quien decide cuánto contar, y lo que entra al Museo se documenta con cariño, no como curiosidad. Circula poco y en silencio.</p>
 </section>
 <section class="lam">
-<h4><span class="n">5</span> El mapa, proyectado <span class="reloj">15 min</span></h4>
+<h4><span class="n">6</span> El mapa, proyectado <span class="reloj">15 min</span></h4>
 <span class="senal senal--aire">Al aire</span>
 <p class="di">Nuestro diccionario, hecho desde aquí. Se lee en voz alta, ficha por ficha.</p>
 <p class="apoyo">El <a href="../vitrina/mapa-lexico.html">mapa léxico del grupo</a> abre hoy con las fichas que subieron el jueves. Cada quien lee la suya: entrada, definición y el ejemplo con la voz de quien se la dio. Es la primera vez que estas palabras se leen en un diccionario, y el diccionario lo hicieron ustedes.</p>
 <p class="nota-conductor">Proyecta la vitrina con las fichas ya pegadas. Si no alcanzó el tiempo de curaduría, proyecta la plantilla del tablero con las capturas: lo importante es que se lean en voz alta hoy. Anota cuál ficha provoca más reacción: es la destacada de la semana en "Lo que produjimos".</p>
 </section>
 <section class="lam">
-<h4><span class="n">6</span> Lectura compartida <span class="reloj">15 min</span></h4>
+<h4><span class="n">7</span> Lectura compartida <span class="reloj">15 min</span></h4>
 <p class="di">Diez minutos de algo hermoso, sin análisis y sin tarea.</p>
 <p class="apoyo">El cierre de siempre. Hoy, si se puede, algo escrito por alguien que anotó las palabras de su gente antes de que se perdieran.</p>
 <p class="nota-conductor">Funciona un fragmento de Rulfo otra vez, o de Elena Garro, o de un cronista de la Sierra si tienes uno a la mano. Al terminar: ¿oyeron alguna palabra que estaría en nuestro mapa?</p>
 </section>
 <section class="lam">
-<h4><span class="n">7</span> Cierre y encomienda <span class="reloj">5 min</span></h4>
+<h4><span class="n">8</span> Cierre y encomienda <span class="reloj">5 min</span></h4>
 <span class="senal senal--casa">Para llevar a casa</span>
 <p class="di">La semana que entra cazamos mentiras. Trae una etimología que te hayan contado.</p>
 <p class="apoyo">De tu casa, de internet, de un video, de lo que sea: una historia sobre el origen de una palabra que alguien cuenta con seguridad. No la verifiques todavía. Y una tarea de treinta segundos: pregúntale a una IA de dónde viene una palabra que tú elijas y copia la respuesta tal cual. La vamos a sentar en el banquillo.</p>

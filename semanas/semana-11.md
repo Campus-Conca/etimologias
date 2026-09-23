@@ -91,7 +91,7 @@ Hay historias preciosas sobre el origen de las palabras que son mentira, y circu
 <p class="nota-conductor">Constrúyelas con ellos en el pizarrón, no las dictes: pregunta qué tenía la historia de cadáver que la hacía sospechosa y de ahí salen las cuatro. La quinta que suele aparecer: "la cuenta una persona famosa" (una reina, un rey, un soldado). Que la anoten como propia. El ejercicio de hoy usa las cinco etiquetas.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">5</span> Gimnasio: cacería guiada <span class="reloj">25 min</span></h4>
+<h4><span class="n">5</span> Gimnasio: cacería guiada <span class="reloj">28 min</span></h4>
 <span class="senal">Actividad · en parejas</span>
 <p class="di">Seis historias. Señales, apuesta y argumento. Hoy no se verifica nada.</p>
 <p class="apoyo"><a href="../ejercicios/semana-11/ejercicio-11A-caceria-guiada.html">Cacería guiada</a>: gringo, sincero, OK, siesta, adiós y bárbaro. Por cada caso marcan las señales que enciende, apuestan (verdadero, falso o dudoso) y argumentan en una línea. Las fuentes hablan el jueves: la captura de hoy es su boleto para el tribunal.</p>
@@ -123,7 +123,7 @@ Hay historias preciosas sobre el origen de las palabras que son mentira, y circu
 <p class="apoyo">Ronda rápida: palabra, historia en una línea y de dónde salió (casa, internet, un video, una IA). Sin veredicto. Al pizarrón las que se repitan: las historias que más circulan son las que más vale la pena juzgar.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">2</span> La IA en el banquillo <span class="reloj">12 min</span></h4>
+<h4><span class="n">2</span> La IA en el banquillo <span class="reloj">14 min</span></h4>
 <span class="senal senal--aire">Al aire · demostración</span>
 <p class="di">Vamos a preguntarle a una IA el origen de una palabra que no existe.</p>
 <p class="apoyo">Proyectada, en vivo. Inventamos una palabra entre todos (con piezas griegas para que suene real, como en la fábrica de monstruos de la semana 6) y le pedimos su etimología. Miren la respuesta: párrafos, siglos, lenguas, todo con seguridad. Ahora piensen qué pasa cuando le preguntan por una palabra que sí existe: responde con exactamente la misma cara.</p>
@@ -132,10 +132,12 @@ Hay historias preciosas sobre el origen de las palabras que son mentira, y circu
 <section class="lam lam--oscura">
 <h4>La IA no sabe cuándo no sabe</h4>
 <p class="di">Responde con la misma seguridad cuando acierta y cuando inventa. Tú, si verificas, sí sabes.</p>
-<p class="apoyo">Por eso la respuesta de una IA es un punto de partida, nunca una fuente. Lo firmaste en el pacto de IA de la semana 0: se usa para explorar, y lo que se afirma se verifica en el DLE o el DECEL. Fíjense en el detalle de la semana 9: el DLE, cuando duda, escribe "quizá". La IA nunca escribe "quizá" por su cuenta.</p>
+<p class="apoyo">Por eso la respuesta de una IA es un punto de partida, nunca una fuente. Lo firmaste en el pacto de IA de la semana 0: se usa para explorar, y lo que se afirma se verifica en el DLE o el DECEL. Fíjense en el detalle de la semana 9: el DLE, cuando duda, escribe "quizá". La IA casi nunca escribe "quizá" por su cuenta.</p>
+<p class="recurso"><a href="../ejercicios/semana-11/ejercicio-11E-la-ia-en-el-banquillo.html" target="_blank" rel="noopener">La IA en el banquillo</a><span class="pie">Cinco respuestas de IA con la misma cara: una fabricada, dos leyendas, un acierto y una honesta. Señales, veredicto y lo que dice la fuente. Y la ficha de tu propio caso.</span></p>
+<p class="nota-conductor">El ejercicio es para la casa, o para hoy si la demostración en vivo falla por la conexión: trae las cinco respuestas ya escritas, incluido el caso honesto. Su estación 2 produce la ficha del mito de IA que el expediente del equipo exige: quien la haga en casa llega mañana con la tarea resuelta.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">3</span> Gimnasio: el expediente de mitos <span class="reloj">30 min</span></h4>
+<h4><span class="n">3</span> Gimnasio: el expediente de mitos <span class="reloj">32 min</span></h4>
 <span class="senal">Actividad · por equipos</span>
 <p class="di">Cuatro etimologías que se cuentan, fichadas tal como circulan. Al menos una, de una IA.</p>
 <p class="apoyo"><a href="../ejercicios/semana-11/ejercicio-11B-expediente-de-mitos.html">El expediente de mitos</a>: por cada historia, la palabra, la historia copiada sin corregirla (los detalles bonitos suelen ser la pista), de dónde salió, las señales que enciende y la apuesta razonada del equipo. El ejercicio no deja generar el expediente si no hay un mito de IA. Nada se verifica hoy: el expediente completo es la agenda del tribunal.</p>
@@ -143,7 +145,7 @@ Hay historias preciosas sobre el origen de las palabras que son mentira, y circu
 <p class="nota-conductor">Equipos de tres o cuatro. Las historias de casa que salieron en el ritual entran directo; las de IA se copian del celular. Si un equipo ficha una historia que es verdadera (pasa con siesta o con adiós), no lo corrijas: el tribunal también confirma verdades, y descubrirlo ellos vale más.</p>
 </section>
 <section class="lam">
-<h4><span class="n">4</span> Cierre <span class="reloj">7 min</span></h4>
+<h4><span class="n">4</span> Cierre <span class="reloj">8 min</span></h4>
 <span class="senal senal--casa">Para llevar a casa</span>
 <p class="di">Mañana hablan las fuentes. Y ojo: no todo lo raro es mentira.</p>
 <p class="apoyo"><em>Morfina</em> viene de Morfeo, el dios griego del sueño: se la puso un farmacéutico a principios del siglo XIX porque produce sopor. Suena a leyenda y está documentada. <em>Sarcófago</em>, la caja que come carne, ya la vieron en la semana 6. Mañana el tribunal derriba mitos y también deja de pie verdades increíbles. Trae tu captura del martes y el expediente del equipo.</p>
@@ -232,7 +234,7 @@ Hay historias preciosas sobre el origen de las palabras que son mentira, y circu
 <p class="nota-conductor">Es la lámina que le da dignidad a la pieza del Museo de hoy: la leyenda también es historia. Si el grupo va rápido, <em>nigromancia</em> conecta con las diez piezas tenebrosas de la semana 6 y vale la pena decirlo.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">3</span> Gimnasio: la palabra con leyenda <span class="reloj">35 min</span></h4>
+<h4><span class="n">3</span> Gimnasio: la palabra con leyenda <span class="reloj">40 min</span></h4>
 <span class="senal">Actividad · individual</span>
 <p class="di">Elige una palabra con etimología popular famosa. Cuenta las dos versiones, cada una con su encanto.</p>
 <p class="apoyo"><a href="../ejercicios/semana-11/ejercicio-11D-la-palabra-con-leyenda.html">La palabra con leyenda</a>: la versión que se cuenta, la versión documentada con su fuente, el veredicto de la leyenda, y una biografía de cinco a ocho líneas que hile las dos. Puede ser verdadera o falsa: el Museo acepta las dos. Es la <strong>tercera pieza de tu portafolio de la unidad 2</strong>, y la última antes de la defensa.</p>
@@ -267,7 +269,7 @@ Hay historias preciosas sobre el origen de las palabras que son mentira, y circu
 <p class="nota-conductor">Funciona una crónica: un fragmento de Monsiváis, o una de las historias verdaderas de Kapuściński. Al terminar, la pregunta del día: ¿cómo sabrías si esto pasó? Y la respuesta ya la traen: fuente.</p>
 </section>
 <section class="lam">
-<h4><span class="n">7</span> Cierre <span class="reloj">5 min</span></h4>
+<h4><span class="n">7</span> Cierre <span class="reloj">8 min</span></h4>
 <span class="senal senal--casa">Para llevar a casa</span>
 <p class="di">Elige la pieza que vas a defender y ten su fuente a la mano. El banco de preguntas ya está publicado.</p>
 <p class="apoyo">Está en la <a href="semana-12.html">semana 12</a>, en Herramientas: cinco preguntas, ninguna sorpresa. Y una última cacería para el camino: la próxima vez que alguien te cuente de dónde viene una palabra, ya no vas a poder no preguntar "¿y eso dónde lo leíste?".</p>
@@ -316,6 +318,7 @@ Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y
 
 - [Cacería guiada](../ejercicios/semana-11/ejercicio-11A-caceria-guiada.html) · martes
 - [El expediente de mitos](../ejercicios/semana-11/ejercicio-11B-expediente-de-mitos.html) · miércoles
+- [La IA en el banquillo](../ejercicios/semana-11/ejercicio-11E-la-ia-en-el-banquillo.html) · miércoles, para la casa: cinco respuestas de IA a juicio, y la ficha de la tuya
 - [El gran tribunal de los mitos](../ejercicios/semana-11/ejercicio-11C-gran-tribunal.html) · jueves, centro de cómputo
 - [La palabra con leyenda](../ejercicios/semana-11/ejercicio-11D-la-palabra-con-leyenda.html) · viernes
 - [Quiz de gimnasio](../ejercicios/semana-11/quiz-gimnasio-semana-11.html) · para ensayar cuando quieras
@@ -395,7 +398,7 @@ Cuando el DLE escribe "influido por", está registrando una paretimología que g
 
 ## Las tarjetas de la semana
 
-Cinco conceptos del oficio de cazador y diez palabras con leyenda, cada una con su veredicto y su fuente.
+Ocho conceptos del oficio de cazador y diez palabras con leyenda, cada una con su veredicto y su fuente.
 
 📥 **[Baja el mazo de la semana 11](../recursos/anki/etimologias-semana-11.apkg)** · Los conceptos, las señales y las diez palabras con leyenda.
 
@@ -406,6 +409,9 @@ Cinco conceptos del oficio de cazador y diez palabras con leyenda, cada una con 
 | fuente de autoridad | la que dicta el veredicto: DLE, DECEL · nunca el buscador ni la IA |
 | las cuatro señales | acrónimo · demasiado buena · otra lengua sin razón · sin fuente |
 | "la IA no sabe cuándo no sabe" | responde igual de segura cuando acierta y cuando inventa · punto de partida, nunca fuente |
+| "quizá", "de origen incierto" | las palabras con que la fuente honesta dice que duda · gringo: quizá del esp. griego |
+| acrónimo inventado después | una sigla que se inventa para explicar una palabra que ya existía · meta ← "most effective tactics available" |
+| "influido por" | la nota del DLE cuando una leyenda cambió la forma de la palabra · cerrojo, de veruculum, infl. por cerrar |
 | cadáver | latín, de cadere, caer · leyenda: Caro Data Vermibus (falsa) |
 | sincero | latín sincerus, puro · leyenda: sin cera (falsa) |
 | gringo | quizá de griego, hablar raro · leyenda: green go home (falsa) |

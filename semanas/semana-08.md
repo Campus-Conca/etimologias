@@ -15,6 +15,7 @@ nav_order: 9
 - predecir cómo una palabra latina se volvió española, ley por ley
 - hacer el viaje al revés: del español de hoy reconstruir el latín de hace mil años
 - subir por el árbol genealógico de las lenguas: quiénes son las hermanas, las primas y las vecinas del español
+- explicar un doblete: por qué oreja y aurícula salen del mismo latín y no se parecen, y por qué las leyes a veces "fallan"
 
 El español no se inventó: es latín gastado durante mil años en la boca de la gente. Y ese desgaste tuvo reglas.
 
@@ -25,7 +26,7 @@ El español no se inventó: es latín gastado durante mil años en la boca de la
 | [Martes 15](#martes) · 1 h | La máquina del tiempo | el mazo al día |
 | Miércoles 16 | No hay clase: fiestas patrias | |
 | [Jueves 17](#jueves) · 1 h, centro de cómputo | El árbol de las lenguas | nada: todo está en la pantalla |
-| [Viernes 18](#viernes) · 2 h | La vuelta y las primas | tu mazo al día |
+| [Viernes 18](#viernes) · 2 h | El doblete y las primas | tu mazo al día |
 
 <p class="pista-mazos">Cada día es un mazo de láminas. En clase se proyectan una por una con el botón <strong>Presentar</strong>; aquí se quedan apiladas, en orden, para volver a ellas cuando quieras. Debajo de los mazos: la máquina del tiempo interactiva, el árbol de las lenguas, las tarjetas de la semana y la familia completa.</p>
 
@@ -125,15 +126,15 @@ El español no se inventó: es latín gastado durante mil años en la boca de la
 <h4><span class="n">3</span> La familia completa <span class="reloj">15 min</span></h4>
 <p class="di">El latín tampoco nació solo: tenía primas, y todas la misma abuela.</p>
 <img class="ilustracion" src="../assets/img/semana-08/la-reunion-de-la-familia.webp" alt="Bajo un listón que dice LA MISMA FAMILIA, SEIS MIL AÑOS DESPUÉS, una abuela con chal preside una mesa larga desde una silla rotulada indoeuropeo; cinco parientes brindan con sus letreros colgados del mantel: pater con toga romana, patér junto a una columna griega, father de traje y con paraguas, Vater con tarro de cerveza y padre con sombrero de charro">
-<p class="apoyo">Compara <em>padre</em>, <em>pater</em>, <em>patḗr</em>, <em>father</em> y <em>Vater</em> en la tabla de abajo. No es coincidencia ni copia: son primas que heredaron de la misma abuela, el indoeuropeo, una lengua de hace más de seis mil años que nadie escribió nunca. ¿Y cómo sabemos que existió, si no dejó ni una piedra? Con el truco que jugaste el martes en la vuelta: reconstruyendo hacia atrás, con leyes y asterisco.</p>
+<p class="apoyo">Compara <em>padre</em>, <em>pater</em>, <em>patḗr</em>, <em>father</em> y <em>Vater</em> en la tabla de abajo. No es coincidencia ni copia: son primas que heredaron de la misma abuela, el indoeuropeo, una lengua de hace más de seis mil años que nadie escribió nunca. ¿Y cómo sabemos que existió, si no dejó ni una piedra? Con el mismo truco de las leyes, pero al revés: reconstruyendo hacia atrás, con asterisco.</p>
 <p class="recurso"><a href="../ejercicios/semana-08/arbol-de-las-lenguas.html" target="_blank" rel="noopener">El árbol de las lenguas</a><span class="pie">Toca <em>madre</em> y mira cómo la dicen tus primas, de Irlanda a la India. La estación 2 reconstruye a la abuela con asterisco.</span></p>
-<p class="nota-conductor">Proyecta el árbol con <em>el árbol habla</em> en <em>madre</em> y luego en <em>noche</em>, y pide que lean las hojas en voz alta: el parecido se oye más de lo que se ve, sobre todo en noche, night y Nacht. Después toca el tronco: la ficha del indoeuropeo trae las cinco formas con asterisco. El remate importa: el método de la vuelta del martes es el mismo con el que se reconstruyó el indoeuropeo entero. Y planta la semilla: en la semana 15 este cuadro vuelve para explicar por qué el inglés se les va a hacer menos extranjero.</p>
+<p class="nota-conductor">Proyecta el árbol con <em>el árbol habla</em> en <em>madre</em> y luego en <em>noche</em>, y pide que lean las hojas en voz alta: el parecido se oye más de lo que se ve, sobre todo en noche, night y Nacht. Después toca el tronco: la ficha del indoeuropeo trae las cinco formas con asterisco. El remate importa: reconstruir hacia atrás con leyes es el método con el que se reconstruyó el indoeuropeo entero. Y planta la semilla: en la semana 15 este cuadro vuelve para explicar por qué el inglés se les va a hacer menos extranjero.</p>
 </section>
 <section class="lam">
 <h4><span class="n">4</span> El pariente que te sorprendió <span class="reloj">10 min</span></h4>
 <span class="senal senal--aire">Al aire</span>
 <p class="di">¿Qué lengua no sabías que era pariente del español? ¿Y cuál creías que lo era y no?</p>
-<p class="apoyo">Una línea por pareja: la casilla "para cerrar" del árbol se lee en voz alta. Y mañana: la vuelta con asterisco, el doblete que explica por qué las leyes a veces fallan, la máquina del tiempo para gastar palabras ley por ley, y las dos estaciones que faltan del árbol.</p>
+<p class="apoyo">Una línea por pareja: la casilla "para cerrar" del árbol se lee en voz alta. Y mañana: el doblete, que explica por qué las leyes a veces fallan; la máquina del tiempo, para gastar palabras ley por ley; y las dos estaciones que faltan del árbol.</p>
 <p class="nota-conductor">Casi siempre salen hindi y persa (primas que nadie esperaba) y árabe (vecina que todos creían prima). Anota las dos listas en el pizarrón: son la prueba de que herencia y préstamo son cosas distintas, y con eso abre la semana 9.</p>
 </section>
 </section>
@@ -143,44 +144,75 @@ El español no se inventó: es latín gastado durante mil años en la boca de la
 <div class="mazo-cabeza">
 <div>
 <div class="cuando">Viernes 18 de septiembre · 2 horas</div>
-<h3>La vuelta y las primas</h3>
-<p class="foco">Reconstruir lo que nadie escribió, y encontrar a la familia.</p>
+<h3>El doblete y las primas</h3>
+<p class="foco">Una palabra latina, dos hijas. Y la familia entera, seis mil años después.</p>
 </div>
 <button class="btn-presentar" type="button">Presentar ▸</button>
 </div>
-<section class="lam lam--actividad">
-<h4><span class="n">1</span> Ritual: duelo de leyes <span class="reloj">10 min</span></h4>
-<span class="senal">Actividad · en parejas</span>
-<p class="di">Se dice el latín; el rival da el español y nombra la ley.</p>
-<p class="apoyo">FOCU, NOCTE, CLAMARE, TERRA, FARINA, OCULU y las que el mazo reparta. Quien falle una, la escribe con su ley y sigue jugando: el mazo no se castiga, se afina.</p>
-</section>
-<section class="lam lam--oscura">
-<h4><span class="n">2</span> La vuelta <span class="reloj">12 min</span></h4>
-<p class="di">hecho. ¿Cuál era el latín?</p>
-<p class="apoyo">Dos leyes trabajaron aquí, y las dos al revés: la h muda delata una F, y la ch delata un CT. El latín era <em>FACTU</em>. Ahora ustedes, en voz alta: <em>leche</em>, <em>ojo</em>, <em>llama</em>. Reconstruir una palabra que nadie escribió y atinarle es exactamente el oficio de los filólogos: así se recuperan lenguas de las que no quedó ni una piedra.</p>
-<p class="nota-conductor">Respuestas: LACTE, OCULU, FLAMMA. Escribe las reconstrucciones con asterisco cuando el grupo las proponga sin verificar: es la notación real de los filólogos para las formas reconstruidas, y les encanta saber que existe. Hoy se juega la predicción; la verificación en fuente es el oficio de la semana 9.</p>
+<section class="lam">
+<h4><span class="n">1</span> Una palabra, dos hijas <span class="reloj">8 min</span></h4>
+<div class="dis">
+<span class="pz pz--raiz">AURICULA<small>latín: la orejita</small></span>
+<span class="eq">= oreja · aurícula</span>
+</div>
+<p class="di">Las dos vienen de la misma palabra latina. Casi no se parecen. ¿Cómo puede ser?</p>
+<p class="apoyo">Antes de explicarlo, mételas a la máquina. Aplica a AURICULA las leyes de la semana: el grupo <em>-CUL-</em> se vuelve <em>j</em> (como en OCULU → ojo), la <em>AU</em> se cierra en <em>o</em> (como en AURU → oro) y la <em>-A</em> final se queda. Sale <em>oreja</em>, gastada de arriba abajo. Ahora mira <em>aurícula</em>: conserva la AU, la C y la L intactas. A esta la máquina no la tocó. La pregunta del día es por qué.</p>
+<p class="nota-conductor">Hazlo con ellos en el pizarrón, ley por ley, antes de dar la respuesta: que vean salir oreja de la máquina. Luego escribe aurícula al lado y pregunta qué le pasó. Alguien dirá "nada", y ese es el punto. No expliques todavía: la lámina siguiente lo hace.</p>
 </section>
 <section class="lam">
-<h4><span class="n">3</span> El doblete: hermanas separadas <span class="reloj">12 min</span></h4>
-<div class="dis">
-<span class="pz pz--raiz">AURICULA<small>latín</small></span>
-<span class="eq">= oreja y aurícula</span>
-</div>
+<h4><span class="n">2</span> Dos caminos: la boca y los libros <span class="reloj">10 min</span></h4>
+<p class="di">Una se crió en el pueblo; la otra estudió en la capital.</p>
 <img class="ilustracion" src="../assets/img/semana-08/el-doblete.webp" alt="La palabra AURICULA en un letrero rosa preside un camino que se parte en dos: por la vereda de tierra baja una muchacha despeinada y con la ropa rota hacia un pueblo de casitas, junto a un letrero que dice oreja; por el camino empedrado su hermana, con lentes y toga y cargando libros, va hacia un edificio de columnas junto a un letrero que dice aurícula; abajo se lee una entró por la boca, la otra por los libros">
-<p class="di">Una palabra latina, dos hijas: una se crió en el pueblo y la otra estudió en la capital.</p>
-<p class="apoyo">La hija popular entró por la boca y las leyes la gastaron completa: <em>oreja</em>. La hija culta entró siglos después por los libros, directo del latín escrito, y llegó casi intacta: <em>aurícula</em>. Por eso las leyes a veces parecen fallar: <em>frío</em> y <em>frígido</em> salen los dos de <em>FRIGIDU</em>, <em>estrecho</em> y <em>estricto</em> de <em>STRICTU</em>. No falló la ley: la palabra culta nunca pasó por la máquina.</p>
-<p class="nota-conductor">Abre con oreja y aurícula y pide al grupo otro par en voz alta: frío y frígido, estrecho y estricto, llave y clave, entero e íntegro salen solos. Este es además el cierre de las fugitivas del callout de abajo: febrero y fiebre conservaron su F por la misma razón, entraron o se rehicieron por la vía culta.</p>
+<table>
+<tr><th></th><th>oreja</th><th>aurícula</th></tr>
+<tr><td><strong>Cuándo entró</strong></td><td>con los romanos, hace dos mil años</td><td>en el siglo XVI, con los libros de medicina</td></tr>
+<tr><td><strong>Por dónde</strong></td><td>por la boca: de padres a hijos, sin escribirla</td><td>por los libros: copiada del latín escrito</td></tr>
+<tr><td><strong>Qué le pasó</strong></td><td>mil años de bocas la gastaron completa</td><td>casi nada: nunca pasó por la máquina</td></tr>
+<tr><td><strong>Qué nombra hoy</strong></td><td>la oreja de todos los días</td><td>una cavidad del corazón, con forma de orejita</td></tr>
+</table>
+<p class="apoyo">A eso se le llama <strong>doblete</strong>: una palabra latina que dio dos españolas. La hija <strong>popular</strong> entró por la boca y las leyes la gastaron completa. La hija <strong>culta</strong> entró siglos después por los libros, directo del latín escrito, y llegó casi intacta. Y fíjate en el reparto del trabajo: la popular nombra la cosa de todos los días; la culta se queda con el concepto, el término técnico, lo que se dice en la escuela o en el consultorio.</p>
+<p class="nota-conductor">Lee la tabla fila por fila: cuándo, por dónde, qué le pasó, qué nombra. La última fila es la que más les sirve: la culta casi siempre es la palabra "de doctor". Con eso ya pueden adivinar cuál es cuál en los pares de la siguiente lámina antes de que lo digas.</p>
+</section>
+<section class="lam">
+<h4><span class="n">3</span> Más hermanas separadas <span class="reloj">8 min</span></h4>
+<p class="di">Fíjate en el reparto: la popular nombra la cosa; la culta, el concepto.</p>
+<table>
+<tr><th>Latín</th><th>Hija popular (por la boca)</th><th>Hija culta (por los libros)</th></tr>
+<tr><td>FRIGIDU</td><td>frío</td><td>frígido</td></tr>
+<tr><td>STRICTU</td><td>estrecho</td><td>estricto</td></tr>
+<tr><td>CLAVE</td><td>llave</td><td>clave</td></tr>
+<tr><td>INTEGRU</td><td>entero</td><td>íntegro</td></tr>
+<tr><td>PLENU</td><td>lleno</td><td>pleno</td></tr>
+<tr><td>DELICATU</td><td>delgado</td><td>delicado</td></tr>
+<tr><td>FEMINA</td><td>hembra</td><td>fémina</td></tr>
+<tr><td>FERRU</td><td>hierro</td><td>férreo</td></tr>
+</table>
+<p class="apoyo">En cada fila, la popular obedece a las leyes de la semana (mira la F vuelta h en <em>hierro</em> y en <em>hembra</em>, la CL vuelta ll en <em>llave</em> y <em>lleno</em>) y la culta conserva la forma latina casi letra por letra. Y en cada fila las dos hermanas se repartieron el trabajo: <em>llave</em> abre la puerta, <em>clave</em> abre el enigma; <em>delgado</em> es la persona, <em>delicado</em> es el asunto.</p>
+<p class="nota-conductor">Tapa la columna de la culta y que la adivinen a partir de la popular, en voz alta: con la regla de "la palabra de doctor" casi todas salen. Delgado y delicado es la que más sorprende: son la misma palabra, y hoy nadie las siente parientes.</p>
+</section>
+<section class="lam lam--oscura">
+<h4><span class="n">4</span> Por qué las leyes "fallan" <span class="reloj">6 min</span></h4>
+<p class="di">fiesta · febrero · fiebre · filo · fin. Conservaron la F. ¿Rompieron la ley?</p>
+<p class="apoyo">No. Son cultismos, o palabras que entraron tarde, cuando la ley ya no operaba, o que se rehicieron por la vía culta. No pasaron por la máquina, igual que <em>aurícula</em>. Esa es la regla que te llevas hoy: <strong>cuando una ley parece fallar, busca la hermana</strong>. Casi siempre la palabra que "no obedece" es una hija culta, y a veces su hermana popular anda por ahí: <em>fiesta</em> no la tiene, pero <em>hierro</em> sí tiene a <em>férreo</em>.</p>
+<p class="nota-conductor">Cierra aquí la idea de la semana: las leyes no fallan; lo que hay son dos puertas. Y siembra la 9: la semana que entra van a encontrar palabras que tampoco obedecen a ninguna ley, y por otra razón: no vienen del latín. Esa es la otra puerta, y se abre el martes.</p>
+</section>
+<section class="lam">
+<h4><span class="n">5</span> Al aire: ¿popular o culta? <span class="reloj">8 min</span></h4>
+<span class="senal senal--aire">Al aire</span>
+<p class="di">Se dice una palabra; el grupo apuesta a mano alzada: ¿pasó por la máquina o entró por los libros?</p>
+<p class="apoyo">pluvial · ojo · vital · nocturno · leche · factura · filial · fuego · lácteo · hijo · clamar · llamar. Y el remate: por cada culta, di su hermana popular; por cada popular, la culta.</p>
+<p class="nota-conductor">Respuestas: cultas pluvial (lluvia), vital (vida), nocturno (noche), factura (hecho), filial (hijo), lácteo (leche), clamar (llamar); populares ojo (óculo, oculista), leche, fuego (focal), hijo, llamar. Rápido y de pie: es el calentamiento de la máquina que sigue, y ahí van a encontrar a la hermana culta de cada palabra.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">4</span> Gimnasio: la máquina del tiempo <span class="reloj">25 min</span></h4>
+<h4><span class="n">6</span> Gimnasio: la máquina del tiempo <span class="reloj">25 min</span></h4>
 <span class="senal">Actividad · individual</span>
 <p class="di">Mete una palabra latina, elige qué ley la gasta y mírala transformarse.</p>
-<p class="apoyo"><a href="../ejercicios/semana-08/ejercicio-8B-la-maquina-del-tiempo.html">La máquina del tiempo</a>: catorce palabras latinas, de una ley a tres. Primero apuestas en qué palabra española se convirtió; luego la gastas tú, tocando las leyes que sí trabajan en ella (y descubriendo cuáles no tienen dónde), y al final la máquina hace el remate y compara con tu apuesta. Cada palabra trae de regalo su hermana culta, la que nunca pasó por la máquina: el doblete que acabas de ver, catorce veces.</p>
+<p class="apoyo"><a href="../ejercicios/semana-08/ejercicio-8B-la-maquina-del-tiempo.html">La máquina del tiempo</a>: catorce palabras latinas, de una ley a tres. Primero apuestas en qué palabra española se convirtió; luego la gastas tú, tocando las leyes que sí trabajan en ella (y descubriendo cuáles no tienen dónde), y al final la máquina hace el remate y compara con tu apuesta. Cada palabra trae de regalo su hermana culta, la que nunca pasó por la máquina: el doblete de hoy, catorce veces.</p>
 <p class="recurso"><a href="../ejercicios/semana-08/ejercicio-8B-la-maquina-del-tiempo.html" target="_blank" rel="noopener">La máquina del tiempo</a><span class="pie">Seis leyes para tocar, formas intermedias a la vista y el marcador de las leyes que sobraron.</span></p>
 <p class="nota-conductor">Quince minutos de máquina y diez para el <a href="../ejercicios/semana-08/quiz-gimnasio-semana-08.html">quiz de gimnasio</a> a solas, con su apuesta primero. El marcador de "leyes de más" es el dato de la sesión: aplicar una ley donde no tiene dónde trabajar es el error productivo del martes, ahora contado. Las formas intermedias (hactu, fuecu) son didácticas, no históricas: dilo si alguien pregunta.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">5</span> Gimnasio: la abuela y las falsas primas <span class="reloj">25 min</span></h4>
+<h4><span class="n">7</span> Gimnasio: la abuela y las falsas primas <span class="reloj">25 min</span></h4>
 <span class="senal">Actividad · en parejas</span>
 <p class="di">Seis primas dicen la misma palabra: ¿cuál es la tuya? Y luego: ¿padre y father son primas de verdad?</p>
 <p class="apoyo">Las dos estaciones que faltaban del <a href="../ejercicios/semana-08/arbol-de-las-lenguas.html">árbol de las lenguas</a>. En la 2 reconstruyes a la abuela: seis lenguas dicen <em>night</em>, <em>Nacht</em>, <em>noch</em>, <em>naktis</em>, y tú escribes la palabra española y ves la forma con asterisco. En la 4 juzgas ocho pares con el inglés: <em>padre</em> y <em>father</em> son primas aunque no lo parezcan; <em>día</em> y <em>day</em> se parecen y no lo son. El parecido no es prueba; la ley sí.</p>
@@ -188,7 +220,7 @@ El español no se inventó: es latín gastado durante mil años en la boca de la
 <p class="nota-conductor">La estación 4 es la siembra de la semana 15: la ley de Grimm (P → F, D → T) es lo que les va a permitir leer inglés con sus raíces. No la expliques entera; deja que el ejercicio la muestre con padre y father, pie y foot. Quien termine antes, al modo <em>el árbol habla</em> con <em>mes</em>: descubre solo que en casi todas las lenguas mes y luna son la misma palabra.</p>
 </section>
 <section class="lam">
-<h4><span class="n">6</span> Lectura compartida <span class="reloj">20 min</span></h4>
+<h4><span class="n">8</span> Lectura compartida <span class="reloj">20 min</span></h4>
 <p class="di">Diez minutos de algo hermoso, sin análisis y sin tarea.</p>
 <p class="apoyo">El cierre de siempre, ahora con los segundos libros estrenándose. Y una pregunta para irte pensando: ¿cuántas lenguas crees que hablas al día sin saberlo? La semana que entra las vamos a desenterrar, y te va a tocar entrevistar a tu gente.</p>
 <p class="nota-conductor">La pregunta siembra la semana 9 y su trabajo de campo: la palabra de la casa que cada quien trae para el mapa léxico. No la desarrolles hoy: déjala picando, que para eso es el cierre.</p>

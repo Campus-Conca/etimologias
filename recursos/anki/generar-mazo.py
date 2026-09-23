@@ -337,6 +337,10 @@ SEMANAS = [
             ("morfina", "de Morfeo, dios griego del sueño; bautizada por un farmacéutico a principios del siglo XIX", "palabra con leyenda", "morfina", "", "Confirmada: la historia increíble era la documentada."),
             ("murciélago", "de murciégalo: mur (ratón, latín mus) + ciego", "palabra con leyenda", "murciélago", "", "Confirmada. Con el tiempo las letras se cambiaron de lugar."),
             ("nigromancia", "griego · nekromanteía, adivinar con los muertos, alterada por nigro (negro)", "palabra con leyenda", "nigromancia", "necromancia, cerrojo, vagamundo", "Una paretimología que ganó: la leyenda cambió la palabra de verdad."),
+            # --- lo que la fuente honesta escribe, y lo que la leyenda hace ---
+            ("«quizá», «de origen incierto»", "las palabras con que la fuente honesta dice que duda", "concepto", "gringo: «quizá del esp. griego»", "tocayo: «quizá del nahua tocaitl»", "Un quizá también es dato. La IA casi nunca lo escribe por su cuenta."),
+            ("acrónimo inventado después", "una sigla que se inventa para explicar una palabra que ya existía", "señal de mito", "meta ← «most effective tactics available» (es el griego metá-)", "cadáver ← Caro Data Vermibus", "Los acrónimos son del siglo XX; el que explica una palabra vieja se inventó después."),
+            ("«influido por»", "la nota del DLE cuando una leyenda cambió de verdad la forma de la palabra", "concepto", "cerrojo: de veruculum, infl. por cerrar", "nigromancia, vagamundo", "La paretimología en su versión seria: una historia falsa tan convincente que se escribió en la palabra."),
         ],
     },
     {

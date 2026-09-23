@@ -92,6 +92,7 @@ Y los proyectables de la semana 9, para volver a ellos: [Ocho siglos de árabe](
 
 - [Cacería guiada](../ejercicios/semana-11/ejercicio-11A-caceria-guiada.html) · martes
 - [El expediente de mitos](../ejercicios/semana-11/ejercicio-11B-expediente-de-mitos.html) · miércoles
+- [La IA en el banquillo](../ejercicios/semana-11/ejercicio-11E-la-ia-en-el-banquillo.html) · miércoles, para la casa: cinco respuestas de IA a juicio
 - [El gran tribunal de los mitos](../ejercicios/semana-11/ejercicio-11C-gran-tribunal.html) · jueves, centro de cómputo
 - [La palabra con leyenda](../ejercicios/semana-11/ejercicio-11D-la-palabra-con-leyenda.html) · viernes
 - [Quiz de gimnasio](../ejercicios/semana-11/quiz-gimnasio-semana-11.html) · ensayo libre
