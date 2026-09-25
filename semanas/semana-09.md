@@ -101,10 +101,10 @@ Tu habla es un sitio arqueológico. Debajo de lo que dices hay latín, y debajo 
 <section class="lam lam--actividad">
 <h4><span class="n">6</span> Gimnasio: cacería en tu propia habla <span class="reloj">22 min</span></h4>
 <span class="senal">Actividad · en parejas</span>
-<p class="di">Diez palabras que dices como si fueran "de siempre". Apuesta de dónde viene cada una.</p>
-<p class="apoyo"><a href="../ejercicios/semana-09/ejercicio-9A-caceria-de-lenguas.html">Cacería en tu propia habla</a>: para cada palabra dicen su apuesta en voz alta, tocan la lengua y revisan. Si fallan, el ejercicio da una pista antes que la respuesta. Las que se les resistan, anótenlas como dudosas: el jueves las verificamos en fuentes.</p>
-<p class="recurso"><a href="../ejercicios/semana-09/ejercicio-9A-caceria-de-lenguas.html" target="_blank" rel="noopener">Cacería en tu propia habla</a><span class="pie">Diez palabras, cinco lenguas posibles, y una pista antes de cada respuesta.</span></p>
-<p class="nota-conductor">Un teléfono por pareja. La que más se cae es <em>quiosco</em> (persa, con escalas en turco y francés) y la que más sorprende es <em>tiza</em>: la palabra más escolar del salón resultó mexicana. Cuando alguien lo descubra, proyéctalo: esa es la semilla del caso de gis y tiza del jueves.</p>
+<p class="di">Cincuenta y tres palabras que dices como si fueran "de siempre", de güey a anime, en cuatro rondas cada vez más tramposas.</p>
+<p class="apoyo"><a href="../ejercicios/semana-09/ejercicio-9A-caceria-de-lenguas.html">Cacería en tu propia habla</a>. Ronda 1, el calentamiento: <em>chicle</em>, <em>alcohol</em>, <em>cringe</em>, <em>karaoke</em>, y las marcas todavía ayudan. Ronda 2, la marca miente: <em>güey</em> es latín, <em>izquierda</em> y <em>mochila</em> son vascas, <em>jaguar</em> es tupí. Ronda 3, con escalas: cada palabra pide quién se la pasó al español y de dónde venía antes (<em>meme</em>, <em>anime</em>, <em>zombi</em>, <em>avatar</em>). Ronda 4, la frase delatora: se tocan en una frase todas las palabras que no son herencia del latín, y solo esas. La pareja apuesta en voz alta antes de tocar; hay marcador, y lo que se cae dos veces va a la lista de dudosas para el jueves.</p>
+<p class="recurso"><a href="../ejercicios/semana-09/ejercicio-9A-caceria-de-lenguas.html" target="_blank" rel="noopener">Cacería en tu propia habla</a><span class="pie">Cuatro rondas, 53 palabras, marcador, y las dudosas listas para el tribunal del jueves.</span></p>
+<p class="nota-conductor">Un teléfono por pareja. En la ronda 1 la que más se cae es <em>karaoke</em> (japonés, con una orquesta inglesa adentro) y la que más sorprende es <em>tiza</em>: la palabra más escolar del salón resultó mexicana. Cuando alguien lo descubra, proyéctalo: esa es la semilla del caso de gis y tiza del jueves. En la ronda 2 la que hace gritar al salón es <em>güey</em>: latín puro, de <em>buey</em>. Y la que más duele es <em>hasta</em>. Al final de cada ronda aparece una lección de tres líneas: no la leas tú, pide a la pareja con más puntos que la lea en voz alta. Cierra preguntando quién llegó a la ronda 4 y cuántos puntos tiene.</p>
 </section>
 <section class="lam">
 <h4><span class="n">7</span> Ronda de síntesis <span class="reloj">4 min</span></h4>
@@ -371,7 +371,7 @@ El **minuto del lector** abre el martes, la voz alta cierra el viernes y tu [bit
 
 Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
 
-- [Cacería en tu propia habla](../ejercicios/semana-09/ejercicio-9A-caceria-de-lenguas.html) · martes
+- [Cacería en tu propia habla](../ejercicios/semana-09/ejercicio-9A-caceria-de-lenguas.html) · martes: cuatro rondas, de las palabras de la casa a la frase delatora
 - [La lista de tu lengua](../ejercicios/semana-09/ejercicio-9B-la-lista-de-tu-lengua.html) · miércoles
 - [El origen a juicio](../ejercicios/semana-09/ejercicio-9C-el-origen-a-juicio.html) · jueves, centro de cómputo
 - [La palabra viajera](../ejercicios/semana-09/ejercicio-9D-la-palabra-viajera.html) · viernes
