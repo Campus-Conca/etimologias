@@ -282,21 +282,29 @@ Hay palabras vivas en la Sierra, en el barrio, en la cocina de tu abuela, que ni
 <p class="recurso"><a href="../ejercicios/semana-10/ejercicio-10D-la-palabra-que-salve.html" target="_blank" rel="noopener">La palabra que salvé</a><span class="pie">Quién te la regaló, en qué escena, y por qué merece no perderse.</span></p>
 <p class="nota-conductor">Algunas palabras cargan historias íntimas (una abuela que ya no está, un pueblo que se dejó). El ejercicio lo dice y tú lo repites: cada quien decide cuánto contar, y lo que entra al Museo se documenta con cariño, no como curiosidad. Circula poco y en silencio.</p>
 </section>
+<section class="lam lam--actividad">
+<h4><span class="n">6</span> Maratón etimológico <span class="reloj">35 min</span></h4>
+<span class="senal">Actividad · mesas de cuatro (o de tres o cinco), un celular</span>
+<p class="di">Todo lo que llevamos hasta la semana 9, en ocho rondas. Cada quien juega por su cuenta.</p>
+<p class="apoyo">Piezas del mazo, griego o latín, palabras con historia, un dibujo por piezas, pieza real o espejismo, la máquina del tiempo, de dónde vino cada préstamo y un contrarreloj. Antes de cada ronda, cada quien apuesta cuántas va a tener bien: atinarle exacto también da punto. Si fallas, el de tu derecha puede robarla. Al final, cada quien se lleva su lista de repaso para marcarla en Anki.</p>
+<p class="recurso"><a href="../ejercicios/semana-10/maraton-hasta-semana-9.html" target="_blank" rel="noopener">Maratón etimológico</a><span class="pie">Abre en un solo celular por mesa. Escriban los nombres en el orden en que están sentados.</span></p>
+<p class="nota-conductor">Manda el enlace al grupo y arma mesas de cuatro; si no cuadra, el juego acepta mesas de tres o de cinco (con cinco, dos rondas bajan a una pregunta por persona para no pasar de 40 minutos). El juego se conduce solo: tú revisas guiones de booktuber. Cada pregunta nueva se pasa a la derecha, y el celular lleva los turnos, el reloj, las apuestas y los robos. Si alguien recarga la página, la partida sigue donde iba. Al final, cada mesa te enseña el podio: pide ver la calibración (quién le atinó a su apuesta más veces), que importa más que el primer lugar. La ronda de dibujo es la más ruidosa.</p>
+</section>
 <section class="lam">
-<h4><span class="n">6</span> El mapa, proyectado <span class="reloj">15 min</span></h4>
+<h4><span class="n">7</span> El mapa, proyectado <span class="reloj">15 min</span></h4>
 <span class="senal senal--aire">Al aire</span>
 <p class="di">Nuestro diccionario, hecho desde aquí. Se lee en voz alta, ficha por ficha.</p>
 <p class="apoyo">El <a href="../vitrina/mapa-lexico.html">mapa léxico del grupo</a> abre hoy con las fichas que subieron el jueves. Cada quien lee la suya: entrada, definición y el ejemplo con la voz de quien se la dio. Es la primera vez que estas palabras se leen en un diccionario, y el diccionario lo hicieron ustedes.</p>
 <p class="nota-conductor">Proyecta la vitrina con las fichas ya pegadas. Si no alcanzó el tiempo de curaduría, proyecta la plantilla del tablero con las capturas: lo importante es que se lean en voz alta hoy. Anota cuál ficha provoca más reacción: es la destacada de la semana en "Lo que produjimos".</p>
 </section>
 <section class="lam">
-<h4><span class="n">7</span> Lectura compartida <span class="reloj">15 min</span></h4>
+<h4><span class="n">8</span> Lectura compartida <span class="reloj">15 min</span></h4>
 <p class="di">Diez minutos de algo hermoso, sin análisis y sin tarea.</p>
 <p class="apoyo">El cierre de siempre. Hoy, si se puede, algo escrito por alguien que anotó las palabras de su gente antes de que se perdieran.</p>
 <p class="nota-conductor">Funciona un fragmento de Rulfo otra vez, o de Elena Garro, o de un cronista de la Sierra si tienes uno a la mano. Al terminar: ¿oyeron alguna palabra que estaría en nuestro mapa?</p>
 </section>
 <section class="lam">
-<h4><span class="n">8</span> Cierre y encomienda <span class="reloj">5 min</span></h4>
+<h4><span class="n">9</span> Cierre y encomienda <span class="reloj">5 min</span></h4>
 <span class="senal senal--casa">Para llevar a casa</span>
 <p class="di">La semana que entra cazamos mentiras. Trae una etimología que te hayan contado.</p>
 <p class="apoyo">De tu casa, de internet, de un video, de lo que sea: una historia sobre el origen de una palabra que alguien cuenta con seguridad. No la verifiques todavía. Y una tarea de treinta segundos: pregúntale a una IA de dónde viene una palabra que tú elijas y copia la respuesta tal cual. La vamos a sentar en el banquillo.</p>
@@ -406,6 +414,7 @@ Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y
 - [Taller de fichas](../ejercicios/semana-10/ejercicio-10B-taller-de-fichas.html) · miércoles
 - [¿Está o no está?](../ejercicios/semana-10/ejercicio-10C-esta-o-no-esta.html) · jueves, centro de cómputo
 - [La palabra que salvé](../ejercicios/semana-10/ejercicio-10D-la-palabra-que-salve.html) · viernes
+- [Maratón etimológico](../ejercicios/semana-10/maraton-hasta-semana-9.html) · viernes, en mesas de cuatro con un celular; y cuando quieras, para repasar todo hasta la semana 9
 - [El mapa bajo tus pies](../ejercicios/semana-10/ejercicio-10E-el-mapa-bajo-tus-pies.html) · miércoles, y para la casa: ¿quién nombró qué en la Sierra?, con etiqueta de honestidad en cada respuesta
 - [Quiz de gimnasio](../ejercicios/semana-10/quiz-gimnasio-semana-10.html) · para ensayar cuando quieras
 - [El quiz relámpago, tal como se proyecta](../ejercicios/semana-10/quiz-relampago-semana-10.html) · viernes, con cronómetro y respuestas
