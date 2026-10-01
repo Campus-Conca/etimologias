@@ -27,6 +27,7 @@
   .puntos-ronda i.hecha{background:var(--tenue)}
   .puntos-ronda i.actual{background:var(--tema);box-shadow:0 0 8px var(--tema)}
   .marcador{display:flex;gap:.35rem;margin-top:.45rem}
+  .marcador[hidden]{display:none}
   .chip{flex:1;min-width:0;position:relative;display:flex;flex-direction:column;align-items:center;gap:.1rem;background:rgba(255,255,255,.07);border:2px solid transparent;border-radius:.8rem;padding:.25rem .35rem;transition:transform .25s, background .25s}
   .chip.turno{background:rgba(255,255,255,.16);border-color:var(--c);transform:translateY(-2px);box-shadow:0 4px 14px -4px var(--c)}
   .chip .arriba{display:flex;align-items:center;gap:.35rem}
@@ -87,7 +88,7 @@
   .apuestas button.sel{background:var(--c);border-color:var(--c);color:#1f0a1e;transform:scale(1.06)}
 
   /* --- turno y pregunta --- */
-  .turno-banda{display:flex;align-items:center;gap:.7rem;margin:1rem 0 .6rem;padding:.6rem .8rem;border-radius:1rem;background:linear-gradient(90deg, color-mix(in srgb, var(--c) 35%, transparent), transparent);border-left:4px solid var(--c);animation:entra .3s ease-out}
+  .turno-banda{display:flex;align-items:center;gap:.7rem;margin:.7rem 0 .4rem;padding:.45rem .7rem;border-radius:1rem;background:linear-gradient(90deg, color-mix(in srgb, var(--c) 35%, transparent), transparent);border-left:4px solid var(--c);animation:entra .3s ease-out}
   .turno-banda .quien{font-weight:900;font-size:1.15rem;color:#fff;line-height:1.1}
   .turno-banda .que{font-size:.82rem;color:var(--tenue)}
   .turno-banda.robo{background:linear-gradient(90deg, rgba(242,92,59,.35), transparent);border-left-color:var(--no)}
@@ -305,20 +306,20 @@ var LETRA_COL = ["#c8127a","#e08a00","#0f9f8c","#3b6fd8"];
 
 /* k = preguntas por persona; k5 = con cinco jugadores; seg / segF = segundos normales / fáciles */
 var RONDAS = [
-  {titulo:"La pieza y su significado", emoji:"🧩", color:"#ff5fa2", k:2, seg:30, segF:15, pts:2, gen:genPiezas,
-   intro:"Te sale una pieza del mazo; eliges qué significa. La pista (el ancla de tu tarjeta) te cuesta un punto."},
-  {titulo:"¿Griego o latín?", emoji:"⚡", color:"#ffc83d", k:2, k5:1, seg:10, segF:10, pts:1, gen:genGemelas,
-   intro:"Ronda relámpago: 10 segundos por pieza. Casi todo lo del mazo cero tiene gemela: agua se dice hidro- y acu-."},
-  {titulo:"Palabras con historia", emoji:"📜", color:"#3fd9c2", k:2, k5:1, seg:35, segF:20, pts:2, gen:genHistorias,
+  {titulo:"Identifica la raíz", emoji:"🧩", color:"#ff5fa2", k:3, k5:2, seg:22, segF:12, pts:2, gen:genPiezas,
+   intro:"Tres maneras de cazar raíces: de la pieza al significado, del significado a la pieza, y la más difícil: una palabra que nunca viste en tu tarjeta, ¿qué raíz esconde? Las opciones se parecen a propósito. La pista te cuesta un punto."},
+  {titulo:"¿Griego o latín?", emoji:"⚡", color:"#ffc83d", k:2, k5:1, seg:8, segF:8, pts:1, gen:genGemelas,
+   intro:"Ronda relámpago: 8 segundos por pieza. Casi todo lo del mazo cero tiene gemela: agua se dice hidro- y acu-."},
+  {titulo:"Palabras con historia", emoji:"📜", color:"#3fd9c2", k:2, k5:1, seg:28, segF:15, pts:2, gen:genHistorias,
    intro:"Palabras largas o raras que ya sabes leer pieza por pieza. Ármala en voz alta antes de tocar."},
   {titulo:"Dibújala por piezas", emoji:"✏️", color:"#ff9f43", dibujo:true, seg:60,
    intro:"Te toca dibujar en el celular: la palabra y sus piezas solo las ves tú. Dibuja las PIEZAS, no la cosa (hipopótamo = un caballo + un río). Sin letras ni números. Quien adivine gana 2; si alguien adivina, quien dibujó gana 1."},
-  {titulo:"¿Pieza real o espejismo?", emoji:"🪞", color:"#c08cff", k:2, seg:20, segF:12, pts:2, gen:genEspejismos,
+  {titulo:"¿Pieza real o espejismo?", emoji:"🪞", color:"#c08cff", k:2, seg:15, segF:10, pts:2, gen:genEspejismos,
    intro:"La regla de oro: un corte es real solo si la pieza reaparece con el mismo significado y la fuente lo confirma. Aquí hay trampas."},
-  {titulo:"¿De dónde vino?", emoji:"🧭", color:"#5ee27a", k:2, seg:30, segF:15, pts:2, gen:genViajeras,
+  {titulo:"¿De dónde vino?", emoji:"🧭", color:"#5ee27a", k:2, seg:22, segF:12, pts:2, gen:genViajeras,
    intro:"Préstamos: lo que saltó la cerca. Árabe, náhuatl, francés, persa, catalán, gótico, inglés… y cómo entra una palabra gamer."},
   {titulo:"Contrarreloj", emoji:"🏁", color:"#ff6b6b", relevo:true, seg:30, pts:1,
-   intro:"El cierre. 30 segundos cada quien, piezas del mazo, tres opciones. Sin pistas, sin comodines, sin robos. Los demás cuentan en voz alta."}
+   intro:"El cierre. 30 segundos cada quien, piezas del mazo en las dos direcciones, cuatro opciones. Sin pistas, sin comodines, sin robos. Los demás cuentan en voz alta."}
 ];
 
 var CLAVE = "maraton-etim-s9-v2";   /* v2: sin la máquina del tiempo; las partidas viejas no cuadran */
@@ -355,12 +356,70 @@ function fichaPieza(p){
   return t;
 }
 
-function genPiezas(n){
-  var sigs = PIEZAS.map(function(p){ return p[1]; });
-  return toma(PIEZAS, n).map(function(p){
-    var m = conDistractores(p[1], sigs, 3);
-    return {q:"¿Qué significa esta pieza?", g:p[0], op:m.op, ok:m.ok, facil:esFacil("piezas", p[0]), pista:"Ancla: " + p[3], exh:fichaPieza(p), repaso:p[0] + " = " + p[1]};
+/* Piezas que se confunden entre sí: de aquí salen primero los distractores. */
+var PARECIDAS = [
+  ["hipo- (hypó)","hipo- (híppos)","hiper-"], ["-filia / -filo","-fobia","-fagia / -fago"],
+  ["-logía / -logo","-latría","-nomía / nomo-","-mancia"], ["-scopio","-grama","graf-","-opía"],
+  ["-metro / -metría","termo-","-teca","crono-"], ["bio-","vit-","zoo-","psico-"],
+  ["hidro-","acu- / aqua","-nauta / naus"], ["geo-","terr-","demo-","-polis / polit-"],
+  ["tele-","-dromo","trans-","port-"], ["necro-","cripto-","teo-","piro-"],
+  ["cardio-","cord- / cor, cordis","hemo- / hemato-","psico-"], ["anti-","des-","trans-","hiper-"],
+  ["-itis","-algia","pat- / -patía","iatro- / -iatra"], ["-cracia","demo-","-nomía / nomo-","-polis / polit-"],
+  ["amor","éros","-filia / -filo"], ["oculus","-opía","-scopio"], ["oriri","bio-","crono-"],
+  ["biblio-","graf-","-grama","escrib- / scrib-"], ["mnem-","psico-","-ónimo / ónoma"], ["cali-","cosmo-","xeno-"]
+];
+function pieza(nom){ return PIEZAS.filter(function(p){ return p[0] === nom; })[0]; }
+function parecidas(p){
+  var out = [];
+  PARECIDAS.forEach(function(g){ if(g.indexOf(p[0]) >= 0) g.forEach(function(n){ var q = pieza(n); if(q && q !== p && out.indexOf(q) < 0) out.push(q); }); });
+  return baraja(out);
+}
+/* Distractores: primero las parecidas, luego cualquiera; ningún significado puede chocar con el correcto ni entre ellos. */
+function distractoresDe(p, cuantos, extraOk){
+  var ds = [];
+  parecidas(p).concat(baraja(PIEZAS)).forEach(function(q){
+    if(ds.length < cuantos && q !== p && ds.indexOf(q) < 0 && !chocan(q[1], p[1]) && !ds.some(function(d){ return chocan(d[1], q[1]); }) && (!extraOk || extraOk(q))) ds.push(q);
   });
+  return ds;
+}
+function sinAcentos(s){ return s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase(); }
+/* Los núcleos de una pieza (hemo, hemato…), para saber si asoma dentro de una palabra. */
+function nucleos(p){
+  return p[0].replace(/\(.*?\)/g, "").split(/[\/,]/).map(function(x){ return sinAcentos(x.replace(/[-\s]/g, "")); }).filter(Boolean)
+    .map(function(x){ return x.slice(0, 4); });
+}
+function asoma(p, palabra){ var w = sinAcentos(palabra); return nucleos(p).some(function(c){ return w.indexOf(c) >= 0; }); }
+function corto(p){ return nucleos(p).some(function(c){ return c.length < 3; }); }
+
+function genPiezas(n){
+  var conFamilia = PIEZAS.filter(function(p){ return p[4] && !corto(p); });
+  var tipos = baraja(["sig","inversa","familia","sig","inversa","familia"]);
+  var usadas = [];
+  var out = [];
+  for(var k=0; k<n; k++){
+    var tipo = tipos[k % tipos.length];
+    var lista = tipo === "familia" ? conFamilia : PIEZAS;
+    var p = baraja(lista.filter(function(x){ return usadas.indexOf(x) < 0; }))[0] || baraja(lista)[0];
+    usadas.push(p);
+    if(tipo === "sig"){
+      var op = baraja([p].concat(distractoresDe(p, 3)));
+      out.push({q:"¿Qué significa esta pieza?", g:p[0], op:op.map(function(x){ return x[1]; }), ok:op.indexOf(p), facil:esFacil("piezas", p[0]),
+        pista:"Ancla: " + p[3], exh:fichaPieza(p), repaso:p[0] + " = " + p[1]});
+    } else if(tipo === "inversa"){
+      var op2 = baraja([p].concat(distractoresDe(p, 3)));
+      out.push({q:"¿Qué pieza significa…?", g:"«" + p[1] + "»", sub:"del " + p[2], op:op2.map(function(x){ return x[0]; }), ok:op2.indexOf(p),
+        pista:"Ancla: " + p[3], exh:fichaPieza(p), repaso:p[1] + " = " + p[0]});
+    } else {
+      var fams = p[4].split(",").map(function(s){ return s.trim(); }).filter(function(s){ return s && s.indexOf(" ") < 0 && s.indexOf("(") < 0; });
+      var palabra = baraja(fams)[0];
+      /* El distractor no puede ser otra pieza que también viva en la palabra (biografía tiene bio- y graf-). */
+      var ds = distractoresDe(p, 3, function(q){ return !corto(q) && !asoma(q, palabra); });
+      var op3 = baraja([p].concat(ds));
+      out.push({q:"¿Qué raíz del mazo esconde, y qué significa?", g:palabra, op:op3.map(function(x){ return x[1]; }), ok:op3.indexOf(p),
+        pista:"Su prima: " + p[3], exh:"<b>" + esc(palabra) + "</b> esconde " + fichaPieza(p), repaso:palabra + " → " + p[0] + " = " + p[1]});
+    }
+  }
+  return out;
 }
 function genGemelas(n){
   var lat = PIEZAS.filter(function(p){ return p[2] === "latín"; });
@@ -397,10 +456,10 @@ function genViajeras(n){
   return baraja(vs.concat(tipos));
 }
 function preguntaRelevo(){
-  var sigs = PIEZAS.map(function(p){ return p[1]; });
   var p = PIEZAS[Math.floor(Math.random()*PIEZAS.length)];
-  var m = conDistractores(p[1], sigs, 2);
-  return {g:p[0], op:m.op, ok:m.ok, repaso:p[0] + " = " + p[1]};
+  var op = baraja([p].concat(distractoresDe(p, 3)));
+  if(Math.random() < .5) return {q:"¿Qué significa?", g:p[0], op:op.map(function(x){ return x[1]; }), ok:op.indexOf(p), repaso:p[0] + " = " + p[1]};
+  return {q:"¿Qué pieza significa…?", g:"«" + p[1] + "»", op:op.map(function(x){ return x[0]; }), ok:op.indexOf(p), repaso:p[1] + " = " + p[0]};
 }
 
 /* ------------------------------------------------------------------ */
@@ -446,6 +505,11 @@ function cabeza(){
       (j.puntos > 0 && lider.i === i ? '<span class="corona">👑</span>' : '') + '</div>';
   });
   var mc = document.getElementById("marcador");
+  /* Mientras alguien contesta o dibuja, el marcador se esconde para dejar la pantalla a la pregunta.
+     Reaparece en el veredicto, y ahí se anima lo ganado. */
+  var jugando = S.fase === "pregunta" || (S.fase === "dibujo" && S.paso !== "sol") || (S.fase === "relevo" && S.paso === "corre");
+  mc.hidden = jugando;
+  if(jugando) return;
   mc.innerHTML = m;
   /* Anima lo que subió desde la última vez que el marcador se pintó. */
   if(vistos && vistos.length === nj()){
@@ -583,9 +647,9 @@ function pintaApuesta(){
 function nuevaPregunta(){ S.fase = "pregunta"; S.robo = false; S.quien = dueno(S.qi); S.pistaUsada = false; S.cincuenta = false; S.tachada = -1; }
 function pintaPregunta(){
   var P = S.preguntas[S.qi];
-  var total = S.robo ? 12 : segDe(P);
+  var total = S.robo ? 10 : segDe(P);
   var h = S.robo
-    ? '<div class="turno-banda robo" ' + conColor(S.quien) + '>' + av(S.quien, "xl") + '<div><div class="quien">🦊 ¡Robo de ' + esc(nombre(S.quien)) + '!</div><div class="que">12 segundos, por 1 punto</div></div></div>'
+    ? '<div class="turno-banda robo" ' + conColor(S.quien) + '>' + av(S.quien, "xl") + '<div><div class="quien">🦊 ¡Robo de ' + esc(nombre(S.quien)) + '!</div><div class="que">10 segundos, por 1 punto</div></div></div>'
     : '<div class="turno-banda" ' + conColor(S.quien) + '>' + av(S.quien, "xl") + '<div><div class="quien">Turno de ' + esc(nombre(S.quien)) + '</div><div class="que">lee en voz alta y contesta solo</div></div></div>';
   h += htmlReloj(total);
   h += '<div class="meta"><span>' + (P.facil && !S.robo ? '<span class="rapida">⚡ RÁPIDA</span>' : '') + 'Pregunta ' + (S.qi + 1) + ' de ' + S.preguntas.length + '</span></div>';
@@ -767,7 +831,7 @@ function pintaRelevo(){
     return;
   }
   var h3 = htmlReloj(R.seg) + '<div class="meta"><span>' + esc(nombre(yo)) + '</span><span>✅ ' + S.cr.bien + ' bien</span></div>';
-  h3 += '<div class="tarjeta"><div class="enun">¿Qué significa?</div><div class="grande">' + esc(Q.g) + '</div></div>' + htmlOps(Q, false);
+  h3 += '<div class="tarjeta"><div class="enun">' + esc(Q.q) + '</div><div class="grande">' + esc(Q.g) + '</div></div>' + htmlOps(Q, false);
   app.innerHTML = h3;
   arrancaReloj(S.fin, R.seg, function(){ S.paso = "sol"; guarda(); pinta(); });
   [].forEach.call(app.querySelectorAll(".ops button"), function(b){
