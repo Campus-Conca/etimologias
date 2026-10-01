@@ -3,124 +3,208 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#2a0c28">
 <title>Maratón etimológico · hasta la semana 9</title>
 <style>
   :root{
-    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
-    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6; --oro:#b8860b; --orobg:#fff8e1;
+    --noche:#1f0a1e; --ciruela:#3b1238; --ciruela2:#57194f; --rosa:#ff3d9a; --tinta:#2a1a28;
+    --claro:#fbeef6; --tenue:#c9a9c2; --ok:#22c55e; --okbg:#e7f9ee; --no:#f25c3b; --nobg:#fff0ea; --oro:#ffc83d;
+    --tema:#ff5fa2;
   }
   *{box-sizing:border-box}
   html,body{margin:0}
-  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.5;-webkit-tap-highlight-color:transparent}
+  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--claro);line-height:1.45;-webkit-tap-highlight-color:transparent;
+       background:radial-gradient(120% 70% at 50% -10%, var(--ciruela2) 0%, var(--ciruela) 45%, var(--noche) 100%) fixed;min-height:100vh}
   .wrap{max-width:560px;margin:0 auto;padding:0 16px 2.5rem}
-  header{background:var(--ciruela);color:#fff;padding:.7rem 0;position:sticky;top:0;z-index:5}
-  header .wrap{padding-bottom:0;display:flex;align-items:center;justify-content:space-between;gap:.6rem}
-  header .mini{font-size:.72rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
-  header .eq{font-weight:800;font-size:1rem;line-height:1.2}
-  header .pts{background:var(--rosa);border-radius:1rem;padding:.3rem .8rem;font-weight:800;font-size:1.05rem;white-space:nowrap}
-  h1{color:var(--ciruela);font-size:1.5rem;line-height:1.2;margin:1.2rem 0 .4rem}
-  h2{color:var(--ciruela);font-size:1.2rem;margin:1.2rem 0 .4rem}
+
+  /* --- cabecera fija con el marcador --- */
+  header{position:sticky;top:0;z-index:5;background:rgba(31,10,30,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08)}
+  header .wrap{padding:.55rem 16px .6rem}
+  .cab-fila{display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+  .cab-ronda{font-size:.78rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--tema);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .puntos-ronda{display:flex;gap:3px;flex:0 0 auto}
+  .puntos-ronda i{width:14px;height:6px;border-radius:3px;background:rgba(255,255,255,.15)}
+  .puntos-ronda i.hecha{background:var(--tenue)}
+  .puntos-ronda i.actual{background:var(--tema);box-shadow:0 0 8px var(--tema)}
+  .marcador{display:flex;gap:.35rem;margin-top:.45rem}
+  .chip{flex:1;min-width:0;position:relative;display:flex;flex-direction:column;align-items:center;gap:.1rem;background:rgba(255,255,255,.07);border:2px solid transparent;border-radius:.8rem;padding:.25rem .35rem;transition:transform .25s, background .25s}
+  .chip.turno{background:rgba(255,255,255,.16);border-color:var(--c);transform:translateY(-2px);box-shadow:0 4px 14px -4px var(--c)}
+  .chip .arriba{display:flex;align-items:center;gap:.35rem}
+  .chip .nom{font-size:.68rem;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;color:var(--tenue)}
+  .chip.turno .nom{color:#fff}
+  .chip .pp{font-weight:900;font-size:1.1rem;font-variant-numeric:tabular-nums;color:#fff}
+  .chip .corona{position:absolute;top:-.7rem;left:.1rem;font-size:.85rem}
+  .chip.pulso{animation:pulso .6s}
+  .flota{position:absolute;right:.2rem;top:-.2rem;font-weight:900;color:var(--ok);font-size:1rem;animation:flota 1.3s forwards;pointer-events:none;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+  @keyframes pulso{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+  @keyframes flota{0%{opacity:0;transform:translateY(6px)}20%{opacity:1}100%{opacity:0;transform:translateY(-26px)}}
+
+  .av{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--c);color:#1f0a1e;font-weight:900;font-size:.8rem;display:flex;align-items:center;justify-content:center}
+  .av.xl{width:46px;height:46px;font-size:1.3rem}
+  .av.xxl{width:64px;height:64px;font-size:1.8rem;box-shadow:0 0 0 4px rgba(255,255,255,.15)}
+
+  h1{font-size:1.6rem;line-height:1.15;margin:1.1rem 0 .4rem;color:#fff}
+  h2{font-size:1.15rem;margin:1.3rem 0 .5rem;color:#fff}
   p{margin:.5rem 0}
-  .caja{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:.9rem 1rem;margin:1rem 0}
-  .caja strong{color:var(--ciruela)}
-  .caja ol,.caja ul{margin:.3rem 0;padding-left:1.2rem}
-  .caja li{margin:.25rem 0}
-  label{display:block;font-weight:700;color:var(--ciruela);margin:.7rem 0 .2rem;font-size:.95rem}
-  input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.65rem .7rem;font:inherit;font-size:16px;background:var(--fondo)}
-  .btn{display:block;width:100%;border:none;border-radius:.8rem;padding:.9rem 1rem;font:inherit;font-weight:800;font-size:1.05rem;cursor:pointer;margin-top:.8rem}
-  .btn.rosa{background:var(--rosa);color:#fff}
-  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
-  .btn:disabled{opacity:.45}
-  .fila{display:flex;gap:.5rem}
-  .fila .btn{flex:1}
-  .lector{display:flex;align-items:center;gap:.5rem;background:var(--orobg);color:#6b4e00;border-radius:.7rem;padding:.5rem .8rem;margin:.9rem 0 .4rem;font-size:.95rem}
-  .lector b{font-size:1.05rem}
-  .barra{display:flex;align-items:center;justify-content:space-between;font-size:.85rem;color:#777;margin-top:.8rem}
-  .reloj{font-weight:800;font-variant-numeric:tabular-nums;color:var(--ciruela);font-size:1.1rem}
-  .reloj.urge{color:var(--no)}
-  .tiempo{height:6px;background:var(--borde);border-radius:3px;overflow:hidden;margin:.35rem 0 .2rem}
-  .tiempo i{display:block;height:100%;background:var(--rosa);transition:width 1s linear}
-  .enun{font-size:1.15rem;font-weight:700;margin:.8rem 0 .2rem;color:#2a2a2a}
-  .grande{font-family:ui-monospace,Menlo,monospace;font-size:2.1rem;font-weight:800;color:var(--rosa);text-align:center;margin:.6rem 0 .2rem;word-break:break-word;line-height:1.15}
-  .sub{text-align:center;color:#777;font-size:.92rem}
-  .ops{display:flex;flex-direction:column;gap:.55rem;margin-top:1rem}
-  .ops button{padding:.85rem 1rem;border:2px solid var(--borde);border-radius:.8rem;background:#fff;color:var(--ciruela);font:inherit;font-weight:700;font-size:1.02rem;cursor:pointer;text-align:left;min-height:3.2rem}
-  .ops button:active{background:var(--fondo)}
+  .sub{text-align:center;color:var(--tenue);font-size:.92rem}
+  .panel{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:1rem;padding:.9rem 1rem;margin:1rem 0}
+  .panel strong{color:var(--oro)}
+  .panel ol,.panel ul{margin:.3rem 0;padding-left:1.2rem}
+  .panel li{margin:.3rem 0}
+
+  .btn{display:block;width:100%;border:none;border-radius:1rem;padding:1rem;font:inherit;font-weight:900;font-size:1.08rem;cursor:pointer;margin-top:.9rem;transition:transform .1s}
+  .btn:active{transform:scale(.97)}
+  .btn.rosa{background:linear-gradient(135deg,var(--rosa),#c8127a);color:#fff;box-shadow:0 6px 18px -6px var(--rosa)}
+  .btn.tema{background:var(--tema);color:#1f0a1e;box-shadow:0 6px 18px -6px var(--tema)}
+  .btn.gris{background:rgba(255,255,255,.08);color:var(--claro);border:1px solid rgba(255,255,255,.18)}
+  .btn:disabled{opacity:.4}
+  .btn .av{display:inline-flex;vertical-align:middle;margin-right:.3rem;width:24px;height:24px}
+
+  /* --- portada --- */
+  .logo{text-align:center;margin:1.4rem 0 .4rem}
+  .logo .emoji{font-size:3.4rem;display:block;animation:bota 2.4s ease-in-out infinite}
+  .logo h1{margin:.3rem 0 .2rem;font-size:2rem;background:linear-gradient(90deg,#ff8fc4,var(--oro));-webkit-background-clip:text;background-clip:text;color:transparent}
+  @keyframes bota{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  .campo{display:flex;align-items:center;gap:.5rem;margin-top:.45rem}
+  .campo input{flex:1;border:2px solid rgba(255,255,255,.14);border-radius:.8rem;padding:.7rem .8rem;font:inherit;font-size:16px;background:rgba(255,255,255,.06);color:#fff}
+  .campo input:focus{outline:none;border-color:var(--c)}
+  .campo input::placeholder{color:rgba(255,255,255,.35)}
+  label.tit{display:block;font-weight:800;color:var(--oro);margin:1rem 0 .2rem;font-size:.95rem}
+
+  /* --- presentación de ronda --- */
+  .portada-ronda{text-align:center;padding:1.3rem 1rem 1rem;border-radius:1.3rem;margin:1rem 0;background:linear-gradient(160deg, color-mix(in srgb, var(--tema) 30%, transparent), rgba(255,255,255,.04));border:1px solid color-mix(in srgb, var(--tema) 50%, transparent);animation:entra .45s ease-out}
+  .portada-ronda .emoji{font-size:3.6rem;line-height:1}
+  .portada-ronda .num{font-size:.8rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--tema);margin-top:.5rem}
+  .portada-ronda h1{margin:.2rem 0 .5rem}
+  .etiquetas{display:flex;flex-wrap:wrap;justify-content:center;gap:.35rem;margin-top:.7rem}
+  .etq{background:rgba(0,0,0,.25);border-radius:1rem;padding:.25rem .65rem;font-size:.8rem;font-weight:700;color:var(--claro)}
+  @keyframes entra{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+
+  .apuesta-fila{display:flex;align-items:center;gap:.5rem;margin-top:.6rem}
+  .apuesta-fila .nom{flex:0 0 4.6rem;font-weight:800;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .apuestas{flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:.35rem}
+  .apuestas button{padding:.6rem 0;border:2px solid rgba(255,255,255,.14);border-radius:.7rem;background:rgba(255,255,255,.05);color:#fff;font:inherit;font-weight:900;font-size:1.1rem;cursor:pointer}
+  .apuestas button.sel{background:var(--c);border-color:var(--c);color:#1f0a1e;transform:scale(1.06)}
+
+  /* --- turno y pregunta --- */
+  .turno-banda{display:flex;align-items:center;gap:.7rem;margin:1rem 0 .6rem;padding:.6rem .8rem;border-radius:1rem;background:linear-gradient(90deg, color-mix(in srgb, var(--c) 35%, transparent), transparent);border-left:4px solid var(--c);animation:entra .3s ease-out}
+  .turno-banda .quien{font-weight:900;font-size:1.15rem;color:#fff;line-height:1.1}
+  .turno-banda .que{font-size:.82rem;color:var(--tenue)}
+  .turno-banda.robo{background:linear-gradient(90deg, rgba(242,92,59,.35), transparent);border-left-color:var(--no)}
+  .reloj-fila{display:flex;align-items:center;gap:.6rem;margin:.3rem 0}
+  .tiempo{flex:1;height:10px;background:rgba(255,255,255,.1);border-radius:5px;overflow:hidden}
+  .tiempo i{display:block;height:100%;width:100%;background:var(--ok);border-radius:5px;transition:width .25s linear, background .3s}
+  .tiempo.medio i{background:var(--oro)} .tiempo.poco i{background:var(--no)}
+  .seg{font-weight:900;font-size:1.3rem;font-variant-numeric:tabular-nums;min-width:2.2rem;text-align:right;color:#fff}
+  .seg.urge{color:var(--no);animation:pulso .5s infinite}
+  .rapida{display:inline-block;background:var(--oro);color:#1f0a1e;border-radius:.6rem;padding:.1rem .5rem;font-size:.75rem;font-weight:900;margin-right:.4rem}
+  .meta{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--tenue);margin-top:.2rem}
+
+  .tarjeta{background:#fff;color:var(--tinta);border-radius:1.2rem;padding:1rem 1rem 1.1rem;margin-top:.6rem;box-shadow:0 10px 30px -12px rgba(0,0,0,.6);border-top:6px solid var(--tema);animation:entra .3s ease-out}
+  .enun{font-size:1.02rem;font-weight:700;color:#5b3b56}
+  .grande{font-family:ui-monospace,Menlo,monospace;font-size:2.2rem;font-weight:900;color:#c8127a;text-align:center;margin:.45rem 0 .1rem;word-break:break-word;line-height:1.12}
+  .tarjeta .sub{color:#8d7289}
+
+  .ops{display:flex;flex-direction:column;gap:.55rem;margin-top:.9rem}
+  .ops button{position:relative;display:flex;align-items:center;gap:.7rem;padding:.8rem .9rem;border:none;border-radius:1rem;background:#fff;color:var(--tinta);font:inherit;font-weight:700;font-size:1rem;cursor:pointer;text-align:left;min-height:3.3rem;box-shadow:0 4px 0 rgba(0,0,0,.25);transition:transform .08s, background .2s}
+  .ops button:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(0,0,0,.25)}
+  .ops button .letra{flex:0 0 auto;width:30px;height:30px;border-radius:.6rem;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;background:var(--lc)}
   .ops button.oculta{visibility:hidden}
+  .ops button.tachada{opacity:.3;text-decoration:line-through}
+  .ops button.correcta{background:var(--ok);color:#fff;animation:pulso .5s}
+  .ops button.mal{background:var(--no);color:#fff;animation:sacude .45s}
   .ops.dos{flex-direction:row}
-  .ops.dos button{flex:1;text-align:center;font-size:1.15rem;padding:1.2rem .5rem}
-  .ayudas{display:flex;gap:.5rem;margin-top:1rem}
-  .ayudas button{flex:1;border:1px dashed var(--ciruela);background:#fff;color:var(--ciruela);border-radius:.7rem;padding:.55rem;font:inherit;font-size:.88rem;font-weight:700;cursor:pointer}
-  .ayudas button:disabled{opacity:.35;border-style:solid}
-  .pista{background:var(--orobg);border-radius:.7rem;padding:.6rem .8rem;margin-top:.7rem;color:#6b4e00;font-size:.95rem}
-  .veredicto{border-radius:.9rem;padding:1rem;margin:1rem 0;font-size:1rem}
-  .veredicto.ok{background:var(--okbg);color:var(--ok)}
-  .veredicto.no{background:var(--nobg);color:var(--no)}
-  .veredicto .titulo{font-weight:800;font-size:1.25rem;margin-bottom:.3rem}
-  .veredicto .resp{color:#2a2a2a;font-weight:700;margin:.3rem 0}
-  .veredicto .ex{color:#444;font-size:.95rem}
-  .apuestas{display:grid;grid-template-columns:repeat(auto-fill,minmax(52px,1fr));gap:.45rem;margin-top:.7rem}
-  .apuestas button{padding:.8rem 0;border:2px solid var(--borde);border-radius:.7rem;background:#fff;color:var(--ciruela);font:inherit;font-weight:800;font-size:1.15rem;cursor:pointer}
-  .apuestas button.sel{background:var(--rosa);border-color:var(--rosa);color:#fff}
-  .paso{display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:.8rem}
-  .paso button{width:3.2rem;height:3.2rem;border-radius:50%;border:2px solid var(--borde);background:#fff;color:var(--ciruela);font-size:1.6rem;font-weight:800;cursor:pointer}
-  .paso output{font-size:2.4rem;font-weight:800;color:var(--rosa);min-width:3rem;text-align:center}
-  .marcador{font-size:3.2rem;font-weight:900;color:var(--rosa);text-align:center;line-height:1;margin:.6rem 0}
-  table{width:100%;border-collapse:collapse;font-size:.92rem;margin-top:.5rem}
-  th,td{padding:.4rem .3rem;border-bottom:1px solid var(--borde);text-align:left}
-  th{color:var(--ciruela);font-size:.8rem;text-transform:uppercase;letter-spacing:.03em}
-  td.n{text-align:right;font-variant-numeric:tabular-nums}
-  .bono{color:var(--oro);font-weight:800}
-  .repaso li{margin:.35rem 0}
-  .flash{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font-size:5rem;pointer-events:none;opacity:0;transition:opacity .15s}
-  .flash.on{opacity:1}
-  .chico{font-size:.85rem;color:#888;text-align:center;margin-top:1.4rem}
-  .chico button{background:none;border:none;color:#888;text-decoration:underline;font:inherit;cursor:pointer}
-  .progreso{display:flex;gap:4px;margin-top:.9rem}
-  .progreso span{flex:1;height:5px;border-radius:3px;background:var(--borde)}
-  .progreso span.hecha{background:var(--ciruela)}
-  .progreso span.actual{background:var(--rosa)}
-  .lector.robo{background:#fdf0e6;color:var(--no)}
-  .ops button.tachada{opacity:.35;text-decoration:line-through}
-  .apuesta-fila{display:flex;align-items:center;gap:.6rem;margin-top:.7rem}
-  .apuesta-fila span{flex:0 0 5.5rem;font-weight:700;color:var(--ciruela);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .apuesta-fila .apuestas{flex:1;margin:0;grid-template-columns:repeat(4,1fr)}
-  .apuesta-fila .apuestas button{padding:.55rem 0}
-  canvas#lienzo{display:block;width:100%;border:2px solid var(--borde);border-radius:.8rem;background:#fff;touch-action:none;margin-top:.5rem}
+  .ops.dos button{flex:1;justify-content:center;text-align:center;font-size:1.15rem;padding:1.2rem .5rem;flex-direction:column;gap:.3rem}
+  @keyframes sacude{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+  .ayudas{display:flex;gap:.5rem;margin-top:.9rem}
+  .ayudas button{flex:1;border:1px dashed rgba(255,255,255,.35);background:transparent;color:var(--claro);border-radius:.8rem;padding:.6rem;font:inherit;font-size:.86rem;font-weight:800;cursor:pointer}
+  .ayudas button:disabled{opacity:.3}
+  .pista{background:rgba(255,200,61,.15);border:1px solid rgba(255,200,61,.4);border-radius:.8rem;padding:.6rem .8rem;margin-top:.7rem;color:var(--oro);font-size:.95rem}
+
+  /* --- veredicto --- */
+  .veredicto{text-align:center;margin:1.2rem 0 .4rem;animation:entra .35s ease-out}
+  .veredicto .gran-emoji{font-size:4rem;line-height:1;animation:pop .45s cubic-bezier(.2,1.6,.4,1)}
+  .veredicto .titulo{font-size:1.5rem;font-weight:900;margin-top:.3rem}
+  .veredicto.ok .titulo{color:var(--ok)} .veredicto.no .titulo{color:var(--no)}
+  @keyframes pop{from{transform:scale(.3);opacity:0}to{transform:scale(1);opacity:1}}
+  .explica{background:#fff;color:var(--tinta);border-radius:1rem;padding:.9rem 1rem;margin-top:.8rem;font-size:.95rem;border-left:6px solid var(--ok)}
+  .explica.no{border-left-color:var(--no)}
+  .explica .resp{font-weight:900;font-size:1.05rem;margin-bottom:.3rem;color:#1f0a1e}
+
+  /* --- carrera --- */
+  .carrera{margin:.6rem 0}
+  .carril{display:flex;align-items:center;gap:.5rem;margin:.55rem 0}
+  .carril .pos{width:1.2rem;font-weight:900;color:var(--tenue);text-align:center}
+  .carril .pista-barra{flex:1;position:relative;height:34px;background:rgba(255,255,255,.07);border-radius:.8rem;overflow:hidden}
+  .carril .relleno{position:absolute;inset:0 auto 0 0;background:linear-gradient(90deg, color-mix(in srgb, var(--c) 60%, transparent), var(--c));border-radius:.8rem;transition:width 1.2s cubic-bezier(.3,.9,.3,1)}
+  .carril .etq-carril{position:absolute;left:.6rem;top:0;bottom:0;display:flex;align-items:center;font-weight:900;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6);font-size:.95rem}
+  .carril .pp{min-width:2.4rem;text-align:right;font-weight:900;font-size:1.15rem;font-variant-numeric:tabular-nums}
+  .carril .delta{min-width:3rem;font-size:.78rem;font-weight:800}
+  .sube{color:var(--ok)} .baja{color:var(--no)} .igual{color:var(--tenue)}
+  .calib{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:.4rem;margin-top:.5rem}
+  .calib div{display:flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.06);border-radius:.7rem;padding:.4rem .5rem;font-size:.82rem}
+  .calib b{color:var(--oro)}
+
+  /* --- dibujo y contrarreloj --- */
+  canvas#lienzo{display:block;width:100%;border-radius:1rem;background:#fff;touch-action:none;margin-top:.5rem;box-shadow:0 10px 30px -12px rgba(0,0,0,.6)}
   .quien{display:grid;grid-template-columns:1fr 1fr;gap:.45rem;margin-top:.8rem}
-  .quien button{padding:.8rem .4rem;border:none;border-radius:.7rem;background:var(--ok);color:#fff;font:inherit;font-weight:800;cursor:pointer}
-  .quien button.nadie{background:#fff;color:var(--no);border:1px solid var(--no)}
-  .leve{font-size:.78rem;color:#888}
-  .sube{color:var(--ok);font-weight:800;font-size:.85rem}
-  .podio{display:flex;flex-direction:column;gap:.45rem;margin:1rem 0}
-  .lugar{display:flex;align-items:center;gap:.7rem;border:1px solid var(--borde);border-radius:.8rem;padding:.6rem .9rem}
-  .lugar.l0{background:var(--orobg);border-color:var(--oro);padding:.9rem}
-  .lugar .med{font-size:1.6rem}
-  .lugar .nom{flex:1;font-weight:800;color:var(--ciruela);font-size:1.1rem}
-  .lugar.l0 .nom{font-size:1.35rem}
-  .lugar .pp{font-weight:900;color:var(--rosa);font-size:1.4rem}
-  details.repaso{border:1px solid var(--borde);border-radius:.7rem;padding:.5rem .8rem;margin:.5rem 0}
-  details.repaso summary{font-weight:800;color:var(--ciruela);cursor:pointer}
-  details.repaso li{margin:.3rem 0}
-  header .pts{font-size:.9rem}
+  .quien button{display:flex;align-items:center;justify-content:center;gap:.4rem;padding:.75rem .4rem;border:none;border-radius:.9rem;background:var(--c);color:#1f0a1e;font:inherit;font-weight:900;cursor:pointer}
+  .quien button.nadie{background:transparent;color:var(--no);border:2px solid var(--no)}
+  .secreto{text-align:center;background:#fff;color:var(--tinta);border-radius:1.2rem;padding:1.2rem;margin-top:1rem;border-top:6px solid var(--tema)}
+  .secreto .dibuja{margin-top:.6rem;font-size:1.15rem;font-weight:900;color:#1f0a1e;background:#fff4d6;border-radius:.7rem;padding:.5rem}
+  .paso{display:flex;align-items:center;justify-content:center;gap:1.2rem;margin-top:.8rem}
+  .paso button{width:3.4rem;height:3.4rem;border-radius:50%;border:2px solid rgba(255,255,255,.25);background:rgba(255,255,255,.06);color:#fff;font-size:1.7rem;font-weight:900;cursor:pointer}
+  .paso output{font-size:3rem;font-weight:900;color:var(--oro);min-width:3rem;text-align:center}
+  .contador{font-size:4rem;font-weight:900;text-align:center;color:var(--oro);line-height:1;margin:.6rem 0}
+
+  /* --- podio --- */
+  .podio{display:flex;align-items:flex-end;justify-content:center;gap:.5rem;margin:1.6rem 0 .6rem;min-height:220px}
+  .col{flex:1;max-width:130px;text-align:center;animation:sube-col .9s cubic-bezier(.2,1.2,.4,1) both}
+  .col .av{margin:0 auto .35rem}
+  .col .nom{font-weight:900;font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .col .pp{font-size:.85rem;color:var(--tenue);margin-bottom:.3rem}
+  .col .base{border-radius:.8rem .8rem 0 0;background:linear-gradient(180deg,var(--c),color-mix(in srgb, var(--c) 40%, #1f0a1e));display:flex;align-items:flex-start;justify-content:center;padding-top:.4rem;font-size:1.8rem}
+  .col.p1 .base{height:130px} .col.p2 .base{height:95px} .col.p3 .base{height:70px}
+  .col.p1{animation-delay:.5s} .col.p2{animation-delay:.25s}
+  @keyframes sube-col{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+  .resto{margin-top:.4rem}
+  .resto div{display:flex;align-items:center;gap:.5rem;padding:.45rem .6rem;background:rgba(255,255,255,.06);border-radius:.7rem;margin:.3rem 0}
+  .resto .pp{margin-left:auto;font-weight:900}
+  details.repaso{background:rgba(255,255,255,.06);border-radius:.8rem;padding:.55rem .8rem;margin:.45rem 0}
+  details.repaso summary{font-weight:800;cursor:pointer;display:flex;align-items:center;gap:.5rem}
+  details.repaso li{margin:.3rem 0;font-size:.92rem}
+  .ejemplo{background:rgba(255,255,255,.07);border:1px dashed color-mix(in srgb, var(--tema) 70%, transparent);border-radius:1rem;padding:.9rem 1rem;margin:1rem 0}
+  .ej-tit{font-weight:900;color:var(--tema);font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem}
+  .ej-paso{display:flex;gap:.6rem;align-items:flex-start;margin:.45rem 0;font-size:.95rem}
+  .ej-paso b{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--tema);color:#1f0a1e;display:flex;align-items:center;justify-content:center;font-size:.8rem}
+  .ej-paso strong{color:var(--oro)}
+  .ej-eq{text-align:center;font-size:2.6rem;margin:.3rem 0;background:#fff;border-radius:.8rem;padding:.3rem}
+  .secreto .ideas{margin-top:.5rem;font-size:1.6rem}
+  #confeti{position:fixed;inset:0;pointer-events:none;z-index:20}
+
+  .flash{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font-size:5rem;pointer-events:none;opacity:0;transition:opacity .15s;z-index:15}
+  .flash.on{opacity:1}
+  .chico{font-size:.8rem;color:var(--tenue);text-align:center;margin-top:1.4rem}
+  @media (prefers-reduced-motion: reduce){ *{animation:none !important;transition:none !important} }
 </style>
 </head>
 <body>
 <header id="cabeza" hidden>
   <div class="wrap">
-    <div><div class="mini" id="cabeza-ronda">Maratón</div><div class="eq" id="cabeza-eq"></div></div>
-    <div class="pts" id="cabeza-pts">0 pts</div>
+    <div class="cab-fila"><div class="cab-ronda" id="cab-ronda"></div><div class="puntos-ronda" id="cab-prog"></div></div>
+    <div class="marcador" id="marcador"></div>
   </div>
 </header>
 <div class="wrap" id="app"></div>
 <div class="flash" id="flash"></div>
+<canvas id="confeti" hidden></canvas>
 
 <script>
 /* ===================================================================
    Maratón etimológico · todo lo visto hasta la semana 9
-   Un celular por equipo. Sin registro: nada sale del teléfono.
+   Un celular por mesa, cada quien compite por su cuenta. Sin registro: nada sale del teléfono.
    El contenido de las rondas 1 a 3 es el mazo de Anki (semanas 0-6);
-   el de las rondas 4 a 6 sale de las semanas 3, 7, 8 y 9.
+   el de las rondas 4 a 6 sale de las semanas 3, 7 y 9.
    =================================================================== */
 
 /* [pieza, significado, idioma, ancla, familia, nota] */
@@ -151,39 +235,6 @@ var ESPEJISMOS = [
   ["elote", "¿el final -tl del náhuatl, vuelto -te?", true, "Real. Elotl → elote, como tomatl → tomate y ahuacatl → aguacate."],
   ["chocolate", "¿el final -tl del náhuatl, vuelto -te?", true, "Real. De xocolatl: el -tl se volvió -te, como en tomate y elote."],
   ["biblioteca", "¿-teca, «depósito, caja donde se guarda»?", true, "Real. Biblio- (libro) + -teca (depósito). La misma -teca de discoteca y hemeroteca."]
-];
-
-/* Ronda 5 · la máquina del tiempo. {q, g (palabra grande), op, ok (índice), ex} */
-var LEYES = ["F- inicial → h-", "-CT- → -ch-", "PL- / CL- / FL- → ll-", "vocal breve → diptongo", "consonante entre vocales → suave"];
-function ley(g, ok, ex){ return {q:"¿Qué ley fonética opera?", g:g, op:LEYES.slice(), ok:ok, ex:ex}; }
-function sale(g, op, ex){ return {q:"Pásala por la máquina del tiempo: ¿en qué palabra española se volvió?", g:g, op:op, ok:0, ex:ex}; }
-var MAQUINA = [
-  sale("FARINA", ["harina","farina","fariña","arina"], "La F inicial se volvió h muda: FARINA → harina. Igual que FACERE → hacer y FILIU → hijo."),
-  sale("NOCTE", ["noche","nocte","noque","nocha"], "El grupo CT se volvió ch: NOCTE → noche, como LACTE → leche y OCTO → ocho."),
-  sale("OCTO", ["ocho","octo","oto","oyo"], "CT → ch: OCTO → ocho. Su hermana culta sobrevive en octavo y octágono."),
-  sale("PLUVIA", ["lluvia","pluvia","fluvia","pluvía"], "PL inicial → ll: PLUVIA → lluvia. Por la vía culta llegó pluvial, que no pasó por la máquina."),
-  sale("CLAMARE", ["llamar","clamar","chamar","lamar"], "CL inicial → ll: CLAMARE → llamar. ¿Y clamar? Existe, pero entró por los libros: es el doblete culto."),
-  sale("PORTA", ["puerta","porta","portal","porte"], "La O breve tónica diptongó en ue: PORTA → puerta, como FOCU → fuego."),
-  sale("FOCU", ["fuego","foco","fogo","fueco"], "Dos leyes: la O diptongó (ue) y la C entre vocales se suavizó (g). ¿Foco? Es la hermana culta."),
-  sale("TERRA", ["tierra","terra","tera","tierre"], "La E breve tónica diptongó en ie: TERRA → tierra, como FESTA → fiesta."),
-  sale("VITA", ["vida","vita","bida","vite"], "La T entre vocales se suavizó en d: VITA → vida. ¿Vital, vitamina? Vía culta."),
-  sale("LUPU", ["lobo","lupo","lubo","lopo"], "La P entre vocales se suavizó en b: LUPU → lobo."),
-  sale("AMICU", ["amigo","amico","amego","amijo"], "La C entre vocales se suavizó en g: AMICU → amigo."),
-  sale("ROTA", ["rueda","rota","roda","rueta"], "Dos leyes a la vez: la O diptongó (ue) y la T se suavizó (d)."),
-  ley("FILIU → hijo", 0, "La F inicial se volvió h muda. (El -LI- se volvió j, pero esa ley no la vimos.)"),
-  ley("LACTE → leche", 1, "El grupo CT se volvió ch."),
-  ley("FLAMMA → llama", 2, "FL inicial → ll. Flama llegó por la vía culta."),
-  ley("FESTA → fiesta", 3, "La E breve tónica diptongó en ie."),
-  ley("SAPERE → saber", 4, "La P entre vocales se suavizó en b."),
-  {q:"AURICULA dio dos palabras: oreja y aurícula. ¿Cuál es la culta?", g:"AURICULA", op:["aurícula","oreja","las dos","ninguna"], ok:0, ex:"Aurícula entró por los libros, sin pasar por la máquina. Oreja es la popular, gastada por mil años de boca. Eso es un doblete."},
-  {q:"FRIGIDU dio frío y frígido. ¿Cuál es la popular?", g:"FRIGIDU", op:["frío","frígido","las dos","ninguna"], ok:0, ex:"Frío es la popular: la G entre vocales se perdió en la boca. Frígido llegó por los libros."},
-  {q:"STRICTU dio estrecho y estricto. ¿Cuál pasó por la máquina del tiempo?", g:"STRICTU", op:["estrecho","estricto","las dos","ninguna"], ok:0, ex:"Estrecho: el CT se volvió ch. Estricto conservó el CT porque entró por la vía culta."},
-  {q:"pater → father, pie → foot, diente → tooth. ¿Qué ley es?", g:"P → F", op:["ley de Grimm","F- inicial → h-","vocal breve → diptongo","la regla de oro"], ok:0, ex:"La ley de Grimm: en la rama germánica la P se volvió F, la D se volvió T y la C se volvió H."},
-  {q:"El inglés, respecto del español, es…", g:"inglés", op:["prima","hermana","vecina","hija"], ok:0, ex:"Prima: nieta del mismo indoeuropeo por otra rama (la germánica). Hermanas son las hijas del latín."},
-  {q:"El portugués, respecto del español, es…", g:"portugués", op:["hermana","prima","vecina","abuela"], ok:0, ex:"Hermana: hija del mismo latín, como el francés, el italiano, el catalán y el rumano."},
-  {q:"El árabe, respecto del español, es…", g:"árabe", op:["vecina","prima","hermana","abuela"], ok:0, ex:"Vecina: sin parentesco, no desciende del indoeuropeo. Pero en ocho siglos le prestó más de cuatro mil palabras."},
-  {q:"¿Qué marca el asterisco en *méh₂tēr?", g:"*", op:["una forma reconstruida que nadie escribió","una palabra en desuso","una palabra de origen dudoso","una errata del diccionario"], ok:0, ex:"El indoeuropeo nunca se escribió: sus palabras se reconstruyen comparando a sus nietas (madre, mother, Mutter, mātā)."},
-  {q:"«Caballo» viene de CABALLUS y no de EQUUS. ¿Por qué?", g:"caballo", op:["porque el español viene del latín de la calle","porque EQUUS es griego","porque CABALLUS es árabe","por error de un copista"], ok:0, ex:"El latín vulgar, el de soldados y colonos, decía caballus. EQUUS era de los libros: sobrevive en equino y equitación."}
 ];
 
 /* Ronda 6 · ¿de dónde vino? [palabra, lengua correcta, explicación, lenguas a evitar como distractor] */
@@ -218,58 +269,63 @@ var TIPOS = [
   {q:"Una lengua franca es…", g:"lengua franca", op:["la que usan para entenderse quienes no comparten lengua materna","la lengua oficial de Francia","la lengua sin reglas gramaticales","la lengua más antigua de una familia"], ok:0, ex:"El latín lo fue en Europa hasta el siglo XIX; hoy lo es el inglés. En la Nueva España lo fue el náhuatl."}
 ];
 
-/* Ronda de dibujo: palabras que se dibujan pieza por pieza. [palabra, piezas, lo que hay que dibujar] */
+/* Ronda de dibujo: solo palabras cuyas piezas se pueden dibujar. [palabra, piezas, lo que hay que dibujar, ideas] */
 var DIBUJOS = [
-  ["hipopótamo","híppos + potamós","un caballo + un río"],
-  ["rinoceronte","rino + ceronte","una nariz + un cuerno"],
-  ["pulpo","poly + pous","muchos + pies"],
-  ["dinosaurio","deinós + saûros","terrible + lagarto"],
-  ["necrópolis","necro- + -polis","muertos + ciudad"],
-  ["hidrofobia","hidro- + -fobia","agua + miedo"],
-  ["cronómetro","crono- + -metro","tiempo + medida"],
-  ["telescopio","tele- + -scopio","lejos + mirar"],
-  ["biblioteca","biblio- + -teca","libro + caja donde se guarda"],
-  ["piromancia","piro- + -mancia","fuego + adivinar"],
-  ["hipódromo","hipo- (híppos) + -dromo","caballo + pista"],
-  ["termómetro","termo- + -metro","calor + medida"],
-  ["antibiótico","anti- + bio-","contra + vida"],
-  ["hipotermia","hipo- (hypó) + termo-","debajo + calor"],
-  ["cefalalgia","céfalo- + -algia","cabeza + dolor"],
-  ["bibliófilo","biblio- + -filo","libro + amor"],
-  ["geofagia","geo- + -fagia","tierra + comer"],
-  ["criptozoología","cripto- + zoo- + -logía","escondido + animal + estudio"],
-  ["gerontocracia","géron + -cracia","viejos + poder"],
-  ["cosmonauta","cosmo- + -nauta","universo + navegante"],
-  ["podólogo","pod- + -logo","pie + estudio"],
-  ["amnesia","a- + mnem-","sin + memoria"],
-  ["teocracia","teo- + -cracia","dios + poder"],
-  ["hemeroteca","hēmera + -teca","día (periódico) + depósito"]
+  ["hipopótamo","híppos + potamós","un caballo + un río","🐴 + 🌊"],
+  ["rinoceronte","rino + ceronte","una nariz + un cuerno","👃 + 🔺"],
+  ["pulpo","poly + pous","muchos pies","🦶🦶🦶🦶🦶"],
+  ["dinosaurio","deinós + saûros","terrible + lagarto","😱 + 🦎"],
+  ["necrópolis","necro- + -polis","muertos + ciudad","💀 + 🏙️"],
+  ["hidrofobia","hidro- + -fobia","agua + miedo","💧 + 😨"],
+  ["cronómetro","crono- + -metro","tiempo + medida","⏳ + 📏"],
+  ["telescopio","tele- + -scopio","lejos + mirar","🏔️ + 👀"],
+  ["biblioteca","biblio- + -teca","libros + caja donde se guardan","📚 + 📦"],
+  ["hipódromo","hipo- (híppos) + -dromo","caballo + pista de carreras","🐴 + 🏁"],
+  ["termómetro","termo- + -metro","calor + medida","🔥 + 📏"],
+  ["cosmonauta","cosmo- + -nauta","universo + navegante","🌌 + ⛵"],
+  ["bibliófilo","biblio- + -filo","libros + amor","📚 + ❤️"],
+  ["trípode","tri- + -podo","tres pies","🦶🦶🦶"],
+  ["otitis","oto- + -itis","oído + inflamación","👂 + 🔥"]
 ];
 
 /* ------------------------------------------------------------------ */
-/* k = preguntas por persona en la ronda */
+/* Preguntas fáciles: menos segundos y la etiqueta ⚡. */
+var FACILES = {
+  piezas:["hidro-","acu- / aqua","geo-","terr-","bio-","vit-","graf-","escrib- / scrib-","cardio-","cord- / cor, cordis","-logía / -logo","a- / an-","mnem-","amor","éros","oculus","oriri","tele-","crono-","-metro / -metría","termo-","anti-","-fobia","biblio-","zoo-","piro-"],
+  historias:["desayuno","rinoceronte","pulpo","hipopótamo","dinosaurio","reloj","gimnasio"],
+  espejismos:["amigo","ateo","antídoto","hipoglucemia","elote","chocolate","alfombra","biblioteca","desayuno","portero"],
+  viajeras:["almohada","ojalá","chocolate","cuate","tianguis","apapacho","chef","lootear","naranja"]
+};
+function esFacil(tipo, g){ return FACILES[tipo].indexOf(g) >= 0; }
+
+/* Un color por jugador y un tema por ronda. */
+var COLORES = ["#ff5fa2","#ffc83d","#3fd9c2","#7aa7ff","#c08cff"];
+var LETRAS = ["A","B","C","D"];
+var LETRA_COL = ["#c8127a","#e08a00","#0f9f8c","#3b6fd8"];
+
+/* k = preguntas por persona; k5 = con cinco jugadores; seg / segF = segundos normales / fáciles */
 var RONDAS = [
-  {titulo:"La pieza y su significado", k:2, seg:30, pts:2, gen:genPiezas,
+  {titulo:"La pieza y su significado", emoji:"🧩", color:"#ff5fa2", k:2, seg:30, segF:15, pts:2, gen:genPiezas,
    intro:"Te sale una pieza del mazo; eliges qué significa. La pista (el ancla de tu tarjeta) te cuesta un punto."},
-  {titulo:"¿Griego o latín?", k:2, k5:1, seg:10, pts:1, gen:genGemelas,
-   intro:"Ronda rápida: 10 segundos por pieza. Casi todo lo del mazo cero tiene gemela: agua se dice hidro- y acu-."},
-  {titulo:"Palabras con historia", k:2, k5:1, seg:35, pts:2, gen:genHistorias,
+  {titulo:"¿Griego o latín?", emoji:"⚡", color:"#ffc83d", k:2, k5:1, seg:10, segF:10, pts:1, gen:genGemelas,
+   intro:"Ronda relámpago: 10 segundos por pieza. Casi todo lo del mazo cero tiene gemela: agua se dice hidro- y acu-."},
+  {titulo:"Palabras con historia", emoji:"📜", color:"#3fd9c2", k:2, k5:1, seg:35, segF:20, pts:2, gen:genHistorias,
    intro:"Palabras largas o raras que ya sabes leer pieza por pieza. Ármala en voz alta antes de tocar."},
-  {titulo:"Dibújala por piezas", dibujo:true, seg:60,
+  {titulo:"Dibújala por piezas", emoji:"✏️", color:"#ff9f43", dibujo:true, seg:60,
    intro:"Te toca dibujar en el celular: la palabra y sus piezas solo las ves tú. Dibuja las PIEZAS, no la cosa (hipopótamo = un caballo + un río). Sin letras ni números. Quien adivine gana 2; si alguien adivina, quien dibujó gana 1."},
-  {titulo:"¿Pieza real o espejismo?", k:2, seg:20, pts:2, gen:genEspejismos,
+  {titulo:"¿Pieza real o espejismo?", emoji:"🪞", color:"#c08cff", k:2, seg:20, segF:12, pts:2, gen:genEspejismos,
    intro:"La regla de oro: un corte es real solo si la pieza reaparece con el mismo significado y la fuente lo confirma. Aquí hay trampas."},
-  {titulo:"La máquina del tiempo", k:2, seg:35, pts:2, gen:genMaquina,
-   intro:"Leyes fonéticas, dobletes y el árbol de las lenguas. Di la palabra latina en voz alta y gástala."},
-  {titulo:"¿De dónde vino?", k:2, seg:30, pts:2, gen:genViajeras,
-   intro:"Préstamos: lo que saltó la cerca. Árabe, náhuatl, francés, persa, inglés… y cómo entra una palabra gamer."},
-  {titulo:"Contrarreloj", relevo:true, seg:30, pts:1,
+  {titulo:"¿De dónde vino?", emoji:"🧭", color:"#5ee27a", k:2, seg:30, segF:15, pts:2, gen:genViajeras,
+   intro:"Préstamos: lo que saltó la cerca. Árabe, náhuatl, francés, persa, catalán, gótico, inglés… y cómo entra una palabra gamer."},
+  {titulo:"Contrarreloj", emoji:"🏁", color:"#ff6b6b", relevo:true, seg:30, pts:1,
    intro:"El cierre. 30 segundos cada quien, piezas del mazo, tres opciones. Sin pistas, sin comodines, sin robos. Los demás cuentan en voz alta."}
 ];
 
-var CLAVE = "maraton-etim-s9";
+var CLAVE = "maraton-etim-s9-v2";   /* v2: sin la máquina del tiempo; las partidas viejas no cuadran */
 var S = null;          /* estado de la partida */
 var reloj = null;      /* setInterval activo */
+var ocupado = false;   /* mientras se anima una respuesta */
+var vistos = null;     /* puntos que el marcador ya mostró, para animar lo nuevo */
 var app = document.getElementById("app");
 
 function guarda(){ try{ localStorage.setItem(CLAVE, JSON.stringify(S)); }catch(e){} }
@@ -303,7 +359,7 @@ function genPiezas(n){
   var sigs = PIEZAS.map(function(p){ return p[1]; });
   return toma(PIEZAS, n).map(function(p){
     var m = conDistractores(p[1], sigs, 3);
-    return {q:"¿Qué significa esta pieza?", g:p[0], op:m.op, ok:m.ok, pista:"Ancla: " + p[3], exh:fichaPieza(p), repaso:p[0] + " = " + p[1]};
+    return {q:"¿Qué significa esta pieza?", g:p[0], op:m.op, ok:m.ok, facil:esFacil("piezas", p[0]), pista:"Ancla: " + p[3], exh:fichaPieza(p), repaso:p[0] + " = " + p[1]};
   });
 }
 function genGemelas(n){
@@ -321,23 +377,22 @@ function genHistorias(n){
   return toma(HISTORIAS, n).map(function(p){
     var m = conDistractores(p[1], sigs, 3);
     var ex = "<b>" + esc(p[0]) + "</b>: " + esc(p[1]) + ". Piezas: " + esc(p[3]) + "." + (p[4] ? " Familia: " + esc(p[4]) + "." : "") + (p[5] ? " " + esc(p[5]) : "");
-    return {q:"¿Qué significa, pieza por pieza?", g:p[0], sub:p[2].split(" (")[0], op:m.op, ok:m.ok, pista:"Piezas: " + p[3], exh:ex, repaso:p[0] + " = " + p[1] + " (" + p[3] + ")"};
+    return {q:"¿Qué significa, pieza por pieza?", g:p[0], sub:p[2].split(" (")[0], op:m.op, ok:m.ok, facil:esFacil("historias", p[0]), pista:"Piezas: " + p[3], exh:ex, repaso:p[0] + " = " + p[1] + " (" + p[3] + ")"};
   });
 }
 function genEspejismos(n){
   return toma(ESPEJISMOS, n).map(function(e){
-    return {q:e[1], g:e[0], op:["Pieza real","Espejismo"], ok:e[2]?0:1, dos:true, ex:e[3], repaso:e[0] + ": " + (e[2] ? "pieza real" : "espejismo")};
+    return {q:e[1], g:e[0], op:["Pieza real","Espejismo"], ok:e[2]?0:1, dos:true, facil:esFacil("espejismos", e[0]), ex:e[3], repaso:e[0] + ": " + (e[2] ? "pieza real" : "espejismo")};
   });
 }
-function mezcla(it){ var op = baraja(it.op); return {q:it.q, g:it.g, op:op, ok:op.indexOf(it.op[it.ok]), ex:it.ex, repaso:it.g + " → " + it.op[it.ok]}; }
-function genMaquina(n){ return toma(MAQUINA, n).map(mezcla); }
+function mezcla(it, tipo){ var op = baraja(it.op); return {q:it.q, g:it.g, op:op, ok:op.indexOf(it.op[it.ok]), facil:!!tipo && esFacil(tipo, it.g), ex:it.ex, repaso:it.g + " → " + it.op[it.ok]}; }
 function genViajeras(n){
   var nt = Math.round(n * 0.35);
-  var tipos = toma(TIPOS, nt).map(mezcla);
+  var tipos = toma(TIPOS, nt).map(function(it){ return mezcla(it); });
   var vs = toma(VIAJERAS, n - nt).map(function(v){
     var otras = baraja(LENGUAS.filter(function(l){ return l !== v[1] && v[3].indexOf(l) < 0; })).slice(0, 3);
     var op = baraja([v[1]].concat(otras));
-    return {q:"¿De qué lengua llegó al español?", g:v[0], op:op, ok:op.indexOf(v[1]), ex:v[2], repaso:v[0] + " ← " + v[1]};
+    return {q:"¿De qué lengua llegó al español?", g:v[0], op:op, ok:op.indexOf(v[1]), facil:esFacil("viajeras", v[0]), ex:v[2], repaso:v[0] + " ← " + v[1]};
   });
   return baraja(vs.concat(tipos));
 }
@@ -351,66 +406,110 @@ function preguntaRelevo(){
 /* ------------------------------------------------------------------ */
 function para(){ if(reloj){ clearInterval(reloj); reloj = null; } }
 function ronda(){ return RONDAS[S.r]; }
-/* Con cinco, dos rondas bajan a una pregunta por persona para no pasar de 40 minutos. */
-function kDe(R){ return nj() >= 5 && R.k5 ? R.k5 : R.k; }
 function nj(){ return S.jugadores.length; }
 function nombre(i){ return S.jugadores[i].nombre; }
+function col(i){ return COLORES[i % COLORES.length]; }
+/* Con cinco, dos rondas bajan a una pregunta por persona para no pasar de 40 minutos. */
+function kDe(R){ return nj() >= 5 && R.k5 ? R.k5 : R.k; }
 /* La ronda r arranca con la persona r, para que no empiece siempre la misma. */
 function dueno(qi){ return (qi + S.r) % nj(); }
 function derecha(i){ return (i + 1) % nj(); }
 function suma(i, pts){ S.jugadores[i].puntos += pts; }
 function falla(i, txt){ var f = S.jugadores[i].fallos; if(f.indexOf(txt) < 0) f.push(txt); }
-function ranking(){ return S.jugadores.map(function(j, i){ return {i:i, j:j}; }).sort(function(a, b){ return b.j.puntos - a.j.puntos; }); }
+function ranking(){ return S.jugadores.map(function(j, i){ return {i:i, j:j}; }).sort(function(a, b){ return b.j.puntos - a.j.puntos || a.i - b.i; }); }
+function av(i, extra){ return '<span class="av' + (extra ? " " + extra : "") + '" style="--c:' + col(i) + '">' + esc(nombre(i).charAt(0).toUpperCase()) + '</span>'; }
+function conColor(i){ return 'style="--c:' + col(i) + '"'; }
+function segDe(P){ var R = ronda(); return P.facil ? R.segF : R.seg; }
+
+/* Quién tiene el turno en la pantalla actual, para iluminar su ficha en el marcador. */
+function turnoActual(){
+  if(!S) return -1;
+  if(S.fase === "pregunta" || S.fase === "veredicto") return S.quien;
+  if(S.fase === "dibujo" || S.fase === "relevo") return (S.di + S.r) % nj();
+  return -1;
+}
 
 function cabeza(){
   var h = document.getElementById("cabeza");
-  if(!S || S.fase === "inicio"){ h.hidden = true; return; }
+  if(!S || S.fase === "inicio"){ h.hidden = true; vistos = null; return; }
   h.hidden = false;
-  document.getElementById("cabeza-eq").textContent = S.fase === "final" ? "Resultado final" : ronda().titulo;
-  document.getElementById("cabeza-ronda").textContent = S.fase === "final" ? "Maratón terminado" : "Ronda " + (S.r + 1) + " de " + RONDAS.length;
-  var r = ranking()[0];
-  document.getElementById("cabeza-pts").textContent = "👑 " + r.j.nombre + " " + r.j.puntos;
-}
-
-function progreso(){
-  var h = '<div class="progreso">';
-  for(var i=0;i<RONDAS.length;i++) h += '<span class="' + (i < S.r ? "hecha" : i === S.r ? "actual" : "") + '"></span>';
-  return h + "</div>";
-}
-function tabla(conDelta){
-  var h = '<table><tr><th>#</th><th>Quién</th><th class="n">Puntos</th></tr>';
-  ranking().forEach(function(x, k){
-    var d = conDelta && S.antes ? x.j.puntos - S.antes[x.i] : 0;
-    h += '<tr><td>' + (k+1) + '</td><td>' + esc(x.j.nombre) + '</td><td class="n">' + x.j.puntos + (d ? ' <span class="sube">+' + d + '</span>' : '') + '</td></tr>';
+  var fin = S.fase === "final";
+  document.body.style.setProperty("--tema", fin ? "#ffc83d" : ronda().color);
+  document.getElementById("cab-ronda").textContent = fin ? "🏆 Maratón terminado" : ronda().emoji + " " + (S.r + 1) + "/" + RONDAS.length + " · " + ronda().titulo;
+  var pr = "";
+  for(var r=0;r<RONDAS.length;r++) pr += '<i class="' + (fin || r < S.r ? "hecha" : r === S.r ? "actual" : "") + '"></i>';
+  document.getElementById("cab-prog").innerHTML = pr;
+  var lider = ranking()[0], t = turnoActual(), m = "";
+  S.jugadores.forEach(function(j, i){
+    m += '<div class="chip' + (i === t ? " turno" : "") + '" ' + conColor(i) + ' data-i="' + i + '">' +
+      '<span class="arriba">' + av(i) + '<span class="pp">' + j.puntos + '</span></span><span class="nom">' + esc(j.nombre) + '</span>' +
+      (j.puntos > 0 && lider.i === i ? '<span class="corona">👑</span>' : '') + '</div>';
   });
-  return h + '</table>';
+  var mc = document.getElementById("marcador");
+  mc.innerHTML = m;
+  /* Anima lo que subió desde la última vez que el marcador se pintó. */
+  if(vistos && vistos.length === nj()){
+    S.jugadores.forEach(function(j, i){
+      var d = j.puntos - vistos[i];
+      if(d > 0){
+        var c = mc.querySelector('.chip[data-i="' + i + '"]');
+        c.classList.add("pulso");
+        var f = document.createElement("span"); f.className = "flota"; f.textContent = "+" + d; c.appendChild(f);
+      }
+    });
+  }
+  vistos = S.jugadores.map(function(j){ return j.puntos; });
 }
 
 function pinta(){
-  para(); cabeza(); window.scrollTo(0, 0);
+  para(); ocupado = false; cabeza(); window.scrollTo(0, 0);
   ({inicio:pintaInicio, apuesta:pintaApuesta, pregunta:pintaPregunta, veredicto:pintaVeredicto,
     dibujo:pintaDibujo, relevo:pintaRelevo, cierre:pintaCierre, final:pintaFinal})[S.fase]();
 }
 
+/* Reloj con barra que pasa de verde a ámbar a rojo. fin = marca de tiempo; al llegar, alTerminar(). */
+function arrancaReloj(fin, total, alTerminar){
+  var seg = document.getElementById("seg"), barra = document.getElementById("barra");
+  function actualiza(){
+    var q = Math.max(0, (fin - Date.now())/1000), frac = q / total;
+    seg.textContent = Math.ceil(q);
+    barra.firstChild.style.width = (100 * frac) + "%";
+    barra.className = "tiempo" + (frac <= .25 ? " poco" : frac <= .5 ? " medio" : "");
+    if(q <= 5) seg.classList.add("urge");
+    if(q <= 0){ para(); alTerminar(); }
+  }
+  actualiza(); reloj = setInterval(actualiza, 200);
+}
+function htmlReloj(total){ return '<div class="reloj-fila"><div class="tiempo" id="barra"><i></i></div><span class="seg" id="seg">' + total + '</span></div>'; }
+function htmlOps(P, dos){
+  var h = '<div class="ops' + (dos ? " dos" : "") + '">';
+  P.op.forEach(function(o, i){
+    var extra = i === S.tachada ? ' class="tachada" disabled' : '';
+    h += '<button data-i="' + i + '"' + extra + '>' + (dos ? '' : '<span class="letra" style="--lc:' + LETRA_COL[i] + '">' + LETRAS[i] + '</span>') + '<span>' + esc(o) + '</span></button>';
+  });
+  return h + '</div>';
+}
+
 /* --- inicio ------------------------------------------------------- */
 function pintaInicio(){
+  document.body.style.setProperty("--tema", "#ff5fa2");
   var guardada = lee();
-  var h = '<h1>Maratón etimológico</h1><p>Todo lo que llevamos hasta la semana 9: el mazo de Anki, la regla de oro, la máquina del tiempo y las palabras que saltaron la cerca. Un celular, cuatro rivales (o tres, o cinco).</p>';
+  var h = '<div class="logo"><span class="emoji">🏃‍♀️</span><h1>Maratón etimológico</h1><p class="sub">Todo hasta la semana 9 · un celular, cuatro rivales</p></div>';
   if(guardada && guardada.fase && guardada.fase !== "inicio" && guardada.fase !== "final"){
-    h += '<div class="caja"><strong>Hay una partida a medias</strong> de ' + esc(guardada.jugadores.map(function(j){ return j.nombre; }).join(", ")) + ', en la ronda ' + (guardada.r + 1) + '.<button class="btn rosa" id="sigue">Continuar esa partida</button></div>';
+    h += '<div class="panel"><strong>Hay una partida a medias</strong> de ' + esc(guardada.jugadores.map(function(j){ return j.nombre; }).join(", ")) + ', en la ronda ' + (guardada.r + 1) + '.<button class="btn rosa" id="sigue">Continuar esa partida</button></div>';
   }
-  h += '<div class="caja"><strong>Cómo se juega</strong><ol>' +
-    '<li>Ocho rondas, unos 35 minutos, en mesas de cuatro (también se puede de tres o de cinco). Cada quien juega por su cuenta; el celular va pasando a la derecha.</li>' +
-    '<li>Cuando es tu turno, <strong>lees en voz alta y contestas solo</strong>. Los demás, callados: si fallas, quien está a tu derecha puede <strong>robarla</strong> por 1 punto.</li>' +
-    '<li>Antes de cada ronda, <strong>cada quien apuesta</strong> cuántas de sus preguntas va a tener bien. Si le atinas exacto, +1. Saber cuánto sabes también es la materia.</li>' +
-    '<li>Cada quien tiene <strong>un comodín 50/50</strong> para todo el maratón. Las pistas cuestan un punto.</li>' +
-    '<li>Nada de buscar en internet: el que se equivoca aprende, el que googlea no.</li></ol></div>';
-  h += '<label>Quiénes juegan (en el orden en que están sentados)</label>';
-  for(var i=0;i<5;i++) h += '<input type="text" class="jug" maxlength="16" placeholder="' + (i < 4 ? "Jugador " + (i+1) : "Quinto jugador (si lo hay)") + '" autocomplete="off" style="margin-top:.4rem">';
-  h += '<button class="btn rosa" id="empieza">Empezar el maratón</button>';
+  h += '<div class="panel"><strong>Cómo se juega</strong><ol>' +
+    '<li>Siete rondas, unos 35 minutos, en mesas de cuatro (también de tres o de cinco). Cada quien juega por su cuenta; el celular pasa a la derecha.</li>' +
+    '<li>En tu turno <strong>lees en voz alta y contestas solo</strong>. Si fallas, quien está a tu derecha puede <strong>robarla</strong> por 1 punto.</li>' +
+    '<li>Las preguntas <strong>⚡ rápidas</strong> son fáciles y dan menos tiempo.</li>' +
+    '<li>Antes de cada ronda <strong>cada quien apuesta</strong> cuántas va a tener bien. Si le atinas exacto, +1.</li>' +
+    '<li>Cada quien tiene <strong>un 50/50</strong> para todo el maratón. Las pistas cuestan un punto. Nada de internet.</li></ol></div>';
+  h += '<label class="tit">Quiénes juegan, en el orden en que están sentados</label>';
+  for(var i=0;i<5;i++) h += '<div class="campo" style="--c:' + COLORES[i] + '"><span class="av">' + (i+1) + '</span><input type="text" class="jug" maxlength="14" placeholder="' + (i < 4 ? "Jugador " + (i+1) : "Quinto (si lo hay)") + '" autocomplete="off"></div>';
+  h += '<button class="btn rosa" id="empieza">¡Arranca el maratón!</button>';
   app.innerHTML = h;
   var s = document.getElementById("sigue");
-  if(s) s.onclick = function(){ S = guardada; pinta(); };
+  if(s) s.onclick = function(){ S = guardada; vistos = null; pinta(); };
   document.getElementById("empieza").onclick = function(){
     var nombres = [].slice.call(document.querySelectorAll(".jug")).map(function(x){ return x.value.trim(); }).filter(Boolean);
     if(nombres.length < 3){ alert("Se juega de tres a cinco. Escriban al menos tres nombres."); return; }
@@ -422,14 +521,29 @@ function pintaInicio(){
   };
 }
 
-/* --- apuesta ------------------------------------------------------ */
+/* --- apuesta y portada de ronda ----------------------------------- */
 function pintaApuesta(){
   var R = ronda();
   S.antes = S.jugadores.map(function(j){ return j.puntos; });
-  var h = progreso() + '<h1>Ronda ' + (S.r + 1) + ' · ' + esc(R.titulo) + '</h1><p>' + esc(R.intro) + '</p>';
+  var h = '<div class="portada-ronda"><div class="emoji">' + R.emoji + '</div><div class="num">Ronda ' + (S.r + 1) + ' de ' + RONDAS.length + '</div><h1>' + esc(R.titulo) + '</h1><p>' + esc(R.intro) + '</p><div class="etiquetas">';
+  if(R.dibujo) h += '<span class="etq">✏️ uno por persona</span><span class="etq">⏱ 60 s</span><span class="etq">+2 adivinar · +1 dibujar</span>';
+  else if(R.relevo) h += '<span class="etq">⏱ 30 s cada quien</span><span class="etq">+1 por acierto</span>';
+  else {
+    var k = kDe(R);
+    h += '<span class="etq">' + k + (k === 1 ? ' pregunta' : ' preguntas') + ' por persona</span><span class="etq">⏱ ' + R.seg + ' s</span>' +
+      (R.segF !== R.seg ? '<span class="etq">⚡ ' + R.segF + ' s las fáciles</span>' : '') + '<span class="etq">+' + R.pts + ' por acierto</span>';
+  }
+  h += '</div></div>';
+  if(R.dibujo) h += '<div class="ejemplo"><div class="ej-tit">Así se juega · ejemplo</div>' +
+    '<div class="ej-paso"><b>1</b><span>A Ana le sale <strong>hipopótamo</strong> = híppos (caballo) + potamós (río). Solo Ana la ve.</span></div>' +
+    '<div class="ej-eq">🐴 + 🌊</div>' +
+    '<div class="ej-paso"><b>2</b><span>No dibuja un hipopótamo: dibuja <strong>un caballo</strong> y junto <strong>un río</strong>. Puede señalar con flechas, pero sin letras ni números.</span></div>' +
+    '<div class="ej-paso"><b>3</b><span>Los demás gritan: «¿caballo?… ¿caballo de agua?… ¡hipopótamo!». Ana toca el nombre de quien lo dijo completo: <strong>+2</strong> para quien adivinó, <strong>+1</strong> para Ana.</span></div>' +
+    '<div class="ej-paso"><b>4</b><span>Si en 60 segundos nadie lo saca, toca «Nadie» y pasa el celular.</span></div></div>';
   if(R.dibujo || R.relevo){
-    h += '<p class="sub">' + (R.dibujo ? "Esta ronda no lleva apuesta: se dibuja una vez cada quien." : "Cada quien apuesta en su turno.") + '</p>';
-    h += '<button class="btn rosa" id="listo">Empezar con ' + esc(nombre(S.r % nj())) + '</button>';
+    var primero = S.r % nj();
+    h += '<p class="sub">' + (R.dibujo ? "Esta ronda no lleva apuesta." : "Cada quien apuesta en su turno.") + '</p>';
+    h += '<button class="btn tema" id="listo">Empieza ' + av(primero) + esc(nombre(primero)) + '</button>';
     app.innerHTML = h;
     document.getElementById("listo").onclick = function(){
       S.di = 0;
@@ -439,13 +553,14 @@ function pintaApuesta(){
     };
     return;
   }
-  h += '<div class="caja"><strong>Apuestas.</strong> A cada quien le tocan ' + kDe(R) + (kDe(R) === 1 ? ' pregunta.' : ' preguntas.') + ' ¿Cuántas vas a tener bien? Cada quien toca la suya.';
+  var k2 = kDe(R);
+  h += '<div class="panel"><strong>Apuestas.</strong> ¿Cuántas de tus ' + k2 + ' vas a tener bien? Cada quien toca la suya.';
   S.jugadores.forEach(function(j, i){
-    h += '<div class="apuesta-fila"><span>' + esc(j.nombre) + '</span><div class="apuestas" data-j="' + i + '">';
-    for(var v=0; v<=kDe(R); v++) h += '<button data-v="' + v + '">' + v + '</button>';
+    h += '<div class="apuesta-fila" ' + conColor(i) + '>' + av(i) + '<span class="nom">' + esc(j.nombre) + '</span><div class="apuestas" data-j="' + i + '">';
+    for(var v=0; v<=k2; v++) h += '<button data-v="' + v + '">' + v + '</button>';
     h += '</div></div>';
   });
-  h += '</div><button class="btn rosa" id="listo" disabled>Todos apostaron, empieza la ronda</button>';
+  h += '</div><button class="btn tema" id="listo" disabled>Todos apostaron: ¡a jugar!</button>';
   app.innerHTML = h;
   var ap = S.jugadores.map(function(){ return null; });
   [].forEach.call(app.querySelectorAll(".apuestas"), function(fila){
@@ -467,85 +582,87 @@ function pintaApuesta(){
 /* --- pregunta (turno y robo) -------------------------------------- */
 function nuevaPregunta(){ S.fase = "pregunta"; S.robo = false; S.quien = dueno(S.qi); S.pistaUsada = false; S.cincuenta = false; S.tachada = -1; }
 function pintaPregunta(){
-  var R = ronda(), P = S.preguntas[S.qi];
-  var seg0 = S.robo ? 12 : R.seg;
-  var h = '<div class="barra"><span>Pregunta ' + (S.qi + 1) + ' de ' + S.preguntas.length + '</span><span class="reloj" id="seg">' + seg0 + '</span></div>';
-  h += '<div class="tiempo"><i id="barra" style="width:100%"></i></div>';
-  h += S.robo ? '<div class="lector robo">🦊 <span>¡Robo! <b>' + esc(nombre(S.quien)) + '</b>, por 1 punto</span></div>'
-              : '<div class="lector">📣 <span>Turno de <b>' + esc(nombre(S.quien)) + '</b>: lee en voz alta y contesta solo</span></div>';
-  h += '<div class="enun">' + esc(P.q) + '</div><div class="grande">' + esc(P.g) + '</div>';
-  if(P.sub) h += '<div class="sub">' + esc(P.sub) + '</div>';
-  h += '<div class="ops' + (P.dos ? " dos" : "") + '">';
-  P.op.forEach(function(o, i){ h += '<button data-i="' + i + '"' + (i === S.tachada ? ' class="tachada" disabled' : '') + '>' + esc(o) + '</button>'; });
-  h += '</div>';
+  var P = S.preguntas[S.qi];
+  var total = S.robo ? 12 : segDe(P);
+  var h = S.robo
+    ? '<div class="turno-banda robo" ' + conColor(S.quien) + '>' + av(S.quien, "xl") + '<div><div class="quien">🦊 ¡Robo de ' + esc(nombre(S.quien)) + '!</div><div class="que">12 segundos, por 1 punto</div></div></div>'
+    : '<div class="turno-banda" ' + conColor(S.quien) + '>' + av(S.quien, "xl") + '<div><div class="quien">Turno de ' + esc(nombre(S.quien)) + '</div><div class="que">lee en voz alta y contesta solo</div></div></div>';
+  h += htmlReloj(total);
+  h += '<div class="meta"><span>' + (P.facil && !S.robo ? '<span class="rapida">⚡ RÁPIDA</span>' : '') + 'Pregunta ' + (S.qi + 1) + ' de ' + S.preguntas.length + '</span></div>';
+  h += '<div class="tarjeta"><div class="enun">' + esc(P.q) + '</div><div class="grande">' + esc(P.g) + '</div>' + (P.sub ? '<div class="sub">' + esc(P.sub) + '</div>' : '') + '</div>';
+  h += htmlOps(P, P.dos);
   if(!P.dos && !S.robo){
     var yo = S.jugadores[S.quien];
     h += '<div class="ayudas">';
-    if(P.pista) h += '<button id="pista"' + (S.pistaUsada ? " disabled" : "") + '>💡 Pista (−1 punto)</button>';
+    if(P.pista) h += '<button id="pista"' + (S.pistaUsada ? " disabled" : "") + '>💡 Pista (−1)</button>';
     h += '<button id="cincuenta"' + (yo.comodin < 1 || S.cincuenta ? " disabled" : "") + '>' + (S.cincuenta ? "✂️ 50/50 usado" : yo.comodin < 1 ? "✂️ Ya usaste tu 50/50" : "✂️ Tu 50/50") + '</button></div>';
     h += '<div id="pistatxt"></div>';
   }
   app.innerHTML = h;
-  if(S.pistaUsada && P.pista && !S.robo) document.getElementById("pistatxt").innerHTML = '<div class="pista">' + esc(P.pista) + '</div>';
+  if(S.pistaUsada && P.pista && !S.robo) document.getElementById("pistatxt").innerHTML = '<div class="pista">💡 ' + esc(P.pista) + '</div>';
   if(S.cincuenta && !S.robo) quitaDos(P);
 
   [].forEach.call(app.querySelectorAll(".ops button"), function(b){ b.onclick = function(){ responde(+b.dataset.i); }; });
   var bp = document.getElementById("pista");
-  if(bp) bp.onclick = function(){ S.pistaUsada = true; bp.disabled = true; document.getElementById("pistatxt").innerHTML = '<div class="pista">' + esc(P.pista) + '</div>'; guarda(); };
+  if(bp) bp.onclick = function(){ S.pistaUsada = true; bp.disabled = true; document.getElementById("pistatxt").innerHTML = '<div class="pista">💡 ' + esc(P.pista) + '</div>'; guarda(); };
   var bc = document.getElementById("cincuenta");
   if(bc) bc.onclick = function(){ var yo = S.jugadores[S.quien]; if(yo.comodin < 1) return; yo.comodin--; S.cincuenta = true; bc.disabled = true; bc.textContent = "✂️ 50/50 usado"; quitaDos(P); guarda(); };
-
-  var quedan = seg0, seg = document.getElementById("seg"), barra = document.getElementById("barra");
-  reloj = setInterval(function(){
-    quedan--;
-    seg.textContent = quedan; barra.style.width = (100 * quedan / seg0) + "%";
-    if(quedan <= 5) seg.classList.add("urge");
-    if(quedan <= 0){ para(); responde(-1); }
-  }, 1000);
+  arrancaReloj(Date.now() + total*1000, total, function(){ responde(-1); });
 }
 function quitaDos(P){
   var malas = [];
   P.op.forEach(function(o, i){ if(i !== P.ok) malas.push(i); });
   malas.slice(0, 2).forEach(function(i){ var b = app.querySelector('.ops button[data-i="' + i + '"]'); if(b) b.classList.add("oculta"); });
 }
+/* Pinta la respuesta sobre los botones un momento antes de pasar al veredicto. */
+function revela(i, P, mostrarBuena){
+  [].forEach.call(app.querySelectorAll(".ops button"), function(b){ b.disabled = true; });
+  var elegida = app.querySelector('.ops button[data-i="' + i + '"]');
+  if(elegida && i !== P.ok) elegida.classList.add("mal");
+  if(mostrarBuena || i === P.ok){ var buena = app.querySelector('.ops button[data-i="' + P.ok + '"]'); if(buena) buena.classList.add("correcta"); }
+  ocupado = true;
+  setTimeout(pinta, 850);
+}
 function responde(i){
+  if(ocupado) return;
   para();
   var R = ronda(), P = S.preguntas[S.qi], bien = i === P.ok, gana = 0;
   if(S.robo){
     if(bien){ gana = 1; suma(S.quien, 1); }
     S.ultimo = {bien:bien, gana:gana, elegida:i, robo:true};
-    S.fase = "veredicto"; guarda(); pinta(); return;
+    S.fase = "veredicto"; guarda(); revela(i, P, true); return;
   }
   if(bien){ gana = Math.max(1, R.pts - (S.pistaUsada ? 1 : 0)); suma(S.quien, gana); S.aciertos[S.quien]++; }
   else falla(S.quien, P.repaso);
-  /* Se puede robar si la pregunta tenía más de dos opciones y hay a quién pasarle el celular. */
+  /* Se puede robar si la pregunta tenía más de dos opciones y quedan al menos dos a la vista. */
   var visibles = P.op.length - (S.cincuenta ? 2 : 0) - (i >= 0 ? 1 : 0);
-  S.ultimo = {bien:bien, gana:gana, elegida:i, puedeRobar:!bien && !P.dos && nj() > 1 && visibles >= 2};
-  S.fase = "veredicto"; guarda(); pinta();
+  var robable = !bien && !P.dos && nj() > 1 && visibles >= 2;
+  S.ultimo = {bien:bien, gana:gana, elegida:i, puedeRobar:robable};
+  S.fase = "veredicto"; guarda(); revela(i, P, !robable);
 }
 
 /* --- veredicto ---------------------------------------------------- */
 function pintaVeredicto(){
   var P = S.preguntas[S.qi], U = S.ultimo;
   var ultima = S.qi + 1 >= S.preguntas.length;
-  var siguiente = ultima ? null : nombre(dueno(S.qi + 1));
-  var h = '<div class="barra"><span>Pregunta ' + (S.qi + 1) + ' de ' + S.preguntas.length + '</span><span>' + esc(nombre(S.quien)) + '</span></div>';
-  h += '<div class="grande">' + esc(P.g) + '</div>';
+  var h = '<div class="tarjeta" style="margin-top:1rem"><div class="enun">' + esc(P.q) + '</div><div class="grande">' + esc(P.g) + '</div></div>';
   if(U.puedeRobar){
     /* Falló el dueño: no se revela la respuesta todavía, para que el robo valga. */
-    h += '<div class="veredicto no"><div class="titulo">' + (U.elegida < 0 ? "Se acabó el tiempo" : "Aún no") + '</div><div class="ex">' + esc(nombre(S.quien)) + ', anótala en tu repaso. La respuesta se ve después del robo.</div></div>';
-    h += '<button class="btn rosa" id="robar">🦊 ' + esc(nombre(derecha(S.quien))) + ' intenta robarla</button>';
+    var ladron = derecha(S.quien);
+    h += '<div class="veredicto no"><div class="gran-emoji">' + (U.elegida < 0 ? "⏰" : "😬") + '</div><div class="titulo">' + (U.elegida < 0 ? "¡Se acabó el tiempo!" : "Aún no") + '</div><p class="sub">' + esc(nombre(S.quien)) + ', va a tu lista de repaso. La respuesta se ve después del robo.</p></div>';
+    h += '<button class="btn tema" id="robar" ' + conColor(ladron) + '>🦊 ' + av(ladron) + esc(nombre(ladron)) + ' intenta robarla</button>';
     h += '<button class="btn gris" id="paso">Nadie roba, ver la respuesta</button>';
     app.innerHTML = h;
-    document.getElementById("robar").onclick = function(){ S.tachada = U.elegida; S.robo = true; S.quien = derecha(S.quien); S.fase = "pregunta"; guarda(); pinta(); };
+    document.getElementById("robar").onclick = function(){ S.tachada = U.elegida; S.robo = true; S.quien = ladron; S.fase = "pregunta"; guarda(); pinta(); };
     document.getElementById("paso").onclick = function(){ S.ultimo.puedeRobar = false; guarda(); pinta(); };
     return;
   }
-  var titulo = U.bien ? (U.robo ? "¡Robada! +1 para " + nombre(S.quien) : "¡Bien! +" + U.gana) : (U.robo ? "Robo fallido" : (U.elegida < 0 ? "Se acabó el tiempo" : "Aún no"));
-  h += '<div class="veredicto ' + (U.bien ? "ok" : "no") + '"><div class="titulo">' + esc(titulo) + '</div>';
-  h += '<div class="resp">Respuesta: ' + esc(P.op[P.ok]) + '</div>';
-  h += '<div class="ex">' + (P.exh || esc(P.ex)) + '</div></div>';
-  h += '<button class="btn rosa" id="sig">' + (ultima ? "Ver cómo quedó la ronda" : "Siguiente · el celular pasa a " + esc(siguiente)) + '</button>';
+  var emoji = U.bien ? (U.robo ? "🦊" : U.gana >= 2 ? "🎉" : "👍") : (U.elegida < 0 && !U.robo ? "⏰" : "😬");
+  var titulo = U.bien ? (U.robo ? "¡Robada! +1 para " + nombre(S.quien) : "¡Bien, " + nombre(S.quien) + "! +" + U.gana) : (U.robo ? "Robo fallido" : (U.elegida < 0 ? "¡Se acabó el tiempo!" : "Aún no"));
+  h += '<div class="veredicto ' + (U.bien ? "ok" : "no") + '"><div class="gran-emoji">' + emoji + '</div><div class="titulo">' + esc(titulo) + '</div></div>';
+  h += '<div class="explica' + (U.bien ? "" : " no") + '"><div class="resp">✔ ' + esc(P.op[P.ok]) + '</div>' + (P.exh || esc(P.ex)) + '</div>';
+  var sig = ultima ? -1 : dueno(S.qi + 1);
+  h += '<button class="btn tema" id="sig">' + (ultima ? "🏁 Ver cómo va la carrera" : "Siguiente: pasa el celular a " + av(sig) + esc(nombre(sig))) + '</button>';
   app.innerHTML = h;
   document.getElementById("sig").onclick = function(){
     if(ultima) cierraRonda();
@@ -557,40 +674,30 @@ function pintaVeredicto(){
 /* --- dibujo ------------------------------------------------------- */
 function pintaDibujo(){
   var R = ronda(), d = (S.di + S.r) % nj(), W = S.palabras[S.di];
-  var h = '<div class="barra"><span>Dibujo ' + (S.di + 1) + ' de ' + nj() + '</span><span class="reloj" id="seg"></span></div>';
+  var h = '<div class="turno-banda" ' + conColor(d) + '>' + av(d, "xl") + '<div><div class="quien">Dibuja ' + esc(nombre(d)) + '</div><div class="que">dibujo ' + (S.di + 1) + ' de ' + nj() + '</div></div></div>';
   if(S.paso === "tapa"){
-    h += '<div class="lector">✏️ <span>Dibuja <b>' + esc(nombre(d)) + '</b>. Los demás, no miren la pantalla.</span></div>';
-    h += '<div class="caja">Cuando solo ' + esc(nombre(d)) + ' esté viendo, toca el botón. Vas a ver la palabra y sus piezas durante 5 segundos.</div>';
-    h += '<button class="btn rosa" id="ver">Soy ' + esc(nombre(d)) + ', enséñame la palabra</button>';
+    h += '<div class="panel" style="text-align:center"><div style="font-size:3rem">🙈</div>Los demás, <strong>no miren la pantalla</strong>. Cuando solo ' + esc(nombre(d)) + ' la esté viendo, toca el botón.</div>';
+    h += '<button class="btn tema" id="ver">Soy ' + esc(nombre(d)) + ': enséñame la palabra</button>';
     app.innerHTML = h;
     document.getElementById("ver").onclick = function(){ S.paso = "ver"; guarda(); pinta(); };
     return;
   }
   if(S.paso === "ver"){
-    h += '<div class="grande">' + esc(W[0]) + '</div><div class="sub">' + esc(W[1]) + '</div>';
-    h += '<div class="caja" style="text-align:center">Dibuja: <strong>' + esc(W[2]) + '</strong></div>';
-    h += '<button class="btn rosa" id="va">Ya me la sé: ¡a dibujar! (60 s)</button>';
+    h += '<div class="secreto"><div class="enun">Tu palabra secreta</div><div class="grande">' + esc(W[0]) + '</div><div class="sub">' + esc(W[1]) + '</div><div class="dibuja">Dibuja: ' + esc(W[2]) + '</div><div class="ideas">Ideas: ' + W[3] + '</div></div>';
+    h += '<button class="btn tema" id="va">Ya me la sé: ¡a dibujar! (60 s)</button>';
     app.innerHTML = h;
     document.getElementById("va").onclick = function(){ S.paso = "dibuja"; S.fin = Date.now() + R.seg*1000; guarda(); pinta(); };
     return;
   }
   if(S.paso === "dibuja"){
-    h += '<div class="tiempo"><i id="barra"></i></div>';
-    h += '<p class="sub">Los demás gritan palabras. Cuando alguien la diga completa, toca su nombre.</p>';
-    h += '<canvas id="lienzo"></canvas><div class="fila"><button class="btn gris" id="limpia" style="margin-top:.4rem">Borrar todo</button></div>';
+    h = htmlReloj(R.seg) + '<p class="sub">Los demás gritan palabras. Cuando alguien la diga completa, toca su nombre.</p>';
+    h += '<canvas id="lienzo"></canvas><button class="btn gris" id="limpia" style="margin-top:.5rem;padding:.6rem">🧽 Borrar todo</button>';
     h += '<div class="quien">';
-    S.jugadores.forEach(function(j, i){ if(i !== d) h += '<button data-i="' + i + '">' + esc(j.nombre) + ' la dijo</button>'; });
+    S.jugadores.forEach(function(j, i){ if(i !== d) h += '<button data-i="' + i + '" ' + conColor(i) + '>' + esc(j.nombre) + ' la dijo</button>'; });
     h += '<button data-i="-1" class="nadie">Nadie</button></div>';
     app.innerHTML = h;
     lienzo();
-    var seg = document.getElementById("seg"), barra = document.getElementById("barra");
-    function actualiza(){
-      var q = Math.max(0, Math.ceil((S.fin - Date.now())/1000));
-      seg.textContent = q; barra.style.width = (100 * q / R.seg) + "%";
-      if(q <= 10) seg.classList.add("urge");
-      if(q <= 0){ para(); destello("⏰"); }
-    }
-    actualiza(); reloj = setInterval(actualiza, 250);
+    arrancaReloj(S.fin, R.seg, function(){ destello("⏰"); });
     [].forEach.call(app.querySelectorAll(".quien button"), function(b){
       b.onclick = function(){
         var g = +b.dataset.i;
@@ -601,10 +708,11 @@ function pintaDibujo(){
     return;
   }
   /* sol: se revela */
-  h += '<div class="grande">' + esc(W[0]) + '</div><div class="sub">' + esc(W[1]) + ' · ' + esc(W[2]) + '</div>';
-  h += '<div class="veredicto ' + (S.adivino >= 0 ? "ok" : "no") + '"><div class="titulo">' + (S.adivino >= 0 ? esc(nombre(S.adivino)) + " +2 · " + esc(nombre(d)) + " +1" : "Nadie la sacó") + '</div></div>';
-  var ultima = S.di + 1 >= nj();
-  h += '<button class="btn rosa" id="sig">' + (ultima ? "Ver cómo quedó la ronda" : "Siguiente dibujo: " + esc(nombre((S.di + 1 + S.r) % nj()))) + '</button>';
+  var ok = S.adivino >= 0;
+  h += '<div class="veredicto ' + (ok ? "ok" : "no") + '"><div class="gran-emoji">' + (ok ? "🎨" : "🤷") + '</div><div class="titulo">' + (ok ? esc(nombre(S.adivino)) + " +2 · " + esc(nombre(d)) + " +1" : "Nadie la sacó") + '</div></div>';
+  h += '<div class="secreto"><div class="grande">' + esc(W[0]) + '</div><div class="sub">' + esc(W[1]) + '</div><div class="dibuja">' + esc(W[2]) + '</div></div>';
+  var ultima = S.di + 1 >= nj(), sig = (S.di + 1 + S.r) % nj();
+  h += '<button class="btn tema" id="sig">' + (ultima ? "🏁 Ver cómo va la carrera" : "Siguiente dibujo: " + av(sig) + esc(nombre(sig))) + '</button>';
   app.innerHTML = h;
   document.getElementById("sig").onclick = function(){
     if(ultima){ S.fase = "cierre"; S.bonos = null; }
@@ -614,9 +722,9 @@ function pintaDibujo(){
 }
 function lienzo(){
   var c = document.getElementById("lienzo"), ctx = c.getContext("2d");
-  var ancho = c.clientWidth, alto = Math.round(ancho * 0.9), dpr = window.devicePixelRatio || 1;
+  var ancho = c.clientWidth, alto = Math.round(ancho * 0.85), dpr = window.devicePixelRatio || 1;
   c.width = ancho * dpr; c.height = alto * dpr; c.style.height = alto + "px";
-  ctx.scale(dpr, dpr); ctx.lineWidth = 4; ctx.lineCap = "round"; ctx.lineJoin = "round"; ctx.strokeStyle = "#2a2a2a";
+  ctx.scale(dpr, dpr); ctx.lineWidth = 4; ctx.lineCap = "round"; ctx.lineJoin = "round"; ctx.strokeStyle = "#2a1a28";
   var dib = false;
   function pos(e){ var r = c.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; }
   c.addEventListener("pointerdown", function(e){ dib = true; c.setPointerCapture(e.pointerId); var p = pos(e); ctx.beginPath(); ctx.moveTo(p[0], p[1]); ctx.lineTo(p[0]+.1, p[1]+.1); ctx.stroke(); });
@@ -629,11 +737,11 @@ function lienzo(){
 /* --- contrarreloj ------------------------------------------------- */
 function pintaRelevo(){
   var R = ronda(), yo = (S.di + S.r) % nj(), Q = S.qr;
+  var banda = '<div class="turno-banda" ' + conColor(yo) + '>' + av(yo, "xl") + '<div><div class="quien">Contrarreloj de ' + esc(nombre(yo)) + '</div><div class="que">' + (S.di + 1) + ' de ' + nj() + '</div></div></div>';
   if(S.paso === "apuesta"){
-    var v = S.vApuesta == null ? 5 : S.vApuesta;
-    var h = '<div class="lector">⏱️ <span>Contrarreloj de <b>' + esc(nombre(yo)) + '</b> (' + (S.di + 1) + ' de ' + nj() + ')</span></div>';
-    h += '<div class="caja"><strong>Tu apuesta:</strong> ¿cuántas vas a tener bien en 30 segundos?<div class="paso"><button id="menos">−</button><output id="val">' + v + '</output><button id="mas">+</button></div></div>';
-    h += '<button class="btn rosa" id="listo">¡Arranca mi reloj!</button>';
+    var v = 5;
+    var h = banda + '<div class="panel" style="text-align:center"><strong>Tu apuesta:</strong> ¿cuántas vas a tener bien en 30 segundos?<div class="paso"><button id="menos">−</button><output id="val">' + v + '</output><button id="mas">+</button></div></div>';
+    h += '<button class="btn tema" id="listo">⏱ ¡Arranca mi reloj!</button>';
     app.innerHTML = h;
     var o = document.getElementById("val");
     document.getElementById("menos").onclick = function(){ v = Math.max(0, v-1); o.textContent = v; };
@@ -644,34 +752,24 @@ function pintaRelevo(){
     return;
   }
   if(S.paso === "sol"){
-    var dif = Math.abs(S.cr.apuesta - S.cr.bien), bono = dif === 0 ? 1 : 0;
-    var h2 = '<div class="lector">⏱️ <span>Contrarreloj de <b>' + esc(nombre(yo)) + '</b></span></div>';
-    h2 += '<div class="marcador">' + S.cr.bien + '</div><p class="sub">bien de ' + S.cr.total + ' · apostaste ' + S.cr.apuesta + (bono ? ' · <span class="bono">¡exacta! +1</span>' : '') + '</p>';
-    var ultima = S.di + 1 >= nj();
-    h2 += '<button class="btn rosa" id="sig">' + (ultima ? "Ver el resultado final" : "Pasa el celular a " + esc(nombre((S.di + 1 + S.r) % nj()))) + '</button>';
+    var bono = S.cr.apuesta === S.cr.bien ? 1 : 0;
+    var h2 = banda + '<div class="contador">' + S.cr.bien + '</div><p class="sub">bien de ' + S.cr.total + ' · apostaste ' + S.cr.apuesta + '</p>';
+    if(bono) h2 += '<div class="veredicto ok"><div class="gran-emoji">🎯</div><div class="titulo">¡Apuesta exacta! +1</div></div>';
+    var ultima = S.di + 1 >= nj(), sig = (S.di + 1 + S.r) % nj();
+    h2 += '<button class="btn tema" id="sig">' + (ultima ? "🏆 Ver el podio" : "Pasa el celular a " + av(sig) + esc(nombre(sig))) + '</button>';
     app.innerHTML = h2;
     document.getElementById("sig").onclick = function(){
       if(bono){ suma(yo, 1); S.jugadores[yo].exactas++; }
       if(ultima){ S.fase = "final"; S.termino = Date.now(); }
-      else { S.di++; S.paso = "apuesta"; S.vApuesta = null; }
+      else { S.di++; S.paso = "apuesta"; }
       guarda(); pinta();
     };
     return;
   }
-  var h3 = '<div class="barra"><span>' + esc(nombre(yo)) + ' · ' + S.cr.bien + ' bien</span><span class="reloj" id="seg"></span></div>';
-  h3 += '<div class="tiempo"><i id="barra"></i></div>';
-  h3 += '<div class="enun">¿Qué significa?</div><div class="grande">' + esc(Q.g) + '</div><div class="ops">';
-  Q.op.forEach(function(o, i){ h3 += '<button data-i="' + i + '">' + esc(o) + '</button>'; });
-  h3 += '</div>';
+  var h3 = htmlReloj(R.seg) + '<div class="meta"><span>' + esc(nombre(yo)) + '</span><span>✅ ' + S.cr.bien + ' bien</span></div>';
+  h3 += '<div class="tarjeta"><div class="enun">¿Qué significa?</div><div class="grande">' + esc(Q.g) + '</div></div>' + htmlOps(Q, false);
   app.innerHTML = h3;
-  var seg = document.getElementById("seg"), barra = document.getElementById("barra");
-  function actualiza(){
-    var q = Math.max(0, Math.ceil((S.fin - Date.now())/1000));
-    seg.textContent = q; barra.style.width = (100 * q / R.seg) + "%";
-    if(q <= 10) seg.classList.add("urge");
-    if(q <= 0){ para(); S.paso = "sol"; guarda(); pinta(); }
-  }
-  actualiza(); reloj = setInterval(actualiza, 250);
+  arrancaReloj(S.fin, R.seg, function(){ S.paso = "sol"; guarda(); pinta(); });
   [].forEach.call(app.querySelectorAll(".ops button"), function(b){
     b.onclick = function(){
       if(Date.now() >= S.fin) return;
@@ -685,10 +783,10 @@ function pintaRelevo(){
 }
 function destello(t){
   var f = document.getElementById("flash"); f.textContent = t; f.classList.add("on");
-  setTimeout(function(){ f.classList.remove("on"); }, 350);
+  setTimeout(function(){ f.classList.remove("on"); }, 300);
 }
 
-/* --- cierre de ronda ---------------------------------------------- */
+/* --- cierre de ronda: la carrera ---------------------------------- */
 function cierraRonda(){
   S.bonos = S.jugadores.map(function(j, i){
     var ex = S.apuestas[i] === S.aciertos[i];
@@ -697,45 +795,83 @@ function cierraRonda(){
   });
   S.fase = "cierre";
 }
+function htmlCarrera(){
+  var rk = ranking(), max = Math.max(1, rk[0].j.puntos), h = '<div class="carrera">';
+  rk.forEach(function(x, k){
+    var antes = S.antes ? S.antes[x.i] : x.j.puntos;
+    var d = x.j.puntos - antes;
+    /* Lugar con empates: 1 + cuántos tienen más puntos. Antes de la ronda 2 no hay de dónde subir o bajar. */
+    var ahora = S.jugadores.map(function(j){ return j.puntos; });
+    var lugar = function(pts, i){ return 1 + pts.filter(function(p){ return p > pts[i]; }).length; };
+    var mov = S.antes ? lugar(S.antes, x.i) - lugar(ahora, x.i) : 0;
+    var flecha = S.r === 0 ? '' : mov > 0 ? '<span class="sube">▲' + mov + '</span>' : mov < 0 ? '<span class="baja">▼' + (-mov) + '</span>' : '<span class="igual">＝</span>';
+    h += '<div class="carril" ' + conColor(x.i) + '><span class="pos">' + lugar(ahora, x.i) + '</span><div class="pista-barra"><div class="relleno" style="width:' + (100 * antes / max) + '%" data-w="' + (100 * x.j.puntos / max) + '"></div><span class="etq-carril">' + esc(x.j.nombre) + '</span></div>' +
+      '<span class="pp">' + x.j.puntos + '</span><span class="delta">' + (d > 0 ? '<span class="sube">+' + d + '</span> ' : '') + flecha + '</span></div>';
+  });
+  return h + '</div>';
+}
+function animaCarrera(){
+  setTimeout(function(){ [].forEach.call(app.querySelectorAll(".relleno"), function(b){ b.style.width = b.dataset.w + "%"; }); }, 120);
+}
 function pintaCierre(){
   var R = ronda();
-  var h = progreso() + '<h1>Así quedó la ronda ' + (S.r + 1) + '</h1>';
+  var h = '<div class="portada-ronda" style="padding:1rem"><div class="emoji">🏁</div><h1>Así va la carrera</h1><p class="sub">después de la ronda ' + (S.r + 1) + ' · ' + esc(R.titulo) + '</p></div>';
+  h += htmlCarrera();
   if(S.bonos){
-    h += '<div class="caja"><strong>La brecha.</strong> Apuesta contra resultado. Quien le atinó exacto gana +1.<table><tr><th>Quién</th><th class="n">Apostó</th><th class="n">Sacó</th><th></th></tr>';
+    h += '<div class="panel"><strong>La brecha.</strong> Apuesta contra resultado; quien le atinó exacto, +1 🎯<div class="calib">';
     S.jugadores.forEach(function(j, i){
-      var d = S.aciertos[i] - S.apuestas[i];
-      h += '<tr><td>' + esc(j.nombre) + '</td><td class="n">' + S.apuestas[i] + '</td><td class="n">' + S.aciertos[i] + '</td><td class="n">' + (d === 0 ? '<span class="bono">+1 ★</span>' : d > 0 ? '<span class="leve">se subestimó</span>' : '<span class="leve">se confió</span>') + '</td></tr>';
+      var dd = S.aciertos[i] - S.apuestas[i];
+      h += '<div ' + conColor(i) + '>' + av(i) + '<span>' + S.apuestas[i] + ' → ' + S.aciertos[i] + ' ' + (dd === 0 ? '<b>🎯 +1</b>' : dd > 0 ? '<span class="igual">se subestimó</span>' : '<span class="igual">se confió</span>') + '</span></div>';
     });
-    h += '</table></div>';
+    h += '</div></div>';
   }
-  h += '<h2>La tabla</h2>' + tabla(true);
-  var ultima = S.r + 1 >= RONDAS.length;
-  h += '<button class="btn rosa" id="sig">Siguiente ronda: ' + esc(RONDAS[S.r+1].titulo) + '</button>';
+  var sig = RONDAS[S.r+1];
+  h += '<button class="btn tema" id="sig">Siguiente: ' + sig.emoji + ' ' + esc(sig.titulo) + '</button>';
   app.innerHTML = h;
+  animaCarrera();
   document.getElementById("sig").onclick = function(){ S.r++; S.fase = "apuesta"; guarda(); pinta(); };
 }
 
-/* --- final -------------------------------------------------------- */
+/* --- final: podio ------------------------------------------------- */
 function pintaFinal(){
   var rk = ranking(), min = S.termino ? Math.round((S.termino - S.inicio)/60000) : null;
-  var medallas = ["🥇","🥈","🥉"];
-  var h = '<h1>Podio</h1><p class="sub">' + (min ? min + " minutos de maratón · " : "") + 'muéstrenle esta pantalla al profe</p><div class="podio">';
-  rk.forEach(function(x, k){
-    h += '<div class="lugar l' + k + '"><span class="med">' + (medallas[k] || (k+1) + "°") + '</span><span class="nom">' + esc(x.j.nombre) + '</span><span class="pp">' + x.j.puntos + '</span></div>';
+  var h = '<div class="logo" style="margin-top:1rem"><h1>🏆 ¡Podio!</h1><p class="sub">' + (min ? min + " minutos de maratón · " : "") + 'enséñenle esta pantalla al profe</p></div><div class="podio">';
+  [1, 0, 2].forEach(function(k){
+    var x = rk[k]; if(!x) return;
+    h += '<div class="col p' + (k+1) + '" ' + conColor(x.i) + '>' + av(x.i, k === 0 ? "xxl" : "xl") + '<div class="nom">' + esc(x.j.nombre) + '</div><div class="pp">' + x.j.puntos + ' pts</div><div class="base">' + ["🥇","🥈","🥉"][k] + '</div></div>';
   });
   h += '</div>';
-  var mejor = S.jugadores.slice().sort(function(a, b){ return b.exactas - a.exactas; })[0];
+  if(rk.length > 3){
+    h += '<div class="resto">';
+    rk.slice(3).forEach(function(x, k){ h += '<div ' + conColor(x.i) + '><span>' + (k+4) + '°</span>' + av(x.i) + '<span>' + esc(x.j.nombre) + '</span><span class="pp">' + x.j.puntos + '</span></div>'; });
+    h += '</div>';
+  }
+  var mejor = S.jugadores.map(function(j, i){ return {i:i, j:j}; }).sort(function(a, b){ return b.j.exactas - a.j.exactas; })[0];
   var total = RONDAS.filter(function(R){ return !R.dibujo; }).length;
-  h += '<div class="caja"><strong>Premio a la calibración:</strong> ' + esc(mejor.nombre) + ', que le atinó exacto a su apuesta en ' + mejor.exactas + ' de ' + total + ' rondas. Saber cuánto sabes también es la materia.</div>';
-  h += '<h2>La lista de repaso de cada quien</h2><p class="sub" style="text-align:left">Lo que se te escapó hoy. Búscalo en tu mazo de Anki y márcalo como «Otra vez». Tómale captura a la tuya.</p>';
-  S.jugadores.forEach(function(j){
-    h += '<details class="repaso"><summary>' + esc(j.nombre) + ' · ' + j.fallos.length + ' por repasar</summary>';
+  h += '<div class="panel" style="--c:' + col(mejor.i) + ';display:flex;gap:.7rem;align-items:center">' + av(mejor.i, "xl") + '<div><strong>🎯 Premio a la calibración</strong><br>' + esc(mejor.j.nombre) + ' le atinó exacto a su apuesta en ' + mejor.j.exactas + ' de ' + total + ' rondas. Saber cuánto sabes también es la materia.</div></div>';
+  h += '<h2>📚 La lista de repaso de cada quien</h2><p class="sub" style="text-align:left">Lo que se te escapó hoy. Búscalo en tu mazo de Anki y márcalo como «Otra vez». Tómale captura a la tuya.</p>';
+  S.jugadores.forEach(function(j, i){
+    h += '<details class="repaso"><summary>' + av(i) + esc(j.nombre) + ' · ' + j.fallos.length + ' por repasar</summary>';
     h += j.fallos.length ? '<ul>' + j.fallos.map(function(f){ return '<li>' + esc(f) + '</li>'; }).join("") + '</ul>' : '<p>Cero fallos. Sospechoso, pero felicidades.</p>';
     h += '</details>';
   });
   h += '<button class="btn gris" id="otra">Jugar otra vez (preguntas nuevas)</button>';
   app.innerHTML = h;
   document.getElementById("otra").onclick = function(){ if(!confirm("¿Borrar este resultado y empezar de nuevo?")) return; borra(); S = {fase:"inicio"}; pinta(); };
+  confeti();
+}
+function confeti(){
+  if(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var c = document.getElementById("confeti"), ctx = c.getContext("2d");
+  c.hidden = false; c.width = innerWidth; c.height = innerHeight;
+  var ps = [];
+  for(var i=0;i<140;i++) ps.push({x:Math.random()*c.width, y:-20 - Math.random()*c.height*.6, vx:(Math.random()-.5)*2, vy:2 + Math.random()*3, r:Math.random()*6.28, vr:(Math.random()-.5)*.3, col:COLORES[i % COLORES.length], w:6 + Math.random()*6});
+  var t0 = Date.now();
+  (function cuadro(){
+    ctx.clearRect(0, 0, c.width, c.height);
+    ps.forEach(function(p){ p.x += p.vx; p.y += p.vy; p.r += p.vr; ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.r); ctx.fillStyle = p.col; ctx.fillRect(-p.w/2, -p.w/4, p.w, p.w/2); ctx.restore(); });
+    if(Date.now() - t0 < 4500) requestAnimationFrame(cuadro); else { ctx.clearRect(0, 0, c.width, c.height); c.hidden = true; }
+  })();
 }
 
 /* --- arranque ----------------------------------------------------- */
