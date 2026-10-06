@@ -10,7 +10,7 @@ nav_order: 1
 
 Las voces de nuestras casas y nuestros barrios: nahuatlismos, palabras de antes, voces de la región, nombres de lugares. Recolectadas en entrevistas, con el ejemplo dicho tal como lo dijo quien la regaló, y con el origen verificado en tres diccionarios (o con la nota honesta de que no aparece en ninguno). Nuestro diccionario, hecho desde aquí.
 
-Cada ficha lleva un sello: **verificada** (el origen está en la fuente), **voz viva no registrada** (no aparece en ningún diccionario: documentación original del grupo) o **otro significado** (el uso de la región se desvió del registrado). Los nombres son de pila y aparecen solo con permiso.
+Cada ficha lleva un sello: **verificada** (el origen está en la fuente), **voz viva no registrada** (no aparece en ningún diccionario: documentación original del grupo) o **otro significado** (el uso de la región se desvió del registrado). Una ficha con **fuente pendiente** ya tiene palabra, definición y voz, pero todavía le falta la verificación en los diccionarios. Los nombres son de pila y aparecen solo con permiso.
 
 <div id="mapa-filtros" class="mapa-filtros"></div>
 <div id="mapa-muro"></div>
@@ -30,6 +30,14 @@ Cada ficha lleva un sello: **verificada** (el origen está en la fuente), **voz 
      ============================================================ -->
 <script>
 window.MAPA_LEXICO = [
+  /* Primera cosecha: 4 y 5 de octubre de 2026. El recolector de entonces solo
+     guardaba palabra, definición y quién la dice; el ejemplo, el origen, la
+     fuente y el ámbito de estas tres fichas se perdieron en el camino. Por eso
+     llevan el sello "fuente pendiente": se completan cuando el grupo las
+     vuelva a verificar. El ámbito lo puso la curaduría. */
+  {"palabra":"Tarabilla","ambito":"oficios","significado":"Pieza de madera que se utilizaba para hacer mecates de ixtle, que se saca de la lechuguilla, un maguey que hay en el cerro.","quien":"Antes así le decían a esa pieza; a mí me la dijo mi bisabuela.","nombre":"Yuritza"},
+  {"palabra":"Guaparra","ambito":"campo","significado":"Machete o cuchilla.","quien":"Me la dijo mi vecina cuando llegó a vivir cerca de mi casa.","nombre":"Alan"},
+  {"palabra":"Crush","ambito":"jóvenes","significado":"Persona por la que se siente atracción o gusto amoroso, generalmente en la adolescencia.","quien":"Los jóvenes.","origen":"Anglicismo juvenil; sustantivo.","nombre":"Monserrat"}
 ];
 </script>
 <!-- /COSECHA:mapa-lexico -->
@@ -70,6 +78,7 @@ El formulario es el mismo de la [semana 10](../semanas/semana-10.html): los seis
 .mapa-ficha .mf-sello.verif{background:#dff5ee;color:#0b5f52}
 .mapa-ficha .mf-sello.viva{background:#fbf0d9;color:#7a5a0b}
 .mapa-ficha .mf-sello.otro{background:#ffe3f0;color:#a30058}
+.mapa-ficha .mf-sello.pend{background:#eeeaf3;color:#5b5370;border:1px dashed #b9afc9}
 .mapa-ficha .mf-nota{font-size:.84rem;color:#666}
 .mapa-ficha .mf-doc{font-size:.76rem;color:#c4006a;font-weight:700;margin-top:.3rem}
 .mapa-vacio{border:1px dashed #d9c3d4;border-radius:.9rem;padding:1rem 1.1rem;background:#fdf9fc;color:#6b1e5a;font-style:italic}
@@ -89,6 +98,7 @@ El formulario es el mismo de la [semana 10](../semanas/semana-10.html): los seis
     var o=((f.origen||'')+' '+(f.fuente||'')).toLowerCase();
     if(o.indexOf('no está')>-1||o.indexOf('no esta')>-1||o.indexOf('no registr')>-1||o.indexOf('original')>-1)return ['viva','voz viva no registrada'];
     if(o.indexOf('otro significado')>-1||o.indexOf('otra acepci')>-1||o.indexOf('se desvi')>-1)return ['otro','otro significado'];
+    if(!(f.fuente||'').trim())return ['pend','fuente pendiente'];
     return ['verif','verificada'];
   }
   var ambitos=[];
