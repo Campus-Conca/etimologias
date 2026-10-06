@@ -38,11 +38,9 @@ window.MAPA_LEXICO = [
      "otro significado" = otro significado; sin fuente = fuente pendiente. */
 
   {"palabra":"Guau","ambito":"campo","destacada":true,"modelo":true,
-   "significado":"Nombre local de la hiedra venenosa, que crece cerca de las orillas de los arroyos y causa alergias en la mayoría de las personas.",
+   "significado":"Nombre local de la hiedra venenosa, la cual crece cerca de orillas de arroyos y causa alergias en la mayoría de las personas.",
    "quien":"Campesinos de la Sierra Gorda.",
-   "origen":"Otro significado. Guao es voz antillana de origen no aclarado: el DLE la da como de origen desconocido y el Diccionario histórico la documenta por primera vez en Bartolomé de las Casas, hacia 1530-1550. En Cuba, República Dominicana y México nombra un arbusto de savia cáustica, el guao de los diccionarios (Comocladia). En la Sierra el nombre se pasó a una prima de la misma familia, la hiedra venenosa (Toxicodendron radicans), que también quema la piel.",
-   "fuente":"DLE y Diccionario histórico (guao); CONABIO registra guau como nombre de la hiedra venenosa en México. En el DEM y en el Diccionario de americanismos, guao en México es solo una tortuga.",
-   "nombre":"Eduardo, el profe"},
+   "nombre":"Eduardo"},
 
   /* Primera cosecha: 4 y 5 de octubre de 2026. El recolector de entonces solo
      guardaba palabra, definición y quién la dice; el ejemplo, el origen, la
