@@ -150,7 +150,7 @@ window.MUSEO_PIEZAS = [
    adquisicion:"La encontró en un libro; les llamó la atención en su momento.",
    curaduria:"El viaje llegó bien armado, pero la fuente decía \"en internet\", así que en curaduría se buscó en el DLE: confirma kosmogonía, tal cual. El regalo está en kósmos, que antes de ser \"mundo\" fue \"orden\": los griegos pensaron que el universo era un orden, y de ahí también cosmético, lo que pone en orden la cara. Su hermana es teogonía, el nacimiento de los dioses, título del poema de Hesíodo.",
    fuente:"Verificada en el DLE",
-   nombre:"Andre", nueva:true},
+   nombre:"Andre"},
 
   {inv:"2026.1.007", sala:1, palabra:"Antropófago", lengua:"griego",
    procedencia:"del griego · ánthropos + phageín",
@@ -167,7 +167,7 @@ window.MUSEO_PIEZAS = [
    adquisicion:"La dijo el profesor en clase y se la quedó.",
    curaduria:"Dos ajustes de ortografía griega: es ánthropos, con la t antes de la r, y phageín es el infinitivo \"comer\". Lo demás vino verificado en el DECEL. La familia de -fago es enorme y un poco macabra: sarcófago es la caja que \"come carne\", esófago el que \"lleva lo que se come\", y los bacteriófagos, virus que se comen bacterias.",
    fuente:"Verificada en DECEL",
-   nombre:"Ángel", nueva:true},
+   nombre:"Ángel"},
 
   {inv:"2026.1.008", sala:1, palabra:"Misántropo", lengua:"griego",
    procedencia:"del griego · mísos + ánthropos",
@@ -183,7 +183,7 @@ window.MUSEO_PIEZAS = [
    adquisicion:"En la clase de Etimología.",
    curaduria:"Segunda pieza de Iker en la sala, y esta llegó con el viaje y la fuente completos. Su espejo exacto es filántropo, el que ama a la gente, y su prima misoginia, que comparte el mísos. Molière escribió una comedia entera con este título en 1666: El misántropo, sobre un hombre que odia la hipocresía de todos y termina solo.",
    fuente:"Verificada en DECEL",
-   nombre:"Iker", nueva:true},
+   nombre:"Iker"},
 
   {inv:"2026.1.009", sala:1, palabra:"Amistaluz", lengua:"inventada",
    procedencia:"inventada · ami + luz",
@@ -199,7 +199,147 @@ window.MUSEO_PIEZAS = [
    adquisicion:"La inventó en la actividad de crear palabras, pensando en sus amigas.",
    curaduria:"Iris hizo lo que hace un buen lexicógrafo: buscó la palabra antes de darla por nueva y confirmó que no existe. Por eso cuelga en un marco distinto, el jade de las inventadas. Las piezas, en cambio, son antiguas y las dos latinas: amīcus viene de amāre, y lux, lūcis es la misma luz de lúcido y de Lucía. El español lleva siglos armando compuestos así, como aguanieve o pelirrojo; esta es solo la más joven.",
    fuente:"Buscada y no encontrada: todavía no existe en ningún diccionario",
-   nombre:"Iris", nueva:true},
+   nombre:"Iris"},
+
+  {inv:"2026.1.010", sala:1, palabra:"Vehemencia", lengua:"latín",
+   procedencia:"del latín · vehementia",
+   lema:"En clase, por la textura del profesor",
+   cita:"Vehemencia es la cualidad de actuar, hablar o sentir con una pasión, fuerza o ímpetu muy intensos.",
+   citaPie:"Auro, definiendo la pieza",
+   viaje:[
+     ["vehemens, vehementis","latín","impetuoso, violento"],
+     ["vehementia","latín","ímpetu, fuerza"],
+     ["vehemencia","español","pasión o fuerza intensas"]
+   ],
+   adquisicion:"Llegó en clase, por la textura con que el profesor dijo la palabra.",
+   curaduria:"Auro trajo la definición y la fuente; el viaje se colgó en curaduría. Y es un viaje con misterio: los latinos ya no sabían de dónde venía vehemens. El DECEL la lee como ve- (fuera de) + mens (mente): el vehemente actúa con la mente fuera de sitio. Otros la ligan a vehere, llevar, como vehículo: el que se deja llevar. Las dos explicaciones son bonitas; ninguna está probada. Así cuelga.",
+   fuente:"Verificada en el DLE y el DECEL",
+   nombre:"Auro"},
+
+  {inv:"2026.1.011", sala:1, palabra:"Obnubilar", lengua:"latín",
+   procedencia:"del latín · ob + nubilare",
+   lema:"Creí que interesaría a mis alumnos",
+   cita:"Hoy justo hablamos de la sobreestimulación en la que vivimos.",
+   citaPie:"Eduardo, sobre por qué la trajo a la sala",
+   viaje:[
+     ["nubes","latín","nube"],
+     ["nubilare","latín","nublar"],
+     ["obnubilare","latín","cubrir con una nube; luego, ofuscar"],
+     ["obnubilar","español","nublar el entendimiento"]
+   ],
+   adquisicion:"La encontró en Y ahora qué hago. Cómo evitar la culpa climática y pasar a la acción, el día que en clase se habló de la sobreestimulación.",
+   curaduria:"La ficha decía \"viene del latín nublado\" y es cierto, pero cabe más: ob- (encima, enfrente) + nubilare (nublar), de nubes. Obnubilarse es, literalmente, que se le eche una nube encima a uno. En el siglo II significaba cubrir de nubes; en el IV, ya en los padres de la Iglesia, confundir. La mente nublada es una metáfora de mil setecientos años.",
+   fuente:"Verificada en DECEL",
+   nombre:"Eduardo, el profe"},
+
+  {inv:"2026.1.012", sala:1, palabra:"Pescuello", lengua:"inventada",
+   procedencia:"inventada · pescuezo + cuello",
+   lema:"Me confundí entre pescuezo y cuello",
+   cita:"Me pareció adecuada para criaturas mitológicas donde esté un humano combinado con un animal.",
+   citaPie:"Camila, sobre para qué sirve su palabra",
+   viaje:[
+     ["post + cuezo","latín","detrás + cogote"],
+     ["pescuezo","español","el cuello de un animal"],
+     ["collum","latín","cuello"],
+     ["pescuello","español · 2026","el cuello de un ser mitad humano, mitad animal"]
+   ],
+   adquisicion:"Un día se confundió entre pescuezo y cuello, y en vez de corregirse le dio un significado propio a la mezcla.",
+   curaduria:"Un lapsus convertido en pieza. Camila notó que el español ya tiene dos palabras para la misma parte del cuerpo según quién la lleve: cuello para la gente, pescuezo para el animal. Su palabra junta las dos y nombra justo lo que está entre ambas: el centauro, la sirena, el minotauro. Las piezas son antiguas: cuello viene de collum, y pescuezo de post (detrás) + cuezo, un viejo nombre del cogote. Cuelga en jade, como las inventadas.",
+   fuente:"Buscada en el DLE: no existe; sus dos mitades, sí",
+   nombre:"Camila"},
+
+  {inv:"2026.1.013", sala:1, palabra:"Velociraptor", lengua:"latín",
+   procedencia:"del latín · velox + raptor",
+   lema:"Me gustan los dinosaurios",
+   cita:"Desde siempre la he escuchado: es uno de los dinosaurios más conocidos.",
+   citaPie:"Camila, sobre cómo llegó la pieza",
+   viaje:[
+     ["velox, velōcis","latín","rápido"],
+     ["rapere","latín","arrebatar, llevarse por la fuerza"],
+     ["raptor","latín","el que arrebata, ladrón"],
+     ["Velociraptor","latín científico · 1924","ladrón veloz"]
+   ],
+   adquisicion:"La conoce desde siempre, por los dinosaurios.",
+   curaduria:"El viaje vino completo: velox + rapere + -tor, y así está en el DECEL. Lo que se le cuelga al lado es la fecha: la palabra no es antigua. La inventó en 1924 el paleontólogo Henry Osborn con piezas latinas, como se siguen inventando los nombres de los seres vivos. Es latín de laboratorio, y por eso cuelga en el marco de las latinas con una etiqueta de fábrica: \"ladrón veloz\". Raptor es la misma pieza de rapto y de rapaz.",
+   fuente:"Verificada en DECEL",
+   nombre:"Camila"},
+
+  {inv:"2026.1.014", sala:1, palabra:"Lánguida", lengua:"latín",
+   procedencia:"del latín · languidus",
+   lema:"La encontré leyendo Boulevard",
+   cita:"No es una palabra que use normalmente y me pareció interesante conocer su significado.",
+   citaPie:"Yamila, sobre por qué la eligió",
+   viaje:[
+     ["languēre","latín","estar débil, desfallecer"],
+     ["languidus","latín","debilitado, sin fuerza"],
+     ["lánguida","español","débil, sin energía, desganada"]
+   ],
+   adquisicion:"La encontró mientras leía Boulevard: Después de él; no conocía bien su significado.",
+   curaduria:"Yamila dijo \"aún no\" en la fuente y eso también es una respuesta: la ficha entró a medias y en curaduría se verificó. Languidus viene del verbo languere, estar débil, y el DECEL lo lleva a una raíz que significa \"flojo\": la misma de relajar y, sorpresa, de lejos. Lo lánguido es lo que se afloja.",
+   fuente:"Verificada en curaduría, en DLE y DECEL",
+   nombre:"Yamila"},
+
+  {inv:"2026.1.015", sala:1, palabra:"Templario", lengua:"latín",
+   procedencia:"del latín · templum",
+   lema:"Por una película",
+   cita:"Se me hace una palabra muy interesante.",
+   citaPie:"Yael, sobre la pieza",
+   viaje:[
+     ["templum","latín","el espacio sagrado que el augur recortaba en el cielo"],
+     ["templum","latín","el edificio del templo"],
+     ["Temple","francés · siglo XII","la orden fundada junto al templo de Salomón"],
+     ["templario","español","caballero de esa orden"]
+   ],
+   adquisicion:"Llegó por una película.",
+   curaduria:"La ficha traía la definición del DECEL, no el viaje; el viaje se colgó aquí. Los templarios se llaman así porque su primera casa, en Jerusalén, estaba sobre las ruinas del templo de Salomón. Y templum es más viejo que cualquier templo: era el cuadro que el augur romano recortaba en el cielo para leer el vuelo de los pájaros. Contemplar es, todavía, mirar ese cuadro.",
+   fuente:"Verificada en DECEL",
+   nombre:"Yael"},
+
+  {inv:"2026.1.016", sala:1, palabra:"Alameda", lengua:"latín",
+   procedencia:"del latín · -eta, sobre álamo",
+   lema:"Me la imaginé como un lugar lleno de naturaleza",
+   cita:"Me pareció una palabra muy llamativa: me imaginé un lugar muy lleno de naturaleza.",
+   citaPie:"Yuritza, sobre la pieza",
+   viaje:[
+     ["álamo","español antiguo","el árbol; origen discutido"],
+     ["-eta","latín","lugar donde abunda algo"],
+     ["alameda","español","sitio poblado de álamos; luego, paseo con árboles"]
+   ],
+   adquisicion:"La encontró leyendo Boulevard, entre el texto.",
+   curaduria:"Una corrección y un hallazgo. La corrección: no existe un latín \"alamus\"; álamo es una palabra de origen discutido (gótico, celta o el latín ulmus, el del olmo), y lo único seguro es que no es árabe aunque empiece con al-. El hallazgo es el sufijo, que Yuritza leyó bien: -eda viene del latín -eta y significa \"lugar lleno de\". Es la misma pieza de arboleda, rosaleda y polvareda. Una alameda es, antes que un paseo, un bosque de álamos.",
+   fuente:"Verificada en DECEL",
+   nombre:"Yuritza"},
+
+  {inv:"2026.1.017", sala:1, palabra:"Nefelibata", lengua:"griego",
+   procedencia:"del griego · nephélē + bátēs",
+   lema:"La encontré en El mapa de los anhelos",
+   cita:"Cuando leí su significado me pareció muy interesante.",
+   citaPie:"Auro, sobre la pieza",
+   viaje:[
+     ["nephélē","griego","nube"],
+     ["bátēs","griego","el que anda"],
+     ["nefelibata","español · 1907","el que anda por las nubes"]
+   ],
+   adquisicion:"La encontró en el libro El mapa de los anhelos.",
+   curaduria:"Auro trajo la definición del DLE: soñador, que no se apercibe de la realidad. El viaje se colgó en curaduría y trae sorpresa: las piezas son griegas, pero la palabra no. La armó Rubén Darío en 1907, en El canto errante (\"que ando, nefelibata, por las nubes\"), y el diccionario tardó hasta 1984 en admitirla. Es una palabra inventada que se salió con la suya: el camino que Amistaluz y Pescuello apenas empiezan.",
+   fuente:"Verificada en el DLE y el DECEL",
+   nombre:"Auro", nueva:true},
+
+  {inv:"2026.1.018", sala:1, palabra:"Álgido", lengua:"latín",
+   procedencia:"del latín · algidus",
+   lema:"Me dio curiosidad en una cita del libro",
+   cita:"Álgido proviene del latín algidus, muy frío o helado, del verbo algere, sentir frío.",
+   citaPie:"Alexander, con el viaje ya armado",
+   viaje:[
+     ["algēre","latín","tener frío"],
+     ["algidus","latín","muy frío, helado"],
+     ["álgido","español médico","la fase de frío glacial de una enfermedad"],
+     ["álgido","español","el momento crítico o culminante"]
+   ],
+   adquisicion:"Le dio curiosidad en una cita de un libro.",
+   curaduria:"El viaje vino armado y verificado. Lo que se cuelga al lado es la pregunta que abre: si álgido significa helado, ¿por qué decimos que una discusión llegó a su punto álgido, que es cuando más arde? La respuesta está en la medicina: el \"periodo álgido\" era la fase de frío extremo de una fiebre, la más grave. De \"la fase más fría\" se pasó a \"la fase más grave\", y de ahí a \"la culminante\". La palabra cruzó al significado contrario sin cambiar una letra.",
+   fuente:"Verificada en el DLE y el DECEL",
+   nombre:"Alexander", nueva:true},
 
   {inv:"2026.1.M1", sala:1, palabra:"Trabajo", lengua:"latín",
    procedencia:"del latín tardío · tripalium",
