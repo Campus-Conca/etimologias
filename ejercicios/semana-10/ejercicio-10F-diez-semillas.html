@@ -42,16 +42,18 @@
   .riel li button:hover{background:var(--papel2)}
   .riel li button.on{border-bottom-color:var(--tierra);background:var(--papel2)}
   .riel li button.hecho small::before{content:"✓ ";color:var(--brote)}
+  .riel li.resumen button{border-left:1px solid var(--linea);margin-left:.4rem;padding-left:1rem}
+  .riel li.resumen button b{color:var(--tierra)}
 
   /* ---------- cuerpo ---------- */
-  .cuerpo{max-width:1280px;margin:0 auto;padding:1.2rem;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.9fr);gap:1.2rem;align-items:start}
-  @media (max-width:900px){.cuerpo{grid-template-columns:1fr}}
+  .cuerpo{max-width:1100px;margin:0 auto;padding:1.2rem}
 
   .panel{background:#fff;border:1px solid var(--linea);border-radius:1.2rem;box-shadow:var(--sombra);padding:1.4rem 1.5rem 1.6rem;position:relative;overflow:hidden}
   .panel::before{content:"";position:absolute;left:0;top:0;bottom:0;width:7px;background:linear-gradient(var(--ocre),var(--tierra))}
   .panel .num{font-family:"Fraunces",serif;font-size:4.2rem;font-weight:800;color:var(--papel2);position:absolute;right:1rem;top:-.4rem;line-height:1;user-select:none}
   .panel h2{margin:0;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;line-height:1.1}
   .panel .cuando{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--tierra);font-weight:800;margin-bottom:.3rem;display:flex;gap:.8rem;align-items:center;flex-wrap:wrap}
+  .btn-ir{display:inline-block;margin-top:1rem;border:0;border-radius:.7rem;padding:.6rem 1.1rem;font-weight:800;background:var(--gis);color:var(--tizaamarilla);font-family:"Caveat",cursive;font-size:1.3rem}
   .panel .hacen{margin:.6rem 0 1rem;font-size:1.05rem;color:var(--tinta2);max-width:60ch}
   .panel .hacen strong{color:var(--tinta)}
   .reloj{display:inline-flex;align-items:center;gap:.4rem;background:var(--papel);border:1px solid var(--linea);border-radius:999px;padding:.15rem .3rem .15rem .7rem;font-variant-numeric:tabular-nums;letter-spacing:0;text-transform:none;font-weight:800;color:var(--tinta)}
@@ -141,12 +143,13 @@
   .nota b{color:var(--tinta)}
 
   /* ---------- pizarrón ---------- */
-  .pizarron{background:var(--gis);color:var(--tiza);border-radius:1.2rem;padding:1.2rem 1.3rem 1.4rem;box-shadow:var(--sombra),inset 0 0 60px rgba(0,0,0,.25);border:8px solid #7A5338;position:sticky;top:.8rem;max-height:calc(100vh - 1.6rem);overflow:auto;font-family:"Caveat",cursive;font-size:1.25rem;line-height:1.25}
-  @media (max-width:900px){.pizarron{position:static;max-height:none}}
-  .pizarron h2{font-family:"Caveat",cursive;font-weight:700;font-size:1.6rem;margin:0 0 .6rem;color:var(--tizaamarilla);letter-spacing:.02em;display:flex;justify-content:space-between;align-items:baseline}
+  .pizarron{background:var(--gis);color:var(--tiza);border-radius:1.2rem;padding:1.4rem 1.6rem 1.6rem;box-shadow:var(--sombra),inset 0 0 60px rgba(0,0,0,.25);border:10px solid #7A5338;font-family:"Caveat",cursive;font-size:1.55rem;line-height:1.25;margin-top:1rem}
+  .pizarron .rejilla{display:grid;grid-template-columns:1fr 1fr;gap:.2rem 2rem}
+  @media (max-width:760px){.pizarron .rejilla{grid-template-columns:1fr}.pizarron{font-size:1.3rem}}
+  .pizarron h2{font-family:"Caveat",cursive;font-weight:700;font-size:2.1rem;margin:0 0 .6rem;color:var(--tizaamarilla);letter-spacing:.02em;display:flex;justify-content:space-between;align-items:baseline}
   .pizarron h2 small{font-size:.9rem;color:var(--tiza2);font-weight:500}
   .pizarron section{margin-top:1rem;padding-top:.7rem;border-top:1px dashed rgba(242,235,221,.25)}
-  .pizarron section h3{font-family:"Caveat",cursive;font-size:1.3rem;margin:0 0 .3rem;color:var(--tizarosa);font-weight:700}
+  .pizarron section h3{font-family:"Caveat",cursive;font-size:1.6rem;margin:0 0 .3rem;color:var(--tizarosa);font-weight:700}
   .pizarron .vacio{color:var(--tiza2);opacity:.7;font-size:1.05rem}
   .pizarron table{width:100%;border-collapse:collapse}
   .pizarron th,.pizarron td{text-align:left;padding:.1rem .3rem;vertical-align:top}
@@ -158,13 +161,16 @@
   .pizarron .motivos{color:var(--tiza2);font-size:1.05rem}
   .pizarron .cols{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
   .pizarron ul{margin:0;padding-left:1.1rem}
-  .pizarron .cosido{margin-top:1.1rem;background:rgba(243,215,122,.12);border:1px dashed var(--tizaamarilla);border-radius:.6rem;padding:.6rem .8rem;color:var(--tizaamarilla);font-size:1.35rem}
+  .pizarron .cosido{margin-top:1.3rem;background:rgba(243,215,122,.12);border:1px dashed var(--tizaamarilla);border-radius:.6rem;padding:.8rem 1rem;color:var(--tizaamarilla);font-size:1.8rem}
+  .panel.es-pizarron{background:transparent;border:0;box-shadow:none;padding:0}
+  .panel.es-pizarron::before,.panel.es-pizarron .num{display:none}
+  .panel.es-pizarron .cuando,.panel.es-pizarron h2.titulo,.panel.es-pizarron .hacen{padding-left:.4rem}
 
   .pie{max-width:1280px;margin:0 auto;padding:0 1.2rem 2.5rem;font-size:.85rem;color:var(--tinta2)}
   .toast{position:fixed;left:50%;bottom:1.2rem;transform:translateX(-50%);background:var(--tinta);color:var(--papel);padding:.6rem 1rem;border-radius:999px;font-weight:800;opacity:0;pointer-events:none;transition:opacity .25s;z-index:20}
   .toast.on{opacity:1}
   @media print{
-    body{background:#fff}.cab .acciones,.riel,.pizarron,.pie,.toast{display:none!important}
+    body{background:#fff}.cab .acciones,.riel,.pie,.toast{display:none!important}
     .cuerpo{display:block;padding:0}.panel{box-shadow:none;border:0}.panel::before{display:none}
     .solo-ticket .panel > *:not(.ticket){display:none}.solo-ticket .panel .ticket{box-shadow:none}
   }
@@ -189,7 +195,6 @@
 
 <main class="cuerpo">
   <section class="panel" id="panel" aria-live="polite"></section>
-  <aside class="pizarron" id="pizarron"></aside>
 </main>
 
 <footer class="pie">
@@ -210,7 +215,8 @@
     {id:"presumir",  t:"Presumir y esconder",min:"60–72",  dur:12},
     {id:"cv",        t:"El currículum",      min:"72–92",  dur:20},
     {id:"dialecto",  t:"Lengua o dialecto",  min:"92–107", dur:15},
-    {id:"cierre",    t:"Cierre",             min:"107–120",dur:13}
+    {id:"cierre",    t:"Cierre",             min:"107–120",dur:13},
+    {id:"pizarron",  t:"El pizarrón",        min:"resumen", dur:0}
   ];
 
   function fresco(){
@@ -237,7 +243,7 @@
   var riel=document.getElementById("riel");
   function pintarRiel(){
     riel.innerHTML=MOM.map(function(m,i){
-      return '<li><button type="button" data-i="'+i+'" class="'+(i===S.actual?"on":"")+(S.visitado[m.id]&&i!==S.actual?" hecho":"")+'"><small>min '+m.min+'</small><b>'+m.t+'</b></button></li>';
+      return '<li'+(m.dur?'':' class="resumen"')+'><button type="button" data-i="'+i+'" class="'+(i===S.actual?"on":"")+(S.visitado[m.id]&&i!==S.actual&&m.dur?" hecho":"")+'"><small>'+(m.dur?'min '+m.min:m.min)+'</small><b>'+m.t+'</b></button></li>';
     }).join("");
   }
   riel.addEventListener("click",function(e){
@@ -267,7 +273,7 @@
 
   /* ---------- panel por momento ---------- */
   var panel=document.getElementById("panel");
-  function cab(i,hacen){ var m=MOM[i]; return '<div class="num">'+(i+1)+'</div><div class="cuando">Minuto '+m.min+' · '+m.dur+' min '+relojHTML(m.dur)+'</div><h2>'+m.t+'</h2><p class="hacen">'+hacen+'</p>'; }
+  function cab(i,hacen){ var m=MOM[i]; if(!m.dur) return '<div class="cuando">Resumen de la sesión</div><h2 class="titulo">'+m.t+'</h2><p class="hacen">'+hacen+'</p>'; return '<div class="num">'+(i+1)+'</div><div class="cuando">Minuto '+m.min+' · '+m.dur+' min '+relojHTML(m.dur)+'</div><h2>'+m.t+'</h2><p class="hacen">'+hacen+'</p>'; }
   function celdaKey(e,l){ return e+"-"+l; }
 
   var V={
@@ -351,6 +357,7 @@
       var g=ganadoraPerdedora();
       return cab(7,'Antes del ticket, con el pizarrón lleno, <strong>una sola pregunta</strong> para todo el grupo. Es la primera vez en la sesión que se dice la palabra.')+
       '<p class="pregunta">¿Qué tienen en común las lenguas que <em>ganaron</em> en todas las tablas?</p>'+
+      '<button type="button" class="btn-ir" data-ir="8">Proyectar el pizarrón completo →</button>'+
       '<div class="minuto">Cuando salga la respuesta (dinero, trabajo, poder, prestigio, «sirve para algo»), nómbrala: a eso se le llama <b>estatus</b>. No es una cualidad de la lengua: es lo que la gente decide que vale.'+(g?' Hoy en este salón ganó <b>'+esc(g.gana)+'</b> y perdió <b>'+esc(g.pierde)+'</b>.':'')+'</div>'+
       '<div class="ticket" id="ticket"><h3>Ticket de salida · Diez semillas</h3><div class="sub">Media hoja, ocho minutos, individual. Saca el papelito del primer momento.</div><ol>'+
       '<li><b>Lo que vi.</b> ¿Qué lengua ganó en casi todas las tablas del pizarrón y cuál perdió en casi todas?<span class="linea"></span></li>'+
@@ -363,13 +370,14 @@
     }
   };
 
+  V.pizarron=function(){ return cab(8,'Todo lo que dejó la sesión, en un solo lugar. Se proyecta al final, antes de la pregunta que cose todo, o cuando haga falta mirar atrás.')+'<div class="pizarron" id="pizarron">'+pizarronHTML()+'</div>'; };
+
   function palitos(n){ var s=""; for(var i=0;i<n;i++){ s+=(i%5===4)?"|̸ ":"|"; } return s||"·"; }
 
   function pintar(){
     pintarRiel();
     pararReloj();
-    var m=MOM[S.actual]; panel.innerHTML=V[m.id](); montarReloj(m.dur);
-    pintarPizarron();
+    var m=MOM[S.actual]; panel.innerHTML=V[m.id](); panel.classList.toggle('es-pizarron',m.id==='pizarron'); if(m.dur) montarReloj(m.dur);
     window.scrollTo({top:0,behavior:"smooth"});
   }
 
@@ -378,6 +386,7 @@
     var b=e.target.closest("button"); if(!b) return;
     var d=b.dataset;
     if(b.id==="add-lengua"){ addLengua(); return; }
+    if(d.ir!=null){ S.visitado[MOM[S.actual].id]=true; S.actual=+d.ir; pararReloj(); guardar(); pintar(); return; }
     if(d.mas!=null){ S.abierta[+d.mas].n++; guardar(); pintar(); return; }
     if(d.quitar!=null){ S.abierta.splice(+d.quitar,1); guardar(); pintar(); return; }
     if(d.sem){ var p=d.sem.split("|"), k=celdaKey(p[0],p[1]); var c=S.semillas[k]||(S.semillas[k]={n:0,m:""}); c.n=Math.max(0,c.n+ +p[2]); guardar(); pintar(); return; }
@@ -397,7 +406,7 @@
     else if(d.pue){ var r=d.pue.split("|"); S.puesto[celdaKey(r[0],r[1])]=t.value; }
     else if(d.cv){ var s=d.cv.split("|"); S.cv[+s[0]][s[1]]=t.value; }
     else return;
-    guardar(); pintarPizarron();
+    guardar();
   });
   panel.addEventListener("change",function(e){
     if(e.target.id==="sel-eq"){ S.equipos=+e.target.value; guardar(); pintar(); }
@@ -426,10 +435,9 @@
   }
 
   /* ---------- pizarrón ---------- */
-  var piz=document.getElementById("pizarron");
   function barra(v,max,color){ var w=max?Math.round(100*v/max):0; return '<span class="barra" style="width:'+Math.max(w,2)+'%;max-width:9rem;'+(color?'background:'+color:'')+'"></span>'; }
-  function pintarPizarron(){
-    var h='<h2>El pizarrón <small>lo que va quedando</small></h2>';
+  function pizarronHTML(){
+    var h='<h2>El pizarrón <small>lo que dejó la sesión</small></h2><div class="rejilla">';
 
     // 1 pregunta abierta
     h+='<section><h3>1 · Lenguas que quieren aprender</h3>';
@@ -477,9 +485,10 @@
     else h+='<div class="vacio">manos sin contar</div>';
     h+='</section>';
 
+    h+='</div>';
     var g=ganadoraPerdedora();
     if(g) h+='<div class="cosido">Ganó en las tablas: <b>'+esc(g.gana)+'</b>. Perdió: <b>'+esc(g.pierde)+'</b>. ¿Qué tienen en común las que ganan?</div>';
-    piz.innerHTML=h;
+    return h;
   }
 
   /* ---------- acciones globales ---------- */
@@ -492,7 +501,8 @@
     setTimeout(function(){ window.print(); document.body.classList.remove("solo-ticket"); S.actual=vuelve; pintar(); },150);
   });
   document.getElementById("btn-copiar").addEventListener("click",function(){
-    var txt=piz.innerText.replace(/\n{3,}/g,"\n\n");
+    var tmp=document.createElement('div'); tmp.className='pizarron'; tmp.innerHTML=pizarronHTML(); document.body.appendChild(tmp);
+    var txt=tmp.innerText.replace(/\n{3,}/g,"\n\n"); document.body.removeChild(tmp);
     function ok(){ toast("Copiado: pégalo en tu bitácora"); }
     if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(ok,function(){ prompt("Copia el texto:",txt); });
     else prompt("Copia el texto:",txt);
