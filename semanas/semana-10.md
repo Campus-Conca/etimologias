@@ -27,6 +27,7 @@ Hay palabras vivas en la Sierra, en el barrio, en la cocina de tu abuela, que ni
 | [Miércoles 30](#miercoles) · 1 h | Taller de fichas | dos o tres palabras de campo, con quién y dónde |
 | [Jueves 1](#jueves) · 1 h, centro de cómputo | ¿Está o no está? | tus fichas con el origen pendiente |
 | [Viernes 2](#viernes) · 2 h | La palabra que salvé | tu mejor ficha y tu libro |
+| [Sesión larga](#semillas) · 2 h | Diez semillas: ¿qué lengua vale más? | un papelito y lo que traes puesto |
 
 <p class="pista-mazos">Cada día es un mazo de láminas. En clase se proyectan una por una con el botón <strong>Presentar</strong>; aquí se quedan apiladas, en orden, para volver a ellas cuando quieras. Debajo de los mazos: la ficha modelo para tocar, las reglas de la definición, el formulario que sube tu ficha al mapa y los topónimos de la Sierra.</p>
 
@@ -311,6 +312,86 @@ Hay palabras vivas en la Sierra, en el barrio, en la cocina de tu abuela, que ni
 </section>
 </section>
 
+<!-- ============================ SESIÓN LARGA · DIEZ SEMILLAS ============================ -->
+<section class="mazo" id="semillas">
+<div class="mazo-cabeza">
+<div>
+<div class="cuando">Sesión larga · 2 horas</div>
+<h3>Diez semillas: ¿qué lengua vale más?</h3>
+<p class="foco">Siete momentos que van llenando el pizarrón. La palabra que lo explica todo no se dice hasta el final.</p>
+</div>
+<button class="btn-presentar" type="button">Presentar ▸</button>
+</div>
+<section class="lam">
+<h4><span class="n">1</span> Pregunta abierta <span class="reloj">10 min</span></h4>
+<span class="senal">A solas · en silencio</span>
+<p class="di">¿Qué lengua quieres aprender? ¿Por qué?</p>
+<p class="apoyo">En tu papelito, dos renglones. Así se contesta: «Quiero aprender coreano porque veo series en coreano y quiero entenderlas sin subtítulos.» Se leen cinco o seis en voz alta. <strong>Guarda el papelito:</strong> lo vas a necesitar al final.</p>
+<p class="recurso"><a href="../ejercicios/semana-10/ejercicio-10F-diez-semillas.html" target="_blank" rel="noopener">El tablero de la sesión</a><span class="pie">Los siete momentos con su reloj, un pizarrón que se va llenando solo y el ticket listo para imprimir. Se abre una vez y se queda proyectado dos horas.</span></p>
+<p class="nota-conductor">Material: veinticuatro papelitos, sesenta semillas (frijoles sirven), seis hojas con cinco casillas y un marcador por equipo. Abre el tablero desde el enlace y déjalo proyectado toda la sesión: cada momento tiene su reloj y lo que se anota se guarda en el navegador. Un minuto de silencio para escribir, luego lee cinco o seis papelitos y anota cada lengua con un palito en el momento 1. El orden de la sesión va de lo que quieren, a lo que ya los rodea, a cómo juzgan a otros; «lengua o dialecto» queda casi al final, cuando ya tienen evidencia propia. Si el tiempo aprieta, el primero en salir es «lo que traen puesto»; el segundo, el precio.</p>
+</section>
+<section class="lam lam--actividad">
+<h4><span class="n">2</span> Diez semillas <span class="reloj">25 min</span></h4>
+<span class="senal">Equipos de cuatro</span>
+<p class="di">Tienen diez semillas. ¿Dónde las siembran?</p>
+<p class="apoyo">Cinco casillas en la hoja: <strong>inglés, chino, francés, alemán y pame</strong>. Repartan las diez como quieran: todas en una, dos en cada una. En cada casilla con semillas, una palabra de motivo: trabajo, series, viajes, familia. Así explica el vocero: «Pusimos cuatro en inglés por el trabajo, tres en chino por los negocios, dos en francés por viajar y una en pame por la abuela de Karla.»</p>
+<p class="nota-conductor">Diez minutos para sembrar, quince para que cada vocero explique en un minuto mientras tú capturas semillas y motivo por equipo en el tablero: la tabla 1 del pizarrón se arma sola. Si a un equipo no le dan diez, el tablero lo marca. No comentes todavía quién ganó: que lo vean ellos.</p>
+</section>
+<section class="lam lam--actividad">
+<h4><span class="n">3</span> El precio <span class="reloj">10 min</span></h4>
+<span class="senal">Misma hoja · mismos equipos</span>
+<p class="di">¿Cuánto pagarías al mes por aprenderla? ¿Y cuánto te tendrían que pagar por tomar la de pame?</p>
+<p class="apoyo">Una fila debajo de las semillas: una cantidad por lengua. Así se contesta: «Por inglés pagaríamos 800 al mes; por pame nada, pero la tomaríamos si nos pagaran 500.» El cero también es dato, y de los buenos.</p>
+<p class="nota-conductor">Va pegado a las semillas porque usa la misma hoja y los mismos equipos; separado costaría el doble de tiempo. En el tablero se captura por equipo y sale el promedio como una fila bajo la tabla 1. Es el segundo momento que se recorta si el reloj no alcanza.</p>
+</section>
+<section class="lam lam--actividad">
+<h4><span class="n">4</span> Lo que traen puesto <span class="reloj">15 min</span></h4>
+<span class="senal">Equipos de cuatro</span>
+<p class="di">Sin salir del salón: ¿cuántas palabras de cada lengua traen puestas?</p>
+<p class="apoyo">Cinco minutos. Etiquetas de la ropa, la mochila, los menús del celular, las marcas. Cuenten por lengua. Así se reporta: «Inglés, treinta y dos; francés, una en un perfume; chino, cero que podamos leer; pame, cero.»</p>
+<p class="nota-conductor">Es el momento más largo y el menos ligado a los demás: si el tiempo aprieta, este sale primero. Captura el conteo de cada equipo en el tablero y queda la tabla 2 junto a la 1. El chino tiene trampa: traen cosas hechas en China, pero sin letras que puedan leer; que lo digan, es parte del argumento.</p>
+</section>
+<section class="lam">
+<h4><span class="n">5</span> Presumir y esconder <span class="reloj">12 min</span></h4>
+<span class="senal">Todo el grupo</span>
+<p class="di">¿Cuál lengua presumes y cuál escondes?</p>
+<p class="apoyo">Dos escenas. Una entrevista de trabajo: ¿cuál dices primero y cuál no mencionas? Conocer a los suegros: ¿cuál presumes y cuál te guardas? Así se contesta: «En la entrevista digo inglés primero; el otomí de mi mamá no lo menciono, y no sé bien por qué.»</p>
+<p class="nota-conductor">Dos columnas en el tablero: presumo, escondo. Si alguien dice que no esconde ninguna, pregúntale por la lengua de su abuela. No corrijas todavía: solo anota. La corrección llega sola en el momento 7.</p>
+</section>
+<section class="lam lam--actividad">
+<h4><span class="n">6</span> El currículum <span class="reloj">20 min</span></h4>
+<span class="senal">Equipos de cuatro</span>
+<p class="di">Inventen a alguien que busca trabajo en Querétaro: nombre y dos lenguas que habla.</p>
+<p class="apoyo">Un minuto por equipo para presentarlo y decir por qué lo armaron así. Así se presenta: «Se llama Daniela Pérez, habla español e inglés, y le pusimos inglés porque todas las vacantes lo piden.»</p>
+<p class="nota-conductor">La pregunta final queda abierta a propósito: «¿por qué eligieron así?» y no «¿por qué no pusieron pame?». Si un equipo sí le pone pame a su persona, ese es el que más discusión da: dale el micrófono más tiempo. Los seis nombres con sus lenguas se escriben en el tablero.</p>
+</section>
+<section class="lam">
+<h4><span class="n">7</span> Lengua o dialecto <span class="reloj">15 min</span></h4>
+<span class="senal">A mano alzada</span>
+<p class="di">¿El pame es lengua o dialecto? ¿Y el inglés?</p>
+<p class="apoyo">Primero las manos, dos veces. Luego las dos preguntas que importan: ¿por qué?, ¿quién les enseñó esa diferencia? Así se contesta: «Yo siempre oí que el pame es dialecto; lo decían en la primaria y en mi casa.»</p>
+<p class="nota-conductor">Cuenta las manos en el tablero. Aquí va tu minuto, el único dato que no pueden deducir solos: para la lingüística el pame es una lengua completa, con gramática propia; «dialecto» es una variante de una lengua, como el español de Concá frente al de Madrid. Llamarle dialecto al pame no es un dato: es una opinión con historia. El texto está en el tablero para que lo leas tal cual.</p>
+</section>
+<section class="lam lam--oscura">
+<h4>Miren el pizarrón</h4>
+<p class="di">¿Qué tienen en común las lenguas que ganaron en todas las tablas?</p>
+<p class="apoyo">Cuando salga la respuesta (dinero, trabajo, poder, «sirve para algo»), se nombra por primera vez en la sesión: <strong>estatus</strong>. No es una cualidad de la lengua. Es lo que la gente decide que vale.</p>
+</section>
+<section class="lam">
+<h4><span class="n">8</span> Ticket de salida <span class="reloj">13 min</span></h4>
+<span class="senal senal--casa">A solas · media hoja · ocho minutos</span>
+<p class="di">Saca el papelito del primer momento. Cinco preguntas, de lo que viste a lo que piensas hacer.</p>
+<ol class="apoyo">
+<li><strong>Lo que vi.</strong> ¿Qué lengua ganó en casi todas las tablas del pizarrón y cuál perdió en casi todas?</li>
+<li><strong>Por qué.</strong> ¿Qué tiene la lengua que ganó que no tiene la que perdió? Que no sea «es más bonita» ni «es más fácil».</li>
+<li><strong>Lo que cambió.</strong> Al inicio escribí que quería aprender ______. ¿Lo sigo pensando igual? ¿Por qué?</li>
+<li><strong>Lengua o dialecto.</strong> Antes de hoy, ¿cómo le decía yo al pame y de quién lo aprendí?</li>
+<li><strong>Lo que tendría que pasar.</strong> ¿Qué tendría que cambiar en Concá para que el pame recibiera más semillas?</li>
+</ol>
+<p class="nota-conductor">El tablero imprime el ticket con el botón de arriba, dos por hoja si la impresora lo permite. Si el tiempo se acorta, bastan la segunda y la quinta: una recoge si entendieron qué es el estatus; la otra, si lo ven como algo que puede moverse. Al terminar, copia el pizarrón con el otro botón y pégalo en tu bitácora: es el registro de lo que dijo este grupo.</p>
+</section>
+</section>
+
 ## La lectura, esta semana
 
 El **minuto del lector** abre el martes y la voz alta cierra el viernes. Tu [bitácora](../recursos/plantillas/bitacora-lector.html) sigue sumando líneas con el segundo libro, y el segundo círculo de lectura llega en la semana 12: ve marcando tu frase. Los booktubers autorizados de la semana pasada se publican en [Leemos](../leemos.html) conforme llegan; si no has entregado el tuyo, esta semana todavía cuenta.
@@ -418,6 +499,7 @@ Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y
 - [El mapa bajo tus pies](../ejercicios/semana-10/ejercicio-10E-el-mapa-bajo-tus-pies.html) · miércoles, y para la casa: ¿quién nombró qué en la Sierra?, con etiqueta de honestidad en cada respuesta
 - [Quiz de gimnasio](../ejercicios/semana-10/quiz-gimnasio-semana-10.html) · para ensayar cuando quieras
 - [El quiz relámpago, tal como se proyecta](../ejercicios/semana-10/quiz-relampago-semana-10.html) · viernes, con cronómetro y respuestas
+- [Diez semillas: el tablero de la sesión](../ejercicios/semana-10/ejercicio-10F-diez-semillas.html) · sesión larga, proyectado: los siete momentos con reloj, el pizarrón que se va llenando y el ticket de salida para imprimir
 
 ---
 
