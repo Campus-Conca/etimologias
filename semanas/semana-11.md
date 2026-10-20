@@ -316,7 +316,7 @@ El mito más difundido que cayó, o la verdad más increíble que quedó de pie.
 
 Un día el profe no estuvo y la clase la dieron ustedes: seis equipos, seis guías sobre cómo escribe su generación en WhatsApp, y un examen que el profe tenía que presentar al volver. Las guías ya se estudiaron. Falta el examen.
 
-<p class="recurso"><a href="../ejercicios/semana-11/examen-secreto-la-clase-al-reves.html" target="_blank" rel="noopener">El examen secreto 🤫</a><span class="pie">Dieciocho mensajes en diez minutos, tres por equipo: traducir, escribir y encontrar el error. Se proyecta desde un teléfono; Archivo lo desbloquea, cada equipo lee el suyo, el profe contesta en voz alta y el equipo califica con su clave. La batería es la calificación. Las apuestas se cierran antes de empezar.</span></p>
+<p class="recurso"><a href="../ejercicios/semana-11/examen-secreto-la-clase-al-reves.html" target="_blank" rel="noopener">El examen secreto 🤫</a><span class="pie">Dieciocho mensajes en diez minutos, tres por equipo: traducir, escribir y encontrar el error. Se proyecta desde un teléfono; Archivo lo desbloquea y el profe contesta escribiendo ahí mismo, como en el whats. El examen se califica solo y enseña la clave; la batería es la calificación, de 0 a 10. Antes de empezar, cada equipo apuesta qué calificación sacará.</span></p>
 
 ---
 
@@ -331,7 +331,7 @@ Los ejercicios de la semana, para tu celular o el centro de cómputo. Sin nota y
 - [La palabra con leyenda](../ejercicios/semana-11/ejercicio-11D-la-palabra-con-leyenda.html) · viernes
 - [Quiz de gimnasio](../ejercicios/semana-11/quiz-gimnasio-semana-11.html) · para ensayar cuando quieras
 - [El quiz relámpago, tal como se proyecta](../ejercicios/semana-11/quiz-relampago-semana-11.html) · viernes, con cronómetro y respuestas
-- [El examen secreto de la clase al revés](../ejercicios/semana-11/examen-secreto-la-clase-al-reves.html) · cuando vuelve el profe: dieciocho mensajes en diez minutos, escritos con las seis guías. Se proyecta; el profe no lo abre antes
+- [El examen secreto de la clase al revés](../ejercicios/semana-11/examen-secreto-la-clase-al-reves.html) · cuando vuelve el profe: dieciocho mensajes en diez minutos, escritos con las seis guías; el profe contesta en el teléfono y el examen se califica solo, de 0 a 10. El profe no lo abre antes
 
 ---
 
