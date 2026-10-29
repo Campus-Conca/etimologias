@@ -352,6 +352,27 @@ SEMANAS = [
             ("disputatio", "debate en que se defienden las dos posturas y a media sesión se cambia de bando", "concepto", "la lengua debe protegerse / la lengua vive del contacto", "", "Nadie gana: cada bando nombra el mejor argumento del otro."),
         ],
     },
+    {
+        "n": 14,
+        "titulo": "Semana 14 · La letra chiquita",
+        "piezas": [
+            ("motu proprio", "por voluntad propia, sin que nadie te lo pida", "locución latina", "Renunció motu proprio.", "", "Sin «de» y con dos erres: el latín ya traía la preposición por dentro."),
+            ("grosso modo", "a grandes rasgos, sin detalle", "locución latina", "Grosso modo, ya entendí de qué va.", "", "Sin «a»: «a grosso modo» dice la preposición dos veces."),
+            ("statu quo", "el estado actual de las cosas", "locución latina", "No querían cambiar el statu quo.", "", "La norma en español es «statu quo», no «status quo»."),
+            ("habeas corpus", "derecho a no ser detenido sin que se justifique por qué", "locución latina", "Pidió un habeas corpus esa misma noche.", "", "Literal: «que tengas el cuerpo»."),
+            ("de facto", "de hecho, en la práctica, aunque la ley diga otra cosa", "locución latina", "Es el líder de facto del grupo.", "de iure (por derecho)", "No es ipso facto: se parecen, no son lo mismo."),
+            ("ipso facto", "en el acto, inmediatamente", "locución latina", "Lo resolvió ipso facto.", "", ""),
+            ("sine qua non", "condición sin la cual no: lo indispensable", "locución latina", "Estudiar es condición sine qua non para pasar.", "", ""),
+            ("modus operandi", "modo de actuar o de trabajar", "locución latina", "Los dos robos tienen el mismo modus operandi.", "modus vivendi (modo de vivir)", ""),
+            ("in fraganti", "en el momento justo en que se comete el hecho", "locución latina", "Lo agarraron in fraganti.", "", "Del latín in flagranti: con el delito todavía ardiendo."),
+            ("vox pópuli", "voz del pueblo: lo que ya todos saben", "locución latina", "Su renuncia es vox pópuli.", "", "Ya castellanizada: lleva tilde y va en redonda."),
+            ("carpe diem", "aprovecha el día", "locución latina", "Se tatuó carpe diem.", "", "En la tira: el cerdo quiere escapar y la gallina pregunta «per alas porci?»"),
+            ("memento mori", "recuerda que vas a morir", "locución latina", "Un cráneo en el escritorio como memento mori.", "", "En la tira: el cerdo mira la camioneta de salchichas."),
+            ("persona non grata", "persona no bienvenida", "locución latina", "Lo declararon persona non grata en el pueblo.", "", "En la tira: llega el granjero y el cerdo le da la espalda."),
+            ("argumentum ad hominem", "atacar a la persona en vez de a lo que dice", "locución latina", "Eso es un ad hominem, no un argumento.", "", "En la tira: el grafiti «el granjero es malvado», y la gallina dice «sic»."),
+            ("deus ex machina", "la salida que aparece de la nada; en el teatro antiguo, el dios que bajaba en grúa", "locución latina", "El final fue un deus ex machina.", "", "En la tira: el cerdo cruza el cielo volando, salvado por algo que no vimos venir."),
+        ],
+    },
 ]
 
 

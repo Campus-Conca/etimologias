@@ -134,7 +134,9 @@ Cada semana tiene su mazo suelto, y abajo está el semestre completo en un solo 
 | Semana 9 · Las lenguas escondidas | 15 | [etimologias-semana-09.apkg](anki/etimologias-semana-09.apkg) |
 | Semana 10 · El diccionario lo hacemos nosotros | 14 | [etimologias-semana-10.apkg](anki/etimologias-semana-10.apkg) |
 | Semana 11 · Cazadores de mitos | 15 | [etimologias-semana-11.apkg](anki/etimologias-semana-11.apkg) |
-| **Todo el semestre**, en submazos | 140 | [etimologias-uaq.apkg](anki/etimologias-uaq.apkg) |
+| Semana 12 · ¿Quién es dueño del español? | 3 | [etimologias-semana-12.apkg](anki/etimologias-semana-12.apkg) |
+| Semana 14 · La letra chiquita | 15 | [etimologias-semana-14.apkg](anki/etimologias-semana-14.apkg) |
+| **Todo el semestre**, en submazos | 179 | [etimologias-uaq.apkg](anki/etimologias-uaq.apkg) |
 
 {: .ojo }
 **Cómo se instala:** baja el archivo, ábrelo (o en Anki: Archivo › Importar) y aparece como submazo dentro de "Etimologías UAQ". Si ya lo tenías, se actualiza el contenido y **no se pierde tu avance**.

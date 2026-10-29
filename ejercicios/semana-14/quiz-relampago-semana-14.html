@@ -61,7 +61,7 @@
 <body>
 
 <div id="crono" title="clic en ▶ para arrancar">
-  <b id="crono-num">3:00</b>
+  <b id="crono-num">4:00</b>
   <button id="crono-play" type="button">▶</button>
   <button id="crono-reset" type="button">↺</button>
 </div>
@@ -70,7 +70,7 @@
 <section class="slide slide--oscura activa">
   <div class="kicker">Semana 14 · Viernes · Ritual de apertura</div>
   <h1 class="disp">Quiz relámpago</h1>
-  <p class="sub">Tres reactivos de letra chiquita: traducir dos locuciones, corregir una que medio mundo dice mal, y leer una cláusula en español llano.</p>
+  <p class="sub">Cuatro reactivos de letra chiquita: traducir dos locuciones, corregir una que medio mundo dice mal, leer una cláusula en español llano y usar una locución en una oración tuya.</p>
   <p class="sub"><strong>Se responde en el cuadernillo, a solas, sin mazo y sin celular.</strong></p>
   <p class="tecla">Avanza con → o espacio · regresa con ←</p>
 </section>
@@ -79,7 +79,7 @@
 <section class="slide">
   <div class="kicker">Antes de ver nada</div>
   <h1 class="disp">Tu apuesta primero</h1>
-  <p class="pregunta">¿Cuántas vas a tener bien: <strong>0, 1, 2 o 3</strong>?</p>
+  <p class="pregunta">¿Cuántas vas a tener bien: <strong>0, 1, 2, 3 o 4</strong>?</p>
   <p class="sub">Escríbelo antes del primer reactivo. Es el renglón del quiz #10 de tu expediente: el primero de la unidad 3.</p>
 </section>
 
@@ -107,12 +107,21 @@
   <p class="pista">Escribe qué dice esta cláusula, en el español de tu casa, en una o dos líneas.</p>
 </section>
 
-<!-- 6 · Los tres juntos -->
+<!-- 6 · Reactivo 4 -->
 <section class="slide">
-  <div class="kicker">Los tres, a la vista · 3 minutos</div>
+  <div class="n-reactivo disp">4</div>
+  <div class="kicker">Úsala tú</div>
+  <p class="pregunta disp" style="font-size:5vmin">Escribe una oración tuya, de tu vida, con <em>sine qua non</em> o con <em>modus operandi</em>.</p>
+  <p class="pista">La prueba del cerdo: si le quitas la locución y la oración no pierde nada, estaba de adorno.</p>
+</section>
+
+<!-- 7 · Los cuatro juntos -->
+<section class="slide">
+  <div class="kicker">Los cuatro, a la vista · 4 minutos</div>
   <p class="pregunta disp" style="font-size:4.2vmin">1 · sine qua non y de facto: qué significan</p>
   <p class="pregunta disp" style="font-size:4.2vmin">2 · "de motu propio": la forma correcta y qué estaba mal</p>
   <p class="pregunta disp" style="font-size:4.2vmin">3 · la cláusula del predio, en español llano</p>
+  <p class="pregunta disp" style="font-size:4.2vmin">4 · tu oración con sine qua non o modus operandi</p>
   <p class="pista">Arranca el cronómetro de arriba. Lápices abajo cuando llegue a cero.</p>
 </section>
 
@@ -143,11 +152,18 @@
   <p class="explica">Vale cualquier versión que traiga las tres ideas: <strong>como está</strong> (statu quo), <strong>en el acto</strong> (ipso facto) y <strong>sin eso no hay trato</strong> (sine qua non). Falta una idea: aún no, pero anota cuál se te fue. Esto es lo que hace la letra chiquita: tres frases latinas en una línea y la mitad de la gente firma sin saber que se comprometió a no tocar nada.</p>
 </section>
 
-<!-- 11 · Calibración -->
+<!-- 11 · Respuesta 4 -->
+<section class="slide">
+  <div class="n-reactivo disp">4</div>
+  <p class="resp disp">bien si la locución hace trabajo en la oración; aún no si está de adorno</p>
+  <p class="explica">Ejemplos que son bien: «Que me avisen con tiempo es condición <em>sine qua non</em> para ir» (quítala y la oración queda coja). «Mi hermano tiene el mismo <em>modus operandi</em> cada domingo: se levanta tarde y le echa la culpa al gallo» (la locución nombra el patrón). Es aún no si la pusiste donde cabía cualquier palabra: «fue un día sine qua non». Califícate con honestidad: aquí no hay clave, hay criterio, y el criterio es el del cerdo.</p>
+</section>
+
+<!-- 12 · Calibración -->
 <section class="slide slide--oscura">
   <div class="kicker">El número que importa</div>
   <h1 class="disp">¿Tu apuesta le atinó a tu resultado?</h1>
-  <p class="sub">Los dos números al cuadernillo: es el renglón del quiz #10. En "aún no" anota cuál: traducir, corregir o leer la cláusula.</p>
+  <p class="sub">Los dos números al cuadernillo: es el renglón del quiz #10. En "aún no" anota cuál: traducir, corregir, leer la cláusula o usarla.</p>
   <p class="sub" style="color:var(--rosa-luz)">Primer renglón de la unidad 3. Tu serie ya trae diez; a partir de hoy se ve si la brecha que cerraste en octubre se sostiene con latín.</p>
 </section>
 
@@ -180,7 +196,7 @@
     if(b) b.blur();
   });
 
-  var TOTAL = 180, resta = TOTAL, timer = null;
+  var TOTAL = 240, resta = TOTAL, timer = null;
   var num = document.getElementById('crono-num'),
       play = document.getElementById('crono-play'),
       caja = document.getElementById('crono');
