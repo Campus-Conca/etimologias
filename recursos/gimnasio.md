@@ -119,10 +119,12 @@ Y el proyectable de la semana 12: [Del latín a las lenguas francas](../ejercici
 
 **Semana 14 · La letra chiquita**
 
+- [El cerdo que habla latín](../ejercicios/semana-14/ejercicio-14D-el-cerdo-que-habla-latin.html) · martes: la tira de Grant Snider con los pies tapados, para emparejar a ciegas
 - [¿Bien o mal dicho?](../ejercicios/semana-14/ejercicio-14A-bien-o-mal-dicho.html) · martes
 - [Taller de locuciones](../ejercicios/semana-14/ejercicio-14B-taller-de-locuciones.html) · miércoles
 - [Cazadores de locuciones](../ejercicios/semana-14/ejercicio-14C-cazadores-de-locuciones.html) · jueves, centro de cómputo
 - [Quiz de gimnasio](../ejercicios/semana-14/quiz-gimnasio-semana-14.html) · ensayo libre
+- [El quiz relámpago #10, tal como se proyecta](../ejercicios/semana-14/quiz-relampago-semana-14.html) · viernes, con cronómetro y respuestas
 
 **Semana 15 · Mis raíces hablan inglés**
 

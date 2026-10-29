@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 14 · Ejercicio D · El cerdo que habla latín</title>
+<style>
+  :root{ --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6; --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6; --dorado:#b07b12; }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.5}
+  .wrap{max-width:760px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.25rem}
+  body.proyector .wrap{max-width:1180px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+
+  .barra{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:1rem 0}
+  .barra .grupo{display:flex;gap:.35rem;flex-wrap:wrap;align-items:center}
+  .barra .lbl{font-size:.78rem;font-weight:700;color:var(--ciruela);text-transform:uppercase;letter-spacing:.05em;margin-right:.2rem}
+  .barra button{font:inherit;font-weight:700;border:1px solid var(--borde);background:#fff;color:var(--ciruela);border-radius:2rem;padding:.4rem .9rem;cursor:pointer}
+  .barra button.on{background:var(--ciruela);color:#fff;border-color:var(--ciruela)}
+  .barra button.accion{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .barra button.accion.suave{background:#fff;color:var(--rosa)}
+  .marcador{margin-left:auto;font-weight:800;color:var(--ciruela);font-size:1.05em}
+
+  .tablero{display:grid;grid-template-columns:minmax(0,1fr);gap:1rem;align-items:start}
+  @media(min-width:680px){.tablero{grid-template-columns:minmax(0,3fr) minmax(0,2fr)}}
+  body.proyector .tablero{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+
+  /* Temporada 1: una sola imagen con tapas sobre los pies de viñeta */
+  .comic{position:relative;border:1px solid var(--borde);border-radius:.7rem;overflow:hidden;background:#fff;user-select:none}
+  .comic img{display:block;width:100%;height:auto}
+  .tapa{position:absolute;display:flex;align-items:center;justify-content:center;background:#2b2440;color:#fff;border:2px solid #fff;
+    font-weight:800;font-size:.72em;letter-spacing:.02em;text-align:center;padding:0 .3rem;cursor:pointer;line-height:1.05;font-style:italic;
+    box-shadow:0 1px 4px rgba(0,0,0,.35)}
+  .tapa.vacia{background:#c8127a;font-style:normal}
+  .tapa.vacia::before{content:"?";font-size:1.25em}
+  .tapa.destino{outline:3px solid var(--dorado);outline-offset:1px}
+  .tapa.ok{background:var(--ok)}
+  .tapa.no{background:var(--no)}
+  .tapa.vista{background:transparent;color:transparent;border-color:transparent;box-shadow:none;pointer-events:none}
+  .comic.destapado .tapa{display:none}
+
+  /* Temporada 2: ocho viñetas sueltas con el pie debajo */
+  .rejilla{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
+  .vineta{border:1px solid var(--borde);border-radius:.7rem;overflow:hidden;background:#fff}
+  .vineta img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover}
+  .vineta .pie{position:relative;min-height:2.3em;display:flex;align-items:center;justify-content:center;font-weight:800;font-style:italic;
+    background:#2b2440;color:#fff;cursor:pointer;text-align:center;padding:.3rem .4rem;font-size:.9em}
+  .vineta .pie.vacia{background:#c8127a;font-style:normal}
+  .vineta .pie.vacia::before{content:"?"}
+  .vineta .pie.destino{outline:3px solid var(--dorado);outline-offset:-3px}
+  .vineta .pie.ok{background:var(--ok)}
+  .vineta .pie.no{background:var(--no)}
+  .vineta .pie.vista{background:#fbf4f9;color:var(--ciruela);pointer-events:none}
+
+  /* Las fichas */
+  .fichas{display:flex;flex-direction:column;gap:.45rem}
+  .ficha{border:1px solid var(--borde);background:#fff;border-radius:.6rem;padding:.5rem .7rem;cursor:pointer;text-align:left;font:inherit;color:var(--ciruela)}
+  .ficha b{display:block;font-style:italic;font-size:1.05em}
+  .ficha small{display:block;color:#555;font-size:.85em;margin-top:.1rem}
+  .ficha.sel{background:var(--ciruela);color:#fff;border-color:var(--ciruela)}
+  .ficha.sel small{color:#f4d9ea}
+  .ficha.usada{opacity:.35;text-decoration:line-through;cursor:default}
+  .fichas.sin-sig .ficha small{display:none}
+  .fichas-nota{font-size:.85em;color:#555;margin:.2rem 0 0}
+
+  .fb{margin:.8rem 0 0;padding:.7rem .9rem;border-radius:.7rem;font-weight:700;display:none}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela)}
+
+  .debrief{display:none;margin-top:1.4rem}
+  .debrief.abierto{display:block}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:.9rem 1.1rem;margin:.7rem 0;background:#fff}
+  .card h3{margin:0 0 .25rem;color:var(--rosa);font-size:1.15em;font-style:italic}
+  .card .lit{color:var(--ciruela);font-weight:700;font-size:.95em}
+  .card .sig{margin:.3rem 0 0}
+  .card .porque{margin:.4rem 0 0;padding-left:.7rem;border-left:3px solid #f4a8ce;color:#4a3f5c;font-size:.95em}
+  .card .extra{margin:.4rem 0 0;font-size:.9em;color:var(--dorado);font-weight:700}
+
+  footer{margin-top:2rem;font-size:.85rem;color:#666;border-top:1px solid var(--borde);padding-top:.8rem}
+  footer a{color:var(--ciruela)}
+  .oculto{display:none !important}
+</style>
+</head>
+<body>
+<button class="modo" type="button" id="modo">Aa proyector</button>
+<div class="wrap">
+<header>
+  <div class="mini">Etimologías grecolatinas · Semana 14 · Sesión A · Proyectable</div>
+  <h1>El cerdo que habla latín</h1>
+  <p>Ocho viñetas con el pie tapado y ocho locuciones latinas. El chiste solo funciona si sabes cuál va en cada una.</p>
+</header>
+
+<div class="instr">
+  <strong>Cómo se juega.</strong> Toca una locución de la lista y luego la tapa de la viñeta donde crees que va. Si te arrepientes, toca la tapa otra vez y la locución vuelve a la lista. Cuando las ocho estén puestas, <strong>Revisar</strong> te dice cuántas atinaste, sin decir cuáles. <strong>Destapar</strong> enseña los pies de viñeta de verdad y abre la explicación de cada chiste: eso lo hace el profesor, al final.
+  <br><br><strong>Dos niveles.</strong> En <em>Solo la locución</em> juegas con lo que sabes. En <em>Con significados</em> cada locución trae su traducción: ahí ya no se trata de saber latín, sino de entender el chiste.
+</div>
+
+<div class="barra">
+  <div class="grupo" id="temporadas">
+    <span class="lbl">Temporada</span>
+    <button type="button" class="on" data-temp="t1">1 · Pig Latin</button>
+    <button type="button" data-temp="t2" id="btn-t2" class="oculto">2 · El burro</button>
+  </div>
+  <div class="grupo">
+    <span class="lbl">Nivel</span>
+    <button type="button" id="niv-solo" class="on">Solo la locución</button>
+    <button type="button" id="niv-sig">Con significados</button>
+  </div>
+</div>
+
+<div class="tablero">
+  <div id="escenario"></div>
+  <div>
+    <div class="fichas sin-sig" id="fichas"></div>
+    <p class="fichas-nota" id="fichas-nota">Toca una locución y luego una tapa.</p>
+    <div class="barra" style="margin-top:.8rem">
+      <button type="button" class="accion" id="revisar">Revisar</button>
+      <button type="button" class="accion suave" id="destapar">Destapar</button>
+      <button type="button" id="reiniciar">Volver a empezar</button>
+      <span class="marcador" id="marcador"></span>
+    </div>
+    <div class="fb" id="fb"></div>
+  </div>
+</div>
+
+<div class="debrief" id="debrief">
+  <h2>¿Por qué da risa? Viñeta por viñeta</h2>
+  <div id="cards"></div>
+</div>
+
+<footer id="credito"></footer>
+</div>
+
+<script>
+(function(){
+  var T1={
+    nombre:"Pig Latin",
+    credito:'<strong>Pig Latin</strong>, de Grant Snider (<a href="https://www.incidentalcomics.com" target="_blank" rel="noopener">Incidental Comics</a>). Se proyecta en clase con fines didácticos; el original y el resto de su obra están en su sitio. "Pig Latin" es también el nombre de un juego de palabras en inglés: la tira juega con las dos cosas.',
+    modo:"imagen",
+    img:"../../assets/img/semana-14/pig-latin-grant-snider.webp",
+    alt:"Tira cómica Pig Latin de Grant Snider: ocho viñetas con un cerdo en una granja y un pie en latín en cada una",
+    pos:[
+      {top:27.0,left:2.7,w:46.8},{top:27.0,left:50.5,w:46.6},
+      {top:49.5,left:2.7,w:46.8},{top:49.5,left:50.5,w:46.6},
+      {top:72.0,left:2.7,w:46.8},{top:72.0,left:50.5,w:46.6},
+      {top:93.9,left:2.7,w:46.8},{top:93.9,left:50.5,w:46.6}
+    ],
+    alto:4.6,
+    vinetas:[
+      {loc:"cogito ergo sum",lit:"pienso, luego existo",sig:"la frase con que Descartes probó que al menos él existía: si dudo, alguien está dudando",
+       porque:"El cerdo, hundido en el lodo, piensa: «pienso, luego soy un cerdo». La frase más seria de la filosofía, dicha por un cerdo en el lodo. Si no conoces la frase, solo ves un cerdo pensativo."},
+      {loc:"memento mori",lit:"recuerda que vas a morir",sig:"el aviso que los antiguos se ponían enfrente para no olvidar que la vida se acaba",
+       porque:"El cerdo mira la camioneta que dice «salchichas orgánicas». Su memento mori tiene ruedas y viene por él. Entender el pie es entender qué está mirando."},
+      {loc:"persona non grata",lit:"persona no bienvenida",sig:"en diplomacia, el extranjero al que un país le dice que ya no es bien recibido",
+       porque:"Llega el granjero, con la misma camioneta de salchichas detrás, y el cerdo le da la espalda. El no bienvenido es el que viene por ti."},
+      {loc:"argumentum ad hominem",lit:"argumento contra la persona",sig:"atacar a quien habla en vez de discutir lo que dice",
+       porque:"En el granero alguien pintó «el granjero es malvado». No discute nada: ataca al granjero. Fíjate en la gallina: dice «sic», que es latín y significa «así»: lo que se pone entre corchetes para avisar que el error es del original, no de quien lo cita.",
+       extra:"Latín escondido en el globo: sic."},
+      {loc:"carpe diem",lit:"aprovecha el día",sig:"el consejo de Horacio: no dejes para mañana lo que la vida te pone hoy",
+       porque:"«Debo escapar», piensa el cerdo, y la gallina contesta «per alas porci?»: ¿con alas de cerdo? Es el «cuando los cerdos vuelen» del inglés, pasado a latín de corral. El chiste es doble: el cerdo quiere aprovechar el día y la gallina le recuerda que no vuela.",
+       extra:"Latín escondido en el globo: per alas porci, «con alas de cerdo»."},
+      {loc:"e pluribus unum",lit:"de muchos, uno",sig:"el lema de Estados Unidos: de muchos estados, un país",
+       porque:"Los cerdos se trepan unos sobre otros para saltar la cerca: de muchos cerdos, una torre. Y la gallina grita «citius, altius, fortius», el lema olímpico: más rápido, más alto, más fuerte.",
+       extra:"Latín escondido en el globo: citius, altius, fortius."},
+      {loc:"ad astra per aspera",lit:"a las estrellas por lo áspero",sig:"a lo más alto se llega por el camino difícil; es el lema del estado de Kansas",
+       porque:"De noche, el cerdo por fin salta la cerca y dice «uh-oh». Va hacia las estrellas, y lo áspero está a punto de llegar."},
+      {loc:"deus ex machina",lit:"dios desde la máquina",sig:"en el teatro antiguo, una grúa bajaba a un dios que resolvía la historia de golpe; hoy, cualquier salida que aparece de la nada",
+       porque:"El cerdo cruza el cielo volando sobre la granja dormida. Nada en la historia explicaba cómo iba a salvarse: lo salvó algo que no vimos venir. Eso es, exactamente, un deus ex machina."}
+    ]
+  };
+
+  /* Temporada 2: la hacen el profesor y el grupo. Ocho viñetas sueltas, cuadradas,
+     en assets/img/semana-14/temporada-2/01.webp a 08.webp, en este orden. Si la
+     primera no existe, la pestaña no aparece. */
+  var T2={
+    nombre:"El burro que habla latín",
+    credito:'<strong>El burro que habla latín</strong>: la segunda temporada, hecha en el curso con ilustración generada por IA a partir de guiones del profesor. Los pies tapados son locuciones de la hoja de consulta de la semana.',
+    modo:"rejilla",
+    carpeta:"../../assets/img/semana-14/temporada-2/",
+    vinetas:[
+      {loc:"motu proprio",lit:"por movimiento propio",sig:"por voluntad propia, sin que nadie te lo pida",porque:"El burro jala la carreta cuesta arriba mientras el arriero duerme adentro. Nadie se lo pidió."},
+      {loc:"grosso modo",lit:"de modo grueso",sig:"a grandes rasgos, sin detalle",porque:"El burro pinta el mapa del rancho con una brocha gorda: puras manchas. «Más o menos así es.»"},
+      {loc:"habeas corpus",lit:"que tengas el cuerpo",sig:"nadie puede tenerte detenido sin justificar por qué",porque:"El burro amarrado al poste y una gallina con portafolio que pregunta por el motivo."},
+      {loc:"de facto",lit:"de hecho",sig:"en la práctica, aunque la ley diga otra cosa",porque:"El letrero dice «prohibido burros» y el burro está adentro, comiendo de la mesa."},
+      {loc:"statu quo",lit:"en el estado en que",sig:"el estado actual de las cosas; dejar todo como está",porque:"El burro y la cabra, uno a cada lado de la cerca, con telarañas entre los dos: nadie se ha movido en años."},
+      {loc:"sine qua non",lit:"sin la cual no",sig:"la condición indispensable",porque:"El burro no cruza el río sin su sombrero. Sin sombrero no hay viaje."},
+      {loc:"modus operandi",lit:"modo de operar",sig:"la manera en que alguien hace siempre las cosas",porque:"El burro abre la tranca con los dientes, de noche, y en la pared hay rayitas: una por cada noche que lo ha hecho igual."},
+      {loc:"in fraganti",lit:"en flagrante",sig:"en el momento justo en que se comete el hecho",porque:"El burro con la cabeza dentro del costal de maíz, iluminado por la lámpara del ranchero. «¿Yo?»"}
+    ]
+  };
+
+  var temp=T1, slots=[], activa=null, sinSig=true, revisado=false;
+  var esc=document.getElementById('escenario'), fichas=document.getElementById('fichas'),
+      fb=document.getElementById('fb'), marcador=document.getElementById('marcador'),
+      debrief=document.getElementById('debrief'), cards=document.getElementById('cards'),
+      credito=document.getElementById('credito');
+
+  function baraja(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+  function pintaSlot(s){
+    var el=s.el;
+    el.classList.remove('vacia','ok','no','destino');
+    if(s.puesta===null){el.classList.add('vacia');el.textContent='';}
+    else{el.textContent=s.puesta;}
+  }
+
+  function pintaFichas(){
+    Array.prototype.forEach.call(fichas.children,function(f){
+      var loc=f.getAttribute('data-loc');
+      var usada=slots.some(function(s){return s.puesta===loc;});
+      f.classList.toggle('usada',usada);
+      f.classList.toggle('sel',activa===loc&&!usada);
+    });
+    var puestas=slots.filter(function(s){return s.puesta!==null;}).length;
+    marcador.textContent=puestas+' / '+slots.length+' puestas';
+  }
+
+  function tocaSlot(s){
+    if(revisado){revisado=false;slots.forEach(pintaSlot);fb.className='fb';}
+    if(activa){
+      if(s.puesta===activa){s.puesta=null;}
+      else{
+        slots.forEach(function(o){if(o.puesta===activa)o.puesta=null;});
+        s.puesta=activa;
+      }
+      activa=null;
+    }else if(s.puesta!==null){
+      s.puesta=null;
+    }
+    slots.forEach(pintaSlot);pintaFichas();
+  }
+
+  function monta(){
+    activa=null;revisado=false;slots=[];esc.innerHTML='';fichas.innerHTML='';cards.innerHTML='';
+    fb.className='fb';debrief.classList.remove('abierto');
+    credito.innerHTML=temp.credito;
+
+    if(temp.modo==='imagen'){
+      var comic=document.createElement('div');comic.className='comic';
+      var img=document.createElement('img');img.src=temp.img;img.alt=temp.alt;comic.appendChild(img);
+      temp.vinetas.forEach(function(v,i){
+        var p=temp.pos[i];
+        var t=document.createElement('div');t.className='tapa vacia';
+        t.style.top=p.top+'%';t.style.left=p.left+'%';t.style.width=p.w+'%';t.style.height=temp.alto+'%';
+        t.setAttribute('role','button');t.setAttribute('aria-label','Viñeta '+(i+1));
+        var s={el:t,puesta:null,resp:v.loc};
+        t.addEventListener('click',function(){tocaSlot(s);});
+        slots.push(s);comic.appendChild(t);
+      });
+      esc.appendChild(comic);
+    }else{
+      var rej=document.createElement('div');rej.className='rejilla';
+      temp.vinetas.forEach(function(v,i){
+        var c=document.createElement('div');c.className='vineta';
+        var img=document.createElement('img');img.src=temp.carpeta+(i<9?'0':'')+(i+1)+'.webp';img.alt='Viñeta '+(i+1)+' de '+temp.nombre;
+        var t=document.createElement('div');t.className='pie vacia';
+        var s={el:t,puesta:null,resp:v.loc};
+        t.addEventListener('click',function(){tocaSlot(s);});
+        slots.push(s);c.appendChild(img);c.appendChild(t);rej.appendChild(c);
+      });
+      esc.appendChild(rej);
+    }
+
+    baraja(temp.vinetas).forEach(function(v){
+      var f=document.createElement('button');f.type='button';f.className='ficha';f.setAttribute('data-loc',v.loc);
+      f.innerHTML='<b>'+v.loc+'</b><small>'+v.lit+': '+v.sig+'</small>';
+      f.addEventListener('click',function(){
+        if(f.classList.contains('usada'))return;
+        activa=(activa===v.loc)?null:v.loc;
+        pintaFichas();
+        slots.forEach(function(s){s.el.classList.toggle('destino',!!activa&&s.puesta===null);});
+      });
+      fichas.appendChild(f);
+    });
+
+    temp.vinetas.forEach(function(v,i){
+      var c=document.createElement('div');c.className='card';
+      c.innerHTML='<h3>'+(i+1)+' · '+v.loc+'</h3><div class="lit">'+v.lit+'</div><p class="sig">'+v.sig+'.</p><p class="porque">'+v.porque+'</p>'+(v.extra?'<p class="extra">'+v.extra+'</p>':'');
+      cards.appendChild(c);
+    });
+
+    slots.forEach(pintaSlot);pintaFichas();
+  }
+
+  document.getElementById('revisar').addEventListener('click',function(){
+    var faltan=slots.filter(function(s){return s.puesta===null;}).length;
+    if(faltan){fb.className='fb no';fb.textContent='Faltan '+faltan+' viñetas por tapar con una locución. Pónganlas todas y luego revisen.';return;}
+    var bien=0;
+    slots.forEach(function(s){var ok=s.puesta===s.resp;if(ok)bien++;s.el.classList.remove('destino');s.el.classList.add(ok?'ok':'no');});
+    revisado=true;
+    fb.className=bien===slots.length?'fb ok':'fb ej';
+    fb.textContent=bien===slots.length?'Las ocho. Ahora lo difícil: explicar por qué da risa cada una.':bien+' de '+slots.length+'. Las naranjas están mal puestas: muévanlas y vuelvan a revisar. Pista: piensen qué está mirando el cerdo, no qué está haciendo.';
+  });
+
+  document.getElementById('destapar').addEventListener('click',function(){
+    var abierto=debrief.classList.toggle('abierto');
+    var comic=esc.querySelector('.comic');
+    if(comic)comic.classList.toggle('destapado',abierto);
+    slots.forEach(function(s){
+      if(temp.modo!=='imagen'){
+        if(abierto){s.el.classList.add('vista');s.el.textContent=s.resp;}
+        else{s.el.classList.remove('vista');pintaSlot(s);}
+      }
+    });
+    this.textContent=abierto?'Volver a tapar':'Destapar';
+    if(abierto)debrief.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+
+  document.getElementById('reiniciar').addEventListener('click',function(){
+    document.getElementById('destapar').textContent='Destapar';monta();
+  });
+
+  document.getElementById('niv-solo').addEventListener('click',function(){
+    sinSig=true;fichas.classList.add('sin-sig');this.classList.add('on');document.getElementById('niv-sig').classList.remove('on');
+  });
+  document.getElementById('niv-sig').addEventListener('click',function(){
+    sinSig=false;fichas.classList.remove('sin-sig');this.classList.add('on');document.getElementById('niv-solo').classList.remove('on');
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll('#temporadas button'),function(b){
+    b.addEventListener('click',function(){
+      Array.prototype.forEach.call(document.querySelectorAll('#temporadas button'),function(x){x.classList.remove('on');});
+      b.classList.add('on');
+      temp=b.getAttribute('data-temp')==='t2'?T2:T1;
+      document.getElementById('destapar').textContent='Destapar';
+      monta();
+    });
+  });
+
+  /* La temporada 2 aparece sola cuando existe su primera viñeta. */
+  var prueba=new Image();
+  prueba.onload=function(){document.getElementById('btn-t2').classList.remove('oculto');};
+  prueba.src=T2.carpeta+'01.webp';
+
+  document.getElementById('modo').addEventListener('click',function(){
+    document.body.classList.toggle('proyector');
+    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+  });
+
+  monta();
+})();
+</script>
+</body>
+</html>
