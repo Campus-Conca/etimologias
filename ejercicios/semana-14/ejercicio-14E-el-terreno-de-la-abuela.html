@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 14 · Ejercicio E · El terreno de la abuela</title>
+<style>
+  :root{ --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6; --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6; --dorado:#b07b12; --tinta:#2a2a2a; }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:var(--tinta);line-height:1.55}
+  .wrap{max-width:700px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.3rem}
+  body.proyector .wrap{max-width:1000px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+
+  .ejemplos{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.7rem;margin:.6rem 0 1rem}
+  .ej{border:1px solid var(--borde);border-radius:.8rem;overflow:hidden;background:#fff}
+  .ej img{display:block;width:100%;height:auto}
+  .ej p{margin:0;padding:.5rem .7rem;font-size:.85em;color:#444}
+  .ej p b{color:var(--ciruela);font-style:italic}
+
+  .progreso{display:flex;gap:.3rem;margin:1rem 0 .4rem;flex-wrap:wrap}
+  .progreso span{flex:1 1 1.2rem;height:.5rem;border-radius:1rem;background:#eadce6;min-width:1rem}
+  .progreso span.ok{background:var(--ok)}
+  .progreso span.no{background:var(--no)}
+  .progreso span.aqui{background:var(--rosa)}
+
+  .escena{border:1px solid var(--borde);border-radius:.9rem;background:#fff;padding:1rem 1.1rem 1.1rem;margin:.6rem 0;box-shadow:0 1px 4px rgba(107,30,90,.07)}
+  .escena .cuando{font-size:.78em;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--rosa)}
+  .escena .texto{margin:.5rem 0 .8rem;font-size:1.05em}
+  .escena .texto p{margin:.4rem 0}
+  .chat{background:#e9f5e1;border-radius:.8rem;padding:.6rem .9rem;margin:.4rem 0;font-size:.98em;max-width:92%}
+  .chat b{display:block;font-size:.8em;color:#2b6a2b}
+  .chat.yo{background:#f3eaf1;margin-left:auto}
+  .chat.yo b{color:var(--ciruela)}
+  .papel{background:#fffdf5;border:1px solid #efe6c8;border-radius:.4rem;padding:.7rem .9rem;font-family:Georgia,"Times New Roman",serif;font-size:.98em;margin:.4rem 0}
+  .nota{background:var(--fondo);border-left:3px solid #f4a8ce;padding:.5rem .8rem;margin:.4rem 0;font-size:.98em}
+  .hueco{display:inline-block;min-width:7rem;border-bottom:2px solid var(--rosa);color:var(--rosa);font-weight:800;font-style:italic;text-align:center;padding:0 .3rem}
+  mark{background:#ffe3f0;color:#7a0040;font-weight:800;font-style:italic;padding:0 .2rem;border-radius:.2rem}
+  .pregunta{font-weight:700;color:var(--ciruela);margin:.5rem 0 .4rem}
+  .opciones{display:flex;flex-direction:column;gap:.45rem}
+  .opciones button{font:inherit;text-align:left;padding:.6rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--tinta);cursor:pointer}
+  .opciones button em{color:var(--ciruela);font-weight:700}
+  .opciones button:hover{border-color:var(--rosa)}
+  .opciones button.ok{background:var(--okbg);border-color:var(--ok);color:#1b4d1e}
+  .opciones button.no{background:var(--nobg);border-color:var(--no);color:#6b3310}
+  .opciones button:disabled{cursor:default}
+  .fb{margin:.7rem 0 0;padding:.7rem .9rem;border-radius:.7rem;display:none;font-size:.98em}
+  .fb.ok{display:block;background:var(--okbg);color:#1b4d1e}
+  .fb.no{display:block;background:var(--nobg);color:#6b3310}
+  .fb b{color:inherit}
+  .propias{margin-top:.8rem;display:none}
+  .propias.ver{display:block}
+  .propias label{display:block;font-size:.85em;font-weight:700;color:var(--ciruela)}
+  .propias textarea{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;min-height:3.2rem;margin-top:.3rem}
+  .propias .ejemplo{display:none;margin-top:.5rem;background:var(--fondo);border-radius:.6rem;padding:.6rem .8rem;font-size:.95em}
+  .propias .ejemplo.ver{display:block}
+  .btn{font:inherit;font-weight:700;border:none;border-radius:2rem;padding:.55rem 1.2rem;cursor:pointer;background:var(--rosa);color:#fff;margin-top:.6rem}
+  .btn.suave{background:#fff;color:var(--rosa);border:1px solid var(--rosa)}
+  .btn:disabled{opacity:.4;cursor:default}
+  .acciones{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-top:.8rem}
+  .marcador{margin-left:auto;font-weight:800;color:var(--ciruela)}
+
+  .final{display:none}
+  .final.ver{display:block}
+  table{width:100%;border-collapse:collapse;font-size:.95em;margin:.6rem 0}
+  th,td{border:1px solid var(--borde);padding:.45rem .6rem;text-align:left;vertical-align:top}
+  th{background:var(--fondo);color:var(--ciruela)}
+  td:first-child{font-style:italic;font-weight:700;color:var(--ciruela);white-space:nowrap}
+  footer{margin-top:2rem;font-size:.85rem;color:#666;border-top:1px solid var(--borde);padding-top:.8rem}
+  footer a{color:var(--ciruela)}
+</style>
+</head>
+<body>
+<button class="modo" type="button" id="modo">Aa proyector</button>
+<div class="wrap">
+<header>
+  <div class="mini">Etimologías grecolatinas · Semana 14 · Sesión A</div>
+  <h1>El terreno de la abuela</h1>
+  <p>Una semana en la vida de Dani, de la prepa de Concá, contada en mensajes, papeles y pleitos. En cada escena hay una locución latina haciendo trabajo. Tú tienes que ponerla, entenderla o cazarla mal dicha.</p>
+</header>
+
+<div class="instr">
+  <strong>Cómo se juega.</strong> Doce escenas, en orden. En unas falta la locución y la eliges; en otras ya está y dices qué significa <em>ahí</em>, en esa situación; en otras alguien la dice mal y la cazas. Cada respuesta se revisa en el momento y te explica por qué. Al final tienes la lista de las doce con lo que significaron en la historia.
+  <br><br><strong>Si trabajas en cuaderno:</strong> numera del 1 al 12 y escribe, por escena, la locución y una línea de lo que significa en ese contexto.
+</div>
+
+<h2>Así trabaja una locución en una escena</h2>
+<p>Tres viñetas de <em>Pig Latin</em>, de Grant Snider, para ver el mecanismo: sin la locución, es un cerdo mirando una camioneta; con ella, la escena cambia de sentido. Eso es lo que vas a hacer con la historia de Dani.</p>
+<div class="ejemplos">
+  <div class="ej"><img src="../../assets/img/semana-14/tira/02-memento-mori.webp" alt="Un cerdo mira una camioneta que dice salchichas orgánicas; al pie: memento mori"><p><b>memento mori</b>: recuerda que vas a morir. La camioneta de salchichas viene por él.</p></div>
+  <div class="ej"><img src="../../assets/img/semana-14/tira/03-persona-non-grata.webp" alt="Llega el granjero con la camioneta de salchichas y el cerdo le da la espalda; al pie: persona non grata"><p><b>persona non grata</b>: el no bienvenido. El cerdo le da la espalda al granjero.</p></div>
+  <div class="ej"><img src="../../assets/img/semana-14/tira/08-deus-ex-machina.webp" alt="El cerdo cruza volando el cielo nocturno sobre la granja; al pie: deus ex machina"><p><b>deus ex machina</b>: la salida que aparece de la nada. El cerdo vuela y nadie sabe cómo.</p></div>
+</div>
+
+<h2>La historia</h2>
+<div class="progreso" id="progreso"></div>
+<div id="escena"></div>
+<div class="acciones">
+  <button class="btn" id="sig" disabled>Siguiente escena</button>
+  <span class="marcador" id="marcador"></span>
+</div>
+
+<div class="final" id="final">
+  <h2>Lo que te llevas</h2>
+  <p id="resumen"></p>
+  <table>
+    <tr><th>Locución</th><th>Lo que significó en la historia</th></tr>
+    <tbody id="tabla"></tbody>
+  </table>
+  <p>Para cerrar, una línea en tu cuaderno: ¿cuál de las doce te hubiera servido ya, en algo real de tu casa o de tu pueblo? Esa va a la ronda de síntesis.</p>
+  <button class="btn suave" id="otra">Volver a empezar</button>
+</div>
+
+<footer>Semana 14 · La letra chiquita · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página. Las viñetas de ejemplo son de <a href="https://www.incidentalcomics.com" target="_blank" rel="noopener">Grant Snider</a>, usadas en clase con fines didácticos. Los personajes de la historia son inventados.</footer>
+</div>
+
+<script>
+(function(){
+  var E=[
+    {tipo:"llena", cuando:"Lunes, 7:40 · grupo de WhatsApp «Familia Ledezma»", loc:"statu quo", sig:"dejar las cosas como están",
+     texto:'<div class="chat"><b>Tía Lupe</b>Ya hablé con el licenciado por lo del terreno de mamá. Dice que mientras nadie firme nada, todo se queda en <span class="hueco">___</span>: ni don Chon puede cercar ni nosotros vender.</div><div class="chat"><b>Tío Beto</b>O sea que seguimos igual que hace tres años 🙄</div>',
+     pregunta:"¿Qué locución va en el hueco?",
+     ops:[["statu quo",true,"Exacto: «como están las cosas». La tía dice que nada se mueve, ni para un lado ni para el otro."],["ipso facto",false,"Ipso facto es «en el acto, de inmediato». Aquí no pasa nada de inmediato: al contrario, todo se queda quieto."],["ad hoc",false,"Ad hoc es «hecho a propósito para esto». No cabe: nadie está armando nada especial, están esperando."],["de facto",false,"De facto es «de hecho, aunque la ley diga otra cosa». Se parece, pero la tía no habla de lo que pasa en la práctica, sino de que todo se queda como está."]]},
+    {tipo:"significa", cuando:"Lunes, 2:15 · noticia en el celular de Dani, camino a la prepa", loc:"habeas corpus", sig:"nadie puede tenerte detenido sin justificar por qué",
+     texto:'<div class="papel"><strong>Liberan a joven de Jalpan tras 48 horas detenido</strong><br>El juez concedió el <mark>habeas corpus</mark> promovido por la familia, luego de que la fiscalía no presentara cargos en el plazo legal.</div><p>Dani se queda pensando: es el primo de un compañero.</p>',
+     pregunta:"¿Qué quiere decir habeas corpus en esta noticia?",
+     ops:[["Que lo soltaron porque nadie justificó por qué lo tenían detenido",true,"Eso es. Habeas corpus, «que tengas el cuerpo»: la autoridad tiene que mostrar al detenido y decir por qué lo tiene. Si no puede, lo suelta. Es de las locuciones más importantes que existen."],["Que lo declararon culpable y lo mandaron a otra cárcel",false,"Al revés: lo liberaron. La locución protege al detenido, no lo condena."],["Que le hicieron un examen médico para ver si estaba bien",false,"Suena a eso por «corpus», cuerpo, pero no: el cuerpo que se pide es el del detenido, para que lo presenten ante el juez."]],
+     propias:"Explícaselo al compañero en un mensaje de dos líneas, como si no supiera nada de leyes.", ejemplo:"«Oye, a tu primo lo soltaron porque la fiscalía no pudo decir de qué lo acusaba. Eso es el habeas corpus: no te pueden tener encerrado sin justificar por qué.»"},
+    {tipo:"significa", cuando:"Martes en la noche · Beto, el primo, en la puerta de la casa", loc:"carpe diem", sig:"aprovecha el día; vive el momento",
+     texto:'<p>Hay baile en la plaza por la fiesta del pueblo. Dani tiene parcial de matemáticas el miércoles a primera hora.</p><div class="chat"><b>Beto</b><mark>Carpe diem</mark>, primo. Mañana ni sabemos si amanecemos. El examen lo presentas después.</div>',
+     pregunta:"¿Qué le está diciendo Beto, y qué tiene de peligroso?",
+     ops:[["Que aproveche el momento y se vaya al baile; lo peligroso es lo de «el examen lo presentas después»",true,"Carpe diem está bien usado: «aprovecha el día». El problema no es el latín, es el artículo 68 del Reglamento de Estudiantes: el parcial que no presentas el día que toca ya no lo presentas después. Beto sabe latín pero no leyó la letra chiquita."],["Que se vaya a dormir temprano, porque el día es sagrado",false,"Carpe diem es lo contrario: «aprovecha el día», vive el momento. Beto lo está usando para jalarlo al baile."],["Que el examen se puede presentar otro día, según la ley",false,"Eso es lo que Beto cree, y es falso: el reglamento dice que el parcial no presentado se pierde. Carpe diem no es una regla, es un consejo de Horacio."]],
+     propias:"¿Qué le contestas a Beto, en una línea, usando bien la locución?", ejemplo:"«Carpe diem el jueves, primo: mañana hay parcial y si no voy, lo pierdo. Eso dice el reglamento, no yo.»"},
+    {tipo:"llena", cuando:"Miércoles, 5:30 · el contrato que trae la tía Lupe para rentar el cuarto de la abuela a una maestra nueva", loc:"sine qua non", sig:"la condición indispensable",
+     texto:'<div class="papel"><em>Cláusula cuarta.</em> La arrendataria entregará un depósito equivalente a un mes de renta, condición <span class="hueco">___</span> para la entrega de las llaves.</div><div class="chat"><b>Tía Lupe</b>Dani, tú que estás viendo eso en la escuela, ¿qué dice aquí?</div>',
+     pregunta:"¿Qué locución va en el hueco?",
+     ops:[["sine qua non",true,"«Sin la cual no»: sin el depósito no hay llaves. Es la condición indispensable, y la cláusula lo dice en latín para que suene a ley."],["per se",false,"Per se es «por sí mismo». «Condición per se» no quiere decir nada aquí."],["a priori",false,"A priori es «de entrada, antes de comprobarlo». No es una condición, es una manera de juzgar."],["modus vivendi",false,"Modus vivendi es «modo de vivir, forma de ganarse la vida». Nada que ver con un depósito."]],
+     propias:"Tradúcele la cláusula a la tía en una línea, en español de casa.", ejemplo:"«Dice que sin el depósito de un mes no le entregas las llaves. Así de simple, tía.»"},
+    {tipo:"caza", cuando:"Jueves, 6:00 · asamblea del ejido, en la cancha techada", loc:"grosso modo", sig:"a grandes rasgos, sin detalle",
+     texto:'<p>El comisariado explica el deslinde del terreno de la abuela con un plano a mano.</p><div class="chat"><b>Comisariado</b>Miren, <mark>a grosso modo</mark> son como cuarenta hectáreas, de la barranca al camino. Ya el topógrafo dirá exacto.</div>',
+     pregunta:"La locución está mal dicha. ¿Cuál es la forma correcta?",
+     ops:[["grosso modo",true,"Sin «a». El latín ya trae la preposición por dentro: <em>modo</em> quiere decir «de modo». El comisariado la dijo como la dice casi todo el mundo, y la idea (a grandes rasgos) está bien: solo sobra la «a»."],["a groso modo",false,"Le quitaste una ese y le dejaste la «a». Lo que sobra es la «a»; las dos eses se quedan."],["grosso a modo",false,"Esa «a» no va en ningún lado: la locución es solo <em>grosso modo</em>."]]},
+    {tipo:"significa", cuando:"Jueves, 8:30 · en la cocina, después de la asamblea", loc:"memento mori", sig:"recuerda que vas a morir",
+     texto:'<p>El abuelo Chuy saca de la cómoda una foto de la abuela joven, en el mismo terreno, con el maíz hasta la cintura.</p><div class="nota">«Tu abuela decía que esto se arreglaba en vida, no después. <mark>Memento mori</mark>, m\'ija, por eso se firma en vida, porque luego ya no hay quién firme.»</div>',
+     pregunta:"¿Qué quiere decir el abuelo con memento mori, aquí?",
+     ops:[["Que hay que acordarse de que nos vamos a morir, y por eso arreglar las cosas a tiempo",true,"Eso es. «Recuerda que vas a morir» no es tristeza: es un empujón para no dejar pendientes. El cerdo lo vio en una camioneta de salchichas; el abuelo, en una foto."],["Que hay que recordar a los muertos y llevarles flores",false,"Se parece, pero no: memento mori te habla de tu propia muerte, no de la de otros. Es un recordatorio para los vivos."],["Que la abuela murió por culpa del terreno",false,"Nadie dice eso. El abuelo usa la frase para explicar por qué hay que firmar ahora."]],
+     propias:"Escribe, en una línea, el memento mori de tu propia familia: algo que alguien dice para recordar que el tiempo se acaba.", ejemplo:"«Mi mamá dice: ‘nadie se lleva nada’, cada vez que alguien pelea por una herencia.»"},
+    {tipo:"caza", cuando:"Viernes, 7:05 · grupo de WhatsApp «3.º B»", loc:"motu proprio", sig:"por voluntad propia, sin que nadie lo pida",
+     texto:'<div class="chat"><b>Karla</b>La maestra de historia nos va a hacer examen el lunes <mark>de motu propio</mark>, nadie se lo pidió 😭</div><div class="chat yo"><b>Dani</b>Pues sí, pero ahí van dos errores en tres palabras.</div>',
+     pregunta:"Karla la dijo mal dos veces. ¿Cuál es la forma correcta?",
+     ops:[["motu proprio",true,"Las dos cosas: sobra el «de» (<em>motu</em> ya quiere decir «por movimiento») y es <em>proprio</em>, con dos erres. Karla sí entendió el significado: la maestra lo decidió sola, sin que nadie se lo pidiera."],["motu propio",false,"Le quitaste el «de», pero falta una erre: es <em>proprio</em>."],["de motu proprio",false,"Ya tiene las dos erres, pero sigue sobrando el «de». El latín trae la preposición adentro."]]},
+    {tipo:"llena", cuando:"Viernes, 4:00 · en el terreno, con el topógrafo", loc:"de facto", sig:"de hecho, en la práctica, aunque la ley diga otra cosa",
+     texto:'<p>Don Chon tiene chivas pastando del lado de la barranca desde hace diez años. Las escrituras dicen que esa parte es de la abuela.</p><div class="chat"><b>Topógrafo</b>Lo que pasa es que don Chon es el dueño <span class="hueco">___</span> de esa franja: lleva diez años usándola. Pero el dueño de <em>iure</em>, por derecho, sigue siendo la familia de ustedes.</div>',
+     pregunta:"¿Qué locución va en el hueco?",
+     ops:[["de facto",true,"«De hecho»: en la práctica, don Chon manda ahí aunque el papel diga otra cosa. El topógrafo lo contrasta con <em>de iure</em>, «por derecho». Son el par perfecto para entender cualquier pleito de tierras."],["ipso facto",false,"Se parece muchísimo, y por eso se confunden. Ipso facto es «en el acto, inmediatamente»; no describe quién manda en la práctica."],["in fraganti",false,"In fraganti es «en el momento justo del hecho». Don Chon no fue sorprendido haciendo nada: lleva diez años ahí a la vista."],["ex professo",false,"Ex professo es «a propósito, deliberadamente». No es un adjetivo para dueño."]]},
+    {tipo:"llena", cuando:"Sábado, 9:00 · el tío Beto, enojado, en el patio", loc:"modus operandi", sig:"la manera en que alguien hace siempre las cosas",
+     texto:'<div class="chat"><b>Tío Beto</b>Don Chon tiene su <span class="hueco">___</span>, y lo conozco: primero mete las chivas, luego pone una cerca «provisional», luego siembra, y a los diez años dice que siempre fue suyo. Así hizo con lo de los Camacho.</div>',
+     pregunta:"¿Qué locución va en el hueco?",
+     ops:[["modus operandi",true,"«Modo de operar»: la manera en que alguien hace siempre las cosas. El tío describe el patrón paso a paso, y eso es exactamente un modus operandi. La usan los detectives y, ya ves, también los tíos."],["modus vivendi",false,"Modus vivendi es «modo de vivir, forma de ganarse la vida». El tío no habla de cómo vive don Chon, sino de cómo opera."],["statu quo",false,"Statu quo es «el estado actual de las cosas». Aquí el tío describe un método, no un estado."],["álter ego",false,"Álter ego es «el otro yo». Don Chon no tiene un otro yo: tiene un método."]]},
+    {tipo:"significa", cuando:"Sábado, 11:00 · segunda asamblea, con más gente", loc:"argumentum ad hominem", sig:"atacar a la persona en vez de responder a lo que dice",
+     texto:'<p>La mamá de Dani pide la palabra y explica, con las escrituras en la mano, por dónde va el lindero.</p><div class="chat"><b>Don Chon</b>¿Y qué va a saber ella de linderos, si ni la secundaria terminó?</div><div class="chat yo"><b>Mamá de Dani</b>Eso es un <mark>argumentum ad hominem</mark>, don Chon. Conteste lo de las escrituras.</div>',
+     pregunta:"¿Qué le está señalando la mamá de Dani?",
+     ops:[["Que la atacó a ella en vez de responder a lo que dijo",true,"Eso es: «argumento contra la persona». Don Chon no dijo nada sobre las escrituras; habló de la secundaria de la señora. Cuando alguien no puede con el argumento, ataca a quien lo dice. En la tira, es el grafiti «el granjero es malvado»."],["Que la insultó, y que insultar está prohibido en la asamblea",false,"Sí la insultó, pero la locución señala algo más preciso: que cambió el tema del argumento a la persona. Por eso remata con «conteste lo de las escrituras»."],["Que don Chon tiene razón porque ella no estudió",false,"Al contrario: tener o no secundaria no cambia lo que dicen las escrituras. Eso es justo lo que la locución denuncia."]],
+     propias:"Escribe un ad hominem que hayas oído en tu casa, en la escuela o en la tele, y cómo se contesta.", ejemplo:"«‘Tú ni votas, qué opinas’. Se contesta: ‘que no vote no cambia lo que dije; contéstame eso’.»"},
+    {tipo:"llena", cuando:"Lunes siguiente, 10:00 · el licenciado llama a la tía Lupe", loc:"deus ex machina", sig:"la salida que aparece de la nada",
+     texto:'<p>Nadie encontraba el plano original del deslinde. El licenciado buscó en el Registro Público y apareció, de 1987, con la firma de la abuela y del papá de don Chon, con el lindero donde dice la familia.</p><div class="chat"><b>Tía Lupe</b>Fue un <span class="hueco">___</span>, Dani: ya nos dábamos por perdidos y aparece un papel de hace cuarenta años que lo arregla todo.</div>',
+     pregunta:"¿Qué locución va en el hueco?",
+     ops:[["deus ex machina",true,"«Dios desde la máquina»: en el teatro antiguo, una grúa bajaba al dios que resolvía todo de golpe. Un plano de 1987 que nadie esperaba es exactamente eso. El cerdo volando sobre la granja también."],["ad astra per aspera",false,"«A las estrellas por el camino difícil» es un lema de esfuerzo: llegar lejos a pesar de lo áspero. Aquí nadie se esforzó para encontrar el plano; apareció."],["e pluribus unum",false,"«De muchos, uno». Es el lema de Estados Unidos, y de los cerdos apilados. No describe una salida inesperada."],["alea iacta est",false,"«La suerte está echada» se dice cuando ya no hay vuelta atrás, al tomar una decisión. Aquí no se decidió nada: apareció una solución."]]},
+    {tipo:"llena", cuando:"Martes, 4:30 · notaría de Jalpan", loc:"ipso facto", sig:"en el acto, inmediatamente",
+     texto:'<p>Antes de que la mamá firme, Dani lee la cláusula completa, despacio, como aprendió en la semana 14.</p><div class="papel"><em>Cláusula séptima.</em> Firmado el presente, las partes reconocen <span class="hueco">___</span> el lindero señalado en el plano de 1987 y renuncian a cualquier reclamación posterior.</div><div class="chat yo"><b>Dani</b>Mamá, aquí dice que en cuanto firmen ya quedó, y nadie puede reclamar después. ¿Estamos seguros del lindero?</div>',
+     pregunta:"¿Qué locución va en el hueco?",
+     ops:[["ipso facto",true,"«En el acto, por el mismo hecho»: en cuanto se firma, queda. Dani la entendió, y por eso pregunta antes de que su mamá firme. Eso es leer la letra chiquita."],["de facto",false,"De facto es «de hecho, en la práctica». Aquí no se habla de la práctica sino del momento en que algo queda hecho: la firma."],["motu proprio",false,"Motu proprio es «por voluntad propia». Las partes sí firman por voluntad propia, pero la cláusula habla de cuándo queda reconocido el lindero: en el acto."],["a priori",false,"A priori es «de entrada, antes de comprobar». Una cláusula que surte efecto al firmar no es a priori: es ipso facto."]],
+     propias:"Última línea de la historia: ¿firma o no firma la mamá de Dani? Escríbelo en una oración que use una locución de la historia, bien usada.", ejemplo:"«Firmó, pero hasta que el topógrafo confirmó el lindero: eso era condición sine qua non para Dani.»"}
+  ];
+
+  var i=0,bien=0,contestadas=0,resp=[];
+  var cont=document.getElementById('escena'),prog=document.getElementById('progreso'),sig=document.getElementById('sig'),marc=document.getElementById('marcador'),fin=document.getElementById('final');
+  function baraja(a){a=a.slice();for(var k=a.length-1;k>0;k--){var j=Math.floor(Math.random()*(k+1)),t=a[k];a[k]=a[j];a[j]=t;}return a;}
+
+  function pintaProg(){prog.innerHTML='';E.forEach(function(e,k){var s=document.createElement('span');if(resp[k]===true)s.className='ok';else if(resp[k]===false)s.className='no';else if(k===i)s.className='aqui';prog.appendChild(s);});marc.textContent=bien+' bien de '+contestadas;}
+
+  function muestra(){
+    var e=E[i]; sig.disabled=true; fin.classList.remove('ver');
+    var h='<div class="escena"><div class="cuando">Escena '+(i+1)+' de '+E.length+' · '+e.cuando+'</div><div class="texto">'+e.texto+'</div><div class="pregunta">'+e.pregunta+'</div><div class="opciones" id="ops"></div><div class="fb" id="fb"></div>';
+    if(e.propias){h+='<div class="propias" id="propias"><label>'+e.propias+'<textarea></textarea></label><button type="button" class="btn suave" id="verEj">Compara con un ejemplo</button><div class="ejemplo" id="ej">'+e.ejemplo+'</div></div>';}
+    h+='</div>';
+    cont.innerHTML=h;
+    var ops=document.getElementById('ops'),fb=document.getElementById('fb');
+    baraja(e.ops).forEach(function(o){
+      var b=document.createElement('button');b.type='button';b.innerHTML=(e.tipo==='llena'||e.tipo==='caza')?'<em>'+o[0]+'</em>':o[0];
+      b.addEventListener('click',function(){
+        Array.prototype.forEach.call(ops.children,function(c){c.disabled=true;});
+        contestadas++;resp[i]=o[1];
+        if(o[1]){bien++;b.className='ok';fb.className='fb ok';fb.innerHTML='<b>Bien.</b> '+o[2];}
+        else{b.className='no';fb.className='fb no';fb.innerHTML='<b>Aún no.</b> '+o[2]+' La buena era <em>'+e.ops.filter(function(x){return x[1];})[0][0]+'</em>.';Array.prototype.forEach.call(ops.children,function(c){if(c.textContent===e.ops.filter(function(x){return x[1];})[0][0])c.className='ok';});}
+        if(e.propias){document.getElementById('propias').classList.add('ver');}
+        sig.disabled=false;pintaProg();
+        if(e.tipo==='llena'){var hueco=cont.querySelector('.hueco');if(hueco)hueco.textContent=e.loc;}
+      });
+      ops.appendChild(b);
+    });
+    var ve=document.getElementById('verEj');if(ve)ve.addEventListener('click',function(){document.getElementById('ej').classList.toggle('ver');});
+    pintaProg();window.scrollTo({top:cont.offsetTop-80,behavior:'smooth'});
+  }
+
+  sig.addEventListener('click',function(){
+    if(i<E.length-1){i++;muestra();}
+    else{
+      cont.innerHTML='';sig.disabled=true;fin.classList.add('ver');
+      document.getElementById('resumen').textContent=bien+' de '+E.length+' a la primera. Lo que quedó en «aún no» se puede reintentar: cuenta tu versión más reciente, no el promedio.';
+      document.getElementById('tabla').innerHTML=E.map(function(e,k){return '<tr><td>'+e.loc+'</td><td>'+e.sig+(resp[k]?'':' · <span style="color:#b3541e;font-weight:700">aún no</span>')+'</td></tr>';}).join('');
+      prog.innerHTML='';
+    }
+  });
+  document.getElementById('otra').addEventListener('click',function(){i=0;bien=0;contestadas=0;resp=[];muestra();});
+  document.getElementById('modo').addEventListener('click',function(){document.body.classList.toggle('proyector');this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';});
+  muestra();
+})();
+</script>
+</body>
+</html>

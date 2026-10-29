@@ -106,12 +106,12 @@ Aquí empieza la unidad 3. El orden cambió un poco: en vez de abrir con el grie
 <p class="apoyo">La tercera regla es la que explica casi todos los errores que vas a oír en tu vida. En latín, la terminación de la palabra hacía el trabajo que en español hace la preposición: <em>modo</em> ya quería decir "de modo", <em>motu</em> ya quería decir "por movimiento". Si le pones la preposición por fuera, la estás diciendo dos veces.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">7</span> Gimnasio: ¿bien o mal dicho? <span class="reloj">15 min</span></h4>
-<span class="senal">Actividad · en equipo</span>
-<p class="di">Ocho usos reales de latín vivo: un discurso, un titular, un contrato, un chat. Dictaminen y, si hay error, corríjanlo.</p>
-<p class="apoyo"><a href="../ejercicios/semana-14/ejercicio-14A-bien-o-mal-dicho.html">¿Bien o mal dicho?</a>: cada caso trae pista y, si está mal, tres formas entre las que elegir la correcta. El error cazado vale doble, pero la regla de la semana es esta: se corrige la frase, no se humilla a la persona. Casi todo el mundo dice alguna de estas mal, y hasta ayer tú también.</p>
-<p class="recurso"><a href="../ejercicios/semana-14/ejercicio-14A-bien-o-mal-dicho.html" target="_blank" rel="noopener">¿Bien o mal dicho?</a><span class="pie">Ocho casos del mundo real, con pista, dictamen y corrección.</span></p>
-<p class="nota-conductor">Equipos de los mismos tres del cerdo. Al cerrar, una ronda rápida de la pregunta final del ejercicio: cuál locución les parece la más útil para su vida y en qué situación real la usarían. Esa respuesta es el insumo del miércoles.</p>
+<h4><span class="n">7</span> Gimnasio: el terreno de la abuela <span class="reloj">15 min</span></h4>
+<span class="senal">Actividad · en parejas, en el celular</span>
+<p class="di">Una semana en la vida de Dani, de la prepa de Concá: un terreno en disputa, un primo detenido, un baile, un contrato y una asamblea. En cada escena hay una locución trabajando.</p>
+<p class="apoyo"><a href="../ejercicios/semana-14/ejercicio-14E-el-terreno-de-la-abuela.html">El terreno de la abuela</a>: doce escenas en mensajes, papeles y pleitos. En unas falta la locución y la eliges; en otras ya está y dices qué significa ahí, en esa situación; en otras alguien la dice mal y la cazas. Cada respuesta explica por qué, y al final tienes las doce con lo que significaron en la historia. Son las mismas locuciones del cerdo y de la letra chiquita, pero ahora en tu mundo.</p>
+<p class="recurso"><a href="../ejercicios/semana-14/ejercicio-14E-el-terreno-de-la-abuela.html" target="_blank" rel="noopener">El terreno de la abuela</a><span class="pie">Doce escenas: pon la locución, di qué significa en contexto, o cázala mal dicha. Tres viñetas del cerdo abren como ejemplo.</span></p>
+<p class="nota-conductor">En parejas, un celular, quince minutos; no se termina en clase y está bien: sigue en casa. La escena 3 (carpe diem y el parcial) conecta con el artículo 68 del reglamento que leen el miércoles: siémbrala. Al cerrar, una ronda rápida de la pregunta final: cuál de las doce les hubiera servido ya en algo real de su casa o de su pueblo. Esa respuesta es el insumo del miércoles. <a href="../ejercicios/semana-14/ejercicio-14A-bien-o-mal-dicho.html">¿Bien o mal dicho?</a> queda como gimnasio de casa y para quien termine antes el jueves.</p>
 </section>
 <section class="lam">
 <h4><span class="n">8</span> Antes del miércoles <span class="reloj">2 min</span></h4>
@@ -196,7 +196,7 @@ Aquí empieza la unidad 3. El orden cambió un poco: en vez de abrir con el grie
 <span class="senal senal--casa">Para llevar a casa</span>
 <p class="di">Mañana salimos de cacería al centro de cómputo. Y el viernes dibujamos nuestra propia temporada de la tira.</p>
 <p class="apoyo">Jueves: traes tu mazo con las locuciones del taller, porque vas a verificar cuatro en el DLE y a cazar una en libertad. Viernes: en equipos, una viñeta cuyo chiste solo funcione si sabes la locución, igual que el cerdo. Trae plumones y hojas blancas tamaño carta. El animal lo eligen ustedes.</p>
-<p class="nota-conductor">Anuncia los equipos del viernes hoy, para que lleguen con quién dibuja decidido. Si tienes lista la segunda temporada del profesor (el burro), no la enseñes todavía: se juega el viernes después de las suyas.</p>
+<p class="nota-conductor">Anuncia los equipos del viernes hoy, para que lleguen con quién dibuja decidido. Las viñetas sueltas del cerdo, en la hoja de consulta de esta página, sirven de modelo: que las vean una por una antes de dibujar.</p>
 </section>
 </section>
 
@@ -291,7 +291,7 @@ Aquí empieza la unidad 3. El orden cambió un poco: en vez de abrir con el grie
 <tr><td><strong>Las fotos</strong></td><td>3</td><td>las viñetas, con el permiso de sus autores, se suben a la galería de abajo: foto, locución y nombres</td></tr>
 </table>
 <p class="apoyo">Las reglas del cerdo: el animal lo eligen ustedes, el chiste depende de la locución, y si al quitar el pie la viñeta sigue teniendo sentido, el chiste no está en el latín. No hace falta dibujar bien: hace falta que se entienda qué está mirando el personaje.</p>
-<p class="nota-conductor">Sortea con papelitos; si hay más de ocho equipos, se repiten locuciones y mejor, porque se comparan dos chistes sobre la misma. Durante los veinte minutos de dibujo pasa por cada equipo con una sola pregunta: ¿qué ve quien no sabe la locución? Si contestan "lo mismo", el chiste todavía no existe. Si ya tienes la segunda temporada del profesor (el burro, en la pestaña Temporada 2 de <a href="../ejercicios/semana-14/ejercicio-14D-el-cerdo-que-habla-latin.html">El cerdo que habla latín</a>), se juega después del destape, cinco minutos, como revancha. Las fotos se suben con nombre de pila y permiso explícito.</p>
+<p class="nota-conductor">Sortea con papelitos; si hay más de ocho equipos, se repiten locuciones y mejor, porque se comparan dos chistes sobre la misma. Durante los veinte minutos de dibujo pasa por cada equipo con una sola pregunta: ¿qué ve quien no sabe la locución? Si contestan "lo mismo", el chiste todavía no existe. Las fotos se suben con nombre de pila y permiso explícito.</p>
 </section>
 <section class="lam lam--actividad">
 <h4><span class="n">5</span> Al muro, a la galería y al mazo <span class="reloj">15 min</span></h4>
@@ -336,7 +336,7 @@ El **minuto del lector** abre el martes con el tercer libro en la mano, o con un
 
 *Pig Latin*, de Grant Snider ([Incidental Comics](https://www.incidentalcomics.com)). Ocho viñetas y ocho locuciones: *cogito ergo sum*, *memento mori*, *persona non grata*, *argumentum ad hominem*, *carpe diem*, *e pluribus unum*, *ad astra per aspera* y *deus ex machina*. Se proyecta en clase con fines didácticos; el original y el resto de su obra están en su sitio. El título es también un juego: *pig latin* es el nombre de un juego de palabras en inglés, el "idioma del cerdo".
 
-Lo que la tira enseña, y por eso abre la semana: el chiste solo funciona si entiendes la locución. Tapar los pies y deducir cuál va en cada viñeta es exactamente el músculo que se entrena después con los contratos. En [El cerdo que habla latín](../ejercicios/semana-14/ejercicio-14D-el-cerdo-que-habla-latin.html) los pies vienen tapados.
+Lo que la tira enseña, y por eso abre la semana: el chiste solo funciona si entiendes la locución. Tapar los pies y deducir cuál va en cada viñeta es exactamente el músculo que se entrena después con los contratos. En [El cerdo que habla latín](../ejercicios/semana-14/ejercicio-14D-el-cerdo-que-habla-latin.html) los pies vienen tapados. Las ocho viñetas también están sueltas, como ejemplo, en la hoja de consulta de abajo: toca una locución en rosa y aparece la suya.
 
 ### La regla de oro de las locuciones
 
@@ -359,7 +359,8 @@ El [Reglamento de Estudiantes de la UAQ](https://www.uaq.mx/leyes/Reglamento-Est
 Los ejercicios de esta semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
 
 - [El cerdo que habla latín](../ejercicios/semana-14/ejercicio-14D-el-cerdo-que-habla-latin.html) · martes: la tira con los pies tapados, para emparejar a ciegas
-- [¿Bien o mal dicho?](../ejercicios/semana-14/ejercicio-14A-bien-o-mal-dicho.html) · martes
+- [El terreno de la abuela](../ejercicios/semana-14/ejercicio-14E-el-terreno-de-la-abuela.html) · martes: doce escenas de una historia donde pones la locución, dices qué significa ahí o la cazas mal dicha
+- [¿Bien o mal dicho?](../ejercicios/semana-14/ejercicio-14A-bien-o-mal-dicho.html) · para la casa, y para quien termine antes el jueves
 - [Taller de locuciones](../ejercicios/semana-14/ejercicio-14B-taller-de-locuciones.html) · miércoles
 - [Cazadores de locuciones](../ejercicios/semana-14/ejercicio-14C-cazadores-de-locuciones.html) · jueves, centro de cómputo
 - [Quiz de gimnasio](../ejercicios/semana-14/quiz-gimnasio-semana-14.html) · para ensayar cuando quieras
@@ -390,6 +391,7 @@ Toca una locución para ver qué significa y cómo se usa bien. Ojo con las que 
 #lc14 .lc14-use{margin-top:.35rem;color:#333}
 #lc14 .lc14-warn{margin-top:.5rem;color:#a3312b;font-size:.9rem;font-weight:700}
 #lc14 .lc14-pig{margin-top:.5rem;color:#6b1e5a;font-size:.9rem;font-style:italic}
+#lc14 .lc14-img{display:block;max-width:16rem;width:100%;height:auto;margin:.6rem 0 0;border:1px solid #eadce6;border-radius:.5rem}
 </style>
 
 <script>
@@ -446,7 +448,8 @@ Toca una locución para ver qué significa y cómo se usa bien. Ojo con las que 
     b.addEventListener('click',function(){
       Array.prototype.forEach.call(grid.children,function(c){c.classList.remove('on');});
       b.classList.add('on');
-      out.innerHTML='<div class="lc14-mean">'+x[1]+'</div><div class="lc14-use">Ejemplo: '+x[2]+'</div>'+(x[3]?'<div class="lc14-warn">'+x[3]+'</div>':'')+(x[4]?'<div class="lc14-pig">En la tira: '+x[4]+'</div>':'');
+      var tira={"cogito ergo sum":"01-cogito-ergo-sum","memento mori":"02-memento-mori","persona non grata":"03-persona-non-grata","argumentum ad hominem":"04-argumentum-ad-hominem","carpe diem":"05-carpe-diem","e pluribus unum":"06-e-pluribus-unum","ad astra per aspera":"07-ad-astra-per-aspera","deus ex machina":"08-deus-ex-machina"}[x[0]];
+      out.innerHTML='<div class="lc14-mean">'+x[1]+'</div><div class="lc14-use">Ejemplo: '+x[2]+'</div>'+(x[3]?'<div class="lc14-warn">'+x[3]+'</div>':'')+(x[4]?'<div class="lc14-pig">En la tira: '+x[4]+'</div>':'')+(tira?'<img class="lc14-img" src="../assets/img/semana-14/tira/'+tira+'.webp" alt="Viñeta de Pig Latin: '+x[0]+'">':'');
     });
     grid.appendChild(b);
   });

@@ -48,13 +48,6 @@
   .tapa.vista{background:transparent;color:transparent;border-color:transparent;box-shadow:none;pointer-events:none}
   .comic.destapado .tapa{display:none}
 
-  /* Temporada 2: ocho viñetas sueltas, cada una con su locución rotulada al pie,
-     dentro de la imagen; la tapa cubre esa franja de abajo */
-  .rejilla{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
-  .vineta{position:relative;border:1px solid var(--borde);border-radius:.7rem;overflow:hidden;background:#fff;user-select:none}
-  .vineta img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
-  .vineta .tapa{top:83%;left:3%;width:94%;height:15%}
-  .rejilla.destapado .tapa{display:none}
   .vineta .pie{position:relative;min-height:2.3em;display:flex;align-items:center;justify-content:center;font-weight:800;font-style:italic;
     background:#2b2440;color:#fff;cursor:pointer;text-align:center;padding:.3rem .4rem;font-size:.9em}
   .vineta .pie.vacia{background:#c8127a;font-style:normal}
@@ -82,7 +75,9 @@
 
   .debrief{display:none;margin-top:1.4rem}
   .debrief.abierto{display:block}
-  .card{border:1px solid var(--borde);border-radius:.9rem;padding:.9rem 1.1rem;margin:.7rem 0;background:#fff}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:.9rem 1.1rem;margin:.7rem 0;background:#fff;display:grid;grid-template-columns:minmax(0,10rem) minmax(0,1fr);gap:.9rem;align-items:start}
+  .card-img{width:100%;height:auto;border:1px solid var(--borde);border-radius:.5rem}
+  @media(max-width:520px){.card{grid-template-columns:1fr}}
   .card h3{margin:0 0 .25rem;color:var(--rosa);font-size:1.15em;font-style:italic}
   .card .lit{color:var(--ciruela);font-weight:700;font-size:.95em}
   .card .sig{margin:.3rem 0 0}
@@ -109,11 +104,6 @@
 </div>
 
 <div class="barra">
-  <div class="grupo" id="temporadas">
-    <span class="lbl">Temporada</span>
-    <button type="button" class="on" data-temp="t1">1 · Pig Latin</button>
-    <button type="button" data-temp="t2" id="btn-t2" class="oculto">2 · El burro</button>
-  </div>
   <div class="grupo">
     <span class="lbl">Nivel</span>
     <button type="button" id="niv-solo" class="on">Solo la locución</button>
@@ -182,26 +172,6 @@
     ]
   };
 
-  /* Temporada 2: la hacen el profesor y el grupo. Ocho viñetas sueltas, horizontales
-     4:3, con la locución rotulada al pie dentro de la imagen (como en la tira original),
-     en assets/img/semana-14/temporada-2/01.webp a 08.webp, en este orden. La tapa cubre
-     la franja de abajo. Si la primera no existe, la pestaña no aparece. */
-  var T2={
-    nombre:"El burro que habla latín",
-    credito:'<strong>El burro que habla latín</strong>: la segunda temporada, hecha en el curso con ilustración generada por IA a partir de guiones del profesor. Los pies tapados son locuciones de la hoja de consulta de la semana.',
-    modo:"rejilla",
-    carpeta:"../../assets/img/semana-14/temporada-2/",
-    vinetas:[
-      {loc:"motu proprio",lit:"por movimiento propio",sig:"por voluntad propia, sin que nadie te lo pida",porque:"El burro jala la carreta cuesta arriba mientras el arriero duerme adentro. Nadie se lo pidió."},
-      {loc:"grosso modo",lit:"de modo grueso",sig:"a grandes rasgos, sin detalle",porque:"El burro pinta el mapa del rancho con una brocha gorda: puras manchas. «Más o menos así es.»"},
-      {loc:"habeas corpus",lit:"que tengas el cuerpo",sig:"nadie puede tenerte detenido sin justificar por qué",porque:"El burro amarrado al poste y una gallina con portafolio que pregunta por el motivo."},
-      {loc:"de facto",lit:"de hecho",sig:"en la práctica, aunque la ley diga otra cosa",porque:"El letrero dice «prohibido burros» y el burro está adentro, comiendo de la mesa."},
-      {loc:"statu quo",lit:"en el estado en que",sig:"el estado actual de las cosas; dejar todo como está",porque:"El burro y la cabra, uno a cada lado de la cerca, con telarañas entre los dos: nadie se ha movido en años."},
-      {loc:"sine qua non",lit:"sin la cual no",sig:"la condición indispensable",porque:"El burro no cruza el río sin su sombrero. Sin sombrero no hay viaje."},
-      {loc:"modus operandi",lit:"modo de operar",sig:"la manera en que alguien hace siempre las cosas",porque:"El burro abre la tranca con los dientes, de noche, y en la pared hay rayitas: una por cada noche que lo ha hecho igual."},
-      {loc:"in fraganti",lit:"en flagrante",sig:"en el momento justo en que se comete el hecho",porque:"El burro con la cabeza dentro del costal de maíz, iluminado por la lámpara del ranchero. «¿Yo?»"}
-    ]
-  };
 
   var temp=T1, slots=[], activa=null, sinSig=true, revisado=false;
   var esc=document.getElementById('escenario'), fichas=document.getElementById('fichas'),
@@ -262,18 +232,6 @@
         slots.push(s);comic.appendChild(t);
       });
       esc.appendChild(comic);
-    }else{
-      var rej=document.createElement('div');rej.className='rejilla';
-      temp.vinetas.forEach(function(v,i){
-        var c=document.createElement('div');c.className='vineta';
-        var img=document.createElement('img');img.src=temp.carpeta+(i<9?'0':'')+(i+1)+'.webp';img.alt='Viñeta '+(i+1)+' de '+temp.nombre;
-        var t=document.createElement('div');t.className='tapa vacia';
-        t.setAttribute('role','button');t.setAttribute('aria-label','Viñeta '+(i+1));
-        var s={el:t,puesta:null,resp:v.loc};
-        t.addEventListener('click',function(){tocaSlot(s);});
-        slots.push(s);c.appendChild(img);c.appendChild(t);rej.appendChild(c);
-      });
-      esc.appendChild(rej);
     }
 
     baraja(temp.vinetas).forEach(function(v){
@@ -290,7 +248,8 @@
 
     temp.vinetas.forEach(function(v,i){
       var c=document.createElement('div');c.className='card';
-      c.innerHTML='<h3>'+(i+1)+' · '+v.loc+'</h3><div class="lit">'+v.lit+'</div><p class="sig">'+v.sig+'.</p><p class="porque">'+v.porque+'</p>'+(v.extra?'<p class="extra">'+v.extra+'</p>':'');
+      var ruta='../../assets/img/semana-14/tira/'+(i<9?'0':'')+(i+1)+'-'+v.loc.replace(/ /g,'-')+'.webp';
+      c.innerHTML='<img class="card-img" src="'+ruta+'" alt="Viñeta '+(i+1)+': '+v.loc+'"><div><h3>'+(i+1)+' · '+v.loc+'</h3><div class="lit">'+v.lit+'</div><p class="sig">'+v.sig+'.</p><p class="porque">'+v.porque+'</p>'+(v.extra?'<p class="extra">'+v.extra+'</p>':'')+'</div>';
       cards.appendChild(c);
     });
 
@@ -309,7 +268,7 @@
 
   document.getElementById('destapar').addEventListener('click',function(){
     var abierto=debrief.classList.toggle('abierto');
-    var tablero=esc.querySelector('.comic')||esc.querySelector('.rejilla');
+    var tablero=esc.querySelector('.comic');
     if(tablero)tablero.classList.toggle('destapado',abierto);
     this.textContent=abierto?'Volver a tapar':'Destapar';
     if(abierto)debrief.scrollIntoView({behavior:'smooth',block:'start'});
@@ -326,20 +285,6 @@
     sinSig=false;fichas.classList.remove('sin-sig');this.classList.add('on');document.getElementById('niv-solo').classList.remove('on');
   });
 
-  Array.prototype.forEach.call(document.querySelectorAll('#temporadas button'),function(b){
-    b.addEventListener('click',function(){
-      Array.prototype.forEach.call(document.querySelectorAll('#temporadas button'),function(x){x.classList.remove('on');});
-      b.classList.add('on');
-      temp=b.getAttribute('data-temp')==='t2'?T2:T1;
-      document.getElementById('destapar').textContent='Destapar';
-      monta();
-    });
-  });
-
-  /* La temporada 2 aparece sola cuando existe su primera viñeta. */
-  var prueba=new Image();
-  prueba.onload=function(){document.getElementById('btn-t2').classList.remove('oculto');};
-  prueba.src=T2.carpeta+'01.webp';
 
   document.getElementById('modo').addEventListener('click',function(){
     document.body.classList.toggle('proyector');
