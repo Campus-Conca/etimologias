@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El choque · Juegos de palabras</title>
+<meta name="description" content="Dos palabras lejanas, una preposición al azar, y a contar qué pasa. Juego de palabras del curso de Etimologías (UAQ).">
+<!--
+  EL CHOQUE · Juego 1 de los Juegos de palabras · v1.0
+  Curso de Etimologías Grecolatinas · Escuela de Bachilleres UAQ
+
+  Fuente: Gianni Rodari, Gramática de la fantasía, cap. 4 (el binomio fantástico).
+  Las ruletas se cargan con las palabras-escalofrío que trae el grupo.
+
+  Archivo autónomo: funciona abierto desde el disco y en GitHub Pages.
+  Datos: la baraja embebida abajo (script id="baraja") es la de respaldo;
+  si existe ./data/banco.json, ./data/preposiciones.json y ./data/cartas.json
+  los usa; y si alguien pegó una baraja en el panel Baraja, esa manda.
+  Claves de localStorage: choque-baraja-v1, choque-nominadas-v1,
+  choque-modo-v1, juegos-autor. Todo acceso va en try/catch.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rosa:#D6006D; --rosa-suave:#FBE3F0; --ciruela:#3E1F35; --ciruela-media:#6B3A5B;
+  --jade:#0E8C6D; --dorado:#C9A227; --papel:#FCF8F3; --hueso:#F3ECE2; --tinta:#2A1522;
+  --fondo:var(--papel); --tarjeta:#FFFFFF; --texto:var(--tinta); --suave:var(--ciruela-media);
+  --titulo:var(--ciruela); --borde:#E6DCD0; --boton2:var(--hueso); --boton2-texto:var(--ciruela);
+  --sombra:0 2px 10px rgba(62,31,53,.12); --radio:14px;
+  --display:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;
+  --cuerpo:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --fondo:#1B0F18; --tarjeta:#2A1726; --texto:#F6EEF2; --suave:#D4B6C6; --titulo:#F6EEF2;
+         --borde:#4A2E42; --boton2:#3A2334; --boton2-texto:#F6EEF2; --rosa-suave:#4A1F3A;
+         --sombra:0 2px 10px rgba(0,0,0,.4); }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--fondo);color:var(--texto);font-family:var(--cuerpo);line-height:1.5;min-height:100vh;display:flex;flex-direction:column}
+h1,h2,h3,p,ol,ul{margin:0}
+button{font-family:var(--display);cursor:pointer;border:none;font-size:1rem}
+button:disabled{opacity:.55;cursor:default}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--rosa);outline-offset:2px}
+a{color:var(--rosa)}
+code{font-family:'IBM Plex Mono',Menlo,monospace;font-size:.9em;background:var(--boton2);padding:.05em .35em;border-radius:5px}
+
+/* cabecera */
+.cabecera{background:var(--ciruela);color:var(--papel);padding:1rem 1.2rem 1.2rem}
+.cabecera .fila{max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+.volver{color:#E9C6DA;text-decoration:none;font-weight:600;font-size:.95rem}
+.volver:hover{color:#fff;text-decoration:underline}
+.cabecera h1{font-family:var(--display);font-weight:800;font-size:clamp(1.8rem,5vw,2.8rem);letter-spacing:-.5px;line-height:1.05;color:var(--papel)}
+.cabecera h1 .acento{color:var(--rosa)}
+.cabecera .regla{color:#E9C6DA;font-size:1rem;margin-top:.2rem}
+.mandos-cabecera{margin-left:auto;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.modos{display:inline-flex;background:rgba(255,255,255,.12);border-radius:99px;padding:.2rem}
+.modos button{background:transparent;color:#E9C6DA;font-weight:600;font-size:.95rem;padding:.4rem 1rem;border-radius:99px}
+.modos button.activo{background:var(--rosa);color:#fff}
+.btn-reglas{background:rgba(255,255,255,.12);color:#fff;font-weight:600;padding:.45rem 1rem;border-radius:99px}
+.reglas{background:var(--rosa-suave);border-bottom:1px solid var(--borde)}
+.reglas ol{max-width:1000px;margin:0 auto;padding:.9rem 1.2rem .9rem 2.4rem;font-size:.98rem}
+.reglas li{margin:.25rem 0}
+.reglas li b{color:var(--rosa)}
+
+/* escenario */
+main{flex:1;width:100%;max-width:1000px;margin:0 auto;padding:1.2rem 1rem 2rem}
+.escenario{text-align:center}
+.ruletas{display:flex;align-items:center;justify-content:center;gap:clamp(.6rem,3vw,1.6rem);margin:.6rem 0 1rem}
+.ruleta{position:relative;width:min(36vw,180px);aspect-ratio:1;flex:none}
+.ruleta::before{content:'';position:absolute;top:-9px;left:50%;transform:translateX(-50%);border:11px solid transparent;border-top:18px solid var(--texto);z-index:2}
+.ruleta .aro{position:absolute;inset:0;border-radius:50%;box-shadow:var(--sombra);
+  background:conic-gradient(var(--rosa) 0 12.5%,var(--ciruela) 0 25%,var(--jade) 0 37.5%,var(--dorado) 0 50%,var(--rosa) 0 62.5%,var(--ciruela) 0 75%,var(--jade) 0 87.5%,var(--dorado) 0);
+  transition:transform 1.3s cubic-bezier(.15,.7,.2,1)}
+.ruleta .palabra{position:absolute;inset:15%;border-radius:50%;background:var(--tarjeta);color:var(--titulo);
+  display:flex;align-items:center;justify-content:center;text-align:center;padding:.3em;
+  font-family:var(--display);font-weight:800;font-size:clamp(1rem,3.8vw,1.45rem);line-height:1.1;overflow-wrap:anywhere;hyphens:auto}
+.ruleta .palabra.girando{color:var(--suave);font-weight:600}
+.mas{font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,5vw,2.6rem);color:var(--rosa)}
+.resultado{font-family:var(--display);font-weight:800;font-size:clamp(1.7rem,6vw,3.1rem);line-height:1.15;color:var(--titulo);min-height:1.3em;margin:.4rem 0 .8rem;overflow-wrap:anywhere}
+.resultado .prep{color:var(--rosa)}
+.resultado .vacio{color:var(--suave);font-weight:600;font-size:.6em}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem;margin-bottom:1rem;min-height:2rem}
+.chips button{background:var(--rosa-suave);color:var(--titulo);border:1.5px solid var(--borde);font-weight:600;font-size:.95rem;padding:.3rem .8rem;border-radius:99px}
+.chips button[aria-pressed="true"]{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+.acciones{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem}
+.btn-primario{background:var(--rosa);color:#fff;font-weight:800;font-size:1.1rem;padding:.75rem 1.7rem;border-radius:12px;box-shadow:0 3px 0 #9C0050}
+.btn-primario:active{transform:translateY(2px);box-shadow:0 1px 0 #9C0050}
+.btn-jade{background:var(--jade);color:#fff;font-weight:800;font-size:1.05rem;padding:.75rem 1.4rem;border-radius:12px;box-shadow:0 3px 0 #086A51}
+.btn-jade:active{transform:translateY(2px);box-shadow:0 1px 0 #086A51}
+.btn-secundario{background:var(--boton2);color:var(--boton2-texto);font-weight:600;font-size:.98rem;padding:.7rem 1.1rem;border-radius:12px}
+.rotulo{display:inline-block;font-family:var(--display);font-weight:600;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--rosa);margin:.2rem 0 .5rem}
+
+/* ronda de cinco */
+.ronda{margin:1.4rem auto 0;max-width:820px;text-align:left}
+.ronda ol{list-style:none;padding:0;display:flex;flex-direction:column;gap:.5rem;counter-reset:choque}
+.ronda li{counter-increment:choque;display:flex;align-items:center;gap:.7rem}
+.ronda li::before{content:counter(choque);font-family:var(--display);font-weight:800;font-size:1.3rem;color:var(--rosa);min-width:1.5ch;text-align:right}
+.ronda .opcion{flex:1;text-align:left;background:var(--tarjeta);color:var(--titulo);border:2px solid var(--borde);border-radius:12px;padding:.6rem .9rem;font-weight:800;font-size:clamp(1.05rem,3vw,1.5rem);line-height:1.2}
+.ronda .opcion .prep{color:var(--rosa)}
+.ronda .opcion[aria-pressed="true"]{border-color:var(--jade);background:var(--rosa-suave)}
+.ronda .opcion[aria-pressed="true"]::after{content:' · se dibuja';color:var(--jade);font-size:.75em;font-weight:600}
+
+/* carta ilustrada */
+.carta{margin:1.2rem auto 0;max-width:560px}
+.carta figure{margin:0;background:var(--tarjeta);border:1px solid var(--borde);border-radius:var(--radio);box-shadow:var(--sombra);padding:.8rem}
+.carta img{display:block;width:100%;height:auto;border-radius:10px;background:var(--hueso)}
+.carta figcaption{margin-top:.6rem;font-size:.95rem;color:var(--suave)}
+.carta figcaption b{display:block;color:var(--titulo);font-family:var(--display);font-size:1.15rem}
+.carta p.nota{color:var(--suave);font-size:.98rem;background:var(--tarjeta);border:1px dashed var(--borde);border-radius:12px;padding:.8rem 1rem}
+
+/* escribir */
+.escribir{margin-top:1.6rem;background:var(--tarjeta);border-radius:var(--radio);box-shadow:var(--sombra);padding:1.1rem 1.2rem;border-top:5px solid var(--rosa)}
+.escribir label{display:block;font-family:var(--display);font-weight:800;color:var(--titulo);margin:.6rem 0 .3rem;font-size:1.05rem}
+.escribir label small{font-family:var(--cuerpo);font-weight:400;color:var(--suave);font-size:.88rem;margin-left:.4rem}
+textarea,input[type=text]{width:100%;font:inherit;font-size:1.05rem;color:var(--texto);background:var(--fondo);border:1.5px solid var(--borde);border-radius:10px;padding:.6rem .75rem}
+textarea{min-height:6.5rem;resize:vertical;line-height:1.5}
+.contador{font-size:.85rem;color:var(--suave);margin:.3rem 0 .4rem;text-align:right}
+.escribir .acciones{justify-content:flex-start;margin-top:.9rem}
+.aviso{margin-top:.8rem;min-height:1.4em;font-weight:600;color:var(--jade)}
+#copia{margin-top:.6rem}
+#copia textarea{min-height:8rem;font-family:'IBM Plex Mono',Menlo,monospace;font-size:.9rem}
+
+/* paneles plegables */
+details.panel{margin-top:1rem;background:var(--tarjeta);border:1.5px solid var(--borde);border-radius:12px;overflow:hidden}
+details.panel summary{font-family:var(--display);font-weight:800;font-size:1.02rem;color:var(--titulo);padding:.85rem 1.1rem;cursor:pointer;list-style:none;display:flex;align-items:center;gap:.6rem}
+details.panel summary::-webkit-details-marker{display:none}
+details.panel summary::before{content:'+';color:var(--rosa);font-size:1.3rem;font-weight:800;line-height:1}
+details.panel[open] summary::before{content:'\2212'}
+details.panel summary .num{margin-left:auto;font-size:.8rem;font-weight:600;color:var(--suave);background:var(--boton2);padding:.1rem .6rem;border-radius:99px}
+details.panel .contenido{padding:.2rem 1.1rem 1.1rem;font-size:.97rem}
+details.panel .contenido p{margin:.5rem 0;color:var(--suave)}
+.lista-nom{list-style:none;padding:0;margin:.5rem 0}
+.lista-nom li{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;padding:.45rem 0;border-bottom:1px dashed var(--borde)}
+.lista-nom li b{flex:1 1 60%;color:var(--titulo);font-family:var(--display)}
+.lista-nom li span{flex:1 1 100%;font-size:.82rem;color:var(--suave);font-family:'IBM Plex Mono',Menlo,monospace}
+.lista-nom li .quitar{background:none;color:var(--suave);font-family:var(--cuerpo);font-size:.85rem;text-decoration:underline;padding:.2rem .4rem}
+.lista-nom li.vacio{color:var(--suave);border:none}
+.info{font-size:.88rem;color:var(--suave);margin:.4rem 0 .6rem}
+
+footer{text-align:center;color:var(--suave);font-size:.85rem;padding:1rem 1.2rem 1.6rem}
+footer em{font-style:italic}
+
+/* modo Proyectar: una cosa en pantalla, letra grande */
+body.proyectar{--fondo:var(--ciruela);--texto:var(--papel);--titulo:var(--papel);--suave:#E9C6DA;--tarjeta:#2A1726;--borde:#5C3A52;--boton2:#5C3A52;--boton2-texto:#fff;--rosa-suave:#4A1F3A}
+body.proyectar .cabecera{padding:.6rem 1.2rem}
+body.proyectar .cabecera h1{font-size:1.5rem}
+body.proyectar .cabecera .regla{display:none}
+body.proyectar .solo-jugar,body.proyectar footer,body.proyectar .chips,body.proyectar .reglas{display:none}
+body.proyectar main{padding-top:2rem}
+body.proyectar .ruleta{width:min(30vw,340px)}
+body.proyectar .ruleta .palabra{font-size:clamp(1.6rem,4.2vw,2.6rem)}
+body.proyectar .ruleta::before{border-top-color:var(--papel)}
+body.proyectar .resultado{font-size:clamp(2.4rem,7.5vw,5.2rem);margin:1.4rem 0}
+body.proyectar .btn-primario,body.proyectar .btn-jade,body.proyectar .btn-secundario{font-size:1.4rem;padding:1rem 2rem}
+body.proyectar .ronda .opcion{font-size:clamp(1.6rem,3.6vw,2.4rem);padding:.8rem 1.2rem}
+body.proyectar .ronda li::before{font-size:2rem}
+body.proyectar .carta{max-width:760px}
+body.proyectar .carta figcaption{font-size:1.4rem}
+body.proyectar .carta figcaption b{font-size:2rem}
+body.proyectar .carta p.nota{font-size:1.6rem}
+.solo-proyectar{display:none}
+body.proyectar .solo-proyectar{display:inline-block}
+
+@media (max-width:420px){
+  .cabecera h1{font-size:1.7rem}
+  .mandos-cabecera{margin-left:0;width:100%}
+}
+@media (prefers-reduced-motion: reduce){
+  .ruleta .aro{transition:none}
+  .btn-primario:active,.btn-jade:active{transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="fila">
+    <a class="volver" href="../">&larr; Etimologías</a>
+  </div>
+  <div class="fila">
+    <div>
+      <h1>El <span class="acento">choque</span></h1>
+      <p class="regla">Dos palabras lejanas, una preposición al azar, y a contar qué pasa.</p>
+    </div>
+    <div class="mandos-cabecera">
+      <div class="modos" role="group" aria-label="Modo de la página">
+        <button type="button" id="btnJugar" class="activo" aria-pressed="true">Jugar</button>
+        <button type="button" id="btnProyectar" aria-pressed="false">Proyectar</button>
+      </div>
+      <button type="button" id="btnReglas" class="btn-reglas" aria-expanded="false" aria-controls="reglas">Reglas</button>
+    </div>
+  </div>
+</header>
+
+<section id="reglas" class="reglas" hidden>
+  <ol>
+    <li><b>Girar</b> saca dos palabras y una preposición que las junta.</li>
+    <li>Si las dos palabras se parecen demasiado, la página vuelve a girar. Lo demás lo juzga el grupo: ¿están lejos?</li>
+    <li>Cuenta en tres líneas qué pasa cuando chocan. Puedes cambiar la preposición con los botones de abajo.</li>
+    <li><b>Guardar</b> copia tu texto y baja un archivo: va al Museo de Palabras o al formulario de la semana.</li>
+    <li>Si el choque merece dibujo, <b>nomínalo</b>: queda en la lista Para dibujar.</li>
+    <li>En <b>Proyectar</b>, la ronda de cinco saca cinco choques y el grupo vota a mano alzada cuál se dibuja.</li>
+  </ol>
+</section>
+
+<main>
+  <section class="escenario" aria-label="Ruletas">
+    <div class="ruletas">
+      <div class="ruleta" id="r1"><div class="aro"></div><div class="palabra" id="p1">?</div></div>
+      <div class="mas" aria-hidden="true">+</div>
+      <div class="ruleta" id="r2"><div class="aro"></div><div class="palabra" id="p2">?</div></div>
+    </div>
+    <div class="resultado" id="resultado" aria-live="polite"><span class="vacio">Pulsa Girar</span></div>
+    <div class="chips" id="chips" aria-label="Cambiar la preposición"></div>
+    <div class="acciones">
+      <button type="button" id="btnGirar" class="btn-primario">Girar</button>
+      <button type="button" id="btnRonda" class="btn-jade solo-proyectar">Ronda de cinco</button>
+      <button type="button" id="btnCarta" class="btn-secundario">Sacar carta</button>
+    </div>
+    <div id="ronda" class="ronda" hidden></div>
+    <div id="carta" class="carta" hidden></div>
+  </section>
+
+  <section class="escribir solo-jugar" aria-label="Qué pasa">
+    <label for="historia">Qué pasa <small>tres líneas bastan</small></label>
+    <textarea id="historia" placeholder="El chivo se metió al celular y ahora contesta las llamadas..."></textarea>
+    <div class="contador" id="contador">0 palabras</div>
+    <label for="autor">Tu nombre <small>de pila, para el crédito</small></label>
+    <input type="text" id="autor" autocomplete="given-name" placeholder="Ana">
+    <div class="acciones">
+      <button type="button" id="btnGuardar" class="btn-primario">Guardar</button>
+      <button type="button" id="btnOtro" class="btn-secundario">Otro choque</button>
+      <button type="button" id="btnNominar" class="btn-secundario">Nominar para carta</button>
+    </div>
+    <p id="aviso" class="aviso" role="status" aria-live="polite"></p>
+    <div id="copia" hidden>
+      <label for="copiaTexto">Tu texto, listo para copiar</label>
+      <textarea id="copiaTexto" readonly></textarea>
+    </div>
+  </section>
+
+  <details class="panel solo-jugar" id="panelNom">
+    <summary>Para dibujar <span class="num" id="numNom">0</span></summary>
+    <div class="contenido">
+      <p>Los choques nominados. Se dibujan en tinta sobre papel, se fotografían y se suben con ese nombre de archivo.</p>
+      <ul class="lista-nom" id="listaNom"></ul>
+      <div class="acciones">
+        <button type="button" id="btnExportarNom" class="btn-secundario">Exportar lista</button>
+        <button type="button" id="btnVaciarNom" class="btn-secundario">Vaciar lista</button>
+      </div>
+    </div>
+  </details>
+
+  <details class="panel solo-jugar" id="panelBaraja">
+    <summary>Baraja</summary>
+    <div class="contenido">
+      <p class="info" id="infoBaraja"></p>
+      <p>Pega aquí las palabras del grupo, una por línea, o un JSON con la forma <code>{"palabras":[{"palabra":"tinaco","autor":"Ana"}]}</code>. Se guarda solo en este navegador y manda sobre la baraja del sitio.</p>
+      <textarea id="barajaTexto" aria-label="Palabras de la baraja" placeholder="tinaco&#10;vereda&#10;cueva"></textarea>
+      <div class="acciones" style="margin-top:.6rem">
+        <button type="button" id="btnUsarBaraja" class="btn-secundario">Usar esta baraja</button>
+        <button type="button" id="btnRestablecer" class="btn-secundario">Restablecer</button>
+      </div>
+      <p class="info" id="infoPreps"></p>
+    </div>
+  </details>
+</main>
+
+<footer>Idea: Gianni Rodari, <em>Gramática de la fantasía</em>, el binomio fantástico. Las palabras de las ruletas las trae el grupo; las cartas las dibujan ustedes.</footer>
+
+<script id="baraja" type="application/json">
+{"palabras":["tinaco","vereda","cueva","tecolote","comal","alambre","chivo","celular","tortilla","camión","machete","presa","río","nopal","llave","cubeta","lámpara","espejo","puerta","escalera","cerro","lancha","tilapia","sombrero","radio","bicicleta","mochila","gorra","botón","lluvia","trueno","luna","pozo","cocina","molcajete","reloj","carta","fotografía","zapato","costal","gallina","perro","burro","abeja","piedra","cuchara","vela","sábana","ventana","techo","cerca","huerto","semilla","raíz","puente","campana","guitarra","tambor","pelota","globo"],
+ "preposiciones":["con","en","del","sin","sobre","bajo","contra","para","entre","tras"],
+ "cartas":[]}
+</script>
+<script>
+(function(){
+'use strict';
+var $=function(s){return document.querySelector(s)};
+var LS={baraja:'choque-baraja-v1',nom:'choque-nominadas-v1',autor:'juegos-autor',modo:'choque-modo-v1'};
+var reduce=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+function lsGet(k){try{return window.localStorage.getItem(k)}catch(e){return null}}
+function lsSet(k,v){try{window.localStorage.setItem(k,v);return true}catch(e){return false}}
+function lsDel(k){try{window.localStorage.removeItem(k)}catch(e){}}
+
+var embebida=JSON.parse($('#baraja').textContent);
+var baraja={palabras:[],preposiciones:[],cartas:[],fuente:'embebida'};
+var estado={actual:null,carta:null,girando:false,guardado:false};
+var giros=[0,0];
+
+/* ---------- utilidades ---------- */
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function limpiar(s){return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').trim()}
+function kebab(s){return limpiar(s).replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')}
+function dos(n){return (n<10?'0':'')+n}
+function fechaHoy(){var d=new Date();return d.getFullYear()+'-'+dos(d.getMonth()+1)+'-'+dos(d.getDate())}
+function azar(arr){return arr[Math.floor(Math.random()*arr.length)]}
+function aviso(t){$('#aviso').textContent=t}
+
+/* ---------- artículos: para que el choque se lea en voz alta ---------- */
+var FEM=['llave','mano','foto','moto','flor','sal','miel','piel','nube','noche','tarde','leche','carne','gente','fuente','suerte','muerte','calle','nieve','sangre','torre','clase','base','parte','serpiente','mente','fiebre','nave','lumbre','cumbre','costumbre','carcel','red','pared','sed','luz','cruz','paz','voz','nariz','vez','raiz','lombriz','cicatriz','imagen','tos','labor','senal','cal','col','crin','vid','fe','tribu','madre','sarten','sien','orden'];
+var MASC_A=['dia','mapa','planeta','problema','tema','sistema','idioma','clima','drama','poema','programa','sofa','tranvia','cometa','fantasma','esquema','teorema','diploma','aroma','enigma','panorama','tequila','koala','gorila','pirata','guardia'];
+var ELA=['agua','aguila','hacha','hambre','alma','arma','area','ala','aula','asa','ancla','arpa','ave','habla','hada','acta','ansia','aspa','alga'];
+function articulo(p){
+  if(p.articulo) return p.articulo;
+  var w=limpiar(p.palabra);
+  if(ELA.indexOf(w)>=0||MASC_A.indexOf(w)>=0) return 'el';
+  if(FEM.indexOf(w)>=0) return 'la';
+  if(/(a|cion|sion|dad|tad|tud|umbre|ie)$/.test(w)) return 'la';
+  return 'el';
+}
+function frase(s){
+  var aA=articulo(s.a), aB=articulo(s.b), mid;
+  if(s.prep==='del') mid=(aB==='el')?'del':'de '+aB;
+  else if(s.prep==='al') mid=(aB==='el')?'al':'a '+aB;
+  else mid=s.prep+' '+aB;
+  return {texto:aA+' '+s.a.palabra+' '+mid+' '+s.b.palabra,
+          html:esc(aA+' '+s.a.palabra)+' <span class="prep">'+esc(mid)+'</span> '+esc(s.b.palabra)};
+}
+
+/* ---------- baraja ---------- */
+function normalizarPalabras(x){
+  if(x&&!Array.isArray(x)&&Array.isArray(x.palabras)) x=x.palabras;
+  if(!Array.isArray(x)) return [];
+  var vistas={}, out=[];
+  x.forEach(function(p){
+    var o=null;
+    if(typeof p==='string') o={palabra:p,autor:'',porque:'',articulo:''};
+    else if(p&&p.palabra) o={palabra:String(p.palabra),autor:p.autor||'',porque:p.porque||'',articulo:p.articulo||''};
+    if(!o) return;
+    var m=o.palabra.trim().match(/^(el|la|un|una)\s+(.+)$/i);
+    if(m){ o.articulo=o.articulo||(/^(el|un)$/i.test(m[1])?'el':'la'); o.palabra=m[2]; }
+    o.palabra=o.palabra.trim();
+    if(!o.palabra) return;
+    var k=limpiar(o.palabra);
+    if(vistas[k]) return;
+    vistas[k]=1; out.push(o);
+  });
+  return out;
+}
+function interpretar(raw){
+  var out={palabras:[],preposiciones:null};
+  try{
+    var j=JSON.parse(raw);
+    out.palabras=normalizarPalabras(j);
+    if(j&&Array.isArray(j.preposiciones)&&j.preposiciones.length) out.preposiciones=j.preposiciones.map(String);
+  }catch(e){
+    out.palabras=normalizarPalabras(raw.split(/[\n,;]+/));
+  }
+  return out;
+}
+function aplicarEmbebida(){
+  baraja.palabras=normalizarPalabras(embebida.palabras);
+  baraja.preposiciones=(embebida.preposiciones||['en']).slice();
+  baraja.cartas=(embebida.cartas||[]).filter(function(c){return c&&c.juego==='choque'});
+  baraja.fuente='embebida en la página';
+}
+function aplicarPegada(){
+  var raw=lsGet(LS.baraja);
+  if(!raw) return;
+  var r=interpretar(raw);
+  if(r.palabras.length>=2){
+    baraja.palabras=r.palabras;
+    if(r.preposiciones) baraja.preposiciones=r.preposiciones;
+    baraja.fuente='pegada en este navegador';
+    $('#barajaTexto').value=raw;
+  }
+}
+function traer(nombre){
+  return fetch('./data/'+nombre+'.json').then(function(r){return r.ok?r.json():null}).catch(function(){return null});
+}
+function cargar(){
+  aplicarEmbebida();
+  var p=Promise.all([traer('banco'),traer('preposiciones'),traer('cartas')]);
+  return p.then(function(res){
+    var b=res[0],pr=res[1],c=res[2];
+    if(b){ var ps=normalizarPalabras(b); if(ps.length>=2){ baraja.palabras=ps; baraja.fuente='data/banco.json'; } }
+    if(pr&&Array.isArray(pr.preposiciones)&&pr.preposiciones.length) baraja.preposiciones=pr.preposiciones.map(String);
+    if(c&&Array.isArray(c.cartas)) baraja.cartas=c.cartas.filter(function(k){return k&&k.juego==='choque'});
+  }).catch(function(){}).then(function(){
+    aplicarPegada();
+    pintarInfoBaraja();
+  });
+}
+function pintarInfoBaraja(){
+  $('#infoBaraja').textContent=baraja.palabras.length+' palabras · fuente: '+baraja.fuente+(baraja.cartas.length?' · '+baraja.cartas.length+' cartas dibujadas':'');
+  $('#infoPreps').textContent='Preposiciones: '+baraja.preposiciones.join(', ')+'.';
+}
+
+/* ---------- girar ---------- */
+function elegirPar(){
+  var ps=baraja.palabras;
+  if(ps.length<2) return null;
+  for(var i=0;i<40;i++){
+    var a=azar(ps), b=azar(ps);
+    var la=limpiar(a.palabra), lb=limpiar(b.palabra);
+    if(la===lb||la.indexOf(lb)>=0||lb.indexOf(la)>=0) continue;
+    return [a,b];
+  }
+  return null;
+}
+function girar(){
+  if(estado.girando) return Promise.resolve(null);
+  var par=elegirPar();
+  if(!par){ aviso('La baraja necesita al menos dos palabras distintas.'); return Promise.resolve(null); }
+  var prep=azar(baraja.preposiciones)||'en';
+  estado.girando=true; estado.guardado=false; estado.carta=null;
+  $('#btnGirar').disabled=true; $('#btnRonda').disabled=true; $('#btnOtro').disabled=true;
+  $('#carta').hidden=true;
+  var dur=reduce?0:1300;
+  [0,1].forEach(function(i){
+    var aro=$('#r'+(i+1)+' .aro'), lab=$('#p'+(i+1));
+    if(!reduce){ giros[i]+=720+Math.floor(Math.random()*360); aro.style.transform='rotate('+giros[i]+'deg)'; }
+    lab.classList.add('girando');
+  });
+  var tick=null;
+  if(!reduce){ tick=setInterval(function(){ $('#p1').textContent=azar(baraja.palabras).palabra; $('#p2').textContent=azar(baraja.palabras).palabra; },80); }
+  return new Promise(function(res){
+    setTimeout(function(){
+      if(tick) clearInterval(tick);
+      estado.actual={a:par[0],b:par[1],prep:prep};
+      $('#p1').textContent=par[0].palabra; $('#p2').textContent=par[1].palabra;
+      $('#p1').classList.remove('girando'); $('#p2').classList.remove('girando');
+      pintarResultado();
+      estado.girando=false;
+      $('#btnGirar').disabled=false; $('#btnRonda').disabled=false; $('#btnOtro').disabled=false;
+      res(estado.actual);
+    },dur);
+  });
+}
+function pintarResultado(){
+  var s=estado.actual;
+  if(!s){ $('#resultado').innerHTML='<span class="vacio">Pulsa Girar</span>'; $('#chips').innerHTML=''; return; }
+  $('#resultado').innerHTML=frase(s).html;
+  var chips=$('#chips'); chips.innerHTML='';
+  baraja.preposiciones.forEach(function(p){
+    var b=document.createElement('button'); b.type='button'; b.textContent=p;
+    b.setAttribute('aria-pressed',p===s.prep?'true':'false');
+    b.addEventListener('click',function(){ s.prep=p; pintarResultado(); });
+    chips.appendChild(b);
+  });
+}
+
+/* ---------- ronda de cinco (Proyectar) ---------- */
+function rondaDeCinco(){
+  if(estado.girando) return;
+  var cont=$('#ronda'); cont.hidden=false; $('#carta').hidden=true;
+  cont.innerHTML='<p class="rotulo">Ronda de cinco: voten a mano alzada y toquen la ganadora</p><ol></ol>';
+  var ol=cont.querySelector('ol');
+  (function paso(n){
+    if(n>=5) return;
+    girar().then(function(r){
+      if(!r) return;
+      var f=frase(r);
+      var li=document.createElement('li');
+      var b=document.createElement('button'); b.type='button'; b.className='opcion'; b.innerHTML=f.html; b.setAttribute('aria-pressed','false');
+      b.addEventListener('click',function(){
+        ol.querySelectorAll('.opcion').forEach(function(x){x.setAttribute('aria-pressed','false')});
+        b.setAttribute('aria-pressed','true');
+        estado.actual=r; pintarResultado();
+        nominar(f.texto,'Apuntado en Para dibujar: '+f.texto+'.');
+      });
+      li.appendChild(b); ol.appendChild(li);
+      setTimeout(function(){paso(n+1)},reduce?0:400);
+    });
+  })(0);
+}
+
+/* ---------- cartas dibujadas ---------- */
+function sacarCarta(){
+  var c=$('#carta'); c.hidden=false; $('#ronda').hidden=true;
+  var cs=baraja.cartas;
+  if(!cs.length){
+    c.innerHTML='<p class="nota">Todavía no hay cartas dibujadas para El choque. Nominen choques, dibújenlos en tinta y súbanlos a <code>cartas/choque/</code> con su crédito.</p>';
+    return;
+  }
+  var k=azar(cs);
+  estado.actual=null; estado.carta=k; estado.guardado=false;
+  $('#resultado').innerHTML=esc(k.texto||''); $('#chips').innerHTML='';
+  c.innerHTML='<figure>'+(k.imagen?'<img src="'+esc(k.imagen)+'" alt="'+esc(k.texto||'Carta dibujada')+'">':'')+
+    '<figcaption><b>'+esc(k.texto||'')+'</b>'+(k.autor?'Dibujo: '+esc(k.autor):'')+'</figcaption></figure>'+
+    '<p class="rotulo">Consigna: cuenta qué pasa en esta carta</p>';
+}
+
+/* ---------- guardar: residuo en texto ---------- */
+function copiar(t){
+  function respaldo(){
+    var caja=$('#copia'), ta=$('#copiaTexto');
+    caja.hidden=false; ta.value=t; ta.focus(); ta.select();
+    var ok=false;
+    try{ ok=!!document.execCommand('copy'); }catch(e){ ok=false; }
+    if(ok) caja.hidden=true;
+    return ok;
+  }
+  return new Promise(function(res){
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(function(){ $('#copia').hidden=true; res(true); },function(){ res(respaldo()); });
+    } else res(respaldo());
+  });
+}
+function descargar(nombre,t){
+  try{
+    var b=new Blob([t],{type:'text/plain;charset=utf-8'});
+    var u=URL.createObjectURL(b);
+    var a=document.createElement('a'); a.href=u; a.download=nombre;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){URL.revokeObjectURL(u)},2000);
+  }catch(e){}
+}
+function guardar(){
+  var hist=$('#historia').value.trim(), autor=$('#autor').value.trim();
+  if(!estado.actual&&!estado.carta){ aviso('Primero gira o saca una carta.'); return; }
+  if(!hist){ aviso('Escribe qué pasa antes de guardar. Tres líneas bastan.'); $('#historia').focus(); return; }
+  if(autor) lsSet(LS.autor,autor);
+  var f=fechaHoy(), lineas=['# El choque · '+f], nombre;
+  if(estado.actual){
+    var fr=frase(estado.actual);
+    lineas.push('Binomio: '+estado.actual.a.palabra+' + '+estado.actual.b.palabra,'Preposición: '+estado.actual.prep,'Choque: '+fr.texto);
+    nombre=kebab(estado.actual.a.palabra+' '+estado.actual.b.palabra);
+  } else {
+    lineas.push('Carta: '+(estado.carta.texto||'')+(estado.carta.autor?' (dibujo de '+estado.carta.autor+')':''));
+    nombre=kebab(estado.carta.texto||'carta');
+  }
+  lineas.push('','Qué pasa:',hist,'','Autor: '+(autor||'(sin nombre)'),'Fecha: '+f);
+  var texto=lineas.join('\n')+'\n';
+  copiar(texto).then(function(ok){
+    descargar('choque-'+f+'-'+nombre+'.txt',texto);
+    estado.guardado=true;
+    aviso(ok?'Copiado y descargado. Pégalo donde va: Museo de Palabras o formulario de la semana.':'Descargado. El portapapeles no se dejó: copia el texto de abajo con Ctrl+C.');
+  });
+}
+
+/* ---------- nominadas: la lista Para dibujar ---------- */
+function leerNom(){ try{ var v=JSON.parse(lsGet(LS.nom)||'[]'); return Array.isArray(v)?v:[]; }catch(e){ return []; } }
+function nominar(texto,msg){
+  var lista=leerNom();
+  if(lista.some(function(x){return x.texto===texto})){ aviso('Ese choque ya está en Para dibujar.'); return; }
+  lista.push({texto:texto,archivo:'cartas/choque/'+kebab(texto)+'.jpg',fecha:fechaHoy(),autor:$('#autor').value.trim()});
+  lsSet(LS.nom,JSON.stringify(lista));
+  pintarNom();
+  aviso(msg||'Apuntado en Para dibujar.');
+}
+function pintarNom(){
+  var lista=leerNom(), ul=$('#listaNom');
+  $('#numNom').textContent=lista.length;
+  ul.innerHTML='';
+  if(!lista.length){ ul.innerHTML='<li class="vacio">Nada todavía. Nomina un choque que merezca dibujo.</li>'; return; }
+  lista.forEach(function(x,i){
+    var li=document.createElement('li');
+    li.innerHTML='<b>'+esc(x.texto)+'</b><span>'+esc(x.archivo)+(x.autor?' · nominó '+esc(x.autor):'')+'</span>';
+    var q=document.createElement('button'); q.type='button'; q.className='quitar'; q.textContent='Quitar'; q.setAttribute('aria-label','Quitar '+x.texto);
+    q.addEventListener('click',function(){ var l=leerNom(); l.splice(i,1); lsSet(LS.nom,JSON.stringify(l)); pintarNom(); });
+    li.appendChild(q); ul.appendChild(li);
+  });
+}
+function exportarNom(){
+  var lista=leerNom();
+  if(!lista.length){ aviso('No hay nada que exportar.'); return; }
+  var f=fechaHoy();
+  var t='# El choque · para dibujar · '+f+'\n\n'+lista.map(function(x){
+    return '- '+x.texto+'\n  archivo: '+x.archivo+(x.autor?'\n  nominó: '+x.autor:'')+'\n  fecha: '+x.fecha;
+  }).join('\n')+'\n';
+  copiar(t).then(function(ok){ descargar('choque-para-dibujar-'+f+'.txt',t); aviso(ok?'Lista copiada y descargada.':'Lista descargada.'); });
+}
+var vaciarArmado=false;
+function vaciarNom(){
+  var b=$('#btnVaciarNom');
+  if(!vaciarArmado){ vaciarArmado=true; b.textContent='¿Seguro? Vaciar'; setTimeout(function(){vaciarArmado=false;b.textContent='Vaciar lista'},4000); return; }
+  lsDel(LS.nom); pintarNom(); vaciarArmado=false; b.textContent='Vaciar lista'; aviso('Lista vaciada.');
+}
+
+/* ---------- modo ---------- */
+function setModo(m){
+  var proy=(m==='proyectar');
+  document.body.classList.toggle('proyectar',proy);
+  $('#btnJugar').classList.toggle('activo',!proy); $('#btnJugar').setAttribute('aria-pressed',String(!proy));
+  $('#btnProyectar').classList.toggle('activo',proy); $('#btnProyectar').setAttribute('aria-pressed',String(proy));
+  if(!proy){ $('#ronda').hidden=true; }
+  lsSet(LS.modo,proy?'proyectar':'jugar');
+}
+
+/* ---------- cableado ---------- */
+$('#btnGirar').addEventListener('click',function(){ $('#ronda').hidden=true; girar(); });
+$('#btnOtro').addEventListener('click',function(){ girar().then(function(){ aviso(''); window.scrollTo({top:0,behavior:reduce?'auto':'smooth'}); }); });
+$('#btnRonda').addEventListener('click',rondaDeCinco);
+$('#btnCarta').addEventListener('click',sacarCarta);
+$('#btnGuardar').addEventListener('click',guardar);
+$('#btnNominar').addEventListener('click',function(){
+  if(estado.actual) nominar(frase(estado.actual).texto);
+  else if(estado.carta) aviso('Esta carta ya está dibujada.');
+  else aviso('Primero gira: no hay choque que nominar.');
+});
+$('#btnExportarNom').addEventListener('click',exportarNom);
+$('#btnVaciarNom').addEventListener('click',vaciarNom);
+$('#btnUsarBaraja').addEventListener('click',function(){
+  var raw=$('#barajaTexto').value.trim();
+  if(!raw){ aviso('Pega palabras o un JSON primero.'); return; }
+  var r=interpretar(raw);
+  if(r.palabras.length<2){ aviso('Necesito al menos dos palabras.'); return; }
+  lsSet(LS.baraja,raw); aplicarPegada(); pintarInfoBaraja();
+  aviso('Baraja en uso: '+baraja.palabras.length+' palabras pegadas.');
+});
+$('#btnRestablecer').addEventListener('click',function(){
+  lsDel(LS.baraja); $('#barajaTexto').value='';
+  cargar().then(function(){ aviso('Baraja restablecida: '+baraja.fuente+'.'); });
+});
+$('#btnReglas').addEventListener('click',function(){
+  var r=$('#reglas'); r.hidden=!r.hidden; this.setAttribute('aria-expanded',String(!r.hidden));
+});
+$('#btnJugar').addEventListener('click',function(){setModo('jugar')});
+$('#btnProyectar').addEventListener('click',function(){setModo('proyectar')});
+$('#historia').addEventListener('input',function(){
+  var t=this.value.trim(); var n=t?t.split(/\s+/).length:0;
+  $('#contador').textContent=n+(n===1?' palabra':' palabras');
+});
+document.addEventListener('keydown',function(e){
+  if(e.code!=='Space'||!document.body.classList.contains('proyectar')) return;
+  if(/INPUT|TEXTAREA|BUTTON|SUMMARY/.test(e.target.tagName)) return;
+  e.preventDefault(); girar();
+});
+
+/* ---------- arranque ---------- */
+var autorGuardado=lsGet(LS.autor); if(autorGuardado) $('#autor').value=autorGuardado;
+if(lsGet(LS.modo)==='proyectar') setModo('proyectar');
+pintarNom();
+cargar();
+})();
+</script>
+</body>
+</html>

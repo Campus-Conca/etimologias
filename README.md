@@ -97,6 +97,38 @@ unidades/           Portadas de las 3 unidades
 recursos/           Fuentes, Anki, guías permanentes
 vitrina/            Lo que el grupo construye: mapa léxico, dictámenes, crucigramas
 museo/              Museo de Palabras: plantilla y galería
+juegos/             Juegos de palabras: páginas sueltas, barajas JSON y cartas dibujadas
 PLANTILLA_SEMANA.md Molde interno de tableros semanales
 docente/            (local, no se publica) materiales del profesor
 ```
+
+## Juegos de palabras
+
+Cuatro juegos para inventar historias (Rodari, Queneau, *Once Upon a Time*):
+El choque, La fábrica, Los 99 estilos y Érase una vez con cartas. Se construyen
+de uno en uno y cada uno se prueba en clase antes de seguir con el siguiente.
+El contrato de cada página, en diez líneas:
+
+1. Un solo archivo HTML en `juegos/`, sin front matter, con CSS y JS en línea y
+   sin librerías: Jekyll lo copia tal cual y abre también desde el disco.
+2. Nada obliga a usar raíces. La etimología entra solo donde el juego la pide, y
+   siempre con fuente (DLE o DECEL); sin fuente, el campo queda «pendiente».
+3. Dos modos con conmutador visible: **Jugar** (individual) y **Proyectar**
+   (una cosa en pantalla, letra de 32 px para arriba, sin formularios largos).
+4. Cabecera: nombre, regla en una línea, enlace «← Etimologías» y botón
+   **Reglas** de seis líneas como máximo.
+5. La baraja por defecto va embebida en la página; si existe
+   `juegos/data/<nombre>.json` la sustituye; y lo que se pega en el panel
+   **Baraja** se guarda en el navegador y manda sobre las dos.
+6. Las cartas ilustradas son dibujos en tinta de estudiantes, fotografiados:
+   `juegos/cartas/<juego>/<texto-en-kebab>.jpg`, hasta 400 KB, registradas en
+   `data/cartas.json` con autor. Aquí no se generan imágenes.
+7. **Guardar** compone un texto plano (`# <juego> · <fecha>`, datos de la ronda,
+   texto del estudiante, autor), lo copia y lo descarga: ese es el residuo que
+   va al Museo o al expediente.
+8. Temas claro y oscuro por tokens CSS, foco visible, sin `alert`, respeta
+   `prefers-reduced-motion`; los cronómetros son opcionales y nunca bloquean.
+9. Las palabras del banco las trae el grupo (diez por persona y una línea de
+   por qué): van a `data/banco.json` con autor; el «porque» no se muestra en
+   la ruleta, se guarda para el Museo.
+10. `juegos/index.md` enlaza los juegos; no son hijos de navegación.
