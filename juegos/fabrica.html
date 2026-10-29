@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La fábrica · Juegos de palabras</title>
+<meta name="description" content="Un prefijo pegado a un sustantivo fabrica un objeto que no existía; para patentarlo hay que definirlo. Juego de palabras del curso de Etimologías (UAQ).">
+<!--
+  LA FÁBRICA · Juego 2 de los Juegos de palabras · v1.0
+  Curso de Etimologías Grecolatinas · Escuela de Bachilleres UAQ
+
+  Fuente: Gianni Rodari, Gramática de la fantasía, cap. 8 (el prefijo arbitrario)
+  y cap. 9 (el error creativo: la falta de ortografía como invento).
+
+  Archivo autónomo: funciona abierto desde el disco y en GitHub Pages.
+  Datos: la baraja embebida abajo (script id="baraja") es la de respaldo;
+  si existe ./data/prefijos.json, ./data/banco.json y ./data/cartas.json
+  los usa; y si alguien pegó una baraja en el panel Baraja, esa manda.
+  La etimología entra solo en la patente: origen, significado y fuente del
+  prefijo, prellenados desde la baraja. Sin fuente, el campo queda pendiente.
+  Claves de localStorage: fabrica-baraja-v1, fabrica-registro-v1,
+  fabrica-modo-v1, juegos-autor. Todo acceso va en try/catch.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rosa:#D6006D; --rosa-suave:#FBE3F0; --ciruela:#3E1F35; --ciruela-media:#6B3A5B;
+  --jade:#0E8C6D; --dorado:#C9A227; --papel:#FCF8F3; --hueso:#F3ECE2; --tinta:#2A1522;
+  --fondo:var(--papel); --tarjeta:#FFFFFF; --texto:var(--tinta); --suave:var(--ciruela-media);
+  --titulo:var(--ciruela); --borde:#E6DCD0; --boton2:var(--hueso); --boton2-texto:var(--ciruela);
+  --campo:var(--papel);
+  --sombra:0 2px 10px rgba(62,31,53,.12); --radio:14px;
+  --display:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;
+  --cuerpo:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --fondo:#1B0F18; --tarjeta:#2A1726; --texto:#F6EEF2; --suave:#D4B6C6; --titulo:#F6EEF2;
+         --borde:#4A2E42; --boton2:#3A2334; --boton2-texto:#F6EEF2; --rosa-suave:#4A1F3A; --campo:#1B0F18;
+         --sombra:0 2px 10px rgba(0,0,0,.4); }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+[hidden]{display:none !important}
+body{background:var(--fondo);color:var(--texto);font-family:var(--cuerpo);line-height:1.5;min-height:100vh;display:flex;flex-direction:column}
+h1,h2,h3,p,ol,ul{margin:0}
+button{font-family:var(--display);cursor:pointer;border:none;font-size:1rem}
+button:disabled{opacity:.55;cursor:default}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--rosa);outline-offset:2px}
+a{color:var(--rosa)}
+code{font-family:'IBM Plex Mono',Menlo,monospace;font-size:.9em;background:var(--boton2);padding:.05em .35em;border-radius:5px}
+
+/* cabecera */
+.cabecera{background:var(--ciruela);color:var(--papel);padding:1rem 1.2rem 1.2rem}
+.cabecera .fila{max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+.volver{color:#E9C6DA;text-decoration:none;font-weight:600;font-size:.95rem}
+.volver:hover{color:#fff;text-decoration:underline}
+.cabecera h1{font-family:var(--display);font-weight:800;font-size:clamp(1.8rem,5vw,2.8rem);letter-spacing:-.5px;line-height:1.05;color:var(--papel)}
+.cabecera h1 .acento{color:var(--dorado)}
+.cabecera .regla{color:#E9C6DA;font-size:1rem;margin-top:.2rem}
+.mandos-cabecera{margin-left:auto;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.modos{display:inline-flex;background:rgba(255,255,255,.12);border-radius:99px;padding:.2rem}
+.modos button{background:transparent;color:#E9C6DA;font-weight:600;font-size:.95rem;padding:.4rem 1rem;border-radius:99px}
+.modos button.activo{background:var(--rosa);color:#fff}
+.btn-reglas{background:rgba(255,255,255,.12);color:#fff;font-weight:600;padding:.45rem 1rem;border-radius:99px}
+.reglas{background:var(--rosa-suave);border-bottom:1px solid var(--borde)}
+.reglas ol{max-width:1000px;margin:0 auto;padding:.9rem 1.2rem .9rem 2.4rem;font-size:.98rem}
+.reglas li{margin:.25rem 0}
+.reglas li b{color:var(--rosa)}
+
+main{flex:1;width:100%;max-width:1000px;margin:0 auto;padding:1.2rem 1rem 2rem}
+
+/* tolvas */
+.tolvas{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-bottom:1rem}
+.tolva{background:var(--tarjeta);border-radius:var(--radio);box-shadow:var(--sombra);padding:.9rem 1rem;border-top:5px solid var(--rosa);display:flex;flex-direction:column;gap:.45rem}
+.tolva:nth-child(2){border-top-color:var(--jade)}
+.tolva:nth-child(3){border-top-color:var(--dorado)}
+.tolva h2{font-family:var(--display);font-weight:800;font-size:1.05rem;color:var(--titulo)}
+.tolva h2 small{display:block;font-family:var(--cuerpo);font-weight:400;font-size:.82rem;color:var(--suave)}
+.tolva .fila{display:flex;gap:.4rem;align-items:center}
+.tolva .fila > *{min-width:0}
+.tolva .fila input,.tolva .fila select{flex:1}
+input[type=text],select,textarea{width:100%;font:inherit;font-size:1rem;color:var(--texto);background:var(--campo);border:1.5px solid var(--borde);border-radius:10px;padding:.55rem .7rem}
+textarea{min-height:5rem;resize:vertical;line-height:1.5}
+.btn-mini{background:var(--boton2);color:var(--boton2-texto);font-weight:600;font-size:.9rem;padding:.55rem .8rem;border-radius:10px;white-space:nowrap}
+.btn-mini[aria-pressed="true"]{background:var(--jade);color:#fff}
+
+/* escenario */
+.escenario{text-align:center}
+.pieza-fila{display:flex;justify-content:center;align-items:baseline;gap:.15em;flex-wrap:wrap;min-height:1.3em}
+.invento{font-family:var(--display);font-weight:800;font-size:clamp(2rem,8vw,4.2rem);line-height:1.1;color:var(--titulo);overflow-wrap:anywhere;margin:.6rem 0 .3rem}
+.invento .art{font-weight:600;color:var(--suave);font-size:.55em;margin-right:.25em}
+.invento .pre{color:var(--rosa)}
+.invento .sus{color:var(--titulo)}
+.invento .vacio{color:var(--suave);font-weight:600;font-size:.5em}
+@keyframes desdeIzq{from{transform:translateX(-40%);opacity:0}to{transform:none;opacity:1}}
+@keyframes desdeDer{from{transform:translateX(40%);opacity:0}to{transform:none;opacity:1}}
+.invento.anim .pre{display:inline-block;animation:desdeIzq .5s cubic-bezier(.2,1.2,.4,1)}
+.invento.anim .sus{display:inline-block;animation:desdeDer .5s cubic-bezier(.2,1.2,.4,1)}
+.receta{color:var(--suave);font-size:.98rem;min-height:1.5em}
+.acciones{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin-top:.8rem}
+.btn-primario{background:var(--rosa);color:#fff;font-weight:800;font-size:1.1rem;padding:.75rem 1.7rem;border-radius:12px;box-shadow:0 3px 0 #9C0050}
+.btn-primario:active{transform:translateY(2px);box-shadow:0 1px 0 #9C0050}
+.btn-jade{background:var(--jade);color:#fff;font-weight:800;font-size:1.05rem;padding:.75rem 1.4rem;border-radius:12px;box-shadow:0 3px 0 #086A51}
+.btn-jade:active{transform:translateY(2px);box-shadow:0 1px 0 #086A51}
+.btn-dorado{background:var(--dorado);color:#3A2A00;font-weight:800;font-size:1.05rem;padding:.75rem 1.4rem;border-radius:12px;box-shadow:0 3px 0 #8F7117}
+.btn-dorado:active{transform:translateY(2px);box-shadow:0 1px 0 #8F7117}
+.btn-secundario{background:var(--boton2);color:var(--boton2-texto);font-weight:600;font-size:.98rem;padding:.7rem 1.1rem;border-radius:12px}
+.rotulo{display:inline-block;font-family:var(--display);font-weight:600;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--rosa);margin:.2rem 0 .5rem}
+
+/* subasta */
+.subasta{margin:1.4rem auto 0;max-width:860px;text-align:left}
+.subasta ol{list-style:none;padding:0;display:flex;flex-direction:column;gap:.6rem;counter-reset:lote}
+.subasta li{counter-increment:lote;display:flex;align-items:center;gap:.7rem}
+.subasta li::before{content:counter(lote);font-family:var(--display);font-weight:800;font-size:1.3rem;color:var(--dorado);min-width:1.5ch;text-align:right}
+.subasta .lote{flex:1;text-align:left;background:var(--tarjeta);color:var(--titulo);border:2px solid var(--borde);border-radius:12px;padding:.6rem .9rem;font-weight:800;font-size:clamp(1.2rem,3.4vw,1.8rem);line-height:1.2;overflow-wrap:anywhere}
+.subasta .lote .pre{color:var(--rosa)}
+.subasta .lote[aria-pressed="true"]{border-color:var(--dorado);background:var(--rosa-suave)}
+.subasta .lote[aria-pressed="true"]::after{content:' · adjudicado';color:var(--jade);font-size:.7em;font-weight:600}
+.subasta .acciones{justify-content:flex-start}
+
+/* oficina de patentes */
+.patente{margin-top:1.4rem;background:var(--tarjeta);border-radius:var(--radio);box-shadow:var(--sombra);padding:1.1rem 1.2rem;border-top:5px solid var(--dorado)}
+.patente h2{font-family:var(--display);font-weight:800;font-size:1.3rem;color:var(--titulo);display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.patente h2 .sello{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:#3A2A00;background:var(--dorado);padding:.15rem .6rem;border-radius:99px}
+.patente label{display:block;font-family:var(--display);font-weight:800;color:var(--titulo);margin:.8rem 0 .3rem;font-size:1rem}
+.patente label small{font-family:var(--cuerpo);font-weight:400;color:var(--suave);font-size:.86rem;margin-left:.4rem}
+.ficha{margin-top:.9rem;border:1.5px dashed var(--borde);border-radius:12px;padding:.2rem .9rem .9rem;background:var(--fondo)}
+.ficha legend,.ficha .leyenda{font-family:var(--display);font-weight:800;color:var(--rosa);padding:0 .3rem;font-size:.95rem}
+.ficha .tres{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.6rem}
+.ficha .tres label{margin-top:.4rem}
+.ficha input.pendiente{border-color:var(--dorado);background:var(--rosa-suave)}
+.ficha p.nota{margin:.4rem 0 0;font-size:.85rem;color:var(--suave)}
+.dibujo{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-top:.9rem;font-size:.95rem}
+.dibujo input{width:19px;height:19px;accent-color:var(--jade)}
+.dibujo code{font-size:.85rem}
+.patente .acciones{justify-content:flex-start;margin-top:1rem}
+.aviso{margin-top:.8rem;min-height:1.4em;font-weight:600;color:var(--jade)}
+#copia{margin-top:.6rem}
+#copia textarea{min-height:9rem;font-family:'IBM Plex Mono',Menlo,monospace;font-size:.9rem}
+
+/* paneles plegables */
+details.panel{margin-top:1rem;background:var(--tarjeta);border:1.5px solid var(--borde);border-radius:12px;overflow:hidden}
+details.panel summary{font-family:var(--display);font-weight:800;font-size:1.02rem;color:var(--titulo);padding:.85rem 1.1rem;cursor:pointer;list-style:none;display:flex;align-items:center;gap:.6rem}
+details.panel summary::-webkit-details-marker{display:none}
+details.panel summary::before{content:'+';color:var(--rosa);font-size:1.3rem;font-weight:800;line-height:1}
+details.panel[open] summary::before{content:'\2212'}
+details.panel summary .num{margin-left:auto;font-size:.8rem;font-weight:600;color:var(--suave);background:var(--boton2);padding:.1rem .6rem;border-radius:99px}
+details.panel .contenido{padding:.2rem 1.1rem 1.1rem;font-size:.97rem}
+details.panel .contenido p{margin:.5rem 0;color:var(--suave)}
+.lista{list-style:none;padding:0;margin:.5rem 0}
+.lista li{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;padding:.5rem 0;border-bottom:1px dashed var(--borde)}
+.lista li b{flex:1 1 55%;color:var(--titulo);font-family:var(--display);font-size:1.05rem}
+.lista li span{flex:1 1 100%;font-size:.88rem;color:var(--suave)}
+.lista li .quitar{background:none;color:var(--suave);font-family:var(--cuerpo);font-size:.85rem;text-decoration:underline;padding:.2rem .4rem}
+.lista li.vacio{color:var(--suave);border:none}
+.galeria{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.7rem;margin-top:.6rem}
+.galeria figure{margin:0;background:var(--fondo);border:1px solid var(--borde);border-radius:10px;padding:.5rem}
+.galeria img{display:block;width:100%;height:auto;border-radius:6px;background:var(--hueso)}
+.galeria figcaption{font-size:.85rem;margin-top:.3rem;color:var(--suave)}
+.galeria figcaption b{display:block;color:var(--titulo);font-family:var(--display)}
+.info{font-size:.88rem;color:var(--suave);margin:.4rem 0 .6rem}
+
+footer{text-align:center;color:var(--suave);font-size:.85rem;padding:1rem 1.2rem 1.6rem}
+footer em{font-style:italic}
+
+/* modo Proyectar */
+body.proyectar{--fondo:var(--ciruela);--texto:var(--papel);--titulo:var(--papel);--suave:#E9C6DA;--tarjeta:#2A1726;--borde:#5C3A52;--boton2:#5C3A52;--boton2-texto:#fff;--rosa-suave:#4A1F3A;--campo:#2A1726}
+body.proyectar .cabecera{padding:.6rem 1.2rem}
+body.proyectar .cabecera h1{font-size:1.5rem}
+body.proyectar .cabecera .regla{display:none}
+body.proyectar .solo-jugar,body.proyectar footer,body.proyectar .reglas{display:none}
+body.proyectar main{padding-top:2rem}
+body.proyectar .invento{font-size:clamp(2.6rem,9vw,6.4rem);margin:1.2rem 0 .6rem}
+body.proyectar .invento .pre{color:#FF4FA3}
+body.proyectar .receta{font-size:1.5rem}
+body.proyectar .btn-primario,body.proyectar .btn-jade,body.proyectar .btn-dorado,body.proyectar .btn-secundario{font-size:1.4rem;padding:1rem 2rem}
+body.proyectar .subasta .lote{font-size:clamp(1.8rem,4vw,2.8rem);padding:.8rem 1.2rem}
+body.proyectar .subasta .lote .pre{color:#FF4FA3}
+body.proyectar .subasta li::before{font-size:2rem}
+.solo-proyectar{display:none}
+body.proyectar .solo-proyectar{display:inline-block}
+
+@media (max-width:720px){
+  .tolvas{grid-template-columns:1fr}
+  .ficha .tres{grid-template-columns:1fr}
+}
+@media (max-width:420px){
+  .cabecera h1{font-size:1.7rem}
+  .mandos-cabecera{margin-left:0;width:100%}
+}
+@media (prefers-reduced-motion: reduce){
+  .invento.anim .pre,.invento.anim .sus{animation:none}
+  .btn-primario:active,.btn-jade:active,.btn-dorado:active{transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="fila">
+    <a class="volver" href="../">&larr; Etimologías</a>
+  </div>
+  <div class="fila">
+    <div>
+      <h1>La <span class="acento">fábrica</span></h1>
+      <p class="regla">Un prefijo pegado a un sustantivo fabrica un objeto que no existía. Para patentarlo hay que definirlo.</p>
+    </div>
+    <div class="mandos-cabecera">
+      <div class="modos" role="group" aria-label="Modo de la página">
+        <button type="button" id="btnJugar" class="activo" aria-pressed="true">Jugar</button>
+        <button type="button" id="btnProyectar" aria-pressed="false">Proyectar</button>
+      </div>
+      <button type="button" id="btnReglas" class="btn-reglas" aria-expanded="false" aria-controls="reglas">Reglas</button>
+    </div>
+  </div>
+</header>
+
+<section id="reglas" class="reglas" hidden>
+  <ol>
+    <li>Un <b>prefijo</b> pegado a un <b>sustantivo</b> fabrica un objeto que no existía: antitinaco, telecomal, semiburro.</li>
+    <li>Fabricar es gratis y <b>Otra</b> también: de cien inventos, noventa y nueve fracasan. Nada se guarda hasta patentar.</li>
+    <li>Para patentar hay que definirlo: qué hace y una frase donde se use.</li>
+    <li>La patente lleva la ficha del prefijo: origen, significado y fuente. Sin fuente, queda pendiente y no vale en clase.</li>
+    <li><b>Falta de ortografía</b>: una palabra mal escrita también es un invento. Escríbela tal cual («Cierra Gorda») y defínela.</li>
+    <li>En <b>Proyectar</b>, la subasta saca tres inventos; el grupo adjudica uno, lo define a varias voces y el escriba lo patenta.</li>
+  </ol>
+</section>
+
+<main>
+  <section class="tolvas solo-jugar" aria-label="Tolvas">
+    <div class="tolva">
+      <h2>Prefijo <small>al azar o elegido de la lista</small></h2>
+      <div class="fila">
+        <select id="selPrefijo" aria-label="Prefijo"></select>
+      </div>
+      <div class="fila" id="filaPrefijoLibre" hidden>
+        <input type="text" id="prefijoLibre" placeholder="escribe el prefijo, con guion: tele-" aria-label="Prefijo escrito a mano">
+      </div>
+    </div>
+    <div class="tolva">
+      <h2>Sustantivo <small>del banco del grupo, o escríbelo</small></h2>
+      <div class="fila">
+        <input type="text" id="sustantivo" placeholder="vacío: sale uno al azar" aria-label="Sustantivo">
+        <button type="button" id="btnSustAzar" class="btn-mini">Al azar</button>
+      </div>
+    </div>
+    <div class="tolva">
+      <h2>Falta de ortografía <small>si la llenas, el invento es esa palabra</small></h2>
+      <div class="fila">
+        <input type="text" id="falta" placeholder="Cierra Gorda" aria-label="Palabra mal escrita, tal cual">
+      </div>
+    </div>
+  </section>
+
+  <section class="escenario" aria-label="Invento">
+    <div class="invento" id="invento" aria-live="polite"><span class="vacio">Pulsa Fabricar</span></div>
+    <p class="receta" id="receta"></p>
+    <div class="acciones">
+      <button type="button" id="btnFabricar" class="btn-primario">Fabricar</button>
+      <button type="button" id="btnOtra" class="btn-secundario" disabled>Otra</button>
+      <button type="button" id="btnSubasta" class="btn-dorado solo-proyectar">Subasta</button>
+    </div>
+    <div id="subasta" class="subasta" hidden></div>
+  </section>
+
+  <section class="patente solo-jugar" id="patente" hidden aria-label="Oficina de Patentes">
+    <h2>Oficina de Patentes <span class="sello">registro</span></h2>
+    <label for="pNombre">Nombre del invento</label>
+    <input type="text" id="pNombre" autocomplete="off">
+    <label for="pQueHace">Qué hace <small>la definición, como la diría un vendedor honesto</small></label>
+    <textarea id="pQueHace" placeholder="Tinaco que se vacía solo cuando alguien se tarda mucho en el baño."></textarea>
+    <label for="pEjemplo">Frase de ejemplo <small>donde se use el invento</small></label>
+    <input type="text" id="pEjemplo" placeholder="Mi abuela puso un antitinaco y ahora todos nos bañamos en cinco minutos.">
+
+    <fieldset class="ficha" id="fichaPrefijo">
+      <legend>Ficha del prefijo</legend>
+      <div class="tres">
+        <div><label for="pPrefijo">Prefijo</label><input type="text" id="pPrefijo"></div>
+        <div><label for="pOrigen">Origen</label><input type="text" id="pOrigen" placeholder="pendiente de fuente"></div>
+        <div><label for="pSignificado">Significado</label><input type="text" id="pSignificado" placeholder="pendiente de fuente"></div>
+      </div>
+      <label for="pFuente">Fuente <small>DLE o DECEL; sin fuente la patente queda pendiente</small></label>
+      <input type="text" id="pFuente" placeholder="pendiente de fuente">
+      <p class="nota" id="notaFuente"></p>
+    </fieldset>
+    <p class="ficha" id="fichaFalta" hidden><span class="leyenda">Sin prefijo:</span> este invento nació de una falta de ortografía. Anota de qué palabra viene en la definición.</p>
+
+    <div class="dibujo">
+      <input type="checkbox" id="pDibujo">
+      <label for="pDibujo" style="margin:0">Lo dibujo en tinta</label>
+      <span id="archivoDibujo" hidden>Archivo esperado: <code id="codArchivo"></code></span>
+    </div>
+
+    <label for="autor">Autor <small>nombre de pila</small></label>
+    <input type="text" id="autor" autocomplete="given-name" placeholder="Ana">
+
+    <div class="acciones">
+      <button type="button" id="btnRegistrar" class="btn-primario">Registrar</button>
+      <button type="button" id="btnExportar" class="btn-secundario">Exportar registro</button>
+    </div>
+    <p id="aviso" class="aviso" role="status" aria-live="polite"></p>
+    <div id="copia" hidden>
+      <label for="copiaTexto">Tu patente, lista para copiar</label>
+      <textarea id="copiaTexto" readonly></textarea>
+    </div>
+  </section>
+
+  <details class="panel solo-jugar" id="panelRegistro">
+    <summary>Registro de patentes <span class="num" id="numRegistro">0</span></summary>
+    <div class="contenido">
+      <p>Las patentes registradas en este navegador. Exportar las baja todas en un solo archivo.</p>
+      <ul class="lista" id="listaRegistro"></ul>
+      <div class="acciones" style="justify-content:flex-start">
+        <button type="button" id="btnExportar2" class="btn-secundario">Exportar registro</button>
+        <button type="button" id="btnVaciar" class="btn-secundario">Vaciar registro</button>
+      </div>
+    </div>
+  </details>
+
+  <details class="panel solo-jugar" id="panelGaleria" hidden>
+    <summary>Inventos dibujados <span class="num" id="numGaleria">0</span></summary>
+    <div class="contenido"><div class="galeria" id="galeria"></div></div>
+  </details>
+
+  <details class="panel solo-jugar" id="panelBaraja">
+    <summary>Baraja</summary>
+    <div class="contenido">
+      <p class="info" id="infoBaraja"></p>
+      <p>Pega aquí un JSON con <code>{"prefijos":[{"prefijo":"tele-","origen":"gr. τηλε-","significado":"lejos","fuente":"DLE"}]}</code>, con <code>"palabras"</code> para los sustantivos, o ambas. También sirve una lista de sustantivos, uno por línea. Se guarda solo en este navegador y manda sobre la baraja del sitio.</p>
+      <textarea id="barajaTexto" aria-label="Baraja pegada" placeholder='{"prefijos":[...],"palabras":["tinaco","comal"]}'></textarea>
+      <div class="acciones" style="justify-content:flex-start;margin-top:.6rem">
+        <button type="button" id="btnUsarBaraja" class="btn-secundario">Usar esta baraja</button>
+        <button type="button" id="btnRestablecer" class="btn-secundario">Restablecer</button>
+      </div>
+    </div>
+  </details>
+</main>
+
+<footer>Idea: Gianni Rodari, <em>Gramática de la fantasía</em>, el prefijo arbitrario y el error creativo. Los prefijos se redactaron a partir del DLE y el profesor los valida antes de usarlos en clase.</footer>
+
+<script id="baraja" type="application/json">
+{"prefijos":[
+{"prefijo":"a-, an-","origen":"gr. ἀ-, ἀν-","significado":"sin, no (privativo)","fuente":"DLE"},
+{"prefijo":"anti-","origen":"gr. ἀντι-","significado":"contra, opuesto","fuente":"DLE"},
+{"prefijo":"archi-","origen":"gr. ἀρχι-","significado":"el más, preeminencia","fuente":"DLE"},
+{"prefijo":"auto-","origen":"gr. αὐτο-","significado":"propio, por uno mismo","fuente":"DLE"},
+{"prefijo":"bi-","origen":"lat. bi-","significado":"dos","fuente":"DLE"},
+{"prefijo":"contra-","origen":"lat. contra","significado":"frente a, opuesto","fuente":"DLE"},
+{"prefijo":"des-","origen":"lat. dis-","significado":"negación, inversión, privación","fuente":"DLE"},
+{"prefijo":"dis-","origen":"gr. δυσ-","significado":"dificultad, mal","fuente":"DLE"},
+{"prefijo":"endo-","origen":"gr. ἔνδον","significado":"dentro","fuente":"DLE"},
+{"prefijo":"ex-","origen":"lat. ex","significado":"fuera; que fue","fuente":"DLE"},
+{"prefijo":"extra-","origen":"lat. extra","significado":"fuera de","fuente":"DLE"},
+{"prefijo":"hiper-","origen":"gr. ὑπερ-","significado":"exceso, superioridad","fuente":"DLE"},
+{"prefijo":"hipo-","origen":"gr. ὑπο-","significado":"debajo, escasez","fuente":"DLE"},
+{"prefijo":"inter-","origen":"lat. inter","significado":"entre","fuente":"DLE"},
+{"prefijo":"macro-","origen":"gr. μακρο-","significado":"grande, largo","fuente":"DLE"},
+{"prefijo":"micro-","origen":"gr. μικρο-","significado":"pequeño","fuente":"DLE"},
+{"prefijo":"multi-","origen":"lat. multi-","significado":"muchos","fuente":"DLE"},
+{"prefijo":"neo-","origen":"gr. νεο-","significado":"nuevo","fuente":"DLE"},
+{"prefijo":"omni-","origen":"lat. omni-","significado":"todo","fuente":"DLE"},
+{"prefijo":"pan-","origen":"gr. παν-","significado":"todo","fuente":"DLE"},
+{"prefijo":"para-","origen":"gr. παρα-","significado":"junto a, al margen de","fuente":"DLE"},
+{"prefijo":"poli-","origen":"gr. πολυ-","significado":"muchos","fuente":"DLE"},
+{"prefijo":"pos-, post-","origen":"lat. post","significado":"después de","fuente":"DLE"},
+{"prefijo":"pre-","origen":"lat. prae-","significado":"antes de","fuente":"DLE"},
+{"prefijo":"re-","origen":"lat. re-","significado":"repetición, hacia atrás","fuente":"DLE"},
+{"prefijo":"retro-","origen":"lat. retro","significado":"hacia atrás","fuente":"DLE"},
+{"prefijo":"semi-","origen":"lat. semi-","significado":"medio, casi","fuente":"DLE"},
+{"prefijo":"sub-","origen":"lat. sub-","significado":"debajo, inferioridad","fuente":"DLE"},
+{"prefijo":"super-","origen":"lat. super-","significado":"encima, exceso","fuente":"DLE"},
+{"prefijo":"tele-","origen":"gr. τηλε-","significado":"lejos","fuente":"DLE"},
+{"prefijo":"trans-","origen":"lat. trans","significado":"al otro lado, a través de","fuente":"DLE"},
+{"prefijo":"tri-","origen":"lat. tri-, gr. τρι-","significado":"tres","fuente":"DLE"},
+{"prefijo":"ultra-","origen":"lat. ultra","significado":"más allá","fuente":"DLE"},
+{"prefijo":"vice-","origen":"lat. vice","significado":"en vez de","fuente":"DLE"},
+{"prefijo":"mini-, maxi-","origen":"formantes modernos (lat. minimus, maximus)","significado":"muy pequeño, muy grande","fuente":"DLE"}
+],
+"palabras":["tinaco","vereda","cueva","tecolote","comal","alambre","chivo","celular","tortilla","camión","machete","presa","río","nopal","llave","cubeta","lámpara","espejo","puerta","escalera","cerro","lancha","tilapia","sombrero","radio","bicicleta","mochila","gorra","botón","lluvia","trueno","luna","pozo","cocina","molcajete","reloj","carta","fotografía","zapato","costal","gallina","perro","burro","abeja","piedra","cuchara","vela","sábana","ventana","techo","cerca","huerto","semilla","raíz","puente","campana","guitarra","tambor","pelota","globo"],
+"cartas":[]}
+</script>
+<script>
+(function(){
+'use strict';
+var $=function(s){return document.querySelector(s)};
+var LS={baraja:'fabrica-baraja-v1',registro:'fabrica-registro-v1',autor:'juegos-autor',modo:'fabrica-modo-v1'};
+var reduce=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+function lsGet(k){try{return window.localStorage.getItem(k)}catch(e){return null}}
+function lsSet(k,v){try{window.localStorage.setItem(k,v);return true}catch(e){return false}}
+function lsDel(k){try{window.localStorage.removeItem(k)}catch(e){}}
+
+var embebida=JSON.parse($('#baraja').textContent);
+var baraja={prefijos:[],palabras:[],cartas:[],fuente:'embebida'};
+var estado={invento:null,lotes:[]};
+var PEND='pendiente de fuente';
+
+/* ---------- utilidades ---------- */
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function limpiar(s){return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').trim()}
+function kebab(s){return limpiar(s).replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')}
+function dos(n){return (n<10?'0':'')+n}
+function fechaHoy(){var d=new Date();return d.getFullYear()+'-'+dos(d.getMonth()+1)+'-'+dos(d.getDate())}
+function azar(arr){return arr[Math.floor(Math.random()*arr.length)]}
+function aviso(t){$('#aviso').textContent=t}
+function empiezaVocal(w){return /^[aeiouáéíóúh]/i.test(w)}
+
+/* ---------- artículos ---------- */
+var FEM=['llave','mano','foto','moto','flor','sal','miel','piel','nube','noche','tarde','leche','carne','gente','fuente','suerte','muerte','calle','nieve','sangre','torre','clase','base','parte','serpiente','mente','fiebre','nave','lumbre','cumbre','costumbre','carcel','red','pared','sed','luz','cruz','paz','voz','nariz','vez','raiz','lombriz','cicatriz','imagen','tos','labor','senal','cal','col','crin','vid','fe','tribu','madre','sarten','sien','orden'];
+var MASC_A=['dia','mapa','planeta','problema','tema','sistema','idioma','clima','drama','poema','programa','sofa','tranvia','cometa','fantasma','esquema','teorema','diploma','aroma','enigma','panorama','tequila','koala','gorila','pirata','guardia'];
+var ELA=['agua','aguila','hacha','hambre','alma','arma','area','ala','aula','asa','ancla','arpa','ave','habla','hada','acta','ansia','aspa','alga'];
+function articulo(p){
+  if(p.articulo) return p.articulo;
+  var w=limpiar(p.palabra);
+  if(ELA.indexOf(w)>=0||MASC_A.indexOf(w)>=0) return 'el';
+  if(FEM.indexOf(w)>=0) return 'la';
+  if(/(a|cion|sion|dad|tad|tud|umbre|ie)$/.test(w)) return 'la';
+  return 'el';
+}
+
+/* ---------- baraja ---------- */
+function normalizarPalabras(x){
+  if(x&&!Array.isArray(x)&&Array.isArray(x.palabras)) x=x.palabras;
+  if(!Array.isArray(x)) return [];
+  var vistas={}, out=[];
+  x.forEach(function(p){
+    var o=null;
+    if(typeof p==='string') o={palabra:p,autor:'',articulo:''};
+    else if(p&&p.palabra) o={palabra:String(p.palabra),autor:p.autor||'',articulo:p.articulo||''};
+    if(!o) return;
+    var m=o.palabra.trim().match(/^(el|la|un|una)\s+(.+)$/i);
+    if(m){ o.articulo=o.articulo||(/^(el|un)$/i.test(m[1])?'el':'la'); o.palabra=m[2]; }
+    o.palabra=o.palabra.trim();
+    if(!o.palabra) return;
+    var k=limpiar(o.palabra);
+    if(vistas[k]) return;
+    vistas[k]=1; out.push(o);
+  });
+  return out;
+}
+/* cada entrada de la baraja puede traer varias formas ("pos-, post-"); se abren en variantes
+   que comparten origen, significado y fuente. "a-, an-" se decide sola según el sustantivo. */
+function normalizarPrefijos(x){
+  if(x&&!Array.isArray(x)&&Array.isArray(x.prefijos)) x=x.prefijos;
+  if(!Array.isArray(x)) return [];
+  var out=[], vistos={};
+  x.forEach(function(p){
+    if(!p) return;
+    var o=(typeof p==='string')?{prefijo:p,origen:'',significado:'',fuente:''}:{prefijo:String(p.prefijo||''),origen:p.origen||'',significado:p.significado||'',fuente:p.fuente||''};
+    if(!o.prefijo.trim()) return;
+    var formas=o.prefijo.split(/\s*,\s*/).map(function(f){return f.trim()}).filter(Boolean);
+    var auto=null;
+    if(formas.length===2&&limpiar(formas[0]).replace(/-/g,'')==='a'&&limpiar(formas[1]).replace(/-/g,'')==='an') auto='a/an';
+    var etiqueta=formas.join(', ');
+    formas.forEach(function(f){
+      var raiz=f.replace(/-+$/,'');
+      if(!raiz) return;
+      var k=limpiar(raiz);
+      if(vistos[k]) return;
+      vistos[k]=1;
+      out.push({forma:raiz+'-',raiz:raiz,etiqueta:etiqueta,origen:o.origen,significado:o.significado,fuente:o.fuente,auto:auto});
+    });
+  });
+  return out;
+}
+function interpretar(raw){
+  var out={prefijos:null,palabras:null};
+  try{
+    var j=JSON.parse(raw);
+    if(Array.isArray(j)){ var ps=normalizarPalabras(j); if(ps.length) out.palabras=ps; }
+    else{
+      if(j&&Array.isArray(j.prefijos)){ var pr=normalizarPrefijos(j.prefijos); if(pr.length) out.prefijos=pr; }
+      if(j&&Array.isArray(j.palabras)){ var pa=normalizarPalabras(j.palabras); if(pa.length) out.palabras=pa; }
+    }
+  }catch(e){
+    var lineas=normalizarPalabras(raw.split(/[\n,;]+/));
+    if(lineas.length) out.palabras=lineas;
+  }
+  return out;
+}
+function aplicarEmbebida(){
+  baraja.prefijos=normalizarPrefijos(embebida.prefijos);
+  baraja.palabras=normalizarPalabras(embebida.palabras);
+  baraja.cartas=(embebida.cartas||[]).filter(function(c){return c&&c.juego==='fabrica'});
+  baraja.fuente='embebida en la página';
+}
+function aplicarPegada(){
+  var raw=lsGet(LS.baraja);
+  if(!raw) return;
+  var r=interpretar(raw);
+  if(!r.prefijos&&!r.palabras) return;
+  if(r.prefijos) baraja.prefijos=r.prefijos;
+  if(r.palabras) baraja.palabras=r.palabras;
+  baraja.fuente='pegada en este navegador';
+  $('#barajaTexto').value=raw;
+}
+function traer(nombre){
+  return fetch('./data/'+nombre+'.json').then(function(r){return r.ok?r.json():null}).catch(function(){return null});
+}
+function cargar(){
+  aplicarEmbebida();
+  return Promise.all([traer('prefijos'),traer('banco'),traer('cartas')]).then(function(res){
+    var pr=res[0],b=res[1],c=res[2], usoDatos=false;
+    if(pr){ var ps=normalizarPrefijos(pr); if(ps.length){ baraja.prefijos=ps; usoDatos=true; } }
+    if(b){ var pa=normalizarPalabras(b); if(pa.length>=2){ baraja.palabras=pa; usoDatos=true; } }
+    if(c&&Array.isArray(c.cartas)) baraja.cartas=c.cartas.filter(function(k){return k&&k.juego==='fabrica'});
+    if(usoDatos) baraja.fuente='data/prefijos.json y data/banco.json';
+  }).catch(function(){}).then(function(){
+    aplicarPegada();
+    pintarSelect(); pintarInfoBaraja(); pintarGaleria();
+  });
+}
+function pintarSelect(){
+  var sel=$('#selPrefijo'), antes=sel.value;
+  sel.innerHTML='';
+  var o=document.createElement('option'); o.value=''; o.textContent='Al azar'; sel.appendChild(o);
+  baraja.prefijos.forEach(function(p,i){
+    var op=document.createElement('option'); op.value=String(i);
+    op.textContent=p.forma+(p.significado?' · '+p.significado:'');
+    sel.appendChild(op);
+  });
+  var libre=document.createElement('option'); libre.value='libre'; libre.textContent='Escribir otro…'; sel.appendChild(libre);
+  sel.value=antes&&sel.querySelector('option[value="'+antes+'"]')?antes:'';
+  $('#filaPrefijoLibre').hidden=(sel.value!=='libre');
+}
+function pintarInfoBaraja(){
+  $('#infoBaraja').textContent=baraja.prefijos.length+' prefijos · '+baraja.palabras.length+' sustantivos · fuente: '+baraja.fuente+(baraja.cartas.length?' · '+baraja.cartas.length+' inventos dibujados':'');
+}
+function pintarGaleria(){
+  var cs=baraja.cartas, panel=$('#panelGaleria');
+  panel.hidden=!cs.length;
+  $('#numGaleria').textContent=cs.length;
+  $('#galeria').innerHTML=cs.map(function(k){
+    return '<figure>'+(k.imagen?'<img src="'+esc(k.imagen)+'" alt="'+esc(k.texto||'Invento dibujado')+'" loading="lazy">':'')+
+      '<figcaption><b>'+esc(k.texto||'')+'</b>'+(k.autor?'Dibujo: '+esc(k.autor):'')+'</figcaption></figure>';
+  }).join('');
+}
+
+/* ---------- fabricar ---------- */
+function elegirPrefijo(){
+  var sel=$('#selPrefijo').value;
+  if(sel==='libre'){
+    var raw=$('#prefijoLibre').value.trim();
+    if(!raw) return null;
+    var raiz=raw.replace(/-+$/,'');
+    var k=limpiar(raiz);
+    var conocido=baraja.prefijos.filter(function(p){return limpiar(p.raiz)===k})[0];
+    return conocido||{forma:raiz+'-',raiz:raiz,etiqueta:raiz+'-',origen:'',significado:'',fuente:'',auto:null,libre:true};
+  }
+  if(sel!==''&&baraja.prefijos[+sel]) return baraja.prefijos[+sel];
+  return baraja.prefijos.length?azar(baraja.prefijos):null;
+}
+function elegirSustantivo(){
+  var escrito=$('#sustantivo').value.trim();
+  if(escrito) return normalizarPalabras([escrito])[0]||null;
+  return baraja.palabras.length?azar(baraja.palabras):null;
+}
+function ajustarForma(pre,sus){
+  if(pre.auto==='a/an'){ var r=empiezaVocal(sus.palabra)?'an':'a'; return {forma:r+'-',raiz:r}; }
+  return {forma:pre.forma,raiz:pre.raiz};
+}
+function fabricarUno(){
+  var falta=$('#falta').value.trim();
+  if(falta) return {nombre:falta,falta:true,prefijo:null,sustantivo:null,articulo:'el'};
+  var pre=elegirPrefijo(), sus=elegirSustantivo();
+  if(!sus){ aviso('La baraja necesita sustantivos.'); return null; }
+  if(!pre){ aviso('Escribe el prefijo o elige uno de la lista.'); return null; }
+  var f=ajustarForma(pre,sus);
+  var raizMin=f.raiz.toLowerCase(), susMin=sus.palabra.toLowerCase();
+  return {nombre:raizMin+susMin,falta:false,
+          prefijo:{forma:f.forma,raiz:raizMin,etiqueta:pre.etiqueta,origen:pre.origen,significado:pre.significado,fuente:pre.fuente,libre:!!pre.libre},
+          sustantivo:sus.palabra,articulo:articulo(sus)};
+}
+function htmlInvento(inv){
+  if(inv.falta) return '<span class="art">'+esc(inv.articulo)+'</span><span class="sus">'+esc(inv.nombre)+'</span>';
+  return '<span class="art">'+esc(inv.articulo)+'</span><span class="pre">'+esc(inv.prefijo.raiz)+'</span><span class="sus">'+esc(inv.sustantivo.toLowerCase())+'</span>';
+}
+function fabricar(){
+  var inv=fabricarUno();
+  if(!inv) return;
+  estado.invento=inv;
+  mostrarInvento(inv);
+  $('#subasta').hidden=true;
+  llenarPatente(inv);
+  $('#btnOtra').disabled=false;
+  aviso('');
+}
+function mostrarInvento(inv){
+  var el=$('#invento');
+  el.classList.remove('anim'); void el.offsetWidth;
+  el.innerHTML=htmlInvento(inv);
+  if(!reduce) el.classList.add('anim');
+  var rec=$('#receta');
+  if(inv.falta) rec.textContent='Falta de ortografía: escrito tal cual.';
+  else rec.textContent=inv.prefijo.forma+(inv.prefijo.significado?' ('+inv.prefijo.significado+')':'')+' + '+inv.sustantivo;
+}
+
+/* ---------- oficina de patentes ---------- */
+function llenarPatente(inv){
+  var sec=$('#patente'); sec.hidden=false;
+  $('#pNombre').value=inv.nombre;
+  $('#pQueHace').value=''; $('#pEjemplo').value='';
+  $('#pDibujo').checked=false; $('#archivoDibujo').hidden=true;
+  $('#copia').hidden=true;
+  if(inv.falta){
+    $('#fichaPrefijo').hidden=true; $('#fichaFalta').hidden=false;
+  } else {
+    $('#fichaPrefijo').hidden=false; $('#fichaFalta').hidden=true;
+    $('#pPrefijo').value=inv.prefijo.forma;
+    $('#pOrigen').value=inv.prefijo.origen||'';
+    $('#pSignificado').value=inv.prefijo.significado||'';
+    $('#pFuente').value=inv.prefijo.fuente||'';
+    marcarPendientes();
+  }
+  actualizarArchivo();
+}
+function marcarPendientes(){
+  ['#pOrigen','#pSignificado','#pFuente'].forEach(function(s){ var c=$(s); c.classList.toggle('pendiente',!c.value.trim()); });
+  var falta=!$('#pFuente').value.trim();
+  $('#notaFuente').textContent=falta?'Este prefijo no trae fuente en la baraja: la patente se registra como pendiente hasta que la encuentres en el DLE o el DECEL.':'';
+}
+function actualizarArchivo(){
+  var n=$('#pNombre').value.trim()||'invento';
+  $('#codArchivo').textContent='cartas/fabrica/'+kebab(n)+'.jpg';
+  $('#archivoDibujo').hidden=!$('#pDibujo').checked;
+}
+function leerPatente(){
+  var inv=estado.invento||{falta:true,nombre:'',prefijo:null,sustantivo:null};
+  var p={
+    nombre:$('#pNombre').value.trim(),
+    queHace:$('#pQueHace').value.trim(),
+    ejemplo:$('#pEjemplo').value.trim(),
+    falta:!!inv.falta,
+    sustantivo:inv.sustantivo||'',
+    prefijo:inv.falta?null:{forma:$('#pPrefijo').value.trim(),origen:$('#pOrigen').value.trim(),significado:$('#pSignificado').value.trim(),fuente:$('#pFuente').value.trim()},
+    dibujo:$('#pDibujo').checked,
+    autor:$('#autor').value.trim(),
+    fecha:fechaHoy()
+  };
+  p.pendiente=!!(p.prefijo&&!p.prefijo.fuente);
+  p.archivo=p.dibujo?'cartas/fabrica/'+kebab(p.nombre||'invento')+'.jpg':'';
+  return p;
+}
+function textoPatente(p,sinCabecera){
+  var l=[];
+  if(!sinCabecera) l.push('# La fábrica · '+p.fecha);
+  l.push('Invento: '+p.nombre);
+  if(p.prefijo){
+    l.push('Prefijo: '+p.prefijo.forma+' · origen: '+(p.prefijo.origen||PEND)+' · significado: '+(p.prefijo.significado||PEND)+' · fuente: '+(p.prefijo.fuente||PEND));
+    if(p.sustantivo) l.push('Sustantivo: '+p.sustantivo);
+  } else l.push('Prefijo: ninguno (falta de ortografía)');
+  l.push('Qué hace: '+p.queHace);
+  if(p.ejemplo) l.push('Ejemplo: '+p.ejemplo);
+  l.push('Dibujo: '+(p.dibujo?p.archivo+' (en tinta, pendiente de foto)':'no'));
+  l.push('Estado: '+(p.pendiente?'pendiente de fuente':'patentado'));
+  l.push('Autor: '+(p.autor||'(sin nombre)'));
+  l.push('Fecha: '+p.fecha);
+  return l.join('\n')+'\n';
+}
+function leerRegistro(){ try{ var v=JSON.parse(lsGet(LS.registro)||'[]'); return Array.isArray(v)?v:[]; }catch(e){ return []; } }
+function guardarRegistro(l){ lsSet(LS.registro,JSON.stringify(l)); }
+function registrar(){
+  if(!estado.invento){ aviso('Primero fabrica algo.'); return; }
+  var p=leerPatente();
+  if(!p.nombre){ aviso('El invento necesita nombre.'); $('#pNombre').focus(); return; }
+  if(!p.queHace){ aviso('Sin definición no hay patente: escribe qué hace.'); $('#pQueHace').focus(); return; }
+  if(p.autor) lsSet(LS.autor,p.autor);
+  var lista=leerRegistro();
+  var k=limpiar(p.nombre), i=-1;
+  lista.forEach(function(x,j){ if(limpiar(x.nombre)===k) i=j; });
+  if(i>=0) lista[i]=p; else lista.push(p);
+  guardarRegistro(lista); pintarRegistro();
+  var texto=textoPatente(p,false);
+  copiar(texto).then(function(ok){
+    descargar('fabrica-'+p.fecha+'-'+kebab(p.nombre)+'.txt',texto);
+    var base=(i>=0?'Patente actualizada':'Patente registrada')+(p.pendiente?' como pendiente de fuente':'')+'. ';
+    aviso(base+(ok?'Copiada y descargada: pégala en el Museo o en el formulario.':'Descargada. El portapapeles no se dejó: copia el texto de abajo con Ctrl+C.'));
+  });
+}
+function pintarRegistro(){
+  var lista=leerRegistro(), ul=$('#listaRegistro');
+  $('#numRegistro').textContent=lista.length;
+  ul.innerHTML='';
+  if(!lista.length){ ul.innerHTML='<li class="vacio">Ninguna patente todavía. Fabrica, define y registra.</li>'; return; }
+  lista.forEach(function(p,i){
+    var li=document.createElement('li');
+    li.innerHTML='<b>'+esc(p.nombre)+'</b><span>'+esc(p.queHace)+(p.autor?' · '+esc(p.autor):'')+' · '+esc(p.fecha)+(p.pendiente?' · pendiente de fuente':'')+(p.dibujo?' · con dibujo':'')+'</span>';
+    var q=document.createElement('button'); q.type='button'; q.className='quitar'; q.textContent='Quitar'; q.setAttribute('aria-label','Quitar '+p.nombre);
+    q.addEventListener('click',function(){ var l=leerRegistro(); l.splice(i,1); guardarRegistro(l); pintarRegistro(); });
+    li.appendChild(q); ul.appendChild(li);
+  });
+}
+function exportarRegistro(){
+  var lista=leerRegistro();
+  if(!lista.length){ aviso('No hay patentes que exportar.'); return; }
+  var f=fechaHoy();
+  var t='# La fábrica · registro de patentes · '+f+'\n\n'+lista.map(function(p){ return '## '+p.nombre+'\n'+textoPatente(p,true); }).join('\n');
+  copiar(t).then(function(ok){ descargar('fabrica-registro-'+f+'.txt',t); aviso(ok?'Registro copiado y descargado.':'Registro descargado.'); });
+}
+var vaciarArmado=false;
+function vaciarRegistro(){
+  var b=$('#btnVaciar');
+  if(!vaciarArmado){ vaciarArmado=true; b.textContent='¿Seguro? Vaciar'; setTimeout(function(){vaciarArmado=false;b.textContent='Vaciar registro'},4000); return; }
+  lsDel(LS.registro); pintarRegistro(); vaciarArmado=false; b.textContent='Vaciar registro'; aviso('Registro vaciado.');
+}
+
+/* ---------- copiar y descargar ---------- */
+function copiar(t){
+  function respaldo(){
+    var caja=$('#copia'), ta=$('#copiaTexto');
+    caja.hidden=false; ta.value=t; ta.focus(); ta.select();
+    var ok=false;
+    try{ ok=!!document.execCommand('copy'); }catch(e){ ok=false; }
+    if(ok) caja.hidden=true;
+    return ok;
+  }
+  return new Promise(function(res){
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(function(){ $('#copia').hidden=true; res(true); },function(){ res(respaldo()); });
+    } else res(respaldo());
+  });
+}
+function descargar(nombre,t){
+  try{
+    var b=new Blob([t],{type:'text/plain;charset=utf-8'});
+    var u=URL.createObjectURL(b);
+    var a=document.createElement('a'); a.href=u; a.download=nombre;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){URL.revokeObjectURL(u)},2000);
+  }catch(e){}
+}
+
+/* ---------- subasta (Proyectar) ---------- */
+function subasta(){
+  var cont=$('#subasta'); cont.hidden=false;
+  cont.innerHTML='<p class="rotulo">Subasta: tres inventos, el grupo adjudica uno y lo define a varias voces</p><ol></ol><div class="acciones"><button type="button" class="btn-jade" id="btnPatentarLote" disabled>Patentar el adjudicado</button></div>';
+  var ol=cont.querySelector('ol');
+  estado.lotes=[];
+  var intentos=0;
+  while(estado.lotes.length<3&&intentos<30){
+    intentos++;
+    $('#falta').value='';
+    var inv=fabricarUno();
+    if(!inv) break;
+    if(estado.lotes.some(function(x){return x.nombre===inv.nombre})) continue;
+    estado.lotes.push(inv);
+  }
+  estado.lotes.forEach(function(inv){
+    var li=document.createElement('li');
+    var b=document.createElement('button'); b.type='button'; b.className='lote'; b.innerHTML=htmlInvento(inv); b.setAttribute('aria-pressed','false');
+    b.addEventListener('click',function(){
+      ol.querySelectorAll('.lote').forEach(function(x){x.setAttribute('aria-pressed','false')});
+      b.setAttribute('aria-pressed','true');
+      estado.invento=inv; mostrarInvento(inv);
+      $('#btnPatentarLote').disabled=false;
+    });
+    li.appendChild(b); ol.appendChild(li);
+  });
+  if(estado.lotes.length) { estado.invento=null; $('#invento').innerHTML='<span class="vacio">¿Cuál se adjudica?</span>'; $('#receta').textContent=''; }
+  $('#btnPatentarLote').addEventListener('click',function(){
+    if(!estado.invento) return;
+    llenarPatente(estado.invento);
+    setModo('jugar');
+    $('#btnOtra').disabled=false;
+    aviso('El escriba llena la patente con lo que dijo el grupo.');
+    $('#patente').scrollIntoView({behavior:reduce?'auto':'smooth'});
+    $('#pQueHace').focus();
+  });
+}
+
+/* ---------- modo ---------- */
+function setModo(m){
+  var proy=(m==='proyectar');
+  document.body.classList.toggle('proyectar',proy);
+  $('#btnJugar').classList.toggle('activo',!proy); $('#btnJugar').setAttribute('aria-pressed',String(!proy));
+  $('#btnProyectar').classList.toggle('activo',proy); $('#btnProyectar').setAttribute('aria-pressed',String(proy));
+  if(!proy) $('#subasta').hidden=true;
+  lsSet(LS.modo,proy?'proyectar':'jugar');
+}
+
+/* ---------- cableado ---------- */
+$('#btnFabricar').addEventListener('click',fabricar);
+$('#btnOtra').addEventListener('click',fabricar);
+$('#btnSubasta').addEventListener('click',subasta);
+$('#btnSustAzar').addEventListener('click',function(){ if(baraja.palabras.length) $('#sustantivo').value=azar(baraja.palabras).palabra; });
+$('#selPrefijo').addEventListener('change',function(){ var libre=this.value==='libre'; $('#filaPrefijoLibre').hidden=!libre; if(libre) $('#prefijoLibre').focus(); });
+$('#btnRegistrar').addEventListener('click',registrar);
+$('#btnExportar').addEventListener('click',exportarRegistro);
+$('#btnExportar2').addEventListener('click',exportarRegistro);
+$('#btnVaciar').addEventListener('click',vaciarRegistro);
+$('#pNombre').addEventListener('input',actualizarArchivo);
+$('#pDibujo').addEventListener('change',actualizarArchivo);
+['#pOrigen','#pSignificado','#pFuente'].forEach(function(s){ $(s).addEventListener('input',marcarPendientes); });
+$('#btnUsarBaraja').addEventListener('click',function(){
+  var raw=$('#barajaTexto').value.trim();
+  if(!raw){ aviso('Pega una baraja primero.'); return; }
+  var r=interpretar(raw);
+  if(!r.prefijos&&!r.palabras){ aviso('No encontré prefijos ni sustantivos en lo pegado.'); return; }
+  lsSet(LS.baraja,raw); aplicarPegada(); pintarSelect(); pintarInfoBaraja();
+  aviso('Baraja en uso: '+baraja.prefijos.length+' prefijos y '+baraja.palabras.length+' sustantivos.');
+});
+$('#btnRestablecer').addEventListener('click',function(){
+  lsDel(LS.baraja); $('#barajaTexto').value='';
+  cargar().then(function(){ aviso('Baraja restablecida: '+baraja.fuente+'.'); });
+});
+$('#btnReglas').addEventListener('click',function(){
+  var r=$('#reglas'); r.hidden=!r.hidden; this.setAttribute('aria-expanded',String(!r.hidden));
+});
+$('#btnJugar').addEventListener('click',function(){setModo('jugar')});
+$('#btnProyectar').addEventListener('click',function(){setModo('proyectar')});
+document.addEventListener('keydown',function(e){
+  if(e.code!=='Space'||!document.body.classList.contains('proyectar')) return;
+  if(/INPUT|TEXTAREA|BUTTON|SUMMARY|SELECT/.test(e.target.tagName)) return;
+  e.preventDefault(); fabricar();
+});
+
+/* ---------- arranque ---------- */
+var autorGuardado=lsGet(LS.autor); if(autorGuardado) $('#autor').value=autorGuardado;
+if(lsGet(LS.modo)==='proyectar') setModo('proyectar');
+pintarRegistro();
+cargar();
+})();
+</script>
+</body>
+</html>

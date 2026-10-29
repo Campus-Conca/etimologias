@@ -1,0 +1,214 @@
+{
+  "prefijos": [
+    {
+      "prefijo": "a-, an-",
+      "origen": "gr. ἀ-, ἀν-",
+      "significado": "sin, no (privativo)",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "anti-",
+      "origen": "gr. ἀντι-",
+      "significado": "contra, opuesto",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "archi-",
+      "origen": "gr. ἀρχι-",
+      "significado": "el más, preeminencia",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "auto-",
+      "origen": "gr. αὐτο-",
+      "significado": "propio, por uno mismo",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "bi-",
+      "origen": "lat. bi-",
+      "significado": "dos",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "contra-",
+      "origen": "lat. contra",
+      "significado": "frente a, opuesto",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "des-",
+      "origen": "lat. dis-",
+      "significado": "negación, inversión, privación",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "dis-",
+      "origen": "gr. δυσ-",
+      "significado": "dificultad, mal",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "endo-",
+      "origen": "gr. ἔνδον",
+      "significado": "dentro",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "ex-",
+      "origen": "lat. ex",
+      "significado": "fuera; que fue",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "extra-",
+      "origen": "lat. extra",
+      "significado": "fuera de",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "hiper-",
+      "origen": "gr. ὑπερ-",
+      "significado": "exceso, superioridad",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "hipo-",
+      "origen": "gr. ὑπο-",
+      "significado": "debajo, escasez",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "inter-",
+      "origen": "lat. inter",
+      "significado": "entre",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "macro-",
+      "origen": "gr. μακρο-",
+      "significado": "grande, largo",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "micro-",
+      "origen": "gr. μικρο-",
+      "significado": "pequeño",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "multi-",
+      "origen": "lat. multi-",
+      "significado": "muchos",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "neo-",
+      "origen": "gr. νεο-",
+      "significado": "nuevo",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "omni-",
+      "origen": "lat. omni-",
+      "significado": "todo",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "pan-",
+      "origen": "gr. παν-",
+      "significado": "todo",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "para-",
+      "origen": "gr. παρα-",
+      "significado": "junto a, al margen de",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "poli-",
+      "origen": "gr. πολυ-",
+      "significado": "muchos",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "pos-, post-",
+      "origen": "lat. post",
+      "significado": "después de",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "pre-",
+      "origen": "lat. prae-",
+      "significado": "antes de",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "re-",
+      "origen": "lat. re-",
+      "significado": "repetición, hacia atrás",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "retro-",
+      "origen": "lat. retro",
+      "significado": "hacia atrás",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "semi-",
+      "origen": "lat. semi-",
+      "significado": "medio, casi",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "sub-",
+      "origen": "lat. sub-",
+      "significado": "debajo, inferioridad",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "super-",
+      "origen": "lat. super-",
+      "significado": "encima, exceso",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "tele-",
+      "origen": "gr. τηλε-",
+      "significado": "lejos",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "trans-",
+      "origen": "lat. trans",
+      "significado": "al otro lado, a través de",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "tri-",
+      "origen": "lat. tri-, gr. τρι-",
+      "significado": "tres",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "ultra-",
+      "origen": "lat. ultra",
+      "significado": "más allá",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "vice-",
+      "origen": "lat. vice",
+      "significado": "en vez de",
+      "fuente": "DLE"
+    },
+    {
+      "prefijo": "mini-, maxi-",
+      "origen": "formantes modernos (lat. minimus, maximus)",
+      "significado": "muy pequeño, muy grande",
+      "fuente": "DLE"
+    }
+  ]
+}
