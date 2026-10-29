@@ -48,10 +48,13 @@
   .tapa.vista{background:transparent;color:transparent;border-color:transparent;box-shadow:none;pointer-events:none}
   .comic.destapado .tapa{display:none}
 
-  /* Temporada 2: ocho viñetas sueltas con el pie debajo */
+  /* Temporada 2: ocho viñetas sueltas, cada una con su locución rotulada al pie,
+     dentro de la imagen; la tapa cubre esa franja de abajo */
   .rejilla{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
-  .vineta{border:1px solid var(--borde);border-radius:.7rem;overflow:hidden;background:#fff}
-  .vineta img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover}
+  .vineta{position:relative;border:1px solid var(--borde);border-radius:.7rem;overflow:hidden;background:#fff;user-select:none}
+  .vineta img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+  .vineta .tapa{top:83%;left:3%;width:94%;height:15%}
+  .rejilla.destapado .tapa{display:none}
   .vineta .pie{position:relative;min-height:2.3em;display:flex;align-items:center;justify-content:center;font-weight:800;font-style:italic;
     background:#2b2440;color:#fff;cursor:pointer;text-align:center;padding:.3rem .4rem;font-size:.9em}
   .vineta .pie.vacia{background:#c8127a;font-style:normal}
@@ -179,9 +182,10 @@
     ]
   };
 
-  /* Temporada 2: la hacen el profesor y el grupo. Ocho viñetas sueltas, cuadradas,
-     en assets/img/semana-14/temporada-2/01.webp a 08.webp, en este orden. Si la
-     primera no existe, la pestaña no aparece. */
+  /* Temporada 2: la hacen el profesor y el grupo. Ocho viñetas sueltas, horizontales
+     4:3, con la locución rotulada al pie dentro de la imagen (como en la tira original),
+     en assets/img/semana-14/temporada-2/01.webp a 08.webp, en este orden. La tapa cubre
+     la franja de abajo. Si la primera no existe, la pestaña no aparece. */
   var T2={
     nombre:"El burro que habla latín",
     credito:'<strong>El burro que habla latín</strong>: la segunda temporada, hecha en el curso con ilustración generada por IA a partir de guiones del profesor. Los pies tapados son locuciones de la hoja de consulta de la semana.',
@@ -263,7 +267,8 @@
       temp.vinetas.forEach(function(v,i){
         var c=document.createElement('div');c.className='vineta';
         var img=document.createElement('img');img.src=temp.carpeta+(i<9?'0':'')+(i+1)+'.webp';img.alt='Viñeta '+(i+1)+' de '+temp.nombre;
-        var t=document.createElement('div');t.className='pie vacia';
+        var t=document.createElement('div');t.className='tapa vacia';
+        t.setAttribute('role','button');t.setAttribute('aria-label','Viñeta '+(i+1));
         var s={el:t,puesta:null,resp:v.loc};
         t.addEventListener('click',function(){tocaSlot(s);});
         slots.push(s);c.appendChild(img);c.appendChild(t);rej.appendChild(c);
@@ -299,19 +304,13 @@
     slots.forEach(function(s){var ok=s.puesta===s.resp;if(ok)bien++;s.el.classList.remove('destino');s.el.classList.add(ok?'ok':'no');});
     revisado=true;
     fb.className=bien===slots.length?'fb ok':'fb ej';
-    fb.textContent=bien===slots.length?'Las ocho. Ahora lo difícil: explicar por qué da risa cada una.':bien+' de '+slots.length+'. Las naranjas están mal puestas: muévanlas y vuelvan a revisar. Pista: piensen qué está mirando el cerdo, no qué está haciendo.';
+    fb.textContent=bien===slots.length?'Las ocho. Ahora lo difícil: explicar por qué da risa cada una.':bien+' de '+slots.length+'. Las naranjas están mal puestas: muévanlas y vuelvan a revisar. Pista: piensen qué está mirando el personaje, no qué está haciendo.';
   });
 
   document.getElementById('destapar').addEventListener('click',function(){
     var abierto=debrief.classList.toggle('abierto');
-    var comic=esc.querySelector('.comic');
-    if(comic)comic.classList.toggle('destapado',abierto);
-    slots.forEach(function(s){
-      if(temp.modo!=='imagen'){
-        if(abierto){s.el.classList.add('vista');s.el.textContent=s.resp;}
-        else{s.el.classList.remove('vista');pintaSlot(s);}
-      }
-    });
+    var tablero=esc.querySelector('.comic')||esc.querySelector('.rejilla');
+    if(tablero)tablero.classList.toggle('destapado',abierto);
     this.textContent=abierto?'Volver a tapar':'Destapar';
     if(abierto)debrief.scrollIntoView({behavior:'smooth',block:'start'});
   });
