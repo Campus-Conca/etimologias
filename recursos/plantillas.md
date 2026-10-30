@@ -31,6 +31,13 @@ Todo lo que en este curso se llena a mano vive aquí. Se abren en el navegador, 
     <span class="pl-cta">Ver el recorrido →</span>
   </a>
 
+  <a class="pl-card" href="plantillas/autoevaluacion-u2.html">
+    <span class="pl-tag">se llena en tu celular · unidad 2</span>
+    <b>El encargo</b>
+    <span class="pl-desc">Las preguntas 4 y 5 de la autoevaluación de la Unidad 2. La guía para escribir la 4 como columna de opinión —sus cuatro piezas, una columna modelo en frío y el mismo tema en caliente—, un editor de mesa que marca en tu texto lo que falta y lo que sobra antes de mandarla, y la 5: tu número, con un porqué que no se escude en el esfuerzo. Se guarda en tu teléfono mientras escribes y le llega al profesor en una hoja de cálculo; la columna se comparte con el campus con la firma que tú elijas.</span>
+    <span class="pl-cta">Abrirlo y escribir →</span>
+  </a>
+
   <a class="pl-card" href="../ejercicios/semana-09/booktuber-como-se-hace.html">
     <span class="pl-tag">míralo antes de grabar · semana 9</span>
     <b>Tu booktuber, paso a paso</b>

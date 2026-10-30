@@ -354,6 +354,12 @@ El [Reglamento de Estudiantes de la UAQ](https://www.uaq.mx/leyes/Reglamento-Est
 
 ---
 
+## El encargo de la unidad 2
+
+Las preguntas 4 y 5 de la autoevaluación de la unidad 2 se entregan en [El encargo](../recursos/plantillas/autoevaluacion-u2.html): tu columna de opinión sobre algo que precisa mejorar en el campus, pasada por el editor de mesa antes de mandarla, y el número que crees merecer, con su porqué. La columna se comparte con el campus con la firma que elijas; el número solo lo lee el profesor.
+
+---
+
 ## El gimnasio completo
 
 Los ejercicios de esta semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.

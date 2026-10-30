@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#6b1e5a">
+<title>El encargo · Autoevaluación de la Unidad 2 · Etimologías Grecolatinas</title>
+<style>
+:root{
+  --rosa:#c8127a; --ciruela:#6b1e5a; --ciruela-osc:#4a1540;
+  --fondo:#fbf4f9; --borde:#eadce6; --papel:#fff;
+  --jade:#1f8a4c; --jade-bg:#e9f6ef;
+  --ambar:#b3541e; --ambar-bg:#fdf0e6;
+  --rojo:#c0392b; --rojo-bg:#fdecea;
+  --gris:#6f6470;
+  --hecho:#1769aa; --hecho-bg:#eaf2fb;
+  --razon:#7a3fb8; --razon-bg:#f3ecfb;
+  --prop:#0f7b6c; --prop-bg:#e3f4f1;
+  --diario:#fffdf8; --diario-borde:#e8e0d0;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+  --serif:Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{font-family:var(--sans);background:var(--fondo);color:#2a2a2a;line-height:1.55;font-size:16px;overflow-x:hidden}
+
+/* ---------- barra superior ---------- */
+.barra{position:sticky;top:0;z-index:40;background:var(--ciruela);color:#fff;
+  padding:calc(.55rem + env(safe-area-inset-top,0)) .9rem .5rem;box-shadow:0 1px 10px rgba(74,21,64,.25)}
+.barra .fila{display:flex;align-items:center;justify-content:space-between;gap:.7rem}
+.barra .marca{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;opacity:.75;line-height:1.3}
+.barra .marca b{display:block;font-size:.95rem;letter-spacing:0;text-transform:none;opacity:1;font-weight:700}
+.barra .menu{background:transparent;border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:2rem;
+  font:inherit;font-size:.78rem;padding:.3rem .7rem;cursor:pointer;white-space:nowrap}
+.rail{display:flex;gap:.28rem;margin-top:.5rem}
+.rail button{flex:1;height:5px;border:none;border-radius:3px;background:rgba(255,255,255,.28);padding:0;cursor:pointer}
+.rail button.vista{background:rgba(255,255,255,.62)}
+.rail button.lleno{background:#8fd6ab}
+.rail button.aqui{background:#ffd23f}
+.guardado{position:fixed;left:50%;transform:translateX(-50%);top:4.6rem;z-index:60;
+  background:var(--ciruela-osc);color:#fff;font-size:.72rem;letter-spacing:.04em;
+  padding:.22rem .8rem;border-radius:2rem;opacity:0;pointer-events:none;transition:opacity .25s}
+.guardado.ver{opacity:.92}
+.demo-banda{background:#ffd23f;color:var(--ciruela-osc);text-align:center;font-size:.8rem;font-weight:700;padding:.35rem .8rem}
+
+/* ---------- carrete ---------- */
+main{max-width:44rem;margin:0 auto;padding:0 .9rem 8rem}
+.pantalla{display:none;animation:entra .28s ease}
+.pantalla.activa{display:block}
+@keyframes entra{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+.paso{font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;color:var(--rosa);font-weight:800;margin:1.2rem 0 .1rem}
+h1{font-size:1.75rem;line-height:1.15;color:var(--ciruela);margin:.1rem 0 .4rem}
+h2{font-size:1.32rem;line-height:1.2;color:var(--ciruela);margin:.1rem 0 .35rem}
+h3{font-size:1rem;color:var(--rosa);margin:1.4rem 0 .35rem}
+h3.sin-margen{margin-top:0}
+p{margin:.55rem 0}
+.entrada{color:#4b4550}
+small,.mini{font-size:.85rem;color:var(--gris);line-height:1.45}
+
+.tarjeta{background:var(--papel);border:1px solid var(--borde);border-radius:1rem;padding:.95rem 1rem;margin:.8rem 0}
+.cita{border-left:4px solid var(--rosa);background:var(--papel);border-radius:0 .7rem .7rem 0;
+  padding:.7rem .95rem;margin:1rem 0;color:var(--ciruela);font-size:.96rem}
+.cita b{color:var(--ciruela)}
+
+label.campo{display:block;margin-top:.9rem}
+label.campo>span{display:block;font-size:.74rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--ciruela);margin-bottom:.25rem}
+input[type=text],textarea{width:100%;border:1px solid var(--borde);border-radius:.65rem;padding:.6rem .7rem;
+  font:inherit;font-size:1rem;background:var(--papel);color:#2a2a2a}
+textarea{min-height:4.2rem;resize:vertical;line-height:1.5}
+#columna{font-family:var(--serif);font-size:1.02rem;line-height:1.6;min-height:16rem}
+input:focus,textarea:focus{outline:2px solid var(--rosa);outline-offset:1px;border-color:var(--rosa)}
+.pista{font-size:.82rem;color:var(--gris);margin:.3rem 0 0}
+.pista:empty{display:none}
+
+/* ---------- portada ---------- */
+ol.pasos{margin:.5rem 0 0;padding-left:1.25rem}
+ol.pasos li{margin:.5rem 0;font-size:.94rem;color:#4b4550}
+ol.pasos li b{color:var(--ciruela)}
+fieldset.firma{border:none;padding:0;margin:1.2rem 0 0;min-width:0}
+fieldset.firma legend{display:block;font-size:.74rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--ciruela);margin-bottom:.4rem;padding:0}
+label.radio{display:flex;gap:.6rem;align-items:flex-start;border:1px solid var(--borde);background:var(--papel);
+  border-radius:.75rem;padding:.6rem .75rem;margin-bottom:.4rem;cursor:pointer}
+label.radio input{margin:.25rem 0 0;accent-color:var(--rosa);flex:none;width:1.05rem;height:1.05rem}
+label.radio span{font-size:.86rem;color:var(--gris);line-height:1.4}
+label.radio span b{display:block;color:var(--ciruela);font-size:.96rem}
+label.radio.on{border-color:var(--rosa);background:#fdeef6}
+
+/* ---------- la guía ---------- */
+.k-t{--c:var(--ciruela);--cb:#f7eef4}
+.k-h{--c:var(--hecho);--cb:var(--hecho-bg)}
+.k-r{--c:var(--razon);--cb:var(--razon-bg)}
+.k-p{--c:var(--prop);--cb:var(--prop-bg)}
+.k-c{--c:var(--ciruela);--cb:#f7eef4}
+.piezas{display:grid;gap:.5rem;margin:.7rem 0}
+.pieza{border:1px solid var(--borde);border-left:6px solid var(--c);border-radius:.8rem;background:var(--papel);padding:.65rem .85rem}
+.pieza b{display:block;color:var(--c);font-size:1rem}
+.pieza span{display:block;font-size:.9rem;color:#39323c;margin-top:.15rem;line-height:1.45}
+.reglas{list-style:none;padding:0;margin:.5rem 0}
+.reglas li{position:relative;padding:.28rem 0 .28rem 1.1rem;font-size:.95rem}
+.reglas li::before{content:"·";position:absolute;left:.25rem;top:.05rem;color:var(--rosa);font-weight:900;font-size:1.3rem;line-height:1.2}
+.reglas li b{color:var(--ciruela)}
+.consejos{margin:.5rem 0;padding-left:1.15rem}
+.consejos li{margin:.45rem 0;font-size:.94rem;color:#39323c}
+.consejos li b{color:var(--ciruela)}
+
+/* ---------- el recorte de periódico ---------- */
+.ribete{font-size:.84rem;color:#7d3d16;background:var(--ambar-bg);border:1px dashed #e7c3a6;border-radius:.6rem;padding:.5rem .7rem;margin:.7rem 0}
+.fila-botones{display:flex;flex-wrap:wrap;gap:.45rem .6rem;align-items:center;margin:.5rem 0}
+.boton-chico{display:inline-flex;align-items:center;gap:.3rem;border:1px solid var(--borde);background:var(--papel);color:var(--ciruela);
+  border-radius:2rem;padding:.35rem .85rem;font:inherit;font-size:.84rem;font-weight:700;cursor:pointer}
+.boton-chico:hover,.boton-chico:focus{border-color:var(--rosa);background:#fdeef6}
+.recorte{background:var(--diario);border:1px solid var(--diario-borde);border-radius:.35rem;padding:1rem 1.05rem 1.1rem;margin:.8rem 0;
+  box-shadow:0 2px 12px rgba(80,60,30,.08);font-family:var(--serif);color:#222}
+.recorte .seccion{font-family:var(--sans);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--rosa);font-weight:800;
+  border-bottom:1px solid var(--diario-borde);padding-bottom:.35rem;margin-bottom:.55rem;display:flex;justify-content:space-between;gap:.5rem}
+.recorte h4{font-size:1.38rem;line-height:1.2;margin:.15rem 0 .25rem;color:#1d1d1d}
+.recorte .por{font-family:var(--sans);font-size:.8rem;color:var(--gris);margin:0 0 .6rem}
+.recorte p.cuerpo{margin:.55rem 0;font-size:1.02rem;line-height:1.62}
+.recorte u{text-decoration:none}
+.recorte .et{display:none;font-family:var(--sans);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--c);margin:.9rem 0 -.25rem}
+.recorte.piezas-on .et{display:block}
+.recorte.piezas-on p.cuerpo{border-left:4px solid var(--c);background:var(--cb);padding:.4rem .6rem;border-radius:0 .3rem .3rem 0}
+.recorte.piezas-on u{border-bottom:2px solid var(--c)}
+.recorte.piezas-on u::after{content:attr(data-q);font-family:var(--sans);font-size:.56rem;font-weight:800;letter-spacing:.03em;
+  text-transform:uppercase;color:var(--c);vertical-align:super;margin-left:.2rem;white-space:nowrap}
+
+/* ---------- la misma frase, en caliente y en frío ---------- */
+.par{border:1px solid var(--borde);border-radius:.85rem;background:var(--papel);margin-bottom:.55rem;overflow:hidden}
+.par .flojo{padding:.7rem .85rem;background:var(--ambar-bg);border-bottom:1px solid #f0dbc9}
+.par .flojo .et{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ambar);font-weight:800}
+.par .flojo p{margin:.15rem 0 0;color:#7d3d16;font-size:.96rem;font-style:italic}
+.par .voltea{display:block;width:100%;border:none;background:var(--papel);color:var(--rosa);
+  font:inherit;font-size:.85rem;font-weight:800;padding:.55rem .85rem;cursor:pointer;text-align:left}
+.par .voltea:hover{background:#fdeef6}
+.par .fuerte{display:none;padding:.7rem .85rem;background:var(--jade-bg);border-top:1px solid #cfe8da}
+.par.abierto .fuerte{display:block}
+.par.abierto .voltea{display:none}
+.par .fuerte .et{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--jade);font-weight:800}
+.par .fuerte p{margin:.15rem 0 0;color:#245c3c;font-size:.96rem}
+.par .fuerte .porque{display:block;margin-top:.45rem;font-size:.85rem;color:#3d6b52;border-top:1px dashed #b8dcc7;padding-top:.4rem}
+.par .fuerte .porque b{color:#1f6b43}
+
+/* ---------- el medio muro ---------- */
+.muro{margin:.5rem 0 0}
+.muro .barra-m{position:relative;height:10px;border-radius:5px;background:#e6d8e2;overflow:hidden}
+.muro .zona{position:absolute;top:0;bottom:0;left:50%;width:28.125%;background:rgba(31,138,76,.22)}
+.muro .lleno{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,var(--rosa),var(--ciruela));transition:width .25s;opacity:.85}
+.muro.ok .lleno{background:linear-gradient(90deg,#3aa86b,var(--jade))}
+.muro.pasado .lleno{background:linear-gradient(90deg,#d77a45,var(--ambar))}
+.muro .txt{font-size:.82rem;color:var(--gris);margin-top:.3rem;font-variant-numeric:tabular-nums}
+.muro.ok .txt{color:var(--jade);font-weight:700}
+
+/* ---------- la hoja del editor ---------- */
+.reporte{scroll-margin-top:5.4rem}
+.vencida{display:none;font-size:.86rem;color:#7d3d16;background:var(--ambar-bg);border:1px solid #f0d2b8;border-radius:.6rem;padding:.55rem .75rem;margin:.7rem 0}
+.vencida.ver{display:block}
+.revision{border:2px solid var(--ciruela);border-radius:1rem;background:var(--papel);overflow:hidden;margin:1rem 0 .6rem}
+.revision .cabeza{display:flex;align-items:center;justify-content:space-between;gap:.6rem;background:var(--ciruela);color:#fff;padding:.65rem .85rem}
+.revision .cabeza .t{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;opacity:.85;line-height:1.3}
+.revision .cabeza .t b{display:block;font-size:1rem;letter-spacing:0;text-transform:none;opacity:1}
+.sello{display:inline-block;border:3px solid currentColor;border-radius:.4rem;padding:.2rem .55rem;font-weight:900;font-size:.76rem;
+  letter-spacing:.08em;text-transform:uppercase;transform:rotate(-4deg);background:#fff;line-height:1.25;text-align:center;flex:none}
+.sello:empty{display:none}
+.sello-mini{display:inline-block;font-size:.68rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;border:2px solid currentColor;border-radius:.3rem;padding:0 .35rem;line-height:1.5}
+.imprenta{color:var(--jade)} .vuelta{color:var(--ambar)} .mesa{color:var(--rojo)}
+.renglones{padding:.25rem .85rem .5rem}
+.renglon{display:flex;gap:.6rem;align-items:flex-start;padding:.6rem 0;border-bottom:1px solid var(--borde)}
+.renglon:last-child{border-bottom:none}
+.renglon .m{flex:none;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:900;color:#fff;margin-top:.05rem}
+.renglon.ok .m{background:var(--jade)} .renglon.ok .m::after{content:"✓"}
+.renglon.aviso .m{background:var(--ambar)} .renglon.aviso .m::after{content:"!"}
+.renglon.err .m{background:var(--rojo)} .renglon.err .m::after{content:"✕"}
+.renglon b{display:block;color:var(--ciruela);font-size:.95rem;line-height:1.3}
+.renglon p{margin:.15rem 0 0;font-size:.88rem;color:#4b4550;line-height:1.45}
+.pills{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.35rem}
+.pill{font-size:.72rem;font-weight:800;border-radius:2rem;padding:.1rem .55rem;border:1.5px solid}
+.pill.si{border-color:var(--jade);color:var(--jade);background:var(--jade-bg)}
+.pill.si::before{content:"✓ "}
+.pill.no{border-color:#e7c3a6;border-style:dashed;color:var(--ambar);background:var(--ambar-bg)}
+.pill.no::before{content:"falta · "}
+.rot-galera{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--rosa);font-weight:800;margin:1.1rem 0 .35rem}
+.galera{background:var(--diario);border:1px solid var(--diario-borde);border-radius:.35rem;padding:.9rem 1rem;font-family:var(--serif);font-size:1rem;line-height:1.85;color:#222;overflow-wrap:anywhere}
+.galera h4{font-size:1.2rem;line-height:1.25;margin:0 0 .3rem}
+.galera h4.sin{color:var(--gris);font-style:italic;font-weight:400}
+.galera p{margin:.45rem 0}
+.galera mark{background:none;color:inherit;border-radius:.15rem;padding:0 .04rem}
+.galera mark.err{background:var(--rojo-bg);box-shadow:inset 0 -2px 0 var(--rojo);color:#8e1f14}
+.galera mark.aviso{background:var(--ambar-bg);box-shadow:inset 0 -2px 0 var(--ambar)}
+.galera mark.ph{box-shadow:inset 0 -2px 0 var(--hecho)}
+.galera mark.pr{box-shadow:inset 0 -2px 0 var(--razon)}
+.galera mark.pp{box-shadow:inset 0 -2px 0 var(--prop)}
+.galera mark sup{font-family:var(--sans);font-size:.6rem;font-weight:800;color:#fff;background:var(--rojo);border-radius:1rem;padding:.05rem .32rem;margin-left:.12rem;line-height:1;vertical-align:super}
+.galera mark.aviso sup{background:var(--ambar)}
+.leyenda-gal{display:flex;flex-wrap:wrap;gap:.3rem .9rem;font-size:.74rem;color:var(--gris);margin:.45rem 0 0}
+.leyenda-gal i{display:inline-block;width:18px;height:6px;border-radius:2px;vertical-align:middle;margin-right:.3rem}
+.leyenda-gal .lh{background:var(--hecho)} .leyenda-gal .lr{background:var(--razon)} .leyenda-gal .lp{background:var(--prop)}
+.leyenda-gal .le{background:var(--rojo)} .leyenda-gal .la{background:var(--ambar)}
+.obs{list-style:none;padding:0;margin:.5rem 0}
+.obs li{display:flex;gap:.6rem;border:1px solid var(--borde);border-radius:.7rem;background:var(--papel);padding:.6rem .75rem;margin-bottom:.4rem}
+.obs .n{flex:none;min-width:1.45rem;height:1.45rem;border-radius:1rem;background:var(--rojo);color:#fff;font-size:.74rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:.05rem}
+.obs li.aviso .n{background:var(--ambar)}
+.obs b{display:block;color:var(--ciruela);font-size:.93rem;line-height:1.3}
+.obs q{display:block;font-family:var(--serif);font-style:italic;font-size:.9rem;color:#5b4a56;margin:.15rem 0 0;quotes:"«" "»"}
+.obs p{margin:.2rem 0 0;font-size:.87rem;color:#4b4550;line-height:1.45}
+.limpio{font-size:.9rem;color:var(--jade);background:var(--jade-bg);border-radius:.6rem;padding:.55rem .75rem;margin:.6rem 0}
+.red{border:1px solid var(--borde);background:var(--papel);border-radius:.9rem;padding:.75rem .9rem;margin:.9rem 0}
+.red>summary{cursor:pointer;font-weight:700;color:var(--ciruela);font-size:.9rem}
+.red[open]>summary{margin-bottom:.5rem}
+
+/* ---------- tu número ---------- */
+.propuesta{border:2px solid var(--ciruela);border-radius:1rem;background:var(--papel);padding:.85rem .9rem;margin:.9rem 0}
+.propuesta .encabeza{font-size:1.02rem;color:var(--ciruela);font-weight:800;margin-bottom:.4rem}
+.propuesta .encabeza em{font-style:normal;background:#ffd23f;border-radius:.35rem;padding:0 .4rem}
+.propuesta textarea{min-height:8rem;margin-top:.6rem}
+.numeros{display:flex;gap:.4rem;flex-wrap:wrap;margin:.5rem 0 .2rem}
+.numeros button{flex:1 1 3.1rem;border:2px solid var(--borde);background:var(--papel);color:var(--ciruela);
+  border-radius:.7rem;padding:.55rem .2rem;font:inherit;font-size:1.45rem;font-weight:800;cursor:pointer}
+.numeros button.on{background:var(--ciruela);border-color:var(--ciruela);color:#fff}
+.medio{display:inline-flex;align-items:center;gap:.45rem;margin:.35rem 0 0;font-size:.9rem;color:var(--gris);cursor:pointer}
+.medio input{accent-color:var(--rosa);width:1.05rem;height:1.05rem}
+.checks{margin:.6rem 0}
+.check{display:flex;gap:.55rem;align-items:flex-start;font-size:.9rem;padding:.32rem 0;color:var(--gris)}
+.check .m{flex:none;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--borde);background:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:900;color:#cdbcc8;margin-top:.05rem}
+.check em{display:block;font-style:normal;font-size:.82rem;color:var(--gris);margin-top:.1rem}
+.check.ok{color:var(--jade)}
+.check.ok .m{background:var(--jade);border-color:var(--jade);color:#fff}
+.check.ok .m::after{content:"✓"}
+.check.alerta{color:var(--ambar)}
+.check.alerta .m{background:var(--ambar);border-color:var(--ambar);color:#fff}
+.check.alerta .m::after{content:"!"}
+.btn-ejemplo{display:inline-flex;align-items:center;gap:.35rem;border:1px dashed #d9c49a;background:#fffaf0;
+  color:#8a6a1a;border-radius:2rem;padding:.32rem .8rem;font:inherit;font-size:.82rem;font-weight:700;cursor:pointer;margin:.4rem 0 0}
+.btn-ejemplo:hover{background:#fff3dc}
+.ejemplo{display:none;border:1px dashed #d9c49a;background:#fffaf0;border-radius:.8rem;padding:.75rem .9rem;margin:.5rem 0 0}
+.ejemplo.ver{display:block}
+.ejemplo .rotulo{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#96721d;font-weight:800}
+.ejemplo p{margin:.35rem 0;font-size:.92rem;color:#4a3d20;line-height:1.5}
+.ejemplo p.dice{color:#2f2716;background:#fff;border-radius:.5rem;padding:.5rem .65rem;border:1px solid #eadfc4}
+.ejemplo .fija{font-size:.82rem;color:#8a6a1a;font-style:italic;margin-top:.5rem}
+.recuerdo{list-style:none;padding:0;margin:.2rem 0 0}
+.recuerdo li{font-size:.87rem;color:#4b4550;padding:.45rem 0;border-bottom:1px solid var(--borde);line-height:1.45}
+.recuerdo li:last-child{border-bottom:none}
+.recuerdo a{display:block;font-weight:700;color:var(--ciruela);text-decoration:none}
+.recuerdo a::after{content:" ↗";font-size:.7rem;opacity:.55}
+
+/* ---------- la entrega ---------- */
+.acciones{display:flex;flex-direction:column;gap:.5rem;margin:1rem 0}
+.btn{display:block;width:100%;text-align:center;border:none;border-radius:.75rem;padding:.8rem 1rem;
+  font:inherit;font-size:1rem;font-weight:800;cursor:pointer;text-decoration:none}
+.btn:disabled{opacity:.55;cursor:default}
+.btn.principal{background:var(--rosa);color:#fff}
+.btn.segundo{background:var(--ciruela);color:#fff}
+.btn.linea{background:var(--papel);color:var(--ciruela);border:1.5px solid var(--borde)}
+.resumen{border:2px solid var(--ciruela);border-radius:1.1rem;background:var(--papel);overflow:hidden;margin:.8rem 0}
+.resumen .cabeza{background:var(--ciruela);color:#fff;padding:.75rem .9rem}
+.resumen .cabeza .quien{font-size:1.05rem;font-weight:800;line-height:1.2}
+.resumen .cabeza .cual{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+.resumen .cuerpo{padding:.3rem .9rem .8rem}
+.resumen dl{margin:0}
+.resumen dt{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--rosa);font-weight:800;margin-top:.7rem}
+.resumen dd{margin:.12rem 0 0;font-size:.92rem;color:#39323c}
+.resumen dd b{color:var(--ciruela);font-family:var(--serif);font-size:1.05rem}
+.resumen .granumero{font-size:2.6rem;line-height:1;color:var(--rosa);font-weight:900}
+.estado{display:none;border-radius:.9rem;padding:.8rem .95rem;margin:.7rem 0;border:2px solid;font-size:.94rem;line-height:1.5}
+.estado.ver{display:block}
+.estado>b{display:block;font-size:1.02rem;margin-bottom:.15rem}
+.estado p{margin:.25rem 0}
+.estado .botones{display:flex;flex-direction:column;gap:.45rem;margin-top:.65rem}
+.estado.falta{border-color:var(--ambar);background:var(--ambar-bg);color:#7d3d16}
+.estado.falta>b{color:var(--ambar)}
+.estado.yendo,.estado.duda{border-color:var(--ciruela);background:var(--fondo);color:var(--ciruela)}
+@keyframes sacude{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.estado.sacude{animation:sacude .42s ease}
+.enviado{border:2px solid var(--jade);background:var(--jade-bg);border-radius:1rem;padding:.9rem 1rem;margin:.8rem 0;display:none}
+.enviado.ver{display:block}
+.enviado .rotulo{font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--jade);font-weight:800}
+.enviado b{display:block;color:var(--jade);font-size:1.05rem;margin:.15rem 0 .25rem}
+.enviado p{margin:.3rem 0;font-size:.9rem;color:#2a5c3e}
+
+/* ---------- pie de navegación ---------- */
+.pie{position:fixed;left:0;right:0;bottom:0;z-index:45;background:rgba(251,244,249,.96);
+  backdrop-filter:blur(6px);border-top:1px solid var(--borde);
+  padding:.55rem .9rem calc(.55rem + env(safe-area-inset-bottom,0))}
+.pie .caja{max-width:44rem;margin:0 auto;display:flex;align-items:center;gap:.5rem}
+.pie button{border:none;border-radius:.7rem;padding:.7rem .9rem;font:inherit;font-weight:800;cursor:pointer;font-size:.95rem}
+.pie .atras{background:var(--papel);color:var(--ciruela);border:1px solid var(--borde);flex:none}
+.pie .sig{background:var(--rosa);color:#fff;flex:1}
+.pie .donde{flex:none;font-size:.76rem;color:var(--gris);text-align:center;min-width:3.4rem}
+.pie button:disabled{opacity:.35;cursor:default}
+
+/* ---------- la hoja del menú ---------- */
+.velo{position:fixed;inset:0;background:rgba(45,15,40,.5);z-index:70;display:none}
+.velo.ver{display:block}
+.hoja{position:fixed;left:0;right:0;bottom:0;z-index:71;background:var(--papel);
+  border-radius:1.1rem 1.1rem 0 0;padding:1rem 1rem calc(1.2rem + env(safe-area-inset-bottom,0));
+  max-width:44rem;margin:0 auto;display:none;max-height:88vh;overflow-y:auto}
+.hoja.ver{display:block}
+.hoja h3{margin:.1rem 0 .5rem}
+.hoja .op{display:block;width:100%;text-align:left;border:1px solid var(--borde);background:var(--fondo);
+  border-radius:.75rem;padding:.65rem .85rem;margin-bottom:.45rem;font:inherit;cursor:pointer;color:var(--ciruela)}
+.hoja .op b{display:block;font-size:.96rem}
+.hoja .op span{display:block;font-size:.82rem;color:var(--gris);line-height:1.4;margin-top:.1rem}
+.hoja .op.peligro{border-color:#e6b8ab;background:#fdf3f0;color:#a3312b;margin-top:.8rem}
+.hoja .op.peligro span{color:#a0665c}
+.hoja .cerrar{background:var(--ciruela);color:#fff;border:none;border-radius:.75rem;padding:.7rem;width:100%;
+  font:inherit;font-weight:800;cursor:pointer;margin-top:.3rem}
+
+@media print{
+  body{background:#fff;font-size:11pt}
+  .barra,.pie,.guardado,.velo,.hoja,.acciones,.fila-botones,.demo-banda{display:none!important}
+  .pantalla{display:block!important;animation:none;margin-bottom:.8cm}
+  .par .fuerte{display:block!important}
+  .par .voltea{display:none!important}
+  main{padding:0}
+}
+@media (min-width:720px){
+  body{font-size:17px}
+  h1{font-size:2.1rem}
+}
+</style>
+</head>
+<body>
+
+<header class="barra">
+  <div class="fila">
+    <div class="marca">Etimologías · Unidad 2 · Autoevaluación<b>El encargo</b></div>
+    <button class="menu" type="button" id="btnMenu">Menú</button>
+  </div>
+  <div class="rail" id="rail"></div>
+</header>
+<div class="demo-banda" id="demoBanda" hidden>Modo prueba: lo que mandes desde aquí no sale de este teléfono.</div>
+<div class="guardado" id="guardado">Guardado en este teléfono</div>
+
+<main>
+
+<!-- ======================= 0 · PORTADA ======================= -->
+<section class="pantalla" id="p-portada" data-titulo="Portada" data-desc="Tu nombre y cómo firmas tu columna">
+  <p class="paso">Preguntas 4 y 5 de tu autoevaluación</p>
+  <h1>El encargo</h1>
+  <p class="entrada">Las dos últimas preguntas de la autoevaluación de la unidad 2 se entregan aquí. La <strong>4</strong> es una columna de opinión sobre algo que precisa mejorar en nuestro campus: la vamos a compartir con el campus, así que se escribe como para el periódico. La <strong>5</strong> es el número que crees merecer por la unidad, y esa solo la lee el profe.</p>
+
+  <div class="tarjeta">
+    <h3 class="sin-margen">Cómo va esto</h3>
+    <ol class="pasos">
+      <li><b>Lee la guía y la columna modelo.</b> Cinco minutos: qué es una columna, sus cuatro piezas y el mismo tema escrito en caliente y en frío.</li>
+      <li><b>Escribe tu columna y pásala por el editor de mesa.</b> Como en un periódico, te marca lo que falta y lo que sobra, y te pregunta. No la escribe por ti. Corriges y la vuelves a pasar las veces que quieras.</li>
+      <li><b>Escribe tu número, con su porqué, y manda todo.</b> Le llega al profe en una hoja de cálculo.</li>
+    </ol>
+  </div>
+
+  <label class="campo"><span>Tu nombre completo</span>
+    <input type="text" id="nombre" autocomplete="name" placeholder="Nombre y apellidos">
+  </label>
+  <p class="pista">Así va la firma al pie de tu columna, si eliges publicarla con nombre completo.</p>
+
+  <fieldset class="firma">
+    <legend>¿Cómo quieres firmar tu columna?</legend>
+    <label class="radio"><input type="radio" name="firma" value="completo"><span><b>Con mi nombre completo</b>Como en el periódico.</span></label>
+    <label class="radio"><input type="radio" name="firma" value="pila"><span><b>Solo con mi nombre de pila</b>Sale con tu nombre, sin apellidos.</span></label>
+    <label class="radio"><input type="radio" name="firma" value="no"><span><b>Prefiero que no se publique</b>El profe la lee igual, pero no se comparte.</span></label>
+  </fieldset>
+
+  <p class="mini">Lo que escribas se guarda solo en este teléfono mientras trabajas: si cierras la página, lo encuentras al volver. Nada sale de aquí hasta que toques <em>Mandar</em>, al final.</p>
+</section>
+
+<!-- ======================= 1 · LA GUÍA ======================= -->
+<section class="pantalla" id="p-guia" data-titulo="La guía" data-desc="Qué es una columna y sus cuatro piezas">
+  <p class="paso">1 · La guía</p>
+  <h2>Qué es una columna de opinión</h2>
+  <p>Es un texto corto y firmado que defiende una idea con hechos. Sale en el periódico con el nombre de quien la escribe, y por eso se piensa dos veces: lo que firmas, lo sostienes.</p>
+  <p>No es una queja ni un desahogo. Una queja dice «esto está mal». Una columna <strong>demuestra</strong> que está mal, explica por qué le importa a alguien más que a ti y <strong>propone</strong> cómo arreglarlo. Quien la lee no te conoce, no estuvo ahí y no le debe nada a tu enojo: lo único que tienes para convencerlo es lo que cualquiera puede ir a comprobar.</p>
+
+  <h3>Las cuatro piezas</h3>
+  <div class="piezas">
+    <div class="pieza k-t"><b>El título</b><span>Dice tu idea en pocas palabras. «Un bebedero seco desde agosto», sí; «Mi columna», «Queja» o «El campus», no.</span></div>
+    <div class="pieza k-h"><b>El hecho</b><span>Qué pasa, dónde y desde cuándo. Algo que cualquiera pueda ir a ver, contar o leer en un papel. Va primero: sin hecho no hay columna.</span></div>
+    <div class="pieza k-r"><b>La razón</b><span>Por qué importa, con una consecuencia que se pueda medir: tiempo, dinero, salud, riesgo, cuántas personas. Una razón que siga en pie aunque tú no estuvieras enojado.</span></div>
+    <div class="pieza k-p"><b>La propuesta</b><span>Qué se hace, quién lo hace y para cuándo. Sin quién, nadie se da por aludido; sin cuándo, nunca es hoy.</span></div>
+  </div>
+  <p class="mini">Y al pie, tu firma. Por eso te pedimos el nombre completo.</p>
+
+  <h3>Escrita en frío</h3>
+  <p>El encargo pide <strong>redacción en frío</strong>. Frío no quiere decir tibio: quiere decir que el dato hace el trabajo que harían los gritos.</p>
+  <ul class="reglas">
+    <li>Un <b>hecho</b> que cualquiera pueda comprobar: qué, dónde, desde cuándo.</li>
+    <li>Una <b>razón</b> de por qué importa, que no dependa de tu enojo.</li>
+    <li>Una <b>propuesta</b> con quién y cuándo.</li>
+    <li>Sin signos de admiración, sin «imagínense», sin «todos sabemos que», sin mayúsculas para gritar.</li>
+  </ul>
+
+  <h3>Medio muro</h3>
+  <p>Unas doscientas palabras, en tres o cuatro párrafos cortos. Si te pasas, el periódico corta por abajo; si te quedas corto, casi siempre falta el dato o la consecuencia.</p>
+
+  <h3>¿De dónde saco el hecho?</h3>
+  <ul class="consejos">
+    <li><b>Ve y cuenta.</b> Cuántas lámparas no prenden, cuántos minutos dura la fila, cuántas botellas hay en el bote a mediodía.</li>
+    <li><b>Pregunta</b> a quien lo vive y a quien lo administra: compañeros, biblioteca, coordinación. Anota el cargo y la fecha.</li>
+    <li><b>Busca el papel:</b> un aviso pegado, un horario publicado, un oficio, un artículo del Reglamento de Estudiantes que leímos en la semana 14.</li>
+    <li><b>Toma una foto con fecha.</b> No va en la columna, pero te respalda si alguien duda.</li>
+  </ul>
+  <div class="cita">¿No sabes de qué escribir? Recorre tu día en el campus de la entrada a la salida: dónde esperas, dónde comes, dónde se te va el tiempo. ¿Qué arreglarías si mañana te dieran la llave?</div>
+</section>
+
+<!-- ======================= 2 · EL MODELO ======================= -->
+<section class="pantalla" id="p-modelo" data-titulo="El modelo" data-desc="Una columna en frío, y el mismo tema en caliente">
+  <p class="paso">2 · El modelo</p>
+  <h2>Una columna en frío</h2>
+  <p>Así se ve el encargo bien hecho. Con <em>Leerla limpia</em> la ves como saldría impresa; con <em>Ver las piezas</em>, dónde está cada una.</p>
+  <div class="ribete">Columna inventada para el ejemplo: el bebedero, las fechas y las cifras no son reales. Los datos de la tuya sí tienen que serlo.</div>
+
+  <div class="fila-botones">
+    <button type="button" class="boton-chico" id="btnPiezas">Leerla limpia</button>
+    <span class="sello" id="selloModelo"></span>
+    <span class="mini" id="palabrasModelo"></span>
+  </div>
+
+  <article class="recorte piezas-on" id="modelo">
+    <div class="seccion"><span>Opinión</span><span>Campus Concá</span></div>
+    <p class="et k-t">El título · dice la idea</p>
+    <h4>Un bebedero seco desde agosto</h4>
+    <p class="por">Por Tu Nombre Completo</p>
+
+    <p class="et k-h">El hecho · qué, dónde, desde cuándo</p>
+    <p class="cuerpo k-h">El bebedero que está <u data-q="dónde">junto a la biblioteca</u> <u data-q="qué">no da agua</u> <u data-q="desde cuándo">desde la segunda semana de agosto</u>. Cualquiera puede comprobarlo: se aprieta el botón y no sale nada. Es el único bebedero techado del campus, y tiene pegada con cinta una hoja que dice «en reparación», fechada el 12 de agosto.</p>
+
+    <p class="et k-r">La razón · por qué importa, sin enojo</p>
+    <p class="cuerpo k-r"><u data-q="por qué importa">Esto importa porque</u> el agua no es un lujo en un campus donde a mediodía el termómetro pasa de 30 grados. Quien no trae botella de casa compra una en la cafetería, a quince pesos: <u data-q="cuánto cuesta">setenta y cinco pesos a la semana por estudiante</u>. Quien no puede pagarla, aguanta la sed hasta la salida. <u data-q="lo que conté">El jueves pasado conté veintitrés botellas de plástico</u> en el bote de la entrada antes de las dos de la tarde.</p>
+
+    <p class="et k-p">La propuesta · quién y cuándo</p>
+    <p class="cuerpo k-p">Propongo dos cosas, y ninguna es cara. Que <u data-q="quién">el área de mantenimiento</u> cambie el filtro o la bomba <u data-q="cuándo">antes del 30 de noviembre</u>. Y que <u data-q="quién">la sociedad de alumnos</u> revise el bebedero <u data-q="cuándo">el primer lunes de cada mes</u> y anote en el pizarrón de la entrada si funciona.</p>
+
+    <p class="et k-c">El cierre · vuelve al hecho, sin gritar</p>
+    <p class="cuerpo k-c">Arreglar un bebedero cuesta menos que un semestre de botellas. Mientras tanto, la hoja de «en reparación» ya cumple once semanas.</p>
+  </article>
+
+  <h3>Por qué funciona</h3>
+  <ul class="consejos">
+    <li>El primer párrafo se comprueba en un minuto: cualquiera va y aprieta el botón.</li>
+    <li>La razón no dice que el bebedero «indigna»: dice cuánto cuesta no tenerlo, y a quién le cuesta más.</li>
+    <li>La propuesta trae nombre y fecha: mantenimiento, 30 de noviembre; sociedad de alumnos, primer lunes de cada mes.</li>
+    <li>Ni una admiración. El cierre no grita: cuenta semanas.</li>
+  </ul>
+
+  <h3>El mismo tema, en caliente</h3>
+  <p>Ahora el bebedero escrito con el enojo por delante, y lo que le hace el <strong>editor de mesa</strong> que vas a usar con tu columna. Lo rojo se quita; lo ámbar se piensa.</p>
+  <div id="demoCaliente"></div>
+
+  <h3>Cuatro arreglos</h3>
+  <p>Toca cada tarjeta para ver cómo se enfría la frase.</p>
+  <div class="par">
+    <div class="flojo"><span class="et">En caliente</span><p>¡¡Todos sabemos que el bebedero NUNCA sirve!!</p></div>
+    <button type="button" class="voltea">Enfríala →</button>
+    <div class="fuerte"><span class="et">En frío</span><p>El bebedero que está junto a la biblioteca no da agua desde la segunda semana de agosto.</p>
+      <span class="porque"><b>Por qué:</b> qué, dónde y desde cuándo; cualquiera puede ir a apretar el botón. «Todos sabemos» no prueba nada, «NUNCA» se cae con un solo día bueno y las admiraciones no añaden ningún dato.</span></div>
+  </div>
+  <div class="par">
+    <div class="flojo"><span class="et">En caliente</span><p>Imagínense pasar todo el día con sed. Es una vergüenza.</p></div>
+    <button type="button" class="voltea">Enfríala →</button>
+    <div class="fuerte"><span class="et">En frío</span><p>Quien no trae botella de casa compra una en la cafetería, a quince pesos: setenta y cinco pesos a la semana por estudiante.</p>
+      <span class="porque"><b>Por qué:</b> una cantidad se puede revisar; la vergüenza no. La razón queda en pie aunque quien lee no esté enojado.</span></div>
+  </div>
+  <div class="par">
+    <div class="flojo"><span class="et">En caliente</span><p>Las autoridades deberían hacer algo YA.</p></div>
+    <button type="button" class="voltea">Enfríala →</button>
+    <div class="fuerte"><span class="et">En frío</span><p>Propongo que el área de mantenimiento cambie el filtro antes del 30 de noviembre.</p>
+      <span class="porque"><b>Por qué:</b> «las autoridades» no es nadie en particular y «YA» no es una fecha. Con cargo y plazo, alguien se da por aludido y se le pueden pedir cuentas.</span></div>
+  </div>
+  <div class="par">
+    <div class="flojo"><span class="et">En caliente</span><p>Yo creo que a nadie le importa nuestro bienestar. ¿Hasta cuándo?</p></div>
+    <button type="button" class="voltea">Enfríala →</button>
+    <div class="fuerte"><span class="et">En frío</span><p>Mientras tanto, la hoja de «en reparación» ya cumple once semanas.</p>
+      <span class="porque"><b>Por qué:</b> «yo creo» sobra, porque en una columna todo es tu opinión; «a nadie» es una adivinanza y la pregunta es un reclamo. Un dato que vuelve al cierre pesa más que cualquier pregunta al aire.</span></div>
+  </div>
+</section>
+
+<!-- ======================= 3 · TU COLUMNA ======================= -->
+<section class="pantalla" id="p-columna" data-titulo="Tu columna" data-desc="Pregunta 4, con el editor de mesa">
+  <p class="paso">3 · Pregunta 4 · El encargo</p>
+  <h2>Escribe tu columna</h2>
+  <div class="cita"><b>El encargo.</b> Desarrolla un argumento sobre algo que precisa mejorar en nuestro campus, escrito en frío, como para el periódico. Medio muro: unas doscientas palabras.</div>
+
+  <label class="campo"><span>Título</span>
+    <input type="text" id="titulo" maxlength="140" placeholder="Que diga tu idea en pocas palabras">
+  </label>
+  <label class="campo"><span>Tu columna</span>
+    <textarea id="columna" rows="14" placeholder="Empieza por el hecho: qué pasa, dónde y desde cuándo."></textarea>
+  </label>
+  <div class="muro" id="muro"><div class="barra-m"><span class="zona"></span><span class="lleno" id="muroLleno"></span></div><div class="txt" id="muroTxt"></div></div>
+  <p class="pista">Deja una línea en blanco entre un párrafo y otro.</p>
+
+  <div class="acciones">
+    <button type="button" class="btn principal" id="btnEditor">Pasar al editor de mesa</button>
+  </div>
+  <div class="fila-botones"><button type="button" class="boton-chico" id="btnPlantilla">Plantilla de arranque</button><span class="mini">Cuatro párrafos entre corchetes que vas cambiando por los tuyos.</span></div>
+  <p class="pista" id="pistaEditor" aria-live="polite"></p>
+
+  <div class="vencida" id="vencida">Cambiaste el texto después de la última revisión: vuelve a pasarlo por el editor para ver cómo quedó.</div>
+  <div class="reporte" id="reporte"></div>
+
+  <details class="red">
+    <summary>Cómo lee el editor (y en qué se equivoca)</summary>
+    <p class="mini">El editor de mesa es un programa que busca señales en tu texto: números y fechas para el hecho; «porque» o «esto provoca» para la razón; «propongo» con un cargo y un plazo para la propuesta, y las cuatro prohibiciones del frío. No es inteligencia artificial y no escribe por ti: marca y pregunta. A veces ve lo que no hay, o no ve lo que sí; si tienes claro que algo está bien, déjalo. El profe lee con ojos de persona.</p>
+  </details>
+</section>
+
+<!-- ======================= 4 · TU NÚMERO ======================= -->
+<section class="pantalla" id="p-numero" data-titulo="Tu número" data-desc="Pregunta 5">
+  <p class="paso">4 · Pregunta 5</p>
+  <h2>¿Qué número mereces por esta unidad, y por qué?</h2>
+  <div class="cita">Y no me digas «porque me esforcé»: el esfuerzo lo doy por sentado. Dime qué sabes hacer ahora que en la semana ocho no sabías.</div>
+
+  <div class="propuesta">
+    <div class="encabeza">Propongo <em id="numMuestra">—</em> por la unidad 2, porque:</div>
+    <div class="numeros" id="numeros"></div>
+    <label class="medio"><input type="checkbox" id="medio"> y medio</label>
+    <textarea id="porque" rows="7" placeholder="En la semana ocho no sabía… Ahora puedo… Lo demuestra…"></textarea>
+  </div>
+  <div class="checks" id="checks5"></div>
+
+  <button type="button" class="btn-ejemplo" id="btnEj5">Ver un porqué de ejemplo</button>
+  <div class="ejemplo" id="ej5">
+    <span class="rotulo">Ejemplo de una estudiante inventada, que propuso 8</span>
+    <p class="dice">En la semana ocho no sabía por qué decimos «oreja» si los médicos dicen «aurícula». Ahora puedo explicar que son la misma palabra latina por dos caminos: una gastada en la boca de la gente y otra copiada del libro, y lo comprobé gastando ley por ley las catorce palabras de la máquina del tiempo. También sé revisar una etimología antes de creerla: busco la fuente y no me quedo con la primera historia bonita. No pongo 9 porque todavía caigo con los impostores del sello al-: palabras latinas que empiezan con a- y parecen árabes.</p>
+    <p class="fija">Fíjate: dice qué sabe hacer, lo prueba con piezas de la unidad y dice dónde todavía falla. Del esfuerzo, ni una palabra.</p>
+  </div>
+
+  <details class="red">
+    <summary>¿No te acuerdas de qué hicimos? La unidad 2, semana por semana</summary>
+    <ul class="recuerdo">
+      <li><a href="../../semanas/semana-08.html" target="_blank" rel="noopener">Semana 8 · La máquina del tiempo fonética</a>Predecir en las dos direcciones, gastar una palabra latina ley por ley, el árbol de las lenguas, los dobletes como oreja y aurícula.</li>
+      <li><a href="../../semanas/semana-09.html" target="_blank" rel="noopener">Semana 9 · Las lenguas escondidas</a>La cacería en tu propia habla, el sello al- de los arabismos, la puerta gamer, la palabra viajera, tu booktuber.</li>
+      <li><a href="../../semanas/semana-10.html" target="_blank" rel="noopener">Semana 10 · El diccionario lo hacemos nosotros</a>Definir es un oficio, el taller de fichas, ¿está o no está?, la palabra que salvé, el mapa bajo tus pies.</li>
+      <li><a href="../../semanas/semana-11.html" target="_blank" rel="noopener">Semana 11 · Cazadores de mitos</a>Cómo saber si una etimología es verdadera, el expediente de mitos, la IA en el banquillo, la palabra con leyenda.</li>
+      <li><a href="../../semanas/semana-12.html" target="_blank" rel="noopener">Semana 12 · Cierre de la unidad</a>La disputa por quién es dueño del español, tu defensa, las lenguas francas.</li>
+    </ul>
+  </details>
+</section>
+
+<!-- ======================= 5 · ENTREGA ======================= -->
+<section class="pantalla" id="p-entrega" data-titulo="Entrega" data-desc="Revisas y mandas">
+  <p class="paso">5 · Entrega</p>
+  <h2>Revisa y manda</h2>
+  <p>Esto es lo que le llega al profe. Tu columna se comparte con el campus con la firma que elegiste; tu número y tu porqué solo los lee el profe.</p>
+  <div class="resumen" id="resumen"></div>
+  <div class="estado" id="estado" aria-live="polite"></div>
+  <div class="acciones"><button type="button" class="btn principal" id="btnMandar">Mandar al profe</button></div>
+  <div class="enviado" id="enviado">
+    <span class="rotulo">Recibido</span>
+    <b>Tu encargo ya va en camino.</b>
+    <p id="enviadoDetalle"></p>
+    <p>¿Corriges algo? Vuelve a mandarlo cuando quieras: el profe lee el último.</p>
+  </div>
+  <h3>Tu copia</h3>
+  <div class="fila-botones">
+    <button type="button" class="boton-chico" id="btnCopia">Descargar mi copia</button>
+    <button type="button" class="boton-chico" id="btnCopiar">Copiar el texto</button>
+  </div>
+  <p class="pista" id="pistaCopia" aria-live="polite"></p>
+  <p class="mini">¿Usas una computadora compartida? Al terminar, <a href="#" id="lnkBorrar">borra tu borrador de este equipo</a>.</p>
+</section>
+
+</main>
+
+<footer class="pie">
+  <div class="caja">
+    <button class="atras" type="button" id="btnAtras">‹ Atrás</button>
+    <span class="donde" id="donde">1 / 6</span>
+    <button class="sig" type="button" id="btnSig">Empezar ›</button>
+  </div>
+</footer>
+
+<div class="velo" id="velo"></div>
+<div class="hoja" id="hoja" role="dialog" aria-modal="true" aria-label="Menú">
+  <h3>Ir a</h3>
+  <div id="menuPantallas"></div>
+  <button type="button" class="op peligro" id="btnBorrar"><b>Borrar mi borrador de este equipo</b><span>Para computadoras compartidas. Lo que ya mandaste al profe no se borra.</span></button>
+  <button type="button" class="cerrar" id="btnCerrar">Cerrar</button>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ============================================================
+     EL ENCARGO · preguntas 4 y 5 de la autoevaluación de la U2
+     ------------------------------------------------------------
+     La 4 es una columna de opinión que se comparte con el campus;
+     la 5, el número que el estudiante cree merecer. Todo vive en el
+     localStorage de este teléfono mientras se escribe y solo sale al
+     tocar «Mandar»: va al recolector de la cosecha, que lo acomoda en
+     la pestaña «Encargo U2» de la hoja (tipo encargo-u2; ver
+     docente/apps-script/cosecha-corregido.gs, versión 8). Con una
+     versión anterior del recolector el envío no se pierde: cae entero
+     en «Otras aportaciones».
+
+     El editor de mesa lee señales, no es una IA: busca el hecho (qué,
+     dónde, desde cuándo), la razón, la propuesta (quién y cuándo) y
+     las cuatro prohibiciones de la redacción en frío, y marca. No
+     reescribe nada: lo que el estudiante corrige es suyo.
+
+     ?demo → no sale nada y el borrador se guarda aparte.
+     ============================================================ */
+  var COSECHA = 'https://script.google.com/macros/s/AKfycbyowFaq0n-zK4TBagspKG0Roye0Lun0FHaB5gQTiZGisXG4A-9ehIWmamw_mWo3KeZmrw/exec';
+  var TIPO = 'encargo-u2';
+  var DEMO = /[?&]demo(?:[=&]|$)/.test(location.search);
+  var LLAVE = 'etimologias-encargo-u2' + (DEMO ? '-demo' : '');
+  var FIRMAS = { completo: 'Nombre completo', pila: 'Nombre de pila', no: 'No publicar' };
+
+  function $(id){ return document.getElementById(id); }
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[&<>"]/g, function(c){
+      return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c];
+    });
+  }
+  function pl(n, uno, varios){ return n + ' ' + (n === 1 ? uno : varios); }
+  function enLista(xs){ return xs.length < 2 ? xs.join('') : xs.slice(0, -1).join(', ') + ' y ' + xs[xs.length - 1]; }
+  function recorta(t, n){ t = String(t || '').trim().replace(/\s+/g, ' '); return t.length > n ? t.slice(0, n - 1) + '…' : t; }
+
+  /* ===================== EL EDITOR DE MESA ===================== */
+  var EDITOR = (function(){
+
+    /* Minúsculas y sin acentos, letra por letra: el texto normalizado
+       mide lo mismo que el original, así cada hallazgo se puede marcar
+       en su lugar exacto. */
+    function normaliza(s){
+      var out = '';
+      for (var k = 0; k < s.length; k++){
+        var c = s.charAt(k), n = c;
+        if (c.normalize) n = c.normalize('NFD').replace(/[̀-ͯ]/g, '');
+        n = n.toLowerCase();
+        out += n.length ? n.charAt(0) : ' ';
+      }
+      return out;
+    }
+    function cuentaPalabras(t){
+      var m = String(t || '').match(/[0-9A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+(?:[-'’][0-9A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*/g);
+      return m ? m.length : 0;
+    }
+
+    /* Busca palabras o frases enteras (sin lookbehind, que los iPhone
+       viejos no entienden). Un espacio en el patrón vale por cualquier
+       espacio o salto de línea. */
+    var cache = {};
+    function busca(nt, fuente){
+      var re = cache[fuente] || (cache[fuente] = new RegExp('(^|[^a-z0-9])(' + fuente.replace(/ /g, '\\s+') + ')(?![a-z0-9])', 'g'));
+      re.lastIndex = 0;
+      var out = [], m;
+      while ((m = re.exec(nt))){
+        var i = m.index + m[1].length;
+        out.push({ i: i, f: i + m[2].length });
+        re.lastIndex = i + Math.max(1, m[2].length);
+      }
+      return out;
+    }
+
+    function oraciones(txt){
+      var out = [], ini = 0, k, j;
+      function mete(a, b){ if (txt.slice(a, b).trim()) out.push({ i: a, f: b }); }
+      for (k = 0; k < txt.length; k++){
+        var c = txt.charAt(k);
+        if (c === '\n'){ mete(ini, k); ini = k + 1; continue; }
+        if ('.!?…'.indexOf(c) > -1){
+          j = k + 1;
+          while (j < txt.length && '.!?…"»”\')]'.indexOf(txt.charAt(j)) > -1) j++;
+          if (j >= txt.length || /\s/.test(txt.charAt(j))){ mete(ini, j); ini = j; k = j - 1; }
+        }
+      }
+      mete(ini, txt.length);
+      return out;
+    }
+
+    var MESES = 'enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|setiembre|octubre|noviembre|diciembre';
+    var DIAS = 'lunes|martes|miercoles|jueves|viernes|sabado|domingo';
+    var CANT = 'un|una|unos|unas|dos|tres|cuatro|cinco|seis|siete|ocho|nueve|diez|once|doce|quince|veinte|varios|varias|algunos|algunas|muchos|muchas|\\d+';
+    var UNID = 'dias|dia|semanas|semana|meses|mes|anos|ano|semestres|semestre|generaciones|generacion|horas|hora|ciclos|ciclo|parciales|parcial';
+    var NUMS = 'dos|tres|cuatro|cinco|seis|siete|ocho|nueve|diez|once|doce|trece|catorce|quince|dieciseis|diecisiete|dieciocho|diecinueve|veinte|veinti[a-z]+|treinta|cuarenta|cincuenta|sesenta|setenta|ochenta|noventa|cien|ciento|doscient[ao]s|trescient[ao]s|cuatrocient[ao]s|quinient[ao]s|seiscient[ao]s|setecient[ao]s|ochocient[ao]s|novecient[ao]s|mil|miles|millon|millones|mitad|tercio|docena|docenas|cero|por ciento';
+    var DESDE = [
+      'desde (?:hace|que|inicios?|principios?|finales?|mediados?|el inicio|el principio|el comienzo|el arranque|la (?:primera|segunda|tercera|cuarta|quinta|sexta|septima|octava|ultima|pasada) semana|el (?:primer|segundo|tercer|ultimo) (?:dia|mes|semestre|parcial|ano)|el (?:' + DIAS + ')|el \\d+|la \\d+|el ano|el semestre|el ciclo|el mes|este|esta|aquel|aquella|entonces|ayer|antier|' + MESES + '|\\d+)',
+      'hace (?:mas de |casi |como |unos |unas |al menos )?(?:' + CANT + ') (?:' + UNID + ')',
+      '(?:llevamos|lleva|llevan|llevo|tiene|tienen|tenemos|cumple|cumplen|van|va) (?:mas de |casi |ya )?(?:' + CANT + ') (?:' + UNID + ')',
+      'en lo que va (?:del|de la|de este|de esta) (?:semestre|ano|mes|semana|ciclo|parcial|unidad)',
+      'a partir (?:del|de la|de)',
+      MESES, '(?:19|20)\\d\\d', '\\d{1,2}/\\d{1,2}(?:/\\d{2,4})?',
+      'semana \\d+', '(?:primera|segunda|tercera|cuarta|quinta|sexta|ultima|pasada) semana',
+      '(?:el|este|del|al) (?:inicio|principio|comienzo|arranque) (?:del|de este|de la) (?:semestre|ano|ciclo|curso)',
+      '(?:este|el pasado|el ultimo|todo el|todo este|el semestre) (?:semestre|ciclo|ano|mes|pasado)',
+      '(?:' + DIAS + ') pasado', '(?:semana|mes|semestre|ano|ciclo|parcial) pasad[oa]',
+      'ayer|antier|anoche', 'el (?:' + DIAS + ')'
+    ].join('|');
+    var FRECUENCIA = 'todos los dias|todas las (?:mananas|tardes|noches|semanas)|cada (?:dia|manana|tarde|noche|semana|mes|clase|vez|' + DIAS + ')|diario|diariamente|a diario|seguido|frecuentemente|a menudo|a veces|casi siempre|varias veces|(?:dos|tres|cuatro|cinco|\\d+) veces|(?:a|de|desde|hasta|entre) las \\d{1,2}|\\d{1,2}:\\d\\d|\\d{1,2}\\s?(?:am|pm|hrs|h)|a mediodia|al mediodia|en la (?:manana|tarde|noche)|por la (?:manana|tarde|noche)|en las (?:mananas|tardes|noches)|por las (?:mananas|tardes|noches)';
+
+    var P = {
+      que: '\\d+(?:[.,]\\d+)?|' + NUMS + '|conte|contamos|contaron|medi|medimos|cronometre|cronometramos|registre|registramos|encueste|encuestamos|encuesta|pregunte a|preguntamos a|segun (?:el|la|los|las)|de acuerdo con|articulo|reglamento|oficio|letrero|aviso|fotografia|foto',
+      donde: 'campus|conca|arroyo seco|jalpan|landa|pinal de amoles|sierra gorda|universidad|uaq|escuela|plantel|aula|aulas|salon|salones|biblioteca|laboratorio|laboratorios|cafeteria|comedor|cocina|cocineta|bano|banos|sanitario|sanitarios|lavabo|lavabos|estacionamiento|entrada|entradas|salida|acceso|accesos|porton|caseta|explanada|patio|patios|cancha|canchas|huerto|huertos|invernadero|invernaderos|vivero|parcela|parcelas|establo|corral|corrales|granja|apiario|pasillo|pasillos|edificio|edificios|modulo|modulos|centro de computo|sala de computo|sala de maestros|oficina|oficinas|direccion|coordinacion|auditorio|domo|jardin|jardines|area verde|areas verdes|parada|paradas|paradero|carretera|camino|caminos|vereda|veredas|banqueta|banquetas|andador|andadores|escalera|escaleras|rampa|rampas|regadera|regaderas|dormitorio|dormitorios|albergue|cubiculo|cubiculos|bodega|almacen|taller|talleres|enfermeria|consultorio|tienda|papeleria|alberca|gimnasio|techado|bajo techo|planta baja|planta alta|segundo piso|primer piso|frente al?|junto al?|al lado del?|detras del?|enfrente del?|a un costado del?|cerca del?|a la entrada|al fondo',
+      desde: DESDE,
+      frecuencia: FRECUENCIA,
+      razon: 'porque|ya que|puesto que|debido a|dado que|por eso|por lo tanto|por esto|asi que|de modo que|de manera que|lo que (?:provoca|causa|significa|obliga|implica|genera|hace|produce|afecta|cuesta|impide)|esto (?:importa|significa|provoca|causa|afecta|obliga|implica|genera|hace|produce|cuesta|impide)|importa|importan|es importante|afecta|afectan|afecto|provoca|provocan|causa|causan|obliga|obligan|impide|impiden|dificulta|dificultan|pone en riesgo|ponen en riesgo|riesgo|riesgos|peligro|peligroso|peligrosa|cuesta|cuestan|costo|gasto|gastos|gasta|gastan|gastamos|se pierde|se pierden|perdemos|pierden|pierde|significa que|implica|consecuencia|consecuencias|como resultado|por culpa de|a causa de|lo cual|de lo contrario|mientras tanto|hace que|hacen que',
+      enojo: 'me enoja|me enojan|me molesta|me molestan|me choca|me chocan|me harta|me hartan|me fastidia|me indigna|me da coraje|me da rabia|que coraje|que rabia|da coraje|da rabia|odio|odiamos|harto|harta|hartos|hartas|estoy cansad[oa]|estamos cansad[oa]s|es una verguenza|que verguenza|una verguenza|verguenza|indignante|indignado|indignada|ridiculo|ridicula|absurdo|absurda|pesimo|pesima|pesimos|pesimas|horrible|horribles|asco|asqueroso|asquerosa|no es justo|injusto|injusta|inaceptable|ya basta|basta ya|nadie hace nada|no hacen nada|a nadie le importa|no les importa|les vale|nos vale|vale madre|valer madre|un desastre|desastroso|desastrosa|terrible|terribles|lamentable|patetico|patetica|inutiles|inutil|incompetentes|incompetente|ineptos|ineptas|inepto|corruptos|corrupto|mediocre|mediocres|que poca|nos tienen olvidados',
+      general: 'siempre|nunca|jamas|nadie|todo el mundo|todo mundo',
+      opinion: 'yo creo que|creo que|yo pienso que|pienso que|en mi opinion|desde mi punto de vista|considero que|a mi parecer|yo siento que|siento que|para mi que|a mi punto de vista|en mi punto de vista',
+      retorica: 'hasta cuando|a quien le importa|es mucho pedir|que esperan|por que nadie|como es posible|cuanto mas|acaso|no creen|no les parece|verdad que',
+      coloquial: 'neta|guey|wey|chido|chida|chidos|chidas|chafa|chafas|padrisimo|padrisima|naco|naca|nacos|nacas|alv|xd|jaja(?:ja)*|jeje(?:je)*|osea|pinche|pinches|mamada|mamadas|chingon|chingona|chingones|vato|vatos|morro|morra|morros|morras|nmms|ntp|tmb|xq|porfa|bn|pq|q|k',
+      imagina: 'imaginense|imaginen|imaginate|imaginese|imaginatelo|imaginenlo|imaginemos|imagina|imagine|solo imaginen',
+      sabido: 'como todos sabemos|como ya sabemos|como sabemos|como ya saben|como todos saben|todos sabemos|todos lo sabemos|todo mundo sabe|todo el mundo sabe|ya todos saben|todos saben|es bien sabido|es de todos conocido|es obvio|es evidente|obviamente|evidentemente|sin duda alguna|no es ningun secreto|no es secreto|nadie puede negar|es un hecho que',
+      propFuerte: 'propongo|proponemos|propone|mi propuesta|la propuesta|nuestra propuesta|una propuesta|sugiero|sugerimos|recomiendo|recomendamos|pido|pedimos|solicito|solicitamos|planteo|planteamos|invito|invitamos|hago un llamado|hacemos un llamado|la solucion|una solucion|mi solucion|me comprometo|nos comprometemos|me ofrezco|nos ofrecemos',
+      propDebil: 'deberia|deberian|deberiamos|se deberia|podria|podrian|podriamos|se podria|se podrian|hace falta que|es necesario que|es urgente que|seria bueno que|seria util que|bastaria|conviene que|habria que|hay que|tendria que|tendrian que|que se (?:instale|instalen|ponga|pongan|coloque|coloquen|revise|revisen|repare|reparen|cambie|cambien|organice|organicen|habilite|habiliten|construya|construyan|asigne|asignen|limpie|limpien|arregle|arreglen|compre|compren|abra|abran|amplie|amplien|publique|publiquen|programe|programen)',
+      quien: 'coordinacion|coordinador|coordinadora|direccion|director|directora|administracion|administrador|administradora|administrativo|administrativos|rectoria|rector|rectora|secretaria academica|secretaria administrativa|sociedad de alumnos|consejo|comite|comision|profesores|profesor|profesora|maestros|maestro|maestra|docentes|docente|estudiantes|alumnos|alumnas|companeros|companeras|grupo|grupos|generacion|voluntarios|voluntarias|brigada|brigadas|mantenimiento|intendencia|intendente|intendentes|personal|jefe|jefa|jefatura|encargado|encargada|encargados|encargadas|responsable|responsables|municipio|presidencia municipal|presidente municipal|presidenta municipal|ayuntamiento|delegado|delegada|delegacion|facultad|licenciatura|carrera|academia|servicio social|cidaf|bibliotecario|bibliotecaria|cafeteria|concesionario|concesionaria|transportista|choferes|chofer|conductor|vigilante|vigilantes|vigilancia|tutor|tutora|tutores|tutoras|egresados|padres de familia|ejido|ejidatarios|comunidad|vecinos|asamblea|proteccion civil|club|clubes|colectivo|equipo|equipos|representante|representantes|area de|departamento|me ofrezco|me comprometo|nos comprometemos|me encargo|nos encargamos|me apunto|nos apuntamos|yo mismo|yo misma|nosotros mismos|nosotras mismas',
+      quienVago: 'las autoridades|autoridades|la autoridad|alguien|los de arriba|quien corresponda|la escuela|la institucion|la universidad|el gobierno|ellos',
+      cuandoProp: DESDE + '|' + FRECUENCIA + '|antes del?|antes de que|a mas tardar|para el \\d+|para el (?:' + DIAS + ')|para (?:' + MESES + ')|para finales|para inicios|para mediados|para fin de|para el fin de|para el final de|para el inicio de|para la proxima|para el proximo|en (?:' + MESES + ')|la proxima semana|el proximo (?:semestre|mes|ano|ciclo|parcial|' + DIAS + ')|la proxima (?:semana|clase|reunion|asamblea)|este (?:semestre|mes|ano|ciclo|' + DIAS + ')|esta semana|en (?:una|dos|tres|cuatro|cinco|seis|\\d+) (?:semanas|semana|meses|mes|dias)|en un mes|al (?:inicio|final|cierre|terminar|regresar) del?|en (?:las )?vacaciones|durante (?:las vacaciones|el semestre|el verano|' + MESES + ')|desde (?:el proximo|la proxima|ahora|hoy)|hoy|manana',
+      vago: 'cuanto antes|lo antes posible|lo mas pronto posible|lo mas pronto|de inmediato|inmediatamente|pronto|ya mismo|algun dia|en un futuro|en el futuro|proximamente'
+    };
+
+    /* Mayúsculas que gritan: palabras enteras en mayúsculas que no son
+       siglas conocidas ni números romanos. */
+    var SIGLAS = ('UAQ PAS CIDAF FAIS CFE IMSS ISSSTE SEP INEGI CONAGUA CONAFOR SEMARNAT SADER SAGARPA CONANP PROFEPA ONU OMS FAO UNESCO ' +
+      'DLE RAE ASALE DECEL IA AI PDF TV USB WIFI GPS ITQ UNAM IPN CBTA CBTIS COBAQ CECYTEQ UPN TEC CV MX QRO SLP GTO HGO EUA USA EEUU ' +
+      'OK ID DIF INE CURP RFC PEMEX IVA VIH SIDA COVID ADN ARN PET LED CDMX AM PM IMPI SAT CONACYT CONAHCYT SECIHTI SEDESU SEDEA USEBEQ ' +
+      'CEA SICT SCT UAM BUAP ITESM UTSJR UTEQ UPQ SSA SMS WC').split(' ');
+    var GRITO_CORTO = ['NO', 'YA', 'SI', 'SÍ', 'ES', 'YO', 'NI', 'OH', 'AY', 'UF'];
+    var ROMANO = /^(?=[MDCLXVI])M{0,3}(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$/;
+    function mayusculas(txt){
+      var out = [], re = /[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+/g, m;
+      while ((m = re.exec(txt))){
+        var w = m[0];
+        if (w.length < 2 || w !== w.toUpperCase()) continue;
+        if (SIGLAS.indexOf(w) > -1 || ROMANO.test(w)) continue;
+        if (w.length === 2 && GRITO_CORTO.indexOf(w) < 0) continue;
+        out.push({ i: m.index, f: m.index + w.length });
+      }
+      return out;
+    }
+    function juntaVecinos(rs, txt){
+      var out = [];
+      rs.forEach(function(r){
+        var u = out[out.length - 1];
+        if (u && /^[ \t]+$/.test(txt.slice(u.f, r.i))) u.f = r.f; else out.push({ i: r.i, f: r.f });
+      });
+      return out;
+    }
+    function todos(re, txt){
+      var out = [], m;
+      re.lastIndex = 0;
+      while ((m = re.exec(txt))) out.push({ i: m.index, f: m.index + m[0].length });
+      return out;
+    }
+
+    var NOTAS = {
+      exclam:     ['err', 'Signos de admiración', 'Fuera. En el periódico la fuerza la pone el dato, no el signo: cámbialos por un punto.'],
+      imagina:    ['err', '«Imagínense»', 'No le pidas a quien lee que imagine: enséñale lo que pasó. Cambia la escena imaginada por el hecho que viste.'],
+      sabido:     ['err', 'Lo que «todos sabemos»', 'Si todos lo supieran, la columna sobraría. Quita la frase y pon la prueba: quién lo dijo, cuántos son, desde cuándo.'],
+      mayus:      ['err', 'Mayúsculas para gritar', 'En el papel, las mayúsculas se oyen como gritos. Escríbelas normales; si quieres que pese, ponle un número.'],
+      corchete:   ['err', 'Quedó un pedazo de la plantilla', 'Lo que está entre corchetes era la guía de la plantilla de arranque: cámbialo por tu texto.'],
+      enojo:      ['aviso', 'Suena a enojo', 'Tu enojo puede ser justo, pero no convence a quien no lo siente. Di qué pasa por culpa de eso: tiempo, dinero, salud, riesgo, a cuántos afecta.'],
+      opinion:    ['aviso', '«Creo que» sobra', 'En una columna ya se sabe que opinas tú. Afirma. Y si no te atreves a afirmarlo, te falta un dato.'],
+      retorica:   ['aviso', 'Pregunta de reclamo', '«¿Hasta cuándo?» calienta, pero no informa. Contesta tú la pregunta con el dato.'],
+      general:    ['aviso', '¿Siempre? ¿Nadie?', 'Una palabra absoluta se cae con un solo contraejemplo. Si lo puedes contar, cuéntalo: «cuatro de cinco días».'],
+      coloquial:  ['aviso', 'De plática, no de periódico', 'Funciona en el chat o en la banca, no en un texto que va a leer todo el campus. Busca la palabra neutra.'],
+      muy:        ['aviso', 'Demasiados «muy»', '«Muy» no mide nada. Cambia «muy lejos» por «a ochocientos metros».'],
+      emoji:      ['aviso', 'Emojis', 'El periódico no imprime emojis. Si el emoji decía algo, dilo con palabras.'],
+      vagoQuien:  ['aviso', '¿Quién, exactamente?', ''],
+      vagoCuando: ['aviso', '¿Cuándo, exactamente?', ''],
+      bloque:     ['aviso', 'Todo en un solo bloque', 'Una columna respira en tres o cuatro párrafos: el hecho, la razón, la propuesta y, si quieres, un cierre. Deja una línea en blanco entre ellos.']
+    };
+    var GENERICOS = ['mi columna', 'columna', 'columna de opinion', 'opinion', 'mi opinion', 'el encargo', 'encargo', 'queja', 'mi queja',
+      'problema', 'el problema', 'un problema', 'propuesta', 'mi propuesta', 'mejoras', 'mejora', 'el campus', 'campus', 'nuestro campus',
+      'pregunta 4', 'pregunta cuatro', 'tarea', 'sin titulo', 'titulo', 'autoevaluacion'];
+    var VEREDICTOS = { imprenta: 'Lista para imprenta', vuelta: 'Una vuelta más', mesa: 'Regresa a la mesa' };
+
+    function analiza(titulo, txt){
+      titulo = String(titulo || ''); txt = String(txt || '');
+      var nt = normaliza(txt);
+      var R = { palabras: cuentaPalabras(txt), obs: [], marcas: [], checks: [] };
+      var tomados = [];
+      function choca(r, lista){ return lista.some(function(x){ return r.i < x.f && x.i < r.f; }); }
+      function libres(rs){ return rs.filter(function(r){ return !choca(r, tomados); }); }
+      function en(rs, a, b){ return rs.filter(function(r){ return r.i >= a && r.f <= b; }); }
+      function nota(clave, rs, extra){
+        var def = NOTAS[clave];
+        extra = extra || {};
+        rs = libres(rs || []);
+        if (!rs.length && !extra.sinMarca) return null;
+        var o = { clave: clave, sev: def[0], titulo: extra.titulo || def[1], texto: extra.texto || def[2], rangos: rs, cita: extra.cita || '' };
+        rs.forEach(function(r){ tomados.push(r); });
+        R.obs.push(o);
+        return o;
+      }
+      function cuantos(o){ return o ? o.rangos.length : 0; }
+
+      /* 1 · Lo que se quita: las cuatro prohibiciones del frío. */
+      var oExclam = nota('exclam', todos(/[¡!]+/g, txt));
+      var oImagina = nota('imagina', busca(nt, P.imagina));
+      var oSabido = nota('sabido', busca(nt, P.sabido));
+      var oMayus = nota('mayus', juntaVecinos(mayusculas(txt), txt));
+      var oCorchete = nota('corchete', todos(/\[[^\]\n]*\]/g, txt));
+
+      /* 2 · Lo que se piensa. */
+      var oEnojo = nota('enojo', busca(nt, P.enojo));
+      nota('opinion', busca(nt, P.opinion));
+      nota('retorica', busca(nt, P.retorica));
+      nota('general', busca(nt, P.general));
+      nota('coloquial', busca(nt, P.coloquial));
+      var muys = busca(nt, 'muy');
+      if (muys.length >= 3) nota('muy', muys);
+      nota('emoji', todos(/(?:[☀-➿]|\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDEFF]|\uD83E[\uDD00-\uDFFF])/g, txt));
+
+      var oras = oraciones(txt);
+      oras.forEach(function(o){
+        var trozo = txt.slice(o.i, o.f), n = cuentaPalabras(trozo);
+        if (n > 40) R.obs.push({ clave: 'larga', sev: 'aviso', titulo: 'Oración larga: ' + n + ' palabras',
+          texto: 'Quien lee se pierde antes del punto. Pártela en dos.', rangos: [],
+          cita: trozo.trim().split(/\s+/).slice(0, 7).join(' ') + '…' });
+      });
+      var bloques = txt.split('\n').filter(function(b){ return b.trim(); }).length;
+      if (R.palabras >= 120 && bloques < 2) nota('bloque', [], { sinMarca: true });
+
+      /* 3 · Las piezas. La propuesta parte el texto: lo de antes es el
+         terreno del hecho; de ahí al final, el de la propuesta. */
+      var fuertes = libres(busca(nt, P.propFuerte)), debiles = libres(busca(nt, P.propDebil));
+      var iProp = -1, esFuerte = false, k;
+      for (k = 0; k < oras.length && iProp < 0; k++) if (en(fuertes, oras[k].i, oras[k].f).length){ iProp = k; esFuerte = true; }
+      for (k = 0; k < oras.length && iProp < 0; k++) if (oras[k].i >= txt.length * 0.35 && en(debiles, oras[k].i, oras[k].f).length) iProp = k;
+      var corte = iProp >= 0 ? oras[iProp].i : txt.length;
+      var hFin = cuentaPalabras(txt.slice(0, corte)) < 15 ? txt.length : corte;
+
+      var cQue = libres(en(busca(nt, P.que), 0, hFin));
+      var cDonde = libres(en(busca(nt, P.donde), 0, hFin));
+      var cDesde = libres(en(busca(nt, P.desde), 0, hFin));
+      var cFrec = libres(en(busca(nt, P.frecuencia), 0, hFin));
+      var cRazon = libres(busca(nt, P.razon));
+
+      var cProp = [], cQuien = [], cCuando = [];
+      if (iProp >= 0){
+        var pIni = oras[iProp].i, pFin = txt.length;
+        cProp = en(esFuerte ? fuertes : debiles, oras[iProp].i, oras[iProp].f).slice(0, 1);
+        cQuien = libres(en(busca(nt, P.quien), pIni, pFin));
+        var cVagoQ = libres(en(busca(nt, P.quienVago), pIni, pFin));
+        var cVago = libres(en(busca(nt, P.vago), pIni, pFin));
+        cCuando = libres(en(busca(nt, P.cuandoProp), pIni, pFin)).filter(function(r){ return !choca(r, cVago); });
+        if (!cQuien.length && cVagoQ.length) nota('vagoQuien', cVagoQ, {
+          texto: '«' + txt.slice(cVagoQ[0].i, cVagoQ[0].f) + '» no es nadie en particular, y así nadie se da por aludido. Pon el cargo o el grupo: la coordinación, mantenimiento, la sociedad de alumnos, tu grupo.' });
+        if (!cCuando.length && cVago.length) nota('vagoCuando', cVago, {
+          texto: '«' + txt.slice(cVago[0].i, cVago[0].f) + '» no se puede cobrar. Pon una fecha, un mes o una semana: «antes del 30 de noviembre».' });
+      }
+
+      /* 4 · La hoja del editor: seis renglones (siete si quedó plantilla). */
+      var n = R.palabras;
+      R.checks.push({ k: 'extension', nombre: 'Medio muro',
+        e: n >= 160 && n <= 250 ? 'ok' : (n < 110 || n > 320 ? 'err' : 'aviso'),
+        t: n >= 160 && n <= 250 ? n + ' palabras: medio muro, en su punto.'
+          : n < 160 ? pl(n, 'palabra', 'palabras') + ': te faltan unas ' + (200 - n) + ' para el medio muro. Casi siempre lo que falta es el dato o la consecuencia.'
+          : n + ' palabras: te pasaste unas ' + (n - 200) + '. El periódico corta por abajo: quita lo que repite o lo que no prueba nada.',
+        falta: pl(n, 'palabra', 'palabras') + ' de unas 200' });
+
+      var tt = titulo.trim(), ntt = normaliza(tt).replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim(), np = cuentaPalabras(tt);
+      var tit = { k: 'titulo', nombre: 'Título', falta: 'título' };
+      if (!tt){ tit.e = 'err'; tit.t = 'Falta el título. Que diga tu idea en pocas palabras.'; tit.falta = 'sin título'; }
+      else if (/[¡!]/.test(tt) || mayusculas(tt).length){ tit.e = 'err'; tit.t = 'Sin admiraciones ni mayúsculas para gritar, tampoco en el título.'; }
+      else if (GENERICOS.indexOf(ntt) > -1){ tit.e = 'aviso'; tit.t = '«' + tt + '» no dice nada todavía. Que el título diga tu idea: «Un bebedero seco desde agosto», no «Queja».'; }
+      else if (np > 12){ tit.e = 'aviso'; tit.t = 'Tu título tiene ' + np + ' palabras. Déjalo en diez o menos: es lo primero que se lee.'; }
+      else { tit.e = 'ok'; tit.t = 'Tiene título, y dice algo.'; }
+      R.checks.push(tit);
+
+      var hQ = cQue.length > 0, hD = cDonde.length > 0, hC = cDesde.length > 0;
+      var nh = (hQ ? 1 : 0) + (hD ? 1 : 0) + (hC ? 1 : 0), faltanH = [], tipsH = [];
+      if (!hQ){ faltanH.push('qué'); tipsH.push('¿Cuánto, cuántos? Un número, o algo que contaste, mediste o leíste en un papel.'); }
+      if (!hD){ faltanH.push('dónde'); tipsH.push('¿Dónde pasa? El lugar exacto: «junto a la biblioteca», «en el aula 3», «en la parada de la entrada».'); }
+      if (!hC){ faltanH.push('desde cuándo'); tipsH.push(cFrec.length
+        ? 'Dices cada cuánto pasa; falta desde cuándo: una fecha, un mes, «desde el inicio del semestre».'
+        : '¿Desde cuándo pasa? Una fecha, un mes, «desde el inicio del semestre», «hace tres semanas».'); }
+      R.checks.push({ k: 'hecho', nombre: 'El hecho', e: nh === 3 ? 'ok' : (nh === 2 ? 'aviso' : 'err'),
+        pills: [['qué', hQ], ['dónde', hD], ['desde cuándo', hC]],
+        t: nh === 3 ? 'Hay un hecho que cualquiera puede ir a comprobar.' : tipsH.join(' '),
+        falta: 'hecho: falta ' + faltanH.join(', ') });
+
+      var raz = { k: 'razon', nombre: 'La razón', falta: 'razón' };
+      if (cRazon.length && !oEnojo){ raz.e = 'ok'; raz.t = 'Dices por qué importa, y la razón no depende de tu enojo.'; }
+      else if (cRazon.length){ raz.e = 'aviso'; raz.t = 'Hay una razón, pero también enojo (marcado en ámbar). Cambia el adjetivo por la consecuencia: qué pasa, a cuántos, cuánto cuesta.'; raz.falta = 'razón con enojo'; }
+      else if (!oEnojo){ raz.e = 'aviso'; raz.t = 'No encuentro por qué importa. Prueba con «Esto importa porque…» y una consecuencia que se pueda contar: tiempo, dinero, salud, riesgo.'; raz.falta = 'sin razón'; }
+      else { raz.e = 'err'; raz.t = 'Lo que hay es enojo, no razón. ¿Qué pasa por culpa de esto? Tiempo perdido, dinero, salud, riesgo, a cuántas personas afecta.'; raz.falta = 'enojo en vez de razón'; }
+      R.checks.push(raz);
+
+      var pro = { k: 'propuesta', nombre: 'La propuesta' };
+      if (iProp < 0){
+        pro.e = 'err'; pro.pills = [['propuesta', false], ['quién', false], ['cuándo', false]];
+        pro.t = 'No encuentro la propuesta. Empieza un párrafo con «Propongo que…» y di quién lo hace y para cuándo.';
+        pro.falta = 'sin propuesta';
+      } else {
+        var qOk = cQuien.length > 0, cOk = cCuando.length > 0, tipsP = [], faltanP = [];
+        if (!qOk){ faltanP.push('quién'); if (!R.obs.some(function(o){ return o.clave === 'vagoQuien'; })) tipsP.push('¿Quién lo hace? Un cargo o un grupo: la coordinación, mantenimiento, la sociedad de alumnos, tu grupo.'); else tipsP.push('Falta quién: ve la nota en ámbar.'); }
+        if (!cOk){ faltanP.push('cuándo'); if (!R.obs.some(function(o){ return o.clave === 'vagoCuando'; })) tipsP.push('¿Para cuándo? Una fecha o un plazo: «antes del 30 de noviembre», «el primer lunes de cada mes».'); else tipsP.push('Falta cuándo: ve la nota en ámbar.'); }
+        if (!esFuerte) tipsP.push('Y dila de frente: «Propongo que…» pesa más que un «debería».');
+        pro.e = qOk && cOk ? 'ok' : 'aviso';
+        pro.pills = [['propuesta', true], ['quién', qOk], ['cuándo', cOk]];
+        pro.t = (qOk && cOk ? 'Hay propuesta, con quién y para cuándo. ' : '') + tipsP.join(' ');
+        pro.falta = 'propuesta: falta ' + faltanP.join(', ');
+      }
+      R.checks.push(pro);
+
+      var nEx = (txt.match(/[¡!]/g) || []).length, partes = [], cortas = [];
+      if (nEx){ partes.push(pl(nEx, 'signo de admiración', 'signos de admiración')); cortas.push(nEx + ' ¡!'); }
+      if (cuantos(oImagina)){ partes.push(cuantos(oImagina) + ' «imagínense»'); cortas.push(cuantos(oImagina) + ' imagínense'); }
+      if (cuantos(oSabido)){ partes.push(cuantos(oSabido) + ' «todos sabemos que» o parecido'); cortas.push(cuantos(oSabido) + ' todos sabemos'); }
+      if (cuantos(oMayus)){ partes.push(pl(cuantos(oMayus), 'grito en mayúsculas', 'gritos en mayúsculas')); cortas.push(cuantos(oMayus) + ' mayúsculas'); }
+      R.checks.push({ k: 'frio', nombre: 'En frío', e: partes.length ? 'err' : 'ok',
+        t: partes.length ? 'Encontré ' + enLista(partes) + '. Van en rojo en tu texto, cada uno con su número.' : 'Sin admiraciones, sin «imagínense», sin «todos sabemos que», sin gritos.',
+        falta: 'en frío: ' + cortas.join(', ') });
+
+      if (oCorchete) R.checks.push({ k: 'plantilla', nombre: 'La plantilla', e: 'err',
+        t: 'Quedan ' + pl(cuantos(oCorchete), 'pedazo', 'pedazos') + ' de la plantilla entre corchetes.', falta: 'restos de plantilla' });
+
+      var fallan = R.checks.filter(function(c){ return c.e !== 'ok'; });
+      R.veredicto = !fallan.length ? 'imprenta' : (fallan.length <= 2 ? 'vuelta' : 'mesa');
+      R.veredictoTxt = VEREDICTOS[R.veredicto];
+      R.falta = fallan.map(function(c){ return c.falta; }).join(' · ');
+
+      /* 5 · Números y marcas, en el orden en que aparecen. */
+      function primero(o){ return o.rangos.length ? o.rangos[0].i : 1e9; }
+      R.obs.sort(function(a, b){ return primero(a) - primero(b); });
+      R.obs.forEach(function(o, j){ o.n = j + 1; });
+      var marcas = [];
+      R.obs.forEach(function(o){ o.rangos.forEach(function(r){ marcas.push({ i: r.i, f: r.f, cls: o.sev, n: o.n, tip: o.titulo }); }); });
+      /* De cada señal buena basta subrayar las tres primeras: más, y la
+         galera se vuelve un tendedero de rayas. */
+      function suma(rs, cls, tip){
+        var puestas = 0;
+        rs.forEach(function(r){ if (puestas < 3 && !choca(r, marcas)){ marcas.push({ i: r.i, f: r.f, cls: cls, tip: tip }); puestas++; } });
+      }
+      suma(cQue, 'ph', 'El hecho · qué'); suma(cDonde, 'ph', 'El hecho · dónde'); suma(cDesde, 'ph', 'El hecho · desde cuándo');
+      suma(cRazon, 'pr', 'La razón');
+      suma(cProp, 'pp', 'La propuesta'); suma(cQuien, 'pp', 'La propuesta · quién'); suma(cCuando, 'pp', 'La propuesta · cuándo');
+      marcas.sort(function(a, b){ return a.i - b.i; });
+      R.marcas = marcas;
+      return R;
+    }
+
+    /* La pregunta 5: lo que se busca en el porqué. */
+    var P5 = {
+      esfuerzo: 'me esforce|me he esforzado|esfuerzo|esforzado|esforzarme|esforce|le eche ganas|le he echado ganas|eche ganas|echarle ganas|echandole ganas|di lo mejor|di todo|di mi maximo|di el maximo|di lo maximo|di el cien|di el 100|trabaje mucho|trabaje duro|me dedique|cumpli con todo|cumpli con todas|cumpli todo|entregue todo|entregue todas|hice todo|hice todas|asisti a todas|asisti siempre|vine a todas|nunca falte|no falte|me porte bien|puse atencion|siempre participe|participe mucho|le dedique tiempo|me lo merezco',
+      saber: 'ahora (?:se|puedo|entiendo|distingo|reconozco|identifico|explico|logro|soy capaz|ya|tengo|me doy cuenta|noto|veo|uso|busco|reviso|verifico|separo|leo|rastreo|encuentro)|ya (?:se|puedo|entiendo|distingo|reconozco|identifico|no confundo|no me|logro|uso|busco|reviso|verifico|separo|leo|rastreo|encuentro)|aprendi|se (?:hacer|distinguir|reconocer|explicar|identificar|predecir|separar|leer|buscar|rastrear|argumentar|defender|encontrar|traducir|deducir|verificar|comprobar|desarmar|armar|definir|usar|investigar|citar|revisar)|puedo (?:hacer|distinguir|reconocer|explicar|identificar|predecir|separar|leer|buscar|rastrear|argumentar|defender|encontrar|traducir|deducir|verificar|comprobar|desarmar|armar|definir|usar|investigar|citar|revisar)|soy capaz|antes no|en la semana (?:ocho|8)|semana ocho|semana 8|al principio de la unidad|al inicio de la unidad|antes de la unidad|ya no (?:confundo|me cuesta|me pierdo|creo|me trago)|me di cuenta|descubri',
+      unidad: 'latin|latino|latina|vulgar|ley|leyes|fonetic[a-z]*|evolucion|evoluciono|dobletes?|cultismos?|cultas?|cultos?|patrimonial(?:es)?|arabe|arabes|arabismos?|sello al|prestamos?|nahuatl|nahuatlismos?|indigenismos?|anglicismos?|ingles|gamer|palabras? de campo|mapa lexico|fichas?|diccionario|dle|toponimos?|mitos?|leyendas?|lenguas? francas?|disputa|disputatio|defensa|arbol|indoeuropeo|romances?|romania|etimologi[a-z]*|raiz|raices|maquina del tiempo|oreja|auricula|museo|piezas?|booktuber|circulo|semillas?|fuentes?|decel|origen|predecir|hermanas?|primas?|vecinas?'
+    };
+    function analiza5(txt){
+      txt = String(txt || '');
+      var nt = normaliza(txt), n = cuentaPalabras(txt);
+      var A = {
+        palabras: n,
+        esfuerzo: busca(nt, P5.esfuerzo).length > 0,
+        saber: busca(nt, P5.saber).length > 0,
+        ejemplo: busca(nt, P5.unidad).length > 0 || /[«“"][^»”"\n]{2,40}[»”"]/.test(txt),
+        largo: n >= 40
+      };
+      var f = [];
+      if (A.esfuerzo) f.push('se escuda en el esfuerzo');
+      if (!A.saber) f.push('no dice qué sabe hacer ahora');
+      if (!A.ejemplo) f.push('sin ejemplo de la unidad');
+      if (!A.largo) f.push('corto (' + pl(n, 'palabra', 'palabras') + ')');
+      A.falta = f.join(' · ');
+      return A;
+    }
+
+    return { analiza: analiza, analiza5: analiza5, cuentaPalabras: cuentaPalabras, normaliza: normaliza };
+  })();
+  window.EDITOR = EDITOR;  /* a la mano para probar desde la consola */
+
+  /* ---------- la galera: el texto con la pluma del editor ---------- */
+  function htmlGalera(txt, marcas){
+    var out = '<p>', k = 0, mi = 0;
+    function trozo(s){ return esc(s).replace(/\n\s*\n+/g, '</p><p>').replace(/\n/g, '<br>'); }
+    while (k < txt.length){
+      var m = marcas[mi];
+      if (m && k === m.i){
+        out += '<mark class="' + m.cls + '" title="' + esc(m.tip || '') + '">' + esc(txt.slice(m.i, m.f)).replace(/\n/g, ' ') +
+          (m.n ? '<sup>' + m.n + '</sup>' : '') + '</mark>';
+        k = m.f; mi++;
+        continue;
+      }
+      var hasta = m ? m.i : txt.length;
+      out += trozo(txt.slice(k, hasta));
+      k = hasta;
+    }
+    return out + '</p>';
+  }
+  function citaDe(txt, rs){
+    var vistos = [];
+    rs.forEach(function(r){ var s = txt.slice(r.i, r.f).replace(/\s+/g, ' '); if (vistos.indexOf(s) < 0) vistos.push(s); });
+    return vistos.slice(0, 4).join(' · ') + (vistos.length > 4 ? ' …' : '');
+  }
+  function htmlReporte(R, titulo, txt, op){
+    op = op || {};
+    var h = '<div class="revision"><div class="cabeza"><div class="t">' + esc(op.rotulo || 'La hoja del editor') + '<b>' + esc(op.titulo || 'Revisión') + '</b></div>' +
+      '<span class="sello ' + R.veredicto + '">' + R.veredictoTxt + '</span></div><div class="renglones">' +
+      R.checks.map(function(c){
+        return '<div class="renglon ' + c.e + '"><span class="m"></span><div><b>' + esc(c.nombre) + '</b>' +
+          (c.pills ? '<div class="pills">' + c.pills.map(function(p){ return '<span class="pill ' + (p[1] ? 'si' : 'no') + '">' + esc(p[0]) + '</span>'; }).join('') + '</div>' : '') +
+          '<p>' + esc(c.t) + '</p></div></div>';
+      }).join('') + '</div></div>';
+    h += '<p class="rot-galera">' + esc(op.galera || 'Tu columna, con la pluma del editor') + '</p>' +
+      '<div class="galera">' + (titulo.trim() ? '<h4>' + esc(titulo) + '</h4>' : '<h4 class="sin">(sin título)</h4>') + htmlGalera(txt, R.marcas) + '</div>' +
+      '<div class="leyenda-gal"><span><i class="lh"></i>el hecho</span><span><i class="lr"></i>la razón</span><span><i class="lp"></i>la propuesta</span><span><i class="le"></i>quítalo</span><span><i class="la"></i>piénsalo</span></div>';
+    if (R.obs.length){
+      var lista = '<ol class="obs">' + R.obs.map(function(o){
+        var cita = o.cita || (o.rangos.length ? citaDe(txt, o.rangos) : '');
+        return '<li class="' + o.sev + '"><span class="n">' + o.n + '</span><div><b>' + esc(o.titulo) + '</b>' +
+          (cita ? '<q>' + esc(cita) + '</q>' : '') + '<p>' + esc(o.texto) + '</p></div></li>';
+      }).join('') + '</ol>';
+      h += op.obsPlegadas
+        ? '<details class="red"><summary>Lo que marcó el editor (' + R.obs.length + ')</summary>' + lista + '</details>'
+        : '<p class="rot-galera">Lo que marcó el editor</p>' + lista;
+    } else {
+      h += '<p class="limpio">El editor no marcó nada que quitar ni que pensar.</p>';
+    }
+    return h;
+  }
+
+  /* ---------- estado ---------- */
+  var D = { nombre: '', firma: 'completo', titulo: '', columna: '', numero: '', medio: false, porque: '',
+            revisiones: 0, enviado: '', envios: 0, pantalla: 0 };
+  try {
+    var g = JSON.parse(localStorage.getItem(LLAVE) || 'null');
+    if (g && typeof g === 'object') Object.keys(D).forEach(function(k){ if (k in g) D[k] = g[k]; });
+  } catch(e){}
+  var tGuardar, tToast;
+  function guardar(conAviso){
+    clearTimeout(tGuardar);
+    tGuardar = setTimeout(function(){
+      try { localStorage.setItem(LLAVE, JSON.stringify(D)); } catch(e){ return; }
+      if (!conAviso) return;
+      var t = $('guardado'); t.classList.add('ver'); clearTimeout(tToast);
+      tToast = setTimeout(function(){ t.classList.remove('ver'); }, 1200);
+    }, 500);
+  }
+  if (DEMO) $('demoBanda').hidden = false;
+
+  /* ---------- navegación ---------- */
+  var pantallas = [].slice.call(document.querySelectorAll('.pantalla'));
+  var rail = $('rail'), btnAtras = $('btnAtras'), btnSig = $('btnSig');
+  var actual = 0;
+  pantallas.forEach(function(p, i){
+    var b = document.createElement('button');
+    b.type = 'button'; b.title = p.getAttribute('data-titulo'); b.setAttribute('aria-label', 'Ir a: ' + p.getAttribute('data-titulo'));
+    b.addEventListener('click', function(){ ir(i); });
+    rail.appendChild(b);
+  });
+  function palabrasNombre(){ return D.nombre.trim().split(/\s+/).filter(Boolean).length; }
+  function pintaRail(){
+    var llenos = { 0: palabrasNombre() >= 2, 3: !!D.titulo.trim() && EDITOR.cuentaPalabras(D.columna) >= 100,
+                   4: !!D.numero && EDITOR.cuentaPalabras(D.porque) >= 15, 5: !!D.enviado };
+    [].forEach.call(rail.children, function(b, j){
+      b.classList.toggle('aqui', j === actual);
+      b.classList.toggle('lleno', j !== actual && !!llenos[j]);
+      b.classList.toggle('vista', j !== actual && !llenos[j] && j < actual);
+    });
+  }
+  function ir(i){
+    actual = Math.max(0, Math.min(pantallas.length - 1, i));
+    pantallas.forEach(function(p, j){ p.classList.toggle('activa', j === actual); });
+    pintaRail();
+    $('donde').textContent = (actual + 1) + ' / ' + pantallas.length;
+    btnAtras.disabled = actual === 0;
+    btnSig.disabled = actual === pantallas.length - 1;
+    btnSig.textContent = actual === 0 ? 'Empezar ›' : 'Siguiente ›';
+    if (pantallas[actual].id === 'p-entrega') pintaEntrega();
+    D.pantalla = actual; guardar(false);
+    window.scrollTo(0, 0);
+  }
+  btnAtras.addEventListener('click', function(){ ir(actual - 1); });
+  btnSig.addEventListener('click', function(){ ir(actual + 1); });
+
+  /* ---------- 0 · portada ---------- */
+  var nombreEl = $('nombre');
+  nombreEl.value = D.nombre;
+  nombreEl.addEventListener('input', function(){ D.nombre = nombreEl.value; guardar(true); pintaRail(); });
+  var radios = [].slice.call(document.querySelectorAll('input[name=firma]'));
+  function pintaFirma(){ radios.forEach(function(r){ r.checked = r.value === D.firma; r.parentNode.classList.toggle('on', r.checked); }); }
+  radios.forEach(function(r){ r.addEventListener('change', function(){ if (r.checked){ D.firma = r.value; pintaFirma(); guardar(true); } }); });
+  if (!FIRMAS[D.firma]) D.firma = 'completo';
+  pintaFirma();
+
+  /* ---------- 2 · el modelo y el mismo tema en caliente ---------- */
+  var modelo = $('modelo');
+  $('btnPiezas').addEventListener('click', function(){
+    var on = modelo.classList.toggle('piezas-on');
+    this.textContent = on ? 'Leerla limpia' : 'Ver las piezas';
+  });
+  var MOD_TIT = modelo.querySelector('h4').textContent;
+  var MOD_TXT = [].map.call(modelo.querySelectorAll('p.cuerpo'), function(p){ return p.textContent.replace(/\s+/g, ' ').trim(); }).join('\n\n');
+  var RM = EDITOR.analiza(MOD_TIT, MOD_TXT);
+  $('selloModelo').className = 'sello ' + RM.veredicto;
+  $('selloModelo').textContent = RM.veredictoTxt;
+  $('palabrasModelo').textContent = RM.palabras + ' palabras';
+
+  var CAL_TIT = '¡¡QUEREMOS AGUA!!';
+  var CAL_TXT = '¡¡El bebedero NO SIRVE!! Imagínense pasar todo el día con sed en pleno calor. Todos sabemos que en este campus nada funciona y a nadie le importa. Ya llevamos MESES así y es una vergüenza.\n\n' +
+    'Yo creo que las autoridades deberían hacer algo YA, porque nosotros también pagamos la inscripción. ¿Hasta cuándo vamos a seguir así?';
+  $('demoCaliente').innerHTML = htmlReporte(EDITOR.analiza(CAL_TIT, CAL_TXT), CAL_TIT, CAL_TXT,
+    { rotulo: 'Así la ve el editor', titulo: 'El mismo tema, en caliente', galera: 'El texto, con la pluma del editor', obsPlegadas: true });
+
+  [].forEach.call(document.querySelectorAll('.par .voltea'), function(b){
+    b.addEventListener('click', function(){ b.parentNode.classList.add('abierto'); });
+  });
+
+  /* ---------- 3 · la columna y el editor ---------- */
+  var tituloEl = $('titulo'), columnaEl = $('columna'), reporteEl = $('reporte'), vencidaEl = $('vencida'), pistaEd = $('pistaEditor');
+  tituloEl.value = D.titulo; columnaEl.value = D.columna;
+  var revisado = null;   /* título y texto tal como estaban en la última revisión */
+  function huella(){ return D.titulo + '\u0000' + D.columna; }
+  function pintaMuro(){
+    var n = EDITOR.cuentaPalabras(columnaEl.value), t;
+    $('muroLleno').style.width = Math.min(100, n / 320 * 100) + '%';
+    if (!n) t = 'Medio muro: unas doscientas palabras.';
+    else if (n < 160) t = pl(n, 'palabra', 'palabras') + ' · faltan unas ' + (200 - n) + ' para el medio muro';
+    else if (n <= 250) t = n + ' palabras · medio muro, en su punto';
+    else t = n + ' palabras · te pasaste unas ' + (n - 200);
+    $('muroTxt').textContent = t;
+    $('muro').className = 'muro' + (n >= 160 && n <= 250 ? ' ok' : (n > 250 ? ' pasado' : ''));
+  }
+  function alCambiarColumna(){
+    D.titulo = tituloEl.value; D.columna = columnaEl.value;
+    pintaMuro(); guardar(true); pintaRail();
+    vencidaEl.classList.toggle('ver', revisado !== null && revisado !== huella());
+  }
+  tituloEl.addEventListener('input', alCambiarColumna);
+  columnaEl.addEventListener('input', alCambiarColumna);
+  function revisar(desplaza){
+    var R = EDITOR.analiza(D.titulo, D.columna);
+    reporteEl.innerHTML = htmlReporte(R, D.titulo, D.columna, { titulo: 'Revisión n.º ' + Math.max(1, D.revisiones) });
+    revisado = huella();
+    vencidaEl.classList.remove('ver');
+    pistaEd.textContent = '';
+    if (desplaza) try { reporteEl.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch(e){}
+  }
+  $('btnEditor').addEventListener('click', function(){
+    if (EDITOR.cuentaPalabras(columnaEl.value) < 5){ pistaEd.textContent = 'Escribe primero un párrafo, por lo menos: el editor necesita algo que leer.'; return; }
+    D.titulo = tituloEl.value; D.columna = columnaEl.value;
+    D.revisiones++; guardar(true);
+    revisar(true);
+  });
+  var PLANTILLA = '[El hecho: qué pasa, dónde y desde cuándo. Algo que cualquiera pueda ir a comprobar.]\n\n' +
+    '[La razón: por qué importa. Una consecuencia que se pueda contar: tiempo, dinero, salud, riesgo, cuántas personas.]\n\n' +
+    '[La propuesta: «Propongo que…», quién lo hace y para cuándo.]\n\n' +
+    '[El cierre: una frase que regrese al hecho, sin gritar.]';
+  $('btnPlantilla').addEventListener('click', function(){
+    if (columnaEl.value.trim()){ pistaEd.textContent = 'Tu columna ya tiene texto: la plantilla solo entra cuando está vacía.'; return; }
+    columnaEl.value = PLANTILLA; alCambiarColumna();
+    columnaEl.focus(); try { columnaEl.setSelectionRange(0, 0); } catch(e){}
+  });
+  pintaMuro();
+  if (D.revisiones > 0 && D.columna.trim()) revisar(false);
+
+  /* ---------- 4 · tu número ---------- */
+  var numerosEl = $('numeros'), medioEl = $('medio'), porqueEl = $('porque');
+  porqueEl.value = D.porque;
+  [5, 6, 7, 8, 9, 10].forEach(function(v){
+    var b = document.createElement('button');
+    b.type = 'button'; b.textContent = v; b.setAttribute('data-v', String(v));
+    b.addEventListener('click', function(){
+      D.numero = String(v); if (v === 10) D.medio = false;
+      pintaNumero(); pinta5(); guardar(true); pintaRail();
+    });
+    numerosEl.appendChild(b);
+  });
+  medioEl.addEventListener('change', function(){ D.medio = medioEl.checked; pintaNumero(); guardar(true); });
+  function numeroFinal(){ return D.numero ? (D.medio && D.numero !== '10' ? D.numero + '.5' : D.numero) : ''; }
+  function pintaNumero(){
+    [].forEach.call(numerosEl.children, function(b){ b.classList.toggle('on', b.getAttribute('data-v') === D.numero); });
+    medioEl.checked = !!D.medio && D.numero !== '10';
+    medioEl.disabled = D.numero === '10';
+    $('numMuestra').textContent = numeroFinal() || '—';
+  }
+  porqueEl.addEventListener('input', function(){ D.porque = porqueEl.value; pinta5(); guardar(true); pintaRail(); });
+  function pinta5(){
+    var A = EDITOR.analiza5(D.porque), vacio = !D.porque.trim();
+    var filas = [
+      [D.numero ? 'ok' : '', 'Elegiste tu número', D.numero ? '' : 'Toca uno de arriba.'],
+      [vacio ? '' : (A.esfuerzo ? 'alerta' : 'ok'), 'No te escudas en el esfuerzo',
+        A.esfuerzo ? 'Dijiste algo como «me esforcé». El esfuerzo se da por sentado: cámbialo por lo que ahora sabes hacer.' : ''],
+      [A.saber ? 'ok' : '', 'Dices qué sabes hacer ahora que en la semana ocho no sabías',
+        A.saber || vacio ? '' : 'Prueba a empezar con «Ahora puedo…» o «En la semana ocho no sabía…».'],
+      [A.ejemplo ? 'ok' : '', 'Lo pruebas con algo concreto de la unidad: una palabra, una ley, una pieza', ''],
+      [A.largo ? 'ok' : '', 'Alcanza para conversarlo: cuarenta palabras o más', A.palabras && !A.largo ? 'Llevas ' + A.palabras + '.' : '']
+    ];
+    $('checks5').innerHTML = filas.map(function(f){
+      return '<div class="check ' + f[0] + '"><span class="m"></span><span>' + esc(f[1]) + (f[2] ? '<em>' + esc(f[2]) + '</em>' : '') + '</span></div>';
+    }).join('');
+  }
+  $('btnEj5').addEventListener('click', function(){
+    var v = $('ej5').classList.toggle('ver');
+    this.textContent = v ? 'Esconder el ejemplo' : 'Ver un porqué de ejemplo';
+  });
+  pintaNumero(); pinta5();
+
+  /* ---------- 5 · entrega ---------- */
+  var btnMandar = $('btnMandar'), estadoEl = $('estado');
+  function pintaEntrega(){
+    var R = EDITOR.analiza(D.titulo, D.columna), n = numeroFinal();
+    $('resumen').innerHTML =
+      '<div class="cabeza"><div class="quien">' + esc(D.nombre.trim() || 'Sin nombre todavía') + '</div><div class="cual">El encargo · Unidad 2</div></div>' +
+      '<div class="cuerpo"><dl>' +
+        '<dt>Pregunta 4 · tu columna</dt><dd><b>' + esc(D.titulo.trim() || '(sin título)') + '</b><br>' +
+          pl(R.palabras, 'palabra', 'palabras') + ' · <span class="sello-mini ' + R.veredicto + '">' + R.veredictoTxt + '</span> · ' +
+          (D.revisiones ? pl(D.revisiones, 'revisión', 'revisiones') : 'sin pasar por el editor') + '</dd>' +
+        '<dt>Firma</dt><dd>' + esc(FIRMAS[D.firma]) + '</dd>' +
+        '<dt>Pregunta 5 · tu número</dt><dd><span class="granumero">' + esc(n || '—') + '</span></dd>' +
+        '<dt>Por qué</dt><dd>' + esc(recorta(D.porque, 260) || '(todavía nada)') + '</dd>' +
+      '</dl></div>';
+    pintaEnviado();
+  }
+  function avisa(clase, titulo, html, botones){
+    estadoEl.className = 'estado ver ' + clase;
+    estadoEl.innerHTML = '<b>' + esc(titulo) + '</b>' + html + (botones ? '<div class="botones">' + botones + '</div>' : '');
+    if (clase === 'falta'){ void estadoEl.offsetWidth; estadoEl.classList.add('sacude'); }
+    try { estadoEl.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch(e){}
+  }
+  function boton(texto, destino, clase){ return '<button type="button" class="btn ' + (clase || 'segundo') + '" data-ir="' + destino + '">' + esc(texto) + '</button>'; }
+  estadoEl.addEventListener('click', function(e){
+    var b = e.target.closest ? e.target.closest('button') : null;
+    if (!b) return;
+    if (b.hasAttribute('data-ir')) ir(+b.getAttribute('data-ir'));
+    if (b.hasAttribute('data-mandar')) intenta(true);
+  });
+  btnMandar.addEventListener('click', function(){ intenta(false); });
+
+  function intenta(aunAsi){
+    if (palabrasNombre() < 2)
+      return avisa('falta', 'Falta tu nombre completo', '<p>Nombre y apellidos: es la firma de tu columna, y así sabe el profe de quién es.</p>', boton('Ir a la portada', 0));
+    var npal = EDITOR.cuentaPalabras(D.columna);
+    if (!D.titulo.trim() || npal < 60)
+      return avisa('falta', 'Tu columna todavía no está', '<p>' + (!D.titulo.trim() ? 'Le falta el título. ' : '') +
+        (npal < 60 ? 'Lleva ' + pl(npal, 'palabra', 'palabras') + '; medio muro son unas doscientas.' : '') + '</p>', boton('Ir a mi columna', 3));
+    if (!D.numero)
+      return avisa('falta', 'Falta tu número', '<p>Toca uno del 5 al 10 en la pregunta 5. Sin número no hay propuesta que conversar.</p>', boton('Ir a mi número', 4));
+    if (EDITOR.cuentaPalabras(D.porque) < 15)
+      return avisa('falta', 'Falta tu porqué', '<p>Un número solo no se puede conversar: di qué sabes hacer ahora que en la semana ocho no sabías.</p>', boton('Ir a mi número', 4));
+    var R = EDITOR.analiza(D.titulo, D.columna);
+    if (!aunAsi && (!D.revisiones || R.veredicto !== 'imprenta'))
+      return avisa('duda', !D.revisiones ? 'Todavía no la pasas por el editor' : 'El editor dice: «' + R.veredictoTxt + '»',
+        '<p>' + (!D.revisiones ? 'Dos minutos ahí te pueden ahorrar una corrección.' : 'Todavía marca: ' + esc(R.falta) + '.') +
+        ' Puedes mandarla así: el profe la lee igual, y la puedes volver a mandar corregida cuando quieras.</p>',
+        boton(!D.revisiones ? 'Pasarla por el editor' : 'Darle otra vuelta', 3) + '<button type="button" class="btn linea" data-mandar="1">Mandarla así</button>');
+    manda(R);
+  }
+
+  function manda(R){
+    var A = EDITOR.analiza5(D.porque);
+    /* El orden importa con un recolector viejo: ahí todo cae en una sola
+       celda recortada a 2000 caracteres, así que lo valioso va primero. */
+    var datos = [
+      ['tipo', TIPO], ['nombre', D.nombre.trim()],
+      ['titulo', D.titulo.trim()], ['columna', D.columna.trim()],
+      ['numero', numeroFinal()], ['porque', D.porque.trim()],
+      ['firma', FIRMAS[D.firma]], ['palabras', String(R.palabras)],
+      ['veredicto', R.veredictoTxt], ['falta', R.falta || '—'],
+      ['revisiones', String(D.revisiones)], ['falta5', A.falta || '—']
+    ];
+    var listo = false, marco = null, f = null;
+    function termina(bien){
+      if (listo) return;
+      listo = true;
+      btnMandar.disabled = false;
+      if (bien) exito();
+      else {
+        btnMandar.textContent = D.enviado ? 'Volver a mandar' : 'Mandar al profe';
+        avisa('falta', 'No se pudo mandar', '<p>Puede ser el internet. Vuelve a intentarlo en un momento: lo que escribiste sigue guardado en este teléfono.</p>');
+      }
+      setTimeout(function(){ [f, marco].forEach(function(x){ if (x && x.parentNode) x.parentNode.removeChild(x); }); }, 1500);
+    }
+    avisa('yendo', 'Mandando…', '<p>Aguanta un segundo, no cierres la página.</p>');
+    btnMandar.disabled = true; btnMandar.textContent = 'Mandando…';
+    if (DEMO){ setTimeout(function(){ termina(true); }, 900); return; }
+
+    marco = document.createElement('iframe');
+    marco.name = 'envio-encargo-u2-' + Date.now();
+    marco.style.display = 'none';
+    document.body.appendChild(marco);
+    f = document.createElement('form');
+    f.method = 'POST'; f.action = COSECHA; f.target = marco.name; f.style.display = 'none';
+    datos.forEach(function(d){
+      var i = document.createElement('input');
+      i.type = 'hidden'; i.name = d[0]; i.value = d[1];
+      f.appendChild(i);
+    });
+    document.body.appendChild(f);
+    marco.addEventListener('load', function(){ termina(true); });
+    setTimeout(function(){ termina(false); }, 15000);
+    f.submit();
+  }
+  function exito(){
+    var ahora = new Date();
+    D.envios = (D.envios || 0) + 1;
+    D.enviado = ahora.toLocaleDateString('es-MX', { day: 'numeric', month: 'long' }) + ' a las ' +
+      ahora.toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit', hour12: false });
+    guardar(false);
+    estadoEl.className = 'estado';
+    pintaEnviado(); pintaRail();
+    try { $('enviado').scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch(e){}
+  }
+  function pintaEnviado(){
+    var el = $('enviado');
+    if (!D.enviado){ el.classList.remove('ver'); btnMandar.textContent = 'Mandar al profe'; return; }
+    el.classList.add('ver');
+    $('enviadoDetalle').textContent = 'Salió de este teléfono el ' + D.enviado + (D.envios > 1 ? ', y es tu envío n.º ' + D.envios + '.' : '.') +
+      (DEMO ? ' Esto es el modo prueba: en realidad no salió nada.' : '');
+    btnMandar.textContent = 'Volver a mandar';
+  }
+
+  /* ---------- tu copia ---------- */
+  function parrafos(t){
+    return String(t || '').split(/\n\s*\n/).filter(function(p){ return p.trim(); })
+      .map(function(p){ return '<p>' + esc(p.trim()).replace(/\n/g, '<br>') + '</p>'; }).join('');
+  }
+  function slug(s){ return EDITOR.normaliza(s).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40); }
+  $('btnCopia').addEventListener('click', function(){
+    var html = '<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">' +
+      '<title>Mi encargo · Unidad 2 · ' + esc(D.nombre) + '</title></head>' +
+      '<body style="font-family:Georgia,serif;max-width:38rem;margin:2rem auto;padding:0 1rem;color:#222;line-height:1.6">' +
+      '<p style="font:700 11px system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#c8127a">Etimologías · Unidad 2 · El encargo</p>' +
+      '<h1 style="font-size:1.6rem;line-height:1.2;margin:.2rem 0">' + esc(D.titulo || '(sin título)') + '</h1>' +
+      '<p style="font:14px system-ui,sans-serif;color:#6f6470">Por ' + esc(D.nombre) + '</p>' + parrafos(D.columna) +
+      '<hr style="border:none;border-top:1px solid #eadce6;margin:2rem 0">' +
+      '<p style="font:700 11px system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#c8127a">Pregunta 5 · mi número</p>' +
+      '<p style="font-size:2.4rem;margin:.2rem 0;color:#6b1e5a"><b>' + esc(numeroFinal() || '—') + '</b></p>' + parrafos(D.porque) +
+      '</body></html>';
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
+    a.download = 'mi-encargo-u2' + (D.nombre ? '-' + slug(D.nombre) : '') + '.html';
+    document.body.appendChild(a); a.click();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); a.parentNode.removeChild(a); }, 1000);
+    $('pistaCopia').textContent = 'Se descargó tu copia: ábrela con el navegador cuando quieras.';
+  });
+  function copiaVieja(t){
+    var x = document.createElement('textarea');
+    x.value = t; x.style.position = 'fixed'; x.style.opacity = '0';
+    document.body.appendChild(x); x.select();
+    try { document.execCommand('copy'); } catch(e){}
+    document.body.removeChild(x);
+  }
+  $('btnCopiar').addEventListener('click', function(){
+    var t = D.titulo.trim() + '\n\n' + D.columna.trim() + '\n\n— ' + D.nombre.trim() + '\n\nPregunta 5: ' + (numeroFinal() || '—') + '\n' + D.porque.trim();
+    function listo(){ $('pistaCopia').textContent = 'Copiado. Pégalo donde lo quieras guardar.'; }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(listo, function(){ copiaVieja(t); listo(); });
+    else { copiaVieja(t); listo(); }
+  });
+
+  /* ---------- menú ---------- */
+  var velo = $('velo'), hoja = $('hoja'), menuLista = $('menuPantallas');
+  function abreMenu(){ velo.classList.add('ver'); hoja.classList.add('ver'); }
+  function cierraMenu(){ velo.classList.remove('ver'); hoja.classList.remove('ver'); }
+  pantallas.forEach(function(p, i){
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'op';
+    b.innerHTML = '<b>' + (i + 1) + ' · ' + esc(p.getAttribute('data-titulo')) + '</b><span>' + esc(p.getAttribute('data-desc') || '') + '</span>';
+    b.addEventListener('click', function(){ cierraMenu(); ir(i); });
+    menuLista.appendChild(b);
+  });
+  $('btnMenu').addEventListener('click', abreMenu);
+  velo.addEventListener('click', cierraMenu);
+  $('btnCerrar').addEventListener('click', cierraMenu);
+  function borrar(){
+    if (!confirm('¿Borrar de este equipo todo lo que escribiste aquí? No se puede deshacer. Lo que ya mandaste al profe no se borra.')) return;
+    clearTimeout(tGuardar);
+    try { localStorage.removeItem(LLAVE); } catch(e){}
+    location.reload();
+  }
+  $('btnBorrar').addEventListener('click', borrar);
+  $('lnkBorrar').addEventListener('click', function(e){ e.preventDefault(); borrar(); });
+
+  ir(D.pantalla || 0);
+})();
+</script>
+</body>
+</html>
