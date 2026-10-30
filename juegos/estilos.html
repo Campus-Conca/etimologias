@@ -153,6 +153,21 @@ details.panel .acciones{justify-content:flex-start}
 .lista li.vacio{color:var(--suave);border:none}
 .info{font-size:.88rem;color:var(--suave);margin:.4rem 0 .6rem}
 
+/* cómo jugarlo */
+details.panel.guia{border-color:var(--dorado)}
+.guia h3{font-family:var(--display);font-weight:800;font-size:1.1rem;color:var(--titulo);margin:1.2rem 0 .3rem}
+.guia .contenido > p:first-child{margin-top:.2rem}
+.guia .ejemplo{background:var(--fondo);border-left:4px solid var(--dorado);border-radius:8px;padding:.5rem .9rem .6rem;margin:.5rem 0}
+.guia .ejemplo p{color:var(--texto)}
+.guia .ejemplo .paso{font-family:var(--display);font-weight:800;color:var(--rosa);font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;display:block;margin-top:.5rem}
+.guia .ejemplo blockquote{margin:.2rem 0 .3rem;padding:0;font-style:italic;color:var(--texto)}
+.guia .dinamica{border:1.5px solid var(--borde);border-radius:10px;padding:.6rem .9rem .7rem;margin:.6rem 0}
+.guia .dinamica h4{font-family:var(--display);font-weight:800;font-size:1.02rem;color:var(--rosa);margin:0}
+.guia .dinamica .datos{font-size:.85rem;color:var(--suave);margin:.1rem 0 .35rem}
+.guia ol,.guia ul{padding-left:1.3rem;margin:.3rem 0}
+.guia li{margin:.2rem 0}
+.guia li b{color:var(--titulo)}
+
 footer{text-align:center;color:var(--suave);font-size:.85rem;padding:1rem 1.2rem 1.6rem}
 footer em{font-style:italic}
 
@@ -280,6 +295,22 @@ body.proyectar button.solo-proyectar{display:inline-block}
       <textarea id="copiaTexto" readonly></textarea>
     </div>
   </section>
+
+  <details class="panel guia solo-jugar" id="panelGuia">
+    <summary>Cómo jugarlo: un ejemplo y dinámicas para clase</summary>
+    <div class="contenido">
+<p>Queneau contó noventa y nueve veces la misma escena (un camión, un muchacho de cuello largo, un botón) y nunca se repitió. Lo que pasó no cambia; cambia todo lo demás. Por eso la anécdota base es la misma para todo el grupo: así se nota qué hizo cada estilo.</p>
+<h3>Un ejemplo, paso a paso</h3>
+<div class="ejemplo"><span class="paso">1 · La anécdota base</span><p>La de muestra, arriba: el camión de las siete y media, el muchacho de cuello largo, el botón.</p><span class="paso">2 · Carta: Telegrama</span><blockquote>CAMIÓN 7:30 STOP MUCHACHO CUELLO LARGO RECLAMA EMPUJONES STOP SE SIENTA STOP DOS HORAS DESPUÉS PLAZA CONCÁ STOP AMIGO SUGIERE SUBIR BOTÓN STOP</blockquote><span class="paso">3 · La misma, carta: Como lo contaría la abuela</span><blockquote>Ay, mija, en el camión de las siete y media, el de Chucho, no el de los Olvera, iba un muchachito todo cuellón, con su gorrita, y que se pone a reclamarle a otro. ¡Pues si va lleno, criatura! Y luego, ya ves, en la plaza otro le dice lo del botón. Para mí que era el mismo botón de siempre.</blockquote><span class="paso">4 · Comparar</span><p>Los hechos son los mismos y suenan a dos mundos distintos. Guardar mete cada versión al Libro de los 99. En las cartas de <b>helenismos</b> y <b>latinismos</b> se subrayan las cinco palabras y se busca su origen en el DLE.</p></div>
+<h3>Dinámicas para el salón</h3>
+<div class="dinamica"><h4>Adivina el estilo</h4><p class="datos">Grupo completo · Proyectar · 15 a 20 minutos</p><ol><li>Antes, cada quien escribió su versión en su teléfono (modo Jugar).</li><li>Pasa a <b>Proyectar</b>. El lector dice el número de su carta, que aparece arriba a la izquierda; lo tecleas y pulsas <b>Tapar</b>.</li><li>Lee su versión en voz alta. El grupo adivina el estilo; si se atora, <b>Ver la baraja para adivinar</b>.</li><li>Pulsa <b>Revelar</b>. Funciona bien con cinco o seis lectores.</li></ol></div>
+<div class="dinamica"><h4>Una carta para todas las mesas</h4><p class="datos">Mesas de 3 o 4 · 10 minutos</p><ol><li>Da una carta y que todas las mesas usen el mismo estilo.</li><li>Cada mesa escribe su versión en un solo teléfono.</li><li>Se leen todas: misma anécdota, mismo estilo, versiones distintas. ¿Qué decidió cada mesa?</li></ol></div>
+<div class="dinamica"><h4>Estilos en cadena</h4><p class="datos">Mesas de 4 · 15 minutos</p><ol><li>La primera persona pide carta y reescribe la anécdota base.</li><li>Su versión es la anécdota de la segunda persona, que pide otra carta.</li><li>Así hasta la cuarta. Al final se lee la última junto a la original: ¿qué se perdió en el camino y qué no se perdió nunca?</li></ol></div>
+<div class="dinamica"><h4>Patentar un estilo de aquí</h4><p class="datos">Grupo completo · cierre de 10 minutos</p><ol><li>El grupo propone estilos que solo existen aquí: el aviso por el altavoz de la comunidad, el mensaje de voz de la tía, el acta del comisariado…</li><li>Se escoge uno y se escribe su instrucción en una línea.</li><li>Se patenta en <b>Patentar estilo</b> y alguien lo estrena en voz alta: «Se les avisa a todos los vecinos que el día de hoy, en el camión de las siete y media…»</li></ol></div>
+<h3>Para que funcione</h3>
+<ul><li>La anécdota de la semana tiene que ser chiquita y verdadera: tres líneas, algo que vieron todos, sin exhibir a nadie con nombre y apellido.</li><li>Ya que empezaste a escribir, la carta no se cambia: el chiste es salir del estilo que te tocó, no buscar el fácil.</li><li>Lee primero las versiones cortas: un telegrama de cuatro líneas anima más al grupo que una página de prosa.</li></ul>
+    </div>
+  </details>
 
   <details class="panel solo-jugar" id="panelLibro">
     <summary>Libro de los 99 <span class="num" id="numLibro">0</span></summary>

@@ -170,6 +170,21 @@ details.panel .contenido p{margin:.5rem 0;color:var(--suave)}
 details.panel .acciones{justify-content:flex-start}
 .info{font-size:.88rem;color:var(--suave);margin:.4rem 0 .6rem}
 
+/* cómo jugarlo */
+details.panel.guia{border-color:var(--dorado)}
+.guia h3{font-family:var(--display);font-weight:800;font-size:1.1rem;color:var(--titulo);margin:1.2rem 0 .3rem}
+.guia .contenido > p:first-child{margin-top:.2rem}
+.guia .ejemplo{background:var(--fondo);border-left:4px solid var(--dorado);border-radius:8px;padding:.5rem .9rem .6rem;margin:.5rem 0}
+.guia .ejemplo p{color:var(--texto)}
+.guia .ejemplo .paso{font-family:var(--display);font-weight:800;color:var(--rosa);font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;display:block;margin-top:.5rem}
+.guia .ejemplo blockquote{margin:.2rem 0 .3rem;padding:0;font-style:italic;color:var(--texto)}
+.guia .dinamica{border:1.5px solid var(--borde);border-radius:10px;padding:.6rem .9rem .7rem;margin:.6rem 0}
+.guia .dinamica h4{font-family:var(--display);font-weight:800;font-size:1.02rem;color:var(--rosa);margin:0}
+.guia .dinamica .datos{font-size:.85rem;color:var(--suave);margin:.1rem 0 .35rem}
+.guia ol,.guia ul{padding-left:1.3rem;margin:.3rem 0}
+.guia li{margin:.2rem 0}
+.guia li b{color:var(--titulo)}
+
 footer{text-align:center;color:var(--suave);font-size:.85rem;padding:1rem 1.2rem 1.6rem}
 footer em{font-style:italic}
 
@@ -402,6 +417,24 @@ body.proyectar .btn-primario,body.proyectar .btn-jade,body.proyectar .btn-dorado
       <textarea id="copiaTexto" readonly></textarea>
     </div>
   </section>
+
+  <details class="panel guia solo-jugar" id="panelGuia">
+    <summary>Cómo jugarlo: un ejemplo y dinámicas para clase</summary>
+    <div class="contenido">
+<p>Una sola historia, entre todos, que avanza a empujones: cada carta obliga a ir por ahí, las interrupciones meten cosas que nadie pidió, y cada quien tiene un final secreto al que intenta llevarla. Nadie recuenta desde el principio; la memoria se juega al final, en Contar mal.</p>
+<h3>Un ejemplo, paso a paso</h3>
+<div class="ejemplo"><span class="paso">Mesa de 4 · Ana, Luis, Sofía y Beto · cartas en orden</span><p><b>Turno 1 · Ana · Prohibición.</b> «En la ranchería, la abuela le dijo a Toño que nunca abriera el tinaco de la azotea.»</p><p><b>Turno 2 · Luis · Infracción.</b> Luis empieza: «Esa noche Toño subió con una lámpara…» y Sofía grita <b>¡Interrupción!</b>: sale <i>un tecolote</i>. Luis tiene que meterlo: «…lo abrió, y de adentro salió un tecolote volando.»</p><p><b>Turno 3 · Sofía · Daño o carencia.</b> «A la mañana siguiente no había agua en todo el pueblo.»</p><p><b>Turno 4 · Beto · Partida.</b> «Toño agarró un costal y se fue cerro arriba a buscar de dónde salía el agua.»</p><p>…cuatro turnos más (misión, donante, regalo mágico, antagonista)…</p><p><b>Reclamo.</b> Luis cree que la historia ya llegó a su final y lo lee: <i>«…y el agua volvió, pero no por donde se fue.»</i> Toño acababa de encontrar otro ojo de agua, así que la mesa vota que sí. Gana Luis.</p><p><b>Contar mal.</b> La historia vuelve así: «la abuela le dijo a Toño que nunca abriera el <u>comal</u> de la azotea». Sofía lo caza: un punto.</p></div>
+<h3>Dinámicas para el salón</h3>
+<div class="dinamica"><h4>La partida de mesa</h4><p class="datos">Mesas de 4 o 5 · un teléfono por mesa · 30 minutos</p><ol><li>Preparar (3 min): número de jugadores, nombres y quién apunta. La primera vez, mejor con las cartas en orden.</li><li>Repartir finales (3 min): el teléfono da la vuelta a la mesa y cada quien ve el suyo sin que lo vean los demás.</li><li>Jugar (15 a 20 min): cada turno, en voz alta y pasando por la carta. Quien apunta escribe una línea.</li><li>Contar mal (5 min): se lee la historia cambiada, la mesa caza los errores y luego <b>Revelar</b>. Al terminar, <b>Guardar</b>.</li></ol></div>
+<div class="dinamica"><h4>Calentamiento a todo el grupo</h4><p class="datos">Grupo completo · Proyectar · 10 minutos</p><ol><li>Preparar con finales «en papel» (no se usan) y el número de filas como jugadores.</li><li>Proyecta. Cada carta la narra una fila distinta, en una o dos frases.</li><li>Tú apuntas las líneas; nadie reclama final. Sirve para que aprendan el arco del cuento antes de jugar en mesas.</li></ol></div>
+<div class="dinamica"><h4>El rollo</h4><p class="datos">Mesas · papel largo y plumones · se suma a la partida</p><ol><li>Enciende <b>Rollo</b> al preparar. Cada mesa tiene una tira de papel kraft larga.</li><li>Al cerrar cada turno, la página avisa quién dibuja el cuadro y de qué carta. Un dibujo de 30 segundos, en tinta.</li><li>Al final se cuelgan los rollos, se fotografían y van a <code>cartas/erase/</code> con crédito.</li></ol></div>
+<div class="dinamica"><h4>Parodia: cartas barajadas</h4><p class="datos">Mesas · cuando ya jugaron una vez en orden</p><ol><li>Elige <b>Barajadas</b> al preparar: la boda puede salir antes de la partida y el castigo antes del combate.</li><li>El reto es que la historia tenga sentido aunque el orden no lo tenga.</li><li>Cierre: ¿qué carta les rompió más la historia y cómo la salvaron?</li></ol></div>
+<div class="dinamica"><h4>Tejido entre dos mesas</h4><p class="datos">Dos mesas · 30 minutos</p><ol><li>A media partida, cada mesa elige una línea de su historia en el panel <b>Tejido</b> y la copia.</li><li>Se la manda a la otra mesa por mensaje o en un papelito.</li><li>La otra mesa la pega en «Línea que llega» y entra como interrupción obligatoria. Al final se leen las dos historias: ¿dónde se tocan?</li></ol></div>
+<div class="dinamica"><h4>Sin teléfonos: finales en papel</h4><p class="datos">Mesas · cuando no hay un teléfono por mesa</p><ol><li>Antes de clase, imprime finales e interrupciones desde el panel <b>Baraja</b> y recórtalos.</li><li>Al preparar, elige finales «en papel». Cada quien saca uno del montón y lo guarda boca abajo.</li><li>Para reclamar, se lee el papel y se escribe en la página; las interrupciones pueden salir del montón impreso.</li></ol></div>
+<h3>Para que funcione</h3>
+<ul><li>Si alguien se traba, la pregunta de la carta es la salida: que la conteste en voz alta y ya está narrando.</li><li>Una interrupción no se discute, se mete. Puede ser con una frase.</li><li>Quien apunta no transcribe: resume el turno en una línea. Con eso basta para Contar mal y para el rollo.</li><li>Un final reclamado demasiado pronto se rechaza sin pena: así se aprende a llevar la historia hacia uno.</li></ul>
+    </div>
+  </details>
 
   <details class="panel solo-jugar" id="panelBaraja">
     <summary>Baraja</summary>

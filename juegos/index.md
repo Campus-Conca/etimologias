@@ -14,6 +14,8 @@ Cuatro juegos para inventar historias y ver lo que valen las palabras. Ninguno p
 - [Los 99 estilos](./estilos.html): la misma anécdota, otra manera de decirla.
 - [Érase una vez con cartas](./erase.html): cada carta que sale obliga a seguir la historia por ahí; gana quien la lleve hasta su final secreto.
 
+Cada juego trae, debajo del tablero, el panel **Cómo jugarlo**: una ronda de ejemplo paso a paso y dinámicas para el salón (grupo completo, mesas, parejas, tarea), con tiempos.
+
 ## Cómo se alimentan
 
 - **Las palabras de las ruletas las trae el grupo:** diez por persona y una línea de por qué te da escalofrío. Van a `data/banco.json` con el nombre de quien la trajo.

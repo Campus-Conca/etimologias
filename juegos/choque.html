@@ -139,6 +139,21 @@ details.panel .contenido p{margin:.5rem 0;color:var(--suave)}
 .lista-nom li.vacio{color:var(--suave);border:none}
 .info{font-size:.88rem;color:var(--suave);margin:.4rem 0 .6rem}
 
+/* cómo jugarlo */
+details.panel.guia{border-color:var(--dorado)}
+.guia h3{font-family:var(--display);font-weight:800;font-size:1.1rem;color:var(--titulo);margin:1.2rem 0 .3rem}
+.guia .contenido > p:first-child{margin-top:.2rem}
+.guia .ejemplo{background:var(--fondo);border-left:4px solid var(--dorado);border-radius:8px;padding:.5rem .9rem .6rem;margin:.5rem 0}
+.guia .ejemplo p{color:var(--texto)}
+.guia .ejemplo .paso{font-family:var(--display);font-weight:800;color:var(--rosa);font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;display:block;margin-top:.5rem}
+.guia .ejemplo blockquote{margin:.2rem 0 .3rem;padding:0;font-style:italic;color:var(--texto)}
+.guia .dinamica{border:1.5px solid var(--borde);border-radius:10px;padding:.6rem .9rem .7rem;margin:.6rem 0}
+.guia .dinamica h4{font-family:var(--display);font-weight:800;font-size:1.02rem;color:var(--rosa);margin:0}
+.guia .dinamica .datos{font-size:.85rem;color:var(--suave);margin:.1rem 0 .35rem}
+.guia ol,.guia ul{padding-left:1.3rem;margin:.3rem 0}
+.guia li{margin:.2rem 0}
+.guia li b{color:var(--titulo)}
+
 footer{text-align:center;color:var(--suave);font-size:.85rem;padding:1rem 1.2rem 1.6rem}
 footer em{font-style:italic}
 
@@ -240,6 +255,22 @@ body.proyectar .solo-proyectar{display:inline-block}
       <textarea id="copiaTexto" readonly></textarea>
     </div>
   </section>
+
+  <details class="panel guia solo-jugar" id="panelGuia">
+    <summary>Cómo jugarlo: un ejemplo y dinámicas para clase</summary>
+    <div class="contenido">
+<p>Rodari lo llama <em>binomio fantástico</em>: «caballo» y «perro» no chocan, son de la misma familia; «perro» y «armario» sí, y de ese choque sale una historia que ninguna de las dos palabras traía sola. Aquí la ruleta pone la distancia y la preposición pone el rumbo.</p>
+<h3>Un ejemplo, paso a paso</h3>
+<div class="ejemplo"><span class="paso">1 · Girar</span><p>Salen <b>el tecolote</b> y <b>la bicicleta</b>, y la preposición <b>sin</b>: «el tecolote sin bicicleta».</p><span class="paso">2 · Probar otra preposición</span><p>Con el chip <b>en</b> queda «el tecolote en la bicicleta». <em>Sin</em> cuenta a un tecolote que perdió algo; <em>en</em> cuenta a uno que va a alguna parte. Una palabra chiquita cambió la historia: te quedas con la que más te dé.</p><span class="paso">3 · Tres líneas</span><blockquote>Todas las noches el tecolote de la vereda se sube a la bicicleta que don Chema deja recargada en la cerca. No pedalea: espera a que el aire la empuje cerro abajo. Don Chema le puso candado y desde entonces el tecolote ulula de madrugada, ofendido.</blockquote><span class="paso">4 · Guardar y nominar</span><p>Guardar copia el texto para el formulario o el Museo. Si el choque pide dibujo, <b>Nominar para carta</b> lo deja en la lista Para dibujar.</p></div>
+<h3>Dinámicas para el salón</h3>
+<div class="dinamica"><h4>Calentamiento de cinco choques</h4><p class="datos">Grupo completo · Proyectar · 5 a 8 minutos</p><ol><li>Pasa a <b>Proyectar</b> y pulsa <b>Ronda de cinco</b>.</li><li>El grupo vota a mano alzada el choque más lejano; tócalo en la pantalla.</li><li>Tres voluntarios dicen en una sola frase qué pasa. Nadie escribe todavía.</li><li>El grupo elige la frase que se queda; ese choque se nomina para dibujo.</li></ol></div>
+<div class="dinamica"><h4>La preposición manda</h4><p class="datos">Parejas · 10 minutos</p><ol><li>Proyecta un solo choque; las dos personas de la pareja lo usan.</li><li>Cada una elige una preposición distinta con los chips y escribe sus tres líneas.</li><li>Se leen las dos versiones en voz alta.</li><li>Cierre: ¿qué hizo la preposición? ¿Quién quedó arriba, quién abajo, quién perdió algo?</li></ol><p>Sirve para notar que las palabras pequeñas también cargan significado.</p></div>
+<div class="dinamica"><h4>El preguntón</h4><p class="datos">Mesas de 4 · 10 minutos</p><ol><li>Cada mesa gira su propio choque.</li><li>Cada persona le hace una pregunta distinta: ¿quién?, ¿dónde?, ¿qué pasó después?, ¿cómo terminó?</li><li>Con las cuatro respuestas, quien escribe arma las tres líneas y las guarda.</li></ol></div>
+<div class="dinamica"><h4>Tres giros, uno se queda</h4><p class="datos">Individual · tarea o cierre de 10 minutos</p><ol><li>Gira tres veces y apunta los tres choques en tu cuaderno.</li><li>Escribe solo el que esté más lejos: el que te costó más trabajo imaginar.</li><li>Guarda y pega el texto en el formulario de la semana.</li></ol></div>
+<h3>Para que funcione</h3>
+<ul><li>Si el grupo duda de que dos palabras estén lejos, pregunta: «¿se las han visto juntas alguna vez?» Si la respuesta es sí, gira otra vez.</li><li>Tres líneas son el límite, no la meta: una buena frase basta.</li><li>Lo que el grupo trae a la ruleta importa más que el banco de muestra: pide las diez palabras por persona antes de la primera sesión.</li></ul>
+    </div>
+  </details>
 
   <details class="panel solo-jugar" id="panelNom">
     <summary>Para dibujar <span class="num" id="numNom">0</span></summary>

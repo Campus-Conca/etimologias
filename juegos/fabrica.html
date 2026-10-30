@@ -161,6 +161,21 @@ details.panel .contenido p{margin:.5rem 0;color:var(--suave)}
 .galeria figcaption b{display:block;color:var(--titulo);font-family:var(--display)}
 .info{font-size:.88rem;color:var(--suave);margin:.4rem 0 .6rem}
 
+/* cómo jugarlo */
+details.panel.guia{border-color:var(--dorado)}
+.guia h3{font-family:var(--display);font-weight:800;font-size:1.1rem;color:var(--titulo);margin:1.2rem 0 .3rem}
+.guia .contenido > p:first-child{margin-top:.2rem}
+.guia .ejemplo{background:var(--fondo);border-left:4px solid var(--dorado);border-radius:8px;padding:.5rem .9rem .6rem;margin:.5rem 0}
+.guia .ejemplo p{color:var(--texto)}
+.guia .ejemplo .paso{font-family:var(--display);font-weight:800;color:var(--rosa);font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;display:block;margin-top:.5rem}
+.guia .ejemplo blockquote{margin:.2rem 0 .3rem;padding:0;font-style:italic;color:var(--texto)}
+.guia .dinamica{border:1.5px solid var(--borde);border-radius:10px;padding:.6rem .9rem .7rem;margin:.6rem 0}
+.guia .dinamica h4{font-family:var(--display);font-weight:800;font-size:1.02rem;color:var(--rosa);margin:0}
+.guia .dinamica .datos{font-size:.85rem;color:var(--suave);margin:.1rem 0 .35rem}
+.guia ol,.guia ul{padding-left:1.3rem;margin:.3rem 0}
+.guia li{margin:.2rem 0}
+.guia li b{color:var(--titulo)}
+
 footer{text-align:center;color:var(--suave);font-size:.85rem;padding:1rem 1.2rem 1.6rem}
 footer em{font-style:italic}
 
@@ -305,6 +320,22 @@ body.proyectar .solo-proyectar{display:inline-block}
       <textarea id="copiaTexto" readonly></textarea>
     </div>
   </section>
+
+  <details class="panel guia solo-jugar" id="panelGuia">
+    <summary>Cómo jugarlo: un ejemplo y dinámicas para clase</summary>
+    <div class="contenido">
+<p>Rodari pegaba prefijos al azar a palabras de todos los días y salían cosas que no existían: inventos que hay que explicar. La fábrica hace lo mismo, y la Oficina de Patentes obliga a lo importante: decir qué hace el invento y de dónde viene el prefijo.</p>
+<h3>Un ejemplo, paso a paso</h3>
+<div class="ejemplo"><span class="paso">1 · Fabricar</span><p>Tolvas en «Al azar»: sale <b>el telecomal</b>. La receta dice <code>tele- (lejos) + comal</code>.</p><span class="paso">2 · Patentar</span><p><b>Qué hace:</b> comal que calienta las tortillas de quien está lejos: la abuela pone la tortilla en Concá y sale calientita en la casa del nieto en Querétaro.<br><b>Ejemplo:</b> «Desde que mi abuela tiene telecomal ya no me llama: me llega una tortilla y sé que se acordó de mí».<br><b>Ficha del prefijo:</b> tele- · gr. τηλε- · lejos · DLE (llega prellenada; se revisa).</p><span class="paso">3 · Otra posibilidad: la falta de ortografía</span><p>En la tercera tolva se escribe <b>Cierra Gorda</b>, tal cual se vio en un letrero. Patente: «sierra que cierra: a las seis de la tarde los cerros se juntan y nadie sale hasta que amanece». No lleva prefijo; en la definición se dice de qué palabra viene.</p><span class="paso">4 · Registrar</span><p>Registrar guarda la patente y la copia. Si no tiene fuente, queda como <em>pendiente</em> hasta que alguien la busque en el DLE o en el DECEL.</p></div>
+<h3>Dinámicas para el salón</h3>
+<div class="dinamica"><h4>La subasta</h4><p class="datos">Grupo completo · Proyectar · 15 minutos</p><ol><li>En <b>Proyectar</b>, pulsa <b>Subasta</b>: salen tres inventos.</li><li>El grupo vota cuál se queda y lo tocas: queda adjudicado.</li><li>Lo definen tres personas: una dice qué hace, otra quién lo compraría y otra qué defecto tiene.</li><li>El escriba pulsa <b>Patentar el adjudicado</b> y llena la patente con lo que se dijo.</li></ol></div>
+<div class="dinamica"><h4>Mismo sustantivo, prefijos distintos</h4><p class="datos">Parejas · 10 minutos</p><ol><li>Todas las parejas escriben el mismo sustantivo en la segunda tolva (por ejemplo, <i>tinaco</i>).</li><li>Cada pareja elige un prefijo distinto de la lista: antitinaco, subtinaco, retrotinaco, multitinaco…</li><li>Cada pareja lee su definición; el grupo intenta adivinar el prefijo antes de oír la ficha.</li><li>Cierre: ¿qué hizo cada prefijo con el tinaco? Aquí sí entra la etimología, porque está en la ficha.</li></ol></div>
+<div class="dinamica"><h4>El vendedor honesto</h4><p class="datos">Mesas de 4 · 10 a 12 minutos</p><ol><li>Cada persona fabrica hasta que le guste un invento (<b>Otra</b> es gratis).</li><li>Tiene 30 segundos para vendérselo a su mesa, sin esconder sus defectos.</li><li>La mesa compra uno, y ese es el que se patenta y se dibuja.</li></ol></div>
+<div class="dinamica"><h4>Cazadores de faltas</h4><p class="datos">Individual · tarea de la semana</p><ol><li>Fotografía un letrero, una lona o un menú del pueblo con una palabra mal escrita.</li><li>Escríbela tal cual en la tolva de la falta y paténtala como si fuera a propósito.</li><li>Lo que se inventa es la palabra, no quien la escribió: no se burlen de nadie ni pongan de dónde salió.</li></ol></div>
+<h3>Para que funcione</h3>
+<ul><li>Fabricar y <b>Otra</b> no cuestan nada: de cien inventos fracasan noventa y nueve, y así está bien.</li><li>Lo que vale la patente es la definición, no el nombre: pide que diga qué hace, para quién y qué no hace.</li><li>Un prefijo escrito a mano no viene en la baraja y queda pendiente: es buen pretexto para abrir el DLE en clase.</li></ul>
+    </div>
+  </details>
 
   <details class="panel solo-jugar" id="panelRegistro">
     <summary>Registro de patentes <span class="num" id="numRegistro">0</span></summary>
