@@ -1,0 +1,244 @@
+{
+  "estilos": [
+    {
+      "nombre": "Telegrama",
+      "instruccion": "solo lo esencial, en mayúsculas, con STOP",
+      "etim": false,
+      "nivel": 1
+    },
+    {
+      "nombre": "Al revés",
+      "instruccion": "del final al principio",
+      "etim": false,
+      "nivel": 2
+    },
+    {
+      "nombre": "Solo preguntas",
+      "instruccion": "todo en preguntas, sin una sola afirmación",
+      "etim": false,
+      "nivel": 2
+    },
+    {
+      "nombre": "Parte médico",
+      "instruccion": "síntomas, diagnóstico, pronóstico",
+      "etim": false,
+      "nivel": 2
+    },
+    {
+      "nombre": "Receta de cocina",
+      "instruccion": "ingredientes y pasos",
+      "etim": false,
+      "nivel": 1
+    },
+    {
+      "nombre": "Zoológico",
+      "instruccion": "todo descrito con palabras de animales",
+      "etim": false,
+      "nivel": 2
+    },
+    {
+      "nombre": "Botánico",
+      "instruccion": "con vocabulario de plantas",
+      "etim": false,
+      "nivel": 2
+    },
+    {
+      "nombre": "Carta oficial",
+      "instruccion": "membrete, «por medio de la presente», atentamente",
+      "etim": false,
+      "nivel": 1
+    },
+    {
+      "nombre": "Contraportada",
+      "instruccion": "como la contraportada de una novela que vende la historia",
+      "etim": false,
+      "nivel": 2
+    },
+    {
+      "nombre": "Interjecciones",
+      "instruccion": "solo interjecciones y onomatopeyas",
+      "etim": false,
+      "nivel": 2
+    },
+    {
+      "nombre": "Haiku",
+      "instruccion": "tres versos de 5-7-5, lo esencial",
+      "etim": false,
+      "nivel": 3
+    },
+    {
+      "nombre": "Noticiero",
+      "instruccion": "nota de televisión con reportero en el lugar",
+      "etim": false,
+      "nivel": 1
+    },
+    {
+      "nombre": "Como lo contaría la abuela",
+      "instruccion": "digresiones, nombres y juicio final",
+      "etim": false,
+      "nivel": 1
+    },
+    {
+      "nombre": "Helenismos",
+      "instruccion": "con palabras de raíz griega; al menos cinco que haya que abrir para entender",
+      "etim": true,
+      "nivel": 3
+    },
+    {
+      "nombre": "Latinismos",
+      "instruccion": "con latinismos y palabras cultas de raíz latina; al menos cinco",
+      "etim": true,
+      "nivel": 3
+    },
+    {
+      "nombre": "Corrido",
+      "instruccion": "en versos de corrido, con fecha y lugar al inicio",
+      "etim": false,
+      "nivel": 2
+    },
+    {
+      "nombre": "WhatsApp",
+      "instruccion": "cadena de mensajes con horas y audios descritos",
+      "etim": false,
+      "nivel": 1
+    },
+    {
+      "nombre": "Acta de asamblea",
+      "instruccion": "«siendo las… se reunieron…», orden del día, acuerdos",
+      "etim": false,
+      "nivel": 2
+    },
+    {
+      "nombre": "Pronóstico del tiempo",
+      "instruccion": "todo narrado como clima",
+      "etim": false,
+      "nivel": 2
+    },
+    {
+      "nombre": "Desde el objeto",
+      "instruccion": "un objeto de la anécdota narra",
+      "etim": false,
+      "nivel": 2
+    },
+    {
+      "nombre": "Cuento de hadas",
+      "instruccion": "érase una vez, con moraleja",
+      "etim": false,
+      "nivel": 1
+    },
+    {
+      "nombre": "Precisión",
+      "instruccion": "medidas, tiempos y cantidades exactas para todo",
+      "etim": false,
+      "nivel": 2
+    },
+    {
+      "nombre": "Vaguedad",
+      "instruccion": "sin un solo dato concreto: «una cosa», «alguien», «por ahí»",
+      "etim": false,
+      "nivel": 2
+    },
+    {
+      "nombre": "Exageración",
+      "instruccion": "todo multiplicado por mil",
+      "etim": false,
+      "nivel": 1
+    },
+    {
+      "nombre": "Litotes",
+      "instruccion": "todo dicho negando lo contrario («no estaba poco lleno»)",
+      "etim": false,
+      "nivel": 3
+    },
+    {
+      "nombre": "Sueño",
+      "instruccion": "como se cuenta un sueño, con cambios sin lógica",
+      "etim": false,
+      "nivel": 2
+    },
+    {
+      "nombre": "Pasado remoto",
+      "instruccion": "como ocurrido hace siglos, con «antaño»",
+      "etim": false,
+      "nivel": 2
+    },
+    {
+      "nombre": "Profecía",
+      "instruccion": "en futuro: «ocurrirá que…»",
+      "etim": false,
+      "nivel": 2
+    },
+    {
+      "nombre": "En primera persona",
+      "instruccion": "el muchacho lo cuenta y se justifica",
+      "etim": false,
+      "nivel": 1
+    },
+    {
+      "nombre": "Interrogatorio",
+      "instruccion": "preguntas de un policía y respuestas de un testigo",
+      "etim": false,
+      "nivel": 2
+    },
+    {
+      "nombre": "Instrucciones",
+      "instruccion": "en imperativo: cómo reproducir la anécdota paso a paso",
+      "etim": false,
+      "nivel": 2
+    },
+    {
+      "nombre": "Anuncio clasificado",
+      "instruccion": "se vende / se busca",
+      "etim": false,
+      "nivel": 2
+    },
+    {
+      "nombre": "Comentario deportivo",
+      "instruccion": "narrado en vivo, con emoción y repetición",
+      "etim": false,
+      "nivel": 1
+    },
+    {
+      "nombre": "Fórmula",
+      "instruccion": "variables y ecuaciones: «sea X el muchacho»",
+      "etim": false,
+      "nivel": 3
+    },
+    {
+      "nombre": "Sin la letra a",
+      "instruccion": "lipograma",
+      "etim": false,
+      "nivel": 3
+    },
+    {
+      "nombre": "Metáfora continua",
+      "instruccion": "toda la anécdota es otra cosa (una batalla, una cosecha)",
+      "etim": false,
+      "nivel": 3
+    },
+    {
+      "nombre": "Épico",
+      "instruccion": "como la Ilíada, con epítetos («el de la gorra, el de largo cuello»)",
+      "etim": false,
+      "nivel": 2
+    },
+    {
+      "nombre": "Dos puntos de vista",
+      "instruccion": "el muchacho y el que lo empujó, alternados",
+      "etim": false,
+      "nivel": 2
+    },
+    {
+      "nombre": "Olores y sabores",
+      "instruccion": "contado solo por lo que se huele y se prueba",
+      "etim": false,
+      "nivel": 2
+    },
+    {
+      "nombre": "Estilo nuevo",
+      "instruccion": "el grupo lo patenta: nombre + instrucción de una línea",
+      "etim": false,
+      "nivel": 1
+    }
+  ]
+}

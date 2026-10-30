@@ -1,0 +1,124 @@
+{
+  "funciones": [
+    {
+      "orden": 1,
+      "nombre": "Prohibición",
+      "descripcion": "A alguien le dicen que no haga algo",
+      "pregunta": "¿Qué le prohíben y quién?"
+    },
+    {
+      "orden": 2,
+      "nombre": "Infracción",
+      "descripcion": "Lo hace de todos modos",
+      "pregunta": "¿Cómo rompe la regla?"
+    },
+    {
+      "orden": 3,
+      "nombre": "Daño o carencia",
+      "descripcion": "Algo se pierde, se roba o falta",
+      "pregunta": "¿Qué falta ahora?"
+    },
+    {
+      "orden": 4,
+      "nombre": "Partida",
+      "descripcion": "El héroe sale de casa",
+      "pregunta": "¿Con qué se va y qué deja?"
+    },
+    {
+      "orden": 5,
+      "nombre": "Misión",
+      "descripcion": "Alguien le encarga la tarea",
+      "pregunta": "¿Quién se lo pide y a cambio de qué?"
+    },
+    {
+      "orden": 6,
+      "nombre": "Encuentro con el donante",
+      "descripcion": "Aparece quien pondrá a prueba al héroe",
+      "pregunta": "¿Qué le pide primero?"
+    },
+    {
+      "orden": 7,
+      "nombre": "Regalos mágicos",
+      "descripcion": "El héroe recibe un objeto o un poder",
+      "pregunta": "¿Qué es y qué no puede hacer?"
+    },
+    {
+      "orden": 8,
+      "nombre": "Aparición del antagonista",
+      "descripcion": "Se presenta el que estorba",
+      "pregunta": "¿Cómo se sabe que es él?"
+    },
+    {
+      "orden": 9,
+      "nombre": "Poderes del antagonista",
+      "descripcion": "Lo que puede hacer el antagonista",
+      "pregunta": "¿Cuál es su truco?"
+    },
+    {
+      "orden": 10,
+      "nombre": "Combate",
+      "descripcion": "Se enfrentan",
+      "pregunta": "¿Dónde y con qué?"
+    },
+    {
+      "orden": 11,
+      "nombre": "Victoria",
+      "descripcion": "El héroe gana",
+      "pregunta": "¿Qué le cuesta ganar?"
+    },
+    {
+      "orden": 12,
+      "nombre": "Regreso",
+      "descripcion": "Emprende la vuelta",
+      "pregunta": "¿Por dónde regresa?"
+    },
+    {
+      "orden": 13,
+      "nombre": "Llegada a casa",
+      "descripcion": "Llega, quizá sin ser reconocido",
+      "pregunta": "¿Quién lo recibe y cómo?"
+    },
+    {
+      "orden": 14,
+      "nombre": "El falso héroe",
+      "descripcion": "Alguien se cuelga el mérito",
+      "pregunta": "¿Quién y con qué prueba falsa?"
+    },
+    {
+      "orden": 15,
+      "nombre": "Tareas difíciles",
+      "descripcion": "Se le impone una prueba más",
+      "pregunta": "¿Cuál y quién la pone?"
+    },
+    {
+      "orden": 16,
+      "nombre": "Daño reparado",
+      "descripcion": "Lo que faltaba vuelve",
+      "pregunta": "¿Cómo vuelve?"
+    },
+    {
+      "orden": 17,
+      "nombre": "Reconocimiento del héroe",
+      "descripcion": "Se sabe quién hizo qué",
+      "pregunta": "¿Qué marca lo delata?"
+    },
+    {
+      "orden": 18,
+      "nombre": "El falso héroe desenmascarado",
+      "descripcion": "Se descubre al impostor",
+      "pregunta": "¿Quién lo descubre?"
+    },
+    {
+      "orden": 19,
+      "nombre": "Castigo del antagonista",
+      "descripcion": "El que estorbó paga",
+      "pregunta": "¿Cuál es el castigo?"
+    },
+    {
+      "orden": 20,
+      "nombre": "Boda",
+      "descripcion": "Fiesta, boda o premio",
+      "pregunta": "¿Qué se celebra y quién falta?"
+    }
+  ]
+}

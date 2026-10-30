@@ -1,0 +1,1059 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Érase una vez con cartas · Juegos de palabras</title>
+<meta name="description" content="Cada carta que sale obliga a seguir la historia por ahí; gana quien la lleve hasta su final secreto. Juego de palabras del curso de Etimologías (UAQ).">
+<!--
+  ÉRASE UNA VEZ CON CARTAS · Juego 4 de los Juegos de palabras · v1.0
+  Curso de Etimologías Grecolatinas · Escuela de Bachilleres UAQ
+
+  Fuentes: reglas caseras del relato acumulativo; Once Upon a Time (Atlas
+  Games): interrupciones y final secreto; Gianni Rodari, Gramática de la
+  fantasía, cap. 21 (las cartas de Propp, versión de veinte de Reggio Emilia),
+  cap. 22 (el Passatore: cada turno se dibuja) y cap. 15 (contar mal).
+
+  Modo Mesa: un dispositivo por mesa, 3 a 8 jugadores. Nadie recuenta la
+  historia desde el principio; la memoria se juega al final, en Contar mal.
+  Archivo autónomo: funciona abierto desde el disco y en GitHub Pages.
+  Datos: la baraja embebida abajo (script id="baraja") es la de respaldo;
+  si existen ./data/funciones.json, ./data/interrupciones.json,
+  ./data/finales.json, ./data/banco.json y ./data/cartas.json los usa; y si
+  alguien pegó una baraja en el panel Baraja, esa manda.
+  La partida en curso se guarda en este navegador: recargar no la pierde.
+  Claves de localStorage: erase-baraja-v1, erase-partida-v1, erase-modo-v1,
+  juegos-autor. Todo acceso va en try/catch.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rosa:#D6006D; --rosa-suave:#FBE3F0; --ciruela:#3E1F35; --ciruela-media:#6B3A5B;
+  --jade:#0E8C6D; --dorado:#C9A227; --papel:#FCF8F3; --hueso:#F3ECE2; --tinta:#2A1522;
+  --fondo:var(--papel); --tarjeta:#FFFFFF; --texto:var(--tinta); --suave:var(--ciruela-media);
+  --titulo:var(--ciruela); --borde:#E6DCD0; --boton2:var(--hueso); --boton2-texto:var(--ciruela);
+  --campo:var(--papel);
+  --sombra:0 2px 10px rgba(62,31,53,.12); --radio:14px;
+  --display:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;
+  --cuerpo:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --fondo:#1B0F18; --tarjeta:#2A1726; --texto:#F6EEF2; --suave:#D4B6C6; --titulo:#F6EEF2;
+         --borde:#4A2E42; --boton2:#3A2334; --boton2-texto:#F6EEF2; --rosa-suave:#4A1F3A; --campo:#1B0F18;
+         --sombra:0 2px 10px rgba(0,0,0,.4); }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+[hidden]{display:none !important}
+body{background:var(--fondo);color:var(--texto);font-family:var(--cuerpo);line-height:1.5;min-height:100vh;display:flex;flex-direction:column}
+h1,h2,h3,p,ol,ul{margin:0}
+button{font-family:var(--display);cursor:pointer;border:none;font-size:1rem}
+button:disabled{opacity:.55;cursor:default}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible,.palabra-cazable:focus-visible{outline:3px solid var(--rosa);outline-offset:2px}
+a{color:var(--rosa)}
+code{font-family:'IBM Plex Mono',Menlo,monospace;font-size:.9em;background:var(--boton2);padding:.05em .35em;border-radius:5px}
+
+/* cabecera */
+.cabecera{background:var(--ciruela);color:var(--papel);padding:1rem 1.2rem 1.2rem}
+.cabecera .fila{max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+.volver{color:#E9C6DA;text-decoration:none;font-weight:600;font-size:.95rem}
+.volver:hover{color:#fff;text-decoration:underline}
+.cabecera h1{font-family:var(--display);font-weight:800;font-size:clamp(1.8rem,5vw,2.8rem);letter-spacing:-.5px;line-height:1.05;color:var(--papel)}
+.cabecera h1 .acento{color:var(--dorado)}
+.cabecera .regla{color:#E9C6DA;font-size:1rem;margin-top:.2rem}
+.mandos-cabecera{margin-left:auto;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.modos{display:inline-flex;background:rgba(255,255,255,.12);border-radius:99px;padding:.2rem}
+.modos button{background:transparent;color:#E9C6DA;font-weight:600;font-size:.95rem;padding:.4rem 1rem;border-radius:99px}
+.modos button.activo{background:var(--rosa);color:#fff}
+.btn-reglas{background:rgba(255,255,255,.12);color:#fff;font-weight:600;padding:.45rem 1rem;border-radius:99px}
+.reglas{background:var(--rosa-suave);border-bottom:1px solid var(--borde)}
+.reglas ol{max-width:1000px;margin:0 auto;padding:.9rem 1.2rem .9rem 2.4rem;font-size:.98rem}
+.reglas li{margin:.25rem 0}
+.reglas li b{color:var(--rosa)}
+
+main{flex:1;width:100%;max-width:1000px;margin:0 auto;padding:1.2rem 1rem 2rem}
+input[type=text],input[type=number],select,textarea{width:100%;font:inherit;font-size:1rem;color:var(--texto);background:var(--campo);border:1.5px solid var(--borde);border-radius:10px;padding:.55rem .7rem}
+textarea{min-height:5rem;resize:vertical;line-height:1.5}
+label{display:block;font-family:var(--display);font-weight:800;color:var(--titulo);margin:.8rem 0 .3rem;font-size:1rem}
+label small{font-family:var(--cuerpo);font-weight:400;color:var(--suave);font-size:.86rem;margin-left:.4rem}
+.caja{background:var(--tarjeta);border-radius:var(--radio);box-shadow:var(--sombra);padding:1rem 1.2rem 1.2rem;border-top:5px solid var(--jade)}
+.caja h2{font-family:var(--display);font-weight:800;font-size:1.3rem;color:var(--titulo)}
+.caja > p{color:var(--suave);margin-top:.3rem}
+.rotulo{display:inline-block;font-family:var(--display);font-weight:600;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--rosa);margin:.2rem 0 .5rem}
+
+/* botones */
+.acciones{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin-top:.9rem}
+.acciones.izq{justify-content:flex-start}
+.btn-primario{background:var(--rosa);color:#fff;font-weight:800;font-size:1.1rem;padding:.75rem 1.7rem;border-radius:12px;box-shadow:0 3px 0 #9C0050}
+.btn-primario:active{transform:translateY(2px);box-shadow:0 1px 0 #9C0050}
+.btn-jade{background:var(--jade);color:#fff;font-weight:800;font-size:1.05rem;padding:.75rem 1.4rem;border-radius:12px;box-shadow:0 3px 0 #086A51}
+.btn-jade:active{transform:translateY(2px);box-shadow:0 1px 0 #086A51}
+.btn-dorado{background:var(--dorado);color:#3A2A00;font-weight:800;font-size:1.05rem;padding:.75rem 1.4rem;border-radius:12px;box-shadow:0 3px 0 #8F7117}
+.btn-dorado:active{transform:translateY(2px);box-shadow:0 1px 0 #8F7117}
+.btn-secundario{background:var(--boton2);color:var(--boton2-texto);font-weight:600;font-size:.98rem;padding:.7rem 1.1rem;border-radius:12px}
+.btn-mini{background:var(--boton2);color:var(--boton2-texto);font-weight:600;font-size:.9rem;padding:.5rem .8rem;border-radius:10px;white-space:nowrap}
+.btn-mini[aria-pressed="true"]{background:var(--jade);color:#fff}
+
+/* preparación */
+.dos{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.nombres{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
+.nombres input{text-align:center}
+.opciones{display:flex;flex-wrap:wrap;gap:.4rem}
+.interruptor{display:flex;align-items:center;gap:.55rem;margin-top:.7rem;font-size:.98rem}
+.interruptor input{width:19px;height:19px;accent-color:var(--jade);flex:none}
+.interruptor label{margin:0;font-family:var(--cuerpo);font-weight:400;color:var(--texto)}
+.interruptor select{width:auto;padding:.3rem .5rem}
+
+/* reparto */
+.reparto{text-align:center;padding:2rem 1rem}
+.reparto .quien{font-family:var(--display);font-weight:800;font-size:clamp(2rem,7vw,3.4rem);color:var(--titulo)}
+.reparto .final-oculto{margin:1.2rem auto;max-width:620px;min-height:7rem;border-radius:16px;display:flex;align-items:center;justify-content:center;padding:1.2rem;font-family:var(--display);font-weight:800;font-size:clamp(1.4rem,4.5vw,2.2rem);line-height:1.25}
+.reparto .final-oculto.tapado{background:repeating-linear-gradient(45deg,var(--ciruela) 0 14px,var(--ciruela-media) 14px 28px);color:var(--dorado)}
+.reparto .final-oculto.visto{background:var(--rosa-suave);color:var(--titulo);border:2px dashed var(--rosa)}
+
+/* mesa */
+.mesa{text-align:center}
+.marcador{display:flex;justify-content:center;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem}
+.marcador span{font-family:var(--display);font-weight:600;font-size:.9rem;padding:.25rem .7rem;border-radius:99px;background:var(--boton2);color:var(--boton2-texto)}
+.marcador span.turno{background:var(--rosa);color:#fff}
+.marcador span.sin-reclamo{text-decoration:line-through;opacity:.7}
+.marcador span i{font-style:normal;margin-left:.25rem}
+.narra{font-family:var(--display);font-weight:600;font-size:1.1rem;color:var(--suave)}
+.narra b{color:var(--rosa);font-weight:800}
+.carta{position:relative;max-width:640px;margin:.6rem auto 0;background:var(--tarjeta);border:2px solid var(--borde);border-top:8px solid var(--dorado);border-radius:18px;box-shadow:var(--sombra);padding:1.4rem 1.4rem 1.2rem;display:flex;flex-direction:column;align-items:center;gap:.35rem}
+.carta .numero{position:absolute;top:.6rem;left:.9rem;font-family:var(--display);font-weight:800;color:var(--suave);font-size:.9rem}
+.carta .nombre{font-family:var(--display);font-weight:800;font-size:clamp(2rem,7vw,3.4rem);line-height:1.05;color:var(--titulo)}
+.carta .descripcion{font-size:1.15rem;color:var(--texto)}
+.carta .pregunta{font-family:var(--display);font-weight:600;font-size:1.1rem;color:var(--rosa)}
+.carta img{max-width:100%;max-height:240px;border-radius:10px}
+.carta .credito{font-size:.85rem;color:var(--suave)}
+@keyframes voltear{from{transform:rotateY(90deg);opacity:.2}to{transform:none;opacity:1}}
+.carta.anim{animation:voltear .45s cubic-bezier(.2,1.1,.4,1)}
+.interrupcion{max-width:640px;margin:.8rem auto 0;background:var(--rosa);color:#fff;border-radius:14px;padding:.8rem 1rem;font-family:var(--display);font-weight:800;font-size:1.3rem}
+.interrupcion small{display:block;font-family:var(--cuerpo);font-weight:400;font-size:.9rem;opacity:.9}
+.reloj{font-family:var(--display);font-weight:800;font-size:1.6rem;color:var(--titulo);margin-top:.6rem;font-variant-numeric:tabular-nums}
+.reloj.cero{color:var(--rosa)}
+.linea{max-width:640px;margin:1rem auto 0;text-align:left}
+.recordatorio{max-width:640px;margin:.8rem auto 0;background:var(--rosa-suave);border-radius:12px;padding:.6rem .9rem;font-weight:600;color:var(--titulo)}
+.panelito{max-width:640px;margin:1rem auto 0;text-align:left;background:var(--tarjeta);border:2px solid var(--rosa);border-radius:14px;padding:.8rem 1rem 1rem}
+.panelito h3{font-family:var(--display);font-weight:800;font-size:1.1rem;color:var(--titulo)}
+.panelito .opciones{margin-top:.5rem}
+.final-leido{font-family:var(--display);font-weight:800;font-size:clamp(1.4rem,4.5vw,2.2rem);line-height:1.25;color:var(--titulo);margin:.6rem 0;text-align:center}
+.aviso{margin-top:.8rem;min-height:1.4em;font-weight:600;color:var(--jade)}
+
+/* fin y contar mal */
+.historia{list-style:none;padding:0;margin:.8rem 0 0;text-align:left}
+.historia li{padding:.5rem 0;border-bottom:1px dashed var(--borde)}
+.historia li .meta{display:block;font-size:.82rem;color:var(--suave)}
+.historia li.final{font-family:var(--display);font-weight:800;color:var(--rosa);border:none}
+.contar-mal{font-size:1.2rem;line-height:1.8;text-align:left;margin-top:.8rem}
+.contar-mal p{margin:.3rem 0}
+.palabra-cazable{cursor:pointer;border-radius:5px;padding:0 .1em}
+.palabra-cazable:hover{background:var(--rosa-suave)}
+.palabra-cazable.cazada{background:var(--jade);color:#fff}
+.palabra-cazable.fallo{text-decoration:line-through;text-decoration-color:var(--rosa);text-decoration-thickness:2px}
+.palabra-cazable.revelada{background:var(--dorado);color:#3A2A00}
+.palabra-cazable .original{font-size:.75em;font-weight:600;margin-left:.3em;opacity:.85}
+.puntos{font-family:var(--display);font-weight:800;font-size:1.3rem;color:var(--titulo);margin-top:.6rem}
+#copia{margin-top:.6rem}
+#copia textarea{min-height:9rem;font-family:'IBM Plex Mono',Menlo,monospace;font-size:.9rem}
+
+/* paneles plegables */
+details.panel{margin-top:1rem;background:var(--tarjeta);border:1.5px solid var(--borde);border-radius:12px;overflow:hidden}
+details.panel summary{font-family:var(--display);font-weight:800;font-size:1.02rem;color:var(--titulo);padding:.85rem 1.1rem;cursor:pointer;list-style:none;display:flex;align-items:center;gap:.6rem}
+details.panel summary::-webkit-details-marker{display:none}
+details.panel summary::before{content:'+';color:var(--rosa);font-size:1.3rem;font-weight:800;line-height:1}
+details.panel[open] summary::before{content:'\2212'}
+details.panel .contenido{padding:.2rem 1.1rem 1.1rem;font-size:.97rem}
+details.panel .contenido p{margin:.5rem 0;color:var(--suave)}
+details.panel .acciones{justify-content:flex-start}
+.info{font-size:.88rem;color:var(--suave);margin:.4rem 0 .6rem}
+
+footer{text-align:center;color:var(--suave);font-size:.85rem;padding:1rem 1.2rem 1.6rem}
+footer em{font-style:italic}
+
+/* imprimir finales e interrupciones */
+#imprimible{display:none}
+@media print{
+  body > *:not(#imprimible){display:none !important}
+  #imprimible{display:block;color:#000;background:#fff;font-family:var(--cuerpo)}
+  #imprimible h2{font-size:14pt;margin:0 0 6pt}
+  #imprimible .rejilla{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-bottom:12pt}
+  #imprimible .rejilla div{border:1px dashed #888;padding:10pt;min-height:2.6cm;font-size:12pt;display:flex;align-items:center;justify-content:center;text-align:center;break-inside:avoid}
+  #imprimible .rejilla div small{display:block;font-size:8pt;color:#666}
+  #imprimible .salto{break-before:page}
+}
+
+/* modo Proyectar */
+body.proyectar{--fondo:var(--ciruela);--texto:var(--papel);--titulo:var(--papel);--suave:#E9C6DA;--tarjeta:#2A1726;--borde:#5C3A52;--boton2:#5C3A52;--boton2-texto:#fff;--rosa-suave:#4A1F3A;--campo:#2A1726}
+body.proyectar .cabecera{padding:.6rem 1.2rem}
+body.proyectar .cabecera h1{font-size:1.5rem}
+body.proyectar .cabecera .regla{display:none}
+body.proyectar .solo-jugar,body.proyectar footer,body.proyectar .reglas{display:none}
+body.proyectar main{padding-top:1.4rem}
+body.proyectar .narra{font-size:1.8rem}
+body.proyectar .marcador span{font-size:1.2rem}
+body.proyectar .carta{max-width:860px}
+body.proyectar .carta .nombre{font-size:clamp(2.8rem,8vw,5.4rem)}
+body.proyectar .carta .descripcion{font-size:1.9rem}
+body.proyectar .carta .pregunta{font-size:1.8rem}
+body.proyectar .interrupcion{max-width:860px;font-size:2rem}
+body.proyectar .reloj{font-size:2.6rem}
+body.proyectar .linea,body.proyectar .recordatorio,body.proyectar .panelito{max-width:860px}
+body.proyectar .linea input{font-size:1.4rem}
+body.proyectar .linea label{font-size:1.3rem}
+body.proyectar .interrupcion small{font-size:1.15rem}
+body.proyectar .carta .numero{font-size:1.3rem}
+body.proyectar .recordatorio{font-size:1.4rem}
+body.proyectar .contar-mal{font-size:1.8rem}
+body.proyectar .btn-primario,body.proyectar .btn-jade,body.proyectar .btn-dorado,body.proyectar .btn-secundario{font-size:1.3rem;padding:.9rem 1.6rem}
+
+@media (max-width:720px){
+  .dos{grid-template-columns:1fr}
+  .nombres{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:420px){
+  .cabecera h1{font-size:1.7rem}
+  .mandos-cabecera{margin-left:0;width:100%}
+}
+@media (prefers-reduced-motion: reduce){
+  .carta.anim{animation:none}
+  .btn-primario:active,.btn-jade:active,.btn-dorado:active{transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="fila">
+    <a class="volver" href="../">&larr; Etimologías</a>
+  </div>
+  <div class="fila">
+    <div>
+      <h1>Érase una vez <span class="acento">con cartas</span></h1>
+      <p class="regla">Cada carta que sale obliga a seguir la historia por ahí; gana quien la lleve hasta su final secreto.</p>
+    </div>
+    <div class="mandos-cabecera">
+      <div class="modos" role="group" aria-label="Modo de la página">
+        <button type="button" id="btnJugar" class="activo" aria-pressed="true">Jugar</button>
+        <button type="button" id="btnProyectar" aria-pressed="false">Proyectar</button>
+      </div>
+      <button type="button" id="btnReglas" class="btn-reglas" aria-expanded="false" aria-controls="reglas">Reglas</button>
+    </div>
+  </div>
+</header>
+
+<section id="reglas" class="reglas" hidden>
+  <ol>
+    <li>Cada quien recibe un <b>final secreto</b>. Nadie lo dice hasta reclamarlo.</li>
+    <li>En tu turno sale una <b>carta</b>: sigue la historia en voz alta pasando por ella. Nadie recuenta desde el principio.</li>
+    <li>Si no estás narrando puedes gritar <b>¡Interrupción!</b> una vez por partida: el narrador tiene que meter lo que salga.</li>
+    <li>Cuando creas que la historia ya llegó a tu final, <b>Reclamo mi final</b>: lo lees y la mesa vota. Si no lo aceptan, pierdes el reclamo.</li>
+    <li>El <b>escriba</b> apunta una línea por turno. Con eso se juega al final <b>Contar mal</b>: la historia vuelve con palabras cambiadas y la mesa las caza.</li>
+    <li>Con el <b>rollo</b> encendido, cada narrador dibuja su cuadro en un papel largo antes de pasar el turno.</li>
+  </ol>
+</section>
+
+<main>
+  <!-- 1 · preparación -->
+  <section class="caja" id="vPreparar" aria-label="Preparación">
+    <h2>Preparar la mesa</h2>
+    <p>Un dispositivo por mesa, de 3 a 8 jugadores.</p>
+    <div class="dos">
+      <div>
+        <label for="numJugadores">Jugadores</label>
+        <select id="numJugadores"></select>
+        <label>Nombres <small>opcionales; si no, J1, J2…</small></label>
+        <div class="nombres" id="nombres"></div>
+      </div>
+      <div>
+        <label>Cartas de Propp</label>
+        <div class="opciones" role="group" aria-label="Orden de las cartas">
+          <button type="button" class="btn-mini" data-orden="orden" aria-pressed="true">En orden: el arco del cuento</button>
+          <button type="button" class="btn-mini" data-orden="barajadas" aria-pressed="false">Barajadas: parodia</button>
+        </div>
+        <label>Finales secretos</label>
+        <div class="opciones" role="group" aria-label="Cómo se reparten los finales">
+          <button type="button" class="btn-mini" data-finales="pantalla" aria-pressed="true">En este dispositivo</button>
+          <button type="button" class="btn-mini" data-finales="papel" aria-pressed="false">En papel impreso</button>
+        </div>
+        <label for="escriba">Escriba</label>
+        <select id="escriba"></select>
+        <div class="interruptor">
+          <input type="checkbox" id="conReloj">
+          <label for="conReloj">Cronómetro por turno</label>
+          <select id="segundos" aria-label="Segundos por turno"><option value="60">60 s</option><option value="75">75 s</option><option value="90" selected>90 s</option></select>
+        </div>
+        <div class="interruptor">
+          <input type="checkbox" id="conRollo">
+          <label for="conRollo">Rollo: cada turno se dibuja en papel</label>
+        </div>
+      </div>
+    </div>
+    <div class="acciones">
+      <button type="button" id="btnEmpezar" class="btn-primario">Repartir finales</button>
+    </div>
+    <p class="aviso" id="avisoPreparar" role="status" aria-live="polite"></p>
+  </section>
+
+  <!-- 2 · reparto de finales -->
+  <section class="caja reparto" id="vReparto" hidden aria-label="Reparto de finales">
+    <p class="rotulo">Final secreto</p>
+    <p class="quien" id="repartoQuien"></p>
+    <button type="button" class="final-oculto tapado" id="repartoFinal" style="width:100%;border:none"></button>
+    <p id="repartoPista" style="color:var(--suave)"></p>
+    <div class="acciones">
+      <button type="button" id="btnPasar" class="btn-jade" disabled>Ya lo vi: paso el dispositivo</button>
+    </div>
+  </section>
+
+  <!-- 3 · mesa -->
+  <section class="mesa" id="vMesa" hidden aria-label="Mesa de juego">
+    <div class="marcador" id="marcador" aria-label="Jugadores"></div>
+    <p class="narra" id="narra"></p>
+    <div class="carta" id="carta" aria-live="polite"></div>
+    <div class="interrupcion" id="interrupcion" hidden aria-live="assertive"></div>
+    <p class="reloj" id="reloj" hidden aria-live="off"></p>
+    <div class="linea">
+      <label for="loQuePaso">Lo que pasó <small id="escribaRotulo">el escriba apunta una línea</small></label>
+      <input type="text" id="loQuePaso" autocomplete="off" placeholder="El tinaco amaneció lleno de tecolotes y nadie quiso subir.">
+    </div>
+    <p class="recordatorio" id="recordatorio" hidden></p>
+    <div class="acciones">
+      <button type="button" id="btnSiguiente" class="btn-primario">Siguiente turno</button>
+      <button type="button" id="btnInterrumpir" class="btn-dorado">¡Interrupción!</button>
+      <button type="button" id="btnReclamar" class="btn-jade">Reclamo mi final</button>
+    </div>
+
+    <div class="panelito" id="pInterrumpir" hidden>
+      <h3>¿Quién interrumpe?</h3>
+      <div class="opciones" id="quienInterrumpe"></div>
+      <div class="acciones izq"><button type="button" class="btn-secundario" data-cerrar="pInterrumpir">Nadie</button></div>
+    </div>
+
+    <div class="panelito" id="pReclamar" hidden>
+      <h3 id="reclamoTitulo">¿Quién reclama su final?</h3>
+      <div class="opciones" id="quienReclama"></div>
+      <div id="reclamoLectura" hidden>
+        <p class="final-leido" id="finalLeido"></p>
+        <div id="reclamoPapel" hidden>
+          <label for="finalPapel">El final que leyó <small>como viene en su papel</small></label>
+          <input type="text" id="finalPapel" autocomplete="off">
+        </div>
+        <p style="font-weight:600">¿Lo aceptan? A mano alzada; el escriba marca.</p>
+        <div class="acciones izq">
+          <button type="button" id="btnAceptar" class="btn-jade">Sí: así termina</button>
+          <button type="button" id="btnRechazar" class="btn-secundario">No: sigue la historia</button>
+        </div>
+      </div>
+      <div class="acciones izq"><button type="button" class="btn-secundario" data-cerrar="pReclamar">Cancelar</button></div>
+    </div>
+
+    <details class="panel" id="panelTejido">
+      <summary>Tejido: conectar con otra mesa</summary>
+      <div class="contenido">
+        <p>Cada mesa le manda a la otra una línea de su historia. La que llega es una interrupción obligatoria para el próximo narrador y no gasta la de nadie.</p>
+        <label for="tejidoSale">Línea que mandamos <small>escoge una de las que apuntó el escriba, o escríbela</small></label>
+        <select id="tejidoElegir"></select>
+        <input type="text" id="tejidoSale" style="margin-top:.4rem" autocomplete="off">
+        <div class="acciones izq"><button type="button" id="btnTejidoMandar" class="btn-secundario">Copiar para la otra mesa</button></div>
+        <label for="tejidoLlega">Línea que llega de la otra mesa</label>
+        <input type="text" id="tejidoLlega" autocomplete="off">
+        <div class="acciones izq"><button type="button" id="btnTejidoRecibir" class="btn-dorado">Meterla como interrupción</button></div>
+      </div>
+    </details>
+
+    <div class="acciones">
+      <button type="button" id="btnTerminar" class="btn-secundario">Terminar sin final</button>
+    </div>
+  </section>
+
+  <!-- 4 · fin -->
+  <section class="caja" id="vFin" hidden aria-label="Fin de la partida">
+    <p class="rotulo" id="finRotulo">Fin</p>
+    <h2 id="finTitulo"></h2>
+    <ol class="historia" id="historia"></ol>
+
+    <div id="bloqueContarMal">
+      <h2 style="margin-top:1.4rem">Contar mal</h2>
+      <p style="color:var(--suave)">La historia vuelve con algunas palabras cambiadas por otras del banco. Léanla en voz alta y toquen las que están mal. Un punto por error cazado.</p>
+      <div class="acciones izq">
+        <button type="button" id="btnContarMal" class="btn-dorado">Contar mal</button>
+      </div>
+      <div id="contarMal" hidden>
+        <div class="contar-mal" id="textoMal"></div>
+        <p class="puntos" id="puntos"></p>
+        <div class="acciones izq">
+          <button type="button" id="btnRevelarMal" class="btn-jade">Revelar</button>
+        </div>
+      </div>
+    </div>
+
+    <label for="autor">Escriba o autores <small>nombres de pila</small></label>
+    <input type="text" id="autor" autocomplete="given-name" placeholder="Ana, Luis, Sofía">
+    <div class="acciones izq">
+      <button type="button" id="btnGuardar" class="btn-primario">Guardar</button>
+      <button type="button" id="btnNueva" class="btn-secundario">Nueva partida</button>
+    </div>
+    <p class="aviso" id="aviso" role="status" aria-live="polite"></p>
+    <div id="copia" hidden>
+      <label for="copiaTexto">La historia, lista para copiar</label>
+      <textarea id="copiaTexto" readonly></textarea>
+    </div>
+  </section>
+
+  <details class="panel solo-jugar" id="panelBaraja">
+    <summary>Baraja</summary>
+    <div class="contenido">
+      <p class="info" id="infoBaraja"></p>
+      <div class="acciones"><button type="button" id="btnImprimir" class="btn-secundario">Imprimir finales e interrupciones</button></div>
+      <p>Para jugar con papel: se imprimen en una cuadrícula para recortar.</p>
+      <p>Pega aquí un JSON con <code>"funciones"</code> (<code>{"orden":1,"nombre":"Prohibición","descripcion":"…","pregunta":"…"}</code>), <code>"interrupciones"</code> y <code>"finales"</code> (listas de texto), una o varias. Se guarda solo en este navegador y manda sobre la baraja del sitio.</p>
+      <textarea id="barajaTexto" aria-label="Baraja pegada" placeholder='{"finales":["…y el comal sigue caliente."]}'></textarea>
+      <div class="acciones" style="margin-top:.6rem">
+        <button type="button" id="btnUsarBaraja" class="btn-secundario">Usar esta baraja</button>
+        <button type="button" id="btnRestablecer" class="btn-secundario">Restablecer</button>
+      </div>
+    </div>
+  </details>
+</main>
+
+<footer>Ideas: Gianni Rodari, <em>Gramática de la fantasía</em> (las cartas de Propp, el Passatore, contar mal) y el juego <em>Once Upon a Time</em> (interrupciones y final secreto).</footer>
+
+<div id="imprimible" aria-hidden="true"></div>
+
+<script id="baraja" type="application/json">
+{"funciones":[
+{"orden": 1, "nombre": "Prohibición", "descripcion": "A alguien le dicen que no haga algo", "pregunta": "¿Qué le prohíben y quién?"},
+{"orden": 2, "nombre": "Infracción", "descripcion": "Lo hace de todos modos", "pregunta": "¿Cómo rompe la regla?"},
+{"orden": 3, "nombre": "Daño o carencia", "descripcion": "Algo se pierde, se roba o falta", "pregunta": "¿Qué falta ahora?"},
+{"orden": 4, "nombre": "Partida", "descripcion": "El héroe sale de casa", "pregunta": "¿Con qué se va y qué deja?"},
+{"orden": 5, "nombre": "Misión", "descripcion": "Alguien le encarga la tarea", "pregunta": "¿Quién se lo pide y a cambio de qué?"},
+{"orden": 6, "nombre": "Encuentro con el donante", "descripcion": "Aparece quien pondrá a prueba al héroe", "pregunta": "¿Qué le pide primero?"},
+{"orden": 7, "nombre": "Regalos mágicos", "descripcion": "El héroe recibe un objeto o un poder", "pregunta": "¿Qué es y qué no puede hacer?"},
+{"orden": 8, "nombre": "Aparición del antagonista", "descripcion": "Se presenta el que estorba", "pregunta": "¿Cómo se sabe que es él?"},
+{"orden": 9, "nombre": "Poderes del antagonista", "descripcion": "Lo que puede hacer el antagonista", "pregunta": "¿Cuál es su truco?"},
+{"orden": 10, "nombre": "Combate", "descripcion": "Se enfrentan", "pregunta": "¿Dónde y con qué?"},
+{"orden": 11, "nombre": "Victoria", "descripcion": "El héroe gana", "pregunta": "¿Qué le cuesta ganar?"},
+{"orden": 12, "nombre": "Regreso", "descripcion": "Emprende la vuelta", "pregunta": "¿Por dónde regresa?"},
+{"orden": 13, "nombre": "Llegada a casa", "descripcion": "Llega, quizá sin ser reconocido", "pregunta": "¿Quién lo recibe y cómo?"},
+{"orden": 14, "nombre": "El falso héroe", "descripcion": "Alguien se cuelga el mérito", "pregunta": "¿Quién y con qué prueba falsa?"},
+{"orden": 15, "nombre": "Tareas difíciles", "descripcion": "Se le impone una prueba más", "pregunta": "¿Cuál y quién la pone?"},
+{"orden": 16, "nombre": "Daño reparado", "descripcion": "Lo que faltaba vuelve", "pregunta": "¿Cómo vuelve?"},
+{"orden": 17, "nombre": "Reconocimiento del héroe", "descripcion": "Se sabe quién hizo qué", "pregunta": "¿Qué marca lo delata?"},
+{"orden": 18, "nombre": "El falso héroe desenmascarado", "descripcion": "Se descubre al impostor", "pregunta": "¿Quién lo descubre?"},
+{"orden": 19, "nombre": "Castigo del antagonista", "descripcion": "El que estorbó paga", "pregunta": "¿Cuál es el castigo?"},
+{"orden": 20, "nombre": "Boda", "descripcion": "Fiesta, boda o premio", "pregunta": "¿Qué se celebra y quién falta?"}],
+"interrupciones":[
+"un tecolote",
+"empieza a llover",
+"alguien miente",
+"se va la luz",
+"llega un pariente que nadie esperaba",
+"se rompe algo importante",
+"suena un teléfono",
+"aparece una llave",
+"alguien se queda dormido",
+"un olor a quemado",
+"una carta sin remitente",
+"un animal habla una sola vez",
+"alguien pide dinero prestado",
+"se acaba el agua",
+"una fiesta",
+"alguien se equivoca de nombre",
+"llega el delegado",
+"una puerta que no estaba",
+"alguien canta",
+"una deuda",
+"un mapa",
+"un gemelo",
+"una tormenta en seco",
+"alguien pierde la voz",
+"una cubeta vacía",
+"se descompone el camión",
+"un trato",
+"alguien recuerda algo de su infancia",
+"señal de celular donde no había",
+"un espejo"],
+"finales":[
+"…y desde entonces nadie volvió a cerrar esa puerta.",
+"…y por eso en ese pueblo se come tarde.",
+"…y el agua volvió, pero no por donde se fue.",
+"…y nunca supieron quién era el de la gorra.",
+"…y cada año lo celebran sin decir por qué.",
+"…y el tecolote sigue ahí.",
+"…y así se inventó la palabra que ahora todos usan.",
+"…y la deuda quedó pagada con una canción.",
+"…y el primo tuvo que confesar.",
+"…y la llave sigue abriendo cosas que no debería.",
+"…y aprendieron a decirlo con otra palabra.",
+"…y desde entonces el camión sale a las siete y media.",
+"…y nadie recuerda qué había en el tinaco.",
+"…y la abuela tenía razón.",
+"…y lo nombraron delegado, aunque no quería.",
+"…y el mapa resultó ser de otro pueblo.",
+"…y nunca más llovió en martes.",
+"…y la fiesta duró tres días.",
+"…y el espejo se quedó mirando solo.",
+"…y el comal sigue caliente.",
+"…y ella se fue, pero dejó la cubeta llena.",
+"…y todos aprendieron a pronunciar su nombre.",
+"…y la puerta ahora da al río.",
+"…y colorín colorado, este cuento no se ha acabado."],
+"palabras":["tinaco","vereda","cueva","tecolote","comal","alambre","chivo","celular","tortilla","camión","machete","presa","río","nopal","llave","cubeta","lámpara","espejo","puerta","escalera","cerro","lancha","tilapia","sombrero","radio","bicicleta","mochila","gorra","botón","lluvia","trueno","luna","pozo","cocina","molcajete","reloj","carta","fotografía","zapato","costal","gallina","perro","burro","abeja","piedra","cuchara","vela","sábana","ventana","techo","cerca","huerto","semilla","raíz","puente","campana","guitarra","tambor","pelota","globo"],
+"cartas":[]}
+</script>
+<script>
+(function(){
+'use strict';
+var $=function(s){return document.querySelector(s)};
+var LS={baraja:'erase-baraja-v1',partida:'erase-partida-v1',autor:'juegos-autor',modo:'erase-modo-v1'};
+var reduce=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+function lsGet(k){try{return window.localStorage.getItem(k)}catch(e){return null}}
+function lsSet(k,v){try{window.localStorage.setItem(k,v);return true}catch(e){return false}}
+function lsDel(k){try{window.localStorage.removeItem(k)}catch(e){}}
+
+var embebida=JSON.parse($('#baraja').textContent);
+var baraja={funciones:[],interrupciones:[],finales:[],palabras:[],cartas:[],fuente:'embebida'};
+var conf={jugadores:4,orden:'orden',finales:'pantalla',reloj:false,segundos:90,rollo:false,escriba:'rota'};
+var P=null;           /* la partida en curso; se guarda entera en localStorage */
+var reparto={i:0,visto:false};
+var relojId=null;
+
+/* ---------- utilidades ---------- */
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function limpiar(s){return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').trim()}
+function dos(n){return (n<10?'0':'')+n}
+function fechaHoy(){var d=new Date();return d.getFullYear()+'-'+dos(d.getMonth()+1)+'-'+dos(d.getDate())}
+function azar(arr){return arr[Math.floor(Math.random()*arr.length)]}
+function barajar(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+function aviso(t){$('#aviso').textContent=t}
+function nombre(i){return P.nombres[i]}
+function guardarPartida(){ if(P) lsSet(LS.partida,JSON.stringify(P)); }
+function vista(v){ ['vPreparar','vReparto','vMesa','vFin'].forEach(function(id){ $('#'+id).hidden=(id!==v); }); }
+
+/* ---------- baraja ---------- */
+function normalizarFunciones(x){
+  if(x&&!Array.isArray(x)&&Array.isArray(x.funciones)) x=x.funciones;
+  if(!Array.isArray(x)) return [];
+  return x.map(function(f,i){
+    if(typeof f==='string') return {orden:i+1,nombre:f,descripcion:'',pregunta:''};
+    return f&&f.nombre?{orden:+f.orden||i+1,nombre:String(f.nombre),descripcion:f.descripcion||'',pregunta:f.pregunta||''}:null;
+  }).filter(Boolean).sort(function(a,b){return a.orden-b.orden});
+}
+function normalizarTextos(x,llave){
+  if(x&&!Array.isArray(x)&&Array.isArray(x[llave])) x=x[llave];
+  if(!Array.isArray(x)) return [];
+  var vistos={}, out=[];
+  x.forEach(function(t){
+    t=(typeof t==='string')?t:(t&&(t.texto||t.palabra))||'';
+    t=String(t).trim(); if(!t) return;
+    var k=limpiar(t); if(vistos[k]) return;
+    vistos[k]=1; out.push(t);
+  });
+  return out;
+}
+function aplicar(obj,fuente){
+  var usado=false;
+  var f=normalizarFunciones(obj.funciones); if(f.length){ baraja.funciones=f; usado=true; }
+  var it=normalizarTextos(obj.interrupciones,'interrupciones'); if(it.length){ baraja.interrupciones=it; usado=true; }
+  var fi=normalizarTextos(obj.finales,'finales'); if(fi.length){ baraja.finales=fi; usado=true; }
+  var pa=normalizarTextos(obj.palabras,'palabras'); if(pa.length>=5){ baraja.palabras=pa; usado=true; }
+  if(usado&&fuente) baraja.fuente=fuente;
+  return usado;
+}
+function traer(nombre){
+  return fetch('./data/'+nombre+'.json').then(function(r){return r.ok?r.json():null}).catch(function(){return null});
+}
+function cargar(){
+  aplicar(embebida,'embebida en la página');
+  baraja.cartas=(embebida.cartas||[]).filter(function(c){return c&&c.juego==='erase'});
+  return Promise.all([traer('funciones'),traer('interrupciones'),traer('finales'),traer('banco'),traer('cartas')]).then(function(r){
+    var obj={};
+    if(r[0]) obj.funciones=r[0].funciones||r[0];
+    if(r[1]) obj.interrupciones=r[1].interrupciones||r[1];
+    if(r[2]) obj.finales=r[2].finales||r[2];
+    if(r[3]) obj.palabras=r[3].palabras||r[3];
+    aplicar(obj,'data/*.json');
+    if(r[4]&&Array.isArray(r[4].cartas)) baraja.cartas=r[4].cartas.filter(function(k){return k&&k.juego==='erase'});
+  }).catch(function(){}).then(function(){
+    var raw=lsGet(LS.baraja);
+    if(raw){ try{ if(aplicar(JSON.parse(raw),'pegada en este navegador')) $('#barajaTexto').value=raw; }catch(e){} }
+    pintarInfoBaraja();
+  });
+}
+function pintarInfoBaraja(){
+  $('#infoBaraja').textContent=baraja.funciones.length+' funciones · '+baraja.interrupciones.length+' interrupciones · '+baraja.finales.length+' finales · '+baraja.palabras.length+' palabras para contar mal · fuente: '+baraja.fuente;
+}
+/* una carta ilustrada de cartas.json (juego "erase") se pega a la función con el mismo nombre */
+function imagenDe(nombreCarta){
+  var k=limpiar(nombreCarta);
+  return baraja.cartas.filter(function(c){return limpiar(c.texto||'')===k&&c.imagen})[0]||null;
+}
+
+/* ---------- preparación ---------- */
+function pintarPreparacion(){
+  var sel=$('#numJugadores'); sel.innerHTML='';
+  for(var n=3;n<=8;n++){ var o=document.createElement('option'); o.value=n; o.textContent=n+' jugadores'; sel.appendChild(o); }
+  sel.value=conf.jugadores;
+  pintarNombres();
+}
+function pintarNombres(){
+  var cont=$('#nombres'), antes=Array.prototype.map.call(cont.querySelectorAll('input'),function(i){return i.value});
+  cont.innerHTML='';
+  for(var i=0;i<conf.jugadores;i++){
+    var inp=document.createElement('input'); inp.type='text'; inp.placeholder='J'+(i+1); inp.setAttribute('aria-label','Nombre del jugador '+(i+1)); inp.value=antes[i]||''; inp.autocomplete='off';
+    inp.addEventListener('input',pintarEscriba);
+    cont.appendChild(inp);
+  }
+  pintarEscriba();
+}
+function nombresPreparados(){
+  return Array.prototype.map.call($('#nombres').querySelectorAll('input'),function(inp,i){ return inp.value.trim()||('J'+(i+1)); });
+}
+function pintarEscriba(){
+  var sel=$('#escriba'), antes=sel.value||conf.escriba, ns=nombresPreparados();
+  sel.innerHTML='<option value="rota">Rota: el de la izquierda del narrador</option>'+ns.map(function(n,i){return '<option value="'+i+'">Fijo: '+esc(n)+'</option>'}).join('')+'<option value="nadie">Nadie apunta</option>';
+  sel.value=sel.querySelector('option[value="'+antes+'"]')?antes:'rota';
+}
+function elegirOpcion(attr,valor){
+  document.querySelectorAll('[data-'+attr+']').forEach(function(b){ b.setAttribute('aria-pressed',String(b.getAttribute('data-'+attr)===valor)); });
+  conf[attr]=valor;
+  if(attr==='finales') $('#btnEmpezar').textContent=valor==='papel'?'Empezar':'Repartir finales';
+}
+function empezar(){
+  if(!baraja.funciones.length){ $('#avisoPreparar').textContent='La baraja no tiene funciones.'; return; }
+  var ns=nombresPreparados();
+  if(conf.finales==='pantalla'&&baraja.finales.length<ns.length){ $('#avisoPreparar').textContent='No alcanzan los finales para '+ns.length+' jugadores.'; return; }
+  var fins=barajar(baraja.finales);
+  P={
+    fecha:fechaHoy(), nombres:ns, orden:conf.orden, finales:conf.finales,
+    reloj:$('#conReloj').checked, segundos:+$('#segundos').value, rollo:$('#conRollo').checked, escriba:$('#escriba').value,
+    secretos:conf.finales==='pantalla'?ns.map(function(_,i){return fins[i]}):[],
+    mazo:(conf.orden==='orden'?baraja.funciones.slice():barajar(baraja.funciones)).map(function(f){return f.orden}),
+    mazoInt:barajar(baraja.interrupciones),
+    vueltas:0, turno:0, narrador:0, carta:null,
+    turnos:[], interrupcionesUsadas:[], gastoInt:ns.map(function(){return false}), sinReclamo:ns.map(function(){return false}),
+    pendiente:null, tejidoLlega:null, final:null, terminada:false, fase:'reparto'
+  };
+  sacarCarta();
+  if(P.finales==='pantalla'){ reparto={i:0,visto:false}; P.fase='reparto'; guardarPartida(); pintarReparto(); vista('vReparto'); }
+  else { P.fase='mesa'; guardarPartida(); pintarMesa(true); vista('vMesa'); }
+}
+
+/* ---------- reparto ---------- */
+function pintarReparto(){
+  if(document.body.classList.contains('proyectar')){
+    $('#repartoQuien').textContent='No en pantalla grande';
+    $('#repartoFinal').hidden=true; $('#btnPasar').hidden=true;
+    $('#repartoPista').textContent='Los finales se reparten en la mesa, en modo Jugar, o se imprimen desde el panel Baraja.';
+    return;
+  }
+  $('#repartoFinal').hidden=false; $('#btnPasar').hidden=false;
+  var i=reparto.i, b=$('#repartoFinal');
+  $('#repartoQuien').textContent=nombre(i)+': mira tu final';
+  b.className='final-oculto tapado'; b.textContent='Toca para ver'; reparto.visto=false;
+  $('#repartoPista').textContent='Que nadie más vea. Tocar para ver, tocar para ocultar.';
+  $('#btnPasar').disabled=true;
+  $('#btnPasar').textContent=i<P.nombres.length-1?'Ya lo vi: paso el dispositivo a '+nombre(i+1):'Ya lo vi: a jugar';
+}
+function voltearFinal(){
+  var b=$('#repartoFinal');
+  if(b.classList.contains('tapado')){ b.className='final-oculto visto'; b.textContent=P.secretos[reparto.i]; reparto.visto=true; $('#btnPasar').disabled=false; }
+  else { b.className='final-oculto tapado'; b.textContent='Toca para ver'; }
+}
+function pasar(){
+  if(!reparto.visto) return;
+  reparto.i++;
+  if(reparto.i<P.nombres.length){ pintarReparto(); return; }
+  P.fase='mesa'; guardarPartida(); pintarMesa(true); vista('vMesa');
+}
+
+/* ---------- mesa ---------- */
+function sacarCarta(){
+  if(!P.mazo.length){
+    P.vueltas++;
+    P.mazo=barajar(baraja.funciones).map(function(f){return f.orden});
+  }
+  var o=P.mazo.shift();
+  P.carta=baraja.funciones.filter(function(f){return f.orden===o})[0]||baraja.funciones[0];
+}
+function escribaDe(narrador){
+  if(P.escriba==='nadie') return -1;
+  if(P.escriba==='rota') return (narrador+1)%P.nombres.length;
+  return +P.escriba;
+}
+function pintarMesa(animar){
+  var n=P.narrador;
+  $('#marcador').innerHTML=P.nombres.map(function(nm,i){
+    var cl=(i===n?'turno':'')+(P.sinReclamo[i]?' sin-reclamo':'');
+    var tit=(P.gastoInt[i]?'ya usó su interrupción':'tiene su interrupción')+(P.sinReclamo[i]?'; perdió el reclamo':'');
+    return '<span class="'+cl+'" title="'+tit+'">'+esc(nm)+(P.gastoInt[i]?'':'<i aria-label="con interrupción">⚡</i>')+'</span>';
+  }).join('');
+  $('#narra').innerHTML='Turno '+(P.turno+1)+' · narra <b>'+esc(nombre(n))+'</b>';
+  var c=P.carta, img=imagenDe(c.nombre), el=$('#carta');
+  el.innerHTML='<span class="numero">'+c.orden+(P.vueltas?' · vuelta '+(P.vueltas+1):'')+'</span>'+
+    (img?'<img src="'+esc(img.imagen)+'" alt="">':'')+
+    '<span class="nombre">'+esc(c.nombre)+'</span>'+
+    (c.descripcion?'<span class="descripcion">'+esc(c.descripcion)+'</span>':'')+
+    (c.pregunta?'<span class="pregunta">'+esc(c.pregunta)+'</span>':'')+
+    (img&&img.autor?'<span class="credito">Dibujo: '+esc(img.autor)+'</span>':'');
+  el.className='carta';
+  if(animar&&!reduce){ void el.offsetWidth; el.classList.add('anim'); }
+  pintarInterrupcion();
+  var e=escribaDe(n);
+  $('#loQuePaso').parentNode.hidden=(e<0);
+  $('#escribaRotulo').textContent=e<0?'':'apunta '+nombre(e)+': una línea, opcional';
+  $('#btnInterrumpir').disabled=!P.gastoInt.some(function(g,i){return !g&&i!==n})||!!P.pendiente;
+  $('#btnReclamar').disabled=P.sinReclamo.every(function(s){return s});
+  $('#pInterrumpir').hidden=true; $('#pReclamar').hidden=true;
+  pintarTejido();
+  arrancarReloj();
+}
+function pintarInterrupcion(){
+  var box=$('#interrupcion'), x=P.pendiente;
+  box.hidden=!x;
+  if(x) box.innerHTML='¡Interrupción! '+esc(x.texto)+'<small>'+(x.de===null?'llegó de la otra mesa':'la mete '+esc(nombre(x.de)))+' · '+esc(nombre(P.narrador))+' tiene que meterla en la historia antes de terminar su turno</small>';
+}
+function arrancarReloj(){
+  if(relojId){ clearInterval(relojId); relojId=null; }
+  var r=$('#reloj');
+  if(!P.reloj){ r.hidden=true; return; }
+  var fin=Date.now()+P.segundos*1000;
+  r.hidden=false; r.classList.remove('cero');
+  function tic(){
+    var s=Math.max(0,Math.ceil((fin-Date.now())/1000));
+    r.textContent=s?Math.floor(s/60)+':'+dos(s%60):'¡Tiempo! Redondea y pasa';
+    if(!s){ r.classList.add('cero'); clearInterval(relojId); relojId=null; }
+  }
+  tic(); relojId=setInterval(tic,500);
+}
+function cerrarTurno(alTerminar){
+  var linea=$('#loQuePaso').value.trim();
+  if(alTerminar&&!linea) return;
+  P.turnos.push({jugador:P.narrador,carta:P.carta.nombre,linea:linea,interrupcion:P.pendiente?P.pendiente.texto:''});
+  $('#loQuePaso').value='';
+  if(P.rollo){
+    var r=$('#recordatorio'); r.hidden=false;
+    r.textContent=nombre(P.narrador)+' dibuja el cuadro '+P.turnos.length+' en el rollo: '+P.carta.nombre.toLowerCase()+'.';
+  } else $('#recordatorio').hidden=true;
+}
+function siguiente(){
+  cerrarTurno();
+  P.pendiente=null;
+  if(P.tejidoLlega){ P.pendiente={texto:P.tejidoLlega,de:null}; P.tejidoLlega=null; }
+  P.turno++; P.narrador=(P.narrador+1)%P.nombres.length;
+  sacarCarta(); guardarPartida(); pintarMesa(true);
+  $('#loQuePaso').focus({preventScroll:true});
+}
+
+/* interrupción */
+function abrirInterrumpir(){
+  var cont=$('#quienInterrumpe'); cont.innerHTML='';
+  P.nombres.forEach(function(nm,i){
+    if(i===P.narrador||P.gastoInt[i]) return;
+    var b=document.createElement('button'); b.type='button'; b.className='btn-mini'; b.textContent=nm;
+    b.addEventListener('click',function(){ interrumpir(i); });
+    cont.appendChild(b);
+  });
+  $('#pReclamar').hidden=true; $('#pInterrumpir').hidden=false;
+}
+function interrumpir(i){
+  if(!P.mazoInt.length) P.mazoInt=barajar(baraja.interrupciones);
+  var t=P.mazoInt.shift();
+  P.gastoInt[i]=true;
+  P.pendiente={texto:t,de:i};
+  P.interrupcionesUsadas.push({jugador:i,texto:t,turno:P.turno+1});
+  guardarPartida(); pintarMesa(false);
+}
+
+/* reclamo */
+var reclamante=null;
+function abrirReclamar(){
+  reclamante=null;
+  var cont=$('#quienReclama'); cont.innerHTML='';
+  P.nombres.forEach(function(nm,i){
+    if(P.sinReclamo[i]) return;
+    var b=document.createElement('button'); b.type='button'; b.className='btn-mini'; b.textContent=nm;
+    b.addEventListener('click',function(){ leerReclamo(i); });
+    cont.appendChild(b);
+  });
+  $('#reclamoTitulo').textContent='¿Quién reclama su final?';
+  $('#quienReclama').hidden=false; $('#reclamoLectura').hidden=true;
+  $('#pInterrumpir').hidden=true; $('#pReclamar').hidden=false;
+}
+function leerReclamo(i){
+  reclamante=i;
+  $('#reclamoTitulo').textContent=nombre(i)+' reclama su final';
+  $('#quienReclama').hidden=true; $('#reclamoLectura').hidden=false;
+  var papel=(P.finales==='papel');
+  $('#reclamoPapel').hidden=!papel;
+  $('#finalLeido').hidden=papel;
+  if(papel){ $('#finalPapel').value=''; $('#finalPapel').focus(); }
+  else $('#finalLeido').textContent=P.secretos[i];
+}
+function aceptar(){
+  var i=reclamante; if(i===null) return;
+  var f=P.finales==='papel'?$('#finalPapel').value.trim():P.secretos[i];
+  if(!f){ $('#finalPapel').focus(); return; }
+  cerrarTurno(true);
+  P.final={jugador:i,texto:f};
+  terminar();
+}
+function rechazar(){
+  var i=reclamante; if(i===null) return;
+  P.sinReclamo[i]=true;
+  P.turnos.push({jugador:i,carta:'Reclamo rechazado',linea:'',interrupcion:'',rechazo:true});
+  guardarPartida(); pintarMesa(false);
+  $('#narra').innerHTML='La mesa no lo aceptó: '+esc(nombre(i))+' pierde el reclamo. Sigue narrando <b>'+esc(nombre(P.narrador))+'</b>';
+}
+
+/* tejido */
+function pintarTejido(){
+  var sel=$('#tejidoElegir'), lineas=P.turnos.filter(function(t){return t.linea});
+  sel.innerHTML='<option value="">Elegir una línea de la historia…</option>'+lineas.map(function(t,i){return '<option value="'+i+'">'+esc(t.linea)+'</option>'}).join('');
+  sel.onchange=function(){ if(sel.value!=='') $('#tejidoSale').value=lineas[+sel.value].linea; };
+}
+function tejidoMandar(){
+  var t=$('#tejidoSale').value.trim();
+  if(!t){ $('#tejidoSale').focus(); return; }
+  copiar(t).then(function(ok){ $('#narra').innerHTML=ok?'Línea copiada: mándenla a la otra mesa.':'Copien la línea a mano y mándenla a la otra mesa.'; });
+}
+function tejidoRecibir(){
+  var t=$('#tejidoLlega').value.trim();
+  if(!t){ $('#tejidoLlega').focus(); return; }
+  $('#tejidoLlega').value='';
+  P.interrupcionesUsadas.push({jugador:null,texto:t,turno:P.turno+1});
+  if(P.pendiente){ P.tejidoLlega=t; $('#narra').innerHTML='Llegó la línea de la otra mesa: entra en el próximo turno.'; guardarPartida(); return; }
+  P.pendiente={texto:t,de:null};
+  guardarPartida(); pintarMesa(false);
+}
+
+/* ---------- fin ---------- */
+function terminar(){
+  if(relojId){ clearInterval(relojId); relojId=null; }
+  P.terminada=true; P.fase='fin'; guardarPartida();
+  pintarFin(); vista('vFin');
+}
+function pintarFin(){
+  $('#finRotulo').textContent=P.final?'Fin · ganó '+nombre(P.final.jugador):'Fin sin final secreto';
+  $('#finTitulo').textContent=P.final?P.final.texto:'La historia quedó abierta.';
+  var ol=$('#historia'); ol.innerHTML='';
+  P.turnos.forEach(function(t,i){
+    var li=document.createElement('li');
+    li.innerHTML='<span class="meta">'+(i+1)+' · '+esc(nombre(t.jugador))+' · '+esc(t.carta)+(t.interrupcion?' · interrupción: '+esc(t.interrupcion):'')+'</span>'+(t.linea?esc(t.linea):(t.rechazo?'':'<em style="color:var(--suave)">(sin línea)</em>'));
+    ol.appendChild(li);
+  });
+  if(P.final){ var lf=document.createElement('li'); lf.className='final'; lf.textContent=P.final.texto; ol.appendChild(lf); }
+  var hay=P.turnos.some(function(t){return t.linea});
+  $('#bloqueContarMal').hidden=!hay;
+  $('#contarMal').hidden=true;
+  var a=lsGet(LS.autor); if(a&&!$('#autor').value) $('#autor').value=a;
+}
+
+/* contar mal: cambia de tres a cinco sustantivos (lo que sigue a un artículo, o una palabra del banco) */
+var ARTS={el:1,la:1,los:1,las:1,un:1,una:1,unos:1,unas:1,del:1,al:1,su:1,sus:1,mi:1,tu:1};
+var NO={que:1,cual:1,mismo:1,misma:1,otro:1,otra:1,otros:1,otras:1,cosa:1,vez:1,veces:1,primero:1,primera:1,ultimo:1,ultima:1,dia:1,noche:1,tarde:1};
+var mal={tokens:[],cambios:0,cazados:0,revelado:false};
+function plural(w){ return /[aeiouáéíóú]$/i.test(w)?w+'s':(/z$/.test(w)?w.slice(0,-1)+'ces':w+'es'); }
+function contarMal(){
+  var lineas=P.turnos.filter(function(t){return t.linea}).map(function(t){return t.linea});
+  var banco={}; baraja.palabras.forEach(function(p){banco[limpiar(p)]=1});
+  var tokens=[], candidatos=[];
+  lineas.forEach(function(l,li){
+    var partes=l.split(/(\s+)/), prev='';
+    partes.forEach(function(p){
+      var m=p.match(/^([¿¡«"(]*)([A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)([^A-Za-zÁÉÍÓÚÜÑáéíóúüñ]*)$/);
+      var tok={texto:p,linea:li};
+      if(m&&!/^\s+$/.test(p)){
+        tok.pre=m[1]; tok.pal=m[2]; tok.post=m[3];
+        var k=limpiar(m[2]);
+        var trasArticulo=ARTS[prev]&&m[2].length>=3&&!NO[k]&&!(m[2][0]===m[2][0].toUpperCase()&&m[2][0]!==m[2][0].toLowerCase());
+        if(trasArticulo||banco[k]) candidatos.push(tokens.length);
+        prev=k;
+        tok.cazable=true;
+      } else if(!/^\s+$/.test(p)) prev='';
+      tokens.push(tok);
+    });
+    tokens.push({salto:true});
+  });
+  var n=Math.min(candidatos.length,Math.max(3,Math.min(5,Math.round(candidatos.length/3))));
+  var elegidos=barajar(candidatos).slice(0,n);
+  elegidos.forEach(function(ix){
+    var t=tokens[ix], k=limpiar(t.pal), reemplazo, intentos=0;
+    /* misma terminación (-a, -o, otra) para que el artículo de al lado no delate el cambio */
+    var sing=k.replace(/s$/,''), fin=function(w){ w=limpiar(w).replace(/^(el|la)\s+/,''); return /a$/.test(w)?'a':(/o$/.test(w)?'o':'x'); };
+    var parecidas=baraja.palabras.filter(function(w){ return fin(w)===fin(sing)&&!/^(el|la)\s/i.test(w); });
+    if(parecidas.length<5) parecidas=baraja.palabras;
+    do{ reemplazo=azar(parecidas); intentos++; } while(limpiar(reemplazo)===k&&intentos<10);
+    reemplazo=reemplazo.replace(/^(el|la)\s+/i,'');
+    if(/s$/i.test(t.pal)&&!banco[k]) reemplazo=plural(reemplazo);
+    if(t.pal[0]!==t.pal[0].toLowerCase()) reemplazo=reemplazo[0].toUpperCase()+reemplazo.slice(1);
+    t.original=t.pal; t.pal=reemplazo; t.cambiado=true;
+  });
+  mal={tokens:tokens,cambios:elegidos.length,cazados:0,revelado:false};
+  pintarMal();
+  $('#contarMal').hidden=false;
+}
+function pintarMal(){
+  var cont=$('#textoMal'); cont.innerHTML='';
+  var p=document.createElement('p');
+  mal.tokens.forEach(function(t,i){
+    if(t.salto){ cont.appendChild(p); p=document.createElement('p'); return; }
+    if(!t.cazable){ p.appendChild(document.createTextNode(t.texto)); return; }
+    if(t.pre) p.appendChild(document.createTextNode(t.pre));
+    var s=document.createElement('span'); s.className='palabra-cazable'; s.tabIndex=0; s.setAttribute('role','button');
+    s.textContent=t.pal;
+    if(t.cazada) s.classList.add('cazada');
+    if(t.fallo) s.classList.add('fallo');
+    if(mal.revelado&&t.cambiado&&!t.cazada) s.classList.add('revelada');
+    if((t.cazada||mal.revelado)&&t.cambiado){ var o=document.createElement('span'); o.className='original'; o.textContent='('+t.original+')'; s.appendChild(o); }
+    function cazar(){ if(t.cazada||t.fallo||mal.revelado) return; if(t.cambiado){ t.cazada=true; mal.cazados++; } else t.fallo=true; pintarMal(); }
+    s.addEventListener('click',cazar);
+    s.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); cazar(); } });
+    p.appendChild(s);
+    if(t.post) p.appendChild(document.createTextNode(t.post));
+  });
+  $('#puntos').textContent=mal.revelado?'Cazaron '+mal.cazados+' de '+mal.cambios+' errores.':(mal.cazados+' cazados · faltan '+(mal.cambios-mal.cazados)+' de '+mal.cambios);
+  $('#btnRevelarMal').disabled=mal.revelado;
+}
+
+/* ---------- guardar ---------- */
+function textoPartida(){
+  var l=['# Érase una vez con cartas · '+P.fecha,''];
+  l.push('Jugadores: '+P.nombres.join(', '));
+  l.push('Cartas: '+(P.orden==='orden'?'en orden':'barajadas')+(P.rollo?' · con rollo':''));
+  l.push('');
+  l.push('## La historia');
+  P.turnos.forEach(function(t,i){
+    if(t.rechazo){ l.push('- '+nombre(t.jugador)+' reclamó su final y la mesa no lo aceptó.'); return; }
+    l.push((i+1)+'. **'+nombre(t.jugador)+'** · '+t.carta+(t.interrupcion?' · interrupción: '+t.interrupcion:'')+(t.linea?'\n   '+t.linea:''));
+  });
+  l.push('');
+  l.push('## Final');
+  l.push(P.final?P.final.texto+' (lo reclamó '+nombre(P.final.jugador)+' y la mesa lo aceptó)':'Sin final aceptado.');
+  if(P.interrupcionesUsadas.length){
+    l.push('');
+    l.push('## Interrupciones');
+    P.interrupcionesUsadas.forEach(function(x){ l.push('- Turno '+x.turno+': '+x.texto+' ('+(x.jugador===null?'de la otra mesa':nombre(x.jugador))+')'); });
+  }
+  if(mal.cambios){ l.push(''); l.push('Contar mal: '+mal.cazados+' de '+mal.cambios+' errores cazados.'); }
+  l.push('');
+  l.push('Autores: '+($('#autor').value.trim()||P.nombres.join(', ')));
+  l.push('Fecha: '+P.fecha);
+  return l.join('\n')+'\n';
+}
+function guardar(){
+  var a=$('#autor').value.trim(); if(a) lsSet(LS.autor,a);
+  var t=textoPartida();
+  copiar(t).then(function(ok){
+    descargar('erase-'+P.fecha+'.md',t);
+    aviso(ok?'Historia copiada y descargada: pégala en el Museo o en el formulario.':'Descargada. El portapapeles no se dejó: copia el texto de abajo con Ctrl+C.');
+  });
+}
+var nuevaArmada=false;
+function nueva(btn,texto){
+  if(P&&!P.terminada&&!nuevaArmada){ nuevaArmada=true; btn.textContent='¿Seguro? Se pierde la partida'; setTimeout(function(){nuevaArmada=false;btn.textContent=texto},4000); return; }
+  nuevaArmada=false; btn.textContent=texto;
+  if(relojId){ clearInterval(relojId); relojId=null; }
+  lsDel(LS.partida); P=null; mal={tokens:[],cambios:0,cazados:0,revelado:false};
+  $('#recordatorio').hidden=true; $('#copia').hidden=true; aviso(''); $('#avisoPreparar').textContent='';
+  vista('vPreparar');
+}
+
+/* ---------- imprimir ---------- */
+function imprimir(){
+  var h='<h2>Finales secretos · Érase una vez con cartas</h2><div class="rejilla">'+baraja.finales.map(function(f){return '<div><span>'+esc(f)+'<small>final secreto</small></span></div>'}).join('')+'</div>';
+  h+='<h2 class="salto">Interrupciones · Érase una vez con cartas</h2><div class="rejilla">'+baraja.interrupciones.map(function(f){return '<div><span>'+esc(f)+'<small>¡interrupción!</small></span></div>'}).join('')+'</div>';
+  $('#imprimible').innerHTML=h;
+  window.print();
+}
+
+/* ---------- copiar y descargar ---------- */
+function copiar(t){
+  function respaldo(){
+    var caja=$('#copia'), ta=$('#copiaTexto');
+    caja.hidden=false; ta.value=t; ta.focus(); ta.select();
+    var ok=false;
+    try{ ok=!!document.execCommand('copy'); }catch(e){ ok=false; }
+    if(ok) caja.hidden=true;
+    return ok;
+  }
+  return new Promise(function(res){
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(function(){ $('#copia').hidden=true; res(true); },function(){ res(respaldo()); });
+    } else res(respaldo());
+  });
+}
+function descargar(nombreArchivo,t){
+  try{
+    var b=new Blob([t],{type:'text/plain;charset=utf-8'});
+    var u=URL.createObjectURL(b);
+    var a=document.createElement('a'); a.href=u; a.download=nombreArchivo;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){URL.revokeObjectURL(u)},2000);
+  }catch(e){}
+}
+
+/* ---------- modo ---------- */
+function setModo(m){
+  var proy=(m==='proyectar');
+  document.body.classList.toggle('proyectar',proy);
+  $('#btnJugar').classList.toggle('activo',!proy); $('#btnJugar').setAttribute('aria-pressed',String(!proy));
+  $('#btnProyectar').classList.toggle('activo',proy); $('#btnProyectar').setAttribute('aria-pressed',String(proy));
+  lsSet(LS.modo,proy?'proyectar':'jugar');
+  if(P&&P.fase==='reparto') pintarReparto();
+}
+
+/* ---------- cableado ---------- */
+$('#numJugadores').addEventListener('change',function(){ conf.jugadores=+this.value; pintarNombres(); });
+document.querySelectorAll('[data-orden]').forEach(function(b){ b.addEventListener('click',function(){ elegirOpcion('orden',b.getAttribute('data-orden')); }); });
+document.querySelectorAll('[data-finales]').forEach(function(b){ b.addEventListener('click',function(){ elegirOpcion('finales',b.getAttribute('data-finales')); }); });
+document.querySelectorAll('[data-cerrar]').forEach(function(b){ b.addEventListener('click',function(){ $('#'+b.getAttribute('data-cerrar')).hidden=true; }); });
+$('#btnEmpezar').addEventListener('click',empezar);
+$('#repartoFinal').addEventListener('click',voltearFinal);
+$('#btnPasar').addEventListener('click',pasar);
+$('#btnSiguiente').addEventListener('click',siguiente);
+$('#loQuePaso').addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); siguiente(); } });
+$('#btnInterrumpir').addEventListener('click',abrirInterrumpir);
+$('#btnReclamar').addEventListener('click',abrirReclamar);
+$('#btnAceptar').addEventListener('click',aceptar);
+$('#btnRechazar').addEventListener('click',rechazar);
+$('#btnTejidoMandar').addEventListener('click',tejidoMandar);
+$('#btnTejidoRecibir').addEventListener('click',tejidoRecibir);
+$('#btnTerminar').addEventListener('click',function(){ cerrarTurno(true); terminar(); });
+$('#btnContarMal').addEventListener('click',contarMal);
+$('#btnRevelarMal').addEventListener('click',function(){ mal.revelado=true; pintarMal(); });
+$('#btnGuardar').addEventListener('click',guardar);
+$('#btnNueva').addEventListener('click',function(){ nueva(this,'Nueva partida'); });
+$('#btnImprimir').addEventListener('click',imprimir);
+$('#btnUsarBaraja').addEventListener('click',function(){
+  var raw=$('#barajaTexto').value.trim(), ok=false;
+  try{ var j=JSON.parse(raw); ok=!!(normalizarFunciones(j.funciones).length||normalizarTextos(j.interrupciones,'interrupciones').length||normalizarTextos(j.finales,'finales').length||normalizarTextos(j.palabras,'palabras').length>=5); }catch(e){ ok=false; }
+  if(!ok){ $('#infoBaraja').textContent='No encontré funciones, interrupciones, finales ni palabras en lo pegado.'; return; }
+  lsSet(LS.baraja,raw); cargar();
+});
+$('#btnRestablecer').addEventListener('click',function(){ lsDel(LS.baraja); $('#barajaTexto').value=''; cargar(); });
+$('#btnReglas').addEventListener('click',function(){
+  var r=$('#reglas'); r.hidden=!r.hidden; this.setAttribute('aria-expanded',String(!r.hidden));
+});
+$('#btnJugar').addEventListener('click',function(){setModo('jugar')});
+$('#btnProyectar').addEventListener('click',function(){setModo('proyectar')});
+
+/* ---------- arranque ---------- */
+pintarPreparacion();
+if(lsGet(LS.modo)==='proyectar') setModo('proyectar');
+cargar().then(function(){
+  var raw=lsGet(LS.partida);
+  if(!raw) return;
+  try{ P=JSON.parse(raw); }catch(e){ P=null; }
+  if(!P||!P.nombres) { P=null; return; }
+  if(P.fase==='fin') { pintarFin(); vista('vFin'); }
+  else if(P.fase==='reparto') { reparto={i:0,visto:false}; pintarReparto(); vista('vReparto'); }
+  else { pintarMesa(false); vista('vMesa'); }
+});
+})();
+</script>
+</body>
+</html>
