@@ -30,7 +30,12 @@ Aquí empieza la unidad 3. El orden cambió un poco: en vez de abrir con el grie
 | [Jueves](#jueves) · 1 h, centro de cómputo | La cacería | tu mazo con las locuciones del taller |
 | [Viernes](#viernes) · 2 h | El quiz #10 y la segunda temporada | plumones, hojas blancas y tu expediente al día |
 
-<p class="pista-mazos">Cada día es un mazo de láminas. En clase se proyectan una por una con el botón <strong>Presentar</strong>; aquí se quedan apiladas, en orden, para volver a ellas cuando quieras. Debajo de los mazos: la tira del cerdo con su crédito, la regla de oro de las locuciones, el gimnasio completo, la hoja de consulta para tocar y el muro con lo que el grupo cazó.</p>
+<p class="pista-mazos">Cada día es un mazo de láminas. En clase se proyectan una por una con el botón <strong>Presentar</strong>; aquí se quedan apiladas, en orden, para volver a ellas cuando quieras. Debajo de los mazos: las diecisiete locuciones explicadas con un dibujo, la tira de Porcio, la regla de oro, el gimnasio completo, la hoja de consulta para tocar y el muro con lo que el grupo cazó.</p>
+
+<script src="../assets/js/dibujos-semana-14.js"></script>
+<style>
+.lam .dib14-lam, .dib14-pag { display: block; max-width: 40rem; margin: .7rem auto 0; border: 1px solid #E6DFF0; border-radius: .7rem; overflow: hidden; background: #fffdf8; }
+</style>
 
 <!-- ============================ MARTES ============================ -->
 <section class="mazo" id="martes">
@@ -38,7 +43,7 @@ Aquí empieza la unidad 3. El orden cambió un poco: en vez de abrir con el grie
 <div>
 <div class="cuando">Martes · 1 hora</div>
 <h3>Un cerdo que habla latín</h3>
-<p class="foco">Abre la unidad 3 y, de paso, descubre que ya entiendes latín: el chiste te lo va a demostrar.</p>
+<p class="foco">Abre la unidad 3: qué es una locución latina, diecisiete explicadas con un dibujo, y un cerdo que te demuestra que ya las entiendes.</p>
 </div>
 <button class="btn-presentar" type="button">Presentar ▸</button>
 </div>
@@ -57,7 +62,7 @@ Aquí empieza la unidad 3. El orden cambió un poco: en vez de abrir con el grie
 <p class="nota-conductor">Lámina fija de todos los martes: pasa el QR, manda el enlace al grupo en este momento y sigue. Recuérdales que la bitácora vive solo en su teléfono: desde el menú se copia un código de respaldo (empieza con ETIMB·) que se mandan a sí mismos por WhatsApp.</p>
 </section>
 <section class="lam lam--oscura">
-<h4><span class="n">2</span> Aquí empieza la unidad 3 <span class="reloj">8 min</span></h4>
+<h4><span class="n">2</span> Aquí empieza la unidad 3 <span class="reloj">6 min</span></h4>
 <p class="palabra-grande">¿Qué puertas me abren las palabras?</p>
 <p class="di">Cuatro paradas y un Museo. Hoy abrimos la primera puerta, la del latín, y el orden del mapa cambió un poco.</p>
 <table>
@@ -72,49 +77,57 @@ Aquí empieza la unidad 3. El orden cambió un poco: en vez de abrir con el grie
 <p class="nota-conductor">Di en una frase por qué empezamos por el latín y no por los médicos: el orden cambió, el camino no. Lee el suelo completo en voz alta, despacio, y aclara que la defensa socrática es el tercer peldaño de la escalera que empezó en la semana 7. Las fechas exactas de cada parada se anuncian al cerrar cada semana, no hoy.</p>
 </section>
 <section class="lam">
-<h4><span class="n">3</span> La tarea puente <span class="reloj">4 min</span></h4>
+<h4><span class="n">3</span> La tarea puente <span class="reloj">3 min</span></h4>
 <span class="senal senal--aire">Al aire</span>
 <p class="di">El viernes de la 12 trajiste un tecnicismo sin buscar. Ronda rápida: ¿es médico, legal, científico, o trae latín?</p>
 <p class="apoyo">Solo se dice la palabra y de dónde salió. Así se contesta: «<em>Habeas corpus</em>, lo oí en una noticia de un detenido y no supe qué era.» Los que traigan latín se quedan en esta semana; los médicos esperan su semana en una lista en el pizarrón. Nadie lo busca todavía.</p>
 <p class="nota-conductor">Tres columnas en el pizarrón: médicos, legales, otros. Los de la columna legal son material de la hoja de consulta de esta semana y del taller del miércoles: anótalos tal cual los dijeron, con error y todo. Si alguien no trajo nada, le pides uno al vuelo: cualquier palabra de un contrato de celular sirve.</p>
 </section>
-<section class="lam lam--actividad">
-<h4><span class="n">4</span> Un cerdo que habla latín <span class="reloj">18 min</span></h4>
-<span class="senal">Equipos de tres · proyectado y en el celular</span>
-<p class="di">Ocho viñetas con el pie tapado. Ocho locuciones latinas. El chiste solo funciona si sabes cuál va en cada una.</p>
-<p class="apoyo">La tira se llama <em>Pig Latin</em> y la dibujó Grant Snider: un cerdo en una granja, y en cada viñeta un pie en latín. En <a href="../ejercicios/semana-14/ejercicio-14D-el-cerdo-que-habla-latin.html">El cerdo que habla latín</a> los pies están tapados. Primero tres minutos en <em>Solo la locución</em>: con lo que sepan. Luego se cambia a <em>Con significados</em>, cada locución con su traducción, y ya no se trata de saber latín sino de entender el chiste: ¿qué está mirando el cerdo en la segunda viñeta? Cuando las ocho estén puestas, <strong>Revisar</strong> dice cuántas atinaron, sin decir cuáles.</p>
-<p class="recurso"><a href="../ejercicios/semana-14/ejercicio-14D-el-cerdo-que-habla-latin.html" target="_blank" rel="noopener">El cerdo que habla latín</a><span class="pie">Emparejamiento a ciegas con la tira de Grant Snider: dos niveles, el botón Revisar para los equipos y el botón Destapar para el profesor.</span></p>
-<p class="nota-conductor">Proyecta en modo proyector y que cada equipo lo abra también en un celular. Tres minutos en nivel 2, luego cambia a nivel 1 y da seis más. Después, tú en el proyector: resuelve viñeta por viñeta preguntando «¿por qué da risa?» antes de poner cada locución, y solo al final tocas Destapar, que abre la explicación de cada chiste. Hay tres latines escondidos en los globos de la gallina: <em>sic</em>, <em>per alas porci</em> y <em>citius, altius, fortius</em>; deja que alguien los encuentre. Di el crédito en voz alta: Grant Snider, Incidental Comics.</p>
-</section>
 <section class="lam">
-<h4><span class="n">5</span> ¿Por qué da risa? <span class="reloj">5 min</span></h4>
-<p class="di">Si entendiste el chiste, entendiste la locución. Esa es la prueba de esta semana.</p>
-<p class="apoyo">Un cerdo mira una camioneta que dice «salchichas orgánicas». Sin el pie, es un cerdo mirando una camioneta. Con el pie, <em>memento mori</em>, es un cerdo mirando su propia muerte con ruedas. Una locución es una idea completa comprimida en dos o tres palabras, y quien no la tiene no ve el chiste. Tampoco entiende el contrato, ni la noticia, ni al abogado. El latín de esta semana no es cultura general: es una llave.</p>
-<p class="nota-conductor">Pide dos o tres viñetas más explicadas por ellos, con la misma fórmula: qué se ve sin el pie, qué se ve con el pie. La de <em>deus ex machina</em> es la mejor para cerrar: el cerdo volando salvado por algo que no vimos venir, que es exactamente lo que significa.</p>
-</section>
-<section class="lam">
-<h4><span class="n">6</span> Qué es una locución latina <span class="reloj">4 min</span></h4>
-<p class="di">Una frase hecha en latín que usamos tal cual, sin traducir, dos mil años después.</p>
-<!-- PENDIENTE DE ARTE: el prompt está en docente/imagenes-semana-14.md (lámina "la preposición venía por dentro"). Mientras no exista el archivo, la imagen se quita sola. -->
-<img class="ilustracion" src="../assets/img/semana-14/la-preposicion-venia-por-dentro.webp" onerror="this.remove()" alt="Dos palabras latinas dibujadas como cajitas abiertas: en grosso modo, la terminación -o de modo guarda adentro una etiqueta que dice «a»; en motu proprio, la -u de motu guarda una etiqueta que dice «por». Al lado, una mano intenta pegar por fuera una «a» y una «de» extra, tachadas en rosa. Al pie: la preposición ya venía por dentro.">
+<h4><span class="n">4</span> Qué es una locución latina <span class="reloj">5 min</span></h4>
+<p class="di">Una frase hecha que el español tomó del latín y usa tal cual, como una sola pieza: no se traduce palabra por palabra, se entiende entera.</p>
+<div class="dib14-lam" data-dib14="definicion"></div>
 <table>
 <tr><th>Regla</th><th>Ejemplo</th></tr>
-<tr><td>Se escribe en cursiva y sin tilde, como lo que es: latín</td><td><em>motu proprio</em>, <em>statu quo</em>, <em>habeas corpus</em></td></tr>
-<tr><td>Salvo las que ya se castellanizaron: esas llevan tilde y van en redonda</td><td>álter ego, vox pópuli, currículum, déficit</td></tr>
+<tr><td>Se escribe en cursiva y sin tilde, como lo que es: latín</td><td><em>motu proprio</em>, <em>statu quo</em>, <em>vox populi</em>, <em>habeas corpus</em></td></tr>
+<tr><td>Salvo las que ya se hicieron españolas: esas van en redonda y con las tildes del español</td><td>currículum, déficit, sui géneris, per cápita, in fraganti</td></tr>
 <tr><td>No le agregues preposición: el latín ya la traía por dentro</td><td><em>grosso modo</em>, no "a grosso modo"; <em>motu proprio</em>, no "de motu propio"</td></tr>
 </table>
-<p class="apoyo">La tercera regla es la que explica casi todos los errores que vas a oír en tu vida. En latín, la terminación de la palabra hacía el trabajo que en español hace la preposición: <em>modo</em> ya quería decir "de modo", <em>motu</em> ya quería decir "por movimiento". Si le pones la preposición por fuera, la estás diciendo dos veces.</p>
+<p class="apoyo">Funcionan como las frases hechas del español: nadie traduce «de vez en cuando» palabra por palabra, se entiende entera. La tercera regla es la que explica casi todos los errores que vas a oír en tu vida: en latín, la terminación de la palabra hacía el trabajo que en español hace la preposición. <em>Modo</em> ya quería decir «de modo»; <em>motu</em>, «con movimiento». Si le pones la preposición por fuera, la estás diciendo dos veces.</p>
+<p class="nota-conductor">Pide una frase hecha del español antes de leer la definición: «a lo mejor», «de vez en cuando». Si alguien pregunta por vox pópuli con tilde: así se escribía antes; el DLE de hoy la trae en cursiva y sin tilde, igual que alter ego y delirium tremens. In fraganti va en redonda porque ya es forma española (del latín in flagranti), aunque no lleve tilde.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">7</span> Gimnasio: el terreno de la abuela <span class="reloj">15 min</span></h4>
-<span class="senal">Actividad · en parejas, en el celular</span>
-<p class="di">Una semana en la vida de Dani, de la prepa de Concá: un terreno en disputa, un primo detenido, un baile, un contrato y una asamblea. En cada escena hay una locución trabajando.</p>
-<p class="apoyo"><a href="../ejercicios/semana-14/ejercicio-14E-el-terreno-de-la-abuela.html">El terreno de la abuela</a>: doce escenas en mensajes, papeles y pleitos. En unas falta la locución y la eliges; en otras ya está y dices qué significa ahí, en esa situación; en otras alguien la dice mal y la cazas. Cada respuesta explica por qué, y al final tienes las doce con lo que significaron en la historia. Son las mismas locuciones del cerdo y de la letra chiquita, pero ahora en tu mundo.</p>
-<p class="recurso"><a href="../ejercicios/semana-14/ejercicio-14E-el-terreno-de-la-abuela.html" target="_blank" rel="noopener">El terreno de la abuela</a><span class="pie">Doce escenas: pon la locución, di qué significa en contexto, o cázala mal dicha. Tres viñetas del cerdo abren como ejemplo.</span></p>
-<p class="nota-conductor">En parejas, un celular, quince minutos; no se termina en clase y está bien: sigue en casa. La escena 3 (carpe diem y el parcial) conecta con el artículo 68 del reglamento que leen el miércoles: siémbrala. Al cerrar, una ronda rápida de la pregunta final: cuál de las doce les hubiera servido ya en algo real de su casa o de su pueblo. Esa respuesta es el insumo del miércoles. <a href="../ejercicios/semana-14/ejercicio-14A-bien-o-mal-dicho.html">¿Bien o mal dicho?</a> queda como gimnasio de casa y para quien termine antes el jueves.</p>
+<h4><span class="n">5</span> Las locuciones, en un dibujo <span class="reloj">15 min</span></h4>
+<span class="senal senal--aire">Al aire · proyectado</span>
+<p class="di">Diecisiete locuciones, una por lámina: primero el dibujo, luego tu apuesta, luego lo que significa.</p>
+<p class="apoyo">Son las que vas a necesitar toda la semana: las de los contratos y los papeles, las de los juzgados y las noticias, y las de la vida, que son las de la tira de Porcio. En cada lámina mira el dibujo y di qué crees que significa antes de que se revele: si le atinas, ya la tienes; si no, el dibujo te la va a recordar. No copies nada: todas están abajo, en <a href="#las-locuciones-en-un-dibujo">Las locuciones, en un dibujo</a>, con su significado, un ejemplo y la trampa de cada una.</p>
+<p class="recurso"><a href="../ejercicios/semana-14/las-locuciones-en-un-dibujo.html" target="_blank" rel="noopener">Las locuciones, en un dibujo</a><span class="pie">Diecisiete láminas con dibujo, apuesta y significado. La tecla R revela; la N muestra tus notas.</span></p>
+<p class="nota-conductor">Unos cuarenta segundos por locución. En cada lámina: «¿qué ven?», dos o tres apuestas en voz alta, y R. Cada lámina trae su pregunta en la nota del conductor (tecla N dentro del proyectable). No te detengas en las que ya saben; detente en las tres trampas: grosso modo, motu proprio y statu quo.</p>
+</section>
+<section class="lam lam--actividad">
+<h4><span class="n">6</span> Un cerdo que habla latín <span class="reloj">12 min</span></h4>
+<span class="senal">Equipos de tres · proyectado y en el celular</span>
+<p class="di">Ocho viñetas de Porcio con el pie tapado. Ocho locuciones latinas. El chiste solo funciona si sabes cuál va en cada una.</p>
+<p class="apoyo">Porcio vive en un rancho de la Sierra: toma el sol en el lodo, se mete a la cocina recién trapeada, se come los elotes y discute con la gallina. Los globos están en español; los pies, en latín y tapados. En <a href="../ejercicios/semana-14/ejercicio-14D-el-cerdo-que-habla-latin.html">El cerdo que habla latín</a> juegan primero en <em>Solo la locución</em>, con lo que recuerden de los dibujos; si se atoran, cambian a <em>Con significados</em>. Cuando las ocho estén puestas, <strong>Revisar</strong> dice cuántas atinaron, sin decir cuáles.</p>
+<p class="recurso"><a href="../ejercicios/semana-14/ejercicio-14D-el-cerdo-que-habla-latin.html" target="_blank" rel="noopener">El cerdo que habla latín</a><span class="pie">La tira de Porcio con los pies tapados: dos niveles, el botón Revisar para los equipos y el botón Destapar para el profesor.</span></p>
+<p class="nota-conductor">Proyecta en modo proyector y que cada equipo lo abra en un celular. Seis minutos para emparejar. Luego tú en el proyector: viñeta por viñeta, pregunta «¿por qué da risa?» antes de poner cada pie, y al final toca Destapar, que abre la explicación de cada chiste. Hay cuatro latines escondidos aparte de los pies: vade retro (lo grita doña Cuca), primum non nocere (el maletín de la veterinaria), ecce porcus (la gallina) y S·P·Q·R (el ovni). Deja que alguien los encuentre. Porcio se llama como Marco Porcio Catón: el nombre viene de porcus, cerdo.</p>
 </section>
 <section class="lam">
-<h4><span class="n">8</span> Antes del miércoles <span class="reloj">2 min</span></h4>
+<h4><span class="n">7</span> ¿Por qué da risa? <span class="reloj">4 min</span></h4>
+<p class="di">Si entendiste el chiste, entendiste la locución. Esa es la prueba de esta semana.</p>
+<p class="apoyo">Porcio mira el letrero de una carnicería con un cerdito feliz y gorro de cocinero, y piensa que se parece a su primo. Sin el pie, es un cerdo mirando un letrero. Con el pie, <em>memento mori</em>, es un cerdo mirando su propio futuro. Una locución es una idea completa comprimida en dos o tres palabras, y quien no la tiene no ve el chiste. Tampoco entiende el contrato, ni la noticia, ni al abogado. El latín de esta semana no es cultura general: es una llave.</p>
+<p class="nota-conductor">Pide dos o tres viñetas más explicadas por ellos, con la misma fórmula: qué se ve sin el pie, qué se ve con el pie. La de <em>deus ex machina</em> es la mejor para cerrar: don Chema llega con la reata y de la nada un ovni se lleva a Porcio. Nada en la historia lo anunciaba, que es exactamente lo que significa.</p>
+</section>
+<section class="lam lam--actividad">
+<h4><span class="n">8</span> Gimnasio: el terreno de la abuela <span class="reloj">9 min</span></h4>
+<span class="senal">Actividad · en parejas, en el celular</span>
+<p class="di">Una semana en la vida de Dani, de la prepa de Concá: un terreno en disputa, un primo detenido, un baile, un contrato y una asamblea. En cada escena hay una locución trabajando.</p>
+<p class="apoyo"><a href="../ejercicios/semana-14/ejercicio-14E-el-terreno-de-la-abuela.html">El terreno de la abuela</a>: doce escenas en mensajes, papeles y pleitos. En unas falta la locución y la eliges; en otras ya está y dices qué significa ahí, en esa situación; en otras alguien la dice mal y la cazas. Cada respuesta explica por qué, y al final tienes las doce con lo que significaron en la historia. Son las mismas locuciones de los dibujos y del cerdo, pero ahora en tu mundo.</p>
+<p class="recurso"><a href="../ejercicios/semana-14/ejercicio-14E-el-terreno-de-la-abuela.html" target="_blank" rel="noopener">El terreno de la abuela</a><span class="pie">Doce escenas: pon la locución, di qué significa en contexto, o cázala mal dicha. Tres viñetas de Porcio abren como ejemplo.</span></p>
+<p class="nota-conductor">En parejas, un celular, nueve minutos: las primeras escenas en clase y el resto en casa, y está bien. La escena 3 (carpe diem y el parcial) conecta con el artículo 68 del reglamento que leen el miércoles: siémbrala. Al cerrar, una ronda rápida de la pregunta final: cuál de las doce les hubiera servido ya en algo real de su casa o de su pueblo. Esa respuesta es el insumo del miércoles. <a href="../ejercicios/semana-14/ejercicio-14A-bien-o-mal-dicho.html">¿Bien o mal dicho?</a> queda como gimnasio de casa y para quien termine antes el jueves.</p>
+</section>
+<section class="lam">
+<h4><span class="n">9</span> Antes del miércoles <span class="reloj">2 min</span></h4>
 <span class="senal senal--casa">Para llevar a casa</span>
 <p class="di">Busca en tu casa un papel con latín adentro, y tráelo o tómale foto.</p>
 <p class="apoyo">El contrato del celular, un recibo, el reglamento de la escuela, una credencial, un pagaré, la noticia de un juicio. Hay más latín en un cajón de tu casa del que crees. Si de plano no encuentras, trae la pregunta: ¿dónde se esconde?</p>
@@ -141,8 +154,7 @@ Aquí empieza la unidad 3. El orden cambió un poco: en vez de abrir con el grie
 <section class="lam lam--oscura">
 <h4><span class="n">2</span> Lo que firmaste al inscribirte <span class="reloj">8 min</span></h4>
 <p class="di">Esto es letra chiquita de verdad: dos artículos del Reglamento de Estudiantes de la UAQ, el que aceptaste al inscribirte. Dilos en español de tu casa.</p>
-<!-- PENDIENTE DE ARTE: el prompt está en docente/imagenes-semana-14.md (lámina "la letra chiquita"). Mientras no exista el archivo, la imagen se quita sola. -->
-<img class="ilustracion" src="../assets/img/semana-14/la-letra-chiquita.webp" onerror="this.remove()" alt="Un estudiante firma con una pluma enorme un documento de muchas páginas; la página de arriba trae un título grande que dice REGLAMENTO y, debajo, renglones diminutos que se vuelven ilegibles. Una lupa apoyada sobre el papel agranda una sola línea, donde se leen las palabras sustentar, acreditar y vigente en rosa. Al pie: lo que no entiendes también lo firmaste.">
+<div class="dib14-lam" data-dib14="letra chiquita"></div>
 <table>
 <tr><th>Lo que dice</th><th>Lo que dice, en cristiano</th></tr>
 <tr><td><em>Artículo 70.</em> Para tener derecho a presentar examen ordinario en una asignatura, se requiere: haber sido alumno debidamente inscrito en la asignatura durante el ciclo escolar; haber presentado el ochenta por ciento, como mínimo, de trabajos y/o prácticas señaladas por el programa; y tener un mínimo de ochenta por ciento de asistencias.</td><td>Si no entregas ocho de cada diez trabajos, o faltas a más de dos clases de cada diez, no tienes derecho al examen final. No es que lo repruebes: no lo presentas.</td></tr>
@@ -162,6 +174,7 @@ Aquí empieza la unidad 3. El orden cambió un poco: en vez de abrir con el grie
 <section class="lam">
 <h4><span class="n">4</span> Las tres trampas <span class="reloj">6 min</span></h4>
 <p class="di">Tres errores que vas a oír toda tu vida, y ahora ya sabes por qué están mal.</p>
+<div class="dib14-lam" data-dib14="preposicion"></div>
 <table>
 <tr><th>Se dice</th><th>Se dice bien</th><th>Por qué</th></tr>
 <tr><td>"a grosso modo"</td><td><em>grosso modo</em></td><td><em>modo</em> ya significa "de modo": la preposición venía por dentro</td></tr>
@@ -178,10 +191,10 @@ Aquí empieza la unidad 3. El orden cambió un poco: en vez de abrir con el grie
 <tr><th>Dice la antología</th><th>Qué se le fue</th></tr>
 <tr><td>«Yo diría que son 10 perros a grosso modo»</td><td>sobra la «a»: <em>grosso modo</em></td></tr>
 <tr><td>«Lo hice a motu proprio porque quería que fuera a mi voluntad»</td><td>sobra la «a»: <em>motu proprio</em>, y la propia antología lo advierte un renglón arriba</td></tr>
-<tr><td>«El paciente sufre delírium trémends»</td><td>una letra de más: <em>delírium trémens</em></td></tr>
+<tr><td>«El paciente sufre delírium trémends»</td><td>sobra la d: es <em>tremens</em>. Y el DLE de hoy la escribe en cursiva y sin tildes: <em>delirium tremens</em></td></tr>
 </table>
 <p class="apoyo">No es para burlarse del material: es la prueba de que estas trampas se le van a cualquiera, hasta a quien las está explicando. Por eso la regla de la semana es corregir la frase y no humillar a la persona. Y por eso se verifica en el DLE, no en la antología ni en el profesor.</p>
-<p class="nota-conductor">Da un minuto para que los encuentren solos antes de mostrar la columna derecha. Si alguien pregunta por «ex profeso», que aparece en el ejemplo de <em>ex professo</em>: el DLE acepta <em>exprofeso</em> como adverbio castellanizado, así que ahí no hay trofeo, hay dos formas válidas. Buen momento para decir que el juez es el diccionario, no el que grita más fuerte.</p>
+<p class="nota-conductor">Da un minuto para que los encuentren solos antes de mostrar la columna derecha. Si alguien pregunta por «ex profeso», que aparece en el ejemplo de <em>ex professo</em>: ahí no hay trofeo, al contrario. El DLE registra «ex profeso», con una sola ese y sin cursiva (y también «exprofeso», junto); <em>ex professo</em>, con dos, es la forma latina de origen. Lo de las tildes de <em>delirium tremens</em> tampoco es descuido de la antología: así se escribía antes, y el diccionario cambió. Buen momento para decir que el juez es el diccionario, no el que grita más fuerte.</p>
 </section>
 <section class="lam lam--actividad">
 <h4><span class="n">6</span> Gimnasio: taller de locuciones <span class="reloj">27 min</span></h4>
@@ -196,7 +209,7 @@ Aquí empieza la unidad 3. El orden cambió un poco: en vez de abrir con el grie
 <span class="senal senal--casa">Para llevar a casa</span>
 <p class="di">Mañana salimos de cacería al centro de cómputo. Y el viernes dibujamos nuestra propia temporada de la tira.</p>
 <p class="apoyo">Jueves: traes tu mazo con las locuciones del taller, porque vas a verificar cuatro en el DLE y a cazar una en libertad. Viernes: en equipos, una viñeta cuyo chiste solo funcione si sabes la locución, igual que el cerdo. Trae plumones y hojas blancas tamaño carta. El animal lo eligen ustedes.</p>
-<p class="nota-conductor">Anuncia los equipos del viernes hoy, para que lleguen con quién dibuja decidido. Las viñetas sueltas del cerdo, en la hoja de consulta de esta página, sirven de modelo: que las vean una por una antes de dibujar.</p>
+<p class="nota-conductor">Anuncia los equipos del viernes hoy, para que lleguen con quién dibuja decidido. La tira de Porcio, más abajo en esta página, sirve de modelo: que vean sus viñetas una por una antes de dibujar.</p>
 </section>
 </section>
 
@@ -221,7 +234,7 @@ Aquí empieza la unidad 3. El orden cambió un poco: en vez de abrir con el grie
 <h4><span class="n">2</span> Misión 1: la forma correcta, en el DLE <span class="reloj">15 min</span></h4>
 <span class="senal">Individual · con el DLE abierto</span>
 <p class="di">Cuatro locuciones de tu mazo, buscadas en el DLE: cómo las escribe, si llevan tilde, si van en cursiva.</p>
-<p class="apoyo">Hasta las frases latinas tienen norma, y el DLE es el juez. Fíjate en lo que no aparece: busca "a grosso modo" y mira qué te devuelve. Busca <em>statu quo</em> y luego "status quo". Sin esta verificación, tu cacería no tiene juez: no puedes dictaminar que alguien usó mal una locución si no sabes cuál es la forma buena.</p>
+<p class="apoyo">Hasta las frases latinas tienen norma, y el DLE es el juez. Fíjate en lo que no aparece: busca "a grosso modo" y mira qué te devuelve. Busca <em>statu quo</em> y luego "status quo". Y no todas están: busca <em>memento mori</em> y mira qué pasa. Sin esta verificación, tu cacería no tiene juez: no puedes dictaminar que alguien usó mal una locución si no sabes cuál es la forma buena.</p>
 <p class="nota-conductor">El DLE trae las locuciones latinas dentro de la entrada de su primera palabra o como entrada propia: enséñales a buscar <em>motu proprio</em> y a leer la marca "loc. lat.". Que al menos una de las cuatro sea de las que se dicen mal.</p>
 </section>
 <section class="lam lam--actividad">
@@ -260,10 +273,10 @@ Aquí empieza la unidad 3. El orden cambió un poco: en vez de abrir con el grie
 <section class="lam lam--actividad">
 <h4><span class="n">1</span> Ritual: quiz relámpago #10 <span class="reloj">15 min</span></h4>
 <span class="senal">A solas · sin mazo y sin celular</span>
-<p class="di">Tres reactivos. Tu apuesta primero, del 0 al 3.</p>
-<p class="apoyo">Traducir dos locuciones, corregir una que medio mundo dice mal, y leer una cláusula en español llano. En el cuadernillo, se califica en el momento, y los dos números van al renglón del <strong>quiz #10</strong> de tu expediente: el primero de la unidad 3.</p>
-<p class="recurso"><a href="../ejercicios/semana-14/quiz-relampago-semana-14.html" target="_blank" rel="noopener">El quiz, lámina por lámina</a><span class="pie">El mismo que se proyecta, con cronómetro de tres minutos y las respuestas al final.</span></p>
-<p class="nota-conductor">Proyecta desde el enlace. Reparte: 2 min de apuesta, 3 de resolución, 8 de calificación comentada, 2 para el expediente. En el reactivo 2 hay dos errores y el "bien" exige cazar los dos. En el 3 vale cualquier redacción que traiga las tres ideas: como está, en el acto, sin eso no hay trato.</p>
+<p class="di">Cuatro reactivos. Tu apuesta primero, del 0 al 4.</p>
+<p class="apoyo">Traducir dos locuciones, corregir una que medio mundo dice mal, leer una cláusula en español llano y escribir una oración tuya donde la locución haga trabajo. En el cuadernillo, se califica en el momento, y los dos números van al renglón del <strong>quiz #10</strong> de tu expediente: el primero de la unidad 3.</p>
+<p class="recurso"><a href="../ejercicios/semana-14/quiz-relampago-semana-14.html" target="_blank" rel="noopener">El quiz, lámina por lámina</a><span class="pie">El mismo que se proyecta, con cronómetro de cuatro minutos y las respuestas al final.</span></p>
+<p class="nota-conductor">Proyecta desde el enlace. Reparte: 2 min de apuesta, 4 de resolución, 7 de calificación comentada, 2 para el expediente. En el reactivo 2 hay dos errores y el "bien" exige cazar los dos. En el 3 vale cualquier redacción que traiga las tres ideas: como está, en el acto, sin eso no hay trato. En el 4 manda la prueba del cerdo: si quitas la locución y la oración no pierde nada, estaba de adorno.</p>
 </section>
 <section class="lam lam--oscura">
 <h4><span class="n">2</span> El renglón once <span class="reloj">5 min</span></h4>
@@ -279,22 +292,22 @@ Aquí empieza la unidad 3. El orden cambió un poco: en vez de abrir con el grie
 <p class="nota-conductor">Elige a quienes no hablaron el martes. Anota qué libros suenan: esos nombres son los que mueven el tendedero. Si alguien no tiene frase, que anote hoy la primera, en la tarjeta nueva de su bitácora, y sigue.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">4</span> Pig Latin, segunda temporada <span class="reloj">48 min</span></h4>
+<h4><span class="n">4</span> El cerdo que habla latín, segunda temporada <span class="reloj">60 min</span></h4>
 <span class="senal">Equipos de tres · plumones y hojas carta</span>
 <p class="di">Una viñeta por equipo. El chiste solo debe funcionar si sabes la locución que les tocó. El pie va aparte, tapado.</p>
 <table>
 <tr><th>Momento</th><th>Minutos</th><th>Qué pasa</th></tr>
 <tr><td><strong>El sorteo</strong></td><td>2</td><td>cada equipo saca una locución: motu proprio, grosso modo, habeas corpus, de facto, statu quo, sine qua non, modus operandi o in fraganti</td></tr>
-<tr><td><strong>Dibujar</strong></td><td>18</td><td>una sola viñeta, hoja carta horizontal; el pie en una tira de papel aparte, doblada; nada de latín escrito dentro del dibujo</td></tr>
-<tr><td><strong>La galería a ciegas</strong></td><td>15</td><td>las viñetas se pegan en la pared sin pie; cada equipo recorre con la lista de las ocho y anota cuál cree que va en cada una</td></tr>
-<tr><td><strong>El destape</strong></td><td>10</td><td>se despliegan los pies, se cuentan los aciertos: gana la viñeta que más equipos adivinaron, porque ese es un buen chiste</td></tr>
+<tr><td><strong>Dibujar</strong></td><td>25</td><td>una sola viñeta, hoja carta horizontal; el pie en una tira de papel aparte, doblada; nada de latín escrito dentro del dibujo, y los globos en español, como los de Porcio</td></tr>
+<tr><td><strong>La galería a ciegas</strong></td><td>18</td><td>las viñetas se pegan en la pared sin pie; cada equipo recorre con la lista de las ocho y anota cuál cree que va en cada una</td></tr>
+<tr><td><strong>El destape</strong></td><td>12</td><td>se despliegan los pies, se cuentan los aciertos: gana la viñeta que más equipos adivinaron, porque ese es un buen chiste</td></tr>
 <tr><td><strong>Las fotos</strong></td><td>3</td><td>las viñetas, con el permiso de sus autores, se suben a la galería de abajo: foto, locución y nombres</td></tr>
 </table>
 <p class="apoyo">Las reglas del cerdo: el animal lo eligen ustedes, el chiste depende de la locución, y si al quitar el pie la viñeta sigue teniendo sentido, el chiste no está en el latín. No hace falta dibujar bien: hace falta que se entienda qué está mirando el personaje.</p>
-<p class="nota-conductor">Sortea con papelitos; si hay más de ocho equipos, se repiten locuciones y mejor, porque se comparan dos chistes sobre la misma. Durante los veinte minutos de dibujo pasa por cada equipo con una sola pregunta: ¿qué ve quien no sabe la locución? Si contestan "lo mismo", el chiste todavía no existe. Las fotos se suben con nombre de pila y permiso explícito.</p>
+<p class="nota-conductor">Sortea con papelitos; si hay más de ocho equipos, se repiten locuciones y mejor, porque se comparan dos chistes sobre la misma. Durante los veinticinco minutos de dibujo pasa por cada equipo con una sola pregunta: ¿qué ve quien no sabe la locución? Si contestan "lo mismo", el chiste todavía no existe. Las fotos se suben con nombre de pila y permiso explícito.</p>
 </section>
 <section class="lam lam--actividad">
-<h4><span class="n">5</span> Al muro, a la galería y al mazo <span class="reloj">15 min</span></h4>
+<h4><span class="n">5</span> Al muro, a la galería y al mazo <span class="reloj">20 min</span></h4>
 <span class="senal">Actividad · individual y por equipo</span>
 <p class="di">Tu locución cazada al muro, la viñeta de tu equipo a la galería, y tus tarjetas al mazo.</p>
 <p class="apoyo">Abajo, en <a href="#sube-tu-locucion-al-muro">Sube tu locución al muro</a>, está el formulario de la cacería: la locución, dónde apareció con su cita, y tu veredicto con la corrección si la hubo. Un poco más abajo, <a href="#sube-la-vineta-de-tu-equipo">Sube la viñeta de tu equipo</a>: una persona por equipo sube la foto (a Drive o al grupo de WhatsApp, y pega el enlace), la locución y los nombres de quienes la dibujaron. El profesor revisa y publica, con nombre de pila si lo das. Y las tarjetas que generaste en el taller del miércoles van a tu mazo de Anki hoy, no el domingo: el mazo vivo es tabla del suelo.</p>
@@ -316,8 +329,8 @@ Aquí empieza la unidad 3. El orden cambió un poco: en vez de abrir con el grie
 <p class="nota-conductor">Anuncia aquí cuál parada sigue la semana que entra y qué traen el martes; la tabla no fija el orden a propósito. Recuerda el tercer círculo y el segundo booktuber: fechas en cuanto las tengas, y en la página de la semana que corresponda.</p>
 </section>
 <section class="lam">
-<h4><span class="n">7</span> Cierra la semana <span class="reloj">3 min</span></h4>
-<p class="di">El martes viste un cerdo mirando una camioneta y no sabías por qué daba risa. Hoy lees la cláusula de un contrato sin que nadie te la explique.</p>
+<h4><span class="n">7</span> Cierra la semana <span class="reloj">5 min</span></h4>
+<p class="di">El martes un cerdo te hizo reír en latín. Hoy lees la cláusula de un contrato sin que nadie te la explique.</p>
 <p class="apoyo">Eso es lo que abre esta unidad: no de dónde vienen las palabras, sino qué puertas te abren. La del latín ya tiene tu llave. Trae la siguiente palabra que no entiendas, de donde sea, y la abrimos con las mismas herramientas.</p>
 </section>
 </section>
@@ -330,17 +343,58 @@ El **minuto del lector** abre el martes con el tercer libro en la mano, o con un
 
 ## Herramientas de la semana
 
-### La tira del cerdo
+### Las locuciones, en un dibujo
 
-<img class="ilustracion" src="../assets/img/semana-14/pig-latin-grant-snider.webp" alt="Tira cómica Pig Latin de Grant Snider: ocho viñetas con un cerdo en una granja; en cada una, un pie en latín: cogito ergo sum, memento mori, persona non grata, argumentum ad hominem, carpe diem, e pluribus unum, ad astra per aspera y deus ex machina" style="max-width:24rem;display:block;margin:.6rem auto">
+Las diecisiete locuciones de la semana, cada una con su dibujo: lo que dice al pie de la letra, lo que significa, un ejemplo de aquí y la trampa, si la tiene. Son las mismas del proyectable del martes; vuelve a ellas antes del quiz del viernes.
 
-*Pig Latin*, de Grant Snider ([Incidental Comics](https://www.incidentalcomics.com)). Ocho viñetas y ocho locuciones: *cogito ergo sum*, *memento mori*, *persona non grata*, *argumentum ad hominem*, *carpe diem*, *e pluribus unum*, *ad astra per aspera* y *deus ex machina*. Se proyecta en clase con fines didácticos; el original y el resto de su obra están en su sitio. El título es también un juego: *pig latin* es el nombre de un juego de palabras en inglés, el "idioma del cerdo".
+<div class="lc14-galeria" data-galeria14></div>
 
-Lo que la tira enseña, y por eso abre la semana: el chiste solo funciona si entiendes la locución. Tapar los pies y deducir cuál va en cada viñeta es exactamente el músculo que se entrena después con los contratos. En [El cerdo que habla latín](../ejercicios/semana-14/ejercicio-14D-el-cerdo-que-habla-latin.html) los pies vienen tapados. Las ocho viñetas también están sueltas, como ejemplo, en la hoja de consulta de abajo: toca una locución en rosa y aparece la suya.
+<p class="lc14-credito">Dibujos hechos para este curso por Claude (Anthropic), en el formato de <a href="https://sketchplanations.com" target="_blank" rel="noopener">Sketchplanations</a>, de Jono Hey: una idea, un dibujo.</p>
+
+<style>
+.lc14g-grupo{margin:1.4rem 0 .5rem;color:#6B1E5A;font-family:"Bricolage Grotesque","Inter",sans-serif;font-weight:800;font-size:1.05rem}
+.lc14g{display:grid;grid-template-columns:repeat(auto-fill,minmax(17rem,1fr));gap:.9rem;margin:.3rem 0 1rem}
+.lc14f{border:1px solid #E6DFF0;border-radius:.9rem;background:#fff;overflow:hidden;box-shadow:0 1px 4px rgba(107,30,90,.07)}
+.lc14f-dib{background:#fffdf8;border-bottom:1px solid #F0E8F3}
+.lc14f-loc{margin:.7rem 1rem .15rem;font-family:"Bricolage Grotesque","Inter",sans-serif;font-weight:800;font-size:1.35rem;line-height:1.1;color:#C4006A}
+.lc14f p{margin:.3rem 1rem;font-size:.92rem;line-height:1.5}
+.lc14f p:last-child{margin-bottom:.9rem}
+.lc14f-lit{color:#6f6578}
+.lc14f-sig{color:#2B2440;font-weight:600}
+.lc14f-ej{color:#4A2440;border-left:3px solid #F4A8CE;padding-left:.6rem}
+.lc14f-ojo{color:#A3312B;background:#FDECEC;border-radius:.5rem;padding:.4rem .6rem}
+.lc14-credito{font-size:.85rem;color:#6f6578}
+.tira14{display:grid;grid-template-columns:repeat(auto-fill,minmax(17rem,1fr));gap:.8rem;margin:.8rem 0 1.2rem}
+</style>
+
+### La tira de Porcio
+
+*Porcio, el cerdo que habla latín*: ocho viñetas de un rancho de la Sierra, con los globos en español y un pie en latín en cada una. Toca el pie de cada viñeta para destaparlo, pero antes di cuál crees que es.
+
+<div class="tira14" id="tira14"></div>
+
+<script>
+(function(){
+  var el=document.getElementById('tira14');
+  if(!el||!window.LOC14)return;
+  el.innerHTML=LOC14.VINETAS.map(function(v,i){
+    return '<div class="vin">'+LOC14.vineta(i)+'<button type="button" class="vin-pie tapado" data-loc="'+v.loc+'">¿Cuál locución es?</button></div>';
+  }).join('');
+  Array.prototype.forEach.call(el.querySelectorAll('.vin-pie'),function(b){
+    b.addEventListener('click',function(){var tapado=b.classList.toggle('tapado');b.textContent=tapado?'¿Cuál locución es?':b.getAttribute('data-loc');});
+  });
+})();
+</script>
+
+Porcio se llama como Marco Porcio Catón, el romano: el nombre de su familia viene de *porcus*, cerdo. Lo que la tira enseña, y por eso va en la semana: el chiste solo funciona si entiendes la locución. Tapar los pies y deducir cuál va en cada viñeta es exactamente el músculo que se entrena después con los contratos. En [El cerdo que habla latín](../ejercicios/semana-14/ejercicio-14D-el-cerdo-que-habla-latin.html) se juega con los pies tapados, y el botón Destapar explica cada chiste. Además de los pies, hay cuatro latines escondidos en la tira: búscalos, y luego confírmalos en la hoja de consulta.
+
+Tira y dibujos: Claude (Anthropic), hechos para este curso. La idea de un cerdo con pies de viñeta en latín viene de *Pig Latin*, de Grant Snider ([Incidental Comics](https://www.incidentalcomics.com)).
 
 ### La regla de oro de las locuciones
 
-En latín, la terminación de la palabra hacía el trabajo de la preposición. Por eso *grosso modo* ya significa "a grandes rasgos" sin ninguna "a", y *motu proprio* ya significa "por voluntad propia" sin ningún "de". Si le agregas la preposición por fuera, la estás diciendo dos veces. Sospecha de cualquier locución que oigas con "a" o "de" por delante, y verifica en el [DLE](https://dle.rae.es): las locuciones latinas aparecen con la marca *loc. lat.*, en cursiva y sin tilde. Las que ya se castellanizaron (álter ego, vox pópuli, currículum, déficit) llevan tilde y van en redonda.
+<div class="dib14-pag" data-dib14="preposicion"></div>
+
+En latín, la terminación de la palabra hacía el trabajo de la preposición. Por eso *grosso modo* ya significa "a grandes rasgos" sin ninguna "a", y *motu proprio* ya significa "por iniciativa propia" sin ningún "de". Si le agregas la preposición por fuera, la estás diciendo dos veces. Sospecha de cualquier locución que oigas con "a" o "de" por delante, y verifica en el [DLE](https://dle.rae.es): las locuciones latinas aparecen con la marca *loc. lat.* y se escriben en cursiva y sin tilde, como *vox populi*, *alter ego* o *delirium tremens*. Las que ya se hicieron españolas van en redonda y con las tildes del español: currículum, déficit, sui géneris, per cápita, in fraganti. Si un libro viejo te dice *vox pópuli* o *álter ego*, con tilde, no es que esté mal: es que el diccionario cambió.
 
 ### Lo que firmaste al inscribirte
 
@@ -364,7 +418,7 @@ Las preguntas 4 y 5 de la autoevaluación de la unidad 2 se entregan en [El enca
 
 Los ejercicios de esta semana, para tu celular o el centro de cómputo. Sin nota y sin registro: puro entrenamiento.
 
-- [El cerdo que habla latín](../ejercicios/semana-14/ejercicio-14D-el-cerdo-que-habla-latin.html) · martes: la tira con los pies tapados, para emparejar a ciegas
+- [El cerdo que habla latín](../ejercicios/semana-14/ejercicio-14D-el-cerdo-que-habla-latin.html) · martes: la tira de Porcio con los pies tapados, para emparejar a ciegas
 - [El terreno de la abuela](../ejercicios/semana-14/ejercicio-14E-el-terreno-de-la-abuela.html) · martes: doce escenas de una historia donde pones la locución, dices qué significa ahí o la cazas mal dicha
 - [¿Bien o mal dicho?](../ejercicios/semana-14/ejercicio-14A-bien-o-mal-dicho.html) · para la casa, y para quien termine antes el jueves
 - [Taller de locuciones](../ejercicios/semana-14/ejercicio-14B-taller-de-locuciones.html) · miércoles
@@ -373,12 +427,13 @@ Los ejercicios de esta semana, para tu celular o el centro de cómputo. Sin nota
 
 ### El proyectable de la semana
 
+- [Las locuciones, en un dibujo](../ejercicios/semana-14/las-locuciones-en-un-dibujo.html) · martes, antes del cerdo: diecisiete locuciones, cada una con su dibujo, su apuesta y su significado
 - [El quiz relámpago #10, tal como se proyecta](../ejercicios/semana-14/quiz-relampago-semana-14.html) · viernes, con cronómetro y respuestas
 - [El cerdo que habla latín](../ejercicios/semana-14/ejercicio-14D-el-cerdo-que-habla-latin.html) · martes en el proyector y en los celulares; el botón Destapar es del profesor
 
 ## Hoja de consulta
 
-Toca una locución para ver qué significa y cómo se usa bien. Ojo con las que se dicen mal. Están las diecisiete de la antología del curso, las ocho de la tira (en rosa, con lo que pasa en su viñeta), los tres latines que dice la gallina y unas cuantas más que vas a oír en noticias y tribunales.
+Toca una locución para ver qué significa, cómo se usa bien y, si tiene, su dibujo. Ojo con las que se dicen mal. Están las diecisiete de la antología del curso, las de la tira de Porcio y sus cuatro latines escondidos (en rosa, con lo que pasa en su viñeta) y unas cuantas más que vas a oír en noticias y tribunales. Las formas son las del DLE de hoy: si un libro viejo trae tildes que aquí no ves, es que el diccionario cambió.
 
 <div id="lc14">
   <div class="lc14-grid" id="lc14-grid"></div>
@@ -397,7 +452,7 @@ Toca una locución para ver qué significa y cómo se usa bien. Ojo con las que 
 #lc14 .lc14-use{margin-top:.35rem;color:#333}
 #lc14 .lc14-warn{margin-top:.5rem;color:#a3312b;font-size:.9rem;font-weight:700}
 #lc14 .lc14-pig{margin-top:.5rem;color:#6b1e5a;font-size:.9rem;font-style:italic}
-#lc14 .lc14-img{display:block;max-width:16rem;width:100%;height:auto;margin:.6rem 0 0;border:1px solid #eadce6;border-radius:.5rem}
+#lc14 .lc14-dib{max-width:26rem;margin:.7rem 0 0;border:1px solid #eadce6;border-radius:.6rem;overflow:hidden;background:#fffdf8}
 </style>
 
 <script>
@@ -407,43 +462,47 @@ Toca una locución para ver qué significa y cómo se usa bien. Ojo con las que 
    ["grosso modo","a grandes rasgos, sin detalle","Grosso modo, ya entendí de qué va.","Se dice mal: NO es 'a grosso modo'. Sin 'a'."],
    ["habeas corpus","que tengas el cuerpo: no te pueden detener sin justificar","Pidió un habeas corpus.",""],
    ["de facto","de hecho, en la práctica (aunque no en la ley)","Es el líder de facto.",""],
-   ["ipso facto","en el acto, inmediatamente","Lo resolvió ipso facto.",""],
+   ["ipso facto","en el acto, inmediatamente","Lo resolvió ipso facto.","","Don Chema apenas grita «¡cochi, cochi, co…!» y los cerdos ya están en el comedero."],
    ["statu quo","el estado actual de las cosas","No querían cambiar el statu quo.","Se dice mal: en español la norma es 'statu quo', no 'status quo'."],
    ["per se","por sí mismo","El dato per se no dice nada.",""],
    ["ad hoc","hecho a propósito para esto; en México también: que va justo con algo","Formaron un comité ad hoc. Esa chamarra te queda ad hoc con esos zapatos.",""],
-   ["in fraganti","en el momento justo del hecho","Lo agarraron in fraganti.",""],
+   ["in fraganti","en el momento justo del hecho, con el delito todavía caliente","Lo agarraron in fraganti.","Ya es forma española (del latín in flagranti, «ardiendo»): va sin cursiva, y también se vale junta: infraganti."],
    ["a priori","antes de comprobarlo, de entrada","A priori parece buena idea.",""],
    ["a posteriori","después de los hechos, con la evidencia en la mano","A posteriori era obvio que iba a fallar.",""],
    ["de iure","por derecho, según la ley (lo contrario de de facto)","Es el dueño de iure, pero quien manda de facto es su hermano.",""],
-   ["carpe diem","aprovecha el día","Se tatuó carpe diem.","","El cerdo piensa «debo escapar» y la gallina le pregunta «per alas porci?»: ¿con alas de cerdo?"],
-   ["cogito ergo sum","pienso, luego existo (Descartes)","Cogito ergo sum, dijo, y se quedó pensando.","","El cerdo en el lodo: «pienso, luego soy un cerdo»."],
-   ["memento mori","recuerda que vas a morir","Un cráneo en el escritorio como memento mori.","","El cerdo mira la camioneta de salchichas orgánicas."],
-   ["persona non grata","persona no bienvenida","Lo declararon persona non grata en el pueblo.","","Llega el granjero con la camioneta y el cerdo le da la espalda."],
-   ["argumentum ad hominem","atacar a la persona en vez de a lo que dice","Eso es un ad hominem, no un argumento.","","El grafiti «el granjero es malvado» no discute nada. Y la gallina dice «sic»."],
-   ["e pluribus unum","de muchos, uno (lema de Estados Unidos)","E pluribus unum: de muchos equipos, un grupo.","","Los cerdos se apilan para saltar la cerca; la gallina grita «citius, altius, fortius»."],
-   ["ad astra per aspera","a las estrellas por el camino difícil","Ad astra per aspera, decía el cartel de la escuela.","","El cerdo salta la cerca de noche: «uh-oh»."],
-   ["deus ex machina","una salida que aparece de la nada; en el teatro antiguo, el dios que bajaba en grúa","El final fue un deus ex machina: nadie lo vio venir.","","El cerdo cruza el cielo volando, salvado por algo que no estaba en la historia."],
-   ["sic","así: avisa que el error es del original, no de quien cita","Escribió «a grosso modo» [sic].","","Lo dice la gallina frente al grafiti."],
-   ["citius, altius, fortius","más rápido, más alto, más fuerte (lema olímpico)","Citius, altius, fortius, gritó el entrenador.","","Lo grita la gallina mientras los cerdos se apilan."],
+   ["carpe diem","cosecha el día: aprovecha el presente","Se tatuó carpe diem.","","Porcio toma el sol en el lodo y, cuando la gallina le pregunta por el futuro, contesta «¿cuál futuro?»."],
+   ["cogito ergo sum","pienso, luego existo (Descartes)","Cogito ergo sum, dijo, y se quedó pensando.",""],
+   ["memento mori","recuerda que vas a morir","La calaverita de azúcar con tu nombre es un memento mori.","No está en el DLE, pero sí en todas partes: en los cuadros antiguos y en el Día de Muertos.","Porcio mira el letrero de las carnitas y el cerdito feliz se parece a su primo."],
+   ["persona non grata","persona no bienvenida","Lo declararon persona non grata en el pueblo.","","Doña Cuca acaba de trapear y Porcio llega embarrado hasta las orejas."],
+   ["argumentum ad hominem","atacar a la persona en vez de a lo que dice","Eso es un ad hominem, no un argumento.","El DLE lo registra como argumento ad hominem.","La gallina le dice que tanta tortilla con azúcar le hace daño, y Porcio le contesta que ella ni dientes tiene."],
+   ["e pluribus unum","de muchos, uno (lema de Estados Unidos)","E pluribus unum: de muchos equipos, un grupo.",""],
+   ["ad astra per aspera","a las estrellas por el camino difícil","Ad astra per aspera, decía el cartel de la escuela.",""],
+   ["deus ex machina","una salida que aparece de la nada; en el teatro antiguo, el dios que bajaba en grúa","El final fue un deus ex machina: nadie lo vio venir.","","Don Chema llega con la reata y de la nada un ovni se lleva a Porcio."],
+   ["sic","así: avisa que el error es del original, no de quien cita","Escribió «a grosso modo» [sic].",""],
+   ["citius, altius, fortius","más rápido, más alto, más fuerte (lema olímpico)","Citius, altius, fortius, gritó el entrenador.",""],
+   ["vade retro","vete atrás, retrocede: para rechazar a alguien","La tía me ofreció el sexto tamal y le dije: ¡vade retro!","","Lo grita doña Cuca cuando Porcio quiere entrar a la cocina recién trapeada."],
+   ["primum non nocere","lo primero es no hacer daño: el lema de los médicos","Antes de recetar, la doctora repetía primum non nocere.","","Está escrito en el maletín de la veterinaria."],
+   ["ecce homo","he aquí el hombre: lo que dijo Pilato al presentar a Jesús","Llegó del partido hecho un eccehomo: todo raspado.","El DLE la registra junta y en redonda, eccehomo, para la imagen de Cristo y para quien está maltrecho.","La gallina la cambia por ecce porcus: «he aquí el cerdo»."],
+   ["S.P.Q.R.","Senatus Populusque Romanus: el Senado y el pueblo romano, el sello de Roma","Las letras S.P.Q.R. siguen en las tapas de las alcantarillas de Roma.","","Las trae escritas el platillo volador que se lleva a Porcio."],
    ["alea iacta est","la suerte está echada","Firmó y dijo: alea iacta est.",""],
-   ["álter ego","el otro yo","El álter ego de Bruce Wayne es Batman.",""],
-   ["vox pópuli","voz del pueblo: lo que ya todos saben","Su renuncia es vox pópuli.",""],
-   ["ópera prima","la primera obra de un autor","Esta película es su ópera prima.",""],
+   ["alter ego","el otro yo","El alter ego de Bruce Wayne es Batman.","Hoy va en cursiva y sin tilde: álter ego, con tilde, es la grafía de antes."],
+   ["vox populi","voz del pueblo: lo que ya todos saben","Su renuncia es vox populi.","Hoy va en cursiva y sin tilde: vox pópuli, con tilde, es la grafía de antes.","Todo el corral señala a Porcio cuando don Chema pregunta quién se comió los elotes."],
+   ["ópera prima","la primera obra de un autor","Esta película es su ópera prima.","Ojo: parece latín, pero según el DLE llegó del italiano, opera prima. Por eso lleva tilde y va en redonda."],
    ["sine qua non","condición sin la cual no: lo indispensable","Estudiar es condición sine qua non para pasar.",""],
    ["modus operandi","modo de actuar o trabajar","Los dos robos tienen el mismo modus operandi.",""],
    ["modus vivendi","modo de vivir, forma de ganarse la vida","El comercio es su modus vivendi.",""],
    ["lapsus","error involuntario, descuido","Perdón, fue un lapsus.",""],
-   ["ex professo","a propósito, deliberadamente","Vino ex professo a verte.","Se dice mal: la forma culta es 'ex professo', no 'exprofeso a propósito' (sería decirlo dos veces)."],
+   ["ex profeso","a propósito, con intención","Vino ex profeso a verte.","En español se escribe ex profeso, con una ese, o exprofeso, junto; ex professo, con dos, es la forma latina de origen."],
    ["déficit","lo que falta, la escasez","Este mes hubo déficit.",""],
-   ["delírium trémens","delirio con temblores y alucinaciones del alcoholismo grave","El paciente sufre delírium trémens.","Se dice mal: es trémens, sin d: la antología del curso lo trae con una letra de más."],
-   ["in situ","en el lugar mismo","Revisaron el daño in situ.",""],
+   ["delirium tremens","delirio con temblores y alucinaciones del alcoholismo grave","El paciente sufre delirium tremens.","Es tremens, sin d: la antología del curso lo trae con una letra de más. Y hoy va en cursiva y sin tildes."],
+   ["in situ","en el lugar mismo","Revisaron el daño in situ.","","La veterinaria revisa a Porcio ahí mismo, hincada en el charco."],
    ["per cápita","por cabeza, por persona","El ingreso per cápita del municipio.",""],
    ["sui géneris","de su propio género: único, raro","Tiene un estilo sui géneris.",""],
    ["mea culpa","por mi culpa: reconocer el error","Entonó el mea culpa y pidió perdón.",""],
-   ["quórum","el mínimo de presentes para que una reunión decida","No hubo quórum y se suspendió la asamblea.",""],
+   ["quorum","el mínimo de presentes para que una reunión decida","No hubo quorum y se suspendió la asamblea.","El DLE lo trae en latín, quorum, y ya en español, cuórum, con c y tilde. Quórum, con q y tilde, es la grafía de antes."],
    ["ultimátum","último aviso antes de actuar","Le dieron un ultimátum: paga o se va.",""],
    ["currículum","la carrera corrida: tu historial de estudios y trabajo","Manda tu currículum antes del viernes.",""],
-   ["versus","contra, frente a","México versus Brasil.",""],
+   ["versus","contra, frente a","México versus Brasil.","Llegó por el inglés; en latín quería decir «hacia»."],
    ["alias","de otro nombre, apodo","Juan Pérez, alias el Güero.",""],
    ["etcétera","y lo demás","Trae lápiz, cuaderno, etcétera.","Cuando escribes etc. abrevias latín sin darte cuenta."]
   ];
@@ -454,8 +513,9 @@ Toca una locución para ver qué significa y cómo se usa bien. Ojo con las que 
     b.addEventListener('click',function(){
       Array.prototype.forEach.call(grid.children,function(c){c.classList.remove('on');});
       b.classList.add('on');
-      var tira={"cogito ergo sum":"01-cogito-ergo-sum","memento mori":"02-memento-mori","persona non grata":"03-persona-non-grata","argumentum ad hominem":"04-argumentum-ad-hominem","carpe diem":"05-carpe-diem","e pluribus unum":"06-e-pluribus-unum","ad astra per aspera":"07-ad-astra-per-aspera","deus ex machina":"08-deus-ex-machina"}[x[0]];
-      out.innerHTML='<div class="lc14-mean">'+x[1]+'</div><div class="lc14-use">Ejemplo: '+x[2]+'</div>'+(x[3]?'<div class="lc14-warn">'+x[3]+'</div>':'')+(x[4]?'<div class="lc14-pig">En la tira: '+x[4]+'</div>':'')+(tira?'<img class="lc14-img" src="../assets/img/semana-14/tira/'+tira+'.webp" alt="Viñeta de Pig Latin: '+x[0]+'">':'');
+      var L14=window.LOC14,dib=L14?L14.dibujo(x[0]):'',vin={"vade retro":2,"primum non nocere":5,"ecce homo":6,"S.P.Q.R.":7}[x[0]];
+      if(!dib&&L14&&vin!==undefined)dib=L14.vineta(vin);
+      out.innerHTML='<div class="lc14-mean">'+x[1]+'</div><div class="lc14-use">Ejemplo: '+x[2]+'</div>'+(x[3]?'<div class="lc14-warn">'+x[3]+'</div>':'')+(x[4]?'<div class="lc14-pig">En la tira: '+x[4]+'</div>':'')+(dib?'<div class="lc14-dib">'+dib+'</div>':'');
     });
     grid.appendChild(b);
   });
@@ -469,7 +529,7 @@ Tres errores que oirás toda tu vida: "a grosso modo", "de motu propio" y "statu
 
 ## Las tarjetas de la semana
 
-Quince locuciones: las nueve de la letra chiquita, cuatro de la tira y dos más. Las del taller del miércoles las generas tú, con tu propia oración en el reverso; estas son las mínimas.
+Quince locuciones: las de la letra chiquita y las de la tira de Porcio. Las del taller del miércoles las generas tú, con tu propia oración en el reverso; estas son las mínimas.
 
 📥 **[Baja el mazo de la semana 14](../recursos/anki/etimologias-semana-14.apkg)** · Quince locuciones, con la trampa de cada una en la nota. En [Recursos · Anki](../recursos/anki.html) está el semestre completo.
 
@@ -481,15 +541,15 @@ Quince locuciones: las nueve de la letra chiquita, cuatro de la tira y dos más.
 | de facto | de hecho, en la práctica |
 | statu quo | el estado actual · no "status quo" |
 | ipso facto | en el acto |
-| vox pópuli | lo que ya todos saben |
+| vox populi | lo que ya todos saben · en cursiva y sin tilde |
 | sine qua non | condición indispensable |
 | modus operandi | modo de actuar |
-| memento mori | recuerda que vas a morir · el cerdo y la camioneta |
-| persona non grata | persona no bienvenida · el granjero |
-| argumentum ad hominem | atacar a la persona, no al argumento · el grafiti |
-| deus ex machina | la salida que aparece de la nada · el cerdo volando |
+| memento mori | recuerda que vas a morir · el letrero de las carnitas |
+| persona non grata | persona no bienvenida · doña Cuca y su trapeador |
+| argumentum ad hominem | atacar a la persona, no al argumento · «si ni dientes tienes» |
+| deus ex machina | la salida que aparece de la nada · el ovni |
 | in fraganti | en el momento justo del hecho |
-| carpe diem | aprovecha el día · per alas porci? |
+| carpe diem | aprovecha el día · «¿cuál futuro?» |
 
 ## Lo que produjimos
 
@@ -617,7 +677,7 @@ window.VINETAS = [
 
 ## El postre 🍨
 
-*et cetera* es latín: "y lo demás". Cuando escribes "etc." estás abreviando una frase latina de hace dos mil años sin darte cuenta. También *versus* (contra), *alias* (de otro nombre) y *currículum* (lo que se ha corrido, la carrera). Y *sic*, la palabrita que dice la gallina frente al grafiti: significa "así", y se pone entre corchetes para avisar que el error ya venía en el original. Hablas más latín del que crees.
+*et cetera* es latín: "y lo demás". Cuando escribes "etc." estás abreviando una frase latina de hace dos mil años sin darte cuenta. También *versus* (contra), *alias* (de otro nombre) y *currículum* (lo que se ha corrido, la carrera). Y *sic*: significa "así", y se pone entre corchetes para avisar que el error ya venía en el original: «a grosso modo» [sic]. Hablas más latín del que crees.
 
 ---
 

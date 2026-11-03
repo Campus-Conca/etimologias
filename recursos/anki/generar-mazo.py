@@ -28,6 +28,9 @@ cada nota (su guid) se calcula a partir de ese campo, así que si lo cambias
 Anki creerá que es una tarjeta nueva y el estudiante perderá su avance en
 ella. Todo lo demás (significado, ancla, familia, nota) sí se puede corregir
 libremente: al reimportar, Anki actualiza el contenido y respeta el avance.
+Si de veras hay que corregir una pieza ya publicada (una tilde que el DLE
+quitó, por ejemplo), anota su forma vieja en GUID_DE_ANTES: la tarjeta muestra
+la forma nueva y conserva su identidad.
 
 Regla de contenido: **una pieza, una tarjeta en todo el semestre.** Si una
 pieza ya salió en una semana anterior, no se repite; se menciona en la
@@ -361,16 +364,16 @@ SEMANAS = [
             ("statu quo", "el estado actual de las cosas", "locución latina", "No querían cambiar el statu quo.", "", "La norma en español es «statu quo», no «status quo»."),
             ("habeas corpus", "derecho a no ser detenido sin que se justifique por qué", "locución latina", "Pidió un habeas corpus esa misma noche.", "", "Literal: «que tengas el cuerpo»."),
             ("de facto", "de hecho, en la práctica, aunque la ley diga otra cosa", "locución latina", "Es el líder de facto del grupo.", "de iure (por derecho)", "No es ipso facto: se parecen, no son lo mismo."),
-            ("ipso facto", "en el acto, inmediatamente", "locución latina", "Lo resolvió ipso facto.", "", ""),
+            ("ipso facto", "en el acto, inmediatamente", "locución latina", "Lo resolvió ipso facto.", "", "En la tira: los cerdos llegan al comedero antes de que don Chema termine de llamarlos."),
             ("sine qua non", "condición sin la cual no: lo indispensable", "locución latina", "Estudiar es condición sine qua non para pasar.", "", ""),
             ("modus operandi", "modo de actuar o de trabajar", "locución latina", "Los dos robos tienen el mismo modus operandi.", "modus vivendi (modo de vivir)", ""),
-            ("in fraganti", "en el momento justo en que se comete el hecho", "locución latina", "Lo agarraron in fraganti.", "", "Del latín in flagranti: con el delito todavía ardiendo."),
-            ("vox pópuli", "voz del pueblo: lo que ya todos saben", "locución latina", "Su renuncia es vox pópuli.", "", "Ya castellanizada: lleva tilde y va en redonda."),
-            ("carpe diem", "aprovecha el día", "locución latina", "Se tatuó carpe diem.", "", "En la tira: el cerdo quiere escapar y la gallina pregunta «per alas porci?»"),
-            ("memento mori", "recuerda que vas a morir", "locución latina", "Un cráneo en el escritorio como memento mori.", "", "En la tira: el cerdo mira la camioneta de salchichas."),
-            ("persona non grata", "persona no bienvenida", "locución latina", "Lo declararon persona non grata en el pueblo.", "", "En la tira: llega el granjero y el cerdo le da la espalda."),
-            ("argumentum ad hominem", "atacar a la persona en vez de a lo que dice", "locución latina", "Eso es un ad hominem, no un argumento.", "", "En la tira: el grafiti «el granjero es malvado», y la gallina dice «sic»."),
-            ("deus ex machina", "la salida que aparece de la nada; en el teatro antiguo, el dios que bajaba en grúa", "locución latina", "El final fue un deus ex machina.", "", "En la tira: el cerdo cruza el cielo volando, salvado por algo que no vimos venir."),
+            ("in fraganti", "en el momento justo en que se comete el hecho", "locución latina", "Lo agarraron in fraganti.", "", "Del latín in flagranti: con el delito todavía ardiendo. Ya es forma española: va sin cursiva, y también junta, infraganti."),
+            ("vox populi", "voz del pueblo: lo que ya todos saben", "locución latina", "Su renuncia es vox populi.", "", "En cursiva y sin tilde, como la escribe hoy el DLE. En la tira: todo el corral señala a Porcio por los elotes."),
+            ("carpe diem", "aprovecha el día", "locución latina", "Se tatuó carpe diem.", "", "Carpere es cosechar: el día se arranca como fruta. En la tira: Porcio toma el sol en el lodo y contesta «¿cuál futuro?»."),
+            ("memento mori", "recuerda que vas a morir", "locución latina", "Un cráneo en el escritorio como memento mori.", "", "En la tira: Porcio mira el letrero de las carnitas y el cerdito feliz se parece a su primo."),
+            ("persona non grata", "persona no bienvenida", "locución latina", "Lo declararon persona non grata en el pueblo.", "", "En la tira: doña Cuca acaba de trapear y Porcio llega embarrado. «¡Vade retro, cochino!»"),
+            ("argumentum ad hominem", "atacar a la persona en vez de a lo que dice", "locución latina", "Eso es un ad hominem, no un argumento.", "", "El DLE la registra como argumento ad hominem. En la tira: «¿y tú qué sabes de comida, si ni dientes tienes?»."),
+            ("deus ex machina", "la salida que aparece de la nada; en el teatro antiguo, el dios que bajaba en grúa", "locución latina", "El final fue un deus ex machina.", "", "En la tira: un ovni se lleva a Porcio justo cuando llegaba don Chema con la reata."),
         ],
     },
 ]
@@ -394,6 +397,13 @@ def _base91(num):
         salida.append(_B91[num % len(_B91)])
         num //= len(_B91)
     return "".join(reversed(salida))
+
+
+# Piezas corregidas después de publicarse: forma nueva -> forma con la que
+# salieron. Su guid se sigue calculando con la forma vieja.
+GUID_DE_ANTES = {
+    "vox populi": "vox pópuli",   # el DLE de hoy la escribe sin tilde (nov 2026)
+}
 
 
 def guid_for(*valores):
@@ -507,7 +517,7 @@ def escribe_apkg(semanas, destino):
             ident += 1
             con.execute(
                 "insert into notes values (?,?,?,?,?,?,?,?,?,?,?)",
-                (nid, guid_for("etim-uaq", pieza[0]), MODEL_ID, MOD, -1, etiquetas,
+                (nid, guid_for("etim-uaq", GUID_DE_ANTES.get(pieza[0], pieza[0])), MODEL_ID, MOD, -1, etiquetas,
                  "\x1f".join(pieza), pieza[0], 0, 0, ""))
             for orden in (0, 1):
                 cid = ident

@@ -21,7 +21,7 @@
   .instr strong{color:var(--ciruela)}
   h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
 
-  .ejemplos{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.7rem;margin:.6rem 0 1rem}
+  .ejemplos{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.7rem;margin:.6rem 0 1rem}
   .ej{border:1px solid var(--borde);border-radius:.8rem;overflow:hidden;background:#fff}
   .ej img{display:block;width:100%;height:auto}
   .ej p{margin:0;padding:.5rem .7rem;font-size:.85em;color:#444}
@@ -94,11 +94,11 @@
 </div>
 
 <h2>Así trabaja una locución en una escena</h2>
-<p>Tres viñetas de <em>Pig Latin</em>, de Grant Snider, para ver el mecanismo: sin la locución, es un cerdo mirando una camioneta; con ella, la escena cambia de sentido. Eso es lo que vas a hacer con la historia de Dani.</p>
+<p>Tres viñetas de Porcio, el cerdo que habla latín, para ver el mecanismo: sin la locución, es un cerdo mirando un letrero; con ella, la escena cambia de sentido. Eso es lo que vas a hacer con la historia de Dani.</p>
 <div class="ejemplos">
-  <div class="ej"><img src="../../assets/img/semana-14/tira/02-memento-mori.webp" alt="Un cerdo mira una camioneta que dice salchichas orgánicas; al pie: memento mori"><p><b>memento mori</b>: recuerda que vas a morir. La camioneta de salchichas viene por él.</p></div>
-  <div class="ej"><img src="../../assets/img/semana-14/tira/03-persona-non-grata.webp" alt="Llega el granjero con la camioneta de salchichas y el cerdo le da la espalda; al pie: persona non grata"><p><b>persona non grata</b>: el no bienvenido. El cerdo le da la espalda al granjero.</p></div>
-  <div class="ej"><img src="../../assets/img/semana-14/tira/08-deus-ex-machina.webp" alt="El cerdo cruza volando el cielo nocturno sobre la granja; al pie: deus ex machina"><p><b>deus ex machina</b>: la salida que aparece de la nada. El cerdo vuela y nadie sabe cómo.</p></div>
+  <div class="ej"><div data-vin14="1"></div><p><b>memento mori</b>: recuerda que vas a morir. El cerdito feliz del letrero de las carnitas se parece a su primo.</p></div>
+  <div class="ej"><div data-vin14="2"></div><p><b>persona non grata</b>: el no bienvenido. Doña Cuca acaba de trapear y Porcio llega embarrado.</p></div>
+  <div class="ej"><div data-vin14="7"></div><p><b>deus ex machina</b>: la salida que aparece de la nada. Un ovni se lleva a Porcio justo cuando llegaba don Chema con la reata.</p></div>
 </div>
 
 <h2>La historia</h2>
@@ -120,9 +120,10 @@
   <button class="btn suave" id="otra">Volver a empezar</button>
 </div>
 
-<footer>Semana 14 · La letra chiquita · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página. Las viñetas de ejemplo son de <a href="https://www.incidentalcomics.com" target="_blank" rel="noopener">Grant Snider</a>, usadas en clase con fines didácticos. Los personajes de la historia son inventados.</footer>
+<footer>Semana 14 · La letra chiquita · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página. Las viñetas de ejemplo son de la tira de Porcio, dibujada para este curso por Claude (Anthropic). Los personajes de la historia son inventados.</footer>
 </div>
 
+<script src="../../assets/js/dibujos-semana-14.js"></script>
 <script>
 (function(){
   var E=[
@@ -152,7 +153,7 @@
     {tipo:"significa", cuando:"Jueves, 8:30 · en la cocina, después de la asamblea", loc:"memento mori", sig:"recuerda que vas a morir",
      texto:'<p>El abuelo Chuy saca de la cómoda una foto de la abuela joven, en el mismo terreno, con el maíz hasta la cintura.</p><div class="nota">«Tu abuela decía que esto se arreglaba en vida, no después. <mark>Memento mori</mark>, m\'ija, por eso se firma en vida, porque luego ya no hay quién firme.»</div>',
      pregunta:"¿Qué quiere decir el abuelo con memento mori, aquí?",
-     ops:[["Que hay que acordarse de que nos vamos a morir, y por eso arreglar las cosas a tiempo",true,"Eso es. «Recuerda que vas a morir» no es tristeza: es un empujón para no dejar pendientes. El cerdo lo vio en una camioneta de salchichas; el abuelo, en una foto."],["Que hay que recordar a los muertos y llevarles flores",false,"Se parece, pero no: memento mori te habla de tu propia muerte, no de la de otros. Es un recordatorio para los vivos."],["Que la abuela murió por culpa del terreno",false,"Nadie dice eso. El abuelo usa la frase para explicar por qué hay que firmar ahora."]],
+     ops:[["Que hay que acordarse de que nos vamos a morir, y por eso arreglar las cosas a tiempo",true,"Eso es. «Recuerda que vas a morir» no es tristeza: es un empujón para no dejar pendientes. Porcio lo vio en el letrero de las carnitas; el abuelo, en una foto."],["Que hay que recordar a los muertos y llevarles flores",false,"Se parece, pero no: memento mori te habla de tu propia muerte, no de la de otros. Es un recordatorio para los vivos."],["Que la abuela murió por culpa del terreno",false,"Nadie dice eso. El abuelo usa la frase para explicar por qué hay que firmar ahora."]],
      propias:"Escribe, en una línea, el memento mori de tu propia familia: algo que alguien dice para recordar que el tiempo se acaba.", ejemplo:"«Mi mamá dice: ‘nadie se lleva nada’, cada vez que alguien pelea por una herencia.»"},
     {tipo:"caza", cuando:"Viernes, 7:05 · grupo de WhatsApp «3.º B»", loc:"motu proprio", sig:"por voluntad propia, sin que nadie lo pida",
      texto:'<div class="chat"><b>Karla</b>La maestra de historia nos va a hacer examen el lunes <mark>de motu propio</mark>, nadie se lo pidió 😭</div><div class="chat yo"><b>Dani</b>Pues sí, pero ahí van dos errores en tres palabras.</div>',
@@ -161,20 +162,20 @@
     {tipo:"llena", cuando:"Viernes, 4:00 · en el terreno, con el topógrafo", loc:"de facto", sig:"de hecho, en la práctica, aunque la ley diga otra cosa",
      texto:'<p>Don Chon tiene chivas pastando del lado de la barranca desde hace diez años. Las escrituras dicen que esa parte es de la abuela.</p><div class="chat"><b>Topógrafo</b>Lo que pasa es que don Chon es el dueño <span class="hueco">___</span> de esa franja: lleva diez años usándola. Pero el dueño de <em>iure</em>, por derecho, sigue siendo la familia de ustedes.</div>',
      pregunta:"¿Qué locución va en el hueco?",
-     ops:[["de facto",true,"«De hecho»: en la práctica, don Chon manda ahí aunque el papel diga otra cosa. El topógrafo lo contrasta con <em>de iure</em>, «por derecho». Son el par perfecto para entender cualquier pleito de tierras."],["ipso facto",false,"Se parece muchísimo, y por eso se confunden. Ipso facto es «en el acto, inmediatamente»; no describe quién manda en la práctica."],["in fraganti",false,"In fraganti es «en el momento justo del hecho». Don Chon no fue sorprendido haciendo nada: lleva diez años ahí a la vista."],["ex professo",false,"Ex professo es «a propósito, deliberadamente». No es un adjetivo para dueño."]]},
+     ops:[["de facto",true,"«De hecho»: en la práctica, don Chon manda ahí aunque el papel diga otra cosa. El topógrafo lo contrasta con <em>de iure</em>, «por derecho». Son el par perfecto para entender cualquier pleito de tierras."],["ipso facto",false,"Se parece muchísimo, y por eso se confunden. Ipso facto es «en el acto, inmediatamente»; no describe quién manda en la práctica."],["in fraganti",false,"In fraganti es «en el momento justo del hecho». Don Chon no fue sorprendido haciendo nada: lleva diez años ahí a la vista."],["ex profeso",false,"Ex profeso es «a propósito, con intención». No es un adjetivo para dueño."]]},
     {tipo:"llena", cuando:"Sábado, 9:00 · el tío Beto, enojado, en el patio", loc:"modus operandi", sig:"la manera en que alguien hace siempre las cosas",
      texto:'<div class="chat"><b>Tío Beto</b>Don Chon tiene su <span class="hueco">___</span>, y lo conozco: primero mete las chivas, luego pone una cerca «provisional», luego siembra, y a los diez años dice que siempre fue suyo. Así hizo con lo de los Camacho.</div>',
      pregunta:"¿Qué locución va en el hueco?",
-     ops:[["modus operandi",true,"«Modo de operar»: la manera en que alguien hace siempre las cosas. El tío describe el patrón paso a paso, y eso es exactamente un modus operandi. La usan los detectives y, ya ves, también los tíos."],["modus vivendi",false,"Modus vivendi es «modo de vivir, forma de ganarse la vida». El tío no habla de cómo vive don Chon, sino de cómo opera."],["statu quo",false,"Statu quo es «el estado actual de las cosas». Aquí el tío describe un método, no un estado."],["álter ego",false,"Álter ego es «el otro yo». Don Chon no tiene un otro yo: tiene un método."]]},
+     ops:[["modus operandi",true,"«Modo de operar»: la manera en que alguien hace siempre las cosas. El tío describe el patrón paso a paso, y eso es exactamente un modus operandi. La usan los detectives y, ya ves, también los tíos."],["modus vivendi",false,"Modus vivendi es «modo de vivir, forma de ganarse la vida». El tío no habla de cómo vive don Chon, sino de cómo opera."],["statu quo",false,"Statu quo es «el estado actual de las cosas». Aquí el tío describe un método, no un estado."],["alter ego",false,"Alter ego es «el otro yo». Don Chon no tiene un otro yo: tiene un método."]]},
     {tipo:"significa", cuando:"Sábado, 11:00 · segunda asamblea, con más gente", loc:"argumentum ad hominem", sig:"atacar a la persona en vez de responder a lo que dice",
      texto:'<p>La mamá de Dani pide la palabra y explica, con las escrituras en la mano, por dónde va el lindero.</p><div class="chat"><b>Don Chon</b>¿Y qué va a saber ella de linderos, si ni la secundaria terminó?</div><div class="chat yo"><b>Mamá de Dani</b>Eso es un <mark>argumentum ad hominem</mark>, don Chon. Conteste lo de las escrituras.</div>',
      pregunta:"¿Qué le está señalando la mamá de Dani?",
-     ops:[["Que la atacó a ella en vez de responder a lo que dijo",true,"Eso es: «argumento contra la persona». Don Chon no dijo nada sobre las escrituras; habló de la secundaria de la señora. Cuando alguien no puede con el argumento, ataca a quien lo dice. En la tira, es el grafiti «el granjero es malvado»."],["Que la insultó, y que insultar está prohibido en la asamblea",false,"Sí la insultó, pero la locución señala algo más preciso: que cambió el tema del argumento a la persona. Por eso remata con «conteste lo de las escrituras»."],["Que don Chon tiene razón porque ella no estudió",false,"Al contrario: tener o no secundaria no cambia lo que dicen las escrituras. Eso es justo lo que la locución denuncia."]],
+     ops:[["Que la atacó a ella en vez de responder a lo que dijo",true,"Eso es: «argumento contra la persona». Don Chon no dijo nada sobre las escrituras; habló de la secundaria de la señora. Cuando alguien no puede con el argumento, ataca a quien lo dice. En la tira, es Porcio contestándole a la gallina que ella ni dientes tiene."],["Que la insultó, y que insultar está prohibido en la asamblea",false,"Sí la insultó, pero la locución señala algo más preciso: que cambió el tema del argumento a la persona. Por eso remata con «conteste lo de las escrituras»."],["Que don Chon tiene razón porque ella no estudió",false,"Al contrario: tener o no secundaria no cambia lo que dicen las escrituras. Eso es justo lo que la locución denuncia."]],
      propias:"Escribe un ad hominem que hayas oído en tu casa, en la escuela o en la tele, y cómo se contesta.", ejemplo:"«‘Tú ni votas, qué opinas’. Se contesta: ‘que no vote no cambia lo que dije; contéstame eso’.»"},
     {tipo:"llena", cuando:"Lunes siguiente, 10:00 · el licenciado llama a la tía Lupe", loc:"deus ex machina", sig:"la salida que aparece de la nada",
      texto:'<p>Nadie encontraba el plano original del deslinde. El licenciado buscó en el Registro Público y apareció, de 1987, con la firma de la abuela y del papá de don Chon, con el lindero donde dice la familia.</p><div class="chat"><b>Tía Lupe</b>Fue un <span class="hueco">___</span>, Dani: ya nos dábamos por perdidos y aparece un papel de hace cuarenta años que lo arregla todo.</div>',
      pregunta:"¿Qué locución va en el hueco?",
-     ops:[["deus ex machina",true,"«Dios desde la máquina»: en el teatro antiguo, una grúa bajaba al dios que resolvía todo de golpe. Un plano de 1987 que nadie esperaba es exactamente eso. El cerdo volando sobre la granja también."],["ad astra per aspera",false,"«A las estrellas por el camino difícil» es un lema de esfuerzo: llegar lejos a pesar de lo áspero. Aquí nadie se esforzó para encontrar el plano; apareció."],["e pluribus unum",false,"«De muchos, uno». Es el lema de Estados Unidos, y de los cerdos apilados. No describe una salida inesperada."],["alea iacta est",false,"«La suerte está echada» se dice cuando ya no hay vuelta atrás, al tomar una decisión. Aquí no se decidió nada: apareció una solución."]]},
+     ops:[["deus ex machina",true,"«Dios desde la máquina»: en el teatro antiguo, una grúa bajaba al dios que resolvía todo de golpe. Un plano de 1987 que nadie esperaba es exactamente eso. El ovni que se lleva a Porcio también."],["ad astra per aspera",false,"«A las estrellas por el camino difícil» es un lema de esfuerzo: llegar lejos a pesar de lo áspero. Aquí nadie se esforzó para encontrar el plano; apareció."],["e pluribus unum",false,"«De muchos, uno». Es el lema de Estados Unidos. No describe una salida inesperada."],["alea iacta est",false,"«La suerte está echada» se dice cuando ya no hay vuelta atrás, al tomar una decisión. Aquí no se decidió nada: apareció una solución."]]},
     {tipo:"llena", cuando:"Martes, 4:30 · notaría de Jalpan", loc:"ipso facto", sig:"en el acto, inmediatamente",
      texto:'<p>Antes de que la mamá firme, Dani lee la cláusula completa, despacio, como aprendió en la semana 14.</p><div class="papel"><em>Cláusula séptima.</em> Firmado el presente, las partes reconocen <span class="hueco">___</span> el lindero señalado en el plano de 1987 y renuncian a cualquier reclamación posterior.</div><div class="chat yo"><b>Dani</b>Mamá, aquí dice que en cuanto firmen ya quedó, y nadie puede reclamar después. ¿Estamos seguros del lindero?</div>',
      pregunta:"¿Qué locución va en el hueco?",
