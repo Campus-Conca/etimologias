@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#6b1e5a">
+<title>Sube tu historia · Historietas · Etimologías</title>
+<style>
+:root{
+  --rosa:#c8127a; --ciruela:#6b1e5a; --ciruela-osc:#4a1540;
+  --fondo:#fbf4f9; --borde:#eadce6; --papel:#fff;
+  --jade:#1f8a4c; --jade-bg:#e9f6ef; --ambar:#b3541e; --ambar-bg:#fdf0e6; --rojo:#b3261e;
+  --gris:#6f6470;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{font-family:var(--sans);background:var(--fondo);color:#2a2a2a;line-height:1.55;font-size:16px;overflow-x:hidden}
+button,input,select,textarea{font:inherit}
+a{color:var(--rosa)}
+.barra{position:sticky;top:0;z-index:40;background:var(--ciruela);color:#fff;padding:calc(.55rem + env(safe-area-inset-top,0)) .9rem .55rem;box-shadow:0 1px 10px rgba(74,21,64,.25)}
+.marca{font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;opacity:.8;line-height:1.3}
+.marca b{display:block;font-size:.98rem;letter-spacing:0;text-transform:none;opacity:1}
+.demo-banda{background:#ffd23f;color:var(--ciruela-osc);text-align:center;font-size:.8rem;font-weight:700;padding:.35rem .8rem}
+main{max-width:42rem;margin:0 auto;padding:.4rem .9rem 7rem}
+.tarjeta{background:var(--papel);border:1px solid var(--borde);border-radius:14px;padding:1rem 1.05rem;margin:.9rem 0}
+.paso{font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--rosa);font-weight:800;margin:0 0 .1rem}
+h1{font-size:1.7rem;line-height:1.15;color:var(--ciruela);margin:.1rem 0 .4rem}
+h2{font-size:1.2rem;line-height:1.2;color:var(--ciruela);margin:.1rem 0 .4rem}
+p{margin:.5rem 0}
+.mini{font-size:.86rem;color:var(--gris);line-height:1.45}
+label.campo{display:block;font-weight:700;color:var(--ciruela);margin:.85rem 0 .3rem}
+.opcional{font-weight:500;color:var(--gris);font-size:.82rem}
+input[type=text],textarea{width:100%;border:1.5px solid var(--borde);border-radius:10px;padding:.6rem .7rem;background:#fff;font-size:1rem}
+input[type=text]:focus,textarea:focus{outline:none;border-color:var(--rosa)}
+textarea{resize:vertical;min-height:5rem}
+textarea.historia{min-height:14rem;line-height:1.5}
+.contador{text-align:right;font-size:.8rem;color:var(--gris);margin-top:.2rem}
+.boton{display:inline-flex;align-items:center;justify-content:center;gap:.35rem;background:var(--rosa);color:#fff;border:none;border-radius:2rem;
+  padding:.65rem 1.2rem;font-weight:700;cursor:pointer;text-decoration:none;font-size:.98rem;min-height:46px}
+.boton.sec{background:#fff;color:var(--ciruela);border:1.5px solid var(--ciruela)}
+.boton.chico{padding:.4rem .85rem;font-size:.86rem;min-height:38px}
+.boton[disabled]{opacity:.55;cursor:default}
+.botones{display:flex;flex-wrap:wrap;gap:.5rem;margin:.7rem 0}
+.pj{border:1px dashed #d8c7e0;border-radius:12px;padding:.6rem .7rem;margin:.6rem 0;position:relative}
+.pj .quitar{position:absolute;right:.5rem;top:.45rem;background:none;border:none;color:var(--gris);font-size:.82rem;cursor:pointer;text-decoration:underline}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:.4rem 0}
+.chips button{border:1.5px solid #d6c6df;background:#fff;color:var(--ciruela);border-radius:12px;padding:.45rem .7rem;cursor:pointer;text-align:left;font-size:.88rem;line-height:1.3}
+.chips button small{display:block;color:var(--gris);font-size:.76rem;font-weight:500}
+.chips button.on{background:var(--ciruela);color:#fff;border-color:var(--ciruela)}
+.chips button.on small{color:#f1dff0}
+.fotos{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:.5rem;margin:.5rem 0}
+.fotos figure{margin:0;position:relative}
+.fotos img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;border:1px solid var(--borde)}
+.fotos button{position:absolute;top:4px;right:4px;background:rgba(0,0,0,.65);color:#fff;border:none;border-radius:50%;width:26px;height:26px;cursor:pointer;line-height:26px;padding:0}
+.subir{display:flex;align-items:center;justify-content:center;gap:.4rem;border:2px dashed #cdb4d8;border-radius:12px;padding:.8rem;color:var(--ciruela);font-weight:700;cursor:pointer;background:#fcf8fd}
+.opciones label{display:flex;gap:.6rem;align-items:flex-start;border:1.5px solid var(--borde);border-radius:12px;padding:.6rem .7rem;margin:.45rem 0;cursor:pointer}
+.opciones input{margin-top:.25rem;accent-color:var(--rosa);width:1.1rem;height:1.1rem}
+.opciones label.on{border-color:var(--rosa);background:#fff5fa}
+.opciones b{color:var(--ciruela)}
+.permiso{display:flex;gap:.6rem;align-items:flex-start}
+.permiso input{margin-top:.3rem;accent-color:var(--rosa);width:1.15rem;height:1.15rem}
+.nota{background:var(--ambar-bg);border-left:4px solid var(--ambar);padding:.6rem .8rem;border-radius:8px;font-size:.92rem}
+.nota.jade{background:var(--jade-bg);border-left-color:var(--jade)}
+.error{color:var(--rojo);font-weight:600}
+.envio{position:sticky;bottom:0;background:linear-gradient(transparent,var(--fondo) 30%);padding:1rem 0 calc(.8rem + env(safe-area-inset-bottom,0))}
+.codigo-grande{font-size:2.6rem;font-weight:900;letter-spacing:.18em;text-align:center;color:var(--ciruela);background:#fff;border:3px dashed var(--rosa);border-radius:16px;padding:.6rem;margin:.8rem 0}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<header class="barra"><div class="marca">Historietas · Etimologías<b>Sube tu historia</b></div></header>
+<div class="demo-banda" id="demo-banda" hidden>Ejemplo · nada de lo que escribas aquí se envía</div>
+
+<main>
+<form id="forma" novalidate>
+  <section class="tarjeta">
+    <p class="paso">Historietas</p>
+    <h1>Sube tu historia</h1>
+    <p>Mándanos la historia que escribiste y el estilo de dibujo que te gusta. En uno o dos días te preparamos un <b>guion para Gemini</b>, viñeta por viñeta, y tu <b>mesa de dibujo</b> para armar las páginas.</p>
+    <p class="mini">Antes de empezar, lee el <a href="instructivo.html">instructivo</a>. Si quieres ver cómo queda un guion, abre el <a href="mesa.html?demo">ejemplo</a>.</p>
+    <p class="nota" id="sin-api" hidden>La recepción de historias todavía no está abierta: el profe la abre pronto. Puedes llenar todo; se guarda en este teléfono.</p>
+    <div class="botones" id="caja-ejemplo" hidden><button type="button" class="boton chico sec" id="b-ejemplo">Llenar con el ejemplo</button></div>
+  </section>
+
+  <section class="tarjeta">
+    <p class="paso">1 · Quién eres</p>
+    <label class="campo" for="nombre">Tu nombre de pila</label>
+    <input type="text" id="nombre" maxlength="40" autocomplete="given-name" placeholder="Solo tu nombre, sin apellidos">
+    <p class="mini">Es el que aparecerá en la portada: «por …».</p>
+  </section>
+
+  <section class="tarjeta">
+    <p class="paso">2 · Tu historia</p>
+    <label class="campo" for="titulo">Título <span class="opcional">(si ya lo tienes)</span></label>
+    <input type="text" id="titulo" maxlength="80" placeholder="Si lo dejas vacío, te proponemos uno">
+    <label class="campo" for="historia">Pega o escribe tu historia</label>
+    <textarea class="historia" id="historia" placeholder="Tal como la escribiste. Entre 150 y 900 palabras funciona bien."></textarea>
+    <p class="contador" id="contador">0 palabras</p>
+    <p class="mini">¿La tienes en tu cuaderno? Súbela en fotos, una por hoja, con buena luz y sin sombra (hasta 4). Es más fácil abriendo esta página en tu celular.</p>
+    <div class="fotos" id="fotos-historia"></div>
+    <label class="subir" id="subir-historia"><input type="file" accept="image/*" multiple hidden id="in-historia">+ Fotos de mi cuaderno</label>
+  </section>
+
+  <section class="tarjeta">
+    <p class="paso">3 · Tus personajes</p>
+    <p>Para que Gemini los dibuje igual en cada viñeta necesitamos saber cómo son. Di su edad, cuerpo, pelo, ropa con colores y algo que los distinga (un sombrero, unos lentes, una cicatriz).</p>
+    <div id="personajes"></div>
+    <button type="button" class="boton chico sec" id="b-pj">+ Otro personaje</button>
+    <p class="mini">Hasta cuatro. Los que salen una sola vez no hace falta describirlos.</p>
+  </section>
+
+  <section class="tarjeta">
+    <p class="paso">4 · Dónde y cuándo</p>
+    <label class="campo" for="lugar">¿Dónde y cuándo pasa tu historia?</label>
+    <input type="text" id="lugar" maxlength="200" placeholder="Ej.: en Concá, una noche de lluvia, en vacaciones">
+  </section>
+
+  <section class="tarjeta">
+    <p class="paso">5 · El estilo que te gusta</p>
+    <p>Escoge uno o dos estilos, sube imágenes de cómics o dibujos que te gusten, o las dos cosas.</p>
+    <div class="chips" id="chips"></div>
+    <div class="fotos" id="fotos-estilo"></div>
+    <label class="subir"><input type="file" accept="image/*" multiple hidden id="in-estilo">+ Imágenes del estilo que me gusta (hasta 3)</label>
+    <label class="campo" for="estilo-texto">¿Cómo lo describirías? <span class="opcional">(opcional)</span></label>
+    <input type="text" id="estilo-texto" maxlength="200" placeholder="Ej.: como el manga que leo, en blanco y negro, con mucha acción">
+    <p class="mini">Las imágenes son solo para entender qué te gusta: tu historieta no va a copiar a ningún personaje de otro cómic.</p>
+  </section>
+
+  <section class="tarjeta">
+    <p class="paso">6 · ¿Qué tan larga?</p>
+    <div class="opciones" id="paginas">
+      <label><input type="radio" name="paginas" value="1"><span><b>1 página y portada</b><br><span class="mini">De 3 a 6 viñetas. Para una escena o un chiste. Se hace en una o dos sentadas.</span></span></label>
+      <label><input type="radio" name="paginas" value="2" checked><span><b>2 páginas y portada</b><br><span class="mini">De 6 a 10 viñetas. Para casi cualquier historia. Dos o tres sentadas.</span></span></label>
+      <label><input type="radio" name="paginas" value="3"><span><b>3 páginas y portada</b><br><span class="mini">De 9 a 14 viñetas. Para historias con varios momentos. Tres o cuatro sentadas.</span></span></label>
+    </div>
+    <p class="mini">Cada viñeta es una imagen que pides a Gemini, y Gemini tiene un límite que se recarga cada cinco horas.</p>
+  </section>
+
+  <section class="tarjeta">
+    <p class="paso">7 · Lo que no se toca</p>
+    <label class="campo" for="no-cambiar">¿Hay una frase, un momento o un final que no quieras que cambiemos? <span class="opcional">(opcional)</span></label>
+    <textarea id="no-cambiar" maxlength="600" placeholder="Ej.: el final tiene que ser tal cual; la frase de la abuela va completa"></textarea>
+  </section>
+
+  <section class="tarjeta">
+    <p class="paso">8 · Permiso</p>
+    <label class="permiso"><input type="checkbox" id="permiso"><span>Cuando esté terminada, mi historieta se puede mostrar en el sitio del curso con mi nombre de pila.</span></label>
+    <p class="mini">Si no marcas, solo la ve el profe.</p>
+  </section>
+
+  <div class="envio">
+    <p class="error" id="error" role="alert"></p>
+    <button type="submit" class="boton" id="b-enviar" style="width:100%">Enviar mi historia</button>
+  </div>
+</form>
+
+<section class="tarjeta" id="listo" hidden>
+  <p class="paso">¡Recibida!</p>
+  <h1>Tu historia llegó</h1>
+  <p>Este es tu código. <b>Anótalo en tu cuaderno:</b> con él abres tu mesa de dibujo en cualquier computadora.</p>
+  <div class="codigo-grande" id="codigo-final">———</div>
+  <p>Tu guion estará listo en uno o dos días. Cuando entres a la mesa con tu código, ahí estará.</p>
+  <div class="botones"><a class="boton" id="a-mesa" href="mesa.html">Ir a mi mesa de dibujo</a><a class="boton sec" href="instructivo.html">Leer el instructivo</a></div>
+  <p class="mini" id="nota-demo" hidden>Es el ejemplo: no se envió nada. En la de verdad, aquí aparece tu código.</p>
+</section>
+</main>
+
+<script src="config.js"></script>
+<script>
+(function(){
+'use strict';
+var qs = new URLSearchParams(location.search);
+var DEMO = qs.has('demo');
+var LOCAL = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
+var API = (LOCAL && qs.get('api')) || window.HISTORIETAS_API || '';
+var BORRADOR = 'hist:borrador';
+var ESTILOS = [
+  ['Grabado mexicano', 'Tinta negra tallada y un solo color, como el del profe'],
+  ['Manga en blanco y negro', 'Tinta, tramas de puntos y líneas de velocidad'],
+  ['Anime a color', 'Colores vivos, sombras planas, ojos grandes'],
+  ['Superhéroes a color', 'Poses dinámicas, sombras fuertes, mucho color'],
+  ['Línea clara europea', 'Contorno limpio y colores planos, sin sombras'],
+  ['Caricatura de periódico', 'Personajes redondos y chistosos, fondos sencillos'],
+  ['Libro ilustrado en acuarela', 'Lápiz suave y manchas de acuarela'],
+  ['Webtoon a color', 'Digital, brillos suaves, colores pastel o vivos'],
+  ['Novela gráfica en tinta', 'Pincel, negros densos, ambiente de película']
+];
+var EJEMPLO = {
+  nombre:'Lupita', titulo:'El cuaderno de la abuela',
+  historia:'En las vacaciones fui a casa de mi abuela Chabela en Concá. Una tarde llovió muy fuerte y se fue la luz. Mi abuela prendió un cerillo y me dijo que había velas en el ropero. Mientras buscaba las velas encontré entre la ropa un cuaderno viejo forrado con tela de flores. Adentro había palabras escritas con letra de antes: molcajete, itacate, guajolote, papalote, chapulín. Le pregunté a mi abuela qué era eso. Me dijo que era el cuaderno de su mamá, que hablaba náhuatl, y que cada vez que alguien en el pueblo usaba una palabra de su lengua ella la apuntaba para que no se perdiera. "Mira cuántas usamos sin saber", me dijo. Esa noche leímos el cuaderno entero con la vela. Cada palabra traía un recuerdo: el itacate que llevaba mi bisabuela a la milpa, el guajolote que se escapó en una boda. Cuando volvió la luz ya era muy tarde. Antes de dormirme escribí una palabra nueva en la última hoja. Al otro día mi abuela la leyó y se rió.',
+  personajes:[{nombre:'Lupita', como:'Yo, de 13 años. Flaca, cara redonda, cejas gruesas. Una sola trenza larga con moño blanco. Siempre traigo una sudadera oscura que me queda grande.'},
+              {nombre:'Mi abuela Chabela', como:'Tiene 70 años, es bajita y llenita, con arrugas y ojos chiquitos. Chongo canoso, rebozo de rayas, delantal y lentes colgados de un cordón.'}],
+  lugar:'En Concá, en la casa de mi abuela, una noche de tormenta en vacaciones',
+  estilos:['Grabado mexicano'], estilo_texto:'Como los grabados del profe, con un solo color para la luz de la vela', paginas:'3',
+  no_cambiar:'Que no se sepa qué palabra escribí hasta el final.', permiso:true
+};
+
+function $(s){ return document.querySelector(s); }
+function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+var fotosHistoria = [], fotosEstilo = [], estilos = [];
+
+/* ---------- personajes ---------- */
+function filaPersonaje(p){
+  var d = document.createElement('div'); d.className = 'pj';
+  d.innerHTML = '<button type="button" class="quitar">quitar</button>' +
+    '<label class="campo">Nombre</label><input type="text" class="pj-nombre" maxlength="40" value="' + esc(p && p.nombre) + '" placeholder="Ej.: Don Beto">' +
+    '<label class="campo">¿Cómo es?</label><textarea class="pj-como" maxlength="600" placeholder="Edad, cuerpo, pelo, ropa con colores y algo que lo distinga">' + esc(p && p.como) + '</textarea>';
+  d.querySelector('.quitar').addEventListener('click', function(){ d.remove(); revisarPj(); guardarBorrador(); });
+  d.addEventListener('input', guardarBorrador);
+  $('#personajes').appendChild(d); revisarPj();
+}
+function revisarPj(){ var n = document.querySelectorAll('.pj').length; $('#b-pj').hidden = n >= 4; }
+$('#b-pj').addEventListener('click', function(){ filaPersonaje(); });
+
+/* ---------- estilos ---------- */
+$('#chips').innerHTML = ESTILOS.map(function(e){ return '<button type="button" data-e="' + esc(e[0]) + '">' + esc(e[0]) + '<small>' + esc(e[1]) + '</small></button>'; }).join('');
+$('#chips').addEventListener('click', function(ev){
+  var b = ev.target.closest('button'); if (!b) return;
+  var e = b.dataset.e, i = estilos.indexOf(e);
+  if (i >= 0) estilos.splice(i, 1); else { if (estilos.length >= 2) estilos.shift(); estilos.push(e); }
+  pintarChips(); guardarBorrador();
+});
+function pintarChips(){ Array.prototype.forEach.call(document.querySelectorAll('#chips button'), function(b){ b.classList.toggle('on', estilos.indexOf(b.dataset.e) >= 0); }); }
+
+/* ---------- fotos ---------- */
+function comprimir(archivo, maximo, calidad){
+  return new Promise(function(res, rej){
+    var u = URL.createObjectURL(archivo), im = new Image();
+    im.onload = function(){
+      var s = Math.min(1, maximo / Math.max(im.naturalWidth, im.naturalHeight));
+      var c = document.createElement('canvas'); c.width = Math.round(im.naturalWidth * s); c.height = Math.round(im.naturalHeight * s);
+      c.getContext('2d').drawImage(im, 0, 0, c.width, c.height); URL.revokeObjectURL(u);
+      var url = c.toDataURL('image/jpeg', calidad);
+      res({ nombre: (archivo.name || 'imagen').replace(/\.[^.]+$/, '') + '.jpg', tipo:'image/jpeg', datos:url.split(',')[1], vista:url });
+    };
+    im.onerror = function(){ URL.revokeObjectURL(u); rej(new Error('imagen')); };
+    im.src = u;
+  });
+}
+function pintarFotos(lista, caja){
+  caja.innerHTML = lista.map(function(f, i){ return '<figure><img alt="" src="' + f.vista + '"><button type="button" data-i="' + i + '" aria-label="Quitar">×</button></figure>'; }).join('');
+}
+function engancharFotos(input, lista, caja, max, maximo, calidad){
+  input.addEventListener('change', async function(){
+    var archivos = Array.prototype.slice.call(input.files || []);
+    var i = 0;
+    for (; i < archivos.length && lista.length < max; i++){
+      try{ lista.push(await comprimir(archivos[i], maximo, calidad)); }catch(e){ $('#error').textContent = 'No pude abrir una de las imágenes; prueba con otra.'; }
+    }
+    if (i < archivos.length) $('#error').textContent = 'Aquí caben ' + max + ' imágenes; dejé las primeras.';
+    input.value = ''; pintarFotos(lista, caja);
+  });
+  caja.addEventListener('click', function(ev){ var b = ev.target.closest('button[data-i]'); if (!b) return; lista.splice(+b.dataset.i, 1); pintarFotos(lista, caja); });
+}
+engancharFotos($('#in-historia'), fotosHistoria, $('#fotos-historia'), 4, 2000, .85);
+engancharFotos($('#in-estilo'), fotosEstilo, $('#fotos-estilo'), 3, 1280, .85);
+
+/* ---------- contador y borrador ---------- */
+function palabras(t){ return (t.trim().match(/\S+/g) || []).length; }
+function contar(){ var n = palabras($('#historia').value); $('#contador').textContent = n + (n === 1 ? ' palabra' : ' palabras') + (n > 1200 ? ' · es larga: la vamos a condensar' : ''); }
+$('#historia').addEventListener('input', contar);
+function leerForma(){
+  var pjs = Array.prototype.map.call(document.querySelectorAll('.pj'), function(d){ return { nombre:d.querySelector('.pj-nombre').value.trim(), como:d.querySelector('.pj-como').value.trim() }; })
+    .filter(function(p){ return p.nombre || p.como; });
+  var pg = document.querySelector('input[name=paginas]:checked');
+  return { nombre:$('#nombre').value.trim(), titulo:$('#titulo').value.trim(), historia:$('#historia').value.trim(), personajes:pjs,
+    lugar:$('#lugar').value.trim(), estilos:estilos.slice(), estilo_texto:$('#estilo-texto').value.trim(), paginas: pg ? pg.value : '2',
+    no_cambiar:$('#no-cambiar').value.trim(), permiso:$('#permiso').checked };
+}
+function ponerForma(d){
+  $('#nombre').value = d.nombre || ''; $('#titulo').value = d.titulo || ''; $('#historia').value = d.historia || '';
+  $('#lugar').value = d.lugar || ''; $('#estilo-texto').value = d.estilo_texto || ''; $('#no-cambiar').value = d.no_cambiar || '';
+  $('#permiso').checked = !!d.permiso; estilos = (d.estilos || []).slice(); pintarChips();
+  var r = document.querySelector('input[name=paginas][value="' + (d.paginas || '2') + '"]'); if (r) r.checked = true; marcarOpciones();
+  $('#personajes').innerHTML = ''; (d.personajes && d.personajes.length ? d.personajes : [{}, {}]).forEach(filaPersonaje);
+  contar();
+}
+var tB = 0;
+function guardarBorrador(){ if (DEMO) return; clearTimeout(tB); tB = setTimeout(function(){ try{ localStorage.setItem(BORRADOR, JSON.stringify(leerForma())); }catch(e){} }, 400); }
+$('#forma').addEventListener('input', guardarBorrador);
+function marcarOpciones(){ Array.prototype.forEach.call(document.querySelectorAll('#paginas label'), function(l){ l.classList.toggle('on', l.querySelector('input').checked); }); }
+$('#paginas').addEventListener('change', function(){ marcarOpciones(); guardarBorrador(); });
+
+/* ---------- enviar ---------- */
+var LETRAS = 'ABCDEFGHJKMNPQRSTUVWXYZ', DIGITOS = '23456789';
+function codigoNuevo(){ var c = ''; for (var i = 0; i < 3; i++) c += LETRAS[Math.floor(Math.random() * LETRAS.length)]; for (var j = 0; j < 3; j++) c += DIGITOS[Math.floor(Math.random() * DIGITOS.length)]; return c; }
+function bonito(c){ return c.slice(0, 3) + '-' + c.slice(3); }
+function validar(d){
+  if (!d.nombre) return 'Falta tu nombre de pila (paso 1).';
+  if (palabras(d.historia) < 40 && !fotosHistoria.length) return 'Falta tu historia: pégala o sube fotos de tu cuaderno (paso 2).';
+  if (!d.estilos.length && !fotosEstilo.length && !d.estilo_texto) return 'Elige un estilo, sube una imagen o descríbelo (paso 5).';
+  return '';
+}
+$('#forma').addEventListener('submit', async function(ev){
+  ev.preventDefault();
+  var d = leerForma(), err = validar(d), btn = $('#b-enviar');
+  $('#error').textContent = err; if (err) return;
+  if (!d.personajes.length && !confirm('No describiste a ningún personaje. Gemini los va a inventar distinto en cada viñeta. ¿Enviar así?')) return;
+  var cuerpo = { accion:'subir', codigo:codigoNuevo(), nombre:d.nombre, titulo:d.titulo, historia:d.historia,
+    fotos_historia: fotosHistoria.map(function(f){ return { nombre:f.nombre, tipo:f.tipo, datos:f.datos }; }),
+    personajes:d.personajes, lugar:d.lugar, estilo_texto:d.estilo_texto, estilo_opciones:d.estilos,
+    imagenes_estilo: fotosEstilo.map(function(f){ return { nombre:f.nombre, tipo:f.tipo, datos:f.datos }; }),
+    paginas:+d.paginas, no_cambiar:d.no_cambiar, permiso:d.permiso };
+  var json = JSON.stringify(cuerpo);
+  if (DEMO){ terminar('EJE234', true); return; }
+  if (!API){ $('#error').textContent = 'La recepción todavía no está abierta. Tu historia queda guardada en este teléfono; vuelve a intentarlo cuando el profe avise.'; return; }
+  if (json.length > 30e6){ $('#error').textContent = 'Las fotos pesan demasiado. Quita alguna y vuelve a intentar.'; return; }
+  btn.disabled = true; btn.textContent = 'Enviando…';
+  try{
+    var r = await fetch(API, { method:'POST', body:json });
+    var j = await r.json();
+    if (!j.ok) throw new Error(j.error || 'error');
+    try{ localStorage.removeItem(BORRADOR); localStorage.setItem('hist:ultimo', j.codigo); }catch(e){}
+    terminar(j.codigo, false);
+  }catch(e){
+    var m = { 'falta-nombre':'Falta tu nombre.', 'falta-historia':'Falta tu historia.', 'demasiadas-imagenes':'Son demasiadas imágenes: hasta 4 de tu cuaderno y 3 de estilo.' }[e.message];
+    $('#error').textContent = m || 'No se pudo enviar. Revisa tu internet e inténtalo otra vez; tu historia sigue aquí.';
+    btn.disabled = false; btn.textContent = 'Enviar mi historia';
+  }
+});
+function terminar(c, demo){
+  $('#forma').hidden = true; $('#listo').hidden = false; $('#nota-demo').hidden = !demo;
+  $('#codigo-final').textContent = bonito(c);
+  $('#a-mesa').href = demo ? 'mesa.html?demo' : 'mesa.html?c=' + c;
+  window.scrollTo(0, 0);
+}
+
+/* ---------- arranque ---------- */
+if (DEMO){ $('#demo-banda').hidden = false; }
+if (DEMO || LOCAL) $('#caja-ejemplo').hidden = false;
+if (!API && !DEMO) $('#sin-api').hidden = false;
+$('#b-ejemplo').addEventListener('click', function(){ ponerForma(EJEMPLO); });
+var b = null; try{ b = JSON.parse(localStorage.getItem(BORRADOR) || 'null'); }catch(e){}
+ponerForma(DEMO ? {} : (b || {}));
+})();
+</script>
+</body>
+</html>

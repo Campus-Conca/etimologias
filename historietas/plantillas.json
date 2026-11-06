@@ -1,0 +1,810 @@
+{
+ "version": 1,
+ "nota": "Generado por gen_plantillas.py. La mesa de dibujo y el agente leen este archivo; no se edita a mano.",
+ "formatos": {
+  "a5": {
+   "nombre": "A5 vertical",
+   "ancho": 1748,
+   "alto": 2480,
+   "margen": 70,
+   "calle": 36,
+   "columnas": 12,
+   "filas": 12
+  }
+ },
+ "proporciones": [
+  "16:9",
+  "3:2",
+  "4:3",
+  "1:1",
+  "4:5",
+  "3:4",
+  "2:3",
+  "9:16"
+ ],
+ "portada": {
+  "px": [
+   0,
+   0,
+   1748,
+   2480
+  ],
+  "proporcion": "2:3",
+  "recorte": 0.054,
+  "sangrado": true
+ },
+ "plantillas": {
+  "splash": {
+   "nombre": "Página completa",
+   "uso": "Una sola viñeta: apertura, clímax, revelación o final. Máximo una por cómic.",
+   "vinetas": 1,
+   "marcos": [
+    {
+     "rej": [
+      0,
+      0,
+      12,
+      12
+     ],
+     "px": [
+      70,
+      70,
+      1608,
+      2340
+     ],
+     "proporcion": "2:3",
+     "recorte": 0.03
+    }
+   ]
+  },
+  "dos-tiras": {
+   "nombre": "Dos franjas",
+   "uso": "Dos momentos amplios, uno sobre otro: antes y después, pregunta y respuesta.",
+   "vinetas": 2,
+   "marcos": [
+    {
+     "rej": [
+      0,
+      0,
+      12,
+      6
+     ],
+     "px": [
+      70,
+      70,
+      1608,
+      1152
+     ],
+     "proporcion": "4:3",
+     "recorte": 0.045
+    },
+    {
+     "rej": [
+      0,
+      6,
+      12,
+      6
+     ],
+     "px": [
+      70,
+      1258,
+      1608,
+      1152
+     ],
+     "proporcion": "4:3",
+     "recorte": 0.045
+    }
+   ]
+  },
+  "tres-tiras": {
+   "nombre": "Tres franjas",
+   "uso": "Ritmo de paso: tres momentos seguidos de la misma escena, viaje o conversación.",
+   "vinetas": 3,
+   "marcos": [
+    {
+     "rej": [
+      0,
+      0,
+      12,
+      4
+     ],
+     "px": [
+      70,
+      70,
+      1608,
+      756
+     ],
+     "proporcion": "16:9",
+     "recorte": 0.164
+    },
+    {
+     "rej": [
+      0,
+      4,
+      12,
+      4
+     ],
+     "px": [
+      70,
+      862,
+      1608,
+      756
+     ],
+     "proporcion": "16:9",
+     "recorte": 0.164
+    },
+    {
+     "rej": [
+      0,
+      8,
+      12,
+      4
+     ],
+     "px": [
+      70,
+      1654,
+      1608,
+      756
+     ],
+     "proporcion": "16:9",
+     "recorte": 0.164
+    }
+   ]
+  },
+  "ancla-arriba": {
+   "nombre": "Ancla arriba y dos satélites",
+   "uso": "Una escena grande que domina y abajo dos detalles o reacciones que la comentan.",
+   "vinetas": 3,
+   "marcos": [
+    {
+     "rej": [
+      0,
+      0,
+      12,
+      7
+     ],
+     "px": [
+      70,
+      70,
+      1608,
+      1350
+     ],
+     "proporcion": "4:3",
+     "recorte": 0.107
+    },
+    {
+     "rej": [
+      0,
+      7,
+      6,
+      5
+     ],
+     "px": [
+      70,
+      1456,
+      786,
+      954
+     ],
+     "proporcion": "4:5",
+     "recorte": 0.029
+    },
+    {
+     "rej": [
+      6,
+      7,
+      6,
+      5
+     ],
+     "px": [
+      892,
+      1456,
+      786,
+      954
+     ],
+     "proporcion": "4:5",
+     "recorte": 0.029
+    }
+   ]
+  },
+  "ancla-abajo": {
+   "nombre": "Dos satélites y ancla abajo",
+   "uso": "Dos detalles que preparan y una escena grande que remata la página.",
+   "vinetas": 3,
+   "marcos": [
+    {
+     "rej": [
+      0,
+      0,
+      6,
+      5
+     ],
+     "px": [
+      70,
+      70,
+      786,
+      954
+     ],
+     "proporcion": "4:5",
+     "recorte": 0.029
+    },
+    {
+     "rej": [
+      6,
+      0,
+      6,
+      5
+     ],
+     "px": [
+      892,
+      70,
+      786,
+      954
+     ],
+     "proporcion": "4:5",
+     "recorte": 0.029
+    },
+    {
+     "rej": [
+      0,
+      5,
+      12,
+      7
+     ],
+     "px": [
+      70,
+      1060,
+      1608,
+      1350
+     ],
+     "proporcion": "4:3",
+     "recorte": 0.107
+    }
+   ]
+  },
+  "tres-y-ancla": {
+   "nombre": "Tres pasos y ancla",
+   "uso": "Tres viñetas chicas que acumulan tensión y una grande que la suelta.",
+   "vinetas": 4,
+   "marcos": [
+    {
+     "rej": [
+      0,
+      0,
+      4,
+      4
+     ],
+     "px": [
+      70,
+      70,
+      512,
+      756
+     ],
+     "proporcion": "2:3",
+     "recorte": 0.016
+    },
+    {
+     "rej": [
+      4,
+      0,
+      4,
+      4
+     ],
+     "px": [
+      618,
+      70,
+      512,
+      756
+     ],
+     "proporcion": "2:3",
+     "recorte": 0.016
+    },
+    {
+     "rej": [
+      8,
+      0,
+      4,
+      4
+     ],
+     "px": [
+      1166,
+      70,
+      512,
+      756
+     ],
+     "proporcion": "2:3",
+     "recorte": 0.016
+    },
+    {
+     "rej": [
+      0,
+      4,
+      12,
+      8
+     ],
+     "px": [
+      70,
+      862,
+      1608,
+      1548
+     ],
+     "proporcion": "1:1",
+     "recorte": 0.037
+    }
+   ]
+  },
+  "cuatro": {
+   "nombre": "Cuatro iguales",
+   "uso": "Diálogo o secuencia pareja; buena para contar sin prisa.",
+   "vinetas": 4,
+   "marcos": [
+    {
+     "rej": [
+      0,
+      0,
+      6,
+      6
+     ],
+     "px": [
+      70,
+      70,
+      786,
+      1152
+     ],
+     "proporcion": "2:3",
+     "recorte": 0.023
+    },
+    {
+     "rej": [
+      6,
+      0,
+      6,
+      6
+     ],
+     "px": [
+      892,
+      70,
+      786,
+      1152
+     ],
+     "proporcion": "2:3",
+     "recorte": 0.023
+    },
+    {
+     "rej": [
+      0,
+      6,
+      6,
+      6
+     ],
+     "px": [
+      70,
+      1258,
+      786,
+      1152
+     ],
+     "proporcion": "2:3",
+     "recorte": 0.023
+    },
+    {
+     "rej": [
+      6,
+      6,
+      6,
+      6
+     ],
+     "px": [
+      892,
+      1258,
+      786,
+      1152
+     ],
+     "proporcion": "2:3",
+     "recorte": 0.023
+    }
+   ]
+  },
+  "seis": {
+   "nombre": "Seis iguales",
+   "uso": "Ritmo rápido, muchos momentos cortos; úsala poco, gasta seis imágenes.",
+   "vinetas": 6,
+   "marcos": [
+    {
+     "rej": [
+      0,
+      0,
+      6,
+      4
+     ],
+     "px": [
+      70,
+      70,
+      786,
+      756
+     ],
+     "proporcion": "1:1",
+     "recorte": 0.038
+    },
+    {
+     "rej": [
+      6,
+      0,
+      6,
+      4
+     ],
+     "px": [
+      892,
+      70,
+      786,
+      756
+     ],
+     "proporcion": "1:1",
+     "recorte": 0.038
+    },
+    {
+     "rej": [
+      0,
+      4,
+      6,
+      4
+     ],
+     "px": [
+      70,
+      862,
+      786,
+      756
+     ],
+     "proporcion": "1:1",
+     "recorte": 0.038
+    },
+    {
+     "rej": [
+      6,
+      4,
+      6,
+      4
+     ],
+     "px": [
+      892,
+      862,
+      786,
+      756
+     ],
+     "proporcion": "1:1",
+     "recorte": 0.038
+    },
+    {
+     "rej": [
+      0,
+      8,
+      6,
+      4
+     ],
+     "px": [
+      70,
+      1654,
+      786,
+      756
+     ],
+     "proporcion": "1:1",
+     "recorte": 0.038
+    },
+    {
+     "rej": [
+      6,
+      8,
+      6,
+      4
+     ],
+     "px": [
+      892,
+      1654,
+      786,
+      756
+     ],
+     "proporcion": "1:1",
+     "recorte": 0.038
+    }
+   ]
+  },
+  "tira-y-columna": {
+   "nombre": "Franja, columna alta y dos",
+   "uso": "Una franja que sitúa, una viñeta alta (caída, árbol, puerta) y dos reacciones.",
+   "vinetas": 4,
+   "marcos": [
+    {
+     "rej": [
+      0,
+      0,
+      12,
+      4
+     ],
+     "px": [
+      70,
+      70,
+      1608,
+      756
+     ],
+     "proporcion": "16:9",
+     "recorte": 0.164
+    },
+    {
+     "rej": [
+      0,
+      4,
+      6,
+      8
+     ],
+     "px": [
+      70,
+      862,
+      786,
+      1548
+     ],
+     "proporcion": "9:16",
+     "recorte": 0.097
+    },
+    {
+     "rej": [
+      6,
+      4,
+      6,
+      4
+     ],
+     "px": [
+      892,
+      862,
+      786,
+      756
+     ],
+     "proporcion": "1:1",
+     "recorte": 0.038
+    },
+    {
+     "rej": [
+      6,
+      8,
+      6,
+      4
+     ],
+     "px": [
+      892,
+      1654,
+      786,
+      756
+     ],
+     "proporcion": "1:1",
+     "recorte": 0.038
+    }
+   ]
+  },
+  "diptico-y-tira": {
+   "nombre": "Díptico y franja",
+   "uso": "Dos viñetas gemelas lado a lado para comparar o contrastar, y una franja que cierra.",
+   "vinetas": 3,
+   "marcos": [
+    {
+     "rej": [
+      0,
+      0,
+      6,
+      7
+     ],
+     "px": [
+      70,
+      70,
+      786,
+      1350
+     ],
+     "proporcion": "9:16",
+     "recorte": 0.034
+    },
+    {
+     "rej": [
+      6,
+      0,
+      6,
+      7
+     ],
+     "px": [
+      892,
+      70,
+      786,
+      1350
+     ],
+     "proporcion": "9:16",
+     "recorte": 0.034
+    },
+    {
+     "rej": [
+      0,
+      7,
+      12,
+      5
+     ],
+     "px": [
+      70,
+      1456,
+      1608,
+      954
+     ],
+     "proporcion": "16:9",
+     "recorte": 0.052
+    }
+   ]
+  },
+  "escalera": {
+   "nombre": "Escalera",
+   "uso": "Tamaños que se alternan: tensión, desorden, montaje denso.",
+   "vinetas": 5,
+   "marcos": [
+    {
+     "rej": [
+      0,
+      0,
+      8,
+      4
+     ],
+     "px": [
+      70,
+      70,
+      1060,
+      756
+     ],
+     "proporcion": "4:3",
+     "recorte": 0.049
+    },
+    {
+     "rej": [
+      8,
+      0,
+      4,
+      4
+     ],
+     "px": [
+      1166,
+      70,
+      512,
+      756
+     ],
+     "proporcion": "2:3",
+     "recorte": 0.016
+    },
+    {
+     "rej": [
+      0,
+      4,
+      4,
+      4
+     ],
+     "px": [
+      70,
+      862,
+      512,
+      756
+     ],
+     "proporcion": "2:3",
+     "recorte": 0.016
+    },
+    {
+     "rej": [
+      4,
+      4,
+      8,
+      4
+     ],
+     "px": [
+      618,
+      862,
+      1060,
+      756
+     ],
+     "proporcion": "4:3",
+     "recorte": 0.049
+    },
+    {
+     "rej": [
+      0,
+      8,
+      12,
+      4
+     ],
+     "px": [
+      70,
+      1654,
+      1608,
+      756
+     ],
+     "proporcion": "16:9",
+     "recorte": 0.164
+    }
+   ]
+  },
+  "tira-y-cuatro": {
+   "nombre": "Franja y cuatro",
+   "uso": "Una franja que abre la escena y cuatro viñetas cuadradas que la desarrollan.",
+   "vinetas": 5,
+   "marcos": [
+    {
+     "rej": [
+      0,
+      0,
+      12,
+      4
+     ],
+     "px": [
+      70,
+      70,
+      1608,
+      756
+     ],
+     "proporcion": "16:9",
+     "recorte": 0.164
+    },
+    {
+     "rej": [
+      0,
+      4,
+      6,
+      4
+     ],
+     "px": [
+      70,
+      862,
+      786,
+      756
+     ],
+     "proporcion": "1:1",
+     "recorte": 0.038
+    },
+    {
+     "rej": [
+      6,
+      4,
+      6,
+      4
+     ],
+     "px": [
+      892,
+      862,
+      786,
+      756
+     ],
+     "proporcion": "1:1",
+     "recorte": 0.038
+    },
+    {
+     "rej": [
+      0,
+      8,
+      6,
+      4
+     ],
+     "px": [
+      70,
+      1654,
+      786,
+      756
+     ],
+     "proporcion": "1:1",
+     "recorte": 0.038
+    },
+    {
+     "rej": [
+      6,
+      8,
+      6,
+      4
+     ],
+     "px": [
+      892,
+      1654,
+      786,
+      756
+     ],
+     "proporcion": "1:1",
+     "recorte": 0.038
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#6b1e5a">
+<title>Tu historia en viñetas · Instructivo · Etimologías</title>
+<!-- Generado por docente/historietas/instructivo/construir.py a partir de plantilla.html y figuras/*.svg. No editar a mano. -->
+<style>
+:root{
+  --rosa:#c8127a; --ciruela:#6b1e5a; --ciruela-osc:#4a1540;
+  --fondo:#fbf4f9; --borde:#eadce6; --papel:#fff; --tinta:#2b2440;
+  --jade:#1f8a4c; --jade-bg:#e9f6ef; --ambar:#b3541e; --ambar-bg:#fdf0e6;
+  --gris:#6f6470; --lila:#f4eff9;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Helvetica Neue",sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+html,body{margin:0;padding:0}
+body{font-family:var(--sans);background:var(--fondo);color:var(--tinta);line-height:1.58;font-size:16.5px;overflow-x:hidden}
+a{color:var(--rosa)}
+.barra{background:var(--ciruela);color:#fff;padding:calc(.8rem + env(safe-area-inset-top,0)) 1rem 1.1rem}
+.barra .marca{font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;opacity:.78}
+.barra h1{margin:.2rem 0 .1rem;font-size:1.9rem;line-height:1.1}
+.barra p{margin:.2rem 0 0;opacity:.9;font-size:.98rem}
+.accesos{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.9rem}
+.accesos a{display:inline-block;text-decoration:none;font-weight:700;font-size:.9rem;border-radius:2rem;padding:.45rem .95rem;background:#fff;color:var(--ciruela)}
+.accesos a.prim{background:var(--rosa);color:#fff}
+nav.indice{position:sticky;top:0;z-index:20;background:rgba(251,244,249,.96);border-bottom:1px solid var(--borde);
+  display:flex;gap:.35rem;overflow-x:auto;padding:.5rem .8rem;scrollbar-width:none}
+nav.indice::-webkit-scrollbar{display:none}
+nav.indice a{flex:0 0 auto;text-decoration:none;font-size:.8rem;font-weight:700;color:var(--ciruela);background:#fff;
+  border:1px solid var(--borde);border-radius:2rem;padding:.28rem .7rem;white-space:nowrap}
+main{max-width:46rem;margin:0 auto;padding:0 1rem 5rem}
+section{padding-top:1.2rem;scroll-margin-top:2.6rem}
+.num{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--rosa);font-weight:800;margin:1.4rem 0 0}
+h2{font-size:1.45rem;line-height:1.2;color:var(--ciruela);margin:.15rem 0 .5rem}
+h3{font-size:1.06rem;color:var(--rosa);margin:1.5rem 0 .4rem}
+p{margin:.55rem 0}
+.entrada{font-size:1.04rem}
+figure.fig{margin:1rem 0 1.2rem;background:#fff;border:1px solid var(--borde);border-radius:14px;padding:.5rem;overflow:hidden}
+figure.fig svg{display:block;width:100%;height:auto}
+figure.fig figcaption{font-size:.84rem;color:var(--gris);padding:.45rem .35rem .15rem;line-height:1.4}
+figure.angosta{max-width:28rem;margin-left:auto;margin-right:auto}
+figure.ventana .llamadas{margin:.7rem .3rem .2rem}
+kbd{font-family:inherit;font-size:.8em;font-weight:700;border:1px solid #bdb2c9;border-bottom-width:2px;border-radius:5px;
+  padding:0 .35em;background:#fff;color:var(--tinta);white-space:nowrap}
+.estado{display:inline-block;font-weight:700;font-size:.85em;border-radius:1rem;padding:0 .55em;white-space:nowrap}
+.estado.ok{background:#e9f6ef;color:var(--jade)}
+.estado.va{background:#fff6d6;color:#7a5f00}
+.estado.no{background:#fdecea;color:#c0392b}
+.llamadas{list-style:none;padding:0;margin:0;display:grid;gap:.45rem}
+.llamadas li{display:flex;gap:.6rem;align-items:flex-start;font-size:.93rem;line-height:1.42}
+.llamadas .n{flex:0 0 1.6rem;height:1.6rem;border-radius:50%;background:var(--rosa);color:#fff;font-weight:800;
+  font-size:.82rem;display:flex;align-items:center;justify-content:center;margin-top:.05rem}
+.llamadas .n.c{background:var(--ciruela)}
+.llamadas .n.v{background:var(--jade)}
+.voc{display:grid;gap:.7rem;margin:1rem 0}
+.voc .t{background:#fff;border:1px solid var(--borde);border-left:5px solid var(--rosa);border-radius:10px;padding:.65rem .85rem}
+.voc .t b{color:var(--ciruela);font-size:1.05rem}
+.voc .t .def{display:block;margin-top:.15rem}
+.voc .t .eti{display:block;margin-top:.35rem;font-size:.9rem;color:var(--gris)}
+.voc .t .eti em{color:var(--tinta)}
+.dle{font-size:.78rem;font-weight:700;color:var(--rosa);letter-spacing:.04em}
+.aviso{border-radius:12px;padding:.8rem 1rem;margin:1rem 0;border:1px solid}
+.aviso.edad{background:var(--ambar-bg);border-color:#f0cfb3}
+.aviso.edad b:first-child{color:var(--ambar)}
+.aviso.ojo{background:var(--jade-bg);border-color:#bfe3cd}
+.aviso.ojo b:first-child{color:var(--jade)}
+.aviso p{margin:.3rem 0}
+ol.pasos{list-style:none;counter-reset:p;padding:0;margin:1rem 0}
+ol.pasos>li{counter-increment:p;position:relative;padding:.1rem 0 .9rem 2.6rem}
+ol.pasos>li::before{content:counter(p);position:absolute;left:0;top:0;width:1.9rem;height:1.9rem;border-radius:50%;
+  background:var(--rosa);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:.95rem}
+ol.pasos ol{padding-left:1.1rem;margin:.4rem 0}
+ol.pasos ol li{margin:.3rem 0}
+ul.lista{padding-left:1.15rem}
+ul.lista li{margin:.4rem 0}
+.boton{display:inline-block;font-weight:700;font-size:.86em;border-radius:1rem;padding:0 .5em;white-space:nowrap;
+  background:var(--lila);color:var(--ciruela);border:1px solid #ddd0e8}
+.boton.rosa{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+.tres{display:grid;gap:.6rem;margin:.6rem 0 1rem}
+.tres div{background:#fff;border:1px solid var(--borde);border-radius:10px;padding:.6rem .8rem}
+.tres b{color:var(--rosa)}
+table{width:100%;border-collapse:collapse;margin:.8rem 0 1.2rem;background:#fff;border-radius:10px;overflow:hidden;font-size:.94rem}
+th{background:var(--ciruela);color:#fff;text-align:left;padding:.55rem .7rem;font-size:.85rem;letter-spacing:.02em}
+td{border-top:1px solid var(--borde);padding:.55rem .7rem;vertical-align:top}
+td:first-child{font-weight:700;color:var(--ciruela);width:42%}
+.reglas{background:#fff;border:2px dashed #e5a9c8;border-radius:12px;padding:.6rem 1rem;margin:1rem 0}
+.reglas h3{margin-top:.4rem}
+.pie{margin-top:2.5rem;padding:1.2rem;border-radius:14px;background:var(--ciruela);color:#fff}
+.pie p{margin:.3rem 0}
+.pie .accesos a{background:#fff;color:var(--ciruela)}
+.pie .accesos a.prim{background:var(--rosa);color:#fff}
+.chico{font-size:.85rem;color:var(--gris)}
+@media (min-width:640px){
+  .voc{grid-template-columns:1fr 1fr}
+  .tres{grid-template-columns:1fr 1fr 1fr}
+  .barra{padding-left:2rem;padding-right:2rem}
+  figure.ventana .llamadas{grid-template-columns:1fr 1fr;column-gap:1.2rem}
+}
+@media print{
+  body{background:#fff;font-size:11pt}
+  nav.indice,.accesos{display:none}
+  .barra{background:#fff;color:var(--ciruela);border-bottom:3px solid var(--rosa)}
+  section{break-before:page;page-break-before:always}
+  section#que-vas-a-hacer{break-before:auto;page-break-before:auto}
+  figure.fig,table,.aviso,.voc .t,.tres div{break-inside:avoid;page-break-inside:avoid}
+  figure.fig{border:none;padding:0}
+  .pie{background:#fff;color:var(--tinta);border:1px solid var(--borde)}
+  a{color:var(--tinta);text-decoration:none}
+}
+</style>
+</head>
+<body>
+
+<header class="barra">
+  <div class="marca">Etimologías · Historietas</div>
+  <h1>Tu historia en viñetas</h1>
+  <p>El instructivo, paso a paso: de tu historia escrita a tu cómic terminado.</p>
+  <div class="accesos">
+    <a class="prim" href="sube.html">Sube tu historia</a>
+    <a href="mesa.html">Abrir mi mesa</a>
+    <a href="mesa.html?demo">Ver el ejemplo</a>
+  </div>
+</header>
+
+<nav class="indice" aria-label="Secciones">
+  <a href="#que-vas-a-hacer">0 · Qué vas a hacer</a>
+  <a href="#antes-de-dibujar">1 · Antes de dibujar</a>
+  <a href="#prepara-gemini">2 · Prepara Gemini</a>
+  <a href="#tu-guion">3 · Tu guion</a>
+  <a href="#la-cuota">4 · La cuota</a>
+  <a href="#maquetar">5 · Maquetar</a>
+  <a href="#exportar">6 · Exportar y entregar</a>
+  <a href="#si-algo-falla">7 · Si algo falla</a>
+</nav>
+
+<main>
+
+<section id="que-vas-a-hacer">
+  <p class="num">Paso 0</p>
+  <h2>Qué vas a hacer</h2>
+  <p class="entrada">Vas a convertir una historia que tú escribiste en un cómic de una a tres páginas, con portada. Tú pones la historia y las decisiones. Trabajas en una computadora del laboratorio, con Chrome: Gemini dibuja cada viñeta con un prompt que ya viene escrito en tu guion, y la mesa de dibujo arma las páginas y pone tus globos con tu texto, en español. Al final descargas tu cómic y se lo entregas a tu profe.</p>
+  <figure class="fig angosta">
+    <svg class="fig-svg" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" font-family="Noto Sans, DejaVu Sans, Ubuntu, Arial, sans-serif" role="img" aria-label="Los cinco pasos: sube tu historia, recibe tu guion, dibuja con Gemini, maquetar en la mesa, entrega">
+  <rect x="0" y="0" width="640" height="640" fill="#fbf4f9"/>
+  <!-- 1 Sube tu historia -->
+  <rect x="20" y="20" width="600" height="104" rx="18" fill="#ffffff" stroke="#eadce6" stroke-width="2"/>
+  <circle cx="66" cy="72" r="28" fill="#c8127a"/>
+  <text x="66" y="83" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">1</text>
+  <rect x="116" y="34" width="50" height="66" rx="4" fill="#fffdf6" stroke="#6b1e5a" stroke-width="3"/>
+  <path d="M126 50 H156 M126 62 H156 M126 74 H148" stroke="#6b1e5a" stroke-width="3"/>
+  <circle cx="170" cy="92" r="16" fill="#1f8a4c"/>
+  <path d="M170 101 V84 M162 91 L170 83 L178 91" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="210" y="60" font-size="27" font-weight="bold" fill="#6b1e5a">Sube tu historia</text>
+  <text x="210" y="88" font-size="18" fill="#6f6470">Tu texto (o fotos de tu cuaderno), tus</text>
+  <text x="210" y="110" font-size="18" fill="#6f6470">personajes y el estilo que te gusta.</text>
+
+  <!-- 2 Recibe tu guion -->
+  <rect x="20" y="144" width="600" height="104" rx="18" fill="#ffffff" stroke="#eadce6" stroke-width="2"/>
+  <circle cx="66" cy="196" r="28" fill="#c8127a"/>
+  <text x="66" y="207" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">2</text>
+  <rect x="110" y="160" width="68" height="46" rx="5" fill="#6b1e5a"/>
+  <rect x="115" y="165" width="58" height="36" rx="2" fill="#ffffff"/>
+  <rect x="120" y="170" width="30" height="6" rx="2" fill="#c8127a"/>
+  <path d="M120 183 H166 M120 191 H158" stroke="#d9cfe0" stroke-width="4"/>
+  <path d="M136 206 L132 220 H156 L152 206 Z" fill="#6b1e5a"/>
+  <rect x="124" y="219" width="40" height="5" rx="2" fill="#6b1e5a"/>
+  <circle cx="176" cy="216" r="15" fill="#ffd23f" stroke="#6b1e5a" stroke-width="2.5"/>
+  <circle cx="172" cy="216" r="4" fill="#6b1e5a"/>
+  <path d="M176 216 H188 M184 216 V222" stroke="#6b1e5a" stroke-width="3" stroke-linecap="round"/>
+  <text x="210" y="184" font-size="27" font-weight="bold" fill="#6b1e5a">Recibe tu guion</text>
+  <text x="210" y="212" font-size="18" fill="#6f6470">Con tu código abres la mesa de dibujo</text>
+  <text x="210" y="234" font-size="18" fill="#6f6470">en cualquier computadora del laboratorio.</text>
+
+  <!-- 3 Dibuja con Gemini -->
+  <rect x="20" y="268" width="600" height="104" rx="18" fill="#ffffff" stroke="#eadce6" stroke-width="2"/>
+  <circle cx="66" cy="320" r="28" fill="#c8127a"/>
+  <text x="66" y="331" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">3</text>
+  <path d="M124 352 L134 326 L168 292 L178 302 L144 336 Z" fill="#ffd23f" stroke="#6b1e5a" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M124 352 L134 326 L144 336 Z" fill="#f4d9b0" stroke="#6b1e5a" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M124 352 L128 342 L134 346 Z" fill="#6b1e5a"/>
+  <path d="M160 300 L170 310" stroke="#6b1e5a" stroke-width="3"/>
+  <path d="M182 318 L186 330 L198 334 L186 338 L182 350 L178 338 L166 334 L178 330 Z" fill="#c8127a"/>
+  <path d="M150 280 L152 287 L159 289 L152 291 L150 298 L148 291 L141 289 L148 287 Z" fill="#c8127a"/>
+  <text x="210" y="308" font-size="27" font-weight="bold" fill="#6b1e5a">Dibuja con Gemini</text>
+  <text x="210" y="336" font-size="18" fill="#6f6470">Copias cada prompt, lo pegas en Gemini</text>
+  <text x="210" y="358" font-size="18" fill="#6f6470">y regresas la imagen a la mesa.</text>
+
+  <!-- 4 Maquetar en la mesa -->
+  <rect x="20" y="392" width="600" height="104" rx="18" fill="#ffffff" stroke="#eadce6" stroke-width="2"/>
+  <circle cx="66" cy="444" r="28" fill="#c8127a"/>
+  <text x="66" y="455" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">4</text>
+  <rect x="116" y="400" width="64" height="88" rx="3" fill="#fffdf6" stroke="#6b1e5a" stroke-width="3"/>
+  <rect x="122" y="406" width="52" height="30" fill="#9fc8a8" stroke="#2b2440" stroke-width="2"/>
+  <rect x="122" y="441" width="24" height="41" fill="#f2c9a0" stroke="#2b2440" stroke-width="2"/>
+  <rect x="150" y="441" width="24" height="41" fill="#cfe6f2" stroke="#2b2440" stroke-width="2"/>
+  <ellipse cx="150" cy="418" rx="15" ry="8" fill="#ffffff" stroke="#2b2440" stroke-width="2"/>
+  <path d="M144 425 L140 432 L150 426" fill="#ffffff" stroke="#2b2440" stroke-width="2" stroke-linejoin="round"/>
+  <text x="210" y="432" font-size="27" font-weight="bold" fill="#6b1e5a">Maquetar en la mesa</text>
+  <text x="210" y="460" font-size="18" fill="#6f6470">Pones cada imagen en su marco; los globos</text>
+  <text x="210" y="482" font-size="18" fill="#6f6470">ya traen tu texto en español.</text>
+
+  <!-- 5 Entrega -->
+  <rect x="20" y="516" width="600" height="104" rx="18" fill="#ffffff" stroke="#eadce6" stroke-width="2"/>
+  <circle cx="66" cy="568" r="28" fill="#c8127a"/>
+  <text x="66" y="579" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">5</text>
+  <path d="M112 538 L146 546 L146 604 L112 596 Z" fill="#fffdf6" stroke="#6b1e5a" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M180 538 L146 546 L146 604 L180 596 Z" fill="#fffdf6" stroke="#6b1e5a" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M120 556 L138 560 M120 568 L138 572 M154 560 L172 556 M154 572 L172 568" stroke="#d9cfe0" stroke-width="3"/>
+  <circle cx="180" cy="596" r="15" fill="#1f8a4c"/>
+  <path d="M172 596 L178 602 L189 589" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="210" y="556" font-size="27" font-weight="bold" fill="#6b1e5a">Entrega</text>
+  <text x="210" y="584" font-size="18" fill="#6f6470">Descargas tu cómic terminado y se lo mandas</text>
+  <text x="210" y="606" font-size="18" fill="#6f6470">a tu profe desde la misma mesa.</text>
+  <!-- flechas entre tarjetas -->
+  <path d="M66 124 L66 144" stroke="#c8127a" stroke-width="4"/>
+  <path d="M56 134 L66 146 L76 134" fill="none" stroke="#c8127a" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M66 248 L66 268" stroke="#c8127a" stroke-width="4"/>
+  <path d="M56 258 L66 270 L76 258" fill="none" stroke="#c8127a" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M66 372 L66 392" stroke="#c8127a" stroke-width="4"/>
+  <path d="M56 382 L66 394 L76 382" fill="none" stroke="#c8127a" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M66 496 L66 516" stroke="#c8127a" stroke-width="4"/>
+  <path d="M56 506 L66 518 L76 506" fill="none" stroke="#c8127a" stroke-width="4" stroke-linejoin="round"/>
+
+</svg>
+    <figcaption>Los cinco pasos. Todo se hace en la computadora; el celular es opcional, por ejemplo para fotografiar tu cuaderno al subir tu historia.</figcaption>
+  </figure>
+  <p>Este instructivo va en el mismo orden. Léelo una vez completo antes de empezar y luego vuelve a la parte que estés haciendo.</p>
+  <div class="aviso ojo"><p><b>Tu código.</b> Al subir tu historia recibes un código. Anótalo en tu cuaderno: con él abres tu mesa en cualquier computadora del laboratorio.</p></div>
+</section>
+
+<section id="antes-de-dibujar">
+  <p class="num">Paso 1</p>
+  <h2>Antes de dibujar: cómo se lee una página</h2>
+  <p class="entrada">Un cómic es una historia contada en recuadros. Antes de pedirle nada a Gemini, aprende a nombrar lo que ves: tu guion usa estas palabras y las vas a necesitar para revisar cada imagen.</p>
+  <figure class="fig">
+    <svg class="fig-svg" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 830" font-family="Noto Sans, DejaVu Sans, Ubuntu, Arial, sans-serif" role="img" aria-label="Una página de cómic con sus partes señaladas: viñeta, calle, cartela, globo, colita y onomatopeya; abajo, una página completa">
+  <rect x="0" y="0" width="760" height="830" fill="#fbf4f9"/>
+  <!-- la página -->
+  <rect x="170" y="20" width="380" height="540" rx="4" fill="#fffdf6" stroke="#2b2440" stroke-width="3"/>
+
+  <!-- A: noche en Concá -->
+  <rect x="186" y="36" width="348" height="150" fill="#3a2350"/>
+  <circle cx="230" cy="110" r="2" fill="#f6e9b8"/><circle cx="262" cy="96" r="2" fill="#f6e9b8"/>
+  <circle cx="330" cy="58" r="2" fill="#f6e9b8"/><circle cx="380" cy="92" r="2" fill="#f6e9b8"/>
+  <circle cx="440" cy="54" r="2" fill="#f6e9b8"/><circle cx="520" cy="112" r="2" fill="#f6e9b8"/>
+  <circle cx="490" cy="78" r="22" fill="#f6e9b8"/>
+  <path d="M186 186 L186 140 Q240 110 300 135 Q360 160 420 128 Q480 100 534 132 L534 186 Z" fill="#2f5a43"/>
+  <path d="M186 186 L186 162 Q260 142 330 166 Q400 186 534 160 L534 186 Z" fill="#3f7a57"/>
+  <path d="M396 151 L420 133 L444 151 Z" fill="#1e1a2e"/>
+  <rect x="400" y="150" width="40" height="28" fill="#1e1a2e"/>
+  <rect x="413" y="157" width="11" height="11" fill="#ffd23f"/>
+  <rect x="196" y="46" width="222" height="36" fill="#fff3c4" stroke="#2b2440" stroke-width="2.5"/>
+  <text x="207" y="70" font-size="17" fill="#2b2440">Esa noche, en Concá…</text>
+  <rect x="186" y="36" width="348" height="150" fill="none" stroke="#2b2440" stroke-width="3"/>
+
+  <!-- B: la muchacha y su globo -->
+  <rect x="186" y="198" width="168" height="170" fill="#f2e4cf"/>
+  <path d="M264 368 L266 330 Q274 306 300 304 Q326 306 334 330 L336 368 Z" fill="#3f8a5a" stroke="#2b2440" stroke-width="2.5"/>
+  <rect x="294" y="290" width="12" height="16" fill="#c98b5f"/>
+  <circle cx="300" cy="272" r="24" fill="#c98b5f" stroke="#2b2440" stroke-width="2.5"/>
+  <path d="M276 270 Q276 244 300 244 Q324 244 324 270 Q318 256 300 256 Q282 256 276 270 Z" fill="#2b1d16"/>
+  <ellipse cx="324" cy="290" rx="6" ry="9" fill="#2b1d16"/>
+  <ellipse cx="326" cy="306" rx="6" ry="9" fill="#2b1d16"/>
+  <ellipse cx="328" cy="322" rx="6" ry="9" fill="#2b1d16"/>
+  <path d="M320 336 L328 331 L336 336 L328 341 Z" fill="#d62d2d"/>
+  <circle cx="292" cy="272" r="3" fill="#2b2440"/><circle cx="308" cy="272" r="3" fill="#2b2440"/>
+  <path d="M286 263 L296 260 M304 260 L314 263" stroke="#2b2440" stroke-width="2.5" stroke-linecap="round"/>
+  <ellipse cx="300" cy="286" rx="4" ry="5" fill="#7a2e2e"/>
+  <ellipse cx="236" cy="228" rx="46" ry="28" fill="#ffffff" stroke="#2b2440" stroke-width="2.5"/>
+  <path d="M248 254 L284 278 L265 248" fill="#ffffff" stroke="#2b2440" stroke-width="2.5" stroke-linejoin="round"/>
+  <text x="236" y="224" font-size="16" fill="#2b2440" text-anchor="middle">¿Quién</text>
+  <text x="236" y="243" font-size="16" fill="#2b2440" text-anchor="middle">anda ahí?</text>
+  <rect x="186" y="198" width="168" height="170" fill="none" stroke="#2b2440" stroke-width="3"/>
+
+  <!-- C: la puerta -->
+  <rect x="366" y="198" width="168" height="170" fill="#e9dcc6"/>
+  <rect x="410" y="252" width="80" height="116" fill="#8a5a3c" stroke="#2b2440" stroke-width="2.5"/>
+  <path d="M490 252 L506 260 L506 368 L490 368 Z" fill="#1e1a2e"/>
+  <circle cx="421" cy="312" r="4" fill="#ffd23f" stroke="#2b2440" stroke-width="1.5"/>
+  <path d="M512 270 L526 262 M514 290 L530 290 M512 310 L526 318" stroke="#2b2440" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="448" y="246" font-size="40" font-weight="900" fill="#ffd23f" stroke="#2b2440" stroke-width="2" text-anchor="middle" transform="rotate(-8 448 246)">¡CRAC!</text>
+  <rect x="366" y="198" width="168" height="170" fill="none" stroke="#2b2440" stroke-width="3"/>
+
+  <!-- D: el chivo -->
+  <rect x="186" y="380" width="348" height="164" fill="#1e1a2e"/>
+  <path d="M250 380 L330 380 L372 544 L196 544 Z" fill="#f6e9b8" fill-opacity="0.28"/>
+  <rect x="252" y="474" width="9" height="46" fill="#d8d2c4" stroke="#2b2440" stroke-width="2"/>
+  <rect x="272" y="478" width="9" height="44" fill="#d8d2c4" stroke="#2b2440" stroke-width="2"/>
+  <rect x="304" y="478" width="9" height="44" fill="#d8d2c4" stroke="#2b2440" stroke-width="2"/>
+  <rect x="320" y="474" width="9" height="46" fill="#d8d2c4" stroke="#2b2440" stroke-width="2"/>
+  <ellipse cx="290" cy="462" rx="52" ry="26" fill="#d8d2c4" stroke="#2b2440" stroke-width="2.5"/>
+  <path d="M232 456 Q222 444 230 436" fill="none" stroke="#d8d2c4" stroke-width="6" stroke-linecap="round"/>
+  <ellipse cx="350" cy="432" rx="20" ry="15" fill="#d8d2c4" stroke="#2b2440" stroke-width="2.5"/>
+  <path d="M342 420 Q336 400 350 396 M356 420 Q356 402 370 400" fill="none" stroke="#8a7a60" stroke-width="5" stroke-linecap="round"/>
+  <path d="M356 446 L360 462 L364 446" fill="#d8d2c4" stroke="#2b2440" stroke-width="2"/>
+  <circle cx="356" cy="428" r="3.5" fill="#ffd23f"/>
+  <rect x="346" y="506" width="178" height="30" fill="#fff3c4" stroke="#2b2440" stroke-width="2.5"/>
+  <text x="356" y="527" font-size="15" fill="#2b2440">No era un fantasma.</text>
+  <rect x="186" y="380" width="348" height="164" fill="none" stroke="#2b2440" stroke-width="3"/>
+
+  <!-- etiquetas izquierda -->
+  <g fill="#c8127a" stroke="#c8127a">
+    <path d="M152 64 L196 64" stroke-width="2"/><circle cx="197" cy="64" r="5" stroke="none"/>
+    <path d="M152 222 L190 226" stroke-width="2"/><circle cx="191" cy="226" r="5" stroke="none"/>
+    <path d="M152 300 L266 263" stroke-width="2"/><circle cx="266" cy="263" r="5" stroke="none"/>
+    <path d="M568 110 L534 110" stroke-width="2"/><circle cx="534" cy="110" r="5" stroke="none"/>
+    <path d="M568 192 L520 192" stroke-width="2"/><circle cx="519" cy="192" r="5" stroke="none"/>
+    <path d="M568 268 L522 238" stroke-width="2"/><circle cx="521" cy="237" r="5" stroke="none"/>
+  </g>
+  <g font-size="25" font-weight="bold" fill="#c8127a">
+    <text x="146" y="71" text-anchor="end">cartela</text>
+    <text x="146" y="229" text-anchor="end">globo</text>
+    <text x="146" y="307" text-anchor="end">colita</text>
+    <text x="574" y="117">viñeta</text>
+    <text x="574" y="199">calle</text>
+    <text x="574" y="275">onomatopeya</text>
+  </g>
+  <g font-size="17" fill="#6f6470">
+    <text x="146" y="96" text-anchor="end">habla quien</text>
+    <text x="146" y="116" text-anchor="end">narra</text>
+    <text x="146" y="254" text-anchor="end">habla un</text>
+    <text x="146" y="274" text-anchor="end">personaje</text>
+    <text x="146" y="332" text-anchor="end">apunta a</text>
+    <text x="146" y="352" text-anchor="end">quien habla</text>
+    <text x="574" y="142">cada recuadro</text>
+    <text x="574" y="224">el espacio</text>
+    <text x="574" y="244">entre viñetas</text>
+    <text x="574" y="300">el sonido</text>
+    <text x="574" y="320">escrito</text>
+  </g>
+
+  <!-- página completa -->
+  <rect x="200" y="598" width="150" height="212" rx="3" fill="#fffdf6" stroke="#2b2440" stroke-width="3"/>
+  <rect x="210" y="608" width="130" height="192" fill="#3a2350"/>
+  <circle cx="300" cy="650" r="26" fill="#f6e9b8"/>
+  <path d="M210 800 L210 730 Q250 700 290 726 Q320 744 340 720 L340 800 Z" fill="#2f5a43"/>
+  <path d="M262 736 L266 712 L272 736 Z" fill="#1e1a2e"/>
+  <circle cx="267" cy="708" r="5" fill="#1e1a2e"/>
+  <rect x="210" y="608" width="130" height="192" fill="none" stroke="#2b2440" stroke-width="3"/>
+  <text x="376" y="676" font-size="25" font-weight="bold" fill="#c8127a">página completa</text>
+  <text x="376" y="706" font-size="19" fill="#6f6470">una sola viñeta ocupa</text>
+  <text x="376" y="730" font-size="19" fill="#6f6470">toda la página: para abrir,</text>
+  <text x="376" y="754" font-size="19" fill="#6f6470">para el momento más fuerte</text>
+  <text x="376" y="778" font-size="19" fill="#6f6470">o para el final</text>
+</svg>
+    <figcaption>Las partes de una página. Arriba, una página de cuatro viñetas; abajo, una página completa.</figcaption>
+  </figure>
+
+  <div class="voc">
+    <div class="t"><b>viñeta</b>
+      <span class="def">«Cada uno de los recuadros de una serie en la que con dibujos y texto se compone una historieta». <span class="dle">DLE</span></span>
+      <span class="eti">De dónde viene: del francés <em>vignette</em>. <span class="dle">DLE</span></span></div>
+    <div class="t"><b>calle</b>
+      <span class="def">El espacio en blanco entre viñetas. Le da aire a la página y marca el paso del tiempo: lo que pasa entre una viñeta y otra lo imagina quien lee.</span></div>
+    <div class="t"><b>globo</b>
+      <span class="def">Donde va lo que dice un personaje. Su <b>colita</b> apunta a quien habla. Hay globos de diálogo, de grito (con picos), de pensamiento (como nube) y de susurro (con línea punteada).</span>
+      <span class="eti">De dónde viene: del latín <em>globus</em>. <span class="dle">DLE</span></span></div>
+    <div class="t"><b>cartela</b>
+      <span class="def">El recuadro donde habla quien narra: «Esa noche…», «Al día siguiente…». En el diccionario, una cartela es un «pedazo de cartón, madera u otra materia, a modo de tarjeta, destinado para poner o escribir en él algo». <span class="dle">DLE</span></span>
+      <span class="eti">De dónde viene: del italiano <em>cartella</em>, diminutivo de <em>carta</em>. <span class="dle">DLE</span></span></div>
+    <div class="t"><b>onomatopeya</b>
+      <span class="def">«Palabra cuya forma fónica imita el sonido de aquello que designa». <span class="dle">DLE</span> En el cómic va grande y sin globo: ¡CRAC!, ¡PUM!, ¡BEEE!</span>
+      <span class="eti">De dónde viene: del latín tardío <em>onomatopoeia</em>, y este del griego <em>onomatopoiḯa</em>. <span class="dle">DLE</span></span></div>
+    <div class="t"><b>página completa</b>
+      <span class="def">Una sola viñeta ocupa toda la página. Se guarda para lo más fuerte: la apertura, el momento clave o el final.</span></div>
+  </div>
+
+  <h3>Y estas palabras, ¿de dónde vienen?</h3>
+  <div class="voc">
+    <div class="t"><b>historieta</b>
+      <span class="eti">Del francés <em>historiette</em>, y este del latín <em>historia</em> 'historia' y el francés <em>-ette</em> '-eta'. <span class="dle">DLE</span></span></div>
+    <div class="t"><b>cómic</b>
+      <span class="def">«Serie o secuencia de viñetas que cuenta una historia». <span class="dle">DLE</span></span>
+      <span class="eti">Del inglés <em>comic</em>; literalmente 'cómico'. <span class="dle">DLE</span></span></div>
+    <div class="t"><b>caricatura</b>
+      <span class="def">«Dibujo satírico en el que se deforman las facciones y el aspecto de alguien». <span class="dle">DLE</span></span>
+      <span class="eti">Del italiano <em>caricatura</em>; propiamente 'acción de cargar', y este derivado de <em>caricare</em> 'cargar'. <span class="dle">DLE</span> Una caricatura «carga» los rasgos de alguien.</span></div>
+  </div>
+
+  <h3>Los planos: desde qué tan cerca se mira</h3>
+  <p>Cada viñeta de tu guion dice desde dónde se mira. A eso se le llama <b>plano</b>, con las mismas palabras del cine.</p>
+  <figure class="fig">
+    <svg class="fig-svg" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 650" font-family="Noto Sans, DejaVu Sans, Ubuntu, Arial, sans-serif" role="img" aria-label="Cuatro planos de la misma muchacha: plano general, plano medio, primer plano y detalle">
+  <rect x="0" y="0" width="720" height="650" fill="#fbf4f9"/>
+
+  <!-- 1 plano general -->
+  <rect x="20" y="20" width="330" height="220" fill="#cfe6f2"/>
+  <circle cx="290" cy="62" r="20" fill="#ffd23f"/>
+  <path d="M20 150 Q90 96 160 128 Q230 158 290 112 Q320 96 350 108 L350 240 L20 240 Z" fill="#8fbf9a"/>
+  <path d="M20 190 Q110 158 190 182 Q270 204 350 172 L350 240 L20 240 Z" fill="#5f9a6c"/>
+  <path d="M120 240 Q150 214 196 206 Q240 198 250 182" fill="none" stroke="#e8d9b5" stroke-width="12" stroke-linecap="round"/>
+  <path d="M74 166 L90 154 L106 166 Z" fill="#8a5a3c"/>
+  <rect x="78" y="166" width="24" height="18" fill="#f2e4cf" stroke="#2b2440" stroke-width="1.5"/>
+  <rect x="87" y="173" width="6" height="11" fill="#8a5a3c"/>
+  <path d="M206 204 L211 190 L216 204 Z" fill="#3f8a5a" stroke="#2b2440" stroke-width="1"/>
+  <circle cx="211" cy="186" r="4.5" fill="#c98b5f" stroke="#2b2440" stroke-width="1"/>
+  <rect x="20" y="20" width="330" height="220" fill="none" stroke="#2b2440" stroke-width="3"/>
+  <text x="20" y="274" font-size="25" font-weight="bold" fill="#c8127a">plano general</text>
+  <text x="20" y="300" font-size="19" fill="#6f6470">todo el lugar; la persona</text>
+  <text x="20" y="322" font-size="19" fill="#6f6470">se ve chiquita: dónde estamos</text>
+
+  <!-- 2 plano medio -->
+  <rect x="370" y="20" width="330" height="220" fill="#f2e4cf"/>
+  <rect x="580" y="44" width="92" height="74" fill="#cfe6f2" stroke="#8a5a3c" stroke-width="5"/>
+  <path d="M580 104 Q610 88 640 100 Q656 106 672 98 L672 118 L580 118 Z" fill="#8fbf9a"/>
+  <path d="M465 240 L468 196 Q478 166 535 162 Q592 166 602 196 L605 240 Z" fill="#3f8a5a" stroke="#2b2440" stroke-width="2.5"/>
+  <rect x="525" y="146" width="20" height="20" fill="#c98b5f"/>
+  <circle cx="535" cy="118" r="32" fill="#c98b5f" stroke="#2b2440" stroke-width="2.5"/>
+  <path d="M503 116 Q503 84 535 84 Q567 84 567 116 Q558 98 535 98 Q512 98 503 116 Z" fill="#2b1d16"/>
+  <ellipse cx="567" cy="140" rx="7" ry="11" fill="#2b1d16"/>
+  <ellipse cx="570" cy="160" rx="7" ry="11" fill="#2b1d16"/>
+  <ellipse cx="573" cy="180" rx="7" ry="11" fill="#2b1d16"/>
+  <path d="M564 196 L573 190 L582 196 L573 202 Z" fill="#d62d2d"/>
+  <circle cx="524" cy="118" r="3.5" fill="#2b2440"/><circle cx="546" cy="118" r="3.5" fill="#2b2440"/>
+  <path d="M526 134 Q535 140 544 134" fill="none" stroke="#2b2440" stroke-width="2.5" stroke-linecap="round"/>
+  <rect x="370" y="20" width="330" height="220" fill="none" stroke="#2b2440" stroke-width="3"/>
+  <text x="370" y="274" font-size="25" font-weight="bold" fill="#c8127a">plano medio</text>
+  <text x="370" y="300" font-size="19" fill="#6f6470">de la cintura para arriba:</text>
+  <text x="370" y="322" font-size="19" fill="#6f6470">qué hace y con quién</text>
+
+  <!-- 3 primer plano -->
+  <rect x="20" y="340" width="330" height="220" fill="#e9dcc6"/>
+  <path d="M60 560 L66 520 Q90 486 185 482 Q280 486 304 520 L310 560 Z" fill="#3f8a5a" stroke="#2b2440" stroke-width="2.5"/>
+  <rect x="165" y="460" width="40" height="30" fill="#c98b5f"/>
+  <circle cx="185" cy="420" r="62" fill="#c98b5f" stroke="#2b2440" stroke-width="2.5"/>
+  <path d="M123 416 Q123 352 185 352 Q247 352 247 416 Q232 382 185 382 Q138 382 123 416 Z" fill="#2b1d16"/>
+  <ellipse cx="248" cy="452" rx="11" ry="17" fill="#2b1d16"/>
+  <ellipse cx="252" cy="482" rx="11" ry="17" fill="#2b1d16"/>
+  <ellipse cx="160" cy="420" rx="7" ry="9" fill="#2b2440"/>
+  <ellipse cx="210" cy="420" rx="7" ry="9" fill="#2b2440"/>
+  <circle cx="162" cy="417" r="2.5" fill="#ffffff"/><circle cx="212" cy="417" r="2.5" fill="#ffffff"/>
+  <path d="M146 400 L170 396 M200 396 L224 400" stroke="#2b2440" stroke-width="3" stroke-linecap="round"/>
+  <path d="M172 452 Q185 446 198 452" fill="none" stroke="#2b2440" stroke-width="3" stroke-linecap="round"/>
+  <path d="M222 438 Q226 446 222 452" fill="none" stroke="#7fb2d9" stroke-width="4" stroke-linecap="round"/>
+  <rect x="20" y="340" width="330" height="220" fill="none" stroke="#2b2440" stroke-width="3"/>
+  <text x="20" y="592" font-size="25" font-weight="bold" fill="#c8127a">primer plano</text>
+  <text x="20" y="618" font-size="19" fill="#6f6470">la cara y los hombros:</text>
+  <text x="20" y="640" font-size="19" fill="#6f6470">lo que siente</text>
+
+  <!-- 4 detalle -->
+  <rect x="370" y="340" width="330" height="220" fill="#b98a5e"/>
+  <path d="M370 372 L700 360 M370 420 L700 412 M370 500 L700 494 M370 540 L700 538" stroke="#a87a50" stroke-width="3"/>
+  <path d="M440 392 L535 404 L535 520 L440 508 Z" fill="#f6ecd2" stroke="#2b2440" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M630 392 L535 404 L535 520 L630 508 Z" fill="#f6ecd2" stroke="#2b2440" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M452 420 Q470 414 488 422 T522 422 M452 440 Q470 434 488 442 T522 442 M452 460 Q470 454 488 462 T518 462 M548 422 Q566 416 584 424 T616 418 M548 442 Q566 436 584 444 T616 438" fill="none" stroke="#8a7a60" stroke-width="2.5"/>
+  <ellipse cx="430" cy="470" rx="26" ry="34" fill="#c98b5f" stroke="#2b2440" stroke-width="2.5"/>
+  <ellipse cx="448" cy="446" rx="9" ry="13" fill="#c98b5f" stroke="#2b2440" stroke-width="2"/>
+  <ellipse cx="640" cy="470" rx="26" ry="34" fill="#c98b5f" stroke="#2b2440" stroke-width="2.5"/>
+  <ellipse cx="622" cy="446" rx="9" ry="13" fill="#c98b5f" stroke="#2b2440" stroke-width="2"/>
+  <path d="M404 520 L404 560 M666 520 L666 560" stroke="#3f8a5a" stroke-width="40"/>
+  <rect x="370" y="340" width="330" height="220" fill="none" stroke="#2b2440" stroke-width="3"/>
+  <text x="370" y="592" font-size="25" font-weight="bold" fill="#c8127a">detalle</text>
+  <text x="370" y="618" font-size="19" fill="#6f6470">un objeto o una parte, muy</text>
+  <text x="370" y="640" font-size="19" fill="#6f6470">de cerca: lo que importa</text>
+</svg>
+    <figcaption>La misma muchacha en cuatro planos.</figcaption>
+  </figure>
+  <ul class="lista">
+    <li><b>Plano general:</b> «muestra un paisaje o un amplio escenario». <span class="dle">DLE</span> Sirve para saber dónde estamos.</li>
+    <li><b>Plano medio:</b> «encuadra la figura de un personaje de cintura para arriba». <span class="dle">DLE</span> Sirve para ver qué hace y con quién habla.</li>
+    <li><b>Primer plano:</b> «centra la atención en el rostro y los hombros de un personaje o en un objeto aislado». <span class="dle">DLE</span> Sirve para ver lo que siente.</li>
+    <li><b>Detalle:</b> un objeto o una parte muy de cerca: la llave, la mano que tiembla, el cuaderno abierto.</li>
+  </ul>
+
+  <h3>Los ángulos: desde dónde está la cámara</h3>
+  <figure class="fig">
+    <svg class="fig-svg" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" font-family="Noto Sans, DejaVu Sans, Ubuntu, Arial, sans-serif" role="img" aria-label="Dos ángulos: picado, con la cámara arriba, y contrapicado, con la cámara abajo">
+  <rect x="0" y="0" width="720" height="380" fill="#fbf4f9"/>
+
+  <!-- picado -->
+  <rect x="20" y="20" width="330" height="260" fill="#e2d2b2"/>
+  <path d="M20 90 L350 90 M20 160 L350 160 M20 230 L350 230 M75 20 L60 280 M140 20 L130 280 M205 20 L205 280 M270 20 L280 280 M335 20 L350 200" stroke="#cbb68f" stroke-width="3"/>
+  <ellipse cx="196" cy="214" rx="46" ry="16" fill="#2b2440" fill-opacity="0.18"/>
+  <ellipse cx="190" cy="196" rx="38" ry="24" fill="#3f8a5a" stroke="#2b2440" stroke-width="2.5"/>
+  <circle cx="190" cy="172" r="27" fill="#2b1d16" stroke="#2b2440" stroke-width="2"/>
+  <path d="M190 148 Q186 160 190 172" fill="none" stroke="#4a3426" stroke-width="2"/>
+  <ellipse cx="214" cy="198" rx="6" ry="9" fill="#2b1d16"/>
+  <ellipse cx="218" cy="212" rx="6" ry="9" fill="#2b1d16"/>
+  <path d="M212 224 L219 219 L226 224 L219 229 Z" fill="#d62d2d"/>
+  <ellipse cx="170" cy="226" rx="9" ry="6" fill="#4a3a6a"/>
+  <ellipse cx="208" cy="230" rx="9" ry="6" fill="#4a3a6a"/>
+  <rect x="34" y="34" width="38" height="26" rx="5" fill="#2b2440"/>
+  <rect x="44" y="28" width="14" height="8" rx="2" fill="#2b2440"/>
+  <circle cx="53" cy="47" r="9" fill="#6f6470" stroke="#ffffff" stroke-width="2.5"/>
+  <path d="M76 62 Q120 96 150 146" fill="none" stroke="#c8127a" stroke-width="3" stroke-dasharray="7 6"/>
+  <path d="M138 140 L152 150 L154 133" fill="none" stroke="#c8127a" stroke-width="3" stroke-linejoin="round"/>
+  <rect x="20" y="20" width="330" height="260" fill="none" stroke="#2b2440" stroke-width="3"/>
+  <text x="20" y="314" font-size="25" font-weight="bold" fill="#c8127a">picado</text>
+  <text x="20" y="340" font-size="19" fill="#6f6470">la cámara mira de arriba abajo:</text>
+  <text x="20" y="362" font-size="19" fill="#6f6470">se ve pequeña, sola o vencida</text>
+
+  <!-- contrapicado -->
+  <rect x="370" y="20" width="330" height="260" fill="#cfe6f2"/>
+  <ellipse cx="450" cy="62" rx="34" ry="13" fill="#ffffff"/>
+  <ellipse cx="640" cy="88" rx="30" ry="11" fill="#ffffff"/>
+  <path d="M370 262 L700 262 L700 280 L370 280 Z" fill="#8fbf9a"/>
+  <path d="M470 280 L494 168 L534 168 L524 280 Z" fill="#3b5a8c" stroke="#2b2440" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M600 280 L576 168 L536 168 L546 280 Z" fill="#3b5a8c" stroke="#2b2440" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M490 176 L500 96 Q535 84 570 96 L580 176 Z" fill="#3f8a5a" stroke="#2b2440" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M500 104 L470 150 L486 158 L506 120" fill="#3f8a5a" stroke="#2b2440" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M570 104 L600 150 L584 158 L564 120" fill="#3f8a5a" stroke="#2b2440" stroke-width="2.5" stroke-linejoin="round"/>
+  <rect x="528" y="74" width="14" height="14" fill="#c98b5f"/>
+  <circle cx="535" cy="62" r="17" fill="#c98b5f" stroke="#2b2440" stroke-width="2.5"/>
+  <path d="M518 60 Q518 44 535 44 Q552 44 552 60 Q546 52 535 52 Q524 52 518 60 Z" fill="#2b1d16"/>
+  <ellipse cx="553" cy="74" rx="4" ry="7" fill="#2b1d16"/>
+  <ellipse cx="555" cy="86" rx="4" ry="7" fill="#2b1d16"/>
+  <path d="M528 70 L534 68 M537 68 L543 70" stroke="#2b2440" stroke-width="2" stroke-linecap="round"/>
+  <rect x="384" y="236" width="38" height="26" rx="5" fill="#2b2440"/>
+  <rect x="394" y="230" width="14" height="8" rx="2" fill="#2b2440"/>
+  <circle cx="403" cy="249" r="9" fill="#6f6470" stroke="#ffffff" stroke-width="2.5"/>
+  <path d="M424 232 Q446 176 480 132" fill="none" stroke="#c8127a" stroke-width="3" stroke-dasharray="7 6"/>
+  <path d="M464 134 L482 128 L482 146" fill="none" stroke="#c8127a" stroke-width="3" stroke-linejoin="round"/>
+  <rect x="370" y="20" width="330" height="260" fill="none" stroke="#2b2440" stroke-width="3"/>
+  <text x="370" y="314" font-size="25" font-weight="bold" fill="#c8127a">contrapicado</text>
+  <text x="370" y="340" font-size="19" fill="#6f6470">la cámara mira de abajo arriba:</text>
+  <text x="370" y="362" font-size="19" fill="#6f6470">se ve grande, fuerte o amenazante</text>
+</svg>
+    <figcaption>El mismo personaje cambia de fuerza según dónde pongas la cámara.</figcaption>
+  </figure>
+  <ul class="lista">
+    <li><b>Picado:</b> «Toma que se realiza con la cámara inclinada de arriba abajo». <span class="dle">DLE</span> El personaje se ve pequeño, solo o vencido.</li>
+    <li><b>Contrapicado:</b> «Toma que se realiza con la cámara de abajo arriba». <span class="dle">DLE</span> El personaje se ve grande, fuerte o amenazante.</li>
+  </ul>
+  <div class="aviso ojo"><p><b>Para qué te sirve.</b> Tu guion ya trae el plano y el ángulo de cada viñeta. Si sabes leerlos, sabes revisar si Gemini dibujó lo que se pidió.</p></div>
+</section>
+
+<section id="prepara-gemini">
+  <p class="num">Paso 2</p>
+  <h2>Prepara la computadora y Gemini</h2>
+  <ul class="lista">
+    <li><b>Abre Chrome y entra con tu cuenta de Google</b> o con la que te indique tu profe. Las cuentas escolares pueden tener Gemini limitado.</li>
+    <li><b>Dos pestañas o dos ventanas lado a lado:</b> en una, <b>gemini.google.com</b>; en la otra, la <a href="mesa.html">mesa de dibujo</a>. Para ponerlas lado a lado, haz clic en una ventana y presiona la tecla Windows <kbd>⊞</kbd> + <kbd>←</kbd>; luego haz clic en la otra y presiona <kbd>⊞</kbd> + <kbd>→</kbd>.</li>
+    <li><b>Elige el modelo Flash o Pro. Nunca Flash‑Lite:</b> esa versión dibuja con un modelo ligero que no sirve para este trabajo.</li>
+    <li><b>Un chat nuevo por cada página.</b> Los chats largos se desordenan; empezar limpio en cada página mantiene el estilo.</li>
+  </ul>
+  <figure class="fig">
+    <svg class="fig-svg" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 478" font-family="Noto Sans, DejaVu Sans, Ubuntu, Arial, sans-serif" role="img" aria-label="Una computadora con dos ventanas lado a lado: Gemini a la izquierda y la mesa de dibujo a la derecha; abajo, las teclas para acomodarlas">
+  <rect x="0" y="0" width="720" height="478" fill="#fbf4f9"/>
+  <rect x="70" y="16" width="580" height="344" rx="16" fill="#2b2440"/>
+  <rect x="84" y="30" width="552" height="316" fill="#e9e4f0"/>
+  <rect x="90" y="36" width="268" height="304" rx="6" fill="#ffffff" stroke="#b9b0c4"/>
+  <path d="M90 58 V42 Q90 36 96 36 H352 Q358 36 358 42 V58 Z" fill="#e7e1ee"/>
+  <path d="M96 58 V44 Q96 40 100 40 H190 Q194 40 194 44 V58 Z" fill="#ffffff"/>
+  <path d="M108 44 Q109 49 114 50 Q109 51 108 56 Q107 51 102 50 Q107 49 108 44 Z" fill="#5b6ee8"/>
+  <text x="120" y="54" font-size="11" fill="#2b2440">Gemini</text>
+  <rect x="232" y="70" width="118" height="30" rx="10" fill="#f9d9ea"/>
+  <rect x="242" y="78" width="96" height="5" rx="3" fill="#e5a9c8"/>
+  <rect x="242" y="87" width="80" height="5" rx="3" fill="#e5a9c8"/>
+  <rect x="98" y="108" width="110" height="20" rx="10" fill="#f4eff9"/>
+  <rect x="108" y="115" width="80" height="5" rx="3" fill="#ddd5e6"/>
+  <rect x="232" y="136" width="118" height="38" rx="10" fill="#f9d9ea"/>
+  <rect x="242" y="143" width="96" height="5" rx="3" fill="#e5a9c8"/>
+  <rect x="242" y="152" width="88" height="5" rx="3" fill="#e5a9c8"/>
+  <rect x="242" y="161" width="60" height="5" rx="3" fill="#e5a9c8"/>
+  <rect x="98" y="184" width="150" height="112" fill="#cfe6f2"/>
+  <circle cx="218.0" cy="208.6" r="8.8" fill="#ffd23f"/>
+  <path d="M98 296 L98 262.4 Q135.5 240.0 173.0 253.4 Q210.5 266.9 248 245.6 L248 296 Z" fill="#5f9a6c"/>
+  <path d="M144.8 296 L146.0 267.2 Q149.8 258.4 161.0 257.2 Q172.2 258.4 176.0 267.2 L177.2 296 Z" fill="#3f8a5a" stroke="#2b2440" stroke-width="1.5"/>
+  <circle cx="161.0" cy="247.2" r="9.4" fill="#c98b5f" stroke="#2b2440" stroke-width="1.5"/>
+  <path d="M151.6 246.6 Q151.6 237.2 161.0 237.2 Q170.4 237.2 170.4 246.6 Q166.6 241.6 161.0 241.6 Q155.4 241.6 151.6 246.6 Z" fill="#2b1d16"/>
+  <rect x="98" y="184" width="150" height="112" fill="none" stroke="#2b2440" stroke-width="1.5"/>
+  <rect x="362" y="36" width="268" height="304" rx="6" fill="#ffffff" stroke="#b9b0c4"/>
+  <path d="M362 58 V42 Q362 36 368 36 H624 Q630 36 630 42 V58 Z" fill="#e7e1ee"/>
+  <path d="M368 58 V44 Q368 40 372 40 H484 Q488 40 488 44 V58 Z" fill="#ffffff"/>
+  <rect x="376" y="44" width="10" height="10" rx="2" fill="#6b1e5a"/>
+  <text x="392" y="54" font-size="11" fill="#2b2440">Mesa de dibujo</text>
+  <rect x="362" y="58" width="268" height="24" fill="#6b1e5a"/>
+  <text x="372" y="74" font-size="11" fill="#ffffff" font-weight="bold">Mesa de dibujo</text>
+  <text x="374" y="98" font-size="11" fill="#c8127a" font-weight="bold">Guion</text>
+  <text x="416" y="98" font-size="11" fill="#6f6470">Maquetar</text>
+  <text x="474" y="98" font-size="11" fill="#6f6470">Exportar</text>
+  <rect x="372" y="110" width="248" height="62" rx="8" fill="#ffffff" stroke="#eadce6" stroke-width="1.5"/>
+  <rect x="382" y="120" width="120" height="7" rx="3" fill="#ddd5e6"/>
+  <rect x="382" y="133" width="90" height="7" rx="3" fill="#ddd5e6"/>
+  <rect x="382" y="146" width="92" height="18" rx="9" fill="#c8127a"/>
+  <text x="428.0" y="158.24" font-size="9" fill="#ffffff" font-weight="bold" text-anchor="middle">Copiar prompt</text>
+  <rect x="372" y="180" width="248" height="62" rx="8" fill="#ffffff" stroke="#eadce6" stroke-width="1.5"/>
+  <rect x="382" y="190" width="130" height="7" rx="3" fill="#ddd5e6"/>
+  <rect x="382" y="203" width="100" height="7" rx="3" fill="#ddd5e6"/>
+  <rect x="382" y="214" width="228" height="20" rx="6" fill="#fdf0f7" stroke="#c8127a" stroke-dasharray="4 3"/>
+  <text x="496" y="228" font-size="10" fill="#c8127a" font-weight="bold" text-anchor="middle">Esperando su imagen</text>
+  <rect x="372" y="250" width="248" height="80" rx="8" fill="#ffffff" stroke="#eadce6" stroke-width="1.5"/>
+  <rect x="382" y="260" width="110" height="7" rx="3" fill="#ddd5e6"/>
+  <rect x="382" y="273" width="140" height="7" rx="3" fill="#ddd5e6"/>
+  <rect x="382" y="282" width="56" height="42" fill="#cfe6f2"/>
+  <circle cx="426.8" cy="291.2" r="3.3" fill="#ffd23f"/>
+  <path d="M382 324 L382 311.4 Q396.0 303.0 410.0 308.0 Q424.0 313.1 438 305.1 L438 324 Z" fill="#5f9a6c"/>
+  <path d="M399.5 324 L399.9 313.2 Q401.3 309.9 405.5 309.4 Q409.7 309.9 411.1 313.2 L411.6 324 Z" fill="#3f8a5a" stroke="#2b2440" stroke-width="1.5"/>
+  <circle cx="405.5" cy="305.7" r="3.5" fill="#c98b5f" stroke="#2b2440" stroke-width="1.5"/>
+  <path d="M402.0 305.5 Q402.0 302.0 405.5 302.0 Q409.0 302.0 409.0 305.5 Q407.6 303.6 405.5 303.6 Q403.4 303.6 402.0 305.5 Z" fill="#2b1d16"/>
+  <rect x="382" y="282" width="56" height="42" fill="none" stroke="#2b2440" stroke-width="1.5"/>
+  <path d="M330 360 L390 360 L402 392 L318 392 Z" fill="#4a3f5c"/>
+  <rect x="286" y="392" width="148" height="10" rx="5" fill="#4a3f5c"/>
+  <rect x="40" y="424" width="48" height="40" rx="7" fill="#ffffff" stroke="#2b2440" stroke-width="2"/>
+  <rect x="43" y="457" width="42" height="4" rx="2" fill="#e7e1ee"/>
+  <rect x="53" y="433" width="9" height="9" fill="#2b2440"/>
+  <rect x="53" y="444" width="9" height="9" fill="#2b2440"/>
+  <rect x="64" y="433" width="9" height="9" fill="#2b2440"/>
+  <rect x="64" y="444" width="9" height="9" fill="#2b2440"/>
+  <text x="104" y="452" font-size="24" fill="#2b2440" font-weight="bold" text-anchor="middle">+</text>
+  <rect x="118" y="424" width="46" height="40" rx="7" fill="#ffffff" stroke="#2b2440" stroke-width="2"/>
+  <rect x="121" y="457" width="40" height="4" rx="2" fill="#e7e1ee"/>
+  <path d="M130 444 H152 M138 437 L130 444 L138 451" fill="none" stroke="#2b2440" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="174" y="450" font-size="16" fill="#2b2440">una ventana a la izquierda</text>
+  <rect x="382" y="424" width="48" height="40" rx="7" fill="#ffffff" stroke="#2b2440" stroke-width="2"/>
+  <rect x="385" y="457" width="42" height="4" rx="2" fill="#e7e1ee"/>
+  <rect x="395" y="433" width="9" height="9" fill="#2b2440"/>
+  <rect x="395" y="444" width="9" height="9" fill="#2b2440"/>
+  <rect x="406" y="433" width="9" height="9" fill="#2b2440"/>
+  <rect x="406" y="444" width="9" height="9" fill="#2b2440"/>
+  <text x="446" y="452" font-size="24" fill="#2b2440" font-weight="bold" text-anchor="middle">+</text>
+  <rect x="460" y="424" width="46" height="40" rx="7" fill="#ffffff" stroke="#2b2440" stroke-width="2"/>
+  <rect x="463" y="457" width="40" height="4" rx="2" fill="#e7e1ee"/>
+  <path d="M472 444 H494 M486 437 L494 444 L486 451" fill="none" stroke="#2b2440" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="516" y="450" font-size="16" fill="#2b2440">la otra a la derecha</text>
+</svg>
+    <figcaption>Gemini a la izquierda, la mesa a la derecha: copias en una y pegas en la otra.</figcaption>
+  </figure>
+  <figure class="fig ventana">
+    <svg class="fig-svg" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 600" font-family="Noto Sans, DejaVu Sans, Ubuntu, Arial, sans-serif" role="img" aria-label="La pestaña de Gemini: chat nuevo, modelo, el estilo y el prompt pegados, la imagen y el menú del clic derecho con Copiar imagen">
+  <rect x="0" y="0" width="720" height="600" fill="#fbf4f9"/>
+  <rect x="10" y="10" width="700" height="580" rx="10" fill="#ffffff" stroke="#b9b0c4" stroke-width="1.5"/>
+  <path d="M10 52 V20 Q10 10 20 10 H700 Q710 10 710 20 V52 Z" fill="#e7e1ee"/>
+  <path d="M22 52 V24 Q22 16 30 16 H176 Q184 16 184 24 V52 Z" fill="#ffffff"/>
+  <path d="M40 26 Q41 33 48 34 Q41 35 40 42 Q39 35 32 34 Q39 33 40 26 Z" fill="#5b6ee8"/>
+  <text x="56" y="39" font-size="14" fill="#2b2440">Gemini</text>
+  <path d="M162 29 L170 37 M170 29 L162 37" stroke="#6f6470" stroke-width="1.6"/>
+  <path d="M188 52 V24 Q188 16 196 16 H352 Q360 16 360 24 V52 Z" fill="#ddd5e6"/>
+  <rect x="200" y="27" width="14" height="14" rx="3" fill="#6b1e5a"/>
+  <text x="222" y="39" font-size="14" fill="#2b2440">Mesa de dibujo</text>
+  <path d="M338 29 L346 37 M346 29 L338 37" stroke="#6f6470" stroke-width="1.6"/>
+  <path d="M374 34 H386 M380 28 V40" stroke="#6f6470" stroke-width="2"/>
+  <path d="M630 31 H642 M656 25 H668 V37 H656 Z M682 25 L694 37 M694 25 L682 37" fill="none" stroke="#6f6470" stroke-width="1.6"/>
+  <rect x="10" y="52" width="700" height="40" fill="#ffffff"/>
+  <path d="M10 92 H710" stroke="#e7e1ee" stroke-width="1.5"/>
+  <path d="M30 72 H44 M36 66 L30 72 L36 78 M66 72 H80 M74 66 L80 72 L74 78" fill="none" stroke="#6f6470" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M112 68 A7 7 0 1 0 113 76 M113 62 V69 H106" fill="none" stroke="#6f6470" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="128" y="60" width="560" height="24" rx="12" fill="#f1edf5"/>
+  <rect x="141" y="69" width="10" height="9" rx="1.5" fill="#6f6470"/>
+  <path d="M143 69 V66 A3 3 0 0 1 149 66 V69" fill="none" stroke="#6f6470" stroke-width="1.6"/>
+  <rect x="160" y="68" width="150" height="8" rx="4" fill="#ddd5e6"/>
+  <path d="M10 92 H180 V590 H20 Q10 590 10 580 Z" fill="#f6f3f9"/>
+  <circle cx="40" cy="122" r="16" fill="#ffffff" stroke="#d9cfe0" stroke-width="1.5"/>
+  <path d="M40 114 V130 M32 122 H48" stroke="#2b2440" stroke-width="2.2" stroke-linecap="round"/>
+  <rect x="64" y="118" width="70" height="7" rx="3" fill="#ddd5e6"/>
+  <rect x="28" y="164" width="130" height="8" rx="3" fill="#ddd5e6"/>
+  <rect x="28" y="188" width="110" height="8" rx="3" fill="#ddd5e6"/>
+  <rect x="28" y="212" width="124" height="8" rx="3" fill="#ddd5e6"/>
+  <rect x="28" y="236" width="96" height="8" rx="3" fill="#ddd5e6"/>
+  <rect x="560" y="104" width="130" height="28" rx="14" fill="#f1edf5"/>
+  <text x="586" y="123" font-size="13" fill="#2b2440">modelo</text>
+  <path d="M664 115 L670 121 L676 115" fill="none" stroke="#2b2440" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="420" y="146" width="270" height="64" rx="16" fill="#f9d9ea"/>
+  <rect x="436" y="158" width="220" height="7" rx="3" fill="#e5a9c8"/>
+  <rect x="436" y="171" width="236" height="7" rx="3" fill="#e5a9c8"/>
+  <rect x="436" y="184" width="170" height="7" rx="3" fill="#e5a9c8"/>
+  <rect x="200" y="222" width="230" height="36" rx="16" fill="#f4eff9"/>
+  <rect x="216" y="231" width="190" height="7" rx="3" fill="#ddd5e6"/>
+  <rect x="216" y="244" width="120" height="7" rx="3" fill="#ddd5e6"/>
+  <rect x="420" y="270" width="270" height="78" rx="16" fill="#f9d9ea"/>
+  <rect x="436" y="282" width="230" height="7" rx="3" fill="#e5a9c8"/>
+  <rect x="436" y="295" width="210" height="7" rx="3" fill="#e5a9c8"/>
+  <rect x="436" y="308" width="236" height="7" rx="3" fill="#e5a9c8"/>
+  <rect x="436" y="321" width="150" height="7" rx="3" fill="#e5a9c8"/>
+  <rect x="200" y="362" width="228" height="171" fill="#cfe6f2"/>
+  <circle cx="382.4" cy="399.6" r="13.3" fill="#ffd23f"/>
+  <path d="M200 533 L200 481.7 Q257.0 447.5 314.0 468.0 Q371.0 488.5 428 456.1 L428 533 Z" fill="#5f9a6c"/>
+  <path d="M271.1 533 L273.0 488.9 Q278.7 475.6 295.8 473.7 Q312.9 475.6 318.6 488.9 L320.5 533 Z" fill="#3f8a5a" stroke="#2b2440" stroke-width="1.5"/>
+  <circle cx="295.8" cy="458.5" r="14.2" fill="#c98b5f" stroke="#2b2440" stroke-width="1.5"/>
+  <path d="M281.5 457.6 Q281.5 443.3 295.8 443.3 Q310.0 443.3 310.0 457.6 Q304.3 450.0 295.8 450.0 Q287.2 450.0 281.5 457.6 Z" fill="#2b1d16"/>
+  <rect x="200" y="362" width="228" height="171" fill="none" stroke="#2b2440" stroke-width="1.5"/>
+  <circle cx="410" cy="380" r="12" fill="#ffffff" stroke="#d9cfe0"/>
+  <path d="M410 373 V385 M405 381 L410 386 L415 381 M404 389 H416" fill="none" stroke="#2b2440" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="335" y="433" width="232" height="98" rx="8" fill="#2b2440" fill-opacity="0.14"/>
+  <rect x="330" y="428" width="232" height="98" rx="8" fill="#ffffff" stroke="#d9cfe0"/>
+  <text x="346" y="452" font-size="13" fill="#2b2440">Guardar imagen como…</text>
+  <rect x="334" y="463" width="224" height="26" rx="4" fill="#f9d9ea"/>
+  <text x="346" y="481" font-size="13" fill="#2b2440" font-weight="bold">Copiar imagen</text>
+  <text x="346" y="512" font-size="13" fill="#2b2440">Copiar dirección de imagen</text>
+  <path d="M452 470 L452 492 L458 486 L463 497 L467 495 L462 484 L470 484 Z" fill="#ffffff" stroke="#2b2440" stroke-width="1.6" stroke-linejoin="round"/>
+  <rect x="200" y="550" width="490" height="30" rx="15" fill="#f1edf5"/>
+  <text x="216" y="571" font-size="20" fill="#6f6470">+</text>
+  <circle cx="672" cy="565" r="11" fill="#6b1e5a"/>
+  <path d="M666 565 H678 M673 560 L678 565 L673 570" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="162" cy="122" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="162" y="127.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">1</text>
+  <circle cx="544" cy="118" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="544" y="123.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">2</text>
+  <circle cx="404" cy="162" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="404" y="167.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">3</text>
+  <circle cx="446" cy="240" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="446" y="245.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">4</text>
+  <circle cx="404" cy="290" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="404" y="295.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">5</text>
+  <circle cx="186" cy="380" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="186" y="385.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">6</text>
+  <circle cx="582" cy="476" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="582" y="481.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">7</text>
+  <circle cx="442" cy="380" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="442" y="385.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">8</text>
+</svg>
+    <ol class="llamadas">
+      <li><span class="n">1</span><span><b>Chat nuevo</b> (el botón +): uno por cada página.</span></li>
+      <li><span class="n">2</span><span><b>Modelo</b>: Flash o Pro, nunca Flash‑Lite.</span></li>
+      <li><span class="n">3</span><span><b>Pegas el estilo</b>: en la mesa, clic en Copiar estilo; aquí, <kbd>Ctrl</kbd> + <kbd>V</kbd> y Enter.</span></li>
+      <li><span class="n">4</span><span><b>Esperas su respuesta</b>: te dice que entendió.</span></li>
+      <li><span class="n">5</span><span><b>Pegas el prompt</b> de la viñeta: Copiar prompt en la mesa, <kbd>Ctrl</kbd> + <kbd>V</kbd> aquí y Enter.</span></li>
+      <li><span class="n">6</span><span><b>Revisas la imagen</b> con las tres preguntas.</span></li>
+      <li><span class="n">7</span><span><b>Clic derecho → «Copiar imagen»</b>. Regresas a la mesa y presionas <kbd>Ctrl</kbd> + <kbd>V</kbd>.</span></li>
+      <li><span class="n">8</span><span><b>O la descargas</b>: se guarda en Descargas y te queda una copia.</span></li>
+    </ol>
+    <figcaption>La pestaña de Gemini: primero el estilo, luego un prompt por viñeta.</figcaption>
+  </figure>
+  <div class="aviso edad">
+    <p><b>¿Hay que adjuntar imágenes?</b> No hace falta: cada prompt de tu guion trae completa la descripción de tus personajes. Pero ayuda. Si tu Gemini te deja subir imágenes (o trabajas con la cuenta del profe), marca en el paso 1 de tu mesa <span class="boton">Puedo adjuntar imágenes</span>: cada viñeta te dirá qué prueba de personaje adjuntar, y se parecerán más de una viñeta a otra.</p>
+    <p><b>Si no te deja subir imágenes,</b> no pasa nada (a quien tiene menos de 18 años Gemini no le permite usarlas de modelo): deja la casilla sin marcar, copias, pegas y listo.</p>
+  </div>
+  <div class="aviso ojo"><p><b>Al terminar cada sesión,</b> cierra Gemini y cierra tu sesión de Google (en el círculo con tu foto o tu inicial, arriba a la derecha: «Cerrar sesión»). Las computadoras son compartidas. Tu mesa no se pierde: se guarda con tu código.</p></div>
+</section>
+
+<section id="tu-guion">
+  <p class="num">Paso 3</p>
+  <h2>Tu guion, paso a paso</h2>
+  <p>Abre la <a href="mesa.html">mesa de dibujo</a> en la otra pestaña o ventana. En «Escribe tu código» escribe el código que te dieron al subir tu historia y haz clic en <span class="boton">Abrir mi mesa</span>. Si tu guion todavía no está listo, la mesa te lo dice. ¿Quieres ver cómo es antes? Abre <a href="mesa.html?demo">Ver el ejemplo</a>.</p>
+  <div class="aviso ojo" id="si-cambias"><p><b>Si cambias de computadora.</b> La mesa se guarda sola con tu código: en cualquier computadora del laboratorio escribes tu código y sigues donde ibas. Arriba te dice cómo va: <span class="estado ok">Guardado ✓</span> todo está a salvo; <span class="estado va">Guardando…</span> espera un momento antes de cerrar; <span class="estado no">Sin conexión</span> guarda una copia en esa computadora y la sube cuando vuelva la conexión, así que no cambies de computadora hasta ver «Guardado ✓».</p></div>
+  <p>Todo empieza en la pestaña <span class="boton">Guion</span>:</p>
+  <figure class="fig ventana">
+    <svg class="fig-svg" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 600" font-family="Noto Sans, DejaVu Sans, Ubuntu, Arial, sans-serif" role="img" aria-label="La pestaña Guion en la computadora: Guardado, Copiar estilo, la tarjeta de una viñeta con Copiar prompt, ¿Salió mal?, Poner imagen y Esperando su imagen; una viñeta con imagen y un archivo arrastrado a otra">
+  <rect x="0" y="0" width="720" height="600" fill="#fbf4f9"/>
+  <rect x="10" y="10" width="700" height="580" rx="10" fill="#ffffff" stroke="#b9b0c4" stroke-width="1.5"/>
+  <path d="M10 52 V20 Q10 10 20 10 H700 Q710 10 710 20 V52 Z" fill="#e7e1ee"/>
+  <path d="M22 52 V24 Q22 16 30 16 H176 Q184 16 184 24 V52 Z" fill="#ddd5e6"/>
+  <path d="M40 26 Q41 33 48 34 Q41 35 40 42 Q39 35 32 34 Q39 33 40 26 Z" fill="#5b6ee8"/>
+  <text x="56" y="39" font-size="14" fill="#2b2440">Gemini</text>
+  <path d="M162 29 L170 37 M170 29 L162 37" stroke="#6f6470" stroke-width="1.6"/>
+  <path d="M188 52 V24 Q188 16 196 16 H352 Q360 16 360 24 V52 Z" fill="#ffffff"/>
+  <rect x="200" y="27" width="14" height="14" rx="3" fill="#6b1e5a"/>
+  <text x="222" y="39" font-size="14" fill="#2b2440">Mesa de dibujo</text>
+  <path d="M338 29 L346 37 M346 29 L338 37" stroke="#6f6470" stroke-width="1.6"/>
+  <path d="M374 34 H386 M380 28 V40" stroke="#6f6470" stroke-width="2"/>
+  <path d="M630 31 H642 M656 25 H668 V37 H656 Z M682 25 L694 37 M694 25 L682 37" fill="none" stroke="#6f6470" stroke-width="1.6"/>
+  <rect x="10" y="52" width="700" height="40" fill="#ffffff"/>
+  <path d="M10 92 H710" stroke="#e7e1ee" stroke-width="1.5"/>
+  <path d="M30 72 H44 M36 66 L30 72 L36 78 M66 72 H80 M74 66 L80 72 L74 78" fill="none" stroke="#6f6470" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M112 68 A7 7 0 1 0 113 76 M113 62 V69 H106" fill="none" stroke="#6f6470" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="128" y="60" width="560" height="24" rx="12" fill="#f1edf5"/>
+  <rect x="141" y="69" width="10" height="9" rx="1.5" fill="#6f6470"/>
+  <path d="M143 69 V66 A3 3 0 0 1 149 66 V69" fill="none" stroke="#6f6470" stroke-width="1.6"/>
+  <rect x="160" y="68" width="150" height="8" rx="4" fill="#ddd5e6"/>
+  <rect x="10" y="92" width="700" height="46" fill="#6b1e5a"/>
+  <text x="28" y="120" font-size="16" fill="#ffffff" font-weight="bold">Mesa de dibujo</text>
+  <text x="160" y="120" font-size="14" fill="#e7cfe0">· Mi historieta</text>
+  <rect x="566" y="103" width="124" height="24" rx="12" fill="#e9f6ef"/>
+  <path d="M580 115 L585 120 L593 110" fill="none" stroke="#1f8a4c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="600" y="120" font-size="13" fill="#1f8a4c" font-weight="bold">Guardado</text>
+  <rect x="10" y="138" width="700" height="38" fill="#ffffff"/>
+  <path d="M10 176 H710" stroke="#eadce6" stroke-width="1.5"/>
+  <text x="30" y="163" font-size="15" fill="#c8127a" font-weight="bold">Guion</text>
+  <rect x="26" y="171" width="52" height="4" rx="2" fill="#c8127a"/>
+  <text x="120" y="163" font-size="15" fill="#6f6470">Maquetar</text>
+  <text x="230" y="163" font-size="15" fill="#6f6470">Exportar</text>
+  <rect x="26" y="190" width="330" height="96" rx="12" fill="#ffffff" stroke="#eadce6" stroke-width="1.5"/>
+  <text x="40" y="214" font-size="15" fill="#6b1e5a" font-weight="bold">Página 1</text>
+  <text x="40" y="234" font-size="13" fill="#6f6470">Abre un chat nuevo y pega el estilo</text>
+  <rect x="40" y="246" width="118" height="28" rx="14" fill="#6b1e5a"/>
+  <text x="99.0" y="264.68" font-size="13" fill="#ffffff" font-weight="bold" text-anchor="middle">Copiar estilo</text>
+  <rect x="26" y="298" width="330" height="284" rx="12" fill="#ffffff" stroke="#eadce6" stroke-width="1.5"/>
+  <rect x="40" y="312" width="60" height="22" rx="11" fill="#c8127a"/>
+  <text x="70" y="327" font-size="12" fill="#ffffff" font-weight="bold" text-anchor="middle">P1_V1</text>
+  <rect x="108" y="312" width="110" height="22" rx="11" fill="#e3f4f1"/>
+  <text x="163" y="327" font-size="12" fill="#0f7b6c" font-weight="bold" text-anchor="middle">horizontal 4:3</text>
+  <text x="40" y="356" font-size="13" fill="#2b2440" font-weight="bold">Qué se ve:</text>
+  <text x="40" y="374" font-size="13" fill="#2b2440">La muchacha abre la puerta de la cocina,</text>
+  <text x="40" y="391" font-size="13" fill="#2b2440">de noche.</text>
+  <rect x="40" y="400" width="302" height="46" rx="8" fill="#f4eff9"/>
+  <rect x="52" y="410" width="260" height="6" rx="3" fill="#ddd5e6"/>
+  <rect x="52" y="421" width="240" height="6" rx="3" fill="#ddd5e6"/>
+  <rect x="52" y="432" width="170" height="6" rx="3" fill="#ddd5e6"/>
+  <rect x="40" y="470" width="108" height="28" rx="14" fill="#c8127a"/>
+  <text x="94.0" y="488.32" font-size="12" fill="#ffffff" font-weight="bold" text-anchor="middle">Copiar prompt</text>
+  <rect x="156" y="470" width="90" height="28" rx="14" fill="#ffffff" stroke="#c8127a" stroke-width="2"/>
+  <text x="201.0" y="488.32" font-size="12" fill="#c8127a" font-weight="bold" text-anchor="middle">¿Salió mal?</text>
+  <rect x="254" y="470" width="90" height="28" rx="14" fill="#ffffff" stroke="#6b1e5a" stroke-width="1.6"/>
+  <text x="299.0" y="488.32" font-size="12" fill="#6b1e5a" font-weight="bold" text-anchor="middle">Poner imagen</text>
+  <rect x="40" y="510" width="302" height="60" rx="10" fill="#fdf0f7" stroke="#c8127a" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="56" y="533" font-size="14" fill="#c8127a" font-weight="bold">Esperando su imagen</text>
+  <rect x="56" y="543" width="38" height="20" rx="4" fill="#ffffff" stroke="#2b2440" stroke-width="1.5"/>
+  <text x="75" y="557" font-size="11" fill="#2b2440" font-weight="bold" text-anchor="middle">Ctrl</text>
+  <text x="102" y="558" font-size="14" fill="#2b2440" font-weight="bold" text-anchor="middle">+</text>
+  <rect x="110" y="543" width="22" height="20" rx="4" fill="#ffffff" stroke="#2b2440" stroke-width="1.5"/>
+  <text x="121" y="557" font-size="11" fill="#2b2440" font-weight="bold" text-anchor="middle">V</text>
+  <text x="142" y="558" font-size="12" fill="#6f6470">para pegarla aquí</text>
+  <rect x="372" y="190" width="322" height="150" rx="12" fill="#ffffff" stroke="#eadce6" stroke-width="1.5"/>
+  <rect x="386" y="204" width="60" height="22" rx="11" fill="#c8127a"/>
+  <text x="416" y="219" font-size="12" fill="#ffffff" font-weight="bold" text-anchor="middle">P1_V2</text>
+  <rect x="386" y="236" width="120" height="90" fill="#cfe6f2"/>
+  <circle cx="482.0" cy="255.8" r="7.0" fill="#ffd23f"/>
+  <path d="M386 326 L386 299.0 Q416.0 281.0 446.0 291.8 Q476.0 302.6 506 285.5 L506 326 Z" fill="#5f9a6c"/>
+  <path d="M423.4 326 L424.4 302.8 Q427.4 295.8 436.4 294.8 Q445.4 295.8 448.4 302.8 L449.4 326 Z" fill="#3f8a5a" stroke="#2b2440" stroke-width="1.5"/>
+  <circle cx="436.4" cy="286.8" r="7.5" fill="#c98b5f" stroke="#2b2440" stroke-width="1.5"/>
+  <path d="M428.9 286.3 Q428.9 278.8 436.4 278.8 Q443.9 278.8 443.9 286.3 Q440.9 282.3 436.4 282.3 Q431.9 282.3 428.9 286.3 Z" fill="#2b1d16"/>
+  <rect x="386" y="236" width="120" height="90" fill="none" stroke="#2b2440" stroke-width="1.5"/>
+  <circle cx="530" cy="281" r="11" fill="#1f8a4c"/>
+  <path d="M524 281 L528 285 L536 276" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="548" y="286" font-size="13" fill="#1f8a4c" font-weight="bold">Ya tiene imagen</text>
+  <rect x="372" y="352" width="322" height="230" rx="12" fill="#fdf0f7" stroke="#c8127a" stroke-width="2" stroke-dasharray="7 5"/>
+  <rect x="386" y="366" width="60" height="22" rx="11" fill="#c8127a"/>
+  <text x="416" y="381" font-size="12" fill="#ffffff" font-weight="bold" text-anchor="middle">P1_V3</text>
+  <rect x="386" y="402" width="240" height="7" rx="3" fill="#ddd5e6"/>
+  <rect x="386" y="415" width="200" height="7" rx="3" fill="#ddd5e6"/>
+  <path d="M520 444 H556 L570 458 V510 H520 Z" fill="#ffffff" stroke="#2b2440" stroke-width="1.8" stroke-linejoin="round"/>
+  <path d="M556 444 V458 H570" fill="none" stroke="#2b2440" stroke-width="1.8"/>
+  <rect x="527" y="468" width="36" height="30" fill="#cfe6f2"/>
+  <path d="M527 498 L527 488 Q540 480 552 487 Q558 490 563 486 L563 498 Z" fill="#5f9a6c"/>
+  <path d="M560 496 L560 518 L566 512 L571 523 L575 521 L570 510 L578 510 Z" fill="#ffffff" stroke="#2b2440" stroke-width="1.6" stroke-linejoin="round"/>
+  <circle cx="588" cy="526" r="9" fill="#1f8a4c"/>
+  <path d="M588 521 V531 M583 526 H593" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="552" cy="115" r="13" fill="#1f8a4c" stroke="#ffffff" stroke-width="3"/>
+  <text x="552" y="120.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">1</text>
+  <circle cx="172" cy="260" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="172" y="265.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">2</text>
+  <circle cx="232" cy="323" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="232" y="328.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">3</text>
+  <circle cx="94" cy="458" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="94" y="463.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">4</text>
+  <circle cx="356" cy="540" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="356" y="545.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">5</text>
+  <circle cx="201" cy="458" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="201" y="463.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">6</text>
+  <circle cx="299" cy="458" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="299" y="463.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">7</text>
+  <circle cx="678" cy="281" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="678" y="286.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">8</text>
+  <circle cx="612" cy="470" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="612" y="475.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">9</text>
+</svg>
+    <ol class="llamadas">
+      <li><span class="n v">1</span><span><b>«Guardado ✓»</b>: la mesa guarda sola con tu código.</span></li>
+      <li><span class="n">2</span><span><b>Copiar estilo</b>: va primero, en cada chat nuevo.</span></li>
+      <li><span class="n">3</span><span><b>La forma del marco</b>: horizontal, vertical o cuadrada.</span></li>
+      <li><span class="n">4</span><span><b>Copiar prompt</b>: lo pegas en Gemini con <kbd>Ctrl</kbd> + <kbd>V</kbd>.</span></li>
+      <li><span class="n">5</span><span><b>«Esperando su imagen»</b>: la viñeta cuyo Copiar prompt usaste al último. Cuando regreses con la imagen copiada, <kbd>Ctrl</kbd> + <kbd>V</kbd> la pone ahí.</span></li>
+      <li><span class="n">6</span><span><b>¿Salió mal?</b>: eliges qué falló y copias el prompt con el arreglo.</span></li>
+      <li><span class="n">7</span><span><b>Poner imagen</b>: para elegir un archivo de Descargas.</span></li>
+      <li><span class="n">8</span><span><b>Ya tiene imagen</b>: esa viñeta está lista.</span></li>
+      <li><span class="n">9</span><span><b>Arrastra</b> el archivo descargado hasta su tarjeta.</span></li>
+    </ol>
+    <figcaption>La pestaña Guion: una tarjeta por página y una por viñeta.</figcaption>
+  </figure>
+  <ol class="pasos">
+    <li><b>Antes de empezar.</b> Léelo una vez: ahí están tu estilo y tus personajes con sus <b>señas</b>, los dos o tres rasgos que los hacen reconocibles (una trenza, un listón rojo, unas botas). Con las señas vas a revisar cada imagen.</li>
+    <li><b>Paso 1 · Prueba tus personajes.</b> Copia la prueba de cada personaje, pégala en Gemini con <kbd>Ctrl</kbd> + <kbd>V</kbd>, presiona Enter y mira el resultado. ¿Se parece a como lo imaginas? ¿Trae sus señas? Esa imagen no va en el cómic: es para que sepas cómo se ve. Si no se parece, inténtalo otra vez; si sigue mal, avísale a tu profe antes de seguir.</li>
+    <li><b>Paso 2 · La portada.</b> <span class="boton rosa">Copiar prompt</span>, pega en Gemini, revisa y regresa la imagen a la mesa como se explica abajo. El título no lo dibuja Gemini: lo pone la mesa.</li>
+    <li><b>Página por página.</b> En cada página:
+      <ol type="a">
+        <li>Haz clic en <span class="boton">Copiar estilo</span>, abre un <b>chat nuevo</b> en Gemini, pega con <kbd>Ctrl</kbd> + <kbd>V</kbd> y presiona Enter. Espera su respuesta: te dice que entendió.</li>
+        <li>En la primera viñeta haz clic en <span class="boton rosa">Copiar prompt</span>; su tarjeta dirá «Esperando su imagen». Pega en Gemini con <kbd>Ctrl</kbd> + <kbd>V</kbd> y presiona Enter.</li>
+        <li>Revisa la imagen con las tres preguntas de abajo.</li>
+        <li>Si algo falló, haz clic en <span class="boton">¿Salió mal?</span>, elige qué pasó y pega el prompt con el arreglo. No vuelvas a pedir lo mismo sin arreglo: gastas tu cuota.</li>
+        <li>Cuando salga bien: <b>clic derecho sobre la imagen → «Copiar imagen»</b>. Regresa a la mesa y presiona <kbd>Ctrl</kbd> + <kbd>V</kbd>: la imagen cae en la viñeta que dice «Esperando su imagen».</li>
+        <li>Sigue con la siguiente viñeta en el mismo chat.</li>
+      </ol></li>
+    <li><b>Otras dos maneras de poner una imagen.</b> Descárgala con el botón de descarga de Gemini (se guarda en Descargas) y arrastra el archivo hasta su tarjeta; o haz clic en <span class="boton">Poner imagen</span> y elígela. Descargar te deja además una copia, y Gemini guarda el chat: si algo se pierde, puedes volver a copiarla.</li>
+    <li><b>Lo que cambiamos de tu historia.</b> Al final del guion está lo que se resumió o se volvió diálogo para que cupiera. Si algo importante se perdió, en Maquetar puedes cambiar el texto de cualquier globo.</li>
+    <li><b>Al terminar la sesión,</b> cierra Gemini y cierra tu sesión de Google. Tu mesa ya está guardada con tu código.</li>
+  </ol>
+
+
+  <figure class="fig">
+    <svg class="fig-svg" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="Noto Sans, DejaVu Sans, Ubuntu, Arial, sans-serif" role="img" aria-label="Las tres preguntas para revisar cada imagen: ¿salió texto?, ¿es la misma cara y la misma ropa?, ¿tiene la forma del marco?">
+  <rect x="0" y="0" width="720" height="300" fill="#fbf4f9"/>
+
+  <!-- a: texto -->
+  <rect x="20" y="20" width="210" height="160" fill="#cfe6f2"/>
+  <path d="M20 140 Q80 112 130 128 Q180 144 230 118 L230 180 L20 180 Z" fill="#5f9a6c"/>
+  <rect x="56" y="58" width="104" height="54" rx="4" fill="#f6ecd2" stroke="#2b2440" stroke-width="2.5"/>
+  <path d="M66 74 q6 -8 12 0 t12 0 t12 0 t12 0 t12 0 t12 0 M66 92 q6 -8 12 0 t12 0 t12 0 t12 0 t12 0" fill="none" stroke="#2b2440" stroke-width="2.5"/>
+  <rect x="104" y="112" width="8" height="34" fill="#8a5a3c"/>
+  <circle cx="108" cy="86" r="52" fill="none" stroke="#c0392b" stroke-width="7"/>
+  <path d="M71 49 L145 123" stroke="#c0392b" stroke-width="7"/>
+  <rect x="20" y="20" width="210" height="160" fill="none" stroke="#2b2440" stroke-width="3"/>
+  <text x="20" y="214" font-size="20" font-weight="bold" fill="#c8127a">¿salió texto?</text>
+  <text x="20" y="240" font-size="16" fill="#6f6470">si hay letras, letreros o</text>
+  <text x="20" y="260" font-size="16" fill="#6f6470">globos, no sirve: tus</text>
+  <text x="20" y="280" font-size="16" fill="#6f6470">globos los pone la mesa</text>
+
+  <!-- b: misma cara -->
+  <rect x="255" y="20" width="210" height="160" fill="#f2e4cf"/>
+  <path d="M268 180 L270 150 Q276 132 300 130 Q324 132 330 150 L332 180 Z" fill="#3f8a5a" stroke="#2b2440" stroke-width="2"/>
+  <circle cx="300" cy="104" r="24" fill="#c98b5f" stroke="#2b2440" stroke-width="2"/>
+  <path d="M276 102 Q276 78 300 78 Q324 78 324 102 Q318 90 300 90 Q282 90 276 102 Z" fill="#2b1d16"/>
+  <ellipse cx="324" cy="120" rx="5" ry="8" fill="#2b1d16"/><ellipse cx="326" cy="134" rx="5" ry="8" fill="#2b1d16"/>
+  <path d="M320 146 L326 142 L332 146 L326 150 Z" fill="#d62d2d"/>
+  <circle cx="292" cy="104" r="2.5" fill="#2b2440"/><circle cx="308" cy="104" r="2.5" fill="#2b2440"/>
+  <path d="M388 180 L390 150 Q396 132 420 130 Q444 132 450 150 L452 180 Z" fill="#3b5a8c" stroke="#2b2440" stroke-width="2"/>
+  <circle cx="420" cy="104" r="24" fill="#e0a77c" stroke="#2b2440" stroke-width="2"/>
+  <path d="M396 100 Q398 76 420 76 Q444 76 444 100 L438 92 L428 96 L420 88 L410 96 L402 92 Z" fill="#8a5a3c"/>
+  <circle cx="412" cy="106" r="2.5" fill="#2b2440"/><circle cx="428" cy="106" r="2.5" fill="#2b2440"/>
+  <path d="M350 96 H370 M350 108 H370 M366 88 L354 116" stroke="#c0392b" stroke-width="4" stroke-linecap="round"/>
+  <rect x="255" y="20" width="210" height="160" fill="none" stroke="#2b2440" stroke-width="3"/>
+  <text x="255" y="214" font-size="20" font-weight="bold" fill="#c8127a">¿es la misma cara</text>
+  <text x="255" y="236" font-size="20" font-weight="bold" fill="#c8127a">y la misma ropa?</text>
+  <text x="255" y="260" font-size="16" fill="#6f6470">compárala con sus señas:</text>
+  <text x="255" y="280" font-size="16" fill="#6f6470">trenza, listón, sudadera…</text>
+
+  <!-- c: forma del marco -->
+  <rect x="490" y="20" width="210" height="160" fill="#ffffff"/>
+  <rect x="502" y="52" width="186" height="104" fill="none" stroke="#c8127a" stroke-width="3" stroke-dasharray="9 6"/>
+  <rect x="543" y="52" width="104" height="104" fill="#cfe6f2" stroke="#2b2440" stroke-width="2.5"/>
+  <path d="M543 128 Q570 112 595 122 Q620 132 647 116 L647 156 L543 156 Z" fill="#5f9a6c"/>
+  <path d="M510 104 L532 104 M526 98 L532 104 L526 110 M680 104 L658 104 M664 98 L658 104 L664 110" fill="none" stroke="#c8127a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="490" y="20" width="210" height="160" fill="none" stroke="#2b2440" stroke-width="3"/>
+  <text x="490" y="214" font-size="20" font-weight="bold" fill="#c8127a">¿tiene la forma</text>
+  <text x="490" y="236" font-size="20" font-weight="bold" fill="#c8127a">del marco?</text>
+  <text x="490" y="260" font-size="16" fill="#6f6470">horizontal, vertical o</text>
+  <text x="490" y="280" font-size="16" fill="#6f6470">cuadrada, como en el guion</text>
+</svg>
+  </figure>
+  <div class="tres">
+    <div><b>¿Salió texto?</b> Letras, letreros o globos: si salió cualquier letra, no sirve. Tus globos los pone la mesa, y Gemini suele escribir mal.</div>
+    <div><b>¿Es la misma cara y la misma ropa?</b> Compárala con las señas de tu personaje.</div>
+    <div><b>¿Tiene la forma del marco?</b> Tu guion dice si es horizontal, vertical o cuadrada.</div>
+  </div>
+  <div class="aviso ojo"><p><b>Casi bien también sirve.</b> Si una imagen salió casi como querías, quédatela: en Maquetar puedes acercarla y moverla dentro del marco, y un globo puede tapar un detalle feo.</p></div>
+</section>
+
+<section id="la-cuota">
+  <p class="num">Paso 4</p>
+  <h2>La cuota: trabaja por sentadas</h2>
+  <p>Gemini no dibuja sin límite. Google no publica cuántas imágenes son; solo dice que el límite se recarga cada 5 horas, hasta un tope por semana. Por eso conviene trabajar en sentadas cortas, de <b>4 o 5 viñetas</b> cada una.</p>
+  <table>
+    <thead><tr><th>Sentada</th><th>Qué haces</th></tr></thead>
+    <tbody>
+      <tr><td>1 · en clase</td><td>Prueba de personajes, portada y las dos primeras viñetas.</td></tr>
+      <tr><td>2 · unas 5 horas después, o al día siguiente</td><td>Las viñetas que faltan de la página 1.</td></tr>
+      <tr><td>3</td><td>La página 2.</td></tr>
+      <tr><td>4</td><td>La página 3 y las viñetas que salieron mal.</td></tr>
+      <tr><td>5 · en clase</td><td>Maquetar, exportar y entregar.</td></tr>
+    </tbody>
+  </table>
+  <p>Si Gemini te dice que llegaste al límite, no insistas: aprovecha para maquetar lo que ya tienes y vuelve más tarde. Si tu cómic es de una o dos páginas, te sobran sentadas. Al final de cada sentada, cierra tu sesión de Google.</p>
+</section>
+
+<section id="maquetar">
+  <p class="num">Paso 5</p>
+  <h2>Maquetar: llenar los marcos</h2>
+  <p>En la pestaña <span class="boton">Maquetar</span> armas cada página. Tu guion ya decidió dónde va cada viñeta y qué forma tiene: tú solo llenas los marcos y acomodas los globos, con el ratón.</p>
+  <figure class="fig ventana">
+    <svg class="fig-svg" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 620" font-family="Noto Sans, DejaVu Sans, Ubuntu, Arial, sans-serif" role="img" aria-label="La pestaña Maquetar en la computadora: la página con un marco elegido, un globo con su punto rosa y un marco vacío que dice Clic o arrastra aquí su imagen; a la derecha, las herramientas">
+  <rect x="0" y="0" width="720" height="620" fill="#fbf4f9"/>
+  <rect x="10" y="10" width="700" height="600" rx="10" fill="#ffffff" stroke="#b9b0c4" stroke-width="1.5"/>
+  <path d="M10 52 V20 Q10 10 20 10 H700 Q710 10 710 20 V52 Z" fill="#e7e1ee"/>
+  <path d="M22 52 V24 Q22 16 30 16 H176 Q184 16 184 24 V52 Z" fill="#ddd5e6"/>
+  <path d="M40 26 Q41 33 48 34 Q41 35 40 42 Q39 35 32 34 Q39 33 40 26 Z" fill="#5b6ee8"/>
+  <text x="56" y="39" font-size="14" fill="#2b2440">Gemini</text>
+  <path d="M162 29 L170 37 M170 29 L162 37" stroke="#6f6470" stroke-width="1.6"/>
+  <path d="M188 52 V24 Q188 16 196 16 H352 Q360 16 360 24 V52 Z" fill="#ffffff"/>
+  <rect x="200" y="27" width="14" height="14" rx="3" fill="#6b1e5a"/>
+  <text x="222" y="39" font-size="14" fill="#2b2440">Mesa de dibujo</text>
+  <path d="M338 29 L346 37 M346 29 L338 37" stroke="#6f6470" stroke-width="1.6"/>
+  <path d="M374 34 H386 M380 28 V40" stroke="#6f6470" stroke-width="2"/>
+  <path d="M630 31 H642 M656 25 H668 V37 H656 Z M682 25 L694 37 M694 25 L682 37" fill="none" stroke="#6f6470" stroke-width="1.6"/>
+  <rect x="10" y="52" width="700" height="40" fill="#ffffff"/>
+  <path d="M10 92 H710" stroke="#e7e1ee" stroke-width="1.5"/>
+  <path d="M30 72 H44 M36 66 L30 72 L36 78 M66 72 H80 M74 66 L80 72 L74 78" fill="none" stroke="#6f6470" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M112 68 A7 7 0 1 0 113 76 M113 62 V69 H106" fill="none" stroke="#6f6470" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="128" y="60" width="560" height="24" rx="12" fill="#f1edf5"/>
+  <rect x="141" y="69" width="10" height="9" rx="1.5" fill="#6f6470"/>
+  <path d="M143 69 V66 A3 3 0 0 1 149 66 V69" fill="none" stroke="#6f6470" stroke-width="1.6"/>
+  <rect x="160" y="68" width="150" height="8" rx="4" fill="#ddd5e6"/>
+  <rect x="10" y="92" width="700" height="46" fill="#6b1e5a"/>
+  <text x="28" y="120" font-size="16" fill="#ffffff" font-weight="bold">Mesa de dibujo</text>
+  <text x="160" y="120" font-size="14" fill="#e7cfe0">· Mi historieta</text>
+  <rect x="566" y="103" width="124" height="24" rx="12" fill="#e9f6ef"/>
+  <path d="M580 115 L585 120 L593 110" fill="none" stroke="#1f8a4c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="600" y="120" font-size="13" fill="#1f8a4c" font-weight="bold">Guardado</text>
+  <rect x="10" y="138" width="700" height="38" fill="#ffffff"/>
+  <path d="M10 176 H710" stroke="#eadce6" stroke-width="1.5"/>
+  <text x="30" y="163" font-size="15" fill="#6f6470">Guion</text>
+  <text x="120" y="163" font-size="15" fill="#c8127a" font-weight="bold">Maquetar</text>
+  <rect x="116" y="171" width="82" height="4" rx="2" fill="#c8127a"/>
+  <text x="230" y="163" font-size="15" fill="#6f6470">Exportar</text>
+  <rect x="40" y="192" width="270" height="383" fill="#fffdf6" stroke="#2b2440" stroke-width="2"/>
+  <rect x="50" y="202" width="250" height="210" fill="#3a2350"/>
+  <circle cx="250.0" cy="248.2" r="14.6" fill="#f6e9b8"/>
+  <path d="M50 412 L50 349.0 Q112.5 307.0 175.0 332.2 Q237.5 357.4 300 317.5 L300 412 Z" fill="#2f5a43"/>
+  <path d="M205.0 340.6 L220.0 323.8 L235.0 340.6 Z" fill="#1e1a2e"/>
+  <rect x="207.5" y="340.6" width="25.0" height="21.0" fill="#1e1a2e"/>
+  <rect x="216.2" y="344.8" width="7.5" height="8.4" fill="#ffd23f"/>
+  <rect x="50" y="202" width="250" height="210" fill="none" stroke="#2b2440" stroke-width="1.5"/>
+  <rect x="46" y="198" width="258" height="218" fill="none" stroke="#c8127a" stroke-width="3" stroke-dasharray="8 5"/>
+  <rect x="258" y="350" width="26" height="40" rx="13" fill="#ffffff" stroke="#2b2440" stroke-width="1.8"/>
+  <path d="M271 357 V368" stroke="#2b2440" stroke-width="3" stroke-linecap="round"/>
+  <path d="M240 360 L246 354 L252 360 M240 380 L246 386 L252 380" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="50" y="418" width="122" height="147" fill="#f2e4cf"/>
+  <path d="M84 565 L86 536 Q92 520 112 518 Q132 520 138 536 L140 565 Z" fill="#3f8a5a" stroke="#2b2440" stroke-width="1.5"/>
+  <circle cx="112" cy="500" r="17" fill="#c98b5f" stroke="#2b2440" stroke-width="1.5"/>
+  <path d="M95 498 Q95 481 112 481 Q129 481 129 498 Q124 489 112 489 Q100 489 95 498 Z" fill="#2b1d16"/>
+  <ellipse cx="96" cy="446" rx="38" ry="18" fill="#ffffff" stroke="#2b2440" stroke-width="1.6"/>
+  <path d="M100 462 L106 486 L112 460" fill="#ffffff" stroke="#2b2440" stroke-width="1.6" stroke-linejoin="round"/>
+  <text x="96" y="443" font-size="10" fill="#2b2440" text-anchor="middle">¿Quién</text>
+  <text x="96" y="455" font-size="10" fill="#2b2440" text-anchor="middle">anda ahí?</text>
+  <circle cx="106" cy="486" r="6" fill="#c8127a" stroke="#ffffff" stroke-width="2"/>
+  <rect x="50" y="418" width="122" height="147" fill="none" stroke="#2b2440" stroke-width="2"/>
+  <rect x="178" y="418" width="122" height="147" fill="#f1eaf3" stroke="#c8127a" stroke-width="2" stroke-dasharray="6 4"/>
+  <circle cx="239" cy="466" r="13" fill="#c8127a"/>
+  <path d="M239 459 V473 M232 466 H246" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="239" y="500" font-size="11" fill="#c8127a" font-weight="bold" text-anchor="middle">Clic o arrastra</text>
+  <text x="239" y="515" font-size="11" fill="#c8127a" font-weight="bold" text-anchor="middle">aquí su imagen</text>
+  <text x="350" y="201" font-size="11" fill="#6f6470">Página</text>
+  <rect x="350" y="207" width="64" height="24" rx="12" fill="#f4eff9"/>
+  <text x="382.0" y="222.96" font-size="11" fill="#2b2440" font-weight="bold" text-anchor="middle">Portada</text>
+  <rect x="420" y="207" width="56" height="24" rx="12" fill="#6b1e5a"/>
+  <text x="448.0" y="222.96" font-size="11" fill="#ffffff" font-weight="bold" text-anchor="middle">Pág. 1</text>
+  <rect x="482" y="207" width="56" height="24" rx="12" fill="#f4eff9"/>
+  <text x="510.0" y="222.96" font-size="11" fill="#2b2440" font-weight="bold" text-anchor="middle">Pág. 2</text>
+  <rect x="544" y="207" width="56" height="24" rx="12" fill="#f4eff9"/>
+  <text x="572.0" y="222.96" font-size="11" fill="#2b2440" font-weight="bold" text-anchor="middle">Pág. 3</text>
+  <text x="350" y="254" font-size="11" fill="#6f6470">Todo el cómic</text>
+  <rect x="350" y="260" width="72" height="24" rx="6" fill="#ffffff" stroke="#d9cfe0"/>
+  <text x="360" y="276" font-size="11" fill="#2b2440">Letra</text>
+  <path d="M402 270 L407 275 L412 270" fill="none" stroke="#2b2440" stroke-width="1.6"/>
+  <rect x="428" y="260" width="88" height="24" rx="6" fill="#ffffff" stroke="#d9cfe0"/>
+  <text x="436" y="276" font-size="11" fill="#2b2440">Papel</text>
+  <circle cx="478" cy="272" r="6" fill="#ffffff" stroke="#6f6470"/>
+  <circle cx="493" cy="272" r="6" fill="#f4edd8" stroke="#c8127a" stroke-width="2"/>
+  <circle cx="508" cy="272" r="6" fill="#111111"/>
+  <rect x="522" y="260" width="56" height="24" rx="12" fill="#6b1e5a"/>
+  <text x="550.0" y="275.96" font-size="11" fill="#ffffff" font-weight="bold" text-anchor="middle">Bordes</text>
+  <rect x="584" y="260" width="58" height="24" rx="12" fill="#ffffff" stroke="#6b1e5a" stroke-width="1.6"/>
+  <text x="613.0" y="275.96" font-size="11" fill="#6b1e5a" font-weight="bold" text-anchor="middle">MAYÚS</text>
+  <text x="350" y="306" font-size="11" fill="#6f6470">Vista</text>
+  <rect x="350" y="312" width="70" height="24" rx="12" fill="#ffffff" stroke="#6b1e5a" stroke-width="1.6"/>
+  <circle cx="365" cy="322" r="5" fill="none" stroke="#6b1e5a" stroke-width="1.8"/>
+  <path d="M369 326 L373 330" stroke="#6b1e5a" stroke-width="2" stroke-linecap="round"/>
+  <text x="392" y="328" font-size="11" fill="#6b1e5a" font-weight="bold" text-anchor="middle">Lupa</text>
+  <rect x="426" y="312" width="112" height="24" rx="12" fill="#ffffff" stroke="#6b1e5a" stroke-width="1.6"/>
+  <text x="482.0" y="327.96" font-size="11" fill="#6b1e5a" font-weight="bold" text-anchor="middle">Página completa</text>
+  <text x="350" y="358" font-size="11" fill="#6f6470">Marco elegido</text>
+  <rect x="350" y="364" width="100" height="24" rx="12" fill="#ffffff" stroke="#6b1e5a" stroke-width="1.6"/>
+  <text x="400.0" y="379.96" font-size="11" fill="#6b1e5a" font-weight="bold" text-anchor="middle">Elegir imagen</text>
+  <rect x="456" y="364" width="110" height="24" rx="12" fill="#ffffff" stroke="#6b1e5a" stroke-width="1.6"/>
+  <text x="511.0" y="379.96" font-size="11" fill="#6b1e5a" font-weight="bold" text-anchor="middle">Cambiar imagen</text>
+  <rect x="572" y="364" width="56" height="24" rx="12" fill="#ffffff" stroke="#6b1e5a" stroke-width="1.6"/>
+  <text x="600.0" y="379.96" font-size="11" fill="#6b1e5a" font-weight="bold" text-anchor="middle">Quitar</text>
+  <text x="350" y="412" font-size="11" fill="#2b2440">Acercar</text>
+  <path d="M404 408 H600" stroke="#d9cfe0" stroke-width="5" stroke-linecap="round"/>
+  <path d="M404 408 H470" stroke="#c8127a" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="470" cy="408" r="8" fill="#ffffff" stroke="#c8127a" stroke-width="3"/>
+  <text x="350" y="446" font-size="11" fill="#6f6470">Globo elegido</text>
+  <rect x="350" y="452" width="90" height="24" rx="12" fill="#ffffff" stroke="#6b1e5a" stroke-width="1.6"/>
+  <text x="395.0" y="467.96" font-size="11" fill="#6b1e5a" font-weight="bold" text-anchor="middle">Editar texto</text>
+  <rect x="446" y="452" width="34" height="24" rx="12" fill="#ffffff" stroke="#6b1e5a" stroke-width="1.6"/>
+  <text x="463.0" y="467.96" font-size="11" fill="#6b1e5a" font-weight="bold" text-anchor="middle">A+</text>
+  <rect x="486" y="452" width="34" height="24" rx="12" fill="#ffffff" stroke="#6b1e5a" stroke-width="1.6"/>
+  <text x="503.0" y="467.96" font-size="11" fill="#6b1e5a" font-weight="bold" text-anchor="middle">A−</text>
+  <rect x="526" y="452" width="56" height="24" rx="12" fill="#ffffff" stroke="#c8127a" stroke-width="2"/>
+  <text x="554.0" y="467.96" font-size="11" fill="#c8127a" font-weight="bold" text-anchor="middle">Borrar</text>
+  <rect x="350" y="484" width="60" height="22" rx="11" fill="#c8127a"/>
+  <text x="380.0" y="498.6" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">Diálogo</text>
+  <rect x="414" y="484" width="44" height="22" rx="11" fill="#f4eff9"/>
+  <text x="436.0" y="498.6" font-size="10" fill="#2b2440" font-weight="bold" text-anchor="middle">Grito</text>
+  <rect x="462" y="484" width="84" height="22" rx="11" fill="#f4eff9"/>
+  <text x="504.0" y="498.6" font-size="10" fill="#2b2440" font-weight="bold" text-anchor="middle">Pensamiento</text>
+  <rect x="550" y="484" width="60" height="22" rx="11" fill="#f4eff9"/>
+  <text x="580.0" y="498.6" font-size="10" fill="#2b2440" font-weight="bold" text-anchor="middle">Susurro</text>
+  <rect x="614" y="484" width="56" height="22" rx="11" fill="#f4eff9"/>
+  <text x="642.0" y="498.6" font-size="10" fill="#2b2440" font-weight="bold" text-anchor="middle">Cartela</text>
+  <rect x="350" y="512" width="86" height="22" rx="11" fill="#f4eff9"/>
+  <text x="393.0" y="526.6" font-size="10" fill="#2b2440" font-weight="bold" text-anchor="middle">Onomatopeya</text>
+  <rect x="350" y="556" width="104" height="28" rx="14" fill="#6b1e5a"/>
+  <text x="402.0" y="574.32" font-size="12" fill="#ffffff" font-weight="bold" text-anchor="middle">Añadir globo</text>
+  <rect x="460" y="556" width="82" height="28" rx="14" fill="#ffffff" stroke="#6b1e5a" stroke-width="1.6"/>
+  <text x="501.0" y="574.32" font-size="12" fill="#6b1e5a" font-weight="bold" text-anchor="middle">Deshacer</text>
+  <circle cx="618" cy="219" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="618" y="224.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">1</text>
+  <circle cx="330" cy="272" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="330" y="277.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">2</text>
+  <circle cx="552" cy="324" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="552" y="329.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">3</text>
+  <circle cx="66" cy="222" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="66" y="227.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">4</text>
+  <circle cx="286" cy="436" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="286" y="441.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">5</text>
+  <circle cx="160" cy="432" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="160" y="437.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">6</text>
+  <circle cx="596" cy="464" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="596" y="469.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">7</text>
+  <circle cx="556" cy="570" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="556" y="575.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">8</text>
+</svg>
+    <ol class="llamadas">
+      <li><span class="n">1</span><span><b>Página</b>: elige la que vas a armar.</span></li>
+      <li><span class="n">2</span><span><b>Todo el cómic</b>: Letra, Papel, Bordes y MAYÚS.</span></li>
+      <li><span class="n">3</span><span><b>Lupa</b> acerca la vista; <b>Página completa</b> la regresa.</span></li>
+      <li><span class="n">4</span><span><b>Marco elegido</b>: arrastra el dibujo para encuadrarlo; agrándalo con la barra <b>Acercar</b> o con la rueda del ratón.</span></li>
+      <li><span class="n">5</span><span><b>Marco vacío</b>: «Clic o arrastra aquí su imagen». También puedes elegirlo y pegar con <kbd>Ctrl</kbd> + <kbd>V</kbd>.</span></li>
+      <li><span class="n">6</span><span><b>El punto rosa</b> apunta la colita hacia la boca de quien habla.</span></li>
+      <li><span class="n">7</span><span><b>Globo elegido</b>: Editar texto, A+ / A−, Borrar y el tipo de globo.</span></li>
+      <li><span class="n">8</span><span><b>Añadir globo</b> si falta uno; <b>Deshacer</b> quita lo último.</span></li>
+    </ol>
+    <figcaption>La pestaña Maquetar con una página a medio armar.</figcaption>
+  </figure>
+  <ol class="pasos">
+    <li><b>Elige la página</b>: Portada · Pág. 1 · Pág. 2 · Pág. 3.</li>
+    <li><b>Pon la imagen de cada marco.</b> Si ya las pegaste en Guion, aquí ya están. Los marcos vacíos dicen «Clic o arrastra aquí su imagen»: haz clic y usa <span class="boton">Elegir imagen</span>, o arrastra el archivo desde Descargas; si la copiaste de Gemini, haz clic en el marco y presiona <kbd>Ctrl</kbd> + <kbd>V</kbd>.</li>
+    <li><b>Encuadra:</b> con el marco elegido, arrastra el dibujo para moverlo y agrándalo con la barra <span class="boton">Acercar</span> o con la rueda del ratón. ¿Te equivocaste de imagen? <span class="boton">Cambiar imagen</span> o <span class="boton">Quitar</span>. ¿Se ve chiquito? <span class="boton">Lupa</span> acerca la vista; <span class="boton">Página completa</span> la regresa.</li>
+    <li><b>Acomoda los globos.</b> Ya traen su texto. Arrástralos con el ratón a su lugar y mueve el <b>punto rosa</b> para que la colita apunte a la boca de quien habla.</li>
+    <li><b>Con un globo elegido</b> (haz clic sobre él): <span class="boton">Editar texto</span>; cambia el tipo (<b>Diálogo · Grito · Pensamiento · Susurro · Cartela · Onomatopeya</b>); <span class="boton">A+</span> / <span class="boton">A−</span> para el tamaño; <span class="boton">Borrar</span>. ¿Falta uno? <span class="boton">Añadir globo</span>.</li>
+    <li><b>Para todo el cómic:</b> <span class="boton">Letra</span>, <span class="boton">Papel</span>, <span class="boton">Bordes</span> y <span class="boton">MAYÚS</span>; <span class="boton">Deshacer</span> quita lo último.</li>
+  </ol>
+
+    <h3>Reglas de oro del globo</h3>
+    <ul class="lista">
+      <li>Se lee de izquierda a derecha y de arriba abajo: quien habla primero va más arriba y más a la izquierda.</li>
+      <li>La colita apunta a la boca, no al cuerpo.</li>
+      <li>No tapes caras ni manos que importan.</li>
+      <li>Pocas palabras por globo. Si no cabe, acorta la frase antes que achicar la letra.</li>
+    </ul>
+  </div>
+  <div class="aviso ojo"><p><b>Se guarda solo.</b> Cada cambio se guarda con tu código; arriba debe decir <span class="estado ok">Guardado ✓</span>. Si cambias de computadora, escribe tu código y sigue (mira <a href="#si-cambias">Si cambias de computadora</a>).</p></div>
+</section>
+
+<section id="exportar">
+  <p class="num">Paso 6</p>
+  <h2>Exportar y entregar</h2>
+  <figure class="fig ventana">
+    <svg class="fig-svg" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" font-family="Noto Sans, DejaVu Sans, Ubuntu, Arial, sans-serif" role="img" aria-label="La pestaña Exportar en la computadora: miniaturas de las páginas y los botones Descargar PDF, Descargar páginas, Imagen larga para WhatsApp, Compartir y Entregar a mi profe">
+  <rect x="0" y="0" width="720" height="470" fill="#fbf4f9"/>
+  <rect x="10" y="10" width="700" height="450" rx="10" fill="#ffffff" stroke="#b9b0c4" stroke-width="1.5"/>
+  <path d="M10 52 V20 Q10 10 20 10 H700 Q710 10 710 20 V52 Z" fill="#e7e1ee"/>
+  <path d="M22 52 V24 Q22 16 30 16 H176 Q184 16 184 24 V52 Z" fill="#ddd5e6"/>
+  <path d="M40 26 Q41 33 48 34 Q41 35 40 42 Q39 35 32 34 Q39 33 40 26 Z" fill="#5b6ee8"/>
+  <text x="56" y="39" font-size="14" fill="#2b2440">Gemini</text>
+  <path d="M162 29 L170 37 M170 29 L162 37" stroke="#6f6470" stroke-width="1.6"/>
+  <path d="M188 52 V24 Q188 16 196 16 H352 Q360 16 360 24 V52 Z" fill="#ffffff"/>
+  <rect x="200" y="27" width="14" height="14" rx="3" fill="#6b1e5a"/>
+  <text x="222" y="39" font-size="14" fill="#2b2440">Mesa de dibujo</text>
+  <path d="M338 29 L346 37 M346 29 L338 37" stroke="#6f6470" stroke-width="1.6"/>
+  <path d="M374 34 H386 M380 28 V40" stroke="#6f6470" stroke-width="2"/>
+  <path d="M630 31 H642 M656 25 H668 V37 H656 Z M682 25 L694 37 M694 25 L682 37" fill="none" stroke="#6f6470" stroke-width="1.6"/>
+  <rect x="10" y="52" width="700" height="40" fill="#ffffff"/>
+  <path d="M10 92 H710" stroke="#e7e1ee" stroke-width="1.5"/>
+  <path d="M30 72 H44 M36 66 L30 72 L36 78 M66 72 H80 M74 66 L80 72 L74 78" fill="none" stroke="#6f6470" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M112 68 A7 7 0 1 0 113 76 M113 62 V69 H106" fill="none" stroke="#6f6470" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="128" y="60" width="560" height="24" rx="12" fill="#f1edf5"/>
+  <rect x="141" y="69" width="10" height="9" rx="1.5" fill="#6f6470"/>
+  <path d="M143 69 V66 A3 3 0 0 1 149 66 V69" fill="none" stroke="#6f6470" stroke-width="1.6"/>
+  <rect x="160" y="68" width="150" height="8" rx="4" fill="#ddd5e6"/>
+  <rect x="10" y="92" width="700" height="46" fill="#6b1e5a"/>
+  <text x="28" y="120" font-size="16" fill="#ffffff" font-weight="bold">Mesa de dibujo</text>
+  <text x="160" y="120" font-size="14" fill="#e7cfe0">· Mi historieta</text>
+  <rect x="566" y="103" width="124" height="24" rx="12" fill="#e9f6ef"/>
+  <path d="M580 115 L585 120 L593 110" fill="none" stroke="#1f8a4c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="600" y="120" font-size="13" fill="#1f8a4c" font-weight="bold">Guardado</text>
+  <rect x="10" y="138" width="700" height="38" fill="#ffffff"/>
+  <path d="M10 176 H710" stroke="#eadce6" stroke-width="1.5"/>
+  <text x="30" y="163" font-size="15" fill="#6f6470">Guion</text>
+  <text x="120" y="163" font-size="15" fill="#6f6470">Maquetar</text>
+  <text x="230" y="163" font-size="15" fill="#c8127a" font-weight="bold">Exportar</text>
+  <rect x="226" y="171" width="74" height="4" rx="2" fill="#c8127a"/>
+  <rect x="34" y="196" width="66" height="94" fill="#3a2350" stroke="#2b2440" stroke-width="1.5"/>
+  <circle cx="80" cy="218" r="9" fill="#f6e9b8"/>
+  <path d="M34 290 L34 262 Q54 250 72 260 Q86 266 100 254 L100 290 Z" fill="#2f5a43"/>
+  <rect x="40" y="204" width="34" height="8" fill="#ffffff"/>
+  <rect x="112" y="196" width="66" height="94" fill="#fffdf6" stroke="#2b2440" stroke-width="1.5"/>
+  <rect x="116" y="200" width="58" height="40" fill="#9fc8a8" stroke="#2b2440" stroke-width="1"/>
+  <rect x="116" y="244" width="28" height="42" fill="#f2c9a0" stroke="#2b2440" stroke-width="1"/>
+  <rect x="146" y="244" width="28" height="42" fill="#cfe6f2" stroke="#2b2440" stroke-width="1"/>
+  <rect x="190" y="196" width="66" height="94" fill="#fffdf6" stroke="#2b2440" stroke-width="1.5"/>
+  <rect x="194" y="200" width="58" height="26" fill="#cfe6f2" stroke="#2b2440" stroke-width="1"/>
+  <rect x="194" y="229" width="58" height="26" fill="#f2c9a0" stroke="#2b2440" stroke-width="1"/>
+  <rect x="194" y="258" width="58" height="28" fill="#9fc8a8" stroke="#2b2440" stroke-width="1"/>
+  <rect x="268" y="196" width="66" height="94" fill="#fffdf6" stroke="#2b2440" stroke-width="1.5"/>
+  <rect x="272" y="200" width="28" height="40" fill="#f2c9a0" stroke="#2b2440" stroke-width="1"/>
+  <rect x="302" y="200" width="28" height="40" fill="#9fc8a8" stroke="#2b2440" stroke-width="1"/>
+  <rect x="272" y="244" width="58" height="42" fill="#f1eaf3" stroke="#c8127a" stroke-width="1" stroke-dasharray="3 2"/>
+  <circle cx="334" cy="198" r="10" fill="#c0392b"/>
+  <text x="334" y="203" font-size="14" fill="#ffffff" font-weight="bold" text-anchor="middle">!</text>
+  <text x="67" y="310" font-size="11" fill="#6f6470" text-anchor="middle">Portada</text>
+  <text x="145" y="310" font-size="11" fill="#6f6470" text-anchor="middle">1</text>
+  <text x="223" y="310" font-size="11" fill="#6f6470" text-anchor="middle">2</text>
+  <text x="301" y="310" font-size="11" fill="#6f6470" text-anchor="middle">3</text>
+  <text x="34" y="348" font-size="13" fill="#6f6470">Lo que descargas se guarda en la</text>
+  <text x="34" y="366" font-size="13" fill="#6f6470">carpeta Descargas de la computadora.</text>
+  <rect x="420" y="196" width="270" height="38" rx="19" fill="#c8127a"/>
+  <text x="555.0" y="220.04" font-size="14" fill="#ffffff" font-weight="bold" text-anchor="middle">Descargar PDF</text>
+  <rect x="420" y="244" width="270" height="38" rx="19" fill="#ffffff" stroke="#6b1e5a" stroke-width="1.6"/>
+  <text x="555.0" y="268.04" font-size="14" fill="#6b1e5a" font-weight="bold" text-anchor="middle">Descargar páginas (JPG)</text>
+  <rect x="420" y="292" width="270" height="38" rx="19" fill="#ffffff" stroke="#6b1e5a" stroke-width="1.6"/>
+  <text x="555.0" y="316.04" font-size="14" fill="#6b1e5a" font-weight="bold" text-anchor="middle">Imagen larga para WhatsApp</text>
+  <rect x="420" y="340" width="270" height="38" rx="19" fill="#ffffff" stroke="#6b1e5a" stroke-width="1.6"/>
+  <text x="555.0" y="364.04" font-size="14" fill="#6b1e5a" font-weight="bold" text-anchor="middle">Compartir</text>
+  <rect x="420" y="400" width="270" height="42" rx="21" fill="#1f8a4c"/>
+  <text x="555.0" y="426.04" font-size="14" fill="#ffffff" font-weight="bold" text-anchor="middle">Entregar a mi profe</text>
+  <circle cx="362" cy="246" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="362" y="251.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">1</text>
+  <circle cx="402" cy="215" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="402" y="220.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">2</text>
+  <circle cx="402" cy="263" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="402" y="268.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">3</text>
+  <circle cx="402" cy="311" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="402" y="316.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">4</text>
+  <circle cx="402" cy="359" r="13" fill="#c8127a" stroke="#ffffff" stroke-width="3"/>
+  <text x="402" y="364.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">5</text>
+  <circle cx="402" cy="421" r="13" fill="#1f8a4c" stroke="#ffffff" stroke-width="3"/>
+  <text x="402" y="426.5" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">6</text>
+</svg>
+    <ol class="llamadas">
+      <li><span class="n">1</span><span><b>Revisa las miniaturas</b>: el aviso rojo marca una página a la que le falta imagen.</span></li>
+      <li><span class="n">2</span><span><b>Descargar PDF</b>: tu cómic completo; se guarda en Descargas.</span></li>
+      <li><span class="n">3</span><span><b>Descargar páginas (JPG)</b>: cada página como imagen.</span></li>
+      <li><span class="n">4</span><span><b>Imagen larga para WhatsApp</b>: todas las páginas en una sola imagen.</span></li>
+      <li><span class="n">5</span><span><b>Compartir</b>: las opciones para compartir de la computadora, si las tiene.</span></li>
+      <li><span class="n v">6</span><span><b>Entregar a mi profe</b>: le llega tu cómic.</span></li>
+    </ol>
+    <figcaption>La pestaña Exportar.</figcaption>
+  </figure>
+  <ul class="lista">
+    <li><b>Revisa las miniaturas.</b> Si una página tiene un aviso rojo, le falta alguna imagen.</li>
+    <li><span class="boton rosa">Descargar PDF</span>: tu cómic completo en un solo archivo; se guarda en Descargas. Es el que se imprime.</li>
+    <li><span class="boton">Descargar páginas (JPG)</span>: cada página como imagen.</li>
+    <li><span class="boton">Imagen larga para WhatsApp</span>: todas las páginas en una sola imagen, para verla en el celular.</li>
+    <li><span class="boton">Compartir</span>: abre las opciones para compartir de la computadora, si las tiene.</li>
+    <li><span class="boton">Entregar a mi profe</span>: le llega tu cómic. Si quieres tu copia, mándate el PDF a tu correo antes de cerrar sesión.</li>
+  </ul>
+  <p>Antes de entregar, <b>lee tus globos en voz alta</b>. Si algo suena raro o le falta un acento, se arregla en Maquetar con <span class="boton">Editar texto</span>. Y al terminar, cierra tu sesión de Google.</p>
+</section>
+
+<section id="si-algo-falla">
+  <p class="num">Paso 7</p>
+  <h2>Si algo falla</h2>
+  <table>
+    <thead><tr><th>Lo que pasa</th><th>Qué hacer</th></tr></thead>
+    <tbody>
+      <tr><td>Salieron letras o globos en la imagen</td><td><span class="boton">¿Salió mal?</span> → «Salió con letras o globos». Si son letritas chiquitas, tápalas con un globo o déjalas fuera del encuadre.</td></tr>
+      <tr><td>Cambió la cara o la ropa del personaje</td><td><span class="boton">¿Salió mal?</span> → «Cambió la cara o la ropa». Compara con sus señas y quédate con la que más se parezca.</td></tr>
+      <tr><td>La imagen no tiene la forma del marco</td><td><span class="boton">¿Salió mal?</span> → «No tiene la forma del marco». Si casi le atinó, en Maquetar usa <span class="boton">Acercar</span> y arrastra.</td></tr>
+      <tr><td>No se parece al estilo</td><td><span class="boton">¿Salió mal?</span> → «No se parece al estilo»: el prompt sale con el estilo completo al principio.</td></tr>
+      <tr><td>Gemini no quiso dibujarla</td><td><span class="boton">¿Salió mal?</span> → «Gemini no quiso dibujarla»: pide el momento sin mostrarlo directamente. Si aun así no, avísale a tu profe.</td></tr>
+      <tr><td>Gemini dice que llegaste al límite</td><td>Espera unas 5 horas. Mientras, maqueta lo que ya tienes.</td></tr>
+      <tr><td>Gemini no me deja subir una imagen</td><td>No hace falta: deja sin marcar <span class="boton">Puedo adjuntar imágenes</span>; tus prompts ya traen todo.</td></tr>
+      <tr><td>Presioné <kbd>Ctrl</kbd> + <kbd>V</kbd> y no pasó nada</td><td>En Gemini, ¿hiciste clic derecho sobre la imagen y «Copiar imagen»? ¿La viñeta dice «Esperando su imagen» (o, en Maquetar, está elegido el marco)? Si no, usa <span class="boton">Poner imagen</span> o arrastra el archivo descargado.</td></tr>
+      <tr><td>La imagen cayó en otra viñeta</td><td><kbd>Ctrl</kbd> + <kbd>V</kbd> la pone en la última viñeta cuyo Copiar prompt usaste; en Maquetar, en el marco elegido. Quítala con <span class="boton">Quitar</span> y pégala donde va.</td></tr>
+      <tr><td>No encuentro la imagen que descargué</td><td>Está en la carpeta Descargas de esa computadora. Si no está, vuelve a copiarla del chat de Gemini: el chat se guarda.</td></tr>
+      <tr><td>La mesa dice que tu guion se está preparando</td><td>Todavía no está listo. Vuelve más tarde o pregúntale a tu profe.</td></tr>
+      <tr><td>Perdí mi código</td><td>Pídeselo a tu profe, y anótalo en tu cuaderno.</td></tr>
+      <tr><td>Cambié de computadora y no veo lo último que hice</td><td>Escribe tu código. Si la otra computadora decía «Sin conexión», lo último se quedó ahí: vuelve a ella y espera a que diga «Guardado ✓».</td></tr>
+      <tr><td>La mesa dice «Sin conexión»</td><td>Sigue trabajando: guarda una copia en esa computadora y la sube cuando vuelva la conexión. No cambies de computadora hasta ver «Guardado ✓».</td></tr>
+      <tr><td>Encontré abierta la cuenta de otra persona</td><td>No la uses: cierra su sesión y entra con la tuya.</td></tr>
+      <tr><td>Moví algo sin querer</td><td><span class="boton">Deshacer</span>.</td></tr>
+      <tr><td>El texto no cabe en el globo</td><td>Acorta la frase con <span class="boton">Editar texto</span> o usa <span class="boton">A−</span>.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="pie">
+    <p><b>¿Listo?</b> Empieza por subir tu historia. Con tu código, la mesa te espera en cualquier computadora. Al terminar cada sesión, cierra tu sesión de Google.</p>
+    <div class="accesos">
+      <a class="prim" href="sube.html">Sube tu historia</a>
+      <a href="mesa.html">Abrir mi mesa</a>
+      <a href="mesa.html?demo">Ver el ejemplo</a>
+    </div>
+  </div>
+  <p class="chico">Definiciones y etimologías: <i>Diccionario de la lengua española</i> (DLE), consultado el 5 de noviembre de 2026. Datos de Gemini: páginas de ayuda de Google a la misma fecha; pueden cambiar.</p>
+</section>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,179 @@
+{
+ "version": 1,
+ "codigo": "EJE234",
+ "estudiante": "Lupita",
+ "titulo": "El cuaderno de la abuela",
+ "sinopsis": "Una noche de tormenta en Concá se va la luz. Buscando velas, Lupita encuentra el cuaderno donde su bisabuela apuntaba las palabras náhuatl del pueblo, y esa noche aprende a velar.",
+ "formato": "a5",
+ "fuente": "Patrick Hand",
+ "papel": "#F4EDD8",
+ "estilo": {
+  "nombre": "Grabado mexicano con un color de acento",
+  "explicacion": "Tomamos de tus referencias el grabado en madera: líneas talladas, sombras hechas con cortes paralelos y solo negro sobre papel crema. Le sumamos un único color, ocre dorado, que aparece solo donde hay luz de vela, para que la luz cuente la historia.",
+  "bloque": "STYLE FOR EVERY IMAGE IN THIS CHAT: a contemporary Mexican woodcut / linocut print in the tradition of the Taller de Gráfica Popular, with a present-day graphic sensibility. Every image must look printed from a carved block, not drawn.\nLINE: bold, decisive contours like gouge cuts (thick outer outlines, finer interior lines). Hatching is made of parallel knife cuts that follow the shape of the form, slightly uneven, with small breaks at the ends. Tight cross-hatching only in the deepest shadows. No smooth digital line, no pencil, no brush.\nSHADING AND COLOR: only solid black ink on warm cream paper (#F4EDD8). No gray tones and no gradients: every surface is either in light or in shadow. Plus ONE accent color, a deep ochre gold (#C8922A), printed like a second ink pass and used sparingly on the light source or one symbolic object. It never fills large areas.\nFIGURES: solid bodies with physical weight; faces with strong brows and clear, intentional expressions. Not cute, not cartoonish, not photorealistic.\nBACKGROUNDS: either deep solid black from which the figures emerge, or carved texture: skies as parallel horizontal cuts, earth as dense interwoven lines, walls as ruled verticals. Never flat gray, never a photographic sky.\nCOMPOSITION: strong diagonals, a large foreground element, silhouettes that read clearly at a distance.\nAVOID: photorealism, soft shadows, airbrush, manga screentone, watercolor, 3D render, thin uniform lines.\nTEXT: never draw letters, words, speech balloons or captions inside the image. Text is added later.\nReply only with \"Listo\" and wait for my panel prompts.",
+  "recordatorio": "Mexican woodcut/linocut print: carved black lines and parallel-cut hatching on warm cream paper (#F4EDD8), no gray tones or gradients, and one deep ochre-gold accent (#C8922A) used only where indicated."
+ },
+ "personajes": [
+  {
+   "id": "lupita",
+   "nombre": "Lupita",
+   "descripcion": "Trece años, delgada, cara redonda, ojos grandes y oscuros, cejas gruesas y rectas. El pelo negro y largo en una sola trenza con un moño blanco. Una sudadera oscura que le queda enorme, con las mangas arremangadas, pantalón de mezclilla claro y tenis blancos.",
+   "senas": ["una sola trenza larga con moño blanco", "sudadera oscura que le queda enorme", "cejas gruesas y rectas"],
+   "ficha": "a 13-year-old Mexican girl: slim, round face, big dark eyes, thick straight eyebrows; long black hair in a single braid tied with a small white ribbon; an oversized dark hoodie with the hood down and the sleeves rolled up, light-colored jeans, white sneakers."
+  },
+  {
+   "id": "chabela",
+   "nombre": "Doña Chabela",
+   "descripcion": "La abuela. Setenta años, bajita y robusta, arrugas hondas, ojos chiquitos y amables. El pelo canoso recogido en un chongo bajo. Un rebozo de rayas sobre los hombros, vestido oscuro con delantal claro y lentes redondos colgados de un cordón.",
+   "senas": ["chongo canoso", "rebozo de rayas", "lentes redondos colgados de un cordón"],
+   "ficha": "a 70-year-old Mexican grandmother: short and sturdy, deep wrinkles, small kind eyes, gray hair pulled back into a low bun; a striped rebozo shawl over her shoulders, a dark dress with a light apron, round glasses hanging from a cord around her neck."
+  }
+ ],
+ "portada": {
+  "resumen": "Lupita y su abuela, juntas, inclinadas sobre el cuaderno a la luz de una vela.",
+  "escena": "Content: {{chabela}} and {{lupita}} sit side by side at a wooden kitchen table at night, leaning over an old notebook bound in flowered fabric that lies open between them; a single candle burns beside it. {{lupita}} looks at the notebook with wonder; {{chabela}} looks at {{lupita}} with a quiet smile.\nComposition: medium shot from a slightly low angle; the two figures fill the lower two thirds; the candle flame is the brightest point of the image.\nBackground: solid black darkness around them; behind them, a small window with rain carved as fine diagonal lines.\nMood: warm, intimate, a shared secret.\nAccent: the ochre gold only on the candle flame, its glow on their faces and on the edges of the notebook.",
+  "aire": "the top third"
+ },
+ "paginas": [
+  {
+   "plantilla": "ancla-arriba",
+   "por_que": "Una escena grande para llegar a Concá con la tormenta, y abajo dos viñetas chicas para el apagón y la primera orden de la abuela.",
+   "vinetas": [
+    {
+     "id": "P1_V1",
+     "resumen": "La casa de la abuela en Concá bajo un aguacero, al atardecer.",
+     "escena": "Content: a small adobe house with a clay-tile roof and a front porch on a hillside in the Sierra Gorda of Querétaro, under a heavy rainstorm at dusk; one window glows. A muddy path leads to the door; banana plants and a mango tree bend in the wind.\nComposition: wide establishing shot; the house sits in the lower right third; steep hills rise behind it.\nBackground: a sky of dense diagonal rain cuts over horizontal carved bands of cloud.\nMood: stormy, but the house feels like a shelter.\nAccent: the ochre gold only on the lit window.",
+     "aire": "the upper-left corner",
+     "textos": [
+      {"tipo": "cartela", "texto": "En vacaciones fui a casa de mi abuela Chabela, en Concá. Una tarde llovió como nunca.", "pos": "sup-izq"}
+     ]
+    },
+    {
+     "id": "P1_V2",
+     "resumen": "Truena, se apaga el foco y Lupita se queda a oscuras.",
+     "escena": "Content: inside a rural kitchen, {{lupita}} stands frozen, looking up at a bare lightbulb hanging from the ceiling that has just gone dark; a flash of lightning through the window throws her long shadow across the wall.\nComposition: medium shot from slightly below; {{lupita}} in the right half of the frame, the dead bulb at the top center.\nBackground: almost total black; the window on the left is a jagged white shape of lightning.\nMood: sudden, startled.\nAccent: none in this panel, only black ink and cream paper.",
+     "aire": "the left side",
+     "textos": [
+      {"tipo": "onomatopeya", "texto": "¡Cataplum!", "pos": "sup-izq"},
+      {"tipo": "dialogo", "quien": "lupita", "texto": "¡Abuela, se fue la luz!", "pos": "inf-izq", "cola": "der"}
+     ]
+    },
+    {
+     "id": "P1_V3",
+     "resumen": "La abuela prende un cerillo y manda a Lupita al ropero por velas.",
+     "escena": "Content: {{chabela}} strikes a match in the dark; the tiny flame lights her face from below and makes her round glasses glint. With her other hand she points toward a tall wooden wardrobe at the back of the room.\nComposition: close-up of {{chabela}}'s face and hands in the left half; the wardrobe is a dark vertical shape on the right edge.\nBackground: solid black, with carved texture only where the match light falls.\nMood: calm in the middle of the storm.\nAccent: the ochre gold only on the match flame.",
+     "aire": "the upper-right corner",
+     "textos": [
+      {"tipo": "dialogo", "quien": "chabela", "texto": "Hay velas en el ropero, mija.", "pos": "sup-der", "cola": "inf-izq"}
+     ]
+    }
+   ]
+  },
+  {
+   "plantilla": "tres-y-ancla",
+   "por_que": "Tres viñetas angostas para el descubrimiento, paso a paso, y una grande abajo donde la abuela cuenta la historia del cuaderno.",
+   "vinetas": [
+    {
+     "id": "P2_V1",
+     "resumen": "Las manos de Lupita sacan de entre la ropa un cuaderno forrado con tela de flores.",
+     "escena": "Content: close-up of {{lupita}}'s hands, with the rolled-up sleeves of her dark hoodie, pulling an old notebook bound in flowered fabric out from between neatly folded clothes and a bundle of candles inside a wardrobe.\nComposition: detail shot from above; the notebook in the center; the folds of the clothes around it carved in curved parallel lines.\nBackground: the dark interior of the wardrobe.\nMood: discovery.\nAccent: the ochre gold only on the flowers of the fabric cover.",
+     "aire": "the top band",
+     "textos": [
+      {"tipo": "cartela", "texto": "Entre la ropa había un cuaderno viejo, forrado con tela de flores.", "pos": "sup"}
+     ]
+    },
+    {
+     "id": "P2_V2",
+     "resumen": "Lupita abre el cuaderno junto a la vela; está lleno de palabras escritas a mano.",
+     "escena": "Content: {{lupita}} holds the open notebook close to a lit candle and frowns with curiosity; the pages are covered with faded handwriting seen at a steep angle, too small and blurry to read.\nComposition: medium close-up; {{lupita}} in the lower half of the frame, the candle on the left edge.\nBackground: solid black.\nMood: curious, intrigued.\nAccent: the ochre gold on the candle flame and its glow on the pages.",
+     "aire": "the top half",
+     "textos": [
+      {"tipo": "dialogo", "quien": "lupita", "texto": "¿Molcajete, itacate, guajolote…? Abuela, ¿qué es esto?", "pos": "sup", "cola": "inf"}
+     ]
+    },
+    {
+     "id": "P2_V3",
+     "resumen": "La abuela reconoce el cuaderno y sonríe.",
+     "escena": "Content: {{chabela}}, lit by the candle, looks at the notebook with a soft, moved smile; her eyes shine; one hand rests on her chest.\nComposition: close-up portrait; {{chabela}} in the lower two thirds, slightly turned to the left.\nBackground: solid black.\nMood: tender, nostalgic.\nAccent: the ochre gold on the candle glow along the edge of her face.",
+     "aire": "the top third",
+     "textos": [
+      {"tipo": "dialogo", "quien": "chabela", "texto": "Era de mi mamá. Ella hablaba náhuatl.", "pos": "sup", "cola": "inf"}
+     ]
+    },
+    {
+     "id": "P2_V4",
+     "resumen": "Las dos a la mesa, con la vela en medio; la abuela cuenta para qué servía el cuaderno.",
+     "escena": "Content: {{lupita}} and {{chabela}} sit at the wooden kitchen table with the notebook open between them and the candle burning; {{chabela}} points at a page while she talks; {{lupita}} listens with her chin on her hands.\nComposition: medium shot at eye level; {{lupita}} on the left third, {{chabela}} on the right third, the candle in the center.\nBackground: a deep black kitchen; a few clay pots and a stone mortar on a shelf, carved in fine lines.\nMood: warm, a story being told.\nAccent: the ochre gold on the candle flame and the circle of light on the table.",
+     "aire": "the top band",
+     "textos": [
+      {"tipo": "cartela", "texto": "Su mamá apuntaba cada palabra náhuatl que oía en el pueblo, para que no se perdiera.", "pos": "sup-izq"},
+      {"tipo": "dialogo", "quien": "chabela", "texto": "Mira cuántas usamos sin saber.", "pos": "sup-der", "cola": "inf"}
+     ]
+    }
+   ]
+  },
+  {
+   "plantilla": "escalera",
+   "por_que": "Los tamaños que suben y bajan acompañan el ir y venir de los recuerdos; la franja final abre la mañana.",
+   "vinetas": [
+    {
+     "id": "P3_V1",
+     "resumen": "Recuerdo: la bisabuela, joven, lleva el itacate a la milpa.",
+     "escena": "Content: a memory: a young Mexican woman from the 1950s with two long braids, a long skirt and a rebozo walks barefoot along a path between tall rows of corn, carrying a cloth bundle of food tied in a knot; mountains behind.\nComposition: wide shot; the woman is small in the left third, walking toward the right; the corn rows make strong diagonals.\nBackground: a sky of parallel horizontal cuts; corn leaves as sharp carved strokes.\nMood: a remembered morning, quiet and luminous. Render this panel with thinner, lighter cuts, like a faded old print.\nAccent: the ochre gold only on the low sun over the hills.",
+     "aire": "the upper-right corner",
+     "textos": [
+      {"tipo": "cartela", "texto": "Cada palabra traía un recuerdo: el itacate que mi bisabuela llevaba a la milpa…", "pos": "sup-der"}
+     ]
+    },
+    {
+     "id": "P3_V2",
+     "resumen": "Recuerdo: un guajolote se escapa entre los invitados de una boda.",
+     "escena": "Content: a memory: a big turkey with spread wings runs between the legs of wedding guests dressed in their best 1950s clothes; a woman lifts her skirt, a man drops his hat, a child laughs. Strings of cut-paper garlands with simple geometric holes cross the top.\nComposition: low angle from the ground; the turkey large in the foreground at the bottom, legs and surprised faces above.\nBackground: an outdoor patio.\nMood: comic chaos, remembered. Render this panel with thinner, lighter cuts, like a faded old print.\nAccent: the ochre gold only on the turkey's wattle.",
+     "aire": "the top band",
+     "textos": [
+      {"tipo": "cartela", "texto": "…y el guajolote que se escapó en una boda.", "pos": "sup"},
+      {"tipo": "onomatopeya", "texto": "¡Gluglú!", "pos": "centro"}
+     ]
+    },
+    {
+     "id": "P3_V3",
+     "resumen": "Vuelve la luz: el foco se prende y la vela ya casi se acabó.",
+     "escena": "Content: the bare lightbulb shines again above the table; {{lupita}} and {{chabela}} squint up at it, surprised, the notebook still open between them; the candle is now a short stub.\nComposition: medium shot from slightly above; the bulb at the top right, the two faces turned up in the lower half.\nBackground: the kitchen now visible in carved detail: shelves, clay pots, a plain wall.\nMood: a pleasant surprise, the spell is broken.\nAccent: the ochre gold on the glowing bulb.",
+     "aire": "the upper-left corner",
+     "textos": [
+      {"tipo": "cartela", "texto": "Cuando volvió la luz, ya era muy tarde.", "pos": "sup-izq"}
+     ]
+    },
+    {
+     "id": "P3_V4",
+     "resumen": "De noche, Lupita escribe una palabra en la última hoja mientras la abuela dormita.",
+     "escena": "Content: {{lupita}} sits alone at the table, bent over the last page of the notebook with a pen in her hand, concentrated, the tip of her tongue out; her hand hides the page, so nothing on it is visible. Behind her, {{chabela}} dozes in a wooden chair, wrapped in her rebozo; the candle stub is out and a thin line of smoke rises.\nComposition: medium shot; {{lupita}} in the right half, close to the viewer; {{chabela}} small and asleep in the left background.\nBackground: the dim kitchen carved in dense vertical lines.\nMood: quiet, private, decisive.\nAccent: the ochre gold only on the pen.",
+     "aire": "the upper-left corner",
+     "textos": [
+      {"tipo": "cartela", "texto": "Antes de dormirme, escribí una palabra nueva en la última hoja.", "pos": "sup-izq"}
+     ]
+    },
+    {
+     "id": "P3_V5",
+     "resumen": "En la mañana, la abuela lee la palabra nueva y se ríe.",
+     "escena": "Content: morning light through the window; {{chabela}}, with her round glasses on, holds the open notebook at arm's length and laughs warmly; {{lupita}} stands beside her holding a clay mug, smiling, a little embarrassed.\nComposition: medium-wide shot; {{chabela}} on the left third, {{lupita}} on the right third, the window between them.\nBackground: through the window, a clear morning sky in horizontal carved cuts and wet hills.\nMood: tender and funny, a happy ending.\nAccent: the ochre gold only on the morning sun in the window.",
+     "aire": "the upper-left corner",
+     "textos": [
+      {"tipo": "dialogo", "quien": "chabela", "texto": "«Vela» viene de velar, quedarse despierto. Eso es latín, mija… pero ya es nuestra.", "pos": "sup-izq", "cola": "inf"}
+     ]
+    }
+   ]
+  }
+ ],
+ "decisiones": [
+  "Partimos tu historia en tres páginas: la tormenta, el cuaderno y la palabra nueva.",
+  "Las cartelas usan tus frases, recortadas para que quepan: «llovió muy fuerte» quedó «llovió como nunca».",
+  "Inventamos dos diálogos que tu historia solo contaba: «¡Abuela, se fue la luz!» y «Hay velas en el ropero, mija».",
+  "Los recuerdos del itacate y del guajolote van con cortes más finos, como un grabado viejo, para que se lean como memoria.",
+  "La palabra que escribe Lupita no se ve hasta la última viñeta, para que el final sorprenda.",
+  "Tu historia no decía cómo era la abuela: le pusimos chongo, rebozo y lentes con cordón. Cámbialo si la imaginas distinta."
+ ],
+ "avisos": [
+  "Ejemplo del profesor para la mesa de dibujo; no requiere revisión."
+ ]
+}
