@@ -12,7 +12,7 @@ Escribiste una historia. Ahora la vas a convertir en historieta: la dibujas con 
 ## Cómo funciona
 
 1. **Sube tu historia** y el estilo de dibujo que te gusta.
-2. En uno o dos días tienes tu **guion para Gemini**: cada viñeta con su prompt listo para copiar.
+2. Tu profe genera los guiones **en clase**, cuando todo el grupo haya subido su historia. En más o menos una hora tienes tu **guion para Gemini**: cada viñeta con su prompt listo para copiar.
 3. **Dibuja con Gemini**, página por página, en el centro de cómputo: Gemini en una pestaña y tu mesa en otra.
 4. **Maquetar**: en tu mesa de dibujo pones cada imagen en su marco y acomodas los globos, que ya traen tu texto en español.
 5. **Entrega** el PDF desde la misma mesa.

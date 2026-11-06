@@ -319,7 +319,7 @@ async function abrir(c, demo){
         if (j.ok && j.estado === 'listo' && j.guion){ guion = j.guion; guardarCache(c, guion); }
         else if (j.ok){
           var f = j.recibido ? new Date(j.recibido).toLocaleDateString('es-MX', {day:'numeric', month:'long'}) : '';
-          entrada('Tu guion todavía se está preparando' + (f ? ' (recibimos tu historia el ' + f + ')' : '') + '. Vuelve en un día o dos con el mismo código.', 'ok');
+          entrada('Tu guion todavía se está preparando' + (f ? ' (recibimos tu historia el ' + f + ')' : '') + '. Tu profe genera los guiones en clase, cuando todo el grupo haya subido su historia: vuelve en un rato con el mismo código.', 'ok');
           return;
         }
         else if (j.error === 'no-existe'){ entrada('No encontramos el código ' + bonito(c) + '. Revisa letra por letra.', 'error'); return; }
