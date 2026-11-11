@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 16 · Ejercicio C · Entrenador socrático</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  .card p.mini{font-size:.92rem;margin:.3rem 0 0}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3rem;resize:vertical}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  table{border-collapse:collapse;width:100%;font-size:.92rem;margin-top:.5rem}
+  th,td{border:1px solid var(--borde);padding:.45rem .6rem;text-align:left;vertical-align:top}
+  th{background:var(--fondo);color:var(--ciruela)}
+  .dialogo p{margin:.35rem 0;font-size:.95rem}
+  .dialogo b{color:var(--ciruela)}
+  .dialogo .ojo{display:block;font-size:.8rem;color:var(--rosa);font-weight:700;margin:-.1rem 0 .3rem 1rem}
+  .fam{border-left:4px solid var(--rosa);background:var(--fondo);border-radius:0 .6rem .6rem 0;padding:.6rem .8rem;margin:.5rem 0;font-size:.92rem}
+  .fam b{color:var(--ciruela)}
+  .chips{display:flex;flex-wrap:wrap;gap:.35rem;margin:.6rem 0}
+  .chip{padding:.35rem .7rem;border:1px solid var(--borde);border-radius:2rem;background:#fff;color:var(--ciruela);font:inherit;font-size:.85rem;font-weight:700;cursor:pointer}
+  .chip.on{background:var(--ciruela);color:#fff;border-color:var(--ciruela)}
+  .pregunta{min-height:4.5rem;border:2px solid var(--rosa);border-radius:.9rem;padding:1rem 1.1rem;font-size:1.25rem;font-weight:700;color:var(--ciruela);background:#fffdf8;display:flex;align-items:center}
+  .pregunta small{display:block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--rosa);margin-bottom:.2rem}
+  .veredicto{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem}
+  .veredicto button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;cursor:pointer;font:inherit}
+  .cuenta{margin-top:.6rem;font-size:.9rem;color:#555}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .reloj{font-size:2.4rem;font-weight:800;color:var(--ciruela);font-variant-numeric:tabular-nums;text-align:center;margin:.4rem 0}
+  .reloj.urge{color:var(--rosa)}
+  .rescate li{margin:.35rem 0}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 16 · Antes de tu mesa</div>
+    <h1>Entrenador socrático</h1>
+    <p>En la mesa nadie te examina: te ayudan a dar a luz lo que sabes de tu palabra. Aquí ensayas.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> (1) Escribe tu palabra y sus piezas. (2) Lee qué cambia en la mesa y cómo suena una. (3) Saca preguntas de la ruleta, contéstalas en voz alta sin escribir y márcate. (4) En pareja: tu compañero saca las preguntas y tú contestas, con cuatro minutos en el reloj. (5) Llévate las frases de rescate. Las preguntas de tu mesa van a ser otras, y esa es la idea: aquí no memorizas respuestas, entrenas el músculo de responder.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> escribe tu palabra arriba, con sus piezas. Debajo, una pregunta incómoda de cada familia (anatomía, fuente, criterio, honestidad y la de la semana) y tu respuesta en dos líneas. Cierra con una frase que empiece así: «No sé, pero lo verificaría en…».
+  </div>
+
+  <h2>1 · Tu palabra</h2>
+  <div class="card">
+    <label for="mipal" style="margin-top:0">Tu palabra recién nacida</label>
+    <input type="text" id="mipal" placeholder="la de tu acta">
+    <label for="mispz">Sus piezas, con su significado y su fuente</label>
+    <input type="text" id="mispz" placeholder="aventón (español, Méx.) + -fobia (griego, aversión o rechazo, DLE)">
+  </div>
+
+  <h2>2 · Qué cambia en la mesa</h2>
+  <div class="card">
+    <table>
+      <tr><th>Así es</th><th>Se evalúa</th><th>No se evalúa</th></tr>
+      <tr><td>Tres estudiantes y el profe, catorce minutos. Un minuto para presentar tu palabra con tu acta, diez de diálogo, uno de retro.</td><td>Anatomía, fuente, criterio y honestidad.</td><td>Que hables como orador, que no te pongas nervioso, que tu palabra tenga testigos.</td></tr>
+    </table>
+    <p class="mini">No hay banco de preguntas: el profe pregunta desde lo que digas, y tus compañeros de mesa también pueden preguntar. Dudar en voz alta está permitido, y casi siempre es lo mejor que puedes hacer.</p>
+  </div>
+
+  <h2>3 · Así suena una mesa</h2>
+  <div class="card dialogo">
+    <p class="mini" style="margin-bottom:.5rem">Un pedazo de mesa, con la palabra del modelo del acta. Fíjate en lo que hace Ximena cuando no sabe.</p>
+    <p><b>Profe:</b> Preséntame a tu palabra.</p>
+    <p><b>Ximena:</b> <i>Domingalgia</i>: la tristeza del domingo en la tarde. Domingo, del latín, y <i>-algia</i>, del griego, que es dolor.</p>
+    <p><b>Profe:</b> ¿Dolor o tristeza? ¿Qué dice tu pieza?</p>
+    <p><b>Ximena:</b> El DLE dice dolor. Bueno, déjame pensarlo: es un dolor que no duele en el cuerpo. Me quedo con dolor, porque así se siente.</p>
+    <span class="ojo">Duda en voz alta y llega a una respuesta: eso es honestidad.</span>
+    <p><b>Profe:</b> Mezclaste latín con griego. ¿A propósito?</p>
+    <p><b>Ximena:</b> Sí. Como <i>neonato</i>. Y porque domingo no tiene pieza griega que yo conozca.</p>
+    <p><b>Compañero:</b> ¿Y por qué no <i>dominicalgia</i>, si domingo viene de <i>dominicus</i>?</p>
+    <p><b>Ximena:</b> No lo había pensado. Lo que sí sé es que <i>domingalgia</i> se entiende sin explicarla, y esa es una de las reglas.</p>
+    <span class="ojo">No inventa: dice qué no sabe y se agarra de lo que sí sabe. Eso es criterio.</span>
+    <p><b>Profe:</b> Si nadie más la usa, ¿existe?</p>
+    <p><b>Ximena:</b> Existe en mi acta. Pero existir de verdad, solo si alguien la dice. Mi mamá ya la dijo una vez, sin que yo le pidiera.</p>
+  </div>
+
+  <h2>4 · Las cinco familias de preguntas</h2>
+  <div class="fam"><b>Anatomía:</b> ábreme tu palabra; ¿qué pasa si le quito una pieza?; dime otra palabra con la misma pieza.</div>
+  <div class="fam"><b>Fuente:</b> ¿dónde lo verificaste?; ¿el DLE dice exactamente eso, o lo dices tú?; ¿cómo sabes que no existía ya?</div>
+  <div class="fam"><b>Criterio:</b> ¿por qué griego y no latín?; ¿ya había palabra para eso?; ¿quién la necesita además de ti?</div>
+  <div class="fam"><b>Honestidad:</b> ¿qué parte de tu palabra no te convence?; ¿y eso cómo lo sabes?</div>
+  <div class="fam"><b>La de la semana:</b> si nadie la usa, ¿existe?; ¿quién decide si entra al diccionario?</div>
+
+  <h2>5 · La ruleta</h2>
+  <div class="card">
+    <p class="mini">Saca una pregunta, contéstala en voz alta sin escribir nada, y márcate con honestidad.</p>
+    <div class="chips" id="familias"></div>
+    <div class="pregunta" id="pregunta"><div><small>La pregunta</small>Toca «Saca una pregunta».</div></div>
+    <div class="fila-botones"><button class="btn rosa" type="button" id="btnSaca">Saca una pregunta</button></div>
+    <div class="veredicto" id="marcas">
+      <button type="button" data-m="sostuve">La sostuve</button>
+      <button type="button" data-m="dude">Dudé en voz alta, y llegué</button>
+      <button type="button" data-m="trabe">Me trabé</button>
+    </div>
+    <div class="cuenta" id="cuenta">Sin preguntas todavía.</div>
+  </div>
+
+  <h2>6 · En pareja</h2>
+  <div class="card">
+    <p class="mini">Tu compañero tiene el teléfono y saca las preguntas; tú contestas. Cuatro minutos, como en la mesa. Al final, cambien de lugar.</p>
+    <div class="reloj" id="reloj">4:00</div>
+    <div class="fila-botones" style="justify-content:center">
+      <button class="btn rosa" type="button" id="btnReloj">▶ Arrancar</button>
+      <button class="btn gris" type="button" id="btnOtra">Otra pregunta</button>
+      <button class="btn gris" type="button" id="btnReinicia">↺ Reiniciar</button>
+    </div>
+    <div class="fb" id="fbPareja"></div>
+  </div>
+
+  <h2>7 · Frases de rescate</h2>
+  <div class="card">
+    <ul class="rescate">
+      <li>«No sé, pero lo verificaría en el DLE, en la entrada de…»</li>
+      <li>«Déjame pensarlo en voz alta…»</li>
+      <li>«Me corrijo: hace rato dije… y es…»</li>
+      <li>«No lo había pensado. Lo que sí sé es…»</li>
+      <li>«Esa pieza la elegí por…, aunque reconozco que…»</li>
+      <li>«¿Me repites la pregunta? Quiero contestar la que me hiciste.»</li>
+    </ul>
+  </div>
+
+  <h2>8 · Tu plan</h2>
+  <div class="card">
+    <label for="miedo" style="margin-top:0">Las dos preguntas que más miedo te dan</label>
+    <textarea id="miedo" placeholder="las que sacaste en la ruleta y te trabaron"></textarea>
+    <label for="plan">Lo que vas a hacer con ellas antes de tu mesa</label>
+    <textarea id="plan" placeholder="verificar tal pieza, buscar otra palabra con la misma raíz, pensar por qué elegí..."></textarea>
+    <div class="fila-botones">
+      <button class="btn rosa" type="button" id="btnPlan">Generar captura</button>
+      <button class="btn gris" type="button" id="btnCopia" style="display:none">Copiar</button>
+    </div>
+    <div class="fb" id="fbPlan"></div>
+    <pre class="captura" id="capPlan"></pre>
+  </div>
+
+  <footer>Semana 16 · ¿Quién decide qué palabras existen? · Este ejercicio es gimnasio: sin nota, sin registro. Nada se guarda al cerrar la página.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  function $(id){ return document.getElementById(id); }
+  var BANCO = {
+    'Anatomía': [
+      'Ábreme tu palabra: ¿qué hace cada pieza?',
+      '¿Qué pasa si le quito la primera pieza? ¿Y la última?',
+      'Dime otra palabra del español que tenga una de tus piezas.',
+      '¿Qué vocal une tus piezas, y por qué esa?',
+      'Si tu palabra es sustantivo, ¿cómo sería el adjetivo? ¿Y el verbo?',
+      '¿De qué lengua viene cada pieza?',
+      '¿Tu palabra se podría partir de otra manera?'
+    ],
+    'Fuente': [
+      '¿Dónde verificaste esta pieza? Enséñamelo.',
+      '¿El DLE dice exactamente eso, o lo dices tú?',
+      '¿Cómo sabes que tu palabra no existe ya?',
+      'Si el DLE y el DECEL dijeran cosas distintas de tu pieza, ¿qué harías?',
+      '¿Qué parte de tu acta no verificaste todavía?'
+    ],
+    'Criterio': [
+      '¿Por qué griego y no latín, o al revés?',
+      '¿Ya había una palabra o una frase para eso? ¿Por qué no basta?',
+      '¿Quién la necesita, además de ti?',
+      '¿Por qué este hueco y no otro?',
+      'Si tuvieras que cambiarle una pieza, ¿cuál cambiarías?',
+      '¿Tu palabra se entiende sin explicarla? Pruébalo conmigo.'
+    ],
+    'Honestidad': [
+      '¿Qué parte de tu palabra no te convence?',
+      '¿Qué pregunta esperabas que no te hiciera?',
+      '¿Y eso cómo lo sabes?',
+      '¿En qué te equivocaste mientras la armabas?',
+      'Si alguien te dice que tu palabra suena mal, ¿qué le contestas?'
+    ],
+    'La de la semana': [
+      'Si nadie la usa, ¿existe?',
+      '¿Quién decide si tu palabra entra al diccionario?',
+      'Si mañana la RAE la registra, ¿qué cambió en la palabra?',
+      'La regla dice no mezclar. ¿Quién tiene razón, la regla o tú?',
+      '¿Tu palabra es moda de paso o va a durar? ¿Cómo lo sabrías?',
+      '¿Qué tendría que pasar para que tu palabra llegue al diccionario de dentro de doce años?'
+    ]
+  };
+  var familias = Object.keys(BANCO), activa = 'Todas', ultima = '';
+  var cuenta = {sostuve:0, dude:0, trabe:0};
+
+  ['Todas'].concat(familias).forEach(function(f, i){
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'chip' + (i === 0 ? ' on' : ''); b.textContent = f;
+    b.addEventListener('click', function(){
+      Array.prototype.forEach.call($('familias').children, function(c){ c.classList.remove('on'); });
+      b.classList.add('on'); activa = f;
+    });
+    $('familias').appendChild(b);
+  });
+
+  function saca(){
+    var pool = [];
+    (activa === 'Todas' ? familias : [activa]).forEach(function(f){ BANCO[f].forEach(function(q){ pool.push([f, q]); }); });
+    var x; var intentos = 0;
+    do { x = pool[Math.floor(Math.random() * pool.length)]; intentos++; } while (x[1] === ultima && pool.length > 1 && intentos < 10);
+    ultima = x[1];
+    var pal = $('mipal').value.trim().replace(/[<>&"]/g, '');
+    $('pregunta').innerHTML = '<div><small>' + x[0] + (pal ? ' · ' + pal : '') + '</small>' + x[1] + '</div>';
+  }
+  $('btnSaca').addEventListener('click', saca);
+
+  Array.prototype.forEach.call($('marcas').querySelectorAll('button'), function(b){
+    b.addEventListener('click', function(){
+      if (!ultima) return;
+      cuenta[b.getAttribute('data-m')]++;
+      var t = cuenta.sostuve + cuenta.dude + cuenta.trabe;
+      $('cuenta').textContent = t + (t === 1 ? ' pregunta: ' : ' preguntas: ') + cuenta.sostuve + ' sostenidas, ' + cuenta.dude + ' con duda en voz alta, ' + cuenta.trabe + ' trabadas.' +
+        (cuenta.trabe ? ' Las trabadas son las que vale la pena llevar a tu plan.' : '');
+      saca();
+    });
+  });
+
+  /* reloj de cuatro minutos */
+  var TOTAL = 240, resta = TOTAL, latido = null;
+  function pinta(){
+    var m = Math.floor(resta / 60), s = resta % 60;
+    $('reloj').textContent = m + ':' + (s < 10 ? '0' : '') + s;
+    $('reloj').classList.toggle('urge', resta <= 30);
+  }
+  function para(){ clearInterval(latido); latido = null; $('btnReloj').textContent = '▶ Arrancar'; }
+  $('btnReloj').addEventListener('click', function(){
+    if (latido){ para(); return; }
+    if (resta <= 0) resta = TOTAL;
+    latido = setInterval(function(){
+      resta--; pinta();
+      if (resta <= 0){
+        para();
+        var fb = $('fbPareja'); fb.className = 'fb ok';
+        fb.textContent = 'Tiempo. Ahora tu compañero te da una frase concreta: una cosa que hiciste bien y una que puedes afinar. Luego cambien de lugar.';
+      }
+    }, 1000);
+    $('btnReloj').textContent = '⏸ Pausa';
+    if (!ultima) saca();
+  });
+  $('btnOtra').addEventListener('click', saca);
+  $('btnReinicia').addEventListener('click', function(){ para(); resta = TOTAL; pinta(); $('fbPareja').className = 'fb'; });
+  pinta();
+
+  $('btnPlan').addEventListener('click', function(){
+    var fb = $('fbPlan'), m = $('miedo').value.trim(), p = $('plan').value.trim();
+    if (!m || !p){ fb.className = 'fb no'; fb.textContent = 'A la captura le falta: ' + (!m ? 'tus dos preguntas' : '') + (!m && !p ? ' y ' : '') + (!p ? 'lo que vas a hacer' : '') + '.'; return; }
+    var pal = $('mipal').value.trim(), pz = $('mispz').value.trim();
+    $('capPlan').textContent = 'MI PLAN PARA LA MESA\nPALABRA: ' + (pal || '(sin escribir)') + (pz ? '\nPIEZAS: ' + pz : '') + '\nLAS PREGUNTAS QUE ME DAN MIEDO: ' + m + '\nLO QUE VOY A HACER: ' + p;
+    $('capPlan').style.display = 'block'; $('btnCopia').style.display = 'inline-block';
+    fb.className = 'fb ok'; fb.textContent = 'Listo. Cópialo y tenlo a la mano antes de tu mesa.';
+  });
+  $('btnCopia').addEventListener('click', function(){
+    var pre = $('capPlan'), fb = $('fbPlan');
+    function listo(){ fb.className = 'fb ok'; fb.textContent = 'Copiado.'; }
+    function seleccionar(){ var r = document.createRange(); r.selectNodeContents(pre); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); fb.className = 'fb ok'; fb.textContent = 'Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).'; }
+    if (navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(pre.textContent).then(listo, seleccionar); } else { seleccionar(); }
+  });
+
+  $('btnModo').addEventListener('click', function(){
+    document.body.classList.toggle('proyector');
+    this.textContent = document.body.classList.contains('proyector') ? 'Aa normal' : 'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

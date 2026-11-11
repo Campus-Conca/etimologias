@@ -24,26 +24,25 @@
   .instr strong{color:var(--ciruela)}
   h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
   .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
-  .card h3{margin:0 0 .4rem;color:var(--rosa);font-size:1.1rem}
-  textarea{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo);min-height:3.2rem;resize:vertical}
-  input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
-  .opciones,.piezas,.calib{display:flex;flex-direction:column;gap:.5rem;margin-top:.6rem}
-  .piezas,.calib{flex-direction:row;flex-wrap:wrap}
-  .opciones button,.piezas button,.calib button{padding:.6rem .9rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font:inherit;font-weight:700;cursor:pointer;text-align:left}
-  .piezas button small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
-  .opciones button.sel,.piezas button.sel,.calib button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
-  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+  .card .k{font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--rosa)}
+  .card h3{margin:.1rem 0 .3rem;color:var(--ciruela);font-size:1.45rem}
+  .card p.mini{font-size:.95rem;margin:.2rem 0 0}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.5rem;background:var(--fondo)}
+  textarea{min-height:3rem;resize:vertical}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  .veredicto{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.6rem}
+  .veredicto button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;cursor:pointer;font:inherit;font-size:.92rem}
+  .veredicto button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem}
   .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
   .btn.rosa{background:var(--rosa);color:#fff}
   .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
   .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
   .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
   .fb.no{display:block;background:var(--nobg);color:var(--no)}
-  .fb.ej{display:block;background:var(--fondo);color:var(--ciruela);border:1px solid var(--borde)}
-  .marca{display:flex;gap:.5rem;margin-top:.6rem}
-  .marca button{flex:1;padding:.5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;font:inherit;font-weight:700;color:var(--ciruela);cursor:pointer}
-  .marca button.sel-ok{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
-  .marca button.sel-no{background:var(--nobg);color:var(--no);border-color:var(--no)}
+  .modelo{display:none;margin-top:.6rem;border:1px dashed #d9c3d4;border-radius:.6rem;padding:.6rem .8rem;background:#fffdf8;font-size:.92rem}
+  .resultado{display:none;border:2px solid var(--ciruela);border-radius:.9rem;padding:1rem 1.1rem;margin-top:1rem;background:var(--fondo)}
+  .resultado b{color:var(--ciruela)}
   footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
 </style>
 </head>
@@ -52,218 +51,205 @@
   <div class="wrap">
     <div class="mini">Etimologías grecolatinas · Semana 16 · Gimnasio</div>
     <h1>Quiz de gimnasio</h1>
-    <p>Práctica libre, sin nota y sin registro. Parecido al quiz integrador de la sesión A, pero con otros reactivos: aquí se entrena, no se compite.</p>
+    <p>Práctica libre, sin nota y sin registro. Se parece al integrador del viernes, con otros reactivos: aquí se entrena, no se compite.</p>
   </div>
 </header>
 
 <div class="wrap">
 
   <div class="instr">
-    <strong>Cómo se juega.</strong> Este gimnasio integra la unidad completa: medicina, latín de tribunal, cognados y creación. Calibra primero, resuelve los cuatro reactivos y compara tu predicción con tu resultado al final.
+    <strong>Cómo se juega.</strong> Primero calibra: ¿cuántos de los cuatro crees que vas a tener bien? Luego resuelve. Si fallas, el gimnasio te da una pista, no la respuesta; a la segunda falla puedes verla. Al final comparas tu apuesta con tu resultado. Hay un reto extra que no cuenta.
   </div>
 
-  <div class="cuaderno" style="background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem">
-    <strong>Si trabajas en cuaderno:</strong> anota tu predicción (0 a 4), resuelve los cuatro reactivos por escrito y al final compara: predicción contra resultado, en bien o aún no.
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> anota tu apuesta (0 a 4), resuelve los cuatro por escrito y al final compara: apuesta contra resultado, en bien o aún no.
   </div>
 
   <h2>Paso 0 · Calibra</h2>
   <div class="card">
-    <p style="margin:0 0 .2rem">Antes de ver los reactivos: ¿cuántos de los 4 crees que tendrás bien?</p>
-    <div class="calib" id="calib">
-      <button>0</button><button>1</button><button>2</button><button>3</button><button>4</button>
-    </div>
-    <div class="fb" id="fbCalib"></div>
+    <p class="mini">Antes de ver los reactivos: ¿cuántos de los 4 crees que vas a tener bien?</p>
+    <div class="veredicto" id="apuesta"><button type="button">0</button><button type="button">1</button><button type="button">2</button><button type="button">3</button><button type="button">4</button></div>
   </div>
 
-  <h2>Reactivo 1 · Traduce al médico</h2>
-  <div class="card">
-    <h3>gastroscopia</h3>
-    <p style="margin:0;font-size:.92rem">Un médico la pide en tu próxima consulta. ¿Qué te van a hacer, en español llano?</p>
-    <div class="opciones" id="r1ops"></div>
-    <div class="fila-botones"><button class="btn rosa" id="r1check">Revisar</button></div>
-    <div class="fb" id="r1fb"></div>
+  <div class="card" id="r1">
+    <div class="k">Reactivo 1 · Abre la palabra</div>
+    <h3>cronómetro</h3>
+    <p class="mini">¿Qué significa, pieza por pieza?</p>
+    <input type="text" data-in placeholder="crono- ... + -metro ...">
+    <div class="fila-botones"><button class="btn rosa" type="button" data-rev>Revisar</button><button class="btn gris" type="button" data-ver style="display:none">Ver la respuesta</button></div>
+    <div class="fb" data-fb></div>
   </div>
 
-  <h2>Reactivo 2 · La letra chiquita</h2>
-  <div class="card">
-    <h3>Corrige al político</h3>
-    <p style="margin:0;font-size:.92rem">Un funcionario declara: "Renuncié de motu propio al cargo". ¿Cuál es la forma correcta?</p>
-    <div class="opciones" id="r2ops"></div>
-    <div class="fila-botones"><button class="btn rosa" id="r2check">Revisar</button></div>
-    <div class="fb" id="r2fb"></div>
+  <div class="card" id="r2">
+    <div class="k">Reactivo 2 · ¿Cómo nació?</div>
+    <h3>profe</h3>
+    <p class="mini">¿De cuál de las seis maneras?</p>
+    <div class="veredicto" data-op></div>
+    <div class="fila-botones"><button class="btn gris" type="button" data-ver style="display:none">Ver la respuesta</button></div>
+    <div class="fb" data-fb></div>
   </div>
 
-  <h2>Reactivo 3 · El cognado</h2>
-  <div class="card">
-    <h3>creativity</h3>
-    <p style="margin:0;font-size:.92rem">Aparece en un artículo en inglés. Usa los patrones de la semana 15 y escribe su forma en español.</p>
-    <input type="text" id="r3resp" placeholder="escríbela aquí">
-    <div class="fila-botones"><button class="btn rosa" id="r3check">Revisar</button></div>
-    <div class="fb" id="r3fb"></div>
+  <div class="card" id="r3">
+    <div class="k">Reactivo 3 · ¿Cómo nació?</div>
+    <h3>ratón, el de la computadora</h3>
+    <p class="mini">¿De cuál de las seis maneras?</p>
+    <div class="veredicto" data-op></div>
+    <div class="fila-botones"><button class="btn gris" type="button" data-ver style="display:none">Ver la respuesta</button></div>
+    <div class="fb" data-fb></div>
   </div>
 
-  <h2>Reactivo 4 · Crea la palabra</h2>
-  <div class="card">
-    <h3>Con estas raíces: mnem (memoria), fobia (miedo), filo (amor), crono (tiempo), lexis (palabra)</h3>
-    <p style="margin:0;font-size:.92rem">Combina al menos dos para inventar una palabra que al español le falte. Escríbela con sus piezas y su definición de diccionario. Luego compara con el ejemplo y márcate.</p>
-    <label style="display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.7rem">Tu palabra y sus piezas</label>
-    <textarea placeholder="ej. palabra: ... = pieza (significado) + pieza (significado)"></textarea>
-    <label style="display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.7rem">Definición de diccionario</label>
-    <textarea placeholder="Seca y precisa, como la escribiría el DLE."></textarea>
-    <div class="fila-botones"><button class="btn gris" id="r4ver">Compara con un ejemplo</button></div>
-    <div class="fb" id="r4fb"></div>
-    <div class="marca" id="r4marca" style="display:none">
-      <button data-v="bien">Me quedó bien</button>
-      <button data-v="aun">Aún no</button>
-    </div>
+  <div class="card" id="r4">
+    <div class="k">Reactivo 4 · Quién decide</div>
+    <h3 style="font-size:1.2rem">«Si una palabra no está en el diccionario, no existe.»</h3>
+    <p class="mini">¿Verdadero o falso? Y el porqué, que es lo que cuenta.</p>
+    <div class="veredicto" data-vf><button type="button">Verdadero</button><button type="button">Falso</button></div>
+    <textarea data-in placeholder="porque..."></textarea>
+    <div class="fila-botones"><button class="btn rosa" type="button" data-rev>Revisar</button><button class="btn gris" type="button" data-mod>Compara con un ejemplo</button></div>
+    <div class="fb" data-fb></div>
+    <div class="modelo" data-modelo><b>Un ejemplo de respuesta completa:</b> Falso. El diccionario registra las palabras que ya viven en la boca de la gente, y por eso llega después. <i>Petricor</i> nombra desde 1964 el olor de la tierra cuando le cae la lluvia, y la RAE la tenía en estudio. Si no existiera, no habría nada que estudiar.</div>
   </div>
 
-  <h2>Cierre · ¿Cómo calibraste?</h2>
-  <div class="card">
-    <div class="fila-botones"><button class="btn rosa" id="btnCierre">Ver mi resultado</button></div>
-    <div class="fb" id="fbCierre"></div>
+  <h2>Reto extra · no cuenta</h2>
+  <div class="card" id="extra">
+    <div class="k">La fábrica</div>
+    <h3 style="font-size:1.2rem">El miedo a quedarse sin pila en el celular</h3>
+    <p class="mini">Bautízalo con piezas reales y escribe cada pieza con su significado.</p>
+    <textarea placeholder="mi palabra: ... = ... + ..."></textarea>
+    <div class="fila-botones"><button class="btn gris" type="button" data-mod>Compara con un ejemplo</button></div>
+    <div class="modelo" data-modelo>En la calle ya circula una: <b>nomofobia</b>, acuñada en inglés en 2008 a partir de <i>no mobile phone phobia</i>. Con piezas del curso hay muchas salidas, y vale cualquiera cuyas piezas existan y digan lo que dices. Ojo con <b>-fobia</b>: el DLE la explica como 'aversión' o 'rechazo'. Si tu palabra quiere decir miedo, ¿es la pieza justa? Esa es una pregunta de mesa.</div>
   </div>
 
-  <footer>Semana 16 · Quién decide qué palabras existen · Gimnasio: lo que quede en "aún no" se puede reintentar cuando quieras. Cuenta tu versión más reciente, no el promedio.</footer>
+  <div class="fila-botones"><button class="btn rosa" type="button" id="btnFin">Ver mi resultado</button></div>
+  <div class="resultado" id="resultado"></div>
+
+  <footer>Semana 16 · ¿Quién decide qué palabras existen? · Este quiz es gimnasio: sin nota, sin registro. Nada se guarda al cerrar la página.</footer>
 </div>
 
 <button class="modo" id="btnModo">Aa proyector</button>
 
 <script>
 (function(){
-  var estado={calib:null,r1:null,r2:null,r3:null,r4:null};
+  function $(id){ return document.getElementById(id); }
+  function norm(s){ return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  var MANERAS = ['Composición culta', 'Derivación', 'Acortamiento', 'Sigla', 'Préstamo', 'Cambio de sentido'];
+  var estado = {r1:null, r2:null, r3:null, r4:null};
+  var apuesta = null;
 
-  function baraja(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
-
-  // Paso 0
-  var calib=document.getElementById('calib');
-  calib.querySelectorAll('button').forEach(function(b,i){
-    b.addEventListener('click',function(){
-      calib.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
-      b.classList.add('sel');estado.calib=i;
-      var fb=document.getElementById('fbCalib');
-      fb.className='fb ej';
-      fb.textContent='Anotado. Al final comparas tu predicción con tu resultado: saber cuánto sabes también es la materia.';
+  Array.prototype.forEach.call($('apuesta').querySelectorAll('button'), function(b){
+    b.addEventListener('click', function(){
+      Array.prototype.forEach.call($('apuesta').querySelectorAll('button'), function(x){ x.classList.remove('sel'); });
+      b.classList.add('sel'); apuesta = +b.textContent;
     });
   });
 
-  // R1
-  var R1=[
-    ["Mirar dentro del estómago con un instrumento.",true],
-    ["Extirpar una parte del estómago.",false],
-    ["Inflamación del estómago.",false],
-    ["Dolor de cabeza por no comer.",false]
-  ];
-  var z1=document.getElementById('r1ops'),sel1=null;
-  baraja(R1).forEach(function(op){
-    var b=document.createElement('button');
-    b.textContent=op[0];b.dataset.buena=op[1]?'1':'0';
-    b.addEventListener('click',function(){
-      z1.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
-      b.classList.add('sel');sel1=b;
+  /* Reactivo 1: escribir */
+  (function(){
+    var c = $('r1'), fb = c.querySelector('[data-fb]'), fallas = 0;
+    var PISTAS = [
+      'Ábrela en dos: crono- y -metro. ¿Qué significa cada una?',
+      'Crono- es tiempo, como en crónica. -metro es lo que mide, como en termómetro. Ahora júntalas.'
+    ];
+    c.querySelector('[data-rev]').addEventListener('click', function(){
+      var v = norm(c.querySelector('[data-in]').value);
+      if (v.indexOf('tiempo') > -1 && (v.indexOf('mid') > -1 || v.indexOf('medi') > -1)){
+        estado.r1 = estado.r1 === false ? false : true;
+        fb.className = 'fb ok'; fb.innerHTML = '<b>Bien.</b> <b>crono-</b> «tiempo» + <b>-metro</b> «que mide»: instrumento para medir el tiempo.';
+      } else {
+        fallas++; fb.className = 'fb no'; fb.textContent = 'Aún no. ' + PISTAS[Math.min(fallas, PISTAS.length) - 1];
+        if (fallas >= 2) c.querySelector('[data-ver]').style.display = 'inline-block';
+      }
     });
-    z1.appendChild(b);
-  });
-  document.getElementById('r1check').addEventListener('click',function(){
-    var fb=document.getElementById('r1fb');
-    if(!sel1){fb.className='fb no';fb.textContent='Elige primero una opción.';return;}
-    if(sel1.dataset.buena==='1'){
-      estado.r1='bien';fb.className='fb ok';
-      fb.innerHTML='Bien: gastro (estómago) + -scopia (mirar dentro). Álgebra de palabras con bata.';
-    }else{
-      estado.r1='aun';fb.className='fb no';
-      fb.textContent='Aún no. Pista: separa gastro de -scopia y recuerda qué padecimiento termina en -scopia. No es -itis ni -ectomía.';
-    }
-  });
-
-  // R2
-  var R2=[
-    ["Renuncié motu proprio al cargo.",true],
-    ["Renuncié de motu proprio al cargo.",false],
-    ["Renuncié a motu propio al cargo.",false],
-    ["Renuncié por motu propio al cargo.",false]
-  ];
-  var z2=document.getElementById('r2ops'),sel2=null;
-  baraja(R2).forEach(function(op){
-    var b=document.createElement('button');
-    b.textContent=op[0];b.dataset.buena=op[1]?'1':'0';
-    b.addEventListener('click',function(){
-      z2.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
-      b.classList.add('sel');sel2=b;
+    c.querySelector('[data-ver]').addEventListener('click', function(){
+      estado.r1 = false;
+      fb.className = 'fb no'; fb.innerHTML = 'La respuesta: <b>crono-</b> «tiempo» + <b>-metro</b> «que mide»: instrumento para medir el tiempo. Queda en aún no; reinténtalo otro día.';
     });
-    z2.appendChild(b);
-  });
-  document.getElementById('r2check').addEventListener('click',function(){
-    var fb=document.getElementById('r2fb');
-    if(!sel2){fb.className='fb no';fb.textContent='Elige primero una opción.';return;}
-    if(sel2.dataset.buena==='1'){
-      estado.r2='bien';fb.className='fb ok';
-      fb.innerHTML='Bien: <em>motu proprio</em> ya significa "por voluntad propia", no necesita preposición. Y es proprio, con dos erres.';
-    }else{
-      estado.r2='aun';fb.className='fb no';
-      fb.textContent='Aún no. Pista: la locución ya trae la idea de "por" adentro, así que no admite preposición. Y revisa las erres de la última palabra.';
-    }
-  });
+  })();
 
-  // R3
-  document.getElementById('r3check').addEventListener('click',function(){
-    var fb=document.getElementById('r3fb');
-    var v=document.getElementById('r3resp').value.trim().toLowerCase();
-    if(!v){fb.className='fb no';fb.textContent='Escribe primero tu propuesta.';return;}
-    if(v==='creatividad'||v==='la creatividad'){
-      estado.r3='bien';fb.className='fb ok';
-      fb.innerHTML='Bien: creativity → creatividad. El patrón -ity → -idad, el mismo de university → universidad.';
-    }else{
-      estado.r3='aun';fb.className='fb no';
-      fb.textContent='Aún no. Pista: fíjate en la terminación -ity y recuerda en qué terminación española se convierte casi siempre (como en university).';
-    }
-  });
+  /* Reactivos 2 y 3: elegir la manera (inferencia) */
+  function opciones(id, correcta, pistas, explica){
+    var c = $(id), fb = c.querySelector('[data-fb]'), caja = c.querySelector('[data-op]'), fallas = 0, cerrado = false;
+    MANERAS.forEach(function(m){
+      var b = document.createElement('button'); b.type = 'button'; b.textContent = m;
+      b.addEventListener('click', function(){
+        if (cerrado) return;
+        Array.prototype.forEach.call(caja.children, function(x){ x.classList.remove('sel'); });
+        b.classList.add('sel');
+        if (m === correcta){
+          cerrado = true;
+          if (estado[id] === null) estado[id] = true;
+          fb.className = 'fb ok'; fb.innerHTML = '<b>Bien.</b> ' + explica;
+        } else {
+          fallas++; fb.className = 'fb no'; fb.textContent = 'Aún no. ' + pistas[Math.min(fallas, pistas.length) - 1];
+          if (fallas >= 2) c.querySelector('[data-ver]').style.display = 'inline-block';
+        }
+      });
+      caja.appendChild(b);
+    });
+    c.querySelector('[data-ver]').addEventListener('click', function(){
+      cerrado = true; estado[id] = false;
+      fb.className = 'fb no'; fb.innerHTML = 'La respuesta: <b>' + correcta + '</b>. ' + explica + ' Queda en aún no.';
+    });
+  }
+  opciones('r2', 'Acortamiento',
+    ['Dila completa. ¿Qué palabra larga es?', 'Profe es profesor con la cola cortada, como bici o cine.'],
+    'Profe es <b>profesor</b> con un pedazo cortado, como <i>bici</i> o <i>cine</i>.');
+  opciones('r3', 'Cambio de sentido',
+    ['El ratón ya existía mucho antes que la computadora. ¿Qué le pasó a la palabra?', 'Nadie inventó una palabra nueva: una palabra vieja estrenó significado por el parecido.'],
+    'La palabra ya existía para el animal y estrenó otro significado por el parecido del aparato: forma, tamaño y su cola de cable.');
 
-  // R4
-  document.getElementById('r4ver').addEventListener('click',function(){
-    var fb=document.getElementById('r4fb');
-    fb.className='fb ej';
-    fb.innerHTML='<strong>Un ejemplo:</strong> cronofobia = crono (tiempo) + fobia (miedo).<br><strong>Definición:</strong> temor a que el tiempo pase demasiado rápido o no alcance.<br><br>La tuya puede ser otra combinación por completo. Revísala contra las reglas: raíces reales y bien pegadas, que se entienda, que suene, que nombre algo que falte. Márcate abajo: calibrar es el entrenamiento.';
-    document.getElementById('r4marca').style.display='flex';
-  });
-  document.querySelectorAll('#r4marca button').forEach(function(b){
-    b.addEventListener('click',function(){
-      document.querySelectorAll('#r4marca button').forEach(function(x){x.classList.remove('sel-ok','sel-no');});
-      b.classList.add(b.dataset.v==='bien'?'sel-ok':'sel-no');
-      estado.r4=b.dataset.v;
+  /* Reactivo 4: verdadero o falso, con porqué */
+  (function(){
+    var c = $('r4'), fb = c.querySelector('[data-fb]'), elegido = '';
+    Array.prototype.forEach.call(c.querySelectorAll('[data-vf] button'), function(b){
+      b.addEventListener('click', function(){
+        Array.prototype.forEach.call(c.querySelectorAll('[data-vf] button'), function(x){ x.classList.remove('sel'); });
+        b.classList.add('sel'); elegido = b.textContent;
+      });
+    });
+    c.querySelector('[data-rev]').addEventListener('click', function(){
+      var porque = c.querySelector('[data-in]').value.trim();
+      if (!elegido){ fb.className = 'fb no'; fb.textContent = 'Elige verdadero o falso.'; return; }
+      if (elegido === 'Verdadero'){
+        if (estado.r4 === null) estado.r4 = false;
+        fb.className = 'fb no'; fb.textContent = 'Aún no. Piensa en una palabra que ya dices y que el diccionario tardó años en registrar. ¿No existía mientras tanto?';
+        return;
+      }
+      if (porque.length < 25){
+        fb.className = 'fb no'; fb.textContent = 'Va bien, pero falta el porqué: sin porqué es aún no. ¿Qué hace el diccionario con las palabras, y cuándo llega?';
+        return;
+      }
+      if (estado.r4 === null) estado.r4 = true;
+      fb.className = 'fb ok'; fb.innerHTML = '<b>Bien.</b> El diccionario registra lo que ya vive, y llega después. Compara tu porqué con el ejemplo.';
+    });
+  })();
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-mod]'), function(b){
+    b.addEventListener('click', function(){
+      var m = b.closest('.card').querySelector('[data-modelo]');
+      m.style.display = m.style.display === 'block' ? 'none' : 'block';
     });
   });
 
-  // Cierre
-  document.getElementById('btnCierre').addEventListener('click',function(){
-    var fb=document.getElementById('fbCierre');
-    var pend=[];
-    if(estado.calib===null)pend.push('la calibración del paso 0');
-    if(!estado.r1)pend.push('el reactivo 1');
-    if(!estado.r2)pend.push('el reactivo 2');
-    if(!estado.r3)pend.push('el reactivo 3');
-    if(!estado.r4)pend.push('marcarte el reactivo 4');
-    if(pend.length){
-      fb.className='fb no';
-      fb.textContent='Todavía falta: '+pend.join(', ')+'.';
-      return;
-    }
-    var bien=[estado.r1,estado.r2,estado.r3,estado.r4].filter(function(x){return x==='bien';}).length;
-    var lista='Reactivo 1: '+(estado.r1==='bien'?'bien':'aún no')
-      +' · Reactivo 2: '+(estado.r2==='bien'?'bien':'aún no')
-      +' · Reactivo 3: '+(estado.r3==='bien'?'bien':'aún no')
-      +' · Reactivo 4: '+(estado.r4==='bien'?'bien':'aún no');
-    var msj;
-    if(estado.calib===bien)msj='Calibración exacta: predijiste '+estado.calib+' y tuviste '+bien+'. Eso, en este curso, vale tanto como los aciertos.';
-    else if(estado.calib>bien)msj='Predijiste '+estado.calib+' y tuviste '+bien+'. La brecha es el dato, no la culpa: ya sabes qué reactivo reintentar.';
-    else msj='Predijiste '+estado.calib+' y tuviste '+bien+'. Sabes más de lo que crees: ajusta tu medidor interno hacia arriba.';
-    fb.className='fb ok';
-    fb.innerHTML=lista+'<br><br>'+msj+'<br><br>Lo que quedó en "aún no" se reintenta cuando quieras: recarga la página y vuelve a entrar.';
+  $('btnFin').addEventListener('click', function(){
+    var bien = 0, lista = [];
+    var NOMBRES = {r1:'cronómetro', r2:'profe', r3:'ratón', r4:'el dictamen'};
+    Object.keys(estado).forEach(function(k){
+      if (estado[k] === true){ bien++; lista.push(NOMBRES[k] + ': bien'); }
+      else lista.push(NOMBRES[k] + ': aún no');
+    });
+    var msg = '';
+    if (apuesta === null) msg = 'No apostaste al principio. La próxima, apuesta antes: la calibración es la mitad del ejercicio.';
+    else if (apuesta === bien) msg = 'Tu apuesta coincidió con tu resultado: buena calibración.';
+    else if (apuesta > bien) msg = 'Apostaste ' + apuesta + ' y salieron ' + bien + ': ojo con la confianza. Repasa los que quedaron en aún no.';
+    else msg = 'Apostaste ' + apuesta + ' y salieron ' + bien + ': sabías más de lo que creías.';
+    var r = $('resultado');
+    r.innerHTML = '<b>' + bien + ' de 4 bien.</b> ' + msg + '<br><span style="font-size:.9rem;color:#555">' + lista.join(' · ') + '</span>';
+    r.style.display = 'block';
   });
 
-  document.getElementById('btnModo').addEventListener('click',function(){
+  $('btnModo').addEventListener('click', function(){
     document.body.classList.toggle('proyector');
-    this.textContent=document.body.classList.contains('proyector')?'Aa normal':'Aa proyector';
+    this.textContent = document.body.classList.contains('proyector') ? 'Aa normal' : 'Aa proyector';
   });
 })();
 </script>

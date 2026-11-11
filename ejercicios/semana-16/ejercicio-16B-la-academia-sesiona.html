@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 16 · Ejercicio B · La Academia sesiona</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0;color:var(--rosa);font-size:1.45rem}
+  .card .que{font-size:.95rem;color:#333;margin:.15rem 0 0}
+  .card .ej{font-size:.92rem;color:#555;font-style:italic;margin:.15rem 0 0}
+  .card .tipo{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.12rem .5rem;border-radius:2rem;margin-bottom:.35rem}
+  .card .tipo.a{background:#E6F1FB;color:#0c447c}
+  .card .tipo.b{background:#FBF0D9;color:#7a5a12}
+  .card .tipo.c{background:#fdeaf5;color:var(--rosa)}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
+  textarea,input[type=text]{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3rem;resize:vertical}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  .filtros{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1rem 0}
+  .filtros div{border:1px solid var(--borde);border-radius:.8rem;padding:.7rem .8rem;background:var(--fondo);font-size:.9rem}
+  .filtros b{display:block;color:var(--ciruela);font-size:1rem}
+  @media (max-width:520px){.filtros{grid-template-columns:1fr}}
+  .comisiones{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem}
+  .comisiones button{width:3rem;height:3rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font:inherit;font-weight:800;font-size:1.2rem;cursor:pointer}
+  .comisiones button.sel{background:var(--ciruela);color:#fff;border-color:var(--ciruela)}
+  .veredicto{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.4rem}
+  .veredicto button{padding:.45rem .75rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;cursor:pointer;font:inherit;font-size:.9rem}
+  .veredicto button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .links{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:.5rem;font-size:.9rem}
+  .links a{color:var(--rosa);font-weight:700}
+  .pista{display:none;margin-top:.5rem;font-size:.88rem;background:#fffdf8;border:1px dashed #d9c3d4;border-radius:.6rem;padding:.5rem .7rem;color:#4a3f5c}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+  .modelo{display:none;border:1px dashed #d9c3d4;border-radius:.9rem;padding:.9rem 1rem;background:#fffdf8;margin:.6rem 0;font-size:.93rem}
+  .modelo b{color:var(--ciruela)}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 16 · Miércoles y jueves</div>
+    <h1>La Academia sesiona</h1>
+    <p>Una academia no inventa palabras: decide cuáles ya viven. Hoy esa academia es tu comisión.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> (1) Escoge el número de tu comisión: te tocan cuatro palabras. (2) Las dos primeras ya tienen acta o están en estudio: búscalas en el DLE de hoy y anota lo que encontraste. (3) Las otras dos andan en la calle: pásalas por los cuatro filtros. (4) Den su veredicto con un argumento. (5) Generen el dictamen y mándenlo al muro de la vitrina. Si les sobra tiempo, dictaminen una palabra suya.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> una ficha por palabra, con cinco renglones: ¿tiene acta? (lo que dice el DLE de hoy), uso, tiempo, necesidad y forma. Abajo, el veredicto en letras grandes y el argumento en dos líneas.
+  </div>
+
+  <h2>Los cuatro filtros</h2>
+  <div class="filtros">
+    <div><b>Uso</b>¿La dice mucha gente, y en más de un lugar o de un grupo? <i>Porfa</i> se dice en todo el mundo hispano.</div>
+    <div><b>Tiempo</b>¿Lleva años o es moda de esta temporada? La Academia procura no registrar modas de paso.</div>
+    <div><b>Necesidad</b>¿Nombra algo que no tenía nombre, o le quita el lugar a una palabra que ya funcionaba? <i>Ecoansiedad</i> nombra algo nuevo.</div>
+    <div><b>Forma</b>¿Se escribe y se pronuncia como el español, o hay que adaptarla? <i>Loguearse</i> se adaptó; <i>streaming</i> no.</div>
+  </div>
+
+  <div class="fila-botones" style="margin-top:0"><button class="btn gris" type="button" id="btnModelo">Ver un dictamen modelo</button></div>
+  <div class="modelo" id="modelo">
+    <b>Palabra:</b> <i>porfa</i> · <b>¿Tiene acta?</b> Sí: entró con la edición de 2026; el DLE la da con <i>porfi</i> como sinónimo de <i>por favor</i>.<br>
+    <b>Uso:</b> se dice en todo el mundo hispano, sobre todo entre amigos. <b>Tiempo:</b> lleva décadas, no es moda. <b>Necesidad:</b> no desplaza a <i>por favor</i>: lo acompaña con otro tono, más cariñoso. <b>Forma:</b> es español puro, un acortamiento.<br>
+    <b>Veredicto:</b> la Academia hizo bien.<br>
+    <b>Argumento:</b> pasa los cuatro filtros. Lo único raro es que tardara tanto en tener acta: se decía desde antes de que naciéramos.
+  </div>
+
+  <h2>Tu comisión</h2>
+  <div class="card">
+    <label style="margin-top:0">Número de comisión</label>
+    <div class="comisiones" id="comisiones"></div>
+    <label for="miembros">Nombres de pila de la comisión</label>
+    <input type="text" id="miembros" placeholder="así aparecen en el muro">
+  </div>
+
+  <div id="palabras"></div>
+
+  <footer>Semana 16 · ¿Quién decide qué palabras existen? · Este ejercicio es gimnasio: sin nota, sin registro. Nada se guarda al cerrar la página: el dictamen solo vive si lo copias o lo mandas al muro.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var COSECHA = 'https://script.google.com/macros/s/AKfycbyowFaq0n-zK4TBagspKG0Roye0Lun0FHaB5gQTiZGisXG4A-9ehIWmamw_mWo3KeZmrw/exec';
+  function $(id){ return document.getElementById(id); }
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+
+  /* Grupo A: recién registradas o en estudio (se verifican en el DLE de hoy).
+     Grupo B: andan en la calle (se dictaminan con los cuatro filtros).
+     q: lo que significa · e: un ejemplo · pista: lo que dice la prensa, para comparar al final */
+  var A = {
+    acitronar:{q:'Méx.: freír cebolla o ajo a fuego lento hasta que queden transparentes, sin dorarse', pista:'La prensa la contó entre las mexicanas de la edición de 2026.'},
+    asegunes:{q:'Méx.: dudas, condiciones o inconvenientes ante una propuesta', pista:'La eligió la Academia Mexicana entre las palabras de la edición de 2026.'},
+    petricor:{q:'el olor de la tierra seca cuando le cae la lluvia', pista:'Estaba en estudio, en el Observatorio de palabras de la RAE. Si ya entró al diccionario nuevo, lo descubrieron ustedes.'},
+    ecoansiedad:{q:'ansiedad por el deterioro del ambiente', pista:'La prensa la contó entre las novedades de la edición de 2026.'},
+    sopotocientos:{q:'Pan.: una cantidad exagerada, que ni se cuenta', pista:'La eligió la academia de Panamá para la edición de 2026.'},
+    autocorrector:{q:'el programa que corrige solo lo que escribes', pista:'La prensa la contó entre las novedades de la edición de 2026.'},
+    loguearse:{q:'entrar con tu usuario a una aplicación o una página', pista:'Tiene acta desde diciembre de 2025.'},
+    multijugador:{q:'dicho de un juego: que se juega entre varias personas', pista:'La prensa la contó entre las novedades de la edición de 2026.'},
+    docuserie:{q:'serie documental', pista:'La prensa la contó entre las novedades de la edición de 2026.'},
+    turismofobia:{q:'rechazo al turismo masivo', pista:'Tiene acta desde diciembre de 2025.'},
+    cumple:{q:'cumpleaños', pista:'La prensa la contó entre las novedades de la edición de 2026.'},
+    influencer:{q:'persona que influye en lo que piensan o compran sus seguidores en redes', pista:'La prensa la contó entre las novedades de la edición de 2026.'}
+  };
+  var B = {
+    stalkear:{q:'espiar en redes la vida de alguien', e:'«Ya le stalkeé todo el perfil.»'},
+    ghostear:{q:'dejar de contestarle a alguien de golpe, sin explicación', e:'«Me ghosteó después de la fiesta.»'},
+    funar:{q:'exhibir en público a alguien para desprestigiarlo', e:'«Lo funaron en redes.»'},
+    crush:{q:'la persona que te gusta', e:'«Ahí viene mi crush.»'},
+    cringe:{q:'vergüenza ajena', e:'«Ese video da cringe.»'},
+    shippear:{q:'desear que dos personas o personajes sean pareja', e:'«Los shippeo desde el primer capítulo.»'},
+    random:{q:'cualquiera, al azar', e:'«Me escribió un random.»'},
+    farmear:{q:'en un videojuego, juntar recursos repitiendo una tarea', e:'«Me quedé farmeando toda la tarde.»'},
+    nerfear:{q:'en un videojuego, debilitar un arma o un personaje', e:'«Ya nerfearon a mi personaje.»'},
+    spoilear:{q:'contar el final antes de tiempo', e:'«No me spoilees la serie.»'},
+    likear:{q:'darle me gusta a una publicación', e:'«Likéale la foto.»'},
+    mutear:{q:'silenciar a alguien en un chat o una llamada', e:'«Lo muteé del grupo.»'},
+    hypear:{q:'crear mucha expectativa por algo', e:'«Está bien hypeado el concierto.»'},
+    lomito:{q:'en redes, perro, dicho con cariño', e:'«Adopta un lomito.»'}
+  };
+  var COM = {
+    1:['acitronar','loguearse','stalkear','spoilear'],
+    2:['asegunes','cumple','ghostear','crush'],
+    3:['petricor','influencer','funar','random'],
+    4:['ecoansiedad','docuserie','cringe','hypear'],
+    5:['sopotocientos','autocorrector','shippear','likear'],
+    6:['turismofobia','multijugador','farmear','nerfear'],
+    7:['acitronar','petricor','mutear','lomito'],
+    8:['asegunes','ecoansiedad','crush','spoilear']
+  };
+  var comision = 0;
+
+  for (var k = 1; k <= 8; k++){
+    (function(n){
+      var b = document.createElement('button'); b.type = 'button'; b.textContent = n;
+      b.addEventListener('click', function(){
+        Array.prototype.forEach.call($('comisiones').children, function(c){ c.classList.remove('sel'); });
+        b.classList.add('sel'); comision = n; pinta();
+      });
+      $('comisiones').appendChild(b);
+    })(k);
+  }
+
+  function grupoBotones(nombre, opciones){
+    return '<div class="veredicto" data-g="' + nombre + '">' + opciones.map(function(o){ return '<button type="button">' + o + '</button>'; }).join('') + '</div>';
+  }
+
+  function tarjeta(w, tipo, i){
+    var info = tipo === 'a' ? A[w] : (tipo === 'b' ? B[w] : null);
+    var et = tipo === 'a' ? 'Recién registrada o en estudio' : (tipo === 'b' ? 'Anda en la calle' : 'La palabra de su comisión');
+    var cab = tipo === 'c'
+      ? '<span class="tipo c">' + et + '</span><label style="margin-top:.2rem">La palabra</label><input type="text" data-c="palabra" placeholder="una del chat, del juego, del campus o de su casa"><label>Qué significa en la calle</label><input type="text" data-c="que" placeholder="como la usan ustedes">'
+      : '<span class="tipo ' + tipo + '">' + et + '</span><h3>' + esc(w) + '</h3><p class="que">' + esc(info.q) + '</p>' + (info.e ? '<p class="ej">' + esc(info.e) + '</p>' : '');
+    var dleW = tipo === 'c' ? '' : encodeURIComponent(w);
+    return '<div class="card" data-i="' + i + '" data-t="' + tipo + '" data-w="' + esc(w) + '">' + cab +
+      '<label>1 · ¿Tiene acta?</label>' +
+      '<div class="links"><a href="https://dle.rae.es/' + dleW + '" target="_blank" rel="noopener" data-dle>Buscar en el DLE ↗</a><a href="https://www.rae.es/observatorio-de-palabras/' + dleW + '" target="_blank" rel="noopener" data-obs>Buscar en el Observatorio ↗</a></div>' +
+      grupoBotones('acta', ['Sí, está en el DLE', 'No está', 'Está en el Observatorio']) +
+      '<input type="text" data-c="encontre" placeholder="lo que encontraste: la definición del DLE, abreviada, o «no está»">' +
+      '<label>2 · Los cuatro filtros</label>' +
+      '<div style="font-size:.85rem;color:#555;margin-top:.3rem">Uso</div>' + grupoBotones('uso', ['La dice mucha gente', 'Solo un grupo', 'Casi nadie']) +
+      '<div style="font-size:.85rem;color:#555;margin-top:.5rem">Tiempo</div>' + grupoBotones('tiempo', ['Lleva años', 'Es reciente', 'Moda de paso']) +
+      '<div style="font-size:.85rem;color:#555;margin-top:.5rem">Necesidad</div>' + grupoBotones('necesidad', ['Nombra algo nuevo', 'Ya había palabra']) +
+      '<div style="font-size:.85rem;color:#555;margin-top:.5rem">Forma</div>' + grupoBotones('forma', ['Suena a español', 'Hay que adaptarla']) +
+      '<label>3 · El veredicto</label>' +
+      '<div data-ver></div>' +
+      '<textarea data-c="argumento" placeholder="su argumento, con al menos dos de los filtros"></textarea>' +
+      '<div class="fila-botones"><button class="btn rosa" type="button" data-gen>Generar dictamen</button>' +
+      '<button class="btn gris" type="button" data-cop style="display:none">Copiar</button>' +
+      '<button class="btn gris" type="button" data-man style="display:none">Mandar al muro</button></div>' +
+      '<div class="fb" data-fb></div><pre class="captura"></pre>' +
+      (info && info.pista ? '<div class="pista" data-pista><b>Para comparar:</b> ' + esc(info.pista) + '</div>' : '') +
+      '</div>';
+  }
+
+  function pinta(){
+    var lista = COM[comision] || [];
+    var h = '<h2>Las palabras de la comisión ' + comision + '</h2>';
+    lista.forEach(function(w, i){ h += tarjeta(w, i < 2 ? 'a' : 'b', i); });
+    h += '<h2>Si les sobra tiempo</h2>' + tarjeta('', 'c', 4);
+    $('palabras').innerHTML = h;
+    Array.prototype.forEach.call($('palabras').querySelectorAll('.card'), arma);
+  }
+
+  function sel(card, g){ var b = card.querySelector('[data-g=' + g + '] .sel'); return b ? b.textContent : ''; }
+
+  function pintaVeredicto(card){
+    var acta = sel(card, 'acta');
+    var ops = acta === 'Sí, está en el DLE'
+      ? ['La Academia hizo bien', 'Sí, con asegunes', 'La Academia se apresuró']
+      : ['Entra', 'En observación', 'No entra'];
+    var caja = card.querySelector('[data-ver]');
+    caja.innerHTML = grupoBotones('veredicto', ops);
+    activa(caja);
+  }
+
+  function activa(raiz){
+    Array.prototype.forEach.call(raiz.querySelectorAll('.veredicto'), function(v){
+      Array.prototype.forEach.call(v.querySelectorAll('button'), function(b){
+        b.addEventListener('click', function(){
+          Array.prototype.forEach.call(v.querySelectorAll('button'), function(x){ x.classList.remove('sel'); });
+          b.classList.add('sel');
+          if (v.getAttribute('data-g') === 'acta') pintaVeredicto(v.closest('.card'));
+        });
+      });
+    });
+  }
+
+  function arma(card){
+    activa(card);
+    pintaVeredicto(card);
+    var tipo = card.getAttribute('data-t');
+    if (tipo === 'c'){
+      var inp = card.querySelector('[data-c=palabra]');
+      inp.addEventListener('input', function(){
+        var w = encodeURIComponent(inp.value.trim());
+        card.querySelector('[data-dle]').href = 'https://dle.rae.es/' + w;
+        card.querySelector('[data-obs]').href = 'https://www.rae.es/observatorio-de-palabras/' + w;
+      });
+    }
+    var g = function(c){ var el = card.querySelector('[data-c=' + c + ']'); return el ? el.value.trim() : ''; };
+    var pre = card.querySelector('pre.captura'), fb = card.querySelector('[data-fb]');
+    var bC = card.querySelector('[data-cop]'), bM = card.querySelector('[data-man]');
+    var dictamen = null;
+
+    card.querySelector('[data-gen]').addEventListener('click', function(){
+      var palabra = tipo === 'c' ? g('palabra') : card.getAttribute('data-w');
+      var faltan = [];
+      if (!palabra) faltan.push('la palabra');
+      if (!sel(card, 'acta')) faltan.push('si tiene acta');
+      if (!g('encontre')) faltan.push('lo que encontraste en el DLE');
+      ['uso', 'tiempo', 'necesidad', 'forma'].forEach(function(f){ if (!sel(card, f)) faltan.push('el filtro de ' + f); });
+      if (!sel(card, 'veredicto')) faltan.push('el veredicto');
+      if (g('argumento').length < 25) faltan.push('un argumento de al menos una línea');
+      if (faltan.length){ fb.className = 'fb no'; fb.textContent = 'Al dictamen le falta: ' + faltan.join(', ') + '.'; return; }
+      dictamen = {
+        palabra: palabra,
+        acta: sel(card, 'acta') + ': ' + g('encontre'),
+        filtros: 'Uso: ' + sel(card, 'uso') + ' · Tiempo: ' + sel(card, 'tiempo') + ' · Necesidad: ' + sel(card, 'necesidad') + ' · Forma: ' + sel(card, 'forma'),
+        veredicto: sel(card, 'veredicto'),
+        argumento: g('argumento')
+      };
+      pre.textContent = 'DICTAMEN DE LA COMISIÓN ' + comision + '\nPALABRA: ' + dictamen.palabra + (tipo === 'c' && g('que') ? ' (' + g('que') + ')' : '') +
+        '\n¿TIENE ACTA? ' + dictamen.acta + '\n' + dictamen.filtros.toUpperCase().replace(/ · /g, '\n') +
+        '\nVEREDICTO: ' + dictamen.veredicto + '\nARGUMENTO: ' + dictamen.argumento;
+      pre.style.display = 'block'; bC.style.display = 'inline-block'; bM.style.display = 'inline-block';
+      fb.className = 'fb ok'; fb.textContent = 'Dictamen listo. Cópienlo o mándenlo al muro de la vitrina.';
+      var p = card.querySelector('[data-pista]'); if (p) p.style.display = 'block';
+    });
+
+    bC.addEventListener('click', function(){
+      var t = pre.textContent;
+      function listo(){ fb.className = 'fb ok'; fb.textContent = 'Copiado. Pégalo donde lo vayan a conservar.'; }
+      function seleccionar(){
+        var r = document.createRange(); r.selectNodeContents(pre);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        fb.className = 'fb ok'; fb.textContent = 'Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(listo, seleccionar); } else { seleccionar(); }
+    });
+
+    bM.addEventListener('click', function(){
+      if (!dictamen) return;
+      var nombres = $('miembros').value.trim();
+      if (!comision || !nombres){ fb.className = 'fb no'; fb.textContent = 'Antes, arriba: el número de su comisión y sus nombres de pila.'; return; }
+      bM.disabled = true; bM.textContent = 'Mandando…';
+      manda({
+        tipo: 'general', nombre: nombres, palabra: dictamen.palabra,
+        fuente: dictamen.acta, veredicto: dictamen.veredicto,
+        historia: dictamen.argumento + ' (' + dictamen.filtros + ')',
+        nota: 'Comisión ' + comision + ' · dictamen de la Academia del salón'
+      }, function(){
+        bM.textContent = 'Mandado';
+        fb.className = 'fb ok'; fb.textContent = 'Llegó. El profesor lo revisa y lo publica en el muro de la vitrina.';
+      }, function(){
+        bM.disabled = false; bM.textContent = 'Mandar al muro';
+        fb.className = 'fb no'; fb.textContent = 'No se pudo mandar. Revisen la conexión y vuelvan a intentarlo, o usen el formulario de la vitrina.';
+      });
+    });
+  }
+
+  function manda(campos, ok, mal){
+    var marco = document.createElement('iframe');
+    marco.name = 'envio-dictamen-' + Date.now(); marco.style.display = 'none';
+    document.body.appendChild(marco);
+    var f = document.createElement('form');
+    f.method = 'POST'; f.action = COSECHA; f.target = marco.name; f.style.display = 'none';
+    Object.keys(campos).forEach(function(k){
+      var i = document.createElement('input'); i.type = 'hidden'; i.name = k; i.value = campos[k] == null ? '' : campos[k]; f.appendChild(i);
+    });
+    document.body.appendChild(f);
+    var listo = false;
+    function acabo(bien){ if (listo) return; listo = true; (bien ? ok : mal)(); setTimeout(function(){ try { f.remove(); marco.remove(); } catch(e){} }, 1500); }
+    marco.addEventListener('load', function(){ acabo(true); });
+    marco.addEventListener('error', function(){ acabo(false); });
+    setTimeout(function(){ acabo(false); }, 12000);
+    f.submit();
+  }
+
+  $('btnModelo').addEventListener('click', function(){
+    var m = $('modelo'); var ve = m.style.display === 'block';
+    m.style.display = ve ? 'none' : 'block';
+    this.textContent = ve ? 'Ver un dictamen modelo' : 'Ocultar el modelo';
+  });
+  $('btnModo').addEventListener('click', function(){
+    document.body.classList.toggle('proyector');
+    this.textContent = document.body.classList.contains('proyector') ? 'Aa normal' : 'Aa proyector';
+  });
+})();
+</script>
+</body>
+</html>

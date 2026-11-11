@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 16 · Ejercicio A · El acta de nacimiento</title>
+<style>
+  :root{
+    --rosa:#c8127a; --ciruela:#6b1e5a; --fondo:#fbf4f9; --borde:#eadce6;
+    --ok:#2e7d32; --okbg:#e8f5e9; --no:#b3541e; --nobg:#fdf0e6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#2a2a2a;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto;padding:1rem 1rem 3rem}
+  header{background:var(--ciruela);color:#fff;padding:1rem;border-radius:0 0 .9rem .9rem}
+  header .mini{font-size:.8rem;opacity:.85;text-transform:uppercase;letter-spacing:.05em}
+  header h1{margin:.2rem 0 .3rem;font-size:1.35rem;line-height:1.25}
+  header p{margin:0;font-size:.95rem;opacity:.95}
+  .modo{position:fixed;bottom:1rem;right:1rem;z-index:9;background:var(--rosa);color:#fff;border:none;border-radius:2rem;padding:.6rem 1rem;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  body.proyector{font-size:1.35rem}
+  body.proyector .wrap{max-width:960px}
+  body.proyector header h1{font-size:2rem}
+  .instr{background:var(--fondo);border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0}
+  .instr strong{color:var(--ciruela)}
+  h2{color:var(--ciruela);font-size:1.15rem;margin:1.6rem 0 .5rem}
+  .card{border:1px solid var(--borde);border-radius:.9rem;padding:1rem 1.1rem;margin:1rem 0;background:#fff}
+  .card h3{margin:0 0 .3rem;color:var(--rosa);font-size:1.2rem}
+  .card p.mini{font-size:.92rem;margin:.3rem 0 0}
+  label{display:block;font-size:.85rem;font-weight:700;color:var(--ciruela);margin-top:.9rem;text-transform:uppercase;letter-spacing:.03em}
+  textarea,input[type=text],select{width:100%;border:1px solid var(--borde);border-radius:.6rem;padding:.6rem;font:inherit;margin-top:.3rem;background:var(--fondo)}
+  textarea{min-height:3rem;resize:vertical}
+  .regla{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.95rem;color:var(--ciruela)}
+  .cuaderno{background:var(--fondo);border-left:4px solid var(--rosa);padding:.8rem 1rem;border-radius:0 .6rem .6rem 0;margin:1rem 0;font-size:.92rem}
+  .chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem}
+  .chip{padding:.4rem .75rem;border:1px solid var(--borde);border-radius:2rem;background:#fff;color:var(--ciruela);font:inherit;font-size:.88rem;cursor:pointer;text-align:left}
+  .chip:hover,.chip.sel{border-color:var(--rosa);background:#fdeaf5}
+  .veredicto{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.4rem}
+  .veredicto button{padding:.5rem .8rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font-weight:700;cursor:pointer;font:inherit}
+  .veredicto button.sel{background:var(--rosa);color:#fff;border-color:var(--rosa)}
+  .tabs{display:flex;gap:.4rem;margin:.8rem 0 .5rem;flex-wrap:wrap}
+  .tab{flex:1;min-width:6rem;padding:.5rem;border:1px solid var(--borde);border-radius:.6rem;background:#fff;color:var(--ciruela);font:inherit;font-weight:700;cursor:pointer}
+  .tab.on{background:var(--ciruela);color:#fff;border-color:var(--ciruela)}
+  .banco{display:flex;flex-wrap:wrap;gap:.4rem;max-height:17rem;overflow:auto;padding:.4rem;border:1px dashed var(--borde);border-radius:.6rem;background:#fff}
+  .pieza{padding:.35rem .6rem;border:1px solid var(--borde);border-radius:.5rem;background:var(--fondo);font:inherit;font-size:.86rem;cursor:pointer;text-align:left;line-height:1.3}
+  .pieza b{color:var(--rosa);font-size:.95rem}
+  .pieza small{display:block;color:#666;font-size:.75rem}
+  .pieza:hover{border-color:var(--rosa)}
+  .mesa .fila{display:grid;grid-template-columns:auto 1fr auto;gap:.5rem;align-items:center;border:1px solid var(--borde);border-radius:.6rem;padding:.55rem .7rem;margin-top:.45rem;background:var(--fondo)}
+  .mesa .fila .p b{color:var(--rosa)}
+  .mesa .fila .p small{display:block;color:#555;font-size:.8rem}
+  .mesa .fila .acc{display:flex;gap:.25rem}
+  .mesa .fila .acc button{border:1px solid var(--borde);background:#fff;border-radius:.4rem;cursor:pointer;font:inherit;padding:.1rem .45rem;color:var(--ciruela)}
+  .mesa .fila .ver{grid-column:1 / -1;font-size:.85rem;display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+  .mesa .fila .ver a{color:var(--rosa);font-weight:700}
+  .mesa .vacia{color:#777;font-style:italic;font-size:.92rem;margin-top:.4rem}
+  .origen{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.1rem .45rem;border-radius:2rem;margin-right:.3rem}
+  .origen.gr{background:#E6F1FB;color:#0c447c}
+  .origen.lat{background:#DFF5EE;color:#0B5F52}
+  .origen.es{background:#FBF0D9;color:#7a5a12}
+  .armada{font-size:1.6rem;font-weight:800;color:var(--ciruela);margin:.4rem 0;letter-spacing:.01em}
+  .fila-botones{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .btn{border:none;border-radius:.6rem;padding:.55rem 1rem;font:inherit;font-weight:700;cursor:pointer}
+  .btn.rosa{background:var(--rosa);color:#fff}
+  .btn.gris{background:#fff;color:var(--ciruela);border:1px solid var(--borde)}
+  .fb{margin-top:.6rem;border-radius:.6rem;padding:.7rem .9rem;display:none;font-size:.95rem}
+  .fb.ok{display:block;background:var(--okbg);color:var(--ok)}
+  .fb.no{display:block;background:var(--nobg);color:var(--no)}
+  .modelo{border:1px dashed #d9c3d4;border-radius:.9rem;padding:.9rem 1rem;background:#fffdf8;margin:1rem 0;font-size:.93rem}
+  .modelo .t{font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--rosa)}
+  .modelo .w{font-size:1.3rem;font-weight:800;color:var(--ciruela)}
+  pre.captura{background:var(--fondo);border:1px solid var(--borde);border-radius:.6rem;padding:.8rem;white-space:pre-wrap;font-size:.9rem;display:none;margin-top:.6rem}
+  .acta{display:none;border:4px double var(--ciruela);border-radius:.5rem;padding:1.1rem 1.2rem;margin-top:1rem;background:#fffdf8;position:relative}
+  .acta .enc{text-align:center;border-bottom:1px solid var(--borde);padding-bottom:.6rem;margin-bottom:.6rem}
+  .acta .enc .k{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--rosa);font-weight:800}
+  .acta .enc .h{font-size:1.25rem;font-weight:800;color:var(--ciruela)}
+  .acta .palabra{text-align:center;font-size:2rem;font-weight:800;color:var(--rosa);margin:.4rem 0 .6rem}
+  .acta dl{margin:0;display:grid;grid-template-columns:9.5rem 1fr;gap:.35rem .8rem;font-size:.95rem}
+  .acta dt{font-weight:800;color:var(--ciruela);font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;padding-top:.1rem}
+  .acta dd{margin:0}
+  .acta .testigos{margin-top:.8rem;border-top:1px solid var(--borde);padding-top:.6rem}
+  .acta .testigos .renglon{border-bottom:1px solid #bbb;height:1.6rem;font-size:.8rem;color:#999}
+  .acta .sello{position:absolute;right:1rem;top:.9rem;border:2px solid var(--rosa);color:var(--rosa);border-radius:50%;width:4.2rem;height:4.2rem;display:flex;align-items:center;justify-content:center;text-align:center;font-size:.58rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;transform:rotate(-12deg);line-height:1.15}
+  footer{margin-top:2rem;font-size:.85rem;color:#777;border-top:1px solid var(--borde);padding-top:1rem}
+  @media (max-width:480px){.acta dl{grid-template-columns:1fr}.acta .sello{position:static;margin:0 auto .5rem;transform:none}}
+  @media print{
+    body *{visibility:hidden}
+    .acta,.acta *{visibility:visible}
+    .acta{display:block !important;position:absolute;left:0;top:0;width:100%;border-width:4px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="mini">Etimologías grecolatinas · Semana 16 · Martes</div>
+    <h1>El acta de nacimiento</h1>
+    <p>Una palabra nace cuando alguien la necesita. Hoy la necesitas tú.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="instr">
+    <strong>Cómo se juega.</strong> Seis pasos: (1) elige el hueco, algo de tu vida que no tenga nombre; (2) revisa que no exista ya; (3) escoge sus piezas en el banco y verifica cada una en el DLE; (4) pégalas y escoge la forma que mejor suene; (5) defínela como el diccionario y escribe un ejemplo; (6) apuesta tus testigos. El acta se arma sola: la copias, la imprimes o la mandas al Registro Civil del grupo.
+  </div>
+
+  <div class="cuaderno">
+    <strong>Si trabajas en cuaderno:</strong> arriba, el hueco en una línea. Debajo, tus piezas en columna, cada una con su significado y dónde la verificaste. Luego tres intentos de palabra, tachando los que no suenen. Al final, la ganadora con su definición, un ejemplo entre comillas y tu apuesta de testigos (0 a 5). Deja cinco renglones vacíos: ahí firman tus testigos.
+  </div>
+
+  <div class="modelo">
+    <div class="t">Así se ve un acta terminada (no copies esta palabra: inventa la tuya)</div>
+    <div class="w">domingalgia</div>
+    <div><b>Hueco:</b> la tristeza del domingo en la tarde, cuando el lunes ya se asoma.</div>
+    <div><b>Piezas:</b> <span class="origen lat">latín</span>domingo, de <i>dies dominicus</i> + <span class="origen gr">griego</span>-algia, 'dolor'. Las dos verificadas en el DLE.</div>
+    <div><b>Definición:</b> f. coloq. Tristeza que se siente el domingo por la tarde, cuando el fin de semana se acaba.</div>
+    <div><b>Ejemplo:</b> «No me hables ahorita, traigo una domingalgia que no se me quita con nada.»</div>
+    <div><b>Apuesta:</b> 2 testigos.</div>
+  </div>
+
+  <h2>1 · El hueco</h2>
+  <div class="card">
+    <h3>¿Qué no tiene nombre?</h3>
+    <p class="mini">Algo de tu vida: un sentimiento, una costumbre, una cosa, un momento del camión, del campus, del cerro o de tu casa. Escríbelo como se lo contarías a alguien.</p>
+    <label for="hueco">El hueco</label>
+    <textarea id="hueco" placeholder="la angustia de esperar el aventón que no llega..."></textarea>
+    <p class="mini">Si no se te ocurre nada, toca una idea para empezar:</p>
+    <div class="chips" id="ideas"></div>
+    <div class="fb" id="fbIdea"></div>
+  </div>
+
+  <h2>2 · ¿Ya existe?</h2>
+  <div class="card">
+    <h3>Antes de inventar, busca</h3>
+    <p class="mini">Si sospechas que ya hay una palabra para tu hueco, búscala en el DLE. Si existe, ganaste igual: ya aprendiste una palabra nueva.</p>
+    <label for="sospecha">¿Sospechas de alguna? Escríbela y búscala</label>
+    <input type="text" id="sospecha" placeholder="una palabra que creas que ya nombra tu hueco">
+    <div class="fila-botones"><button class="btn gris" type="button" id="btnBuscar">Buscarla en el DLE ↗</button></div>
+    <label>Lo que encontraste</label>
+    <div class="veredicto" id="existe">
+      <button type="button" data-v="no">No hay palabra para esto</button>
+      <button type="button" data-v="si">Ya existe una</button>
+    </div>
+    <div class="fb" id="fbExiste"></div>
+  </div>
+
+  <h2>3 · Las piezas</h2>
+  <div class="card">
+    <h3>Escoge en el banco y verifica</h3>
+    <p class="mini">Toca una pieza para llevarla a tu mesa. Cada pieza trae su enlace al DLE: ábrelo, lee la entrada y palomea que la verificaste. Una pieza que no encuentras en el diccionario no existe, por bonita que suene. Ojo con <b>-fobia</b>: lee bien qué dice el DLE.</p>
+    <div class="tabs" id="tabs">
+      <button type="button" class="tab on" data-o="gr">Griego</button>
+      <button type="button" class="tab" data-o="lat">Latín</button>
+      <button type="button" class="tab" data-o="es">Del español</button>
+    </div>
+    <input type="text" id="filtro" placeholder="busca por pieza o por significado: agua, tiempo, sin...">
+    <div class="banco" id="banco" style="margin-top:.5rem"></div>
+    <div id="cajaEs" style="display:none;margin-top:.6rem">
+      <p class="mini">Una palabra del español puede ser pieza: <i>aventón</i>, <i>pila</i>, <i>camión</i>, <i>domingo</i>. Escríbela y llévala a tu mesa; también se verifica en el DLE.</p>
+      <label for="esP">La palabra del español</label>
+      <input type="text" id="esP" placeholder="aventón">
+      <label for="esS">Qué significa</label>
+      <input type="text" id="esS" placeholder="Méx.: autostop, que te lleven gratis">
+      <div class="fila-botones"><button class="btn gris" type="button" id="btnEs">Llevarla a mi mesa</button></div>
+    </div>
+    <label>Tu mesa de piezas, en orden</label>
+    <div class="mesa" id="mesa"><div class="vacia">Todavía no hay piezas en tu mesa.</div></div>
+  </div>
+
+  <h2>4 · Pégalas</h2>
+  <div class="card">
+    <h3>Tu palabra</h3>
+    <p class="mini">Así quedan tus piezas juntas, sin guiones. Ahora ajústala: la vocal que une las piezas, la tilde, una letra que estorba. Dila en voz alta tres veces.</p>
+    <div class="armada" id="armada">…</div>
+    <label for="palabra">Tu palabra, como se escribe</label>
+    <input type="text" id="palabra" placeholder="escríbela ya ajustada">
+    <div class="fb" id="fbMezcla"></div>
+  </div>
+
+  <h2>5 · Defínela como el diccionario</h2>
+  <div class="card">
+    <h3>Definición y ejemplo</h3>
+    <p class="mini">Empieza por la familia (<i>Temor…</i>, <i>Acción de…</i>, <i>Persona que…</i>, <i>Dicho de…</i>) y luego lo que la separa de las demás. La regla de oro: la definición nunca usa la palabra que define.</p>
+    <label for="cat">Qué clase de palabra es</label>
+    <select id="cat">
+      <option value="">elige</option>
+      <option value="f.">sustantivo femenino (f.)</option>
+      <option value="m.">sustantivo masculino (m.)</option>
+      <option value="adj.">adjetivo (adj.)</option>
+      <option value="intr.">verbo sin objeto (intr.)</option>
+      <option value="tr.">verbo con objeto (tr.)</option>
+    </select>
+    <label for="def">Su definición</label>
+    <textarea id="def" placeholder="Rechazo a quedarse sin..."></textarea>
+    <label for="ej">Un ejemplo de uso, como lo diría alguien de verdad</label>
+    <textarea id="ej" placeholder="«...»"></textarea>
+  </div>
+
+  <h2>6 · Tu apuesta</h2>
+  <div class="card">
+    <h3>¿Cuántos testigos el viernes?</h3>
+    <p class="mini">Testigo es quien usa tu palabra sin que se lo pidas. ¿Cuántas personas crees que la van a decir de aquí al viernes?</p>
+    <div class="veredicto" id="apuesta">
+      <button type="button">0</button><button type="button">1</button><button type="button">2</button><button type="button">3</button><button type="button">4</button><button type="button">5</button>
+    </div>
+    <label for="lugar">¿Dónde nació? (opcional)</label>
+    <input type="text" id="lugar" placeholder="en el camión, en el campus, en mi casa...">
+    <label for="nombre">Partera o partero: tu nombre de pila</label>
+    <input type="text" id="nombre" placeholder="como quieres que aparezca en el Registro Civil">
+  </div>
+
+  <h2>7 · Tu acta</h2>
+  <div class="card">
+    <h3>Levántale el acta</h3>
+    <p class="mini">Revisa que no falte nada y genera tu acta. Después la copias (mándatela por WhatsApp), la imprimes, o la mandas de una vez al Registro Civil del grupo.</p>
+    <div class="fila-botones">
+      <button class="btn rosa" type="button" id="btnActa">Generar mi acta</button>
+      <button class="btn gris" type="button" id="btnCopiar" style="display:none">Copiar</button>
+      <button class="btn gris" type="button" id="btnImprimir" style="display:none">Imprimir</button>
+      <button class="btn gris" type="button" id="btnMandar" style="display:none">Mandar al Registro Civil</button>
+    </div>
+    <div class="fb" id="fbActa"></div>
+    <div class="acta" id="acta"></div>
+    <pre class="captura" id="captura"></pre>
+  </div>
+
+  <div class="regla">
+    <strong>Ahora, suéltala.</strong> Úsala sin explicarla, como si siempre hubiera existido. Testigo es quien la dice sin que se lo pidas; rogar no cuenta. Anota quién (nombre de pila o parentesco, nunca apellido), dónde y cuándo. Si después aparecen testigos, los firmas en la vitrina, en <a href="../../vitrina/palabras-recien-nacidas.html#firma-tus-testigos">Firma tus testigos</a>.
+  </div>
+
+  <footer>Semana 16 · ¿Quién decide qué palabras existen? · Este ejercicio es gimnasio: sin nota, sin registro. Nada de lo que escribas aquí se guarda al cerrar la página: tu acta solo vive si la copias, la imprimes o la mandas.</footer>
+</div>
+
+<button class="modo" id="btnModo">Aa proyector</button>
+
+<script>
+(function(){
+  var COSECHA = 'https://script.google.com/macros/s/AKfycbyowFaq0n-zK4TBagspKG0Roye0Lun0FHaB5gQTiZGisXG4A-9ehIWmamw_mWo3KeZmrw/exec';
+  function $(id){ return document.getElementById(id); }
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function dle(w){ return 'https://dle.rae.es/' + encodeURIComponent(w); }
+
+  /* ---------- el banco de piezas ----------
+     p: la pieza · s: qué significa · ej: una palabra que la usa · v: entrada del DLE para verificar */
+  var BANCO = {
+    gr: [
+      {p:'a-', s:'sin; privación o negación', ej:'amoral', v:'a-'},
+      {p:'anti-', s:'contra; opuesto', ej:'antídoto', v:'anti-'},
+      {p:'auto-', s:'propio, por uno mismo', ej:'autobiografía', v:'auto-'},
+      {p:'biblio-', s:'libro', ej:'biblioteca', v:'biblio-'},
+      {p:'bio-', s:'vida', ej:'biografía', v:'bio-'},
+      {p:'cardio-', s:'corazón', ej:'cardiología', v:'cardio-'},
+      {p:'crono-', s:'tiempo', ej:'cronómetro', v:'crono-'},
+      {p:'-cracia', s:'dominio o poder', ej:'democracia', v:'-cracia'},
+      {p:'eco-', s:'casa, ámbito vital; ecológico', ej:'ecosistema', v:'eco-'},
+      {p:'-filia', s:'afición, simpatía o tendencia', ej:'bibliofilia', v:'-filia'},
+      {p:'filo-', s:'amigo, amante de', ej:'anglófilo', v:'filo-'},
+      {p:'-fobia', s:'aversión o rechazo', ej:'xenofobia', v:'-fobia'},
+      {p:'foto-', s:'luz', ej:'fotografía', v:'foto-'},
+      {p:'fono-', s:'voz, sonido', ej:'micrófono', v:'fono-'},
+      {p:'geo-', s:'tierra', ej:'geografía', v:'geo-'},
+      {p:'-grafía', s:'descripción, escritura', ej:'biografía', v:'-grafía'},
+      {p:'helio-', s:'Sol', ej:'helioterapia', v:'helio-'},
+      {p:'hidro-', s:'agua', ej:'hidroavión', v:'hidro-'},
+      {p:'hiper-', s:'exceso, superioridad', ej:'hipertensión', v:'hiper-'},
+      {p:'hipno-', s:'sueño', ej:'hipnosis', v:'hipno-'},
+      {p:'-logía', s:'estudio, tratado', ej:'biología', v:'-logía'},
+      {p:'-manía', s:'inclinación excesiva; afición apasionada', ej:'melomanía', v:'-manía'},
+      {p:'micro-', s:'muy pequeño', ej:'microscopio', v:'micro-'},
+      {p:'mono-', s:'uno solo', ej:'monólogo', v:'mono-'},
+      {p:'neo-', s:'nuevo, reciente', ej:'neonato', v:'neo-'},
+      {p:'-algia', s:'dolor', ej:'neuralgia', v:'-algia'},
+      {p:'pan-', s:'todo', ej:'panamericano', v:'pan-'},
+      {p:'poli-', s:'muchos', ej:'polígono', v:'poli-'},
+      {p:'psico-', s:'alma, mente', ej:'psicología', v:'psico-'},
+      {p:'seudo-', s:'falso', ej:'seudónimo', v:'seudo-'},
+      {p:'-scopio', s:'instrumento para ver o examinar', ej:'telescopio', v:'-scopio'},
+      {p:'tele-', s:'a distancia', ej:'teléfono', v:'tele-'},
+      {p:'-terapia', s:'tratamiento, curación', ej:'fisioterapia', v:'-terapia'},
+      {p:'-trofo', s:'que se alimenta', ej:'autótrofo', v:'autótrofo'},
+      {p:'-tropo', s:'que se vuelve hacia (de trópos, vuelta)', ej:'heliotropo', v:'tropismo'},
+      {p:'xeno-', s:'extranjero, extraño', ej:'xenofobia', v:'xeno-'}
+    ],
+    lat: [
+      {p:'-cida', s:'que mata', ej:'insecticida', v:'-cida'},
+      {p:'-cola', s:'que cultiva o habita', ej:'terrícola', v:'-cola'},
+      {p:'-fero', s:'que lleva o produce', ej:'somnífero', v:'-fero'},
+      {p:'-forme', s:'en forma de', ej:'uniforme', v:'-forme'},
+      {p:'-íparo', s:'que pare', ej:'ovíparo', v:'ovíparo'},
+      {p:'-voro', s:'que come', ej:'carnívoro', v:'-voro'},
+      {p:'ambul-', s:'andar', ej:'sonámbulo', v:'sonámbulo'},
+      {p:'acu-', s:'agua', ej:'acuático', v:'acuático'},
+      {p:'cord-', s:'corazón', ej:'cordial', v:'cordial'},
+      {p:'extra-', s:'fuera de', ej:'extraterrestre', v:'extra-'},
+      {p:'inter-', s:'entre', ej:'internacional', v:'inter-'},
+      {p:'lud-', s:'juego', ej:'lúdico', v:'lúdico'},
+      {p:'lumin-', s:'luz', ej:'luminoso', v:'luminoso'},
+      {p:'multi-', s:'muchos', ej:'multicolor', v:'multi-'},
+      {p:'nat-', s:'nacido', ej:'natal', v:'natal'},
+      {p:'noct-', s:'noche', ej:'noctámbulo', v:'noctámbulo'},
+      {p:'omni-', s:'todo', ej:'omnívoro', v:'omni-'},
+      {p:'pos-', s:'después, detrás', ej:'posguerra', v:'pos-'},
+      {p:'pre-', s:'antes', ej:'prehistoria', v:'pre-'},
+      {p:'re-', s:'otra vez', ej:'releer', v:'re-'},
+      {p:'semi-', s:'medio, casi', ej:'semicírculo', v:'semi-'},
+      {p:'somn-', s:'sueño', ej:'somnífero', v:'somnífero'},
+      {p:'sub-', s:'debajo', ej:'subterráneo', v:'sub-'},
+      {p:'super-', s:'encima; en exceso', ej:'superhéroe', v:'super-'},
+      {p:'tempor-', s:'tiempo', ej:'temporal', v:'temporal'},
+      {p:'trans-', s:'a través de, al otro lado de', ej:'transporte', v:'trans-'},
+      {p:'verb-', s:'palabra', ej:'verbal', v:'verbal'},
+      {p:'vis-', s:'ver', ej:'visión', v:'visión'},
+      {p:'voc-', s:'voz', ej:'vocal', v:'vocal'},
+      {p:'mov-', s:'mover', ej:'móvil', v:'móvil'}
+    ]
+  };
+
+  var IDEAS = [
+    {t:'la angustia de esperar el aventón que no llega'},
+    {t:'el olor del cerro cuando por fin llueve', aviso:'Ese hueco ya tiene nombre desde 1964: <b>petricor</b>, que la RAE tenía en estudio. Ya aprendiste una palabra. Elige otro hueco, o defiende en tu mesa por qué la tuya nombra otra cosa.'},
+    {t:'el miedo a que se acabe la pila del celular', aviso:'En la calle ya circula una: <b>nomofobia</b>, acuñada en inglés en 2008 (<i>no mobile phone phobia</i>). ¿La tuya nombra otra cosa? Si sí, adelante.'},
+    {t:'las ganas de quitarte los zapatos al llegar a casa'},
+    {t:'leer el final de un libro antes que el principio'},
+    {t:'el silencio del salón cuando nadie quiere contestar'},
+    {t:'el gusto de oler un libro nuevo'}
+  ];
+
+  var mesa = [];          // piezas elegidas: {p, s, o, v, ok}
+  var origenActivo = 'gr';
+
+  /* ---------- 1 · ideas ---------- */
+  IDEAS.forEach(function(idea){
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip'; b.textContent = idea.t;
+    b.addEventListener('click', function(){
+      $('hueco').value = idea.t;
+      Array.prototype.forEach.call($('ideas').children, function(c){ c.classList.remove('sel'); });
+      b.classList.add('sel');
+      var fb = $('fbIdea');
+      if (idea.aviso){ fb.className = 'fb no'; fb.innerHTML = idea.aviso; }
+      else { fb.className = 'fb'; fb.innerHTML = ''; }
+    });
+    $('ideas').appendChild(b);
+  });
+
+  /* ---------- 2 · ¿ya existe? ---------- */
+  $('btnBuscar').addEventListener('click', function(){
+    var w = $('sospecha').value.trim();
+    window.open(w ? dle(w) : 'https://dle.rae.es/', '_blank', 'noopener');
+  });
+  var existe = '';
+  Array.prototype.forEach.call($('existe').querySelectorAll('button'), function(b){
+    b.addEventListener('click', function(){
+      Array.prototype.forEach.call($('existe').querySelectorAll('button'), function(x){ x.classList.remove('sel'); });
+      b.classList.add('sel'); existe = b.getAttribute('data-v');
+      var fb = $('fbExiste');
+      if (existe === 'si'){ fb.className = 'fb ok'; fb.innerHTML = '¡Ya aprendiste una palabra! Puedes elegir otro hueco, o seguir y defender en tu mesa por qué la tuya nombra otra cosa.'; }
+      else { fb.className = 'fb ok'; fb.innerHTML = 'Entonces el hueco es tuyo. A buscar piezas.'; }
+    });
+  });
+
+  /* ---------- 3 · el banco ---------- */
+  function pintaBanco(){
+    var caja = $('banco'), f = $('filtro').value.trim().toLowerCase();
+    caja.innerHTML = '';
+    $('cajaEs').style.display = origenActivo === 'es' ? 'block' : 'none';
+    caja.style.display = origenActivo === 'es' ? 'none' : 'flex';
+    $('filtro').style.display = origenActivo === 'es' ? 'none' : 'block';
+    if (origenActivo === 'es') return;
+    BANCO[origenActivo].forEach(function(x){
+      if (f && (x.p + ' ' + x.s + ' ' + x.ej).toLowerCase().indexOf(f) === -1) return;
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'pieza';
+      b.innerHTML = '<b>' + esc(x.p) + '</b> ' + esc(x.s) + '<small>como en ' + esc(x.ej) + '</small>';
+      b.addEventListener('click', function(){ agrega({p:x.p, s:x.s, o:origenActivo, v:x.v, ok:false}); });
+      caja.appendChild(b);
+    });
+    if (!caja.children.length){ caja.innerHTML = '<span class="vacia" style="color:#777;font-style:italic">Nada con eso. Prueba con otra palabra.</span>'; }
+  }
+  Array.prototype.forEach.call($('tabs').querySelectorAll('.tab'), function(t){
+    t.addEventListener('click', function(){
+      Array.prototype.forEach.call($('tabs').querySelectorAll('.tab'), function(x){ x.classList.remove('on'); });
+      t.classList.add('on'); origenActivo = t.getAttribute('data-o'); pintaBanco();
+    });
+  });
+  $('filtro').addEventListener('input', pintaBanco);
+  $('btnEs').addEventListener('click', function(){
+    var p = $('esP').value.trim(), s = $('esS').value.trim();
+    if (!p){ $('esP').focus(); return; }
+    agrega({p:p, s:s || '(escribe qué significa)', o:'es', v:p, ok:false});
+    $('esP').value = ''; $('esS').value = '';
+  });
+
+  function agrega(x){ mesa.push(x); pintaMesa(); }
+  function pintaMesa(){
+    var caja = $('mesa');
+    caja.innerHTML = '';
+    if (!mesa.length){ caja.innerHTML = '<div class="vacia">Todavía no hay piezas en tu mesa.</div>'; armar(); return; }
+    mesa.forEach(function(x, i){
+      var d = document.createElement('div'); d.className = 'fila';
+      var etiqueta = x.o === 'gr' ? 'griego' : (x.o === 'lat' ? 'latín' : 'español');
+      d.innerHTML = '<span class="origen ' + x.o + '">' + etiqueta + '</span>' +
+        '<div class="p"><b>' + esc(x.p) + '</b><small>' + esc(x.s) + '</small></div>' +
+        '<div class="acc"><button type="button" data-a="sube" title="subir">↑</button><button type="button" data-a="baja" title="bajar">↓</button><button type="button" data-a="quita" title="quitar">×</button></div>' +
+        '<div class="ver"><a href="' + dle(x.v) + '" target="_blank" rel="noopener">Verificar en el DLE ↗</a>' +
+        '<label style="margin:0;text-transform:none;letter-spacing:0;font-size:.85rem;display:flex;gap:.35rem;align-items:center"><input type="checkbox"' + (x.ok ? ' checked' : '') + '> La verifiqué</label></div>';
+      d.querySelector('[data-a=sube]').addEventListener('click', function(){ if (i > 0){ var t = mesa[i-1]; mesa[i-1] = mesa[i]; mesa[i] = t; pintaMesa(); } });
+      d.querySelector('[data-a=baja]').addEventListener('click', function(){ if (i < mesa.length - 1){ var t = mesa[i+1]; mesa[i+1] = mesa[i]; mesa[i] = t; pintaMesa(); } });
+      d.querySelector('[data-a=quita]').addEventListener('click', function(){ mesa.splice(i, 1); pintaMesa(); });
+      d.querySelector('input[type=checkbox]').addEventListener('change', function(e){ x.ok = e.target.checked; });
+      caja.appendChild(d);
+    });
+    armar();
+  }
+
+  /* ---------- 4 · pegar ---------- */
+  function limpia(p){ return p.replace(/^-+|-+$/g, ''); }
+  function armar(){
+    var a = mesa.map(function(x){ return limpia(x.p); }).join('');
+    $('armada').textContent = a || '…';
+    var origenes = {};
+    mesa.forEach(function(x){ origenes[x.o] = true; });
+    var fb = $('fbMezcla'), n = Object.keys(origenes).length;
+    if (mesa.length >= 2 && n > 1){
+      var nombres = Object.keys(origenes).map(function(o){ return o === 'gr' ? 'griego' : (o === 'lat' ? 'latín' : 'español'); });
+      fb.className = 'fb no';
+      fb.innerHTML = 'Tu palabra mezcla ' + nombres.join(' con ') + '. Se vale, como en <i>televisión</i> y <i>neonato</i>, si lo hiciste a propósito. Prepárate: en tu mesa te van a preguntar por qué.';
+    } else if (mesa.length >= 2){
+      fb.className = 'fb ok'; fb.innerHTML = 'Todas tus piezas vienen de la misma lengua. Si te preguntan por qué, ya tienes media respuesta.';
+    } else { fb.className = 'fb'; fb.innerHTML = ''; }
+  }
+
+  /* ---------- 6 · apuesta ---------- */
+  var apuesta = '';
+  Array.prototype.forEach.call($('apuesta').querySelectorAll('button'), function(b){
+    b.addEventListener('click', function(){
+      Array.prototype.forEach.call($('apuesta').querySelectorAll('button'), function(x){ x.classList.remove('sel'); });
+      b.classList.add('sel'); apuesta = b.textContent;
+    });
+  });
+
+  /* ---------- 7 · el acta ---------- */
+  var DIAS = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+  var MESES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  function hoy(){ var d = new Date(); return DIAS[d.getDay()] + ' ' + d.getDate() + ' de ' + MESES[d.getMonth()] + ' de ' + d.getFullYear(); }
+  function piezasTexto(){
+    return mesa.map(function(x){
+      var et = x.o === 'gr' ? 'griego' : (x.o === 'lat' ? 'latín' : 'español');
+      return x.p + ' (' + et + ': ' + x.s + ')';
+    }).join(' + ');
+  }
+  var datos = null;
+
+  $('btnActa').addEventListener('click', function(){
+    var faltan = [];
+    var hueco = $('hueco').value.trim(), palabra = $('palabra').value.trim();
+    var cat = $('cat').value, def = $('def').value.trim(), ej = $('ej').value.trim(), nombre = $('nombre').value.trim();
+    if (!hueco) faltan.push('el hueco');
+    if (mesa.length < 2) faltan.push('al menos dos piezas');
+    if (mesa.some(function(x){ return !x.ok; })) faltan.push('verificar todas tus piezas en el DLE');
+    if (!palabra) faltan.push('tu palabra ya ajustada');
+    if (!cat) faltan.push('qué clase de palabra es');
+    if (!def) faltan.push('su definición');
+    if (!ej) faltan.push('un ejemplo');
+    if (!apuesta) faltan.push('tu apuesta de testigos');
+    if (!nombre) faltan.push('tu nombre de pila');
+    var fb = $('fbActa');
+    if (faltan.length){ fb.className = 'fb no'; fb.textContent = 'A tu acta le falta: ' + faltan.join(', ') + '.'; return; }
+    if (def.toLowerCase().indexOf(palabra.toLowerCase()) > -1){
+      fb.className = 'fb no'; fb.textContent = 'Tu definición usa la palabra que define. Dila sin ella: esa es la regla de oro.'; return;
+    }
+    var lugar = $('lugar').value.trim();
+    datos = { palabra: palabra, hueco: hueco, piezas: piezasTexto(), cat: cat, def: def, ej: ej, apuesta: apuesta, lugar: lugar, nombre: nombre, fecha: hoy() };
+    var html = '<div class="sello">Registro<br>Civil de las<br>palabras</div>' +
+      '<div class="enc"><div class="k">Registro Civil de las palabras · Etimologías UAQ Campus Concá</div><div class="h">Acta de nacimiento</div></div>' +
+      '<div class="palabra">' + esc(palabra) + '</div><dl>' +
+      '<dt>Nació</dt><dd>' + esc(datos.fecha) + (lugar ? ', ' + esc(lugar) : '') + '</dd>' +
+      '<dt>Hueco que llena</dt><dd>' + esc(hueco) + '</dd>' +
+      '<dt>Sus piezas</dt><dd>' + esc(datos.piezas) + '</dd>' +
+      '<dt>Definición</dt><dd><i>' + esc(cat) + '</i> ' + esc(def) + '</dd>' +
+      '<dt>Ejemplo</dt><dd>' + esc(ej) + '</dd>' +
+      '<dt>Partera o partero</dt><dd>' + esc(nombre) + '</dd>' +
+      '<dt>Apuesta</dt><dd>' + esc(apuesta) + ' testigo' + (apuesta === '1' ? '' : 's') + ' para el viernes</dd></dl>' +
+      '<div class="testigos"><b style="color:var(--ciruela);font-size:.8rem;text-transform:uppercase;letter-spacing:.04em">Testigos: quién, dónde y cuándo</b>' +
+      '<div class="renglon">1.</div><div class="renglon">2.</div><div class="renglon">3.</div><div class="renglon">4.</div><div class="renglon">5.</div></div>';
+    $('acta').innerHTML = html; $('acta').style.display = 'block';
+    $('captura').textContent =
+      'ACTA DE NACIMIENTO · Registro Civil de las palabras\n' +
+      'PALABRA: ' + palabra + '\n' +
+      'NACIÓ: ' + datos.fecha + (lugar ? ', ' + lugar : '') + '\n' +
+      'HUECO QUE LLENA: ' + hueco + '\n' +
+      'SUS PIEZAS: ' + datos.piezas + '\n' +
+      'DEFINICIÓN: ' + cat + ' ' + def + '\n' +
+      'EJEMPLO: ' + ej + '\n' +
+      'PARTERA O PARTERO: ' + nombre + '\n' +
+      'APUESTA: ' + apuesta + ' testigos\n' +
+      'TESTIGOS: (por firmar)';
+    $('btnCopiar').style.display = 'inline-block';
+    $('btnImprimir').style.display = 'inline-block';
+    $('btnMandar').style.display = 'inline-block';
+    fb.className = 'fb ok';
+    fb.textContent = 'Acta lista. Cópiala y mándatela por WhatsApp, o mándala de una vez al Registro Civil. Y suéltala: ya puede tener testigos.';
+  });
+
+  $('btnCopiar').addEventListener('click', function(){
+    var pre = $('captura'), t = pre.textContent, fb = $('fbActa');
+    function listo(){ fb.className = 'fb ok'; fb.textContent = 'Copiada. Pégala donde la vayas a conservar.'; }
+    function seleccionar(){
+      pre.style.display = 'block';
+      var r = document.createRange(); r.selectNodeContents(pre);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      fb.className = 'fb ok'; fb.textContent = 'Texto seleccionado: usa Ctrl+C (o mantén presionado y copia).';
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(listo, seleccionar); }
+    else { seleccionar(); }
+  });
+  $('btnImprimir').addEventListener('click', function(){ window.print(); });
+
+  function manda(campos, ok, mal){
+    var marco = document.createElement('iframe');
+    marco.name = 'envio-acta-' + Date.now(); marco.style.display = 'none';
+    document.body.appendChild(marco);
+    var f = document.createElement('form');
+    f.method = 'POST'; f.action = COSECHA; f.target = marco.name; f.style.display = 'none';
+    Object.keys(campos).forEach(function(k){
+      var i = document.createElement('input'); i.type = 'hidden'; i.name = k; i.value = campos[k] == null ? '' : campos[k]; f.appendChild(i);
+    });
+    document.body.appendChild(f);
+    var listo = false;
+    function acabo(bien){ if (listo) return; listo = true; (bien ? ok : mal)(); setTimeout(function(){ try { f.remove(); marco.remove(); } catch(e){} }, 1500); }
+    marco.addEventListener('load', function(){ acabo(true); });
+    marco.addEventListener('error', function(){ acabo(false); });
+    setTimeout(function(){ acabo(false); }, 12000);
+    f.submit();
+  }
+
+  $('btnMandar').addEventListener('click', function(){
+    if (!datos) return;
+    var b = this, fb = $('fbActa');
+    b.disabled = true; b.textContent = 'Mandando…';
+    manda({
+      tipo: 'neologismo', nombre: datos.nombre, palabra: datos.palabra,
+      origen: datos.piezas,
+      significado: datos.cat + ' ' + datos.def,
+      ejemplo: datos.ej,
+      nota: 'Hueco: ' + datos.hueco + ' · Apuesta: ' + datos.apuesta + ' testigos' + (datos.lugar ? ' · Nació en: ' + datos.lugar : ''),
+      quien: ''
+    }, function(){
+      b.textContent = 'Mandada';
+      fb.className = 'fb ok'; fb.textContent = 'Tu acta llegó al Registro Civil. El profesor la revisa y la publica en la vitrina, con tu nombre de pila.';
+    }, function(){
+      b.disabled = false; b.textContent = 'Mandar al Registro Civil';
+      fb.className = 'fb no'; fb.textContent = 'No se pudo mandar. Revisa tu conexión y vuelve a intentarlo, o mándala el jueves desde la vitrina, en el centro de cómputo.';
+    });
+  });
+
+  $('btnModo').addEventListener('click', function(){
+    document.body.classList.toggle('proyector');
+    this.textContent = document.body.classList.contains('proyector') ? 'Aa normal' : 'Aa proyector';
+  });
+
+  pintaBanco();
+})();
+</script>
+</body>
+</html>

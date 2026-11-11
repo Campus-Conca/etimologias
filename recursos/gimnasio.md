@@ -137,10 +137,13 @@ Y el proyectable de la semana 12: [Del latín a las lenguas francas](../ejercici
 
 **Semana 16 · Quién decide qué palabras existen**
 
-- [La fábrica de palabras](../ejercicios/semana-16/ejercicio-16A-la-fabrica-de-palabras.html) · martes
-- [Entrenador socrático](../ejercicios/semana-16/ejercicio-16B-entrenador-socratico.html) · miércoles
-- [Releer septiembre](../ejercicios/semana-16/ejercicio-16D-releer-septiembre.html) · viernes
+- [El acta de nacimiento](../ejercicios/semana-16/ejercicio-16A-acta-de-nacimiento.html) · martes: bautiza algo que no tiene nombre con piezas verificadas en el DLE
+- [La Academia sesiona](../ejercicios/semana-16/ejercicio-16B-la-academia-sesiona.html) · miércoles y jueves, centro de cómputo: dictámenes por comisión
+- [Entrenador socrático](../ejercicios/semana-16/ejercicio-16C-entrenador-socratico.html) · antes de tu mesa, solo o en pareja
 - [Quiz de gimnasio](../ejercicios/semana-16/quiz-gimnasio-semana-16.html) · ensayo libre
+- [El integrador de la Unidad 3, bloque por bloque](../ejercicios/semana-16/quiz-integrador-u3-semana-16.html) · viernes, tal como se proyecta: diez reactivos en cuatro bloques, cronómetro, respuestas y hoja imprimible
+
+Y el proyectable de la semana 16: [¿Quién decide qué palabras existen?](../ejercicios/semana-16/quien-decide-que-palabras-existen.html)
 
 **Semana 17 · El Museo de Palabras**
 

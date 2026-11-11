@@ -8,7 +8,7 @@ nav_order: 18
 
 > **La pregunta de la semana:** ¿qué palabras te llevas?
 
-<div id="wk-gate" data-abre="2026-11-16"></div>
+<div id="wk-gate" data-abre="2026-11-23"></div>
 
 **Esta semana podrás:** montar tu sala del Museo (12 a 15 palabras que te conmovieron) y defenderla en 8 a 10 minutos.
 
