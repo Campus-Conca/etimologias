@@ -7,19 +7,19 @@ nav_order: 7
 
 <span class="viva">Nuevo</span>
 
-Escribiste una historia. Ahora la vas a convertir en historieta: la dibujas con Gemini, viñeta por viñeta, y armas sus páginas como las de un cómic de verdad. No necesitas saber dibujar. Necesitas saber contar y saber pedir.
+Escribiste una historia. Ahora la vas a convertir en historieta: la dibujas con Gemini u otra IA, viñeta por viñeta, con tus globos y todo, y armas sus páginas como las de un cómic de verdad. No necesitas saber dibujar. Necesitas saber contar y saber pedir.
 
 ## Cómo funciona
 
 1. **Sube tu historia** y el estilo de dibujo que te gusta.
-2. Tu profe genera los guiones **en clase**, cuando todo el grupo haya subido su historia. En más o menos una hora tienes tu **guion para Gemini**: cada viñeta con su prompt listo para copiar.
-3. **Dibuja con Gemini**, página por página, en el centro de cómputo: Gemini en una pestaña y tu mesa en otra.
-4. **Maquetar**: en tu mesa de dibujo pones cada imagen en su marco y acomodas los globos, que ya traen tu texto en español.
+2. Tu profe genera los guiones **en clase**, cuando todo el grupo haya subido su historia. En más o menos una hora tienes tu **guion**: cada viñeta con un prompt completo, listo para copiar.
+3. **Dibuja con la IA**, viñeta por viñeta, en el centro de cómputo: la IA en una pestaña y tu mesa en otra. Cada prompt trae el estilo, los personajes, la escena y tus textos, así que la IA te entrega la viñeta terminada, con sus globos. Sirve Gemini, ChatGPT o la que te indique tu profe.
+4. **Maquetar**: en tu mesa de dibujo pones cada imagen en su marco.
 5. **Entrega** el PDF desde la misma mesa.
 
 Tu avance se guarda solo con tu código: si cambias de computadora, lo escribes y sigues donde te quedaste.
 
-Antes de dibujar, lee el instructivo: ahí está el vocabulario del cómic (viñeta, calle, globo, cartela, plano) con sus dibujos, y qué hacer cuando Gemini no te hace caso. Si lo prefieres impreso, está en [PDF](instructivo.pdf).
+Antes de dibujar, lee el instructivo: ahí está el vocabulario del cómic (viñeta, calle, globo, cartela, plano) con sus dibujos, y qué hacer cuando la IA no te hace caso o escribe mal tus textos. Si lo prefieres impreso, está en [PDF](instructivo.pdf).
 
 <div class="pl-grid">
 
@@ -33,14 +33,14 @@ Antes de dibujar, lee el instructivo: ahí está el vocabulario del cómic (viñ
   <a class="pl-card" href="mesa.html">
     <span class="pl-tag">pasos 2 a 5</span>
     <b>La mesa de dibujo</b>
-    <span class="pl-desc">Con tu código: el guion con los prompts para Gemini, el lugar para armar las páginas y el botón para entregar.</span>
+    <span class="pl-desc">Con tu código: el guion con un prompt completo por viñeta, el lugar para armar las páginas y el botón para entregar.</span>
     <span class="pl-cta">Abrir mi mesa →</span>
   </a>
 
   <a class="pl-card" href="instructivo.html">
     <span class="pl-tag">léelo antes</span>
     <b>El instructivo</b>
-    <span class="pl-desc">Paso a paso, con dibujos: el vocabulario del cómic, cómo pedirle a Gemini, cómo revisar cada imagen y cómo maquetar.</span>
+    <span class="pl-desc">Paso a paso, con dibujos: el vocabulario del cómic, cómo pedirle a la IA, cómo revisar cada imagen y cómo maquetar.</span>
     <span class="pl-cta">Leer el instructivo →</span>
   </a>
 

@@ -77,7 +77,7 @@ textarea.historia{min-height:14rem;line-height:1.5}
   <section class="tarjeta">
     <p class="paso">Historietas</p>
     <h1>Sube tu historia</h1>
-    <p>Mándanos la historia que escribiste y el estilo de dibujo que te gusta. Con eso te preparamos un <b>guion para Gemini</b>, viñeta por viñeta, y tu <b>mesa de dibujo</b> para armar las páginas. Tu profe genera los guiones en clase, cuando todo el grupo haya subido su historia.</p>
+    <p>Mándanos la historia que escribiste y el estilo de dibujo que te gusta. Con eso te preparamos un <b>guion</b> con un prompt por viñeta, para que Gemini u otra IA dibuje cada una completa, con tus globos, y tu <b>mesa de dibujo</b> para armar las páginas. Tu profe genera los guiones en clase, cuando todo el grupo haya subido su historia.</p>
     <p class="mini">Antes de empezar, lee el <a href="instructivo.html">instructivo</a>. Si quieres ver cómo queda un guion, abre el <a href="mesa.html?demo">ejemplo</a>.</p>
     <p class="nota" id="sin-api" hidden>La recepción de historias todavía no está abierta: el profe la abre pronto. Puedes llenar todo; se guarda en este teléfono.</p>
     <div class="botones" id="caja-ejemplo" hidden><button type="button" class="boton chico sec" id="b-ejemplo">Llenar con el ejemplo</button></div>
@@ -104,7 +104,7 @@ textarea.historia{min-height:14rem;line-height:1.5}
 
   <section class="tarjeta">
     <p class="paso">3 · Tus personajes</p>
-    <p>Para que Gemini los dibuje igual en cada viñeta necesitamos saber cómo son. Di su edad, cuerpo, pelo, ropa con colores y algo que los distinga (un sombrero, unos lentes, una cicatriz).</p>
+    <p>Para que la IA los dibuje igual en cada viñeta necesitamos saber cómo son. Di su edad, cuerpo, pelo, ropa con colores y algo que los distinga (un sombrero, unos lentes, una cicatriz).</p>
     <div id="personajes"></div>
     <button type="button" class="boton chico sec" id="b-pj">+ Otro personaje</button>
     <p class="mini">Hasta cuatro. Los que salen una sola vez no hace falta describirlos.</p>
@@ -134,7 +134,7 @@ textarea.historia{min-height:14rem;line-height:1.5}
       <label><input type="radio" name="paginas" value="2" checked><span><b>2 páginas y portada</b><br><span class="mini">De 6 a 10 viñetas. Para casi cualquier historia. Dos o tres sentadas.</span></span></label>
       <label><input type="radio" name="paginas" value="3"><span><b>3 páginas y portada</b><br><span class="mini">De 9 a 14 viñetas. Para historias con varios momentos. Tres o cuatro sentadas.</span></span></label>
     </div>
-    <p class="mini">Cada viñeta es una imagen que pides a Gemini, y Gemini tiene un límite que se recarga cada cinco horas.</p>
+    <p class="mini">Cada viñeta es una imagen que pides a la IA, y la IA tiene un límite de imágenes que se recarga cada tantas horas.</p>
   </section>
 
   <section class="tarjeta">
@@ -296,7 +296,7 @@ $('#forma').addEventListener('submit', async function(ev){
   ev.preventDefault();
   var d = leerForma(), err = validar(d), btn = $('#b-enviar');
   $('#error').textContent = err; if (err) return;
-  if (!d.personajes.length && !confirm('No describiste a ningún personaje. Gemini los va a inventar distinto en cada viñeta. ¿Enviar así?')) return;
+  if (!d.personajes.length && !confirm('No describiste a ningún personaje. La IA los va a inventar distinto en cada viñeta. ¿Enviar así?')) return;
   var cuerpo = { accion:'subir', codigo:codigoNuevo(), nombre:d.nombre, titulo:d.titulo, historia:d.historia,
     fotos_historia: fotosHistoria.map(function(f){ return { nombre:f.nombre, tipo:f.tipo, datos:f.datos }; }),
     personajes:d.personajes, lugar:d.lugar, estilo_texto:d.estilo_texto, estilo_opciones:d.estilos,
