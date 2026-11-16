@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diez huecos que alguien ya bautizó · Semana 16 · proyectable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ciruela:#2B2440; --morado:#6B1E5A; --rosa:#C4006A; --rosa-suave:#FFD6E9; --rosa-luz:#F4A8CE;
+    --jade:#0B5F52; --jade-suave:#DFF5EE; --dorado:#B07B12; --ambar:#FBF0D9; --tinta:#221A3A; --gris:#4A3F5C;
+    --borde:#E6DFF0; --fondo:#F4EFF9; --rojo:#A3312B; --rojo-suave:#FDECEC;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  html,body{height:100%}
+  body{font-family:"Inter",system-ui,sans-serif; background:var(--fondo); color:var(--tinta); overflow:hidden}
+  .disp{font-family:"Bricolage Grotesque","Inter",sans-serif; font-weight:800; letter-spacing:-.015em}
+  .slide{position:absolute; inset:0; display:none; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:4vmin 6vmin 12vmin; gap:2vmin}
+  .slide.activa{display:flex}
+  .slide--oscura{background:var(--ciruela); color:#F4EFF9}
+  .slide--ambar{background:#FBF7E9}
+  .kicker{font-size:2vmin; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--rosa)}
+  .slide--oscura .kicker{color:var(--rosa-luz)}
+  h1{font-size:7vmin; line-height:1.08; max-width:85vw}
+  h2{font-size:5vmin; line-height:1.15; max-width:88vw}
+  .sub{font-size:2.8vmin; color:var(--gris); max-width:74vw; line-height:1.5}
+  .slide--oscura .sub{color:#D9CFE8}
+  .tecla{font-size:1.9vmin; color:var(--gris); opacity:.75}
+  .slide--oscura .tecla{color:#D9CFE8}
+
+  /* La lámina de cada locución: el dibujo a la izquierda, la locución a la derecha */
+  .par{display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); gap:4vmin; align-items:center; width:min(94vw,170vmin)}
+  .par .dib{background:#fffdf8; border:1px solid var(--borde); border-radius:2vmin; overflow:hidden; box-shadow:0 1vmin 3vmin rgba(43,36,64,.08)}
+  .par .lado{text-align:left; display:flex; flex-direction:column; gap:1.6vmin}
+  .loc{font-family:"Bricolage Grotesque","Inter",sans-serif; font-weight:800; font-style:italic; font-size:7.5vmin; line-height:1; color:var(--rosa); letter-spacing:-.02em}
+  .lit{font-size:2.6vmin; color:var(--gris)}
+  .lit b{color:var(--tinta)}
+  .apuesta{font-size:3vmin; font-weight:700; color:var(--morado)}
+  .sig{font-size:3.4vmin; line-height:1.35; color:var(--tinta); font-weight:600}
+  .ej{font-size:2.5vmin; line-height:1.45; color:var(--gris); border-left:.6vmin solid var(--rosa-luz); padding-left:1.6vmin}
+  .ojo{font-size:2.3vmin; line-height:1.45; color:var(--rojo); background:var(--rojo-suave); border-radius:1.2vmin; padding:1.1vmin 1.6vmin}
+  .ojo b{text-transform:uppercase; letter-spacing:.08em; font-size:1.8vmin}
+  .rev{display:none}
+  .slide.revelada .rev{display:block}
+  .slide.revelada .tapa{display:none}
+  .btn-rev{align-self:flex-start; font-family:inherit; font-weight:700; font-size:2.3vmin; border:none; cursor:pointer; border-radius:3vmin; padding:1.2vmin 3vmin; background:var(--rosa); color:#fff}
+
+  /* Las láminas de idea (la definición y la preposición) */
+  .idea{display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:4vmin; align-items:center; width:min(94vw,170vmin); text-align:left}
+  .idea .dib{background:#fffdf8; border:1px solid var(--borde); border-radius:2vmin; overflow:hidden}
+  .idea h2{margin-bottom:1.4vmin}
+  .idea p{font-size:2.7vmin; line-height:1.5; color:var(--gris); margin-top:1.2vmin}
+  .reglas{display:flex; flex-direction:column; gap:1.2vmin; margin-top:1.6vmin}
+  .reglas div{background:#fff; border-left:.7vmin solid var(--rosa); border-radius:0 1.2vmin 1.2vmin 0; padding:1.2vmin 1.8vmin; font-size:2.3vmin; line-height:1.4}
+  .reglas em{color:var(--rosa); font-weight:700}
+
+  .grupo-lista{display:flex; flex-wrap:wrap; gap:1.6vmin; justify-content:center; max-width:80vw}
+  .grupo-lista span{font-family:"Bricolage Grotesque","Inter",sans-serif; font-weight:800; font-style:italic; font-size:3.6vmin; background:#fff; border:1px solid var(--borde); border-radius:2vmin; padding:1.2vmin 2.6vmin; color:var(--morado)}
+  .nota-pie{font-size:1.8vmin; color:#D9CFE8; opacity:.85; max-width:80vw; line-height:1.5}
+  .nota-pie a{color:var(--rosa-luz)}
+
+  #controles{position:fixed; bottom:2.5vmin; left:0; right:0; display:flex; justify-content:center; gap:2vmin; z-index:10}
+  #controles button{font-family:inherit; font-weight:700; font-size:2.4vmin; border:none; cursor:pointer; border-radius:3vmin; padding:1.2vmin 3vmin; background:var(--rosa-suave); color:var(--morado)}
+  #controles button:hover{background:#fff}
+  #cuenta{position:fixed; bottom:3vmin; right:3vmin; font-size:2vmin; color:var(--gris); z-index:10}
+  .conductor{position:fixed; left:2.5vmin; bottom:9vmin; max-width:34vw; background:var(--ambar); border:1px dashed #C79A2E; border-radius:1.2vmin; padding:1.2vmin 1.6vmin; font-size:1.8vmin; line-height:1.45; color:#5C4A1C; text-align:left; display:none; z-index:11}
+  .conductor::before{content:"Nota del conductor"; display:block; font-size:1.4vmin; letter-spacing:.11em; text-transform:uppercase; font-weight:700; margin-bottom:.4vmin}
+  body.con-notas .slide.activa .conductor{display:block}
+
+  /* En el celular: una columna y con scroll */
+  @media (max-aspect-ratio: 1/1){
+    body{overflow:auto}
+    .slide{position:relative; min-height:100vh; padding:6vw 5vw 22vw; justify-content:flex-start}
+    .par,.idea{grid-template-columns:1fr; gap:4vw}
+    .loc{font-size:10vw} .lit,.ej,.ojo,.idea p,.reglas div{font-size:4vw} .sig{font-size:4.8vw} .apuesta{font-size:4.6vw}
+    .btn-rev,#controles button{font-size:4vw} .kicker{font-size:3.2vw} h1{font-size:9vw} h2{font-size:7vw} .sub{font-size:4.2vw}
+    .grupo-lista span{font-size:5vw} .tecla{display:none} #cuenta{font-size:3.4vw}
+  }
+
+  /* Semana 16: la ilustración o el texto a la izquierda, la palabra a la derecha */
+  .par .dib img{display:block; width:100%; height:auto}
+  .par .cita{background:#fff; border:1px solid var(--borde); border-left:1vmin solid var(--rosa); border-radius:2vmin; padding:4vmin 4.4vmin; font-size:3.3vmin; line-height:1.5; text-align:left; color:var(--tinta); box-shadow:0 1vmin 3vmin rgba(43,36,64,.08)}
+  .loc small{display:block; font-family:"Inter",sans-serif; font-style:normal; font-weight:600; font-size:2vmin; letter-spacing:0; color:var(--gris); margin-top:1vmin}
+  .hueco{font-family:"Bricolage Grotesque","Inter",sans-serif; font-weight:800; font-size:5.4vmin; line-height:1.1; color:var(--morado)}
+  .slide.revelada .hueco{display:none}
+  .fam{font-size:2.4vmin; line-height:1.45; color:var(--jade); background:var(--jade-suave); border-radius:1.2vmin; padding:1.1vmin 1.6vmin}
+  .fam b{text-transform:uppercase; letter-spacing:.08em; font-size:1.8vmin}
+  .nace{align-self:flex-start; font-size:1.7vmin; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--rosa); background:var(--rosa-suave); border-radius:3vmin; padding:.6vmin 1.8vmin}
+  .tres{display:flex; flex-direction:column; gap:1.4vmin; max-width:78vw; text-align:left}
+  .tres div{background:#fff; border-left:.7vmin solid var(--rosa); border-radius:0 1.2vmin 1.2vmin 0; padding:1.4vmin 2vmin; font-size:2.7vmin; line-height:1.4; color:var(--tinta)}
+  .tres em{color:var(--rosa); font-weight:700; font-style:normal}
+  @media (max-aspect-ratio: 1/1){
+    .par .cita{font-size:4.6vw; padding:5vw} .hueco{font-size:7vw} .fam,.tres div{font-size:4vw} .nace{font-size:3vw} .loc small{font-size:3.4vw}
+  }
+</style>
+</head>
+<body>
+
+<section class="slide slide--oscura activa">
+  <div class="kicker">Semana 16 · Quién decide qué palabras existen · proyectable</div>
+  <h1 class="disp">Diez huecos que alguien ya bautizó</h1>
+  <p class="sub">Un señor llamado John Koenig pasó doce años haciendo lo que tú vas a hacer hoy: buscar sentimientos sin nombre y ponerles uno. Primero el dibujo o el texto, luego tu apuesta, luego la palabra.</p>
+  <p class="tecla">Avanza con → o espacio · regresa con ← · R revela · N notas del conductor</p>
+  <div class="conductor">Martes, justo antes del acta de nacimiento. Diez palabras a un minuto cada una. En cada lámina muestra primero el dibujo o lee el texto en voz alta, pregunta qué hueco nombra y cómo lo bautizarían ellos; luego R. Nadie copia: todo está en la página de la semana, en «Diez huecos que alguien ya bautizó».</div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Antes de empezar</div>
+  <h2 class="disp">¿Qué es un hueco?</h2>
+  <p class="sub">Algo que sientes, que todos han sentido, y que el idioma todavía no sabe nombrar. Hasta que alguien lo bautiza.</p>
+  <div class="tres">
+    <div><em>Lo que hizo Koenig:</em> encontró el hueco, fue por piezas reales al griego, al latín y al francés, las pegó y escribió la definición.</div>
+    <div><em>Lo que no tiene:</em> acta. Ninguna de sus palabras está en el diccionario de la lengua española. Viven de que la gente las usa.</div>
+    <div><em>Tu apuesta en cada lámina:</em> antes de ver la palabra, di qué hueco es y cómo lo llamarías tú.</div>
+  </div>
+  <div class="conductor">Dos minutos. Liga con la lámina anterior del mazo: mezclar se vale. Koenig mezcla griego, latín, francés y hasta japonés, y lo hace a sabiendas. Su libro se llama The Dictionary of Obscure Sorrows, de 2021; empezó como un blog en 2009.</div>
+</section>
+
+<div id="fichas"></div>
+
+<section class="slide slide--oscura">
+  <div class="kicker">Diez huecos, diez nombres</div>
+  <h1 class="disp">Ahora, el tuyo</h1>
+  <p class="sub">Ninguna de estas palabras existía hasta que alguien se sentó a armarla. Busca algo de tu vida que no tenga nombre, del camión, del campus, del cerro o de tu casa, y levántale su acta.</p>
+  <p class="nota-pie" id="credito"></p>
+  <div class="conductor">Pasa directo a El acta de nacimiento. Si alguien dice «a mí me pasa una que no salió», ese es su hueco: que no lo suelte.</div>
+</section>
+
+<div id="controles">
+  <button type="button" id="atras">← Atrás</button>
+  <button type="button" id="sigue">Siguiente →</button>
+</div>
+<div id="cuenta">1 / 1</div>
+
+<script src="../../assets/js/palabras-sin-nombre-16.js"></script>
+<script>
+(function(){
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  var S=window.SIN16, h='';
+  function grupo(tipo,kicker,titulo,sub){
+    var mias=S.FICHAS.filter(function(f){return f.tipo===tipo;});
+    h+='<section class="slide slide--ambar"><div class="kicker">'+kicker+'</div><h2 class="disp">'+titulo+'</h2><p class="sub">'+sub+'</p></section>';
+    mias.forEach(function(f){
+      h+='<section class="slide"><div class="par">'
+        +(tipo==='img'?'<div class="dib">'+S.imagen(f)+'</div>':'<div class="cita">'+esc(f.texto)+'</div>')
+        +'<div class="lado">'
+        +'<div class="kicker">'+kicker+'</div>'
+        +'<div class="hueco">'+esc(f.pregunta)+'</div>'
+        +'<div class="tapa apuesta">¿Qué hueco nombra? ¿Cómo lo bautizarías tú?</div>'
+        +'<button class="btn-rev tapa" type="button">Revelar</button>'
+        +'<div class="rev"><div class="loc">'+esc(f.palabra)+'<small>se dice «'+esc(f.dice)+'»</small></div></div>'
+        +'<div class="rev"><p class="sig">'+esc(f.def)+'</p></div>'
+        +'<div class="rev"><p class="ej"><b>Piezas:</b> '+f.piezas+'</p></div>'
+        +'<div class="rev"><p class="fam"><b>En español ya tenías</b> · '+f.familia+'</p></div>'
+        +'<div class="rev"><span class="nace">'+esc(f.nace)+'</span></div>'
+        +'</div></div><div class="conductor">'+esc(f.nota)+'</div></section>';
+    });
+  }
+  grupo('img','Cinco con dibujo','Mira el dibujo antes de leer nada','Cinco ilustraciones sin una sola letra. Tu trabajo es decir qué está sintiendo quien aparece ahí.');
+  grupo('txt','Cinco con un texto corto','Ahora, sin dibujo','Cinco escenas de cuatro renglones. Escúchalas y di si te ha pasado.');
+  var hueco=document.getElementById('fichas');
+  hueco.insertAdjacentHTML('beforebegin',h);
+  hueco.parentNode.removeChild(hueco);
+  document.getElementById('credito').innerHTML=S.credito;
+
+  var slides=Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var i=0, cuenta=document.getElementById('cuenta');
+  function muestra(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach(function(s,k){s.classList.toggle('activa',k===i);});
+    cuenta.textContent=(i+1)+' / '+slides.length;
+    if(window.matchMedia('(max-aspect-ratio: 1/1)').matches)window.scrollTo(0,0);
+  }
+  function revela(){slides[i].classList.add('revelada');}
+  muestra(0);
+  document.getElementById('sigue').addEventListener('click',function(){muestra(i+1);});
+  document.getElementById('atras').addEventListener('click',function(){muestra(i-1);});
+  Array.prototype.forEach.call(document.querySelectorAll('.btn-rev'),function(b){b.addEventListener('click',revela);});
+  document.addEventListener('keydown',function(e){
+    if(e.repeat)return;
+    if(e.target&&e.target.tagName==='BUTTON'&&(e.key===' '||e.key==='Enter'))return;
+    var k=(e.key||'').toLowerCase();
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();muestra(i+1);}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();muestra(i-1);}
+    else if(k==='r'){revela();}
+    else if(k==='n'){document.body.classList.toggle('con-notas');}
+  });
+  document.addEventListener('click',function(e){var b=e.target&&e.target.closest?e.target.closest('button'):null;if(b)b.blur();});
+})();
+</script>
+</body>
+</html>

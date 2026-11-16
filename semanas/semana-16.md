@@ -30,7 +30,13 @@ El viernes 30 de octubre salió el diccionario nuevo: 99 990 artículos y cerca 
 | [Jueves 19](#jueves) · 1 h, centro de cómputo | La Academia en sesión | tu acta y tus testigos |
 | [Viernes 20](#viernes) · 2 h | El cierre | tu libro, tu bitácora y tu expediente al día |
 
-<p class="pista-mazos">Cada día es un mazo de láminas. En clase se proyectan una por una con el botón <strong>Presentar</strong>; aquí se quedan apiladas, en orden, para volver a ellas cuando quieras. Debajo de los mazos: las seis maneras de nacer, las reglas de tu palabra, cómo es la mesa socrática, tu tercer parcial, el gimnasio completo y la hoja de consulta para tocar.</p>
+<p class="pista-mazos">Cada día es un mazo de láminas. En clase se proyectan una por una con el botón <strong>Presentar</strong>; aquí se quedan apiladas, en orden, para volver a ellas cuando quieras. Debajo de los mazos: las seis maneras de nacer, diez huecos que alguien ya bautizó, las reglas de tu palabra, cómo es la mesa socrática, tu tercer parcial, el gimnasio completo y la hoja de consulta para tocar.</p>
+
+<script src="../assets/js/palabras-sin-nombre-16.js"></script>
+<style>
+.lam .img16-lam { display: block; max-width: 34rem; margin: .7rem auto 0; border: 1px solid #E6DFF0; border-radius: .7rem; overflow: hidden; background: #fffdf8; }
+.lam .img16-lam img { display: block; width: 100%; height: auto; }
+</style>
 
 <!-- ============================ MARTES ============================ -->
 <section class="mazo" id="martes">
@@ -99,6 +105,15 @@ El viernes 30 de octubre salió el diccionario nuevo: 99 990 artículos y cerca 
 <p class="apoyo">El DLE arma <em>neonato</em>, 'recién nacido', con el griego <em>neo-</em> y el latín <em>natus</em>. La palabra con que los hospitales nombran a los recién nacidos rompe la regla, y nadie la saca del idioma. No está sola: <em>televisión</em> junta el griego <em>tele-</em>, 'a distancia', con el latín <em>visión</em>; <em>automóvil</em>, el griego <em>auto-</em>, 'por uno mismo', con el latín <em>móvil</em>; <em>tiranosaurio</em>, el latín <em>tyrannus</em> con el griego <em>saûros</em>, 'lagarto'.</p>
 <p class="apoyo"><strong>Pregunta al aire:</strong> si la regla se rompe y la palabra vive, ¿quién tenía razón, la regla o la gente?</p>
 <p class="nota-conductor">No cierres la pregunta: vuelve el miércoles en la Academia y en las mesas. Dato para ti: según el DLE, televisión llegó del inglés television y neonato del latín científico neonatus; la mezcla la hizo gente que necesitaba nombrar un invento o un bebé, y el español la adoptó. Desde hoy, mezclar se vale en su palabra, siempre que lo hagan a sabiendas y lo puedan defender.</p>
+</section>
+<section class="lam">
+<h4>Diez huecos que alguien ya bautizó <span class="reloj">10 min</span></h4>
+<span class="senal senal--aire">Al aire</span>
+<p class="di">Mira a la muchacha de la mochila. ¿De qué se acaba de dar cuenta?</p>
+<div class="img16-lam" data-img16="sonder"></div>
+<p class="apoyo">Eso que sintió no tenía nombre hasta que John Koenig le puso uno: <em>sonder</em>, caer en la cuenta de que cada desconocido lleva una vida tan llena como la tuya. Koenig pasó doce años buscando sentimientos sin nombre y bautizándolos con piezas del griego, del latín y del francés. Hoy ves diez: cinco con un dibujo y cinco con un texto corto. En cada una apuestas primero qué hueco nombra y cómo lo llamarías tú. Ninguna tiene acta en el diccionario; viven de que la gente las usa.</p>
+<p class="recurso"><a href="../ejercicios/semana-16/diez-huecos-que-alguien-ya-bautizo.html" target="_blank" rel="noopener">Diez huecos que alguien ya bautizó</a><span class="pie">Diez palabras para lo que ya sentías: primero el dibujo o el texto, tu apuesta, y con la tecla R, la palabra con sus piezas.</span></p>
+<p class="nota-conductor">Va antes del gimnasio a propósito: primero ven diez huecos ya bautizados y luego buscan el suyo. Un minuto por palabra. En las de texto, lee tú en voz alta y deja tres segundos de silencio antes de preguntar. Si el tiempo aprieta, proyecta sonder, kenopsia, jouska y exulansis, y deja las demás para la página. No pidas que cuenten nada personal: basta con mano arriba de «a mí me ha pasado».</p>
 </section>
 <section class="lam lam--actividad">
 <h4><span class="n">6</span> Gimnasio: el acta de nacimiento <span class="reloj">20 min</span></h4>
@@ -330,6 +345,15 @@ El **minuto del lector** abre el martes y el **tercer círculo**, el del balance
 
 Una palabra puede nacer de dos maneras a la vez: *loguearse* es un préstamo del inglés (*log in*) al que se le pegó un sufijo español.
 
+### Diez huecos que alguien ya bautizó
+
+En 2009, John Koenig empezó a juntar sentimientos que todo el mundo conoce y que ningún idioma sabía nombrar, y a ponerles nombre con piezas reales: griego, latín, francés. Doce años después publicó su diccionario. Hizo exactamente lo que tú haces esta semana, y por eso sirve de modelo: mira cómo pega las piezas y cómo define en una sola frase. Aquí van diez que quizá ya sentiste: cinco explicadas con un dibujo y cinco con un texto corto. Ninguna tiene acta en el diccionario de la lengua española.
+
+<div data-galeria16></div>
+
+{: .reto }
+¿Cuál de las diez te ha pasado? Y la que importa: ¿qué sientes tú que no salió aquí? Ese es tu hueco. Llévalo a [El acta de nacimiento](../ejercicios/semana-16/ejercicio-16A-acta-de-nacimiento.html).
+
 ### Tu palabra recién nacida
 
 1. **Piezas reales.** Cada una verificada en el DLE: una pieza que no encuentras no existe, por bonita que suene.
@@ -369,6 +393,7 @@ Los ejercicios de esta semana, para tu celular o el centro de cómputo. Sin nota
 ### El proyectable de la semana
 
 - [¿Quién decide qué palabras existen?](../ejercicios/semana-16/quien-decide-que-palabras-existen.html) · martes: la noticia, el Registro Civil, seis maneras de nacer y la regla que la gente rompió. La tecla R revela las apuestas y la N muestra las notas del conductor.
+- [Diez huecos que alguien ya bautizó](../ejercicios/semana-16/diez-huecos-que-alguien-ya-bautizo.html) · martes, antes del acta: diez palabras inventadas para lo que ya sentías, cinco con dibujo y cinco con un texto corto. Primero apuestas, luego la tecla R.
 
 ## Hoja de consulta
 
