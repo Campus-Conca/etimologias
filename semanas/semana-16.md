@@ -109,7 +109,7 @@ El viernes 30 de octubre salió el diccionario nuevo: 99 990 artículos y cerca 
 <section class="lam">
 <h4>Diez huecos que alguien ya bautizó <span class="reloj">10 min</span></h4>
 <span class="senal senal--aire">Al aire</span>
-<p class="di">Mira a la muchacha de la mochila. ¿De qué se acaba de dar cuenta?</p>
+<p class="di">Mira a quien trae la mochila. ¿De qué se acaba de dar cuenta?</p>
 <div class="img16-lam" data-img16="sonder"></div>
 <p class="apoyo">Eso que sintió no tenía nombre hasta que John Koenig le puso uno: <em>sonder</em>, caer en la cuenta de que cada desconocido lleva una vida tan llena como la tuya. Koenig pasó doce años buscando sentimientos sin nombre y bautizándolos con piezas del griego, del latín y del francés. Hoy ves diez: cinco con un dibujo y cinco con un texto corto. En cada una apuestas primero qué hueco nombra y cómo lo llamarías tú. Ninguna tiene acta en el diccionario; viven de que la gente las usa.</p>
 <p class="recurso"><a href="../ejercicios/semana-16/diez-huecos-que-alguien-ya-bautizo.html" target="_blank" rel="noopener">Diez huecos que alguien ya bautizó</a><span class="pie">Diez palabras para lo que ya sentías: primero el dibujo o el texto, tu apuesta, y con la tecla R, la palabra con sus piezas.</span></p>

@@ -8,8 +8,9 @@
 
    Las palabras y sus piezas son de Koenig. Las definiciones y
    los textos están escritos para este curso: no son traducción
-   del libro. Las ilustraciones se generaron con Gemini y no
-   llevan ninguna letra.
+   del libro. Las ilustraciones se generaron con Gemini en el
+   formato de Sketchplanations (una idea, un dibujo) y sus
+   rótulos, en español, se revisaron letra por letra.
 
    Uso:
      SIN16.FICHAS                    las diez fichas
@@ -24,15 +25,15 @@
 
   var FICHAS = [
     { id: 'sonder', palabra: 'sonder', dice: 'sónder', tipo: 'img', img: 'sonder.jpg',
-      alt: 'Una estudiante en una combi de la Sierra mira a los demás pasajeros; sobre cada uno flota una escena distinta: una casa, una milpa, un hospital, un baile.',
-      pregunta: 'Mira a la muchacha de la mochila. ¿De qué se acaba de dar cuenta?',
+      alt: 'Una combi cortada para ver adentro, con cinco pasajeros; sobre cada uno, un globo de pensamiento distinto: una casa, una milpa, un hospital, un baile, un balón. Rótulos: «cada quien trae su propia película» y, con una flecha hacia quien trae la mochila, «y tú sales de extra».',
+      pregunta: 'Mira a quien trae la mochila. ¿De qué se acaba de dar cuenta?',
       def: 'Caer en la cuenta de que cada desconocido que pasa lleva una vida tan llena y tan enredada como la tuya, y que en esa vida tú apenas eres un extra.',
       piezas: 'El francés <b>sonder</b>, «sondear»: echar la sonda para medir qué tan hondo está el fondo.',
       familia: 'sonda, sondear, insondable',
       nace: 'Préstamo con cambio de sentido',
       nota: 'Es la más famosa del libro y la mejor puerta: pregunta quién ha sentido eso en la combi o en la terminal. Koenig tomó un verbo francés y le estrenó sentido: préstamo y cambio de sentido a la vez, como loguearse.' },
     { id: 'kenopsia', palabra: 'kenopsia', dice: 'kenopsia', tipo: 'img', img: 'kenopsia.jpg',
-      alt: 'Un salón de bachillerato vacío al atardecer: butacas en fila, pizarrón limpio, una mochila olvidada en una silla y un balón quieto en el piso.',
+      alt: 'El mismo salón en dos cuadros. A la izquierda, «lunes, 8 de la mañana»: lleno de estudiantes, ruido y un balón volando. A la derecha, «vacaciones»: vacío, con una mochila olvidada y el balón quieto. Abajo: «mismo salón, pero se siente raro».',
       pregunta: 'Este salón no tiene nada raro. Entonces, ¿por qué se siente raro?',
       def: 'El aire extraño de un lugar que siempre está lleno de gente y de ruido, cuando lo encuentras vacío y callado.',
       piezas: 'El griego <b>kenós</b>, «vacío», + <b>-opsía</b>, «vista».',
@@ -40,15 +41,15 @@
       nace: 'Composición culta, griega con griega',
       nota: 'La de manual: dos piezas griegas bien pegadas. Que encuentren la pieza en cenotafio y en autopsia. Pregunta por la escuela en vacaciones, la cancha un lunes, la plaza después de la fiesta.' },
     { id: 'chrysalism', palabra: 'chrysalism', dice: 'crisalismo', tipo: 'img', img: 'chrysalism.jpg',
-      alt: 'De noche, una muchacha envuelta en una cobija toma algo caliente junto a la ventana de una casa con techo de lámina; afuera llueve fuerte y cae un rayo sobre los cerros; a sus pies duerme un perro.',
-      pregunta: 'Afuera se está cayendo el cielo. ¿Qué siente ella?',
+      alt: 'Una casita con techo de lámina, cortada para ver adentro. Afuera, nubes negras, lluvia y un rayo: «afuera, tormenta». Adentro, alguien envuelto en una cobija, con una taza caliente, un foco prendido y un perro dormido: «adentro, a gusto». Abajo: «que llueva todo lo que quiera».',
+      pregunta: 'Afuera se está cayendo el cielo. ¿Qué se siente adentro?',
       def: 'La paz de estar bajo techo, seco y a gusto, mientras afuera cae la tormenta.',
       piezas: 'El latín <b>chrysalis</b>, «crisálida», que viene del griego <b>chrysós</b>, «oro», + <b>-ismo</b>.',
       familia: 'crisálida: el capullo donde la oruga espera, quieta, a que pase todo',
       nace: 'Derivación',
       nota: 'La única alegre del mazo de dibujos, y la más serrana: la lluvia en la lámina. En español se dejaría decir crisalismo. Pregunta por qué una crisálida: quien lo explique ya defendió una palabra.' },
     { id: 'opia', palabra: 'opia', dice: 'opia', tipo: 'img', img: 'opia.jpg',
-      alt: 'Una muchacha y un muchacho de bachillerato, de perfil y frente a frente, se sostienen la mirada; el fondo está desdibujado.',
+      alt: 'Dos caras de perfil, sonrojadas y nerviosas, se miran de frente unidas por una línea punteada. Un cronómetro: «1, 2, 3 segundos». Una lupa sobre un ojo con una figurita reflejada: «tú, en su pupila». Abajo: «¿quién está viendo a quién?».',
       pregunta: 'Cuenta tres segundos mirando a alguien a los ojos. ¿Qué pasa en el segundo tres?',
       def: 'La intensidad incómoda de sostenerle la mirada a alguien: sientes que te asomas a la otra persona y, al mismo tiempo, que te están viendo por dentro.',
       piezas: 'El griego <b>ópion</b>, «opio», + <b>-opía</b>, «de los ojos», como en miopía.',
@@ -56,8 +57,8 @@
       nace: 'Composición con piezas griegas',
       nota: 'Si el grupo se presta, que lo prueben por parejas tres segundos: la risa nerviosa es la definición. Dato para soltar: pupila viene del latín pupilla, «niña», y se suele explicar por la figurita que ves reflejada en el ojo del otro.' },
     { id: 'morii', palabra: 'morii', dice: 'mori', tipo: 'img', img: 'morii.jpg',
-      alt: 'Un grupo de estudiantes de espaldas levanta el celular para fotografiar el atardecer sobre los cerros; solo una muchacha, en medio, tiene el celular abajo y mira el cielo.',
-      pregunta: '¿Qué les pasa a los cuatro de los celulares? ¿Y a ella?',
+      alt: 'Cinco monitos de espaldas frente a un atardecer. Cuatro levantan el celular: «4 lo graban». El de en medio, pintado de rosa, no trae celular: «1 lo ve». Abajo: «se va en dos minutos».',
+      pregunta: '¿Qué les pasa a los cuatro de los celulares? ¿Y al de rosa?',
       def: 'Las ganas de atrapar un momento que se está yendo: sacar el celular antes que mirar.',
       piezas: 'El latín <b>memento mori</b>, «recuerda que morirás», + el japonés <b>torii</b>, la puerta que marca la entrada a un lugar sagrado.',
       familia: 'memento mori: la locución de la semana 14, la de Porcio',
@@ -106,7 +107,7 @@
       nota: 'Cierra con esta y con la pregunta: ¿dónde es tu cerro, el lugar donde no te pasa? Que encuentren el monje escondido en la palabra. De aquí al acta de nacimiento: ya vieron diez huecos bautizados, ahora les toca el suyo.' }
   ];
 
-  var CREDITO = 'Las diez palabras son de John Koenig, <em>The Dictionary of Obscure Sorrows</em> (Simon &amp; Schuster, 2021). Las definiciones y los textos están escritos para este curso, no traducidos del libro. Ilustraciones generadas con Gemini.';
+  var CREDITO = 'Las diez palabras son de John Koenig, <em>The Dictionary of Obscure Sorrows</em> (Simon &amp; Schuster, 2021). Las definiciones y los textos están escritos para este curso, no traducidos del libro. Dibujos generados con Gemini en el formato de <a href="https://sketchplanations.com" target="_blank" rel="noopener">Sketchplanations</a>, de Jono Hey: una idea, un dibujo.';
 
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
