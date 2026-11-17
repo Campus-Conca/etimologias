@@ -11,6 +11,8 @@ Tu segundo libro no se cuenta en video: se cuenta en cómic. Esta historieta va 
 
 Aquí no hay respuesta mala. Un cómic de «no lo leí porque…» bien contado vale lo mismo que uno de «me encantó». Lo único que no sirve es inventar que lo leíste.
 
+El cómic lo hace todo el grupo. Si ya habías entregado tu segundo booktuber, también haces tu cómic: ya tienes pensado qué decir de tu libro, así que te va a salir más rápido.
+
 ## Cómo funciona
 
 1. **Contesta las preguntas** sobre tu libro: cuál fue, qué tanto lo leíste y qué quieres contar. Ahí mismo dices cómo eres, para que la IA te dibuje, y qué estilo de dibujo te gusta.
