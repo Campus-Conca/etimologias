@@ -7,13 +7,15 @@ nav_order: 7
 
 <span class="viva">Nuevo</span>
 
-Escribiste una historia. Ahora la vas a convertir en historieta: la dibujas con Gemini u otra IA, viñeta por viñeta, con tus globos y todo, y armas sus páginas como las de un cómic de verdad. No necesitas saber dibujar. Necesitas saber contar y saber pedir.
+Tu segundo libro no se cuenta en video: se cuenta en cómic. Esta historieta va en lugar del segundo booktuber, y en ella **tú eres protagonista**. Apareces en las viñetas y cuentas cómo te fue con tu libro: qué te gustó, qué no te gustó, o por qué no lo leíste, si eso fue lo que pasó. La dibujas con Gemini u otra IA, viñeta por viñeta, con tus globos y todo, y armas sus páginas como las de un cómic de verdad. No necesitas saber dibujar. Necesitas contar con verdad y saber pedir.
+
+Aquí no hay respuesta mala. Un cómic de «no lo leí porque…» bien contado vale lo mismo que uno de «me encantó». Lo único que no sirve es inventar que lo leíste.
 
 ## Cómo funciona
 
-1. **Sube tu historia** y el estilo de dibujo que te gusta.
-2. Tu profe genera los guiones **en clase**, cuando todo el grupo haya subido su historia. En más o menos una hora tienes tu **guion**: cada viñeta con un prompt completo, listo para copiar.
-3. **Dibuja con la IA**, viñeta por viñeta, en el centro de cómputo: la IA en una pestaña y tu mesa en otra. Cada prompt trae el estilo, los personajes, la escena y tus textos, así que la IA te entrega la viñeta terminada, con sus globos. Sirve Gemini, ChatGPT o la que te indique tu profe.
+1. **Contesta las preguntas** sobre tu libro: cuál fue, qué tanto lo leíste y qué quieres contar. Ahí mismo dices cómo eres, para que la IA te dibuje, y qué estilo de dibujo te gusta.
+2. Tu profe genera los guiones **en clase**, cuando todo el grupo haya subido sus respuestas. En más o menos una hora tienes tu **guion**: cada viñeta con un prompt completo, listo para copiar.
+3. **Dibuja con la IA**, viñeta por viñeta, en el centro de cómputo: la IA en una pestaña y tu mesa en otra. Cada prompt trae el estilo, cómo eres tú, la escena y tus textos, así que la IA te entrega la viñeta terminada, con sus globos. Sirve Gemini, ChatGPT o la que te indique tu profe.
 4. **Maquetar**: en tu mesa de dibujo pones cada imagen en su marco.
 5. **Entrega** el PDF desde la misma mesa.
 
@@ -25,9 +27,9 @@ Antes de dibujar, lee el instructivo: ahí está el vocabulario del cómic (viñ
 
   <a class="pl-card" href="sube.html">
     <span class="pl-tag">paso 1</span>
-    <b>Sube tu historia</b>
-    <span class="pl-desc">Tu historia (escrita o en fotos del cuaderno), cómo son tus personajes y el estilo que te gusta. Al final te damos un código: anótalo.</span>
-    <span class="pl-cta">Subir mi historia →</span>
+    <b>Cuenta tu segundo libro</b>
+    <span class="pl-desc">Qué libro fue, qué tanto lo leíste, qué te gustó y qué no (o por qué no lo leíste), cómo eres tú y el estilo que te gusta. Al final te damos un código: anótalo.</span>
+    <span class="pl-cta">Contestar las preguntas →</span>
   </a>
 
   <a class="pl-card" href="mesa.html">
@@ -47,7 +49,7 @@ Antes de dibujar, lee el instructivo: ahí está el vocabulario del cómic (viñ
   <a class="pl-card" href="mesa.html?demo">
     <span class="pl-tag">ejemplo</span>
     <b>El cuaderno de la abuela</b>
-    <span class="pl-desc">Un guion completo de tres páginas para ver cómo queda todo antes de subir el tuyo. Puedes jugar con su mesa sin miedo: no se envía nada.</span>
+    <span class="pl-desc">Un guion completo de tres páginas para ver cómo se ve una mesa de dibujo. Este ejemplo es un cuento, no un cómic sobre un libro: el tuyo te tendrá a ti de protagonista. Puedes jugar con su mesa sin miedo: no se envía nada.</span>
     <span class="pl-cta">Ver el ejemplo →</span>
   </a>
 

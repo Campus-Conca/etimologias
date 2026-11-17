@@ -260,7 +260,7 @@ Todo eso se palomea tocando tablas en **[tu primer parcial](recursos/plantillas/
 
 **Suelo de la unidad 2** (semanas 8 a 12): quizzes intentados · piezas de la unidad en el portafolio · defensa individual hecha · presencia en el segundo círculo · primer booktuber entregado (en cualquiera de sus formatos) · bitácora viva.
 
-**Suelo de la unidad 3** (semanas 13 a 17): quizzes intentados · portafolio del Museo completo con su bitácora · defensa socrática hecha · presencia en el tercer círculo · segundo booktuber entregado · defensa final del Museo (esta es indelegable: el Museo se defiende en persona).
+**Suelo de la unidad 3** (semanas 13 a 17): quizzes intentados · portafolio del Museo completo con su bitácora · defensa socrática hecha · presencia en el tercer círculo · cómic de tu segundo libro, que va en lugar del segundo booktuber y se hace en [Historietas](historietas/) · defensa final del Museo (esta es indelegable: el Museo se defiende en persona).
 
 Si algo del suelo te queda pendiente, no repruebas en automático: te queda pendiente, y lo completas en la segunda vuelta de diciembre.
 

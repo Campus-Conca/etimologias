@@ -115,10 +115,10 @@ window.LEEMOS = {
 <tr><td><strong>Semanas 7 y 8</strong></td><td>Eliges tu segundo libro, con lo que oíste en el círculo.</td></tr>
 <tr><td><strong>Semana 9</strong></td><td>Primer booktuber, sobre tu primera obra.</td></tr>
 <tr><td><strong>Semana 12</strong></td><td>Segundo círculo, cierre de la unidad 2. Cosechamos palabras de los libros para el Museo.</td></tr>
-<tr><td><strong>Semanas 13 a 15</strong></td><td>Segundo booktuber, sobre tu segunda obra.</td></tr>
+<tr><td><strong>Semana 16</strong></td><td>El cómic de tu segundo libro, en lugar del segundo booktuber: tú eres protagonista y cuentas qué te gustó, qué no, o por qué no leíste. Se hace en <a href="historietas/">Historietas</a>.</td></tr>
 <tr><td><strong>Semana 16</strong></td><td>Tercer círculo y testamento lector.</td></tr>
 </table>
-<p class="apoyo">Tres círculos y dos grabaciones en dieciocho semanas. Todo lo demás es tiempo de leer.</p>
+<p class="apoyo">Tres círculos, una grabación y un cómic en dieciocho semanas. Todo lo demás es tiempo de leer.</p>
 </section>
 <section class="lam">
 <h4>El círculo de lectura</h4>
@@ -128,7 +128,7 @@ window.LEEMOS = {
 <section class="lam">
 <h4>El booktuber</h4>
 <p class="di">Tu recomendación grabada: dos a tres minutos con tu celular, vertical vale, sin edición.</p>
-<p class="apoyo">Dos en el semestre, uno por obra. Cuatro cosas: quién eres, qué leíste, qué te dio el libro y una frase leída en voz alta desde tu ejemplar. ¿No quieres cámara? Vale audio o ficha ilustrada con lo mismo. Se publica en la vitrina de abajo solo si tú lo autorizas.</p>
+<p class="apoyo">Se graba sobre tu primera obra; la segunda se cuenta en cómic, en <a href="historietas/">Historietas</a>. Cuatro cosas: quién eres, qué leíste, qué te dio el libro y una frase leída en voz alta desde tu ejemplar. ¿No quieres cámara? Vale audio o ficha ilustrada con lo mismo. Se publica en la vitrina de abajo solo si tú lo autorizas.</p>
 <p class="recurso"><a href="ejercicios/semana-09/booktuber-como-se-hace.html" target="_blank" rel="noopener">Tu booktuber, paso a paso</a><span class="pie">El instructivo completo: las cuatro partes con reloj, qué se espera, cómo grabar, qué no lleva y cómo se entrega.</span></p>
 </section>
 <section class="lam">

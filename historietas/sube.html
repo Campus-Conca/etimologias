@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#6b1e5a">
-<title>Sube tu historia · Historietas · Etimologías</title>
+<title>El cómic de tu segundo libro · Historietas · Etimologías</title>
 <style>
 :root{
   --rosa:#c8127a; --ciruela:#6b1e5a; --ciruela-osc:#4a1540;
@@ -69,17 +69,19 @@ textarea.historia{min-height:14rem;line-height:1.5}
 </style>
 </head>
 <body>
-<header class="barra"><div class="marca">Historietas · Etimologías<b>Sube tu historia</b></div></header>
+<header class="barra"><div class="marca">Historietas · Etimologías<b>El cómic de tu segundo libro</b></div></header>
 <div class="demo-banda" id="demo-banda" hidden>Ejemplo · nada de lo que escribas aquí se envía</div>
 
 <main>
 <form id="forma" novalidate>
   <section class="tarjeta">
     <p class="paso">Historietas</p>
-    <h1>Sube tu historia</h1>
-    <p>Mándanos la historia que escribiste y el estilo de dibujo que te gusta. Con eso te preparamos un <b>guion</b> con un prompt por viñeta, para que Gemini u otra IA dibuje cada una completa, con tus globos, y tu <b>mesa de dibujo</b> para armar las páginas. Tu profe genera los guiones en clase, cuando todo el grupo haya subido su historia.</p>
+    <h1>El cómic de tu segundo libro</h1>
+    <p>Este cómic va en lugar de tu segundo booktuber. En él <b>tú eres protagonista</b>: apareces en las viñetas y cuentas cómo te fue con tu segundo libro. Qué te gustó, qué no te gustó, o por qué no lo leíste, si eso fue lo que pasó.</p>
+    <p>Contesta estas preguntas con calma. Con tus respuestas te preparamos un <b>guion</b> con un prompt por viñeta, para que Gemini u otra IA dibuje cada una completa, con tus globos, y tu <b>mesa de dibujo</b> para armar las páginas. Tu profe genera los guiones en clase, cuando todo el grupo haya subido sus respuestas.</p>
+    <p class="nota jade">Aquí no hay respuesta mala. Un cómic de «no lo leí porque…» contado con verdad vale lo mismo que uno de «me encantó». Lo único que no sirve es inventar que lo leíste.</p>
     <p class="mini">Antes de empezar, lee el <a href="instructivo.html">instructivo</a>. Si quieres ver cómo queda un guion, abre el <a href="mesa.html?demo">ejemplo</a>.</p>
-    <p class="nota" id="sin-api" hidden>La recepción de historias todavía no está abierta: el profe la abre pronto. Puedes llenar todo; se guarda en este teléfono.</p>
+    <p class="nota" id="sin-api" hidden>La recepción todavía no está abierta: el profe la abre pronto. Puedes llenar todo; se guarda en este teléfono.</p>
     <div class="botones" id="caja-ejemplo" hidden><button type="button" class="boton chico sec" id="b-ejemplo">Llenar con el ejemplo</button></div>
   </section>
 
@@ -87,80 +89,99 @@ textarea.historia{min-height:14rem;line-height:1.5}
     <p class="paso">1 · Quién eres</p>
     <label class="campo" for="nombre">Tu nombre de pila</label>
     <input type="text" id="nombre" maxlength="40" autocomplete="given-name" placeholder="Solo tu nombre, sin apellidos">
-    <p class="mini">Es el que aparecerá en la portada: «por …».</p>
+    <p class="mini">Es el que aparecerá en la portada: «por …». También es el nombre de tu personaje.</p>
   </section>
 
   <section class="tarjeta">
-    <p class="paso">2 · Tu historia</p>
-    <label class="campo" for="titulo">Título <span class="opcional">(si ya lo tienes)</span></label>
-    <input type="text" id="titulo" maxlength="80" placeholder="Si lo dejas vacío, te proponemos uno">
-    <label class="campo" for="historia">Pega o escribe tu historia</label>
-    <textarea class="historia" id="historia" placeholder="Tal como la escribiste. Entre 150 y 900 palabras funciona bien."></textarea>
+    <p class="paso">2 · Tu segundo libro</p>
+    <label class="campo" for="libro">¿Cómo se llama el libro?</label>
+    <input type="text" id="libro" maxlength="120" placeholder="Ej.: Pedro Páramo">
+    <label class="campo" for="autor">¿Quién lo escribió? <span class="opcional">(si te acuerdas)</span></label>
+    <input type="text" id="autor" maxlength="80" placeholder="Ej.: Juan Rulfo">
+    <label class="campo">¿Qué tanto lo leíste?</label>
+    <div class="opciones" id="lectura">
+      <label><input type="radio" name="lectura" value="completo"><span><b>Lo leí completo</b><br><span class="mini">Llegué a la última página.</span></span></label>
+      <label><input type="radio" name="lectura" value="parte"><span><b>Leí una parte</b><br><span class="mini">Empecé y me quedé en algún punto.</span></span></label>
+      <label><input type="radio" name="lectura" value="no"><span><b>No lo leí</b><br><span class="mini">No lo abrí, o leí tan poco que no puedo decir de qué trata.</span></span></label>
+    </div>
+  </section>
+
+  <section class="tarjeta" id="t-contar" hidden>
+    <p class="paso">3 · Lo que vas a contar</p>
+    <p id="contar-intro"></p>
+    <div id="preguntas"></div>
     <p class="contador" id="contador">0 palabras</p>
-    <p class="mini">¿La tienes en tu cuaderno? Súbela en fotos, una por hoja, con buena luz y sin sombra (hasta 4). Es más fácil abriendo esta página en tu celular.</p>
+    <label class="campo" for="titulo">Título de tu cómic <span class="opcional">(si ya lo tienes)</span></label>
+    <input type="text" id="titulo" maxlength="80" placeholder="Si lo dejas vacío, te proponemos uno">
+    <p class="mini">¿Prefieres contestar en tu cuaderno? Escribe ahí tus respuestas y súbelas en fotos, una por hoja, con buena luz y sin sombra (hasta 4). Es más fácil abriendo esta página en tu celular.</p>
     <div class="fotos" id="fotos-historia"></div>
     <label class="subir" id="subir-historia"><input type="file" accept="image/*" multiple hidden id="in-historia">+ Fotos de mi cuaderno</label>
   </section>
 
   <section class="tarjeta">
-    <p class="paso">3 · Tus personajes</p>
-    <p>Para que la IA los dibuje igual en cada viñeta necesitamos saber cómo son. Di su edad, cuerpo, pelo, ropa con colores y algo que los distinga (un sombrero, unos lentes, una cicatriz).</p>
+    <p class="paso">4 · Tú, protagonista</p>
+    <p>En este cómic sales tú, en todas o casi todas las viñetas. Para que la IA te dibuje igual cada vez necesitamos saber cómo eres: tu edad, tu cuerpo, tu pelo, la ropa que sueles traer (con colores) y algo que te distinga, como unos lentes, una gorra o una mochila.</p>
+    <label class="campo" for="yo-como">¿Cómo eres?</label>
+    <textarea id="yo-como" maxlength="600" placeholder="Ej.: Tengo 16 años, soy alto y flaco, de pelo negro corto y despeinado. Casi siempre traigo una sudadera gris con capucha, pantalón de mezclilla y tenis blancos. Uso lentes de armazón negro."></textarea>
+    <p class="mini">Descríbete con palabras; no hace falta subir tu foto. Puedes salir tal como eres o como te gustaría verte dibujado.</p>
+    <label class="campo">¿Quién más sale? <span class="opcional">(opcional)</span></label>
+    <p class="mini">Puede ser un personaje del libro, quien lo escribió, o alguien de tu vida: tu mamá que te pregunta si ya leíste, el amigo al que le cuentas. Hasta tres.</p>
     <div id="personajes"></div>
     <button type="button" class="boton chico sec" id="b-pj">+ Otro personaje</button>
-    <p class="mini">Hasta cuatro. Los que salen una sola vez no hace falta describirlos.</p>
   </section>
 
   <section class="tarjeta">
-    <p class="paso">4 · Dónde y cuándo</p>
-    <label class="campo" for="lugar">¿Dónde y cuándo pasa tu historia?</label>
-    <input type="text" id="lugar" maxlength="200" placeholder="Ej.: en Concá, una noche de lluvia, en vacaciones">
+    <p class="paso">5 · Dónde pasa</p>
+    <label class="campo" for="lugar">¿Dónde pasa tu cómic?</label>
+    <input type="text" id="lugar" maxlength="200" placeholder="Ej.: en mi cuarto, de noche, con el libro en la cama">
+    <p class="mini">Otras ideas: en la combi camino a la prepa; en el salón, contándole a un amigo; adentro del libro, platicando con su personaje.</p>
   </section>
 
   <section class="tarjeta">
-    <p class="paso">5 · El estilo que te gusta</p>
+    <p class="paso">6 · El estilo que te gusta</p>
     <p>Escoge uno o dos estilos, sube imágenes de cómics o dibujos que te gusten, o las dos cosas.</p>
     <div class="chips" id="chips"></div>
     <div class="fotos" id="fotos-estilo"></div>
     <label class="subir"><input type="file" accept="image/*" multiple hidden id="in-estilo">+ Imágenes del estilo que me gusta (hasta 3)</label>
     <label class="campo" for="estilo-texto">¿Cómo lo describirías? <span class="opcional">(opcional)</span></label>
     <input type="text" id="estilo-texto" maxlength="200" placeholder="Ej.: como el manga que leo, en blanco y negro, con mucha acción">
-    <p class="mini">Las imágenes son solo para entender qué te gusta: tu historieta no va a copiar a ningún personaje de otro cómic.</p>
+    <p class="mini">Las imágenes son solo para entender qué te gusta: tu cómic no va a copiar a ningún personaje de otro cómic.</p>
   </section>
 
   <section class="tarjeta">
-    <p class="paso">6 · ¿Qué tan larga?</p>
+    <p class="paso">7 · ¿Qué tan largo?</p>
     <div class="opciones" id="paginas">
-      <label><input type="radio" name="paginas" value="1"><span><b>1 página y portada</b><br><span class="mini">De 3 a 6 viñetas. Para una escena o un chiste. Se hace en una o dos sentadas.</span></span></label>
-      <label><input type="radio" name="paginas" value="2" checked><span><b>2 páginas y portada</b><br><span class="mini">De 6 a 10 viñetas. Para casi cualquier historia. Dos o tres sentadas.</span></span></label>
-      <label><input type="radio" name="paginas" value="3"><span><b>3 páginas y portada</b><br><span class="mini">De 9 a 14 viñetas. Para historias con varios momentos. Tres o cuatro sentadas.</span></span></label>
+      <label><input type="radio" name="paginas" value="1"><span><b>1 página y portada</b><br><span class="mini">De 3 a 6 viñetas. Para contar una sola cosa: lo que más te gustó, o por qué no leíste. Se hace en una o dos sentadas.</span></span></label>
+      <label><input type="radio" name="paginas" value="2" checked><span><b>2 páginas y portada</b><br><span class="mini">De 6 a 10 viñetas. Alcanza para lo que te gustó y lo que no. Dos o tres sentadas.</span></span></label>
+      <label><input type="radio" name="paginas" value="3"><span><b>3 páginas y portada</b><br><span class="mini">De 9 a 14 viñetas. Si tienes mucho que contar del libro. Tres o cuatro sentadas.</span></span></label>
     </div>
     <p class="mini">Cada viñeta es una imagen que pides a la IA, y la IA tiene un límite de imágenes que se recarga cada tantas horas.</p>
   </section>
 
   <section class="tarjeta">
-    <p class="paso">7 · Lo que no se toca</p>
-    <label class="campo" for="no-cambiar">¿Hay una frase, un momento o un final que no quieras que cambiemos? <span class="opcional">(opcional)</span></label>
-    <textarea id="no-cambiar" maxlength="600" placeholder="Ej.: el final tiene que ser tal cual; la frase de la abuela va completa"></textarea>
+    <p class="paso">8 · Lo que no se toca</p>
+    <label class="campo" for="no-cambiar">¿Hay una frase tuya o del libro, o un final, que no quieras que cambiemos? <span class="opcional">(opcional)</span></label>
+    <textarea id="no-cambiar" maxlength="600" placeholder="Ej.: quiero cerrar diciendo «no lo terminé, pero ya sé qué libro sí quiero»; la frase del libro va completa"></textarea>
   </section>
 
   <section class="tarjeta">
-    <p class="paso">8 · Permiso</p>
-    <label class="permiso"><input type="checkbox" id="permiso"><span>Cuando esté terminada, mi historieta se puede mostrar en el sitio del curso con mi nombre de pila.</span></label>
-    <p class="mini">Si no marcas, solo la ve el profe.</p>
+    <p class="paso">9 · Permiso</p>
+    <label class="permiso"><input type="checkbox" id="permiso"><span>Cuando esté terminado, mi cómic se puede mostrar en el sitio del curso con mi nombre de pila.</span></label>
+    <p class="mini">Si no marcas, solo lo ve el profe.</p>
   </section>
 
   <div class="envio">
     <p class="error" id="error" role="alert"></p>
-    <button type="submit" class="boton" id="b-enviar" style="width:100%">Enviar mi historia</button>
+    <button type="submit" class="boton" id="b-enviar" style="width:100%">Enviar mis respuestas</button>
   </div>
 </form>
 
 <section class="tarjeta" id="listo" hidden>
-  <p class="paso">¡Recibida!</p>
-  <h1>Tu historia llegó</h1>
+  <p class="paso">¡Recibido!</p>
+  <h1>Tus respuestas llegaron</h1>
   <p>Este es tu código. <b>Anótalo en tu cuaderno:</b> con él abres tu mesa de dibujo en cualquier computadora.</p>
   <div class="codigo-grande" id="codigo-final">———</div>
-  <p>Tu profe genera los guiones en clase, cuando todo el grupo haya subido su historia; tarda más o menos una hora. Cuando entres a la mesa con tu código, ahí estará.</p>
+  <p>Tu profe genera los guiones en clase, cuando todo el grupo haya subido sus respuestas; tarda más o menos una hora. Cuando entres a la mesa con tu código, ahí estará.</p>
   <div class="botones"><a class="boton" id="a-mesa" href="mesa.html">Ir a mi mesa de dibujo</a><a class="boton sec" href="instructivo.html">Leer el instructivo</a></div>
   <p class="mini" id="nota-demo" hidden>Es el ejemplo: no se envió nada. En la de verdad, aquí aparece tu código.</p>
 </section>
@@ -174,7 +195,7 @@ var qs = new URLSearchParams(location.search);
 var DEMO = qs.has('demo');
 var LOCAL = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
 var API = (LOCAL && qs.get('api')) || window.HISTORIETAS_API || '';
-var BORRADOR = 'hist:borrador';
+var BORRADOR = 'hist:borrador-libro';
 var ESTILOS = [
   ['Grabado mexicano', 'Tinta negra tallada y un solo color, como el del profe'],
   ['Manga en blanco y negro', 'Tinta, tramas de puntos y líneas de velocidad'],
@@ -187,30 +208,103 @@ var ESTILOS = [
   ['Novela gráfica en tinta', 'Pincel, negros densos, ambiente de película']
 ];
 var EJEMPLO = {
-  nombre:'Lupita', titulo:'El cuaderno de la abuela',
-  historia:'En las vacaciones fui a casa de mi abuela Chabela en Concá. Una tarde llovió muy fuerte y se fue la luz. Mi abuela prendió un cerillo y me dijo que había velas en el ropero. Mientras buscaba las velas encontré entre la ropa un cuaderno viejo forrado con tela de flores. Adentro había palabras escritas con letra de antes: molcajete, itacate, guajolote, papalote, chapulín. Le pregunté a mi abuela qué era eso. Me dijo que era el cuaderno de su mamá, que hablaba náhuatl, y que cada vez que alguien en el pueblo usaba una palabra de su lengua ella la apuntaba para que no se perdiera. "Mira cuántas usamos sin saber", me dijo. Esa noche leímos el cuaderno entero con la vela. Cada palabra traía un recuerdo: el itacate que llevaba mi bisabuela a la milpa, el guajolote que se escapó en una boda. Cuando volvió la luz ya era muy tarde. Antes de dormirme escribí una palabra nueva en la última hoja. Al otro día mi abuela la leyó y se rió.',
-  personajes:[{nombre:'Lupita', como:'Yo, de 13 años. Flaca, cara redonda, cejas gruesas. Una sola trenza larga con moño blanco. Siempre traigo una sudadera oscura que me queda grande.'},
-              {nombre:'Mi abuela Chabela', como:'Tiene 70 años, es bajita y llenita, con arrugas y ojos chiquitos. Chongo canoso, rebozo de rayas, delantal y lentes colgados de un cordón.'}],
-  lugar:'En Concá, en la casa de mi abuela, una noche de tormenta en vacaciones',
-  estilos:['Grabado mexicano'], estilo_texto:'Como los grabados del profe, con un solo color para la luz de la vela', paginas:'3',
-  no_cambiar:'Que no se sepa qué palabra escribí hasta el final.', permiso:true
+  nombre:'Lupita', libro:'Pedro Páramo', autor:'Juan Rulfo', lectura:'parte', titulo:'Me quedé en Comala',
+  resp:{
+    trata:'Trata de Juan Preciado, un muchacho que le promete a su mamá, antes de que ella muera, que va a ir a Comala a buscar a su papá, un tal Pedro Páramo. Cuando llega, el pueblo está vacío y la gente que le habla es muy rara.',
+    hasta:'Llegué más o menos a la mitad. Me quedé ahí porque de repente ya no sabía quién estaba hablando ni en qué año estábamos, y me dio flojera regresarme a leer otra vez.',
+    gusto:'Me gustó cuando Juan Preciado se da cuenta de que la señora que le dio posada ya estaba muerta. Lo leí de noche y sí me dio miedo. También me gustó cómo hablan: se oye como la gente de mi rancho.',
+    no_gusto:'No me gustó que brinca de una persona a otra sin avisar. Hubo páginas que leí dos veces y no entendí quién las decía.',
+    recomienda:'Se lo recomiendo a mi primo, que le gustan las historias de espantos, pero le diría que lo lea despacio y con alguien a quien preguntarle.'
+  },
+  yo_como:'Tengo 16 años. Soy flaca, de cara redonda y cejas gruesas. Traigo una sola trenza larga con moño blanco y casi siempre una sudadera morada que me queda grande, pantalón de mezclilla y tenis negros.',
+  personajes:[{nombre:'Juan Preciado', como:'El personaje del libro. Un muchacho de unos 20 años, moreno, flaco, con sombrero de palma, camisa blanca de manta y un morral al hombro. Siempre trae cara de no entender qué pasa.'}],
+  lugar:'En mi cuarto, de noche, con el libro en la cama; y a ratos adentro de Comala, caminando junto a Juan Preciado',
+  estilos:['Grabado mexicano'], estilo_texto:'Como los grabados del profe, con un solo color para lo que da miedo', paginas:'2',
+  no_cambiar:'Quiero cerrar diciendo: «No lo terminé. Pero Comala no se me olvida».', permiso:true
+};
+
+/* Las preguntas cambian según qué tanto leyó. Cada una: [clave, pregunta, ayuda, ejemplo, ¿opcional?] */
+var CAMINOS = {
+  completo:{ etiqueta:'Lo leí completo',
+    intro:'Leíste el libro completo. Cuéntanos cómo te fue, con frases completas, como si se lo platicaras a un amigo que no lo ha leído.',
+    preguntas:[
+      ['trata', '¿De qué trata?', 'Tres o cuatro frases, sin contar el final.', 'Ej.: Trata de un muchacho que llega a un pueblo a buscar a su papá, y poco a poco se da cuenta de que la gente que le habla ya está muerta.'],
+      ['gusto', '¿Qué te gustó?', 'Un momento, un personaje o una frase, y por qué.', 'Ej.: Me gustó cuando el muchacho descubre quién era la señora que le dio posada, porque lo leí de noche y sí me dio miedo.'],
+      ['no_gusto', '¿Qué no te gustó?', 'También se vale decir que algo te aburrió, te confundió o te cayó mal.', 'Ej.: No me gustó que brinca de una persona a otra sin avisar; hubo páginas que leí dos veces.'],
+      ['recomienda', '¿A quién se lo recomendarías, o a quién no?', '', 'Ej.: A mi primo, que le gustan las historias de espantos, pero le diría que lo lea despacio.', true]
+    ]},
+  parte:{ etiqueta:'Leí una parte',
+    intro:'Leíste una parte. Con eso alcanza para un buen cómic: cuenta lo que sí leíste y por qué te quedaste donde te quedaste.',
+    preguntas:[
+      ['trata', '¿De qué trata lo que alcanzaste a leer?', 'Tres o cuatro frases.', 'Ej.: Trata de un muchacho que llega a un pueblo a buscar a su papá. Hasta donde leí, el pueblo está vacío y la gente que le habla es muy rara.'],
+      ['hasta', '¿Hasta dónde llegaste y por qué te quedaste ahí?', 'Di qué pasó de verdad: te aburrió, se puso difícil, no tuviste tiempo, perdiste el libro.', 'Ej.: Llegué como a la mitad. Me quedé ahí porque ya no sabía quién estaba hablando y me dio flojera regresarme.'],
+      ['gusto', '¿Qué te gustó de lo que leíste?', 'Un momento, un personaje o una frase, y por qué.', 'Ej.: Me gustó cómo hablan los personajes: se oye como la gente de mi rancho.'],
+      ['no_gusto', '¿Qué no te gustó?', '', 'Ej.: No me gustó que brinca de una persona a otra sin avisar.'],
+      ['recomienda', '¿A quién se lo recomendarías, o a quién no?', '', 'Ej.: A alguien con paciencia. A mi hermano no, porque él quiere que pase algo en cada página.', true]
+    ]},
+  no:{ etiqueta:'No lo leí',
+    intro:'No lo leíste. Tu cómic va a contar esa historia: la de un libro que se quedó cerrado. Cuéntala con verdad y sin pena; nadie te va a regañar por lo que escribas aquí.',
+    preguntas:[
+      ['porque', '¿Por qué no lo leíste?', 'Cuenta qué pasó de verdad. Entre más concreto, mejor sale el cómic.', 'Ej.: Lo escogí por la portada, pero en mi casa no hay un lugar callado y en las tardes le ayudo a mi papá en la milpa. Cuando por fin me sentaba, ya tenía sueño.'],
+      ['intento', '¿Hubo un momento en que lo intentaste? ¿Qué pasó?', 'Si nunca lo abriste, cuenta dónde se quedó el libro todo este tiempo.', 'Ej.: Lo abrí dos veces en la combi. Leí la primera página, me llegó un mensaje y ya no regresé. El libro lleva un mes en el fondo de mi mochila.'],
+      ['falta', '¿Qué tendría que tener un libro para que sí lo leyeras?', '', 'Ej.: Que fuera corto, que tuviera dibujos y que tratara de algo que me importe, como el futbol o los corridos.'],
+      ['distinto', 'Si empezaras otra vez, ¿qué harías distinto?', '', 'Ej.: Escogería otro libro en la primera semana, en vez de quedarme con uno que no me gustó desde el principio.', true]
+    ]}
 };
 
 function $(s){ return document.querySelector(s); }
 function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
 var fotosHistoria = [], fotosEstilo = [], estilos = [];
 
+/* ---------- lo que vas a contar ---------- */
+var resp = {};   // respuestas por clave; se conservan aunque cambie de camino
+function lecturaActual(){ var r = document.querySelector('input[name=lectura]:checked'); return r ? r.value : ''; }
+function pintarPreguntas(){
+  var c = CAMINOS[lecturaActual()];
+  Array.prototype.forEach.call(document.querySelectorAll('#lectura label'), function(l){ l.classList.toggle('on', l.querySelector('input').checked); });
+  $('#t-contar').hidden = !c; if (!c) return;
+  $('#contar-intro').textContent = c.intro;
+  $('#preguntas').innerHTML = c.preguntas.map(function(q){
+    return '<label class="campo" for="r-' + q[0] + '">' + esc(q[1]) + (q[4] ? ' <span class="opcional">(opcional)</span>' : '') + '</label>' +
+      (q[2] ? '<p class="mini" style="margin:0 0 .3rem">' + esc(q[2]) + '</p>' : '') +
+      '<textarea id="r-' + q[0] + '" data-r="' + q[0] + '" maxlength="1500" placeholder="' + esc(q[3]) + '">' + esc(resp[q[0]] || '') + '</textarea>';
+  }).join('');
+  contar();
+}
+$('#preguntas').addEventListener('input', function(ev){ var k = ev.target.dataset.r; if (k){ resp[k] = ev.target.value; contar(); } });
+$('#lectura').addEventListener('change', function(){ pintarPreguntas(); guardarBorrador(); });
+/* Las respuestas del camino elegido, en orden, sin las vacías. */
+function respuestasDe(lectura){
+  var c = CAMINOS[lectura]; if (!c) return [];
+  return c.preguntas.map(function(q){ return { clave:q[0], pregunta:q[1], respuesta:(resp[q[0]] || '').trim() }; }).filter(function(x){ return x.respuesta; });
+}
+/* El guionista recibe todo en el campo «historia»: aquí se le explica qué clase de cómic es. */
+function componer(d){
+  var c = CAMINOS[d.lectura], t = [];
+  t.push('CÓMIC SOBRE MI SEGUNDO LIBRO DEL SEMESTRE (va en lugar del segundo booktuber).');
+  t.push('Esto no es un cuento. Es un cómic en el que yo, ' + d.nombre + ', soy protagonista: aparezco en todas o casi todas las viñetas y cuento en primera persona cómo me fue con el libro. ' +
+    'El guion sale de mis respuestas de abajo. Usa mis palabras y no me inventes opiniones, ni escenas del libro que yo no haya contado. ' +
+    (d.lectura === 'no' ? 'No leí el libro y el cómic cuenta por qué, sin regaño, sin burla y sin moraleja.' :
+     d.lectura === 'parte' ? 'Leí solo una parte: el cómic lo dice con claridad y cuenta lo que me gustó, lo que no y por qué me quedé ahí.' :
+     'El cómic cuenta lo que me gustó y lo que no me gustó, sin revelar el final del libro.'));
+  t.push('Libro: «' + d.libro + '»' + (d.autor ? ', de ' + d.autor : '') + '.');
+  t.push('Qué tanto lo leí: ' + (c ? c.etiqueta.toLowerCase() : '') + '.');
+  respuestasDe(d.lectura).forEach(function(x){ t.push(x.pregunta + '\n' + x.respuesta); });
+  if (fotosHistoria.length) t.push('(Hay respuestas escritas a mano en las fotos de mi cuaderno.)');
+  return t.join('\n\n');
+}
+
 /* ---------- personajes ---------- */
 function filaPersonaje(p){
   var d = document.createElement('div'); d.className = 'pj';
   d.innerHTML = '<button type="button" class="quitar">quitar</button>' +
-    '<label class="campo">Nombre</label><input type="text" class="pj-nombre" maxlength="40" value="' + esc(p && p.nombre) + '" placeholder="Ej.: Don Beto">' +
-    '<label class="campo">¿Cómo es?</label><textarea class="pj-como" maxlength="600" placeholder="Edad, cuerpo, pelo, ropa con colores y algo que lo distinga">' + esc(p && p.como) + '</textarea>';
+    '<label class="campo">Nombre</label><input type="text" class="pj-nombre" maxlength="40" value="' + esc(p && p.nombre) + '" placeholder="Ej.: Juan Preciado, o «mi mamá»">' +
+    '<label class="campo">¿Cómo es?</label><textarea class="pj-como" maxlength="600" placeholder="Edad, cuerpo, pelo, ropa con colores y algo que lo distinga. Di también quién es: personaje del libro, tu amigo, tu mamá.">' + esc(p && p.como) + '</textarea>';
   d.querySelector('.quitar').addEventListener('click', function(){ d.remove(); revisarPj(); guardarBorrador(); });
   d.addEventListener('input', guardarBorrador);
   $('#personajes').appendChild(d); revisarPj();
 }
-function revisarPj(){ var n = document.querySelectorAll('.pj').length; $('#b-pj').hidden = n >= 4; }
+function revisarPj(){ var n = document.querySelectorAll('.pj').length; $('#b-pj').hidden = n >= 3; }
 $('#b-pj').addEventListener('click', function(){ filaPersonaje(); });
 
 /* ---------- estilos ---------- */
@@ -258,23 +352,27 @@ engancharFotos($('#in-estilo'), fotosEstilo, $('#fotos-estilo'), 3, 1280, .85);
 
 /* ---------- contador y borrador ---------- */
 function palabras(t){ return (t.trim().match(/\S+/g) || []).length; }
-function contar(){ var n = palabras($('#historia').value); $('#contador').textContent = n + (n === 1 ? ' palabra' : ' palabras') + (n > 1200 ? ' · es larga: la vamos a condensar' : ''); }
-$('#historia').addEventListener('input', contar);
+function palabrasRespuestas(){ return respuestasDe(lecturaActual()).reduce(function(n, x){ return n + palabras(x.respuesta); }, 0); }
+function contar(){ var n = palabrasRespuestas(); $('#contador').textContent = n + (n === 1 ? ' palabra' : ' palabras') + ' en tus respuestas' + (n > 900 ? ' · es mucho: lo vamos a condensar' : ''); }
 function leerForma(){
   var pjs = Array.prototype.map.call(document.querySelectorAll('.pj'), function(d){ return { nombre:d.querySelector('.pj-nombre').value.trim(), como:d.querySelector('.pj-como').value.trim() }; })
     .filter(function(p){ return p.nombre || p.como; });
   var pg = document.querySelector('input[name=paginas]:checked');
-  return { nombre:$('#nombre').value.trim(), titulo:$('#titulo').value.trim(), historia:$('#historia').value.trim(), personajes:pjs,
+  return { nombre:$('#nombre').value.trim(), libro:$('#libro').value.trim(), autor:$('#autor').value.trim(), lectura:lecturaActual(),
+    resp:JSON.parse(JSON.stringify(resp)), titulo:$('#titulo').value.trim(), yo_como:$('#yo-como').value.trim(), personajes:pjs,
     lugar:$('#lugar').value.trim(), estilos:estilos.slice(), estilo_texto:$('#estilo-texto').value.trim(), paginas: pg ? pg.value : '2',
     no_cambiar:$('#no-cambiar').value.trim(), permiso:$('#permiso').checked };
 }
 function ponerForma(d){
-  $('#nombre').value = d.nombre || ''; $('#titulo').value = d.titulo || ''; $('#historia').value = d.historia || '';
+  $('#nombre').value = d.nombre || ''; $('#libro').value = d.libro || ''; $('#autor').value = d.autor || '';
+  $('#titulo').value = d.titulo || ''; $('#yo-como').value = d.yo_como || '';
   $('#lugar').value = d.lugar || ''; $('#estilo-texto').value = d.estilo_texto || ''; $('#no-cambiar').value = d.no_cambiar || '';
   $('#permiso').checked = !!d.permiso; estilos = (d.estilos || []).slice(); pintarChips();
   var r = document.querySelector('input[name=paginas][value="' + (d.paginas || '2') + '"]'); if (r) r.checked = true; marcarOpciones();
-  $('#personajes').innerHTML = ''; (d.personajes && d.personajes.length ? d.personajes : [{}, {}]).forEach(filaPersonaje);
-  contar();
+  Array.prototype.forEach.call(document.querySelectorAll('input[name=lectura]'), function(i){ i.checked = i.value === d.lectura; });
+  resp = {}; Object.keys(d.resp || {}).forEach(function(k){ resp[k] = String(d.resp[k] || ''); });
+  pintarPreguntas();
+  $('#personajes').innerHTML = ''; (d.personajes || []).forEach(filaPersonaje); revisarPj();
 }
 var tB = 0;
 function guardarBorrador(){ if (DEMO) return; clearTimeout(tB); tB = setTimeout(function(){ try{ localStorage.setItem(BORRADOR, JSON.stringify(leerForma())); }catch(e){} }, 400); }
@@ -288,23 +386,29 @@ function codigoNuevo(){ var c = ''; for (var i = 0; i < 3; i++) c += LETRAS[Math
 function bonito(c){ return c.slice(0, 3) + '-' + c.slice(3); }
 function validar(d){
   if (!d.nombre) return 'Falta tu nombre de pila (paso 1).';
-  if (palabras(d.historia) < 40 && !fotosHistoria.length) return 'Falta tu historia: pégala o sube fotos de tu cuaderno (paso 2).';
-  if (!d.estilos.length && !fotosEstilo.length && !d.estilo_texto) return 'Elige un estilo, sube una imagen o descríbelo (paso 5).';
+  if (!d.libro) return 'Falta el nombre de tu segundo libro (paso 2).';
+  if (!d.lectura) return 'Marca qué tanto leíste tu libro (paso 2). Las tres respuestas valen.';
+  if (palabrasRespuestas() < 30 && !fotosHistoria.length) return 'Cuéntanos un poco más en el paso 3: con tan poquito no alcanza para un cómic. También puedes subir fotos de tu cuaderno.';
+  if (!d.estilos.length && !fotosEstilo.length && !d.estilo_texto) return 'Elige un estilo, sube una imagen o descríbelo (paso 6).';
   return '';
 }
 $('#forma').addEventListener('submit', async function(ev){
   ev.preventDefault();
   var d = leerForma(), err = validar(d), btn = $('#b-enviar');
   $('#error').textContent = err; if (err) return;
-  if (!d.personajes.length && !confirm('No describiste a ningún personaje. La IA los va a inventar distinto en cada viñeta. ¿Enviar así?')) return;
-  var cuerpo = { accion:'subir', codigo:codigoNuevo(), nombre:d.nombre, titulo:d.titulo, historia:d.historia,
+  if (!d.yo_como && !confirm('No escribiste cómo eres (paso 4). La IA te va a dibujar distinto en cada viñeta. ¿Enviar así?')) return;
+  /* El servidor es el mismo de las historietas de cuento: recibe los mismos campos.
+     Las respuestas viajan juntas en «historia» y tú vas primero en «personajes». */
+  var personajes = [{ nombre:d.nombre, como:'PROTAGONISTA: soy yo, quien hace este cómic. ' + (d.yo_como || 'No me describí: propón un aspecto sencillo y mantenlo igual en todas las viñetas.') }].concat(d.personajes);
+  var cuerpo = { accion:'subir', codigo:codigoNuevo(), nombre:d.nombre, titulo:d.titulo, historia:componer(d),
     fotos_historia: fotosHistoria.map(function(f){ return { nombre:f.nombre, tipo:f.tipo, datos:f.datos }; }),
-    personajes:d.personajes, lugar:d.lugar, estilo_texto:d.estilo_texto, estilo_opciones:d.estilos,
+    personajes:personajes, lugar:d.lugar, estilo_texto:d.estilo_texto, estilo_opciones:d.estilos,
     imagenes_estilo: fotosEstilo.map(function(f){ return { nombre:f.nombre, tipo:f.tipo, datos:f.datos }; }),
-    paginas:+d.paginas, no_cambiar:d.no_cambiar, permiso:d.permiso };
+    paginas:+d.paginas, no_cambiar:d.no_cambiar, permiso:d.permiso,
+    tipo:'segundo-libro', libro:d.libro, autor:d.autor, lectura:d.lectura, respuestas:respuestasDe(d.lectura) };
   var json = JSON.stringify(cuerpo);
   if (DEMO){ terminar('EJE234', true); return; }
-  if (!API){ $('#error').textContent = 'La recepción todavía no está abierta. Tu historia queda guardada en este teléfono; vuelve a intentarlo cuando el profe avise.'; return; }
+  if (!API){ $('#error').textContent = 'La recepción todavía no está abierta. Tus respuestas quedan guardadas en este teléfono; vuelve a intentarlo cuando el profe avise.'; return; }
   if (json.length > 30e6){ $('#error').textContent = 'Las fotos pesan demasiado. Quita alguna y vuelve a intentar.'; return; }
   btn.disabled = true; btn.textContent = 'Enviando…';
   try{
@@ -314,9 +418,9 @@ $('#forma').addEventListener('submit', async function(ev){
     try{ localStorage.removeItem(BORRADOR); localStorage.setItem('hist:ultimo', j.codigo); }catch(e){}
     terminar(j.codigo, false);
   }catch(e){
-    var m = { 'falta-nombre':'Falta tu nombre.', 'falta-historia':'Falta tu historia.', 'demasiadas-imagenes':'Son demasiadas imágenes: hasta 4 de tu cuaderno y 3 de estilo.' }[e.message];
-    $('#error').textContent = m || 'No se pudo enviar. Revisa tu internet e inténtalo otra vez; tu historia sigue aquí.';
-    btn.disabled = false; btn.textContent = 'Enviar mi historia';
+    var m = { 'falta-nombre':'Falta tu nombre.', 'falta-historia':'Faltan tus respuestas.', 'demasiadas-imagenes':'Son demasiadas imágenes: hasta 4 de tu cuaderno y 3 de estilo.' }[e.message];
+    $('#error').textContent = m || 'No se pudo enviar. Revisa tu internet e inténtalo otra vez; tus respuestas siguen aquí.';
+    btn.disabled = false; btn.textContent = 'Enviar mis respuestas';
   }
 });
 function terminar(c, demo){

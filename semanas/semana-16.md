@@ -311,11 +311,11 @@ El viernes 30 de octubre salió el diccionario nuevo: 99 990 artículos y cerca 
 <tr><td>portafolio del Museo completo, con su bitácora</td></tr>
 <tr><td>defensa socrática hecha</td></tr>
 <tr><td>presencia en el tercer círculo</td></tr>
-<tr><td>segundo booktuber entregado (hoy es el último día)</td></tr>
+<tr><td>el cómic de tu segundo libro, que va en lugar del segundo booktuber (hoy es el último día para subir tus respuestas)</td></tr>
 <tr><td>defensa final del Museo, del martes 24 en adelante</td></tr>
 </table>
 <p class="apoyo">La autoevaluación de la unidad se llena en la cuartilla de tu expediente, con tu mesa y tu integrador como evidencia. La frase final, <em>propongo tal calificación como mi tercer parcial, porque…</em>, se transcribe al <a href="https://forms.gle/wVMNguqu3Nfu7yBX7">formulario de parciales</a> antes del lunes 23. La regla de la casa sigue: ninguna calificación baja por escrito, solo en conversación.</p>
-<p class="nota-conductor">Proyecta el suelo para que lo palomeen mentalmente: quien vea una tabla vacía sabe hoy qué le falta. El segundo booktuber se recibe hasta hoy; dilo sin nombres. Y repite el dato de siempre: la mayoría se pone menos de lo que el profesor le pondría, y cuando eso pasa, la calificación sube.</p>
+<p class="nota-conductor">Proyecta el suelo para que lo palomeen mentalmente: quien vea una tabla vacía sabe hoy qué le falta. El segundo booktuber cambió por el cómic del segundo libro: hoy es el último día para contestar las preguntas en Historietas; dilo sin nombres, y recuerda que también vale el cómic de quien no leyó y cuenta por qué. Y repite el dato de siempre: la mayoría se pone menos de lo que el profesor le pondría, y cuando eso pasa, la calificación sube.</p>
 </section>
 <section class="lam">
 <h4><span class="n">6</span> El martes, el Museo <span class="reloj">3 min</span></h4>
@@ -326,7 +326,7 @@ El viernes 30 de octubre salió el diccionario nuevo: 99 990 artículos y cerca 
 
 ## La lectura, esta semana
 
-El **minuto del lector** abre el martes y el **tercer círculo**, el del balance, cierra la semana el viernes: llega con el libro que te llevas del semestre, una frase marcada y la tarjeta del tercer círculo abierta en tu [bitácora](../recursos/plantillas/bitacora-lector.html). Ahí mismo escribes tu **testamento lector** (qué le recomiendas a quien tome este curso el año que viene, y por qué) y lo mandas a [Leemos](../leemos.html) con su botón. El **segundo booktuber** se recibe hasta el viernes 20: es tabla del suelo, y lo que se espera está en [Tu booktuber, paso a paso](../ejercicios/semana-09/booktuber-como-se-hace.html).
+El **minuto del lector** abre el martes y el **tercer círculo**, el del balance, cierra la semana el viernes: llega con el libro que te llevas del semestre, una frase marcada y la tarjeta del tercer círculo abierta en tu [bitácora](../recursos/plantillas/bitacora-lector.html). Ahí mismo escribes tu **testamento lector** (qué le recomiendas a quien tome este curso el año que viene, y por qué) y lo mandas a [Leemos](../leemos.html) con su botón. El **segundo booktuber** cambia de forma: ahora es **el cómic de tu segundo libro**, y tú eres protagonista. En él cuentas qué te gustó de lo que leíste, qué no te gustó, o por qué no leíste, si eso fue lo que pasó. Sigue siendo tabla del suelo. Las preguntas se contestan en [Historietas](../historietas/) a más tardar el viernes 20; con tus respuestas se arma tu guion y después dibujas el cómic en el centro de cómputo.
 
 ---
 
@@ -376,7 +376,7 @@ Se evalúan los cuatro criterios de siempre: **anatomía** (la palabra por dentr
 
 ### Tu tercer parcial
 
-El último del semestre. El integrador y tu mesa socrática son evidencia, no nota. La autoevaluación de la unidad se llena en la cuartilla de tu expediente el fin de semana, con el suelo palomeado (quizzes intentados · portafolio del Museo completo con su bitácora · defensa socrática hecha · presencia en el tercer círculo · segundo booktuber entregado), y el bloque final va al [formulario de parciales](https://forms.gle/wVMNguqu3Nfu7yBX7) antes del lunes 23 de noviembre. La defensa final del Museo, del martes 24 en adelante, cierra el suelo. Las reglas: [Tu calificación](../evaluacion.html).
+El último del semestre. El integrador y tu mesa socrática son evidencia, no nota. La autoevaluación de la unidad se llena en la cuartilla de tu expediente el fin de semana, con el suelo palomeado (quizzes intentados · portafolio del Museo completo con su bitácora · defensa socrática hecha · presencia en el tercer círculo · cómic de tu segundo libro, que va en lugar del segundo booktuber), y el bloque final va al [formulario de parciales](https://forms.gle/wVMNguqu3Nfu7yBX7) antes del lunes 23 de noviembre. La defensa final del Museo, del martes 24 en adelante, cierra el suelo. Las reglas: [Tu calificación](../evaluacion.html).
 
 ---
 
