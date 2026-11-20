@@ -272,7 +272,7 @@ Después pasa una de tres cosas: si el profesor coincide contigo, esa es tu cali
 
 ## La calificación final
 
-La semana 17 defiendes tu Museo: esa es la parte pública. La parte privada llega en la primera semana de diciembre: una conversación de unos diez minutos con el profesor, con tu portafolio y tu expediente enfrente. Antes escribes tu **autoevaluación final**, que empieza con una pregunta seria: ¿qué sabes hoy que no sabías en agosto? Y termina proponiendo tu calificación final. El profesor se reserva el derecho de ajustarla, lo usa rara vez, y casi siempre hacia arriba.
+La semana 17 defiendes tu Museo: esa es la parte pública. La parte privada llega en la primera semana de diciembre: una conversación de unos diez minutos con el profesor, con tu portafolio y tu expediente enfrente. Antes llenas tu **[evaluación final](recursos/plantillas/autoevaluacion-final.html)** desde el celular: siete pasos con letras griegas donde dices qué sabes hacer, cómo te fue con tu mazo y con tus libros, qué sabes hoy que no sabías en agosto, y propones tu calificación final. El profesor se reserva el derecho de ajustarla, lo usa rara vez, y casi siempre hacia arriba.
 
 ## La segunda vuelta
 

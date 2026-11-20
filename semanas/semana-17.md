@@ -28,7 +28,7 @@ Recorres tu sala 8 a 10 minutos: por qué estas palabras, cuál te sorprendió, 
 | Tu criterio: por qué estas y no otras | Que no te pongas nervioso |
 | La honestidad del "por qué la elegí" | Cuántas palabras raras metiste |
 
-La defensa no lleva nota, como nada en este curso. Es la evidencia mayor de tu conversación final de diciembre. Después del Museo escribes tu autoevaluación final en el expediente (empieza con: ¿qué sabes hoy que no sabías en agosto?) y propones tu calificación del semestre. La conversación dura unos diez minutos y llevas tu portafolio y tu expediente. Detalles: [Tu calificación](../evaluacion.html).
+La defensa no lleva nota, como nada en este curso. Es la evidencia mayor de tu conversación final de diciembre. Después del Museo llenas [tu evaluación final](../recursos/plantillas/autoevaluacion-final.html) desde el celular (ahí contestas qué sabes hoy que no sabías en agosto) y propones tu calificación del semestre. La conversación dura unos diez minutos y llevas tu portafolio y tu expediente. Detalles: [Tu calificación](../evaluacion.html).
 
 ### Lista de tu sala
 
@@ -88,7 +88,8 @@ Los ejercicios de esta semana, para tu celular o el centro de cómputo. Sin nota
 
 - [Ensayo de la defensa final](../ejercicios/semana-17/ejercicio-17A-ensayo-de-la-defensa.html) · martes
 - [El montaje de tu sala](../ejercicios/semana-17/ejercicio-17A-montaje-de-tu-sala.html) · martes
-- [Tu autoevaluación final](../ejercicios/semana-17/ejercicio-17D-autoevaluacion-final.html) · viernes
+- [Γνῶθι σεαυτόν: tu evaluación final](../recursos/plantillas/autoevaluacion-final.html) · viernes · es la que se manda al profe, desde tu celular
+- [Borrador de tu autoevaluación final](../ejercicios/semana-17/ejercicio-17D-autoevaluacion-final.html) · viernes · para quien prefiera escribirla en el expediente
 - [Carta a septiembre](../ejercicios/semana-17/ejercicio-17D-carta-a-septiembre.html) · viernes
 
 ## Las tarjetas de la semana

@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Γνῶθι σεαυτόν · Tu evaluación final · Etimologías</title>
+<meta name="description" content="La autoevaluación final de Etimologías grecolatinas: qué sabes hacer, cómo te fue con tu mazo y con tus libros, qué te llevas y qué calificación propones.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap" rel="stylesheet">
+<style>
+  :root { --rosa:#c8127a; --ciruela:#6b1e5a; --noche:#2a0f2e; --noche2:#431a47; --oro:#e3b04b; --oro-claro:#f6dc9a;
+          --marmol:#fbf6f1; --papel:#fff; --borde:#eadce6; --tinta:#2b2230; --gris:#756a78;
+          --n3:#1f7a4c; --n3bg:#e7f5ec; --n2:#1769aa; --n2bg:#e8f1fa; --n1:#a2660b; --n1bg:#fcf2dc; --n0:#a0462b; --n0bg:#f9e9e2;
+          --griega:'GFS Didot','Noto Serif',Georgia,'Times New Roman',serif;
+          --sombra:0 10px 30px rgba(74,21,64,.11), 0 2px 6px rgba(74,21,64,.07); }
+  * { box-sizing:border-box; }
+  html { -webkit-text-size-adjust:100%; }
+  body { margin:0; font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif; background:var(--marmol); color:var(--tinta); line-height:1.55; font-size:1.02rem; overflow-x:hidden; }
+  button, input, textarea { font:inherit; color:inherit; }
+  button { cursor:pointer; -webkit-tap-highlight-color:transparent; }
+  a { color:var(--rosa); }
+  [hidden] { display:none !important; }
+
+  /* ---------- la barra de arriba ---------- */
+  .tope { position:sticky; top:0; z-index:5; background:var(--noche); color:#fff; }
+  .tope .fila { max-width:720px; margin:0 auto; padding:.55rem 1.1rem .4rem; display:flex; align-items:center; gap:.8rem; }
+  .tope a { color:#e9cfe3; font-size:.84rem; text-decoration:none; white-space:nowrap; }
+  .tope .donde { flex:1; text-align:right; font-size:.86rem; color:#e9cfe3; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .letras { max-width:720px; margin:0 auto; padding:0 1.1rem .5rem; display:flex; align-items:center; }
+  .letras button { flex:none; width:30px; height:30px; border-radius:50%; border:1.5px solid rgba(255,255,255,.28); background:transparent; color:rgba(255,255,255,.6);
+                   font-family:var(--griega); font-size:1.05rem; line-height:1; padding:0 0 2px; transition:all .25s; }
+  .letras i { flex:1; height:2px; background:rgba(255,255,255,.18); transition:background .3s; }
+  .letras i.ya { background:var(--oro); }
+  .letras button.ya { border-color:var(--oro); color:var(--oro); }
+  .letras button.aqui { background:var(--oro); border-color:var(--oro); color:var(--noche); transform:scale(1.14); font-weight:700; }
+  .demo-banda { background:#ffd23f; color:var(--noche); text-align:center; font-size:.8rem; font-weight:700; padding:.3rem .8rem; }
+
+  main { max-width:720px; margin:0 auto; padding:1.2rem 1.1rem 7.5rem; }
+  .paso { display:none; animation:entra .35s ease; }
+  .paso.vivo { display:block; }
+  @keyframes entra { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
+
+  h2 { font-size:1.5rem; line-height:1.2; color:var(--ciruela); margin:.9rem 0 .4rem; }
+  h3 { color:var(--ciruela); font-size:1.08rem; margin:0 0 .3rem; line-height:1.3; }
+  p { margin:.55rem 0; }
+  .mini { font-size:.88rem; color:var(--gris); line-height:1.5; }
+  .gr { font-family:var(--griega); }
+
+  /* ---------- la portada ---------- */
+  .portada { position:relative; overflow:hidden; border-radius:26px; color:#fff; padding:1.6rem 1.3rem 1.5rem; text-align:center;
+             background:radial-gradient(120% 90% at 50% 0%, #6b1e5a 0%, var(--noche2) 45%, var(--noche) 100%); box-shadow:var(--sombra); }
+  .portada::before { content:""; position:absolute; inset:0; opacity:.8; pointer-events:none;
+     background-image:radial-gradient(1.5px 1.5px at 12% 18%, #fff 50%, transparent 51%), radial-gradient(1px 1px at 28% 62%, #fff 50%, transparent 51%),
+       radial-gradient(1.5px 1.5px at 44% 9%, var(--oro-claro) 50%, transparent 51%), radial-gradient(1px 1px at 63% 30%, #fff 50%, transparent 51%),
+       radial-gradient(2px 2px at 82% 14%, #fff 50%, transparent 51%), radial-gradient(1px 1px at 91% 55%, var(--oro-claro) 50%, transparent 51%),
+       radial-gradient(1px 1px at 7% 78%, #fff 50%, transparent 51%), radial-gradient(1.5px 1.5px at 72% 82%, #fff 50%, transparent 51%),
+       radial-gradient(1px 1px at 52% 48%, #fff 50%, transparent 51%), radial-gradient(1px 1px at 36% 88%, var(--oro-claro) 50%, transparent 51%); }
+  .flota { position:absolute; font-family:var(--griega); color:rgba(246,220,154,.2); pointer-events:none; animation:flota 9s ease-in-out infinite; }
+  @keyframes flota { 50% { transform:translateY(-14px) rotate(6deg); } }
+  .portada > *:not(.flota) { position:relative; }
+  .portada .curso { font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--oro-claro); font-weight:700; }
+  .portada .templo { width:150px; height:auto; margin:.6rem auto .2rem; display:block; }
+  .portada h1 { font-family:var(--griega); font-weight:400; font-size:2.5rem; line-height:1.1; margin:.2rem 0 .1rem; color:var(--oro);
+                text-shadow:0 0 22px rgba(227,176,75,.45); }
+  .portada .lee { font-size:.9rem; color:#e9cfe3; font-style:italic; }
+  .portada .es { font-size:1.35rem; font-weight:700; margin:.5rem 0 .2rem; }
+  .portada .cuenta { color:#f1dfee; font-size:.97rem; max-width:32rem; margin:.4rem auto 0; }
+  .greca { height:16px; margin:1.1rem 0; opacity:.9;
+     background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='16'%3E%3Cpath d='M0 14h14V2h14v12h4M20 14V8h-4' fill='none' stroke='%23e3b04b' stroke-width='2'/%3E%3C/svg%3E") repeat-x center; }
+  .greca.rosa { filter:hue-rotate(280deg) saturate(1.3); opacity:.55; margin:.2rem 0 .4rem; }
+  .nombre-caja { background:rgba(255,255,255,.08); border:1px solid rgba(246,220,154,.35); border-radius:18px; padding:1rem; text-align:left; }
+  .nombre-caja label span { display:block; font-size:.74rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--oro-claro); margin-bottom:.3rem; }
+  .nombre-caja input { width:100%; font-size:1.05rem; padding:.75rem .85rem; border:1.5px solid rgba(255,255,255,.3); border-radius:12px; background:rgba(255,255,255,.95); color:var(--tinta); }
+  .en-griego { text-align:center; margin-top:.8rem; min-height:4.4rem; }
+  .en-griego .g { font-family:var(--griega); font-size:1.9rem; line-height:1.2; color:var(--oro); word-break:break-word; text-shadow:0 0 18px rgba(227,176,75,.4); }
+  .en-griego small { display:block; color:#e9cfe3; font-size:.84rem; }
+
+  /* ---------- el letrero griego de cada paso ---------- */
+  .rotulo-g { display:flex; align-items:center; gap:.9rem; background:linear-gradient(135deg, var(--noche) 0%, var(--ciruela) 100%); color:#fff; border-radius:20px; padding:.9rem 1.1rem; box-shadow:var(--sombra); position:relative; overflow:hidden; }
+  .rotulo-g::after { content:attr(data-letra); position:absolute; right:-.1rem; bottom:-2.6rem; font-family:var(--griega); font-size:8.5rem; line-height:1; color:rgba(255,255,255,.07); }
+  .rotulo-g .letra { flex:none; width:54px; height:54px; border-radius:50%; background:var(--oro); color:var(--noche); display:grid; place-items:center; font-family:var(--griega); font-size:2rem; padding-bottom:4px; }
+  .rotulo-g .pal { font-family:var(--griega); font-size:1.75rem; letter-spacing:.08em; color:var(--oro); line-height:1.1; }
+  .rotulo-g .trans { font-size:.9rem; color:#f1dfee; }
+  .rotulo-g .trans i { color:var(--oro-claro); }
+  .familia { font-size:.9rem; color:var(--gris); margin:.6rem .2rem 0; }
+  .familia b { color:var(--ciruela); }
+  .entrada { color:#3d3342; }
+
+  .tarjeta { background:var(--papel); border:1px solid var(--borde); border-radius:18px; padding:1.05rem 1.15rem; margin:.9rem 0; box-shadow:var(--sombra); }
+  .tarjeta h3 .em { font-size:1.35rem; margin-right:.3rem; vertical-align:-.1em; }
+  .pregunta { font-weight:700; color:var(--ciruela); margin:1rem 0 .45rem; line-height:1.35; }
+  .tarjeta .pregunta:first-of-type { margin-top:.5rem; }
+
+  /* la lechuza que comenta */
+  .lechuza { display:flex; gap:.8rem; align-items:flex-start; margin:1rem 0; }
+  .lechuza svg { flex:none; width:54px; height:54px; filter:drop-shadow(0 3px 5px rgba(74,21,64,.2)); }
+  .lechuza .dice { position:relative; flex:1; background:#fff8e6; border:1px solid #f0dca8; border-radius:4px 16px 16px 16px; padding:.7rem .95rem; font-size:.95rem; color:#4d3a12; }
+  .lechuza .dice b { color:var(--ciruela); }
+
+  label.campo { display:block; margin-top:.85rem; }
+  label.campo > span { display:block; font-size:.76rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--ciruela); margin-bottom:.3rem; }
+  .tarjeta input[type=text], textarea { width:100%; font-size:1rem; padding:.7rem .8rem; border:1.5px solid var(--borde); border-radius:12px; background:#fdfbfc; }
+  textarea { min-height:5.2rem; resize:vertical; }
+  input:focus, textarea:focus, button:focus-visible { outline:3px solid rgba(200,18,122,.32); outline-offset:1px; border-color:var(--rosa); }
+  input.otra { margin-top:.45rem; }
+
+  /* ---------- fichas, caras y días ---------- */
+  .fichas { display:flex; flex-wrap:wrap; gap:.4rem; }
+  .ficha { border:1.5px solid var(--borde); background:#fff; border-radius:999px; padding:.45rem .9rem; font-size:.94rem; min-height:42px; text-align:left; transition:all .15s; }
+  .ficha:hover { border-color:var(--rosa); }
+  .ficha.on { background:var(--ciruela); border-color:var(--ciruela); color:#fff; }
+  .ficha:active, .cara:active, .dia:active, .teja:active { transform:scale(.96); }
+  .caras { display:grid; grid-template-columns:repeat(5,1fr); gap:.3rem; }
+  .caras.c4 { grid-template-columns:repeat(4,1fr); }
+  .cara { border:2px solid var(--borde); background:#fff; border-radius:14px; padding:.45rem .1rem .4rem; min-height:76px; display:flex; flex-direction:column; align-items:center; gap:.1rem; transition:all .18s; }
+  .cara .e { font-size:1.7rem; line-height:1.15; filter:grayscale(.75); opacity:.75; transition:all .18s; }
+  .cara .t { font-size:.7rem; line-height:1.15; color:var(--gris); text-align:center; }
+  .cara.on { border-color:var(--rosa); background:#fdeef7; transform:translateY(-3px); box-shadow:0 6px 14px rgba(200,18,122,.18); }
+  .cara.on .e { filter:none; opacity:1; transform:scale(1.2); }
+  .cara.on .t { color:var(--ciruela); font-weight:700; }
+  .cuando { font-size:.74rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--rosa); margin:.9rem 0 .35rem; }
+  .viaje { margin-top:.9rem; border-radius:14px; background:linear-gradient(90deg,#fdeef7,#fff8e6); padding:.7rem .9rem; display:flex; align-items:center; gap:.6rem; font-size:.95rem; }
+  .viaje .v { font-size:1.6rem; white-space:nowrap; }
+
+  .semana { display:grid; grid-template-columns:repeat(7,1fr); gap:.3rem; }
+  .dia { aspect-ratio:1/1.15; border-radius:14px; border:2px solid var(--borde); background:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; font-weight:700; color:var(--gris); transition:all .18s; padding:0; }
+  .dia small { font-size:1.15rem; line-height:1; height:1.3rem; opacity:0; transition:opacity .15s; }
+  .dia.on { background:linear-gradient(160deg,var(--rosa),var(--ciruela)); border-color:var(--ciruela); color:#fff; transform:translateY(-3px); box-shadow:0 6px 14px rgba(107,30,90,.25); }
+  .dia.on small { opacity:1; }
+  .cuenta-dias { text-align:center; font-size:.95rem; margin:.6rem 0 .2rem; color:var(--ciruela); font-weight:700; min-height:1.5rem; }
+
+  /* ---------- las cartas de lo que sé hacer ---------- */
+  .puntos { display:flex; gap:5px; flex-wrap:wrap; margin:.9rem 0 .5rem; }
+  .puntos button { width:22px; height:10px; border-radius:6px; border:none; padding:0; background:#e2d3de; transition:transform .15s, background .2s; }
+  .puntos button.aqui { transform:scaleY(1.5); outline:2px solid var(--ciruela); outline-offset:1px; }
+  .puntos .n3 { background:var(--n3); } .puntos .n2 { background:#5aa0d6; } .puntos .n1 { background:var(--oro); } .puntos .n0 { background:#cf8a70; }
+  .carta { background:#fff; border:1px solid var(--borde); border-radius:22px; box-shadow:var(--sombra); overflow:hidden; animation:entra .28s ease; }
+  .carta .cabeza { display:flex; gap:1rem; align-items:center; padding:1.05rem 1.15rem .85rem; background:linear-gradient(180deg,#fbf0f7,#fff); }
+  .carta .dib { flex:none; width:72px; height:72px; border-radius:20px; background:linear-gradient(145deg,var(--noche2),var(--ciruela)); display:grid; place-items:center; font-size:2.3rem; box-shadow:inset 0 0 0 2px rgba(227,176,75,.5); }
+  .carta .cuenta { font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:var(--gris); font-weight:700; }
+  .carta h3 { font-size:1.3rem; margin:.05rem 0 0; }
+  .carta .quees { padding:0 1.15rem; color:#3d3342; margin:.2rem 0 .9rem; }
+  .niveles { display:grid; gap:.5rem; padding:0 1.15rem 1.15rem; }
+  .nivel { display:flex; gap:.8rem; align-items:center; text-align:left; width:100%; min-height:60px; padding:.6rem .9rem; border-radius:14px; border:2px solid var(--borde); background:#fff; transition:all .13s; }
+  .nivel:hover { box-shadow:0 3px 10px rgba(74,21,64,.09); }
+  .nivel .bola { flex:none; width:30px; height:30px; border-radius:50%; border:2px solid currentColor; display:grid; place-items:center; font-size:.9rem; color:inherit; }
+  .nivel .bola::after { content:"✓"; color:#fff; opacity:0; font-weight:800; }
+  .nivel b { display:block; color:var(--tinta); line-height:1.25; }
+  .nivel span.d { display:block; font-size:.86rem; color:var(--gris); line-height:1.35; margin-top:.1rem; }
+  .nivel[data-n="3"] { color:var(--n3); } .nivel[data-n="2"] { color:var(--n2); } .nivel[data-n="1"] { color:var(--n1); } .nivel[data-n="0"] { color:var(--n0); }
+  .nivel.on { border-color:currentColor; } .nivel.on .bola { background:currentColor; } .nivel.on .bola::after { opacity:1; }
+  .nivel[data-n="3"].on { background:var(--n3bg); } .nivel[data-n="2"].on { background:var(--n2bg); } .nivel[data-n="1"].on { background:var(--n1bg); } .nivel[data-n="0"].on { background:var(--n0bg); }
+  .mapa { display:grid; gap:.8rem; margin:.9rem 0; }
+  .grupo-m { background:#fff; border:1px solid var(--borde); border-radius:16px; padding:.8rem 1rem; border-left:6px solid var(--c); }
+  .grupo-m h3 { color:var(--c); font-size:.95rem; }
+  .grupo-m .ficha { background:var(--bg); border-color:transparent; margin-top:.35rem; }
+  .grupo-m .vacio { font-size:.9rem; color:var(--gris); margin:.1rem 0 0; }
+
+  /* ---------- las tejas de las dinámicas ---------- */
+  .tejas { display:grid; grid-template-columns:repeat(2,1fr); gap:.5rem; }
+  @media (min-width:560px) { .tejas { grid-template-columns:repeat(3,1fr); } }
+  .teja { position:relative; border:2px solid var(--borde); background:#fff; border-radius:16px; padding:.75rem .5rem .65rem; min-height:104px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.25rem; text-align:center; transition:all .18s; }
+  .teja .e { font-size:1.9rem; line-height:1.1; }
+  .teja .t { font-size:.86rem; line-height:1.2; font-weight:600; color:var(--tinta); }
+  .teja .marca { position:absolute; top:-9px; right:-7px; width:30px; height:30px; border-radius:50%; display:grid; place-items:center; font-size:1rem; background:#fff; border:2px solid var(--borde); opacity:0; transform:scale(.4); transition:all .2s; }
+  .teja.fav { border-color:var(--rosa); background:#fdeef7; transform:rotate(-1.2deg); box-shadow:0 6px 14px rgba(200,18,122,.18); }
+  .teja.fav .marca { opacity:1; transform:none; border-color:var(--rosa); }
+  .teja.fav .marca::after { content:"💖"; }
+  .teja.cam { border-color:#8a8190; border-style:dashed; background:#f4f1f5; }
+  .teja.cam .marca { opacity:1; transform:none; border-color:#8a8190; }
+  .teja.cam .marca::after { content:"🔧"; }
+  .leyenda-t { display:flex; flex-wrap:wrap; gap:.3rem 1rem; font-size:.88rem; color:var(--gris); margin:.2rem 0 .7rem; }
+
+  .arranca { display:flex; flex-wrap:wrap; gap:.4rem; margin:.5rem 0 .1rem; }
+  .arranca span { width:100%; font-size:.8rem; color:var(--gris); }
+  .arranca button { border:1.5px dashed #dcc3d5; background:#fdf7fb; border-radius:12px; padding:.45rem .7rem; font-size:.9rem; text-align:left; color:#55294c; }
+  .arranca button:hover { border-style:solid; border-color:var(--rosa); }
+  .dos { display:grid; gap:.6rem; }
+  @media (min-width:600px) { .dos { grid-template-columns:1fr 1fr; } }
+
+  /* ---------- el espejo, el número, las piezas ---------- */
+  .espejo .barra { display:flex; height:22px; border-radius:11px; overflow:hidden; background:#efe4ec; margin:.5rem 0 .6rem; }
+  .espejo .barra i { display:block; }
+  .leyenda { display:grid; grid-template-columns:1fr 1fr; gap:.25rem .9rem; font-size:.9rem; }
+  .leyenda span { display:flex; align-items:center; gap:.45rem; } .leyenda i { width:12px; height:12px; border-radius:4px; flex:none; } .leyenda b { margin-left:auto; color:var(--ciruela); }
+  .datos-e { display:grid; grid-template-columns:repeat(3,1fr); gap:.5rem; margin-top:.9rem; }
+  .datos-e div { background:var(--marmol); border-radius:14px; padding:.6rem .4rem; text-align:center; }
+  .datos-e b { display:block; white-space:nowrap; font-size:1.3rem; color:var(--ciruela); line-height:1.2; } .datos-e small { font-size:.74rem; color:var(--gris); line-height:1.2; display:block; }
+  .existe { display:grid; gap:.4rem; }
+  .existe button { display:flex; gap:.7rem; align-items:center; text-align:left; border:1.5px solid var(--borde); background:#fff; border-radius:12px; padding:.55rem .8rem; min-height:48px; }
+  .existe button::before { content:""; flex:none; width:24px; height:24px; border-radius:7px; border:2px solid #d9c3d4; display:grid; place-items:center; color:#fff; font-weight:800; font-size:.85rem; }
+  .existe button.on { background:var(--n3bg); border-color:#bfdfcd; } .existe button.on::before { content:"✓"; background:var(--n3); border-color:var(--n3); }
+  .numeros { display:grid; grid-template-columns:repeat(6,1fr); gap:.4rem; margin:.7rem 0 .3rem; }
+  .numeros button { aspect-ratio:1/1; border-radius:50%; border:2px solid var(--borde); background:#fff; font-family:var(--griega); font-size:1.6rem; color:var(--ciruela); transition:all .15s; padding:0 0 3px; }
+  .numeros button.on { background:var(--oro); border-color:var(--oro); color:var(--noche); transform:scale(1.12); box-shadow:0 0 0 5px rgba(227,176,75,.28), var(--sombra); }
+  .piezas { display:grid; gap:.4rem; margin:.5rem 0; }
+  .pieza { display:flex; gap:.6rem; align-items:flex-start; text-align:left; border:1.5px solid var(--borde); background:#fff; border-radius:12px; padding:.55rem .75rem; font-size:.93rem; }
+  .pieza::before { content:"+"; flex:none; width:22px; height:22px; border-radius:50%; background:#fbe7f3; color:var(--rosa); font-weight:700; display:grid; place-items:center; line-height:1; }
+  .pieza.usada { background:var(--n3bg); border-color:#bfdfcd; } .pieza.usada::before { content:"✓"; background:var(--n3); color:#fff; font-size:.8rem; }
+  .clave { border-left:5px solid var(--oro); background:#fff8e6; padding:.75rem 1rem; margin:1rem 0; border-radius:0 12px 12px 0; }
+  .clave b { color:var(--ciruela); }
+
+  /* ---------- la corona y la hoja ---------- */
+  .corona { position:relative; overflow:hidden; text-align:center; color:#fff; border-radius:24px 24px 0 0; padding:1.3rem 1rem 1.2rem;
+            background:radial-gradient(110% 90% at 50% 0%, #6b1e5a 0%, var(--noche2) 50%, var(--noche) 100%); }
+  .corona .laurel { position:relative; width:170px; height:170px; margin:0 auto; }
+  .corona .laurel svg { width:100%; height:100%; }
+  .corona .laurel .n { position:absolute; inset:0; display:grid; place-items:center; font-family:var(--griega); font-size:3.6rem; color:var(--oro); padding-bottom:8px; text-shadow:0 0 22px rgba(227,176,75,.5); }
+  .corona .hoja-l { transform-box:fill-box; transform-origin:center; animation:brota .6s ease backwards; }
+  @keyframes brota { from { opacity:0; transform:scale(.2); } }
+  .corona small { display:block; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--oro-claro); }
+  .corona .g { font-family:var(--griega); font-size:1.8rem; color:var(--oro); line-height:1.2; margin-top:.3rem; word-break:break-word; }
+  .corona .nom { font-size:1.05rem; font-weight:700; }
+  .corona .epi { font-style:italic; color:#f1dfee; }
+  .corona .otro { margin-top:.6rem; border:1px solid rgba(246,220,154,.5); background:transparent; color:var(--oro-claro); border-radius:999px; padding:.35rem .9rem; font-size:.85rem; }
+  .cierre { background:#fff; border-radius:24px; box-shadow:var(--sombra); overflow:hidden; border:1px solid var(--borde); }
+  .cierre .cuerpo { padding:1rem 1.2rem 1.15rem; }
+  .cierre dl { margin:0; } .cierre dt { font-size:.74rem; letter-spacing:.07em; text-transform:uppercase; font-weight:700; color:var(--rosa); margin-top:.8rem; }
+  .cierre dt:first-child { margin-top:0; } .cierre dd { margin:.12rem 0 0; }
+
+  .aviso { border-radius:14px; padding:.8rem 1rem; margin:.9rem 0; display:none; }
+  .aviso.ver { display:block; } .aviso b { display:block; }
+  .aviso.falta { background:var(--n1bg); border:1px solid #ebd49a; color:#6b4706; }
+  .aviso.ok { background:var(--n3bg); border:1px solid #bfdfcd; color:#17523a; }
+  .aviso.yendo { background:#f6eef4; border:1px solid var(--borde); }
+  .otras { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.7rem; }
+
+  .btn { border:none; border-radius:14px; background:var(--rosa); color:#fff; font-weight:700; padding:.85rem 1.3rem; min-height:52px; font-size:1.02rem; transition:background .15s, transform .1s; }
+  .btn:hover { background:#a80e66; } .btn:active { transform:scale(.98); } .btn[disabled] { opacity:.6; cursor:default; }
+  .btn.claro { background:#fff; color:var(--ciruela); border:2px solid var(--borde); }
+  .btn.claro:hover { background:#fbf0f7; border-color:#d9b7cf; }
+  .btn.grande { width:100%; font-size:1.1rem; min-height:60px; background:linear-gradient(135deg,var(--rosa),var(--ciruela)); }
+  .btn.chico { min-height:44px; padding:.5rem .9rem; font-size:.92rem; }
+
+  .abajo { position:fixed; left:0; right:0; bottom:0; z-index:5; background:rgba(251,246,241,.94); backdrop-filter:blur(8px); border-top:1px solid var(--borde); }
+  .abajo .fila { max-width:720px; margin:0 auto; padding:.65rem 1.1rem calc(.65rem + env(safe-area-inset-bottom)); display:flex; gap:.6rem; align-items:center; }
+  .abajo .guardado { flex:1; font-size:.8rem; color:var(--gris); text-align:center; }
+  .abajo .btn { min-width:8.5rem; }
+  .temblor { animation:temblor .45s; }
+  @keyframes temblor { 20% { transform:translateX(-6px); } 40% { transform:translateX(6px); } 60% { transform:translateX(-4px); } 80% { transform:translateX(4px); } }
+
+  /* la lluvia de letras al mandar */
+  .lluvia { position:fixed; inset:0; pointer-events:none; z-index:20; overflow:hidden; }
+  .lluvia span { position:absolute; top:-3rem; font-family:var(--griega); animation:cae linear forwards; }
+  @keyframes cae { to { transform:translateY(115vh) rotate(540deg); opacity:.2; } }
+
+  @media (max-width:480px) {
+    .portada h1 { font-size:2.1rem; }
+    .rotulo-g .pal { font-size:1.45rem; }
+    .carta .dib { width:58px; height:58px; font-size:1.9rem; border-radius:16px; }
+    .carta h3 { font-size:1.15rem; }
+    .carta .quees { font-size:.97rem; line-height:1.45; margin-bottom:.7rem; }
+    .nivel { min-height:54px; padding:.5rem .75rem; } .nivel span.d { font-size:.82rem; }
+    .abajo .btn { min-width:7rem; padding-left:.9rem; padding-right:.9rem; }
+    .cara .e { font-size:1.45rem; } .cara .t { font-size:.64rem; }
+    .numeros button { font-size:1.3rem; }
+    .dia { font-size:.9rem; border-radius:11px; }
+  }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation:none !important; transition:none !important; } }
+  .sr { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+</style>
+</head>
+<body>
+
+<!-- La lechuza de Atenea, dibujada una vez y usada en cada paso -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lechuza" viewBox="0 0 64 64">
+    <path d="M14 14 22 22M50 14 42 22" stroke="#6b1e5a" stroke-width="5" stroke-linecap="round"/>
+    <ellipse cx="32" cy="37" rx="21" ry="23" fill="#6b1e5a"/>
+    <ellipse cx="32" cy="45" rx="13" ry="13" fill="#f6dc9a"/>
+    <path d="M26 42q3 3 6 0M32 42q3 3 6 0M29 48q3 3 6 0" fill="none" stroke="#c8127a" stroke-width="1.6" stroke-linecap="round"/>
+    <circle cx="23" cy="28" r="9" fill="#fff"/><circle cx="41" cy="28" r="9" fill="#fff"/>
+    <circle cx="24" cy="28" r="4.5" fill="#2a0f2e"/><circle cx="40" cy="28" r="4.5" fill="#2a0f2e"/>
+    <circle cx="25.500" cy="26.500" r="1.500" fill="#fff"/><circle cx="41.500" cy="26.500" r="1.500" fill="#fff"/>
+    <path d="M32 31l-3.500 5h7z" fill="#e3b04b"/>
+    <path d="M25 60h5M34 60h5" stroke="#e3b04b" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+</svg>
+
+<header class="tope">
+  <div class="demo-banda" id="demoBanda" hidden>Modo prueba: lo que mandes desde aquí no sale de este teléfono.</div>
+  <div class="fila"><a href="../../evaluacion.html">Tu calificación</a><span class="donde" id="donde" aria-live="polite"></span></div>
+  <nav class="letras" id="letras" aria-label="Los siete pasos"></nav>
+</header>
+
+<main>
+
+<!-- ===================== PORTADA ===================== -->
+<section class="paso" data-titulo="Conócete a ti mismo">
+  <div class="portada">
+    <span class="flota" style="left:6%;top:9%;font-size:3rem">α</span>
+    <span class="flota" style="right:7%;top:22%;font-size:2.4rem;animation-delay:-3s">Ω</span>
+    <span class="flota" style="left:10%;top:44%;font-size:2rem;animation-delay:-5s">φ</span>
+    <span class="flota" style="right:10%;top:52%;font-size:2.8rem;animation-delay:-1.500s">λ</span>
+    <span class="flota" style="left:44%;top:3%;font-size:1.6rem;animation-delay:-6s">ψ</span>
+    <div class="curso">Etimologías grecolatinas · cierre del semestre</div>
+    <svg class="templo" viewBox="0 0 150 96" fill="none" stroke="#e3b04b" stroke-width="2.200" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+      <path d="M75 6 14 34h122z" fill="rgba(227,176,75,.14)"/><circle cx="75" cy="24" r="4"/>
+      <path d="M18 40h114M22 84h106M14 92h122"/>
+      <path d="M30 42v40M38 42v40M56 42v40M64 42v40M86 42v40M94 42v40M112 42v40M120 42v40"/>
+    </svg>
+    <h1 lang="grc">Γνῶθι σεαυτόν</h1>
+    <div class="lee">se lee «gnóthi seautón»</div>
+    <div class="es">Conócete a ti mismo</div>
+    <p class="cuenta">Estaba escrito a la entrada del templo de Apolo en Delfos, y es lo que te pide esta página: tu evaluación final. Aquí dices qué sabes hacer, cómo te fue con tu mazo y con tus libros, y propones tu calificación del semestre.</p>
+    <div class="greca"></div>
+    <div class="nombre-caja">
+      <label><span>Tu nombre completo</span>
+        <input type="text" data-k="nombre" id="nombre" autocomplete="name" placeholder="Como aparece en la lista"></label>
+      <div class="en-griego" id="enGriego" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="lechuza"><svg aria-hidden="true"><use href="#lechuza"/></svg>
+    <div class="dice">Soy la lechuza de Atenea (en griego, <span class="gr">γλαῦξ</span>, «gláux») y te acompaño en los siete pasos. Casi todo se contesta tocando. Te toma unos diez minutos y se guarda sola en este teléfono, así que puedes salir y volver.</div></div>
+
+  <div class="clave"><b>Decir «todavía no» o «casi nunca repasé» no te baja la calificación.</b> Lo que pesa es que lo que digas sea verdad y se pueda comprobar en tu expediente. Una respuesta honesta le sirve al profe para mejorar el curso; una inflada no le sirve a nadie.</div>
+</section>
+
+<!-- ===================== α · ΔΥΝΑΜΙΣ ===================== -->
+<section class="paso" data-titulo="Lo que sé hacer">
+  <div class="rotulo-g" data-letra="α"><span class="letra">α</span><div><div class="pal">ΔΥΝΑΜΙΣ</div><div class="trans"><i>dýnamis</i> · lo que uno puede hacer</div></div></div>
+  <p class="familia">De aquí salieron <b>dinámica</b>, <b>dinamita</b> y <b>dinamo</b>.</p>
+  <h2>Lo que sé hacer</h2>
+  <p class="entrada">Diez cosas que el curso quiso enseñarte, una por una. Toca la respuesta que sea verdad hoy y pasa sola a la siguiente.</p>
+  <div class="puntos" id="puntos" role="tablist" aria-label="Las diez habilidades"></div>
+  <div id="mazoCartas"></div>
+  <div id="mapa-zona" hidden>
+    <div class="lechuza"><svg aria-hidden="true"><use href="#lechuza"/></svg><div class="dice" id="diceMapa"></div></div>
+    <div class="mapa" id="mapa"></div>
+  </div>
+</section>
+
+<!-- ===================== β · ΜΝΗΜΗ ===================== -->
+<section class="paso" data-titulo="Mi mazo">
+  <div class="rotulo-g" data-letra="β"><span class="letra">β</span><div><div class="pal">ΜΝΗΜΗ</div><div class="trans"><i>mnḗmē</i> · memoria</div></div></div>
+  <p class="familia">De aquí salieron <b>mnemotecnia</b>, <b>amnesia</b> y <b>amnistía</b> (que es un olvido oficial).</p>
+  <h2>Mi mazo</h2>
+  <p class="entrada">Tu gimnasio de palabras: Anki o la caja Leitner. Aquí lo que importa es saber cómo fue de verdad.</p>
+
+  <div class="tarjeta">
+    <h3><span class="em">🃏</span>¿Con qué entrenaste?</h3>
+    <div class="fichas" data-uno="mazo.con">
+      <button type="button" class="ficha">📱 Anki en el celular</button>
+      <button type="button" class="ficha">📦 Caja Leitner de papel</button>
+      <button type="button" class="ficha">🔀 Las dos</button>
+      <button type="button" class="ficha">🤷 Casi no tuve mazo</button>
+    </div>
+
+    <p class="pregunta">En una semana normal, ¿qué días repasabas? Toca los días.</p>
+    <div class="semana" id="semana"></div>
+    <div class="cuenta-dias" id="cuentaDias"></div>
+    <div class="fichas" style="justify-content:center"><button type="button" class="ficha" id="nunca">😶 La verdad, casi nunca repasaba</button></div>
+  </div>
+
+  <div class="tarjeta">
+    <h3><span class="em">⏱️</span>¿Cuándo abrías el mazo?</h3>
+    <div class="fichas" data-uno="mazo.cuando">
+      <button type="button" class="ficha">Tenía mi hora fija</button>
+      <button type="button" class="ficha">En ratos muertos: el camión, la fila</button>
+      <button type="button" class="ficha">En clase, cuando tocaba duelo</button>
+      <button type="button" class="ficha">Solo antes del quiz</button>
+      <button type="button" class="ficha">Solo cuando se iba a revisar</button>
+    </div>
+
+    <p class="pregunta">Los días que no repasabas, ¿qué se atravesaba?</p>
+    <div class="fichas" data-uno="mazo.estorbo" data-otra="mazo.estorboOtra">
+      <button type="button" class="ficha">Se me olvidaba</button>
+      <button type="button" class="ficha">Me daba flojera</button>
+      <button type="button" class="ficha">No tenía celular, datos o tiempo</button>
+      <button type="button" class="ficha">No le entendí a Anki</button>
+      <button type="button" class="ficha">Sentía que no me servía</button>
+      <button type="button" class="ficha">Otra</button>
+    </div>
+    <input type="text" class="otra" data-k="mazo.estorboOtra" placeholder="¿Cuál?" hidden>
+  </div>
+
+  <div class="tarjeta">
+    <h3><span class="em">🧠</span>¿Y sirvió?</h3>
+    <p class="pregunta">Las raíces que repasaste en el mazo, ¿se te quedaron?</p>
+    <div class="caras c4" data-uno="mazo.sirvio">
+      <button type="button" class="cara" data-v="Sí, me salen solas"><span class="e">🤩</span><span class="t">Sí, me salen solas</span></button>
+      <button type="button" class="cara" data-v="La mayoría"><span class="e">🙂</span><span class="t">La mayoría</span></button>
+      <button type="button" class="cara" data-v="Unas cuantas"><span class="e">😐</span><span class="t">Unas cuantas</span></button>
+      <button type="button" class="cara" data-v="Casi ninguna"><span class="e">😵</span><span class="t">Casi ninguna</span></button>
+    </div>
+    <p class="pregunta">¿Usarías tarjetas para estudiar otra materia?</p>
+    <div class="fichas" data-uno="mazo.otra">
+      <button type="button" class="ficha">Ya lo hago</button>
+      <button type="button" class="ficha">Sí, lo haría</button>
+      <button type="button" class="ficha">Tal vez</button>
+      <button type="button" class="ficha">No</button>
+    </div>
+  </div>
+  <div class="lechuza"><svg aria-hidden="true"><use href="#lechuza"/></svg><div class="dice" id="diceMazo">Nadie revisa tu racha. Lo que cuentes aquí es para entender si el mazo te ayudó.</div></div>
+</section>
+
+<!-- ===================== γ · ΒΙΒΛΙΟΝ ===================== -->
+<section class="paso" data-titulo="Mis libros">
+  <div class="rotulo-g" data-letra="γ"><span class="letra">γ</span><div><div class="pal">ΒΙΒΛΙΟΝ</div><div class="trans"><i>biblíon</i> · libro</div></div></div>
+  <p class="familia">De aquí salieron <b>biblioteca</b>, <b>bibliografía</b> y <b>Biblia</b> (que quiere decir «los libros»).</p>
+  <h2>Mis libros</h2>
+  <p class="entrada">Este curso leyó. Ahora cuéntanos cómo te fue a ti como lector, con el booktuber y con el cómic.</p>
+
+  <div class="tarjeta">
+    <h3><span class="em">📚</span>Tu gusto por leer</h3>
+    <div class="cuando">En agosto, cuando empezó el curso</div>
+    <div class="caras" data-uno="lee.agosto" id="carasAgosto"></div>
+    <div class="cuando">Hoy</div>
+    <div class="caras" data-uno="lee.hoy" id="carasHoy"></div>
+    <div class="viaje" id="viaje" hidden></div>
+  </div>
+
+  <div class="tarjeta">
+    <h3><span class="em">📖</span>Lo que leíste</h3>
+    <p class="pregunta">¿Cuántos libros terminaste este semestre?</p>
+    <div class="fichas" data-uno="lee.libros">
+      <button type="button" class="ficha" data-v="0">Ninguno</button>
+      <button type="button" class="ficha" data-v="1">📕 Uno</button>
+      <button type="button" class="ficha" data-v="2">📕📗 Dos</button>
+      <button type="button" class="ficha" data-v="3 o más">📕📗📘 Tres o más</button>
+    </div>
+    <p class="pregunta">¿Dejaste algún libro a medias?</p>
+    <div class="fichas" data-uno="lee.dejo">
+      <button type="button" class="ficha">No</button>
+      <button type="button" class="ficha">Sí, y agarré otro</button>
+      <button type="button" class="ficha">Sí, y ya no agarré otro</button>
+    </div>
+    <label class="campo"><span>El libro que más te gustó (opcional)</span>
+      <input type="text" data-k="lee.favorito" placeholder="Ej. Los peligros de fumar en la cama"></label>
+    <p class="pregunta">¿Vas a leer algo en vacaciones?</p>
+    <div class="fichas" data-uno="lee.vacaciones">
+      <button type="button" class="ficha">Ya tengo libro</button>
+      <button type="button" class="ficha">Sí, si encuentro uno que me atrape</button>
+      <button type="button" class="ficha">No creo</button>
+    </div>
+  </div>
+
+  <div class="tarjeta">
+    <h3><span class="em">🎬</span>Tu booktuber</h3>
+    <p class="mini" style="margin-top:0">El que hiciste al terminar tu primer libro, para contar qué te hizo sentir.</p>
+    <p class="pregunta">¿En qué formato lo entregaste?</p>
+    <div class="fichas" data-uno="bt.formato">
+      <button type="button" class="ficha">🎥 Video</button>
+      <button type="button" class="ficha">🎙️ Audio</button>
+      <button type="button" class="ficha">📝 Foto de mi ficha</button>
+      <button type="button" class="ficha">No lo entregué</button>
+    </div>
+    <div id="btResto">
+      <p class="pregunta">¿Qué tal estuvo hacerlo?</p>
+      <div class="caras c4" data-uno="bt.gusto" data-caras4></div>
+      <p class="pregunta">¿Qué te dejó? Puedes tocar varias.</p>
+      <div class="fichas" data-varios="bt.dejo" data-otra="bt.dejoOtra">
+        <button type="button" class="ficha">Entendí mejor mi libro</button>
+        <button type="button" class="ficha">Me costó, pero perdí algo de pena</button>
+        <button type="button" class="ficha">Aprendí a grabar o a editar</button>
+        <button type="button" class="ficha">Se me antojó un libro que recomendó alguien más</button>
+        <button type="button" class="ficha">Nada, lo hice por cumplir</button>
+        <button type="button" class="ficha">Otra</button>
+      </div>
+      <input type="text" class="otra" data-k="bt.dejoOtra" placeholder="¿Cuál?" hidden>
+    </div>
+  </div>
+
+  <div class="tarjeta">
+    <h3><span class="em">💬</span>Tu cómic del segundo libro</h3>
+    <p class="mini" style="margin-top:0">El de Historietas, donde tú sales de protagonista.</p>
+    <p class="pregunta">¿Qué tanto leíste ese segundo libro?</p>
+    <div class="fichas" data-uno="comic.leyo">
+      <button type="button" class="ficha">Lo leí completo</button>
+      <button type="button" class="ficha">Leí una parte</button>
+      <button type="button" class="ficha">No lo leí</button>
+    </div>
+    <p class="pregunta">¿Qué tal estuvo contarlo en cómic?</p>
+    <div class="caras c4" data-uno="comic.gusto" data-caras4></div>
+    <p class="pregunta">Para contar un libro, ¿con cuál te quedas?</p>
+    <div class="fichas" data-uno="comic.prefiere">
+      <button type="button" class="ficha">🎬 Booktuber</button>
+      <button type="button" class="ficha">💬 Cómic</button>
+      <button type="button" class="ficha">Los dos</button>
+      <button type="button" class="ficha">Ninguno</button>
+    </div>
+  </div>
+
+  <div class="tarjeta">
+    <h3><span class="em">🪑</span>Las otras formas de leer juntos</h3>
+    <p class="mini" style="margin-top:0">Una carita para cada una.</p>
+    <div id="lecturas"></div>
+  </div>
+</section>
+
+<!-- ===================== δ · ΠΑΙΔΙΑ ===================== -->
+<section class="paso" data-titulo="Las dinámicas">
+  <div class="rotulo-g" data-letra="δ"><span class="letra">δ</span><div><div class="pal">ΠΑΙΔΙΑ</div><div class="trans"><i>paidiá</i> · juego</div></div></div>
+  <p class="familia">Viene de <span class="gr">παῖς</span>, «niño», igual que <b>pedagogía</b>, <b>pediatra</b> y <b>enciclopedia</b>.</p>
+  <h2>Las dinámicas del curso</h2>
+  <p class="entrada">Aquí vota el grupo qué se queda para la siguiente generación.</p>
+
+  <div class="tarjeta">
+    <h3><span class="em">🏺</span>¿Con cuáles te quedas?</h3>
+    <p class="mini" style="margin-top:0">Un toque la marca como favorita (máximo tres). Otro toque la manda al taller, porque le cambiarías algo. Un tercero la deja en blanco.</p>
+    <div class="leyenda-t"><span>💖 Favorita <b id="cuentaFav">0 de 3</b></span><span>🔧 Le cambiaría algo</span></div>
+    <div class="tejas" id="tejas"></div>
+    <label class="campo"><span>Si mandaste alguna al taller, ¿qué le cambiarías? (opcional)</span>
+      <input type="text" data-k="din.cambio" placeholder="Ej. Que los duelos sean por equipos y no por parejas"></label>
+  </div>
+
+  <div class="tarjeta">
+    <h3><span class="em">⚖️</span>Un curso sin calificaciones</h3>
+    <p class="pregunta">¿Cómo te fue con eso de proponer tu propia calificación?</p>
+    <div class="fichas" data-uno="sin.como" data-otra="sin.comoOtra">
+      <button type="button" class="ficha">Me gustó: trabajé con menos miedo</button>
+      <button type="button" class="ficha">Me gustó, pero me cuesta ponerme número</button>
+      <button type="button" class="ficha">Me dio igual</button>
+      <button type="button" class="ficha">Sin número me relajé de más</button>
+      <button type="button" class="ficha">Prefiero que me califiquen</button>
+      <button type="button" class="ficha">Otra</button>
+    </div>
+    <input type="text" class="otra" data-k="sin.comoOtra" placeholder="¿Cuál?" hidden>
+  </div>
+</section>
+
+<!-- ===================== ε · ΛΟΓΟΣ ===================== -->
+<section class="paso" data-titulo="Lo que me llevo">
+  <div class="rotulo-g" data-letra="ε"><span class="letra">ε</span><div><div class="pal">ΛΟΓΟΣ</div><div class="trans"><i>lógos</i> · palabra, razón</div></div></div>
+  <p class="familia">De aquí salieron <b>diálogo</b>, <b>lógica</b> y todo lo que termina en <b>-logía</b>.</p>
+  <h2>Lo que me llevo</h2>
+  <p class="entrada">La única parte donde se escribe. Puedes tocar una frase para arrancar y cambiarla hasta que suene a ti.</p>
+
+  <div class="tarjeta">
+    <h3><span class="em">🔑</span>¿Qué sabes hoy que no sabías en agosto?</h3>
+    <p class="mini" style="margin-top:0">Algo concreto que hoy puedes hacer con las palabras.</p>
+    <label class="sr" for="t-sabe">Qué sé hoy que no sabía en agosto</label>
+    <textarea id="t-sabe" data-k="sabeHoy" placeholder="Escríbelo como se lo contarías a alguien de tu casa."></textarea>
+    <div class="arranca" data-para="t-sabe"><span>Para arrancar</span>
+      <button type="button">En agosto una palabra rara era una pared; hoy la abro en piezas.</button>
+      <button type="button">Ahora, cuando el doctor dice una palabra larga, entiendo de qué órgano habla.</button>
+      <button type="button">Ya no me creo una etimología bonita sin buscar la fuente.</button>
+      <button type="button">Aprendí a leer letras griegas, y ya no se me olvidan.</button>
+    </div>
+  </div>
+
+  <div class="tarjeta">
+    <h3><span class="em">🎁</span>La palabra que regalarías</h3>
+    <p class="mini" style="margin-top:0">Una sola de las de tu sala del Museo.</p>
+    <div class="dos">
+      <label class="campo" style="margin-top:.3rem"><span>La palabra</span><input type="text" data-k="regalo.palabra" placeholder="Ej. nostalgia"></label>
+      <label class="campo" style="margin-top:.3rem"><span>A quién se la das</span><input type="text" data-k="regalo.quien" placeholder="Ej. a mi abuela"></label>
+    </div>
+  </div>
+
+  <div class="tarjeta">
+    <h3><span class="em">🌱</span>Lo que quedó en «aún no»</h3>
+    <p class="mini" style="margin-top:0">Lo que te faltó aprender o entregar, dicho de frente.</p>
+    <label class="sr" for="t-aunno">Lo que quedó en aún no</label>
+    <textarea id="t-aunno" data-k="aunNo" placeholder="Di qué fue y, si lo sabes, qué se atravesó."></textarea>
+    <div class="arranca" data-para="t-aunno"><span>Para arrancar</span>
+      <button type="button">Me faltó repasar el mazo con constancia.</button>
+      <button type="button">Me faltó terminar mi segundo libro.</button>
+      <button type="button">Todavía me atoro con el latín de la letra chiquita.</button>
+      <button type="button">Me faltó hablar más en las defensas.</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ζ · ΚΡΙΣΙΣ ===================== -->
+<section class="paso" data-titulo="Mi calificación">
+  <div class="rotulo-g" data-letra="ζ"><span class="letra">ζ</span><div><div class="pal">ΚΡΙΣΙΣ</div><div class="trans"><i>krísis</i> · juicio, decisión</div></div></div>
+  <p class="familia">Para los griegos una crisis era el momento de decidir. De aquí salieron también <b>criterio</b> y <b>crítica</b>.</p>
+  <h2>Mi calificación</h2>
+  <p class="entrada">Primero mírate en el espejo de lo que contestaste. Después elige tu número y arma tu porqué.</p>
+
+  <div class="tarjeta espejo">
+    <h3><span class="em">🔍</span>Tu espejo</h3>
+    <div class="barra" id="e-barra"></div>
+    <div class="leyenda" id="e-leyenda"></div>
+    <div class="datos-e" id="e-datos"></div>
+  </div>
+
+  <div class="tarjeta">
+    <h3><span class="em">🧱</span>Lo que ya existe</h3>
+    <p class="mini" style="margin-top:0">Toca lo que tienes y puedes enseñar. Lo que quede sin palomita es tu lista de pendientes antes de diciembre.</p>
+    <div class="existe" data-varios="existe">
+      <button type="button">Mi sala del Museo, con sus 12 a 15 palabras</button>
+      <button type="button">Mi defensa final del Museo</button>
+      <button type="button">Mi booktuber del primer libro</button>
+      <button type="button">Mi cómic del segundo libro</button>
+      <button type="button">Mi bitácora del lector, con rastro reciente</button>
+      <button type="button">Mi mazo, con rastro reciente</button>
+      <button type="button">Mis tres parciales, propuestos a tiempo</button>
+    </div>
+  </div>
+
+  <div class="tarjeta">
+    <h3><span class="em">🏛️</span>La calificación que propongo es…</h3>
+    <div class="numeros" id="numeros" role="radiogroup" aria-label="Tu calificación"></div>
+    <p class="mini" id="num-nota" style="margin-bottom:0"></p>
+  </div>
+
+  <div class="tarjeta">
+    <h3><span class="em">🧩</span>Mi porqué</h3>
+    <p class="mini" style="margin-top:0">Un número solo no se puede conversar. Toca las piezas que quieras usar y la frase se arma sola; luego la corriges a tu gusto.</p>
+    <div class="piezas" id="piezas"></div>
+    <label class="sr" for="porque">Mi porqué</label>
+    <textarea id="porque" data-k="porque" style="min-height:8rem" placeholder="Me pongo este número porque…"></textarea>
+  </div>
+
+  <div class="clave"><b>Cómo se cruza con la lectura del profe.</b> Si coincide contigo, esa queda. Si te pusiste de menos, la sube y te lo dice. Si le parece alta, lo conversan en diciembre con tu expediente enfrente. Ninguna calificación baja sin conversación.</div>
+</section>
+
+<!-- ===================== η · ΤΕΛΟΣ ===================== -->
+<section class="paso" data-titulo="Mandarla">
+  <div class="rotulo-g" data-letra="η"><span class="letra">η</span><div><div class="pal">ΤΕΛΟΣ</div><div class="trans"><i>télos</i> · la meta, el punto al que querías llegar</div></div></div>
+  <h2>Tu hoja de cierre</h2>
+  <p class="entrada">Esto es lo que le llega a tu profe. Léelo una vez; si algo no te convence, regresa y cámbialo.</p>
+
+  <div class="cierre">
+    <div class="corona" id="corona"></div>
+    <div class="cuerpo" id="cierre"></div>
+  </div>
+  <p class="mini" style="text-align:center">La corona de laurel era el premio en los juegos de Delfos. En griego, corona se dice <span class="gr">στέφανος</span> («stéfanos»): por eso Esteban y Estefanía quieren decir «coronado» y «coronada».</p>
+
+  <div class="tarjeta">
+    <h3><span class="em">✉️</span>Para el profe (opcional)</h3>
+    <p class="mini" style="margin-top:0">Lo lee antes de volver a dar el curso.</p>
+    <label class="campo"><span>Que se quede</span><input type="text" data-k="queda" placeholder="Ej. Los duelos de piezas y el minuto del lector"></label>
+    <label class="campo"><span>Que cambie</span><input type="text" data-k="cambia" placeholder="Ej. Más tiempo en clase para el mazo"></label>
+  </div>
+
+  <div class="aviso" id="aviso" role="status"></div>
+  <button type="button" class="btn grande" id="enviar">Mandársela al profe</button>
+  <p class="mini" id="pista-envio" style="text-align:center">Solo la ve tu profe. Puedes volver a mandarla: cuenta la más reciente.</p>
+
+  <details class="tarjeta" id="otras" style="box-shadow:none">
+    <summary style="cursor:pointer;font-weight:700;color:var(--ciruela)">Si no se puede mandar, hay otras dos formas</summary>
+    <p class="mini">Las dos cuentan exactamente igual. Copia tu cierre y pégaselo al profe por donde le escribas, o mándaselo por WhatsApp.</p>
+    <div class="otras">
+      <button type="button" class="btn claro chico" id="copiar">Copiar mi cierre</button>
+      <button type="button" class="btn claro chico" id="whats">Mandarlo por WhatsApp</button>
+    </div>
+  </details>
+
+  <p class="mini" style="text-align:center;margin-top:1.4rem">Toma captura de tu corona y llévala con tu expediente a la conversación de diciembre.</p>
+</section>
+
+</main>
+
+<nav class="abajo" aria-label="Avanzar">
+  <div class="fila">
+    <button type="button" class="btn claro" id="atras">Atrás</button>
+    <span class="guardado" id="guardado">Se guarda sola</span>
+    <button type="button" class="btn" id="sigue">Empezar</button>
+  </div>
+</nav>
+
+<script>
+(function () {
+  'use strict';
+  /* Mismo recolector que el encargo de la unidad 2 (hoja de la Cosecha). ?demo: no sale nada. */
+  var COSECHA = 'https://script.google.com/macros/s/AKfycbyowFaq0n-zK4TBagspKG0Roye0Lun0FHaB5gQTiZGisXG4A-9ehIWmamw_mWo3KeZmrw/exec';
+  var TIPO = 'autoeval-final';
+  var DEMO = /[?&]demo(?:[=&]|$)/.test(location.search);
+  var CLAVE = 'etimologias-autoeval-final' + (DEMO ? '-demo' : '');
+  var GRIEGAS = ['α', 'β', 'γ', 'δ', 'ε', 'ζ', 'η'];
+
+  var HAB = [
+    { id: 'piezas', e: '🧩', t: 'Desarmar una palabra', d: 'Separarla en prefijo, raíz y sufijo y decir qué aporta cada pieza, como con «hipodérmico».' },
+    { id: 'familia', e: '🌳', t: 'Sacar la familia de una raíz', d: 'De una sola raíz, como «crono», sacar cronómetro, crónica, sincronizar y las que sigan.' },
+    { id: 'alfabeto', e: '🏛️', t: 'Leer el alfabeto griego', d: 'Ver escrito ΦΙΛΟΣΟΦΙΑ y leerlo en voz alta sin tabla.' },
+    { id: 'ciegas', e: '🔦', t: 'Descifrar a ciegas', d: 'Toparte con una palabra que nunca habías visto, como «otorrinolaringólogo», y sacar qué significa por sus piezas.' },
+    { id: 'viaje', e: '🧭', t: 'Seguir el viaje de una palabra', d: 'Explicar por qué lenguas pasó una palabra antes de llegar a tu boca: latín, árabe, náhuatl.' },
+    { id: 'mitos', e: '🕵️', t: 'Cazar un mito', d: 'Dudar de una etimología que suena bonita y verificarla en una fuente antes de repetirla.' },
+    { id: 'medicos', e: '🩺', t: 'Entender a los médicos', d: 'Leer «gastritis», «cardiopatía» o «hematoma» y saber de qué órgano y de qué problema hablan.' },
+    { id: 'latin', e: '⚖️', t: 'Leer la letra chiquita', d: 'Reconocer el latín que sigue vivo, como «in fraganti», «de facto» o «a priori», y usarlo bien.' },
+    { id: 'ingles', e: '🌎', t: 'Hacer que las raíces hablen inglés', d: 'Entender una palabra de inglés académico por su raíz grecolatina y detectar un falso amigo.' },
+    { id: 'voz', e: '🎤', t: 'Defender una palabra en voz alta', d: 'Pararte frente a alguien y contar de dónde viene tu palabra y por qué la elegiste, sin leer.' }
+  ];
+  var NIVELES = [
+    { n: 3, t: 'Me sale sin ayuda', d: 'Me la ponen enfrente y la resuelvo.', corto: 'Me salen sin ayuda', c: 'var(--n3)', bg: 'var(--n3bg)', barra: '#1f7a4c' },
+    { n: 2, t: 'Me sale con apoyo', d: 'Necesito mi tabla de raíces, un ejemplo o una pista.', corto: 'Me salen con apoyo', c: 'var(--n2)', bg: 'var(--n2bg)', barra: '#5aa0d6' },
+    { n: 1, t: 'La entiendo, pero me cuesta', d: 'Sé de qué se trata; a la hora de hacerla me atoro.', corto: 'Las entiendo, pero me cuestan', c: 'var(--n1)', bg: 'var(--n1bg)', barra: '#e3b04b' },
+    { n: 0, t: 'Todavía no', d: 'Si me la piden mañana, no sabría por dónde empezar.', corto: 'Todavía no', c: 'var(--n0)', bg: 'var(--n0bg)', barra: '#cf8a70' }
+  ];
+  var GUSTO = [['😴', 'Me aburre'], ['😐', 'Solo si me obligan'], ['🙂', 'Si el libro me atrapa'], ['😊', 'Me gusta'], ['🤩', 'Me encanta']];
+  var CARAS4 = [['😍', 'Me encantó'], ['🙂', 'Estuvo bien'], ['😐', 'Me dio igual'], ['😖', 'No me gustó']];
+  var CARAS_LEC = CARAS4.slice(0, 3).concat([['🙈', 'No me tocó']]);
+  var LECTURAS = [
+    { id: 'minuto', t: 'El minuto del lector', d: 'Alguien cuenta qué está leyendo.' },
+    { id: 'circulo', t: 'Los círculos de lectura', d: 'Sentados en círculo, al cerrar cada unidad.' },
+    { id: 'vozalta', t: 'La lectura en voz alta', d: 'La que cerraba algunas sesiones.' },
+    { id: 'bitacora', t: 'La bitácora del lector', d: 'Una línea por cada vez que leíste.' }
+  ];
+  var DIAS = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
+  var DINAMICAS = [
+    { id: 'duelos', e: '⚔️', t: 'Duelos de piezas' }, { id: 'quiz', e: '🎯', t: 'Quizzes con apuesta' },
+    { id: 'nombre', e: '✍️', t: 'Tu nombre en griego' }, { id: 'consultorio', e: '🩺', t: 'Consultorio griego' },
+    { id: 'arboles', e: '🌳', t: 'Campeonato de árboles' }, { id: 'mitos', e: '🕵️', t: 'Cazadores de mitos' },
+    { id: 'agora', e: '📰', t: 'Tu columna en Ágora' }, { id: 'choque', e: '💥', t: 'El choque de palabras' },
+    { id: 'locuciones', e: '🐷', t: 'El cómic de las locuciones' }, { id: 'huecos', e: '🕳️', t: 'Sentimientos sin nombre' },
+    { id: 'academia', e: '📜', t: 'La Academia sesiona' }, { id: 'museo', e: '🖼️', t: 'El Museo de Palabras' }
+  ];
+
+  /* ---------- el estado y el guardado ---------- */
+  var s = { paso: 0, carta: 0, sabe: {}, mazo: {}, lee: {}, bt: {}, comic: {}, lec: {}, din: {}, sin: {}, regalo: {}, existe: [], epi: 0 };
+  try { var g = JSON.parse(localStorage.getItem(CLAVE) || 'null'); if (g && typeof g === 'object') for (var k in g) s[k] = g[k]; } catch (e) {}
+  ['sabe', 'mazo', 'lee', 'bt', 'comic', 'lec', 'din', 'sin', 'regalo'].forEach(function (k) { if (!s[k] || typeof s[k] !== 'object') s[k] = {}; });
+  if (!Array.isArray(s.mazo.dias)) s.mazo.dias = [];
+  if (!s.din.marcas || typeof s.din.marcas !== 'object') s.din.marcas = {};
+  var $ = function (q, r) { return (r || document).querySelector(q); };
+  var $$ = function (q, r) { return Array.prototype.slice.call((r || document).querySelectorAll(q)); };
+  var esc = function (t) { return String(t == null ? '' : t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  function leer(k) { var o = s, p = k.split('.'); for (var i = 0; i < p.length; i++) { if (o == null) return ''; o = o[p[i]]; } return o == null ? '' : o; }
+  function poner(k, v) { var o = s, p = k.split('.'); for (var i = 0; i < p.length - 1; i++) { if (!o[p[i]] || typeof o[p[i]] !== 'object') o[p[i]] = {}; o = o[p[i]]; } o[p[p.length - 1]] = v; guardar(); }
+  var reloj;
+  function guardar() {
+    clearTimeout(reloj);
+    reloj = setTimeout(function () {
+      try { localStorage.setItem(CLAVE, JSON.stringify(s)); $('#guardado').textContent = 'Guardado'; }
+      catch (e) { $('#guardado').textContent = 'No se pudo guardar aquí'; }
+    }, 250);
+  }
+  var txt = function (k) { var v = leer(k); return typeof v === 'string' || typeof v === 'number' ? String(v).trim() : ''; };
+  var limpio = function (t) { return String(t).replace(/^[^\wáéíóúñÁÉÍÓÚÑ¿¡«]+\s*/, ''); };   /* quita el emoji de adelante */
+  var baja = function (x) { return x.charAt(0).toLowerCase() + x.slice(1); };
+  var hab = function (id) { return HAB.filter(function (h) { return h.id === id; })[0]; };
+  function porNivel(n) { return HAB.filter(function (h) { return s.sabe[h.id] === n; }); }
+  function contestadas() { return HAB.filter(function (h) { return typeof s.sabe[h.id] === 'number'; }).length; }
+  function lista(a) { a = a.map(function (h) { return baja(h.t || h); }); return a.length > 1 ? a.slice(0, -1).join(', ') + ' y ' + a[a.length - 1] : (a[0] || ''); }
+
+  /* ---------- tu nombre en griego (la misma aproximación de la semana 4) ---------- */
+  var PARES = [['ch', 'τσ'], ['ll', 'λλ'], ['qu', 'κ'], ['gue', 'γε'], ['gui', 'γι'], ['ge', 'χε'], ['gi', 'χι'], ['ce', 'σε'], ['ci', 'σι'], ['ph', 'φ'], ['th', 'θ'], ['ps', 'ψ'], ['ñ', 'νι']];
+  var UNA = { a: 'α', b: 'β', c: 'κ', d: 'δ', e: 'ε', f: 'φ', g: 'γ', h: '', i: 'ι', j: 'χ', k: 'κ', l: 'λ', m: 'μ', n: 'ν', o: 'ο', p: 'π', q: 'κ', r: 'ρ', s: 'σ', t: 'τ', u: 'ου', v: 'β', w: 'ου', x: 'ξ', y: 'ι', z: 'ζ' };
+  function aGriego(nombre) {
+    return String(nombre).trim().split(/\s+/).filter(Boolean).map(function (p) {
+      p = p.toLowerCase().replace(/ñ/g, '\u0001');
+      try { p = p.normalize('NFD').replace(/[̀-ͯ]/g, ''); } catch (e) {}
+      p = p.replace(/\u0001/g, 'ñ');
+      var r = '', i = 0;
+      while (i < p.length) {
+        var hecho = false;
+        for (var j = 0; j < PARES.length; j++) if (p.substr(i, PARES[j][0].length) === PARES[j][0]) { r += PARES[j][1]; i += PARES[j][0].length; hecho = true; break; }
+        if (!hecho) { var c = p.charAt(i); r += UNA.hasOwnProperty(c) ? UNA[c] : (/[a-z]/.test(c) ? '' : c); i++; }
+      }
+      r = r.replace(/σ$/, 'ς');
+      return r.charAt(0).toUpperCase() + r.slice(1);
+    }).join(' ');
+  }
+  function pintarGriego() {
+    var n = txt('nombre'), z = $('#enGriego');
+    z.innerHTML = n ? '<div class="g" lang="el">' + esc(aGriego(n)) + '</div><small>Así se ve tu nombre con letras griegas, como en la semana 4.</small>'
+                    : '<small style="padding-top:1.2rem">Escribe tu nombre y míralo aparecer en griego.</small>';
+  }
+
+  /* ---------- campos, fichas de una, fichas de varias ---------- */
+  $$('[data-k]').forEach(function (c) {
+    c.value = leer(c.dataset.k);
+    c.addEventListener('input', function () { poner(c.dataset.k, c.value); if (c.id === 'nombre') pintarGriego(); });
+  });
+  $$('.arranca').forEach(function (z) {
+    z.addEventListener('click', function (e) {
+      var b = e.target.closest('button'); if (!b) return;
+      var c = document.getElementById(z.dataset.para);
+      c.value = (c.value.trim() ? c.value.trim() + ' ' : '') + b.textContent;
+      poner(c.dataset.k, c.value); c.focus();
+    });
+  });
+  function carasHTML(lista) { return lista.map(function (c) { return '<button type="button" class="cara" data-v="' + esc(c[1]) + '"><span class="e">' + c[0] + '</span><span class="t">' + esc(c[1]) + '</span></button>'; }).join(''); }
+  $$('[data-caras4]').forEach(function (z) { z.innerHTML = carasHTML(CARAS4); });
+  var gustoHTML = GUSTO.map(function (c, i) { return '<button type="button" class="cara" data-v="' + i + '"><span class="e">' + c[0] + '</span><span class="t">' + esc(c[1]) + '</span></button>'; }).join('');
+  $('#carasAgosto').innerHTML = gustoHTML; $('#carasHoy').innerHTML = gustoHTML;
+  $('#lecturas').innerHTML = LECTURAS.map(function (l) {
+    return '<p class="pregunta" style="margin-bottom:.1rem">' + esc(l.t) + '</p><p class="mini" style="margin:0 0 .4rem">' + esc(l.d) + '</p><div class="caras c4" data-uno="lec.' + l.id + '">' + carasHTML(CARAS_LEC) + '</div>';
+  }).join('');
+
+  var valor = function (b) { return b.dataset.v != null ? b.dataset.v : limpio(b.textContent); };
+  function pintarGrupo(z) {
+    var varios = z.dataset.varios, v = leer(varios || z.dataset.uno);
+    $$('button', z).forEach(function (b) {
+      var on = varios ? (Array.isArray(v) && v.indexOf(valor(b)) >= 0) : (v !== '' && valor(b) === String(v));
+      b.classList.toggle('on', on); b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    if (z.dataset.otra) { var o = $('[data-k="' + z.dataset.otra + '"]'); o.hidden = !(varios ? (Array.isArray(v) && v.indexOf('Otra') >= 0) : v === 'Otra'); }
+  }
+  $$('[data-uno],[data-varios]').forEach(function (z) {
+    pintarGrupo(z);
+    z.addEventListener('click', function (e) {
+      var b = e.target.closest('button'); if (!b || !z.contains(b)) return;
+      if (z.dataset.varios) { var a = leer(z.dataset.varios); a = Array.isArray(a) ? a.slice() : []; var i = a.indexOf(valor(b)); if (i >= 0) a.splice(i, 1); else a.push(valor(b)); poner(z.dataset.varios, a); }
+      else poner(z.dataset.uno, valor(b));
+      pintarGrupo(z); alCambiar(z.dataset.uno || z.dataset.varios);
+      if (z.dataset.otra && valor(b) === 'Otra' && b.classList.contains('on')) $('[data-k="' + z.dataset.otra + '"]').focus();
+    });
+  });
+  function alCambiar(k) {
+    if (k === 'lee.agosto' || k === 'lee.hoy') pintarViaje();
+    if (k === 'bt.formato') pintarBt();
+    if (k === 'mazo.con') pintarDias();
+  }
+
+  /* ---------- α: las cartas ---------- */
+  var mazo = $('#mazoCartas'), puntos = $('#puntos');
+  function enMapa() { return s.carta >= HAB.length; }
+  function pintarPuntos() {
+    puntos.innerHTML = HAB.map(function (h, i) {
+      var n = s.sabe[h.id];
+      return '<button type="button" role="tab" data-i="' + i + '" class="' + (typeof n === 'number' ? 'n' + n : '') + (i === s.carta && !enMapa() ? ' aqui' : '') + '" aria-label="' + esc(h.t) + '"></button>';
+    }).join('');
+  }
+  function pintarCarta() {
+    pintarPuntos();
+    $('#mapa-zona').hidden = !enMapa();
+    if (enMapa()) { mazo.innerHTML = ''; pintarMapa(); return; }
+    var h = HAB[s.carta], n = s.sabe[h.id];
+    mazo.innerHTML = '<article class="carta"><div class="cabeza"><div class="dib" aria-hidden="true">' + h.e + '</div>' +
+      '<div><div class="cuenta">' + (s.carta + 1) + ' de ' + HAB.length + '</div><h3>' + esc(h.t) + '</h3></div></div>' +
+      '<p class="quees">' + esc(h.d) + '</p><div class="niveles">' +
+      NIVELES.map(function (x) {
+        return '<button type="button" class="nivel' + (n === x.n ? ' on' : '') + '" data-n="' + x.n + '" aria-pressed="' + (n === x.n) + '"><span class="bola"></span><span><b>' + esc(x.t) + '</b><span class="d">' + esc(x.d) + '</span></span></button>';
+      }).join('') + '</div></article>';
+  }
+  var saltando = false;
+  mazo.addEventListener('click', function (e) {
+    var b = e.target.closest('.nivel'); if (!b || saltando) return;
+    s.sabe[HAB[s.carta].id] = +b.dataset.n; guardar();
+    $$('.nivel', mazo).forEach(function (x) { x.classList.toggle('on', x === b); });
+    pintarPuntos(); saltando = true;
+    setTimeout(function () {
+      saltando = false;
+      var sig = -1;
+      for (var i = 1; i <= HAB.length; i++) { var j = (s.carta + i) % HAB.length; if (typeof s.sabe[HAB[j].id] !== 'number') { sig = j; break; } }
+      s.carta = sig < 0 ? HAB.length : sig;
+      guardar(); pintarCarta(); pintarBarra();
+      if (enMapa()) window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 380);
+  });
+  puntos.addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; s.carta = +b.dataset.i; guardar(); pintarCarta(); pintarBarra(); });
+  function pintarMapa() {
+    var f = porNivel(3).length;
+    $('#diceMapa').innerHTML = '<b>Así quedaron las diez.</b> ' + (f >= 7 ? 'Son muchas en verde: en el paso ζ vas a decir dónde se comprueban.' : f >= 3 ? 'Hay de todo, como en cualquier semestre de verdad.' : 'Gracias por contestar sin adornos. Con esto se puede platicar.') + ' Si alguna no te convence, tócala y la cambias.';
+    $('#mapa').innerHTML = NIVELES.map(function (x) {
+      var hs = porNivel(x.n);
+      return '<div class="grupo-m" style="--c:' + x.c + ';--bg:' + x.bg + '"><h3>' + esc(x.corto) + ' · ' + hs.length + '</h3>' +
+        (hs.length ? '<div class="fichas">' + hs.map(function (h) { return '<button type="button" class="ficha" data-ir="' + HAB.indexOf(h) + '">' + h.e + ' ' + esc(h.t) + '</button>'; }).join('') + '</div>' : '<p class="vacio">Ninguna aquí.</p>') + '</div>';
+    }).join('');
+  }
+  $('#mapa').addEventListener('click', function (e) { var b = e.target.closest('[data-ir]'); if (!b) return; s.carta = +b.dataset.ir; guardar(); pintarCarta(); pintarBarra(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+  /* ---------- β: los días del mazo ---------- */
+  $('#semana').innerHTML = DIAS.map(function (d, i) { return '<button type="button" class="dia" data-i="' + i + '" aria-label="Día ' + (i + 1) + ' de la semana"><small>🃏</small>' + d + '</button>'; }).join('');
+  function mazoContestado() { return s.mazo.dias.length > 0 || s.mazo.nunca === true; }
+  function fraseMazo() {
+    if (s.mazo.nunca) return 'Casi nunca repasé mi mazo.';
+    var n = s.mazo.dias.length; if (!n) return '';
+    var con = txt('mazo.con'); con = /Anki/.test(con) ? ' con Anki' : /Leitner/.test(con) ? ' con mi caja Leitner' : /dos/.test(con) ? ' con Anki y con caja Leitner' : '';
+    return 'Repasé mi mazo ' + (n === 7 ? 'todos los días' : n === 1 ? 'un día por semana' : n + ' días por semana') + con + '.';
+  }
+  function pintarDias() {
+    $$('.dia').forEach(function (b) { var on = s.mazo.dias.indexOf(+b.dataset.i) >= 0; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); });
+    $('#nunca').classList.toggle('on', s.mazo.nunca === true);
+    var n = s.mazo.dias.length;
+    $('#cuentaDias').textContent = s.mazo.nunca ? '' : n ? (n === 7 ? 'Los siete días' : n === 1 ? 'Un día por semana' : n + ' días por semana') : '';
+    $('#diceMazo').innerHTML = s.mazo.nunca ? '<b>Gracias por decirlo así.</b> Eso es un dato, y sirve más que una racha inventada. Cuéntanos abajo qué se atravesaba.'
+      : n >= 5 ? '<span class="gr">Ἄριστα</span> («árista»): <b>excelente</b>. De ahí viene aristocracia, el gobierno de los mejores. ' + n + ' días a la semana es un mazo bien vivo.'
+      : n >= 3 ? '<b>' + n + ' días a la semana</b> es un ritmo que sí deja huella. La curva del olvido no te alcanzó tan fácil.'
+      : n >= 1 ? '<b>Algo es algo.</b> Con uno o dos días la curva del olvido lleva ventaja, pero no ganó por completo.'
+      : 'Nadie revisa tu racha. Lo que cuentes aquí es para entender si el mazo te ayudó.';
+  }
+  $('#semana').addEventListener('click', function (e) {
+    var b = e.target.closest('.dia'); if (!b) return; var i = +b.dataset.i, p = s.mazo.dias.indexOf(i);
+    if (p >= 0) s.mazo.dias.splice(p, 1); else s.mazo.dias.push(i);
+    s.mazo.nunca = false; guardar(); pintarDias();
+  });
+  $('#nunca').addEventListener('click', function () { s.mazo.nunca = !s.mazo.nunca; if (s.mazo.nunca) s.mazo.dias = []; guardar(); pintarDias(); });
+
+  /* ---------- γ: el viaje del lector y el booktuber ---------- */
+  function pintarViaje() {
+    var a = txt('lee.agosto'), h = txt('lee.hoy'), z = $('#viaje');
+    z.hidden = a === '' || h === ''; if (z.hidden) return;
+    a = +a; h = +h;
+    z.innerHTML = '<span class="v">' + GUSTO[a][0] + ' → ' + GUSTO[h][0] + '</span><span>' +
+      (h > a ? '<b>Subiste ' + (h - a === 1 ? 'un escalón' : (h - a) + ' escalones') + '.</b> Eso no lo mide ningún examen.' : h === a ? (a >= 3 ? '<b>Ya te gustaba y te sigue gustando.</b>' : '<b>Sigues donde estabas.</b> También se vale decirlo.') : '<b>Bajó.</b> Gracias por decirlo: al profe le sirve saberlo.') + '</span>';
+  }
+  function fraseLectura() {
+    var p = [], l = txt('lee.libros'), a = txt('lee.agosto'), h = txt('lee.hoy');
+    if (l !== '') p.push(l === '0' ? 'No terminé ningún libro este semestre.' : l === '1' ? 'Terminé un libro este semestre.' : l === '2' ? 'Terminé dos libros este semestre.' : 'Terminé tres libros o más este semestre.');
+    if (a !== '' && h !== '') p.push(a === h ? 'Mi gusto por leer sigue en «' + baja(GUSTO[+h][1]) + '».' : 'Mi gusto por leer pasó de «' + baja(GUSTO[+a][1]) + '» a «' + baja(GUSTO[+h][1]) + '».');
+    return p;
+  }
+  function pintarBt() { $('#btResto').hidden = txt('bt.formato') === 'No lo entregué'; }
+
+  /* ---------- δ: las tejas ---------- */
+  function favoritas() { return DINAMICAS.filter(function (d) { return s.din.marcas[d.id] === 'fav'; }); }
+  function alTaller() { return DINAMICAS.filter(function (d) { return s.din.marcas[d.id] === 'cam'; }); }
+  function pintarTejas() {
+    $('#tejas').innerHTML = DINAMICAS.map(function (d) {
+      var m = s.din.marcas[d.id] || '';
+      return '<button type="button" class="teja ' + m + '" data-id="' + d.id + '" aria-label="' + esc(d.t) + (m === 'fav' ? ': favorita' : m === 'cam' ? ': le cambiaría algo' : '') + '"><span class="marca"></span><span class="e" aria-hidden="true">' + d.e + '</span><span class="t">' + esc(d.t) + '</span></button>';
+    }).join('');
+    $('#cuentaFav').textContent = favoritas().length + ' de 3';
+  }
+  $('#tejas').addEventListener('click', function (e) {
+    var b = e.target.closest('.teja'); if (!b) return; var id = b.dataset.id, m = s.din.marcas[id];
+    var sig = !m ? (favoritas().length < 3 ? 'fav' : 'cam') : m === 'fav' ? 'cam' : '';
+    if (sig) s.din.marcas[id] = sig; else delete s.din.marcas[id];
+    guardar(); pintarTejas();
+  });
+
+  /* ---------- ζ: el espejo, el número y el porqué ---------- */
+  var numerosEl = $('#numeros');
+  [5, 6, 7, 8, 9, 10].forEach(function (n) {
+    var b = document.createElement('button'); b.type = 'button'; b.textContent = n; b.setAttribute('role', 'radio');
+    b.addEventListener('click', function () { poner('num', String(n)); pintarNumero(); });
+    numerosEl.appendChild(b);
+  });
+  function pintarNumero() {
+    var v = txt('num');
+    $$('button', numerosEl).forEach(function (b) { var on = b.textContent === v; b.classList.toggle('on', on); b.setAttribute('aria-checked', on ? 'true' : 'false'); });
+    $('#num-nota').textContent = v ? 'Propones un ' + v + '. Ahora sostenlo con tu porqué.' : 'Va de 5 a 10. Este número es tu propuesta para el acta.';
+  }
+  function pintarEspejo() {
+    $('#e-barra').innerHTML = NIVELES.map(function (x) { var c = porNivel(x.n).length; return c ? '<i style="flex:' + c + ';background:' + x.barra + '"></i>' : ''; }).join('');
+    $('#e-leyenda').innerHTML = NIVELES.map(function (x) { return '<span><i style="background:' + x.barra + '"></i>' + esc(x.corto) + '<b>' + porNivel(x.n).length + '</b></span>'; }).join('');
+    var a = txt('lee.agosto'), h = txt('lee.hoy'), l = txt('lee.libros');
+    $('#e-datos').innerHTML =
+      '<div><b>' + (s.mazo.nunca ? '0' : s.mazo.dias.length || '–') + '</b><small>días de mazo por semana</small></div>' +
+      '<div><b>' + (l === '' ? '–' : l === '3 o más' ? '3+' : l) + '</b><small>libros terminados</small></div>' +
+      '<div><b>' + (a !== '' && h !== '' ? GUSTO[+a][0] + '→' + GUSTO[+h][0] : '–') + '</b><small>tu gusto por leer</small></div>';
+  }
+  function piezas() {
+    var p = [], a;
+    if ((a = porNivel(3)).length) p.push('Me salen sin ayuda ' + a.length + ' de las diez habilidades: ' + lista(a) + '.');
+    if ((a = porNivel(2)).length) p.push('Con apoyo me ' + (a.length === 1 ? 'sale una más: ' : 'salen otras ' + a.length + ': ') + lista(a) + '.');
+    if ((a = porNivel(0).concat(porNivel(1))).length) p.push('Todavía no domino ' + lista(a) + '.');
+    if (fraseMazo()) p.push(fraseMazo());
+    fraseLectura().forEach(function (f) { p.push(f); });
+    if (Array.isArray(s.existe) && s.existe.length) p.push('Ya existe y lo puedo enseñar: ' + lista(s.existe) + '.');
+    if (txt('sabeHoy')) p.push('Lo que sé hoy y no sabía en agosto: ' + txt('sabeHoy'));
+    return p;
+  }
+  function pintarPiezas() {
+    var ps = piezas(), actual = $('#porque').value;
+    $('#piezas').innerHTML = ps.length ? ps.map(function (t, i) { return '<button type="button" class="pieza' + (actual.indexOf(t) >= 0 ? ' usada' : '') + '" data-i="' + i + '">' + esc(t) + '</button>'; }).join('') : '<p class="mini">Las piezas salen de los pasos anteriores. Contéstalos y aquí aparecen.</p>';
+    $('#piezas').onclick = function (e) {
+      var b = e.target.closest('.pieza'); if (!b) return;
+      var t = ps[+b.dataset.i], c = $('#porque'), v = c.value;
+      if (v.indexOf(t) >= 0) v = v.replace(t, '').replace(/\s{2,}/g, ' ').trim();
+      else { if (!v.trim() && txt('num')) v = 'Me pongo ' + txt('num') + ' porque:'; v = (v.trim() ? v.trim() + ' ' : '') + t; }
+      c.value = v; poner('porque', v); pintarPiezas();
+    };
+  }
+  $('#porque').addEventListener('input', pintarPiezas);
+  $('.existe').addEventListener('click', function () { setTimeout(pintarPiezas, 0); });
+
+  /* ---------- η: la corona, el epíteto y la hoja ---------- */
+  function epitetos() {
+    var e = [], a = txt('lee.agosto'), h = txt('lee.hoy');
+    if (s.sabe.ciegas === 3) e.push('que descifra a ciegas');
+    if (!s.mazo.nunca && s.mazo.dias.length >= 5) e.push('de mazo incansable');
+    if (a !== '' && h !== '' && +h > +a) e.push('que le tomó gusto a los libros');
+    if (s.sabe.alfabeto === 3) e.push('que lee griego de corrido');
+    if (s.sabe.mitos === 3) e.push('que no se traga un mito');
+    if (s.sabe.voz === 3) e.push('de voz firme');
+    if (s.sabe.medicos === 3) e.push('que entiende a los médicos');
+    if (txt('lee.libros') === '3 o más') e.push('de muchos libros');
+    if (s.sabe.ingles === 3) e.push('de raíces que hablan inglés');
+    e.push('que ya ve dentro de las palabras', 'de palabras propias');
+    return e;
+  }
+  function laurel() {
+    var hojas = '';
+    for (var i = 0; i < 10; i++) {
+      var t = (18 + i * 15.500) * Math.PI / 180, x = 100 - 74 * Math.sin(t), y = 100 + 74 * Math.cos(t);
+      var giro = Math.atan2(-Math.sin(t), -Math.cos(t)) * 180 / Math.PI;
+      hojas += '<g transform="translate(' + x.toFixed(1) + ' ' + y.toFixed(1) + ') rotate(' + (giro - 28).toFixed(1) + ')"><ellipse class="hoja-l" style="animation-delay:' + (i * 60) + 'ms" cx="9" cy="0" rx="14" ry="5.500" fill="' + (i % 2 ? '#e3b04b' : '#f6dc9a') + '"/></g>';
+    }
+    return '<svg viewBox="0 0 200 200" aria-hidden="true"><g>' + hojas + '</g><g transform="translate(200 0) scale(-1 1)">' + hojas + '</g><path d="M92 176q8 5 16 0" fill="none" stroke="#e3b04b" stroke-width="3" stroke-linecap="round"/></svg>';
+  }
+  function epiActual() { var e = epitetos(); return e[(s.epi || 0) % e.length]; }
+  function pila() { return (txt('nombre').split(/\s+/)[0] || ''); }
+  function pintarCorona() {
+    var n = txt('nombre');
+    $('#corona').innerHTML = '<small>Mi calificación propuesta</small><div class="laurel">' + laurel() + '<div class="n">' + esc(txt('num') || '?') + '</div></div>' +
+      '<div class="g" lang="el">' + esc(aGriego(n) || '—') + '</div><div class="nom">' + esc(n || 'Falta tu nombre') + '</div>' +
+      (n ? '<div class="epi">' + esc(pila()) + ', ' + esc(epiActual()) + '</div><button type="button" class="otro" id="otroEpi">Otro epíteto ↻</button>' +
+        '<p class="mini" style="color:#e9cfe3;margin:.6rem auto 0;max-width:27rem">En la Ilíada casi nadie va con el puro nombre: Aquiles es «el de los pies ligeros». Ese apodo se llama epíteto, y este es el tuyo.</p>' : '');
+  }
+  $('#corona').addEventListener('click', function (e) { if (!e.target.closest('#otroEpi')) return; s.epi = ((s.epi || 0) + 1) % epitetos().length; guardar(); pintarCorona(); });
+
+  var conOtra = function (k, ko) { var v = txt(k); return v === 'Otra' ? (txt(ko) || 'Otra') : v; };
+  function resumenSabe() { return NIVELES.map(function (x) { var hs = porNivel(x.n); return x.corto + ' (' + hs.length + ')' + (hs.length ? ': ' + lista(hs) : ''); }).join('. ') + '.'; }
+  function resumenMazo() {
+    return [fraseMazo(), txt('mazo.con') && 'Entrené con: ' + txt('mazo.con') + '.', txt('mazo.cuando') && 'Lo abría: ' + baja(txt('mazo.cuando')) + '.',
+      txt('mazo.estorbo') && 'Se atravesaba: ' + baja(conOtra('mazo.estorbo', 'mazo.estorboOtra')) + '.', txt('mazo.sirvio') && '¿Se me quedaron las raíces? ' + txt('mazo.sirvio') + '.',
+      txt('mazo.otra') && '¿Tarjetas en otra materia? ' + txt('mazo.otra') + '.'].filter(Boolean).join(' ');
+  }
+  function resumenLectura() {
+    return [fraseLectura().join(' '), txt('lee.dejo') && '¿Dejé alguno a medias? ' + txt('lee.dejo') + '.', txt('lee.favorito') && 'El que más me gustó: ' + txt('lee.favorito') + '.',
+      txt('lee.vacaciones') && '¿Leer en vacaciones? ' + txt('lee.vacaciones') + '.'].filter(Boolean).join(' ');
+  }
+  function resumenBt() {
+    var d = Array.isArray(s.bt.dejo) ? s.bt.dejo.map(function (x) { return x === 'Otra' ? (txt('bt.dejoOtra') || 'Otra') : x; }) : [];
+    var no = txt('bt.formato') === 'No lo entregué';
+    return [txt('bt.formato') && 'Booktuber: ' + baja(txt('bt.formato')) + '.', !no && txt('bt.gusto') && 'Hacerlo: ' + baja(txt('bt.gusto')) + '.', !no && d.length && 'Me dejó: ' + d.join('; ') + '.',
+      txt('comic.leyo') && 'Segundo libro: ' + baja(txt('comic.leyo')) + '.', txt('comic.gusto') && 'El cómic: ' + baja(txt('comic.gusto')) + '.', txt('comic.prefiere') && 'Para contar un libro prefiero: ' + baja(txt('comic.prefiere')) + '.'].filter(Boolean).join(' ');
+  }
+  function resumenLec() { return LECTURAS.map(function (l) { var v = txt('lec.' + l.id); return v ? l.t + ': ' + baja(v) : ''; }).filter(Boolean).join('. ').replace(/(.)$/, '$1.'); }
+  function resumenDin() {
+    return [favoritas().length && 'Favoritas: ' + lista(favoritas()) + '.', alTaller().length && 'Les cambiaría algo: ' + lista(alTaller()) + '.', txt('din.cambio') && 'Qué cambiaría: ' + txt('din.cambio') + '.',
+      txt('sin.como') && 'Sin calificaciones: ' + baja(conOtra('sin.como', 'sin.comoOtra')) + '.'].filter(Boolean).join(' ');
+  }
+  function resumenRegalo() { return txt('regalo.palabra') ? '«' + txt('regalo.palabra') + '»' + (txt('regalo.quien') ? ', para ' + txt('regalo.quien').replace(/^(a|para)\s+/i, '') : '') + '.' : ''; }
+  function resumenExiste() { var a = Array.isArray(s.existe) ? s.existe : []; return a.length ? a.join('; ') + '.' : ''; }
+  function pintarCierre() {
+    pintarCorona();
+    var filas = [
+      ['Lo que sé hacer', NIVELES.map(function (x) { var hs = porNivel(x.n); return hs.length ? '<b>' + esc(x.corto) + ' (' + hs.length + '):</b> ' + esc(lista(hs)) + '.' : ''; }).filter(Boolean).join('<br>') || 'Sin contestar.'],
+      ['Mi mazo', esc(resumenMazo())], ['Mis libros', esc(resumenLectura())], ['Booktuber y cómic', esc(resumenBt())], ['Leer juntos', esc(resumenLec())],
+      ['Las dinámicas', esc(resumenDin())], ['Qué sé hoy que no sabía en agosto', esc(txt('sabeHoy'))], ['La palabra que regalo', esc(resumenRegalo())],
+      ['Lo que quedó en «aún no»', esc(txt('aunNo'))], ['Lo que ya existe', esc(resumenExiste())], ['Mi porqué', esc(txt('porque'))]
+    ].filter(function (f) { return f[1]; });
+    $('#cierre').innerHTML = '<dl>' + filas.map(function (f) { return '<dt>' + f[0] + '</dt><dd>' + f[1] + '</dd>'; }).join('') + '</dl>';
+    if (txt('enviado')) { $('#enviar').textContent = 'Volver a mandarla'; $('#pista-envio').textContent = 'La mandaste el ' + txt('enviado') + '. Si le mueves a algo, vuelve a mandarla: cuenta la más reciente.'; }
+  }
+  function textoCierre() {
+    return ['AUTOEVALUACIÓN FINAL · Etimologías grecolatinas', 'Nombre: ' + txt('nombre') + ' (' + aGriego(txt('nombre')) + ')', 'Calificación que propongo: ' + txt('num'), '',
+      'MI PORQUÉ: ' + txt('porque'), '', 'QUÉ SÉ HOY QUE NO SABÍA EN AGOSTO: ' + txt('sabeHoy'), 'LO QUE QUEDÓ EN AÚN NO: ' + txt('aunNo'), 'LO QUE YA EXISTE: ' + (resumenExiste() || 'sin contestar'), '',
+      'LO QUE SÉ HACER: ' + resumenSabe(), '', 'MI MAZO: ' + (resumenMazo() || 'sin contestar'), 'MIS LIBROS: ' + (resumenLectura() || 'sin contestar'),
+      'BOOKTUBER Y CÓMIC: ' + (resumenBt() || 'sin contestar'), 'LEER JUNTOS: ' + (resumenLec() || 'sin contestar'), 'LAS DINÁMICAS: ' + (resumenDin() || 'sin contestar'),
+      'LA PALABRA QUE REGALO: ' + resumenRegalo(), '', 'QUE SE QUEDE: ' + txt('queda'), 'QUE CAMBIE: ' + txt('cambia')].join('\n');
+  }
+  function avisa(clase, titulo, texto) { var a = $('#aviso'); a.className = 'aviso ver ' + clase; a.innerHTML = '<b>' + titulo + '</b>' + texto; a.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+  function loQueFalta() {
+    if (!txt('nombre')) return { paso: 0, t: 'Falta tu nombre', d: 'Sin él, tu profe no sabe de quién es este cierre. Está en la portada.', foco: '#nombre' };
+    if (contestadas() < HAB.length) return { paso: 1, t: 'Te faltan habilidades por contestar', d: 'Llevas ' + contestadas() + ' de ' + HAB.length + '. Las que faltan tienen su rayita gris arriba.', carta: true };
+    if (!mazoContestado()) return { paso: 2, t: 'Falta decir qué días repasabas tu mazo', d: 'Toca los días, o el botón de «casi nunca repasaba».', foco: '#semana' };
+    if (txt('lee.agosto') === '' || txt('lee.hoy') === '') return { paso: 3, t: 'Falta tu gusto por leer', d: 'Son dos caritas: la de agosto y la de hoy.', foco: '#carasAgosto' };
+    if (!txt('num')) return { paso: 6, t: 'Todavía no eliges tu número', d: 'Es lo único que no se puede quedar en blanco: tu propuesta de calificación.', foco: '#numeros' };
+    if (txt('porque').length < 40) return { paso: 6, t: 'Falta tu porqué', d: 'Un número solo no se puede conversar. Toca dos o tres piezas y la frase se arma sola.', foco: '#porque' };
+    return null;
+  }
+  function lluvia() {
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var z = document.createElement('div'); z.className = 'lluvia'; z.setAttribute('aria-hidden', 'true');
+    var L = 'αβγδεζηθικλμνξοπρστυφχψωΩΦΨΣΔΛ', C = ['#e3b04b', '#c8127a', '#6b1e5a', '#f6dc9a'];
+    for (var i = 0; i < 46; i++) {
+      var x = document.createElement('span'); x.textContent = L.charAt(Math.floor(Math.random() * L.length));
+      x.style.left = (Math.random() * 100) + '%'; x.style.fontSize = (1.1 + Math.random() * 1.800) + 'rem'; x.style.color = C[i % C.length];
+      x.style.animationDuration = (2.200 + Math.random() * 2.400) + 's'; x.style.animationDelay = (Math.random() * 1.200) + 's'; z.appendChild(x);
+    }
+    document.body.appendChild(z); setTimeout(function () { z.remove(); }, 6500);
+  }
+  $('#enviar').addEventListener('click', function () {
+    var f = loQueFalta(), btn = this;
+    if (f) {
+      avisa('falta', f.t, f.d + ' Te llevo.');
+      setTimeout(function () {
+        if (f.carta) { for (var i = 0; i < HAB.length; i++) if (typeof s.sabe[HAB[i].id] !== 'number') { s.carta = i; break; } }
+        ir(f.paso); var el = f.foco && $(f.foco);
+        if (el) { el.scrollIntoView({ block: 'center' }); if (el.focus) el.focus(); el.classList.add('temblor'); setTimeout(function () { el.classList.remove('temblor'); }, 600); }
+      }, 1100);
+      return;
+    }
+    var hoy = new Date().toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
+    avisa('yendo', 'Mandándola…', 'Aguanta un segundo, no cierres la página.');
+    btn.disabled = true; btn.textContent = 'Mandando…';
+    var ya = false;
+    function acabo(bien) {
+      if (ya) return; ya = true; btn.disabled = false;
+      if (bien) {
+        poner('enviado', hoy); btn.textContent = 'Volver a mandarla'; lluvia();
+        avisa('ok', DEMO ? 'Así se ve cuando sale' : '¡Τέλος! Se la mandaste', DEMO ? 'Esto es una prueba: no se mandó nada.' : 'Le llegó a tu profe y nadie más la ve. Toma captura de tu corona y llévala con tu expediente a la conversación de diciembre.');
+        $('#pista-envio').textContent = 'La mandaste el ' + hoy + '. Si le mueves a algo, vuelve a mandarla: cuenta la más reciente.';
+      } else {
+        btn.textContent = 'Mandársela al profe';
+        avisa('falta', 'No se pudo mandar', 'Puede ser el internet. Vuelve a intentarlo, o usa una de las otras dos formas de aquí abajo: cuentan exactamente igual.');
+        $('#otras').open = true;
+      }
+    }
+    if (DEMO) { setTimeout(function () { acabo(true); }, 800); return; }
+    /* Lo valioso va primero: un recolector que no conozca este tipo junta todo en una sola celda recortada. */
+    var datos = [
+      ['tipo', TIPO], ['nombre', txt('nombre')], ['numero', txt('num')], ['porque', txt('porque')],
+      ['sabe_hoy', txt('sabeHoy')], ['aun_no', txt('aunNo')], ['existe', resumenExiste()], ['habilidades', resumenSabe()],
+      ['mazo_dias', s.mazo.nunca ? '0' : String(s.mazo.dias.length)], ['mazo', resumenMazo()],
+      ['gusto_agosto', txt('lee.agosto') === '' ? '' : GUSTO[+txt('lee.agosto')][1]], ['gusto_hoy', txt('lee.hoy') === '' ? '' : GUSTO[+txt('lee.hoy')][1]],
+      ['libros', txt('lee.libros')], ['lectura', resumenLectura()], ['booktuber', resumenBt()], ['leer_juntos', resumenLec()],
+      ['dinamicas', resumenDin()], ['regalo', resumenRegalo()], ['queda', txt('queda')], ['cambia', txt('cambia')],
+      ['resumen', textoCierre()]
+    ];
+    var marco = document.createElement('iframe'); marco.name = 'envio-autoeval-final-' + Date.now(); marco.style.display = 'none'; document.body.appendChild(marco);
+    var fm = document.createElement('form'); fm.method = 'POST'; fm.action = COSECHA; fm.target = marco.name; fm.style.display = 'none';
+    datos.forEach(function (d) { var i = document.createElement('input'); i.type = 'hidden'; i.name = d[0]; i.value = d[1] == null ? '' : d[1]; fm.appendChild(i); });
+    document.body.appendChild(fm);
+    marco.addEventListener('load', function () { acabo(true); });
+    setTimeout(function () { acabo(false); }, 15000);
+    fm.submit();
+  });
+  $('#copiar').addEventListener('click', function () {
+    var t = textoCierre(), b = this;
+    function listo() { b.textContent = 'Copiado'; setTimeout(function () { b.textContent = 'Copiar mi cierre'; }, 1800); }
+    function viejo() { var a = document.createElement('textarea'); a.value = t; document.body.appendChild(a); a.select(); try { document.execCommand('copy'); listo(); } catch (e) {} a.remove(); }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(listo, viejo); else viejo();
+  });
+  $('#whats').addEventListener('click', function () { window.open('https://wa.me/?text=' + encodeURIComponent(textoCierre()), '_blank', 'noopener'); });
+
+  /* ---------- moverse entre pasos ---------- */
+  var pasos = $$('.paso'), letras = $('#letras');
+  letras.innerHTML = GRIEGAS.map(function (l, i) { return (i ? '<i></i>' : '') + '<button type="button" data-p="' + (i + 1) + '" aria-label="Paso ' + (i + 1) + ': ' + esc(pasos[i + 1].dataset.titulo) + '">' + l + '</button>'; }).join('');
+  letras.addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; if (!txt('nombre')) { ir(0); tiembla($('#nombre')); return; } ir(+b.dataset.p); });
+  function tiembla(c) { c.focus(); c.classList.add('temblor'); setTimeout(function () { c.classList.remove('temblor'); }, 600); }
+  function pintarBarra() {
+    var enCartas = s.paso === 1 && !enMapa();
+    $('#atras').style.visibility = s.paso === 0 ? 'hidden' : 'visible';
+    $('#sigue').style.display = s.paso === pasos.length - 1 ? 'none' : '';
+    $('#sigue').textContent = s.paso === 0 ? 'Empezar' : enCartas ? (contestadas() === HAB.length ? 'Ver mi mapa' : 'Saltar esta') : s.paso === pasos.length - 2 ? 'Ver mi corona' : 'Siguiente';
+    $('#sigue').classList.toggle('claro', enCartas && contestadas() < HAB.length);
+    $('#donde').textContent = s.paso === 0 ? 'Diez minutos' : GRIEGAS[s.paso - 1] + ' · ' + pasos[s.paso].dataset.titulo;
+    $$('button', letras).forEach(function (b, i) { b.classList.toggle('ya', i + 1 < s.paso); b.classList.toggle('aqui', i + 1 === s.paso); });
+    $$('i', letras).forEach(function (r, i) { r.classList.toggle('ya', i + 1 < s.paso); });
+  }
+  function ir(n) {
+    s.paso = Math.max(0, Math.min(pasos.length - 1, n)); guardar();
+    pasos.forEach(function (p, i) { p.classList.toggle('vivo', i === s.paso); });
+    if (s.paso === 1) { if (contestadas() === HAB.length && !enMapa() && typeof s.sabe[(HAB[s.carta] || {}).id] === 'number') s.carta = HAB.length; pintarCarta(); }
+    if (s.paso === 6) { pintarEspejo(); pintarNumero(); pintarPiezas(); }
+    if (s.paso === 7) pintarCierre();
+    pintarBarra(); window.scrollTo(0, 0);
+  }
+  $('#sigue').addEventListener('click', function () {
+    if (s.paso === 0 && !txt('nombre')) { tiembla($('#nombre')); return; }
+    if (s.paso === 1 && !enMapa()) { s.carta = contestadas() === HAB.length ? HAB.length : s.carta + 1; guardar(); pintarCarta(); pintarBarra(); window.scrollTo(0, 0); return; }
+    ir(s.paso + 1);
+  });
+  $('#atras').addEventListener('click', function () {
+    if (s.paso === 1 && !enMapa() && s.carta > 0) { s.carta--; guardar(); pintarCarta(); pintarBarra(); return; }
+    if (s.paso === 1 && enMapa()) { s.carta = HAB.length - 1; guardar(); pintarCarta(); pintarBarra(); return; }
+    ir(s.paso - 1);
+  });
+
+  if (DEMO) $('#demoBanda').hidden = false;
+  pintarGriego(); pintarDias(); pintarViaje(); pintarBt(); pintarTejas();
+  ir(s.paso || 0);
+  window.CIERRE_PRUEBA = { estado: function () { return s; }, ir: ir, texto: textoCierre, griego: aGriego };
+})();
+</script>
+</body>
+</html>
