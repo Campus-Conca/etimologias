@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Γνῶθι σεαυτόν · Tu evaluación final · Etimologías</title>
-<meta name="description" content="La autoevaluación final de Etimologías grecolatinas: qué sabes hacer, cómo te fue con tu mazo y con tus libros, qué te llevas y qué calificación propones.">
+<meta name="description" content="La autoevaluación final de Etimologías grecolatinas: qué sabes hacer, cómo te fue con Anki y con tus libros, qué te llevas y qué calificación propones.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap" rel="stylesheet">
@@ -80,12 +80,12 @@
   .rotulo-g { display:flex; align-items:center; gap:.9rem; background:linear-gradient(135deg, var(--noche) 0%, var(--ciruela) 100%); color:#fff; border-radius:20px; padding:.9rem 1.1rem; box-shadow:var(--sombra); position:relative; overflow:hidden; }
   .rotulo-g::after { content:attr(data-letra); position:absolute; right:-.1rem; bottom:-2.6rem; font-family:var(--griega); font-size:8.5rem; line-height:1; color:rgba(255,255,255,.07); }
   .rotulo-g .letra { flex:none; width:54px; height:54px; border-radius:50%; background:var(--oro); color:var(--noche); display:grid; place-items:center; font-family:var(--griega); font-size:2rem; padding-bottom:4px; }
-  .rotulo-g .pal { font-family:var(--griega); font-size:1.75rem; letter-spacing:.08em; color:var(--oro); line-height:1.1; }
-  .rotulo-g .trans { font-size:.9rem; color:#f1dfee; }
+  .rotulo-g .pal { font-size:1.45rem; font-weight:800; color:#fff; line-height:1.15; }
+  .rotulo-g .trans { font-size:.82rem; letter-spacing:.2em; color:var(--oro); margin-top:.15rem; }
   .rotulo-g .trans i { color:var(--oro-claro); }
   .familia { font-size:.9rem; color:var(--gris); margin:.6rem .2rem 0; }
   .familia b { color:var(--ciruela); }
-  .entrada { color:#3d3342; }
+  .entrada { color:#3d3342; margin-top:.9rem; }
 
   .tarjeta { background:var(--papel); border:1px solid var(--borde); border-radius:18px; padding:1.05rem 1.15rem; margin:.9rem 0; box-shadow:var(--sombra); }
   .tarjeta h3 .em { font-size:1.35rem; margin-right:.3rem; vertical-align:-.1em; }
@@ -247,7 +247,7 @@
 
   @media (max-width:480px) {
     .portada h1 { font-size:2.1rem; }
-    .rotulo-g .pal { font-size:1.45rem; }
+    .rotulo-g .pal { font-size:1.25rem; }
     .carta .dib { width:58px; height:58px; font-size:1.9rem; border-radius:16px; }
     .carta h3 { font-size:1.15rem; }
     .carta .quees { font-size:.97rem; line-height:1.45; margin-bottom:.7rem; }
@@ -303,7 +303,7 @@
     <h1 lang="grc">Γνῶθι σεαυτόν</h1>
     <div class="lee">se lee «gnóthi seautón»</div>
     <div class="es">Conócete a ti mismo</div>
-    <p class="cuenta">Estaba escrito a la entrada del templo de Apolo en Delfos, y es lo que te pide esta página: tu evaluación final. Aquí dices qué sabes hacer, cómo te fue con tu mazo y con tus libros, y propones tu calificación del semestre.</p>
+    <p class="cuenta">Estaba escrito a la entrada del templo de Apolo en Delfos, y es lo que te pide esta página: tu evaluación final. Aquí dices qué sabes hacer, cómo te fue con Anki y con tus libros, y propones tu calificación del semestre.</p>
     <div class="greca"></div>
     <div class="nombre-caja">
       <label><span>Tu nombre completo</span>
@@ -313,16 +313,14 @@
   </div>
 
   <div class="lechuza"><svg aria-hidden="true"><use href="#lechuza"/></svg>
-    <div class="dice">Soy la lechuza de Atenea (en griego, <span class="gr">γλαῦξ</span>, «gláux») y te acompaño en los siete pasos. Casi todo se contesta tocando. Te toma unos diez minutos y se guarda sola en este teléfono, así que puedes salir y volver.</div></div>
+    <div class="dice">Soy la lechuza de Atenea y te acompaño en los siete pasos. Casi todo se contesta tocando. Te toma unos diez minutos y se guarda sola en este teléfono, así que puedes salir y volver.</div></div>
 
-  <div class="clave"><b>Decir «todavía no» o «casi nunca repasé» no te baja la calificación.</b> Lo que pesa es que lo que digas sea verdad y se pueda comprobar en tu expediente. Una respuesta honesta le sirve al profe para mejorar el curso; una inflada no le sirve a nadie.</div>
+  <div class="clave"><b>Decir «todavía no» o «casi nunca abrí Anki» no te baja la calificación.</b> Lo que pesa es que lo que digas sea verdad y se pueda comprobar en tu expediente. Una respuesta honesta le sirve al profe para mejorar el curso; una inflada no le sirve a nadie.</div>
 </section>
 
 <!-- ===================== α · ΔΥΝΑΜΙΣ ===================== -->
 <section class="paso" data-titulo="Lo que sé hacer">
-  <div class="rotulo-g" data-letra="α"><span class="letra">α</span><div><div class="pal">ΔΥΝΑΜΙΣ</div><div class="trans"><i>dýnamis</i> · lo que uno puede hacer</div></div></div>
-  <p class="familia">De aquí salieron <b>dinámica</b>, <b>dinamita</b> y <b>dinamo</b>.</p>
-  <h2>Lo que sé hacer</h2>
+  <div class="rotulo-g" data-letra="α"><span class="letra">α</span><div><div class="pal">Lo que sé hacer</div><div class="trans gr" aria-hidden="true">ΔΥΝΑΜΙΣ</div></div></div>
   <p class="entrada">Diez cosas que el curso quiso enseñarte, una por una. Toca la respuesta que sea verdad hoy y pasa sola a la siguiente.</p>
   <div class="puntos" id="puntos" role="tablist" aria-label="Las diez habilidades"></div>
   <div id="mazoCartas"></div>
@@ -333,38 +331,29 @@
 </section>
 
 <!-- ===================== β · ΜΝΗΜΗ ===================== -->
-<section class="paso" data-titulo="Mi mazo">
-  <div class="rotulo-g" data-letra="β"><span class="letra">β</span><div><div class="pal">ΜΝΗΜΗ</div><div class="trans"><i>mnḗmē</i> · memoria</div></div></div>
-  <p class="familia">De aquí salieron <b>mnemotecnia</b>, <b>amnesia</b> y <b>amnistía</b> (que es un olvido oficial).</p>
-  <h2>Mi mazo</h2>
-  <p class="entrada">Tu gimnasio de palabras: Anki o la caja Leitner. Aquí lo que importa es saber cómo fue de verdad.</p>
+<section class="paso" data-titulo="Mi Anki">
+  <div class="rotulo-g" data-letra="β"><span class="letra">β</span><div><div class="pal">Mi Anki</div><div class="trans gr" aria-hidden="true">ΜΝΗΜΗ</div></div></div>
+  <p class="entrada">Anki fue tu gimnasio de palabras. Cuéntanos qué tanto lo usaste de verdad.</p>
 
   <div class="tarjeta">
-    <h3><span class="em">🃏</span>¿Con qué entrenaste?</h3>
-    <div class="fichas" data-uno="mazo.con">
-      <button type="button" class="ficha">📱 Anki en el celular</button>
-      <button type="button" class="ficha">📦 Caja Leitner de papel</button>
-      <button type="button" class="ficha">🔀 Las dos</button>
-      <button type="button" class="ficha">🤷 Casi no tuve mazo</button>
-    </div>
-
-    <p class="pregunta">En una semana normal, ¿qué días repasabas? Toca los días.</p>
+    <h3><span class="em">🃏</span>¿Qué tanto usabas Anki?</h3>
+    <p class="pregunta">En una semana normal, ¿qué días lo abrías? Toca los días.</p>
     <div class="semana" id="semana"></div>
     <div class="cuenta-dias" id="cuentaDias"></div>
-    <div class="fichas" style="justify-content:center"><button type="button" class="ficha" id="nunca">😶 La verdad, casi nunca repasaba</button></div>
+    <div class="fichas" style="justify-content:center"><button type="button" class="ficha" id="nunca">😶 La verdad, casi nunca lo abría</button></div>
   </div>
 
   <div class="tarjeta">
-    <h3><span class="em">⏱️</span>¿Cuándo abrías el mazo?</h3>
+    <h3><span class="em">⏱️</span>¿Cuándo abrías Anki?</h3>
     <div class="fichas" data-uno="mazo.cuando">
       <button type="button" class="ficha">Tenía mi hora fija</button>
       <button type="button" class="ficha">En ratos muertos: el camión, la fila</button>
-      <button type="button" class="ficha">En clase, cuando tocaba duelo</button>
+      <button type="button" class="ficha">En clase, cuando tocaba</button>
       <button type="button" class="ficha">Solo antes del quiz</button>
       <button type="button" class="ficha">Solo cuando se iba a revisar</button>
     </div>
 
-    <p class="pregunta">Los días que no repasabas, ¿qué se atravesaba?</p>
+    <p class="pregunta">Los días que no lo abrías, ¿qué se atravesaba?</p>
     <div class="fichas" data-uno="mazo.estorbo" data-otra="mazo.estorboOtra">
       <button type="button" class="ficha">Se me olvidaba</button>
       <button type="button" class="ficha">Me daba flojera</button>
@@ -378,7 +367,7 @@
 
   <div class="tarjeta">
     <h3><span class="em">🧠</span>¿Y sirvió?</h3>
-    <p class="pregunta">Las raíces que repasaste en el mazo, ¿se te quedaron?</p>
+    <p class="pregunta">Las raíces que repasaste en Anki, ¿se te quedaron?</p>
     <div class="caras c4" data-uno="mazo.sirvio">
       <button type="button" class="cara" data-v="Sí, me salen solas"><span class="e">🤩</span><span class="t">Sí, me salen solas</span></button>
       <button type="button" class="cara" data-v="La mayoría"><span class="e">🙂</span><span class="t">La mayoría</span></button>
@@ -393,14 +382,12 @@
       <button type="button" class="ficha">No</button>
     </div>
   </div>
-  <div class="lechuza"><svg aria-hidden="true"><use href="#lechuza"/></svg><div class="dice" id="diceMazo">Nadie revisa tu racha. Lo que cuentes aquí es para entender si el mazo te ayudó.</div></div>
+  <div class="lechuza"><svg aria-hidden="true"><use href="#lechuza"/></svg><div class="dice" id="diceMazo">Nadie revisa tu racha. Lo que cuentes aquí es para entender si Anki te ayudó.</div></div>
 </section>
 
 <!-- ===================== γ · ΒΙΒΛΙΟΝ ===================== -->
 <section class="paso" data-titulo="Mis libros">
-  <div class="rotulo-g" data-letra="γ"><span class="letra">γ</span><div><div class="pal">ΒΙΒΛΙΟΝ</div><div class="trans"><i>biblíon</i> · libro</div></div></div>
-  <p class="familia">De aquí salieron <b>biblioteca</b>, <b>bibliografía</b> y <b>Biblia</b> (que quiere decir «los libros»).</p>
-  <h2>Mis libros</h2>
+  <div class="rotulo-g" data-letra="γ"><span class="letra">γ</span><div><div class="pal">Mis libros</div><div class="trans gr" aria-hidden="true">ΒΙΒΛΙΟΝ</div></div></div>
   <p class="entrada">Este curso leyó. Ahora cuéntanos cómo te fue a ti como lector, con el booktuber y con el cómic.</p>
 
   <div class="tarjeta">
@@ -439,12 +426,10 @@
 
   <div class="tarjeta">
     <h3><span class="em">🎬</span>Tu booktuber</h3>
-    <p class="mini" style="margin-top:0">El que hiciste al terminar tu primer libro, para contar qué te hizo sentir.</p>
-    <p class="pregunta">¿En qué formato lo entregaste?</p>
+    <p class="mini" style="margin-top:0">El video que grabaste al terminar tu primer libro, para contar qué te hizo sentir.</p>
+    <p class="pregunta">¿Lo entregaste?</p>
     <div class="fichas" data-uno="bt.formato">
-      <button type="button" class="ficha">🎥 Video</button>
-      <button type="button" class="ficha">🎙️ Audio</button>
-      <button type="button" class="ficha">📝 Foto de mi ficha</button>
+      <button type="button" class="ficha">Sí, lo entregué</button>
       <button type="button" class="ficha">No lo entregué</button>
     </div>
     <div id="btResto">
@@ -492,9 +477,7 @@
 
 <!-- ===================== δ · ΠΑΙΔΙΑ ===================== -->
 <section class="paso" data-titulo="Las dinámicas">
-  <div class="rotulo-g" data-letra="δ"><span class="letra">δ</span><div><div class="pal">ΠΑΙΔΙΑ</div><div class="trans"><i>paidiá</i> · juego</div></div></div>
-  <p class="familia">Viene de <span class="gr">παῖς</span>, «niño», igual que <b>pedagogía</b>, <b>pediatra</b> y <b>enciclopedia</b>.</p>
-  <h2>Las dinámicas del curso</h2>
+  <div class="rotulo-g" data-letra="δ"><span class="letra">δ</span><div><div class="pal">Las dinámicas del curso</div><div class="trans gr" aria-hidden="true">ΠΑΙΔΙΑ</div></div></div>
   <p class="entrada">Aquí vota el grupo qué se queda para la siguiente generación.</p>
 
   <div class="tarjeta">
@@ -503,7 +486,7 @@
     <div class="leyenda-t"><span>💖 Favorita <b id="cuentaFav">0 de 3</b></span><span>🔧 Le cambiaría algo</span></div>
     <div class="tejas" id="tejas"></div>
     <label class="campo"><span>Si mandaste alguna al taller, ¿qué le cambiarías? (opcional)</span>
-      <input type="text" data-k="din.cambio" placeholder="Ej. Que los duelos sean por equipos y no por parejas"></label>
+      <input type="text" data-k="din.cambio" placeholder="Ej. Que el millonario se juegue por equipos"></label>
   </div>
 
   <div class="tarjeta">
@@ -523,9 +506,7 @@
 
 <!-- ===================== ε · ΛΟΓΟΣ ===================== -->
 <section class="paso" data-titulo="Lo que me llevo">
-  <div class="rotulo-g" data-letra="ε"><span class="letra">ε</span><div><div class="pal">ΛΟΓΟΣ</div><div class="trans"><i>lógos</i> · palabra, razón</div></div></div>
-  <p class="familia">De aquí salieron <b>diálogo</b>, <b>lógica</b> y todo lo que termina en <b>-logía</b>.</p>
-  <h2>Lo que me llevo</h2>
+  <div class="rotulo-g" data-letra="ε"><span class="letra">ε</span><div><div class="pal">Lo que me llevo</div><div class="trans gr" aria-hidden="true">ΛΟΓΟΣ</div></div></div>
   <p class="entrada">La única parte donde se escribe. Puedes tocar una frase para arrancar y cambiarla hasta que suene a ti.</p>
 
   <div class="tarjeta">
@@ -536,8 +517,8 @@
     <div class="arranca" data-para="t-sabe"><span>Para arrancar</span>
       <button type="button">En agosto una palabra rara era una pared; hoy la abro en piezas.</button>
       <button type="button">Ahora, cuando el doctor dice una palabra larga, entiendo de qué órgano habla.</button>
-      <button type="button">Ya no me creo una etimología bonita sin buscar la fuente.</button>
-      <button type="button">Aprendí a leer letras griegas, y ya no se me olvidan.</button>
+      <button type="button">Ya reconozco raíces griegas y latinas dentro de palabras que uso diario.</button>
+      <button type="button">Con ver el prefijo ya sé por dónde va el significado de una palabra.</button>
     </div>
   </div>
 
@@ -556,19 +537,17 @@
     <label class="sr" for="t-aunno">Lo que quedó en aún no</label>
     <textarea id="t-aunno" data-k="aunNo" placeholder="Di qué fue y, si lo sabes, qué se atravesó."></textarea>
     <div class="arranca" data-para="t-aunno"><span>Para arrancar</span>
-      <button type="button">Me faltó repasar el mazo con constancia.</button>
+      <button type="button">Me faltó abrir Anki con constancia.</button>
       <button type="button">Me faltó terminar mi segundo libro.</button>
       <button type="button">Todavía me atoro con el latín de la letra chiquita.</button>
-      <button type="button">Me faltó hablar más en las defensas.</button>
+      <button type="button">Todavía confundo algunos prefijos griegos con los latinos.</button>
     </div>
   </div>
 </section>
 
 <!-- ===================== ζ · ΚΡΙΣΙΣ ===================== -->
 <section class="paso" data-titulo="Mi calificación">
-  <div class="rotulo-g" data-letra="ζ"><span class="letra">ζ</span><div><div class="pal">ΚΡΙΣΙΣ</div><div class="trans"><i>krísis</i> · juicio, decisión</div></div></div>
-  <p class="familia">Para los griegos una crisis era el momento de decidir. De aquí salieron también <b>criterio</b> y <b>crítica</b>.</p>
-  <h2>Mi calificación</h2>
+  <div class="rotulo-g" data-letra="ζ"><span class="letra">ζ</span><div><div class="pal">Mi calificación</div><div class="trans gr" aria-hidden="true">ΚΡΙΣΙΣ</div></div></div>
   <p class="entrada">Primero mírate en el espejo de lo que contestaste. Después elige tu número y arma tu porqué.</p>
 
   <div class="tarjeta espejo">
@@ -583,12 +562,10 @@
     <p class="mini" style="margin-top:0">Toca lo que tienes y puedes enseñar. Lo que quede sin palomita es tu lista de pendientes antes de diciembre.</p>
     <div class="existe" data-varios="existe">
       <button type="button">Mi sala del Museo, con sus 12 a 15 palabras</button>
-      <button type="button">Mi defensa final del Museo</button>
       <button type="button">Mi booktuber del primer libro</button>
       <button type="button">Mi cómic del segundo libro</button>
       <button type="button">Mi bitácora del lector, con rastro reciente</button>
-      <button type="button">Mi mazo, con rastro reciente</button>
-      <button type="button">Mis tres parciales, propuestos a tiempo</button>
+      <button type="button">Mi Anki, con rastro reciente</button>
     </div>
   </div>
 
@@ -611,21 +588,19 @@
 
 <!-- ===================== η · ΤΕΛΟΣ ===================== -->
 <section class="paso" data-titulo="Mandarla">
-  <div class="rotulo-g" data-letra="η"><span class="letra">η</span><div><div class="pal">ΤΕΛΟΣ</div><div class="trans"><i>télos</i> · la meta, el punto al que querías llegar</div></div></div>
-  <h2>Tu hoja de cierre</h2>
+  <div class="rotulo-g" data-letra="η"><span class="letra">η</span><div><div class="pal">Tu hoja de cierre</div><div class="trans gr" aria-hidden="true">ΤΕΛΟΣ</div></div></div>
   <p class="entrada">Esto es lo que le llega a tu profe. Léelo una vez; si algo no te convence, regresa y cámbialo.</p>
 
   <div class="cierre">
     <div class="corona" id="corona"></div>
     <div class="cuerpo" id="cierre"></div>
   </div>
-  <p class="mini" style="text-align:center">La corona de laurel era el premio en los juegos de Delfos. En griego, corona se dice <span class="gr">στέφανος</span> («stéfanos»): por eso Esteban y Estefanía quieren decir «coronado» y «coronada».</p>
 
   <div class="tarjeta">
     <h3><span class="em">✉️</span>Para el profe (opcional)</h3>
     <p class="mini" style="margin-top:0">Lo lee antes de volver a dar el curso.</p>
-    <label class="campo"><span>Que se quede</span><input type="text" data-k="queda" placeholder="Ej. Los duelos de piezas y el minuto del lector"></label>
-    <label class="campo"><span>Que cambie</span><input type="text" data-k="cambia" placeholder="Ej. Más tiempo en clase para el mazo"></label>
+    <label class="campo"><span>Que se quede</span><input type="text" data-k="queda" placeholder="Ej. Los juegos de palabras y la lectura en voz alta"></label>
+    <label class="campo"><span>Que cambie</span><input type="text" data-k="cambia" placeholder="Ej. Más tiempo en clase para Anki"></label>
   </div>
 
   <div class="aviso" id="aviso" role="status"></div>
@@ -666,15 +641,15 @@
 
   var HAB = [
     { id: 'piezas', e: '🧩', t: 'Desarmar una palabra', d: 'Separarla en prefijo, raíz y sufijo y decir qué aporta cada pieza, como con «hipodérmico».' },
+    { id: 'raicesG', e: '🏛️', t: 'Reconocer raíces griegas comunes', d: 'Ver «bio», «crono», «grafo» o «fobia» dentro de una palabra y decir qué significan.' },
+    { id: 'raicesL', e: '🦅', t: 'Reconocer raíces latinas comunes', d: 'Ver «aqua», «terra», «manus» o «pater» dentro de acuático, terrestre, manual o paterno, y decir qué significan.' },
+    { id: 'prefG', e: '🔡', t: 'Usar los prefijos griegos', d: 'Saber qué le hacen a una palabra «a-», «anti-», «hiper-», «hipo-» o «peri-».' },
+    { id: 'prefL', e: '🔠', t: 'Usar los prefijos latinos', d: 'Saber qué le hacen a una palabra «in-», «sub-», «pre-», «post-» o «trans-».' },
     { id: 'familia', e: '🌳', t: 'Sacar la familia de una raíz', d: 'De una sola raíz, como «crono», sacar cronómetro, crónica, sincronizar y las que sigan.' },
-    { id: 'alfabeto', e: '🏛️', t: 'Leer el alfabeto griego', d: 'Ver escrito ΦΙΛΟΣΟΦΙΑ y leerlo en voz alta sin tabla.' },
     { id: 'ciegas', e: '🔦', t: 'Descifrar a ciegas', d: 'Toparte con una palabra que nunca habías visto, como «otorrinolaringólogo», y sacar qué significa por sus piezas.' },
     { id: 'viaje', e: '🧭', t: 'Seguir el viaje de una palabra', d: 'Explicar por qué lenguas pasó una palabra antes de llegar a tu boca: latín, árabe, náhuatl.' },
-    { id: 'mitos', e: '🕵️', t: 'Cazar un mito', d: 'Dudar de una etimología que suena bonita y verificarla en una fuente antes de repetirla.' },
     { id: 'medicos', e: '🩺', t: 'Entender a los médicos', d: 'Leer «gastritis», «cardiopatía» o «hematoma» y saber de qué órgano y de qué problema hablan.' },
-    { id: 'latin', e: '⚖️', t: 'Leer la letra chiquita', d: 'Reconocer el latín que sigue vivo, como «in fraganti», «de facto» o «a priori», y usarlo bien.' },
-    { id: 'ingles', e: '🌎', t: 'Hacer que las raíces hablen inglés', d: 'Entender una palabra de inglés académico por su raíz grecolatina y detectar un falso amigo.' },
-    { id: 'voz', e: '🎤', t: 'Defender una palabra en voz alta', d: 'Pararte frente a alguien y contar de dónde viene tu palabra y por qué la elegiste, sin leer.' }
+    { id: 'latin', e: '⚖️', t: 'Leer la letra chiquita', d: 'Reconocer el latín que sigue vivo, como «in fraganti», «de facto» o «a priori», y usarlo bien.' }
   ];
   var NIVELES = [
     { n: 3, t: 'Me sale sin ayuda', d: 'Me la ponen enfrente y la resuelvo.', corto: 'Me salen sin ayuda', c: 'var(--n3)', bg: 'var(--n3bg)', barra: '#1f7a4c' },
@@ -684,21 +659,19 @@
   ];
   var GUSTO = [['😴', 'Me aburre'], ['😐', 'Solo si me obligan'], ['🙂', 'Si el libro me atrapa'], ['😊', 'Me gusta'], ['🤩', 'Me encanta']];
   var CARAS4 = [['😍', 'Me encantó'], ['🙂', 'Estuvo bien'], ['😐', 'Me dio igual'], ['😖', 'No me gustó']];
-  var CARAS_LEC = CARAS4.slice(0, 3).concat([['🙈', 'No me tocó']]);
+  var CARAS_LEC = CARAS4.slice(0, 3).concat([['🙈', 'No estuve']]);
   var LECTURAS = [
-    { id: 'minuto', t: 'El minuto del lector', d: 'Alguien cuenta qué está leyendo.' },
-    { id: 'circulo', t: 'Los círculos de lectura', d: 'Sentados en círculo, al cerrar cada unidad.' },
-    { id: 'vozalta', t: 'La lectura en voz alta', d: 'La que cerraba algunas sesiones.' },
-    { id: 'bitacora', t: 'La bitácora del lector', d: 'Una línea por cada vez que leíste.' }
+    { id: 'vozalta', t: 'La lectura en voz alta de «Creía que mi padre era Dios»', d: 'El libro que leímos en voz alta en clase.' },
+    { id: 'colectiva', t: 'La lectura colectiva de «¿Estamos entrando a una nueva edad oscura?»', d: 'El texto que leímos entre todo el grupo.' }
   ];
   var DIAS = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
   var DINAMICAS = [
-    { id: 'duelos', e: '⚔️', t: 'Duelos de piezas' }, { id: 'quiz', e: '🎯', t: 'Quizzes con apuesta' },
-    { id: 'nombre', e: '✍️', t: 'Tu nombre en griego' }, { id: 'consultorio', e: '🩺', t: 'Consultorio griego' },
-    { id: 'arboles', e: '🌳', t: 'Campeonato de árboles' }, { id: 'mitos', e: '🕵️', t: 'Cazadores de mitos' },
-    { id: 'agora', e: '📰', t: 'Tu columna en Ágora' }, { id: 'choque', e: '💥', t: 'El choque de palabras' },
+    { id: 'juegos', e: '🎲', t: 'Juegos de palabras' }, { id: 'millonario', e: '💰', t: 'Quisiera ser millonario' },
+    { id: 'anki', e: '🃏', t: 'Anki' }, { id: 'booktuber', e: '🎬', t: 'El booktuber' },
+    { id: 'quiz', e: '🎯', t: 'Quizzes con apuesta' }, { id: 'nombre', e: '✍️', t: 'Tu nombre en griego' },
+    { id: 'consultorio', e: '🩺', t: 'Consultorio griego' }, { id: 'agora', e: '📰', t: 'Tu columna en Ágora' },
     { id: 'locuciones', e: '🐷', t: 'El cómic de las locuciones' }, { id: 'huecos', e: '🕳️', t: 'Sentimientos sin nombre' },
-    { id: 'academia', e: '📜', t: 'La Academia sesiona' }, { id: 'museo', e: '🖼️', t: 'El Museo de Palabras' }
+    { id: 'museo', e: '🖼️', t: 'El Museo de Palabras' }
   ];
 
   /* ---------- el estado y el guardado ---------- */
@@ -837,7 +810,7 @@
   puntos.addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; s.carta = +b.dataset.i; guardar(); pintarCarta(); pintarBarra(); });
   function pintarMapa() {
     var f = porNivel(3).length;
-    $('#diceMapa').innerHTML = '<b>Así quedaron las diez.</b> ' + (f >= 7 ? 'Son muchas en verde: en el paso ζ vas a decir dónde se comprueban.' : f >= 3 ? 'Hay de todo, como en cualquier semestre de verdad.' : 'Gracias por contestar sin adornos. Con esto se puede platicar.') + ' Si alguna no te convence, tócala y la cambias.';
+    $('#diceMapa').innerHTML = '<b>Así quedaron las diez.</b> ' + (f >= 7 ? 'Son muchas en verde: más adelante vas a decir dónde se comprueban.' : f >= 3 ? 'Hay de todo, como en cualquier semestre de verdad.' : 'Gracias por contestar sin adornos. Con esto se puede platicar.') + ' Si alguna no te convence, tócala y la cambias.';
     $('#mapa').innerHTML = NIVELES.map(function (x) {
       var hs = porNivel(x.n);
       return '<div class="grupo-m" style="--c:' + x.c + ';--bg:' + x.bg + '"><h3>' + esc(x.corto) + ' · ' + hs.length + '</h3>' +
@@ -850,10 +823,9 @@
   $('#semana').innerHTML = DIAS.map(function (d, i) { return '<button type="button" class="dia" data-i="' + i + '" aria-label="Día ' + (i + 1) + ' de la semana"><small>🃏</small>' + d + '</button>'; }).join('');
   function mazoContestado() { return s.mazo.dias.length > 0 || s.mazo.nunca === true; }
   function fraseMazo() {
-    if (s.mazo.nunca) return 'Casi nunca repasé mi mazo.';
+    if (s.mazo.nunca) return 'Casi nunca abrí Anki.';
     var n = s.mazo.dias.length; if (!n) return '';
-    var con = txt('mazo.con'); con = /Anki/.test(con) ? ' con Anki' : /Leitner/.test(con) ? ' con mi caja Leitner' : /dos/.test(con) ? ' con Anki y con caja Leitner' : '';
-    return 'Repasé mi mazo ' + (n === 7 ? 'todos los días' : n === 1 ? 'un día por semana' : n + ' días por semana') + con + '.';
+    return 'Repasé en Anki ' + (n === 7 ? 'todos los días' : n === 1 ? 'un día por semana' : n + ' días por semana') + '.';
   }
   function pintarDias() {
     $$('.dia').forEach(function (b) { var on = s.mazo.dias.indexOf(+b.dataset.i) >= 0; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); });
@@ -861,10 +833,10 @@
     var n = s.mazo.dias.length;
     $('#cuentaDias').textContent = s.mazo.nunca ? '' : n ? (n === 7 ? 'Los siete días' : n === 1 ? 'Un día por semana' : n + ' días por semana') : '';
     $('#diceMazo').innerHTML = s.mazo.nunca ? '<b>Gracias por decirlo así.</b> Eso es un dato, y sirve más que una racha inventada. Cuéntanos abajo qué se atravesaba.'
-      : n >= 5 ? '<span class="gr">Ἄριστα</span> («árista»): <b>excelente</b>. De ahí viene aristocracia, el gobierno de los mejores. ' + n + ' días a la semana es un mazo bien vivo.'
+      : n >= 5 ? '<b>' + (n === 7 ? 'Los siete días' : n + ' días a la semana') + '.</b> Eso es usar Anki en serio.'
       : n >= 3 ? '<b>' + n + ' días a la semana</b> es un ritmo que sí deja huella. La curva del olvido no te alcanzó tan fácil.'
       : n >= 1 ? '<b>Algo es algo.</b> Con uno o dos días la curva del olvido lleva ventaja, pero no ganó por completo.'
-      : 'Nadie revisa tu racha. Lo que cuentes aquí es para entender si el mazo te ayudó.';
+      : 'Nadie revisa tu racha. Lo que cuentes aquí es para entender si Anki te ayudó.';
   }
   $('#semana').addEventListener('click', function (e) {
     var b = e.target.closest('.dia'); if (!b) return; var i = +b.dataset.i, p = s.mazo.dias.indexOf(i);
@@ -923,7 +895,7 @@
     $('#e-leyenda').innerHTML = NIVELES.map(function (x) { return '<span><i style="background:' + x.barra + '"></i>' + esc(x.corto) + '<b>' + porNivel(x.n).length + '</b></span>'; }).join('');
     var a = txt('lee.agosto'), h = txt('lee.hoy'), l = txt('lee.libros');
     $('#e-datos').innerHTML =
-      '<div><b>' + (s.mazo.nunca ? '0' : s.mazo.dias.length || '–') + '</b><small>días de mazo por semana</small></div>' +
+      '<div><b>' + (s.mazo.nunca ? '0' : s.mazo.dias.length || '–') + '</b><small>días de Anki por semana</small></div>' +
       '<div><b>' + (l === '' ? '–' : l === '3 o más' ? '3+' : l) + '</b><small>libros terminados</small></div>' +
       '<div><b>' + (a !== '' && h !== '' ? GUSTO[+a][0] + '→' + GUSTO[+h][0] : '–') + '</b><small>tu gusto por leer</small></div>';
   }
@@ -956,14 +928,12 @@
   function epitetos() {
     var e = [], a = txt('lee.agosto'), h = txt('lee.hoy');
     if (s.sabe.ciegas === 3) e.push('que descifra a ciegas');
-    if (!s.mazo.nunca && s.mazo.dias.length >= 5) e.push('de mazo incansable');
+    if (!s.mazo.nunca && s.mazo.dias.length >= 5) e.push('que no suelta su Anki');
     if (a !== '' && h !== '' && +h > +a) e.push('que le tomó gusto a los libros');
-    if (s.sabe.alfabeto === 3) e.push('que lee griego de corrido');
-    if (s.sabe.mitos === 3) e.push('que no se traga un mito');
-    if (s.sabe.voz === 3) e.push('de voz firme');
+    if (s.sabe.raicesG === 3) e.push('que trae el griego en la boca');
+    if (s.sabe.raicesL === 3) e.push('de buen latín');
     if (s.sabe.medicos === 3) e.push('que entiende a los médicos');
     if (txt('lee.libros') === '3 o más') e.push('de muchos libros');
-    if (s.sabe.ingles === 3) e.push('de raíces que hablan inglés');
     e.push('que ya ve dentro de las palabras', 'de palabras propias');
     return e;
   }
@@ -990,7 +960,7 @@
   var conOtra = function (k, ko) { var v = txt(k); return v === 'Otra' ? (txt(ko) || 'Otra') : v; };
   function resumenSabe() { return NIVELES.map(function (x) { var hs = porNivel(x.n); return x.corto + ' (' + hs.length + ')' + (hs.length ? ': ' + lista(hs) : ''); }).join('. ') + '.'; }
   function resumenMazo() {
-    return [fraseMazo(), txt('mazo.con') && 'Entrené con: ' + txt('mazo.con') + '.', txt('mazo.cuando') && 'Lo abría: ' + baja(txt('mazo.cuando')) + '.',
+    return [fraseMazo(), txt('mazo.cuando') && 'Lo abría: ' + baja(txt('mazo.cuando')) + '.',
       txt('mazo.estorbo') && 'Se atravesaba: ' + baja(conOtra('mazo.estorbo', 'mazo.estorboOtra')) + '.', txt('mazo.sirvio') && '¿Se me quedaron las raíces? ' + txt('mazo.sirvio') + '.',
       txt('mazo.otra') && '¿Tarjetas en otra materia? ' + txt('mazo.otra') + '.'].filter(Boolean).join(' ');
   }
@@ -1015,7 +985,7 @@
     pintarCorona();
     var filas = [
       ['Lo que sé hacer', NIVELES.map(function (x) { var hs = porNivel(x.n); return hs.length ? '<b>' + esc(x.corto) + ' (' + hs.length + '):</b> ' + esc(lista(hs)) + '.' : ''; }).filter(Boolean).join('<br>') || 'Sin contestar.'],
-      ['Mi mazo', esc(resumenMazo())], ['Mis libros', esc(resumenLectura())], ['Booktuber y cómic', esc(resumenBt())], ['Leer juntos', esc(resumenLec())],
+      ['Mi Anki', esc(resumenMazo())], ['Mis libros', esc(resumenLectura())], ['Booktuber y cómic', esc(resumenBt())], ['Leer juntos', esc(resumenLec())],
       ['Las dinámicas', esc(resumenDin())], ['Qué sé hoy que no sabía en agosto', esc(txt('sabeHoy'))], ['La palabra que regalo', esc(resumenRegalo())],
       ['Lo que quedó en «aún no»', esc(txt('aunNo'))], ['Lo que ya existe', esc(resumenExiste())], ['Mi porqué', esc(txt('porque'))]
     ].filter(function (f) { return f[1]; });
@@ -1025,7 +995,7 @@
   function textoCierre() {
     return ['AUTOEVALUACIÓN FINAL · Etimologías grecolatinas', 'Nombre: ' + txt('nombre') + ' (' + aGriego(txt('nombre')) + ')', 'Calificación que propongo: ' + txt('num'), '',
       'MI PORQUÉ: ' + txt('porque'), '', 'QUÉ SÉ HOY QUE NO SABÍA EN AGOSTO: ' + txt('sabeHoy'), 'LO QUE QUEDÓ EN AÚN NO: ' + txt('aunNo'), 'LO QUE YA EXISTE: ' + (resumenExiste() || 'sin contestar'), '',
-      'LO QUE SÉ HACER: ' + resumenSabe(), '', 'MI MAZO: ' + (resumenMazo() || 'sin contestar'), 'MIS LIBROS: ' + (resumenLectura() || 'sin contestar'),
+      'LO QUE SÉ HACER: ' + resumenSabe(), '', 'MI ANKI: ' + (resumenMazo() || 'sin contestar'), 'MIS LIBROS: ' + (resumenLectura() || 'sin contestar'),
       'BOOKTUBER Y CÓMIC: ' + (resumenBt() || 'sin contestar'), 'LEER JUNTOS: ' + (resumenLec() || 'sin contestar'), 'LAS DINÁMICAS: ' + (resumenDin() || 'sin contestar'),
       'LA PALABRA QUE REGALO: ' + resumenRegalo(), '', 'QUE SE QUEDE: ' + txt('queda'), 'QUE CAMBIE: ' + txt('cambia')].join('\n');
   }
@@ -1033,7 +1003,7 @@
   function loQueFalta() {
     if (!txt('nombre')) return { paso: 0, t: 'Falta tu nombre', d: 'Sin él, tu profe no sabe de quién es este cierre. Está en la portada.', foco: '#nombre' };
     if (contestadas() < HAB.length) return { paso: 1, t: 'Te faltan habilidades por contestar', d: 'Llevas ' + contestadas() + ' de ' + HAB.length + '. Las que faltan tienen su rayita gris arriba.', carta: true };
-    if (!mazoContestado()) return { paso: 2, t: 'Falta decir qué días repasabas tu mazo', d: 'Toca los días, o el botón de «casi nunca repasaba».', foco: '#semana' };
+    if (!mazoContestado()) return { paso: 2, t: 'Falta decir qué días abrías Anki', d: 'Toca los días, o el botón de «casi nunca lo abría».', foco: '#semana' };
     if (txt('lee.agosto') === '' || txt('lee.hoy') === '') return { paso: 3, t: 'Falta tu gusto por leer', d: 'Son dos caritas: la de agosto y la de hoy.', foco: '#carasAgosto' };
     if (!txt('num')) return { paso: 6, t: 'Todavía no eliges tu número', d: 'Es lo único que no se puede quedar en blanco: tu propuesta de calificación.', foco: '#numeros' };
     if (txt('porque').length < 40) return { paso: 6, t: 'Falta tu porqué', d: 'Un número solo no se puede conversar. Toca dos o tres piezas y la frase se arma sola.', foco: '#porque' };
@@ -1069,7 +1039,7 @@
       if (ya) return; ya = true; btn.disabled = false;
       if (bien) {
         poner('enviado', hoy); btn.textContent = 'Volver a mandarla'; lluvia();
-        avisa('ok', DEMO ? 'Así se ve cuando sale' : '¡Τέλος! Se la mandaste', DEMO ? 'Esto es una prueba: no se mandó nada.' : 'Le llegó a tu profe y nadie más la ve. Toma captura de tu corona y llévala con tu expediente a la conversación de diciembre.');
+        avisa('ok', DEMO ? 'Así se ve cuando sale' : 'Se la mandaste', DEMO ? 'Esto es una prueba: no se mandó nada.' : 'Le llegó a tu profe y nadie más la ve. Toma captura de tu corona y llévala con tu expediente a la conversación de diciembre.');
         $('#pista-envio').textContent = 'La mandaste el ' + hoy + '. Si le mueves a algo, vuelve a mandarla: cuenta la más reciente.';
       } else {
         btn.textContent = 'Mandársela al profe';
